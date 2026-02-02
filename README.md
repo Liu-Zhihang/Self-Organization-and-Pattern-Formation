@@ -151,6 +151,10 @@ Here are some code output demonstrations:
   Your browser does not support the video tag.
 </video>
 
+https://github.com/user-attachments/assets/59f70f8f-bb08-4799-a62c-b0b50d2d5564
+
+
+
 *Model A (Allen-Cahn) dynamics: Spinodal decomposition, domain formation, and coarsening*
 
 **[Lecture 10: Interface Dynamics & Curvature-Driven Flow](docs/en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow.md)**
