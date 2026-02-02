@@ -159,6 +159,10 @@
   您的浏览器不支持视频标签。
 </video>
 
+
+https://github.com/user-attachments/assets/aa0f462b-0ced-4e85-bacb-4f4c9d94f8ce
+
+
 *圆形液滴在 Allen-Cahn 动力学下的曲率驱动收缩*
 
 **[第11讲：液态混合物中的热力学与相分离](docs/cn/11.液态混合物中的热力学与相分离.md)**
@@ -174,6 +178,7 @@
   您的浏览器不支持视频标签。
 </video>
 
+https://github.com/user-attachments/assets/f541a993-4984-4798-bd20-5febcd4d97f6
 *对比：Cahn-Hilliard (Model B) 与质量守恒反应-扩散动力学*
 
 **[第13讲：晶格气体模型与自由能](docs/cn/13.晶格气体模型与自由能.md)**
