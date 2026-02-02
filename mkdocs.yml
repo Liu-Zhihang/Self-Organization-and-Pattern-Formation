@@ -1,0 +1,109 @@
+site_name: Self-Organization and Pattern Formation
+site_url: https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/
+repo_url: https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation
+site_description: Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)
+site_author: Zhihang Liu
+
+docs_dir: docs
+use_directory_urls: true
+
+plugins:
+  - search:
+      lang:
+        - en
+        - zh
+
+extra:
+  alternate:
+    - name: English
+      link: /Self-Organization-and-Pattern-Formation/
+      lang: en
+    - name: 简体中文 
+      link: /Self-Organization-and-Pattern-Formation/zh/
+      lang: zh
+
+theme:
+  name: material
+  language: en
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Course Notes:
+    - "1. Self-Organization - From Bird Flocks to Living Cells": "en/1. Self-Organization - From Bird Flocks to Living Cells.md"
+    - "2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory": "en/2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory.md"
+    - "3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations": "en/3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations.md"
+    - "4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation": "en/4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation.md"
+    - "5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix": "en/5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix.md"
+    - "6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators": "en/6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators.md"
+    - "7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors": "en/7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors.md"
+    - "8. Dynamical Systems - Replicator Dynamics and Spatial Extension": "en/8. Dynamical Systems - Replicator Dynamics and Spatial Extension - Lyapunov Functions, Boson Condensation and the Diffusion Equation.md"
+    - "9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation": "en/9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation.md"
+    - "10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow": "en/10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow.md"
+    - "11. Thermodynamics and Phase Separation in Liquid Mixtures": "en/11. Thermodynamics and Phase Separation in Liquid Mixtures.md"
+    - "12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation": "en/12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation.md"
+    - "13. Lattice Gas Model and Free Energy": "en/13. Lattice Gas Model and Free Energy.md"
+    - "14. Phase Separation Dynamics": "en/14. Phase Separation Dynamics.md"
+    - "15. Nucleation Theory and Interface Dynamics": "en/15. Nucleation Theory and Interface Dynamics.md"
+  - 中文笔记:
+    - 首页: "zh/index.md"
+    - "1. 自组织：从鸟群到活细胞": "cn/1.自组织：从鸟群到活细胞.md"
+    - "2. 动力系统：从物理相变到演化博弈": "cn/2. 动力系统：从物理相变到演化博弈.md"
+    - "3. 动力系统：不动点、鞍点和叉形分岔": "cn/3.动力系统：不动点、鞍点和叉形分岔 .md"
+    - "4. 动力系统：尖点分岔、感染模型与跨临界分岔": "cn/4.动力系统：尖点分岔、感染模型与跨临界分岔.md"
+    - "5. 动力系统：二维质量守恒系统与雅可比矩阵": "cn/5.动力系统：二维质量守恒系统与雅可比矩阵.md"
+    - "6. 动力系统：二维非保守系统与振荡器": "cn/6.动力系统：二维非保守系统与振荡器.md"
+    - "7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布": "cn/7.动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布.md"
+    - "8. 动力系统：复制子动力学与空间扩展": "cn/8. 动力系统：复制子动力学与空间扩展——李雅普诺夫函数、玻色子凝聚与扩散方程.md"
+    - "9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程": "cn/9.弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程.md"
+    - "10. 弛豫动力学：界面动力学与曲率驱动流": "cn/10.弛豫动力学：界面动力学与曲率驱动流.md"
+    - "11. 液态混合物中的热力学与相分离": "cn/11.液态混合物中的热力学与相分离.md"
+    - "12. 液态混合物动力学、渗透压与Cahn-Hilliard方程": "cn/12.液态混合物动力学、渗透压与Cahn-Hilliard方程.md"
+    - "13. 晶格气体模型与自由能": "cn/13.晶格气体模型与自由能.md"
+    - "14. 相分离动力学": "cn/14.相分离动力学.md"
+    - "15. 成核理论与界面动力学": "cn/15.成核理论与界面动力学.md"
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/language-nav.js
+  - assets/javascripts/video-init.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+
+extra_css:
+  - assets/stylesheets/video.css
