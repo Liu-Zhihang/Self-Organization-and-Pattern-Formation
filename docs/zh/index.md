@@ -4,11 +4,9 @@
 
 ![课程概览](../cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png)
 
-[课程链接](https://www.theorie.physik.uni-muenchen.de/lsfrey/research/biological_physics/2025_10_04/index.html)
+**课程播放列表:** [YouTube Playlist](https://www.youtube.com/watch?v=apMmakW_090&list=PL2IEUF-u3gRfIw2cHFPqNHjNfQL5BxG5m) | [哔哩哔哩](https://space.bilibili.com/44895705/lists/6603547?type=season)
 
-[YouTube 视频链接](https://www.youtube.com/watch?v=apMmakW_090&list=PL2IEUF-u3gRfIw2cHFPqNHjNfQL5BxG5m)
-
-[哔哩哔哩视频链接](https://space.bilibili.com/44895705/lists/6603547?type=season)
+**官方课程链接:** [LMU Munich - Self-Organization and Pattern Formation](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html)
 
 
 ## 课程概述

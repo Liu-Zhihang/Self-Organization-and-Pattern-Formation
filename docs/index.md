@@ -4,9 +4,9 @@ These are self-study notes for the course [**Self-Organization and Pattern Forma
 
 ![Course Overview](cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png)
 
-[Course link](https://www.theorie.physik.uni-muenchen.de/lsfrey/research/biological_physics/2025_10_04/index.html)
+**Course Playlist:** [YouTube Playlist](https://www.youtube.com/watch?v=apMmakW_090&list=PL2IEUF-u3gRfIw2cHFPqNHjNfQL5BxG5m)
 
-[Video link](https://www.youtube.com/watch?v=apMmakW_090&list=PL2IEUF-u3gRfIw2cHFPqNHjNfQL5BxG5m)
+**Official Course Link:** [LMU Munich - Self-Organization and Pattern Formation](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html)
 
 
 ## Course Overview

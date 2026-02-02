@@ -13,7 +13,7 @@ plugins:
         - en
         - zh
   - i18n:
-      docs_structure: suffix
+      docs_structure: folder
       fallback_to_default: true
       languages:
         - locale: en
@@ -24,7 +24,7 @@ plugins:
           name: 简体中文
           build: true
           nav:
-            - 首页: index.md
+            - 首页: zh/index.md
             - 课程笔记:
               - "1. 自组织：从鸟群到活细胞": "cn/1.自组织：从鸟群到活细胞.md"
               - "2. 动力系统：从物理相变到演化博弈": "cn/2. 动力系统：从物理相变到演化博弈.md"
