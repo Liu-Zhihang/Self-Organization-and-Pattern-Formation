@@ -150,6 +150,10 @@
   您的浏览器不支持视频标签。
 </video>
 
+https://github.com/user-attachments/assets/59f70f8f-bb08-4799-a62c-b0b50d2d5564
+
+
+
 *Model A (Allen-Cahn) 动力学：Spinodal 分解、畴形成与粗化*
 
 **[第10讲：界面动力学与曲率驱动流](docs/cn/10.弛豫动力学：界面动力学与曲率驱动流.md)**
