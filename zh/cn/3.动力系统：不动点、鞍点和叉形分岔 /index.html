@@ -1,0 +1,1443 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/">
+      
+      
+        <link rel="prev" href="../2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/">
+      
+      
+        <link rel="next" href="../4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/">
+      
+      
+        
+          <link rel="alternate" href="../../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>3. 动力系统：不动点、鞍点和叉形分岔 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. 动力系统：不动点、鞍点和叉形分岔
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>上一讲探讨了动力系统如何为描述系统随时间演化提供一个普适框架。通过金茨堡-朗道理论 (Ginzburg-Landau theory) 的示例可以认识到，系统状态的演化能够被直观地理解为在一个“势能景观” (potential landscape) <span class="arithmatex">\(V(u)\)</span> 中，沿着“最速下降”方向寻找能量最低点的过程。这种<span class="arithmatex">\(\frac{du}{dt} = -\frac{\partial V}{\partial u}\)</span>的过阻尼运动视角，对于理解相变 (phase transition) 这类集体现象至关重要，系统最终的归宿（即势能的极小值点）代表了系统的平衡态。</p>
+<p>这节课将深入动力系统的核心，聚焦于构成系统行为骨架的基本要素：<strong>不动点 (fixed points)</strong> <span class="arithmatex">\(u^*\)</span>。不动点在数学上定义为演化函数 <span class="arithmatex">\(f(u, \mu)\)</span> 的零点，即 <span class="arithmatex">\(f(u^*) = 0\)</span>，此时系统的时间导数 <span class="arithmatex">\(\frac{du}{dt} = 0\)</span>，系统状态不再随时间变化。这些点正是系统的平衡态 (equilibrium states) 或稳态 (steady states)。然而，并非所有平衡态都是等价的：有些像山谷（吸引子, attractor），扰动后仍能回复；有些则像山顶（排斥子, repeller），任何微小扰动都会使其远离。因此，分析不动点的<strong>稳定性 (stability)</strong> 是理解系统长期行为的关键。</p>
+<p>当外部环境条件，即<strong>控制参数 (control parameter)</strong> <span class="arithmatex">\(\mu\)</span> 发生缓慢变化时，系统的“势能景观”也会随之变形。在某个临界值，景观的形态可能发生质变，导致不动点的数量或其稳定性发生根本性的改变。这些临界事件被称为<strong>分岔 (bifurcations)</strong> 。分岔是理解现实世界中许多临界点、“引爆点” (tipping points) 和突变现象的数学精髓。本讲将从最简单的一维系统入手，重点分析两种最基本的分岔类型：<strong>鞍结分岔 (Saddle-Node Bifurcation)</strong> 和<strong>叉式分岔 (Pitchfork Bifurcation)</strong> 。在此基础上，下一讲将继续探讨由更高阶项和多参数控制的更复杂分岔，如<strong>尖点分岔 (Cusp Bifurcation)</strong>、<strong>滞后效应 (Hysteresis)</strong> 以及<strong>跨临界分岔 (Transcritical Bifurcation)</strong> 。</p>
+<h1 id="1">1. 一维动力系统与不动点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<p>这节课将从最简单的一类动力系统——单分量系统 (one-component systems)——开始。这类系统是后续理解更复杂现象的基础。本节的目标是建立描述系统演化的数学语言，并找出系统所有可能的“归宿”，即不动点。</p>
+<h2 id="11">1.1 一维动力系统的数学描述<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>单分量系统意味着系统的宏观状态可以用一个随时间 <span class="arithmatex">\(t\)</span> 变化的标量（单一变量）<span class="arithmatex">\(u(t)\)</span> 来完全描述。其数学形式是一个一阶常微分方程 (ODE)：</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, \mu)
+\]</div>
+<p>这个方程是动力系统理论的基石，其中每个符号都有明确的物理意义：</p>
+<p><strong><span class="arithmatex">\(u(t)\)</span></strong>: <strong>状态变量 (state variable)</strong> 。它描述系统的宏观状态。例如，它可以代表金茨堡-朗道理论中的序参量（如总磁化强度）、化学反应中某种物质的浓度，或生态系统中某个物种的种群密度。</p>
+<p><strong><span class="arithmatex">\(\mu\)</span></strong>: <strong>控制参数 (control parameter)</strong> 。这是一个外部可调的参数，代表系统所处的环境条件，例如温度、压力、外加磁场或营养供给速率。通过改变 <span class="arithmatex">\(\mu\)</span>，可以研究系统的响应。</p>
+<p><strong><span class="arithmatex">\(f(u, \mu)\)</span></strong>: <strong>演化函数 (evolution function)</strong> ，在一维情况下也常被称为“流” (flow)。它定义了状态变量 <span class="arithmatex">\(u\)</span> 随时间变化的“速度”或“倾向”。</p>
+<p><strong>物理意义</strong>：函数的符号决定了系统状态的演化方向。如果 <span class="arithmatex">\(f &gt; 0\)</span>，则 <span class="arithmatex">\(\frac{du}{dt} &gt; 0\)</span>， <span class="arithmatex">\(u\)</span> 将随时间增加；如果 <span class="arithmatex">\(f &lt; 0\)</span>，则 <span class="arithmatex">\(\frac{du}{dt} &lt; 0\)</span>， <span class="arithmatex">\(u\)</span> 将随时间减少。</p>
+<p><strong>与势能景观的联系</strong>：在许多物理系统（如上一讲的金茨堡-朗道理论）中，演化函数 <span class="arithmatex">\(f(u)\)</span> 与一个势能景观 <span class="arithmatex">\(V(u)\)</span> 相关联，其关系为 <span class="arithmatex">\(f(u) = -\frac{\partial V}{\partial u}\)</span>。在这种情况下，<span class="arithmatex">\(\frac{du}{dt} = -\frac{\partial V}{\partial u}\)</span> 描述了系统状态 <span class="arithmatex">\(u\)</span> 总是朝着势能 <span class="arithmatex">\(V(u)\)</span> 降低的方向（“下坡”）演化，直到达到势能的极小值点。</p>
+<h2 id="12">1.2 不动点：系统状态的“归宿”<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>一个系统最简单的长期行为，就是演化到一个平衡状态，并永久地停留在那里。这些特殊的平衡状态在数学上被称为<strong>不动点 (Fixed Points)</strong> ，通常用 <span class="arithmatex">\(u^*\)</span> 表示。</p>
+<p>根据定义，在不动点处，系统状态不再随时间变化，即其时间导数为零。因此，不动点 <span class="arithmatex">\(u^*\)</span> 满足以下代数方程：</p>
+<div class="arithmatex">\[
+f(u^*) = 0
+\]</div>
+<p><strong>物理意义</strong>：不动点代表了系统的<strong>平衡态 (equilibrium states)</strong> 或 <strong>稳态 (steady states)</strong> 。一旦系统达到不动点 <span class="arithmatex">\(u^*\)</span>，作用在 <span class="arithmatex">\(u\)</span> 上的“力” <span class="arithmatex">\(f(u^*)\)</span> 为零，如果没有外界扰动，它将永远保持在该状态。</p>
+<p><strong>图形化理解</strong>：从图形上看，不动点 <span class="arithmatex">\(u^*\)</span> 是演化函数 <span class="arithmatex">\(f(u)\)</span> 的曲线与 <span class="arithmatex">\(u\)</span> 轴（即 <span class="arithmatex">\(f=0\)</span> 这条线）的<strong>交点</strong>。</p>
+<p>通过绘制 <span class="arithmatex">\(f(u)\)</span> 随 <span class="arithmatex">\(u\)</span> 变化的图像，可以直接读出不动点的位置，甚至直观地判断它们的稳定性。演化函数 <span class="arithmatex">\(f(u)\)</span> 的正负号决定了状态变量 <span class="arithmatex">\(u\)</span> 的“流向”：在 <span class="arithmatex">\(f&gt;0\)</span> 的区域，流向 <span class="arithmatex">\(u\)</span> 增大的方向（<span class="arithmatex">\(\rightarrow\)</span>）；在 <span class="arithmatex">\(f&lt;0\)</span> 的区域，流向 <span class="arithmatex">\(u\)</span> 减小的方向（<span class="arithmatex">\(\leftarrow\)</span>）。</p>
+<p>如果一个不动点两侧的流都指向它（<span class="arithmatex">\(\rightarrow u^* \leftarrow\)</span>），意味着 <span class="arithmatex">\(u^*\)</span> 附近的任何状态最终都会汇聚到 <span class="arithmatex">\(u^*\)</span>，这是一个<strong>稳定不动点</strong>（用<strong>实心点</strong> <span class="arithmatex">\(\bullet\)</span> 表示）。</p>
+<p>如果一个不动点两侧的流都背离它（<span class="arithmatex">\(\leftarrow u^* \rightarrow\)</span>），意味着 <span class="arithmatex">\(u^*\)</span> 附近的任何状态都会远离 <span class="arithmatex">\(u^*\)</span>，这是一个<strong>不稳定不动点</strong>（用<strong>空心点</strong> <span class="arithmatex">\(\circ\)</span> 表示）。</p>
+<p>这种图形分析法非常直观，但它缺乏数学上的严谨性。为了精确定量地判断不动点的稳定性，需要引入下一节的工具。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_001_68a7c378-4e2c-44f8-bb07-fd77ee10aae6.png" /></p>
+<h1 id="2-linear-stability-analysis">2. 线性稳定性分析 (Linear Stability Analysis)<a class="headerlink" href="#2-linear-stability-analysis" title="Permanent link">&para;</a></h1>
+<p>上一节找到了系统所有的平衡态（不动点），但这还不够。一个系统可能存在多个不动点，但它们在动力学上的“命运”截然不同。有些不动点像山谷的谷底，是稳定的（吸引子, attractor）；而另一些则像山峰的峰顶，是不稳定的（排斥子, repeller）。任何微小的现实扰动都会将系统从不稳定的峰顶推开，使其最终落入某个稳定的山谷。</p>
+<p>因此，必须分析这些不动点在受到微小扰动时的行为。<strong>线性稳定性分析 (Linear Stability Analysis, LSA)</strong> 就是实现这一目标的标准数学工具。</p>
+<h2 id="21">2.1 扰动的演化方程<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>LSA 的核心思想是，在不动点 <span class="arithmatex">\(u^*\)</span> 附近施加一个无穷小的扰动 <span class="arithmatex">\(\delta u(t)\)</span>，然后考察这个<strong>扰动本身</strong>是随时间增长还是衰减。</p>
+<p>1.<strong>定义扰动</strong>：假设系统的瞬时状态 <span class="arithmatex">\(u(t)\)</span> 偏离了不动点 <span class="arithmatex">\(u^*\)</span> 一个微小的量 <span class="arithmatex">\(\delta u(t)\)</span>：</p>
+<div class="highlight"><pre><span></span><code>$$
+u(t) = u^* + \delta u(t)
+$$
+</code></pre></div>
+<p>2.<strong>建立扰动的动力学方程</strong>：考察这个小扰动 <span class="arithmatex">\(\delta u\)</span> 自身如何随时间演化。对 <span class="arithmatex">\(\delta u(t)\)</span> 求时间导数（注意 <span class="arithmatex">\(u^*\)</span> 是常数，其导数为零）：</p>
+<p>$$
+  \frac{d(\delta u)}{dt} = \frac{d(u - u^*)}{dt} = \frac{du}{dt}
+  $$</p>
+<p>根据系统原始的动力学方程 <span class="arithmatex">\(\frac{du}{dt} = f(u)\)</span>，并将 <span class="arithmatex">\(u = u^* + \delta u\)</span> 代入，得到：</p>
+<p>$$
+  \frac{d(\delta u)}{dt} = f(u^* + \delta u)
+  $$</p>
+<p>3.<strong>泰勒展开与线性化</strong>：由于 <span class="arithmatex">\(\delta u\)</span> 非常小，可以将复杂的非线性函数 <span class="arithmatex">\(f\)</span> 在不动点 <span class="arithmatex">\(u^*\)</span> 附近进行泰勒展开：</p>
+<p>$$
+  \frac{d(\delta u)}{dt} = f(u^<em>) + f'(u^</em>) \delta u + \frac{1}{2}f''(u^*)(\delta u)^2 + \dots
+  $$</p>
+<p>其中 <span class="arithmatex">\(f'(u^*) = \left. \frac{\partial f}{\partial u} \right|_{u=u^*}\)</span> 是函数 <span class="arithmatex">\(f\)</span> 在不动点 <span class="arithmatex">\(u^*\)</span> 处的一阶导数（即斜率）。</p>
+<p>4.<strong>简化方程</strong>：
+ 根据不动点的定义，我们有 <span class="arithmatex">\(f(u^*) = 0\)</span>。</p>
+<p>因为 <span class="arithmatex">\(\delta u\)</span> 是无穷小量，<span class="arithmatex">\((\delta u)^2\)</span> 及其更高次的项是更高阶的无穷小，可以忽略不计。</p>
+<p>这个忽略高阶项的过程称为<strong>线性化 (linearization)</strong> 。它将一个复杂的非线性动力学问题，在不动点附近简化为了一个极其简单的<strong>线性常微分方程</strong>：</p>
+<div class="arithmatex">\[
+\frac{d(\delta u)}{dt} \approx f'(u^*) \delta u
+\]</div>
+<h2 id="22">2.2 稳定性判据<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<p>上述线性化方程 <span class="arithmatex">\(\frac{d(\delta u)}{dt} = \lambda \delta u\)</span>（其中 <span class="arithmatex">\(\lambda = f'(u^*)\)</span> 是一个常数）的解是指数函数：</p>
+<div class="arithmatex">\[
+\delta u(t) = \delta u(0) e^{\lambda t} = \delta u(0) e^{f'(u^*)t}
+\]</div>
+<p>其中 <span class="arithmatex">\(\delta u(0)\)</span> 是初始扰动。这个解的长期行为（<span class="arithmatex">\(t \to \infty\)</span>）完全由指数项的符号，即 <span class="arithmatex">\(\lambda = f'(u^*)\)</span> 的符号决定。这引出了稳定性的核心判据：</p>
+<p><strong>如果 <span class="arithmatex">\(f'(u^*) &lt; 0\)</span> (即 <span class="arithmatex">\(\lambda &lt; 0\)</span>)</strong> ：</p>
+<p>指数为负，扰动 <span class="arithmatex">\(\delta u(t)\)</span> 将随时间<strong>指数衰减</strong>趋于零。这意味着系统会自动回到不动点 <span class="arithmatex">\(u^*\)</span>。因此，<span class="arithmatex">\(u^*\)</span> 是一个<strong>稳定不动点 (stable fixed point)</strong> 或<strong>吸引子 (attractor)</strong> 。</p>
+<p><strong>如果 <span class="arithmatex">\(f'(u^*) &gt; 0\)</span> (即 <span class="arithmatex">\(\lambda &gt; 0\)</span>)</strong> ：</p>
+<p>指数为正，扰动 <span class="arithmatex">\(\delta u(t)\)</span> 将随时间<strong>指数增长</strong>，导致系统远离不动点 <span class="arithmatex">\(u^*\)</span>。因此，<span class="arithmatex">\(u^*\)</span> 是一个<strong>不稳定不动点 (unstable fixed point)</strong> 或<strong>排斥子 (repeller)</strong> 。</p>
+<p><strong>如果 <span class="arithmatex">\(f'(u^*) = 0\)</span> (即 <span class="arithmatex">\(\lambda = 0\)</span>)</strong> ：</p>
+<p>线性稳定性分析<strong>失效</strong>。扰动的演化将由被忽略的更高阶非线性项（如 <span class="arithmatex">\((\delta u)^2\)</span>）决定。这种情况非常特殊，它恰恰是系统可能发生质变的临界点，即<strong>分岔点 (bifurcation point)</strong> ，这正是后续课程要讨论的核心。</p>
+<p>这个强大的分析方法，将一个复杂非线性函数 <span class="arithmatex">\(f(u)\)</span> 在不动点附近的全部动力学行为，浓缩到了一个单一的数字——它在该点的<strong>导数 (斜率)</strong> <span class="arithmatex">\(f'(u^*)\)</span> 上。这也完美印证了 1.2 节中的图形化分析：</p>
+<p>在稳定不动点（<span class="arithmatex">\(\bullet\)</span>）处，<span class="arithmatex">\(f(u)\)</span> 曲线正在“下穿” <span class="arithmatex">\(u\)</span> 轴，其<strong>斜率 <span class="arithmatex">\(f'(u^*)\)</span> 必然为负</strong>。</p>
+<p>在不稳定不动点（<span class="arithmatex">\(\circ\)</span>）处，<span class="arithmatex">\(f(u)\)</span> 曲线正在“上穿” <span class="arithmatex">\(u\)</span> 轴，其<strong>斜率 <span class="arithmatex">\(f'(u^*)\)</span> 必然为正</strong>。</p>
+<p>至此，我们便同时拥有了直观的图形工具和严谨的数学工具来分析任何一维系统的平衡态及其稳定性。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_002_b608481f-4ddf-4de8-8c23-ec21ad6d37b2.png" /></p>
+<h1 id="3">3. 鞍结分岔：不动点的诞生与湮灭<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>在第 2 节中，我们学习了如何使用线性稳定性分析 <span class="arithmatex">\(f'(u^*)\)</span> 的符号来判断不动点的稳定性。但一个关键问题是：当 <span class="arithmatex">\(f'(u^*) = 0\)</span> 时会发生什么？此时线性稳定性分析失效，系统处于临界状态，任何微小的参数变化都可能导致系统动力学行为的<strong>质变</strong>。</p>
+<p>这正是<strong>分岔 (Bifurcation)</strong> 发生的临界点。这节课将从最简单、最普遍的鞍结分岔开始，深入探讨这种“质变”是如何发生的。</p>
+<h2 id="31">3.1 什么是分岔？<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p><strong>分岔 (Bifurcation)</strong> ，其词源有“分叉”之意（如树枝或河流分叉），是动力系统理论中的一个核心概念。它描述的是一类特定的<strong>临界现象</strong>：当一个<strong>控制参数</strong> <span class="arithmatex">\(\mu\)</span> 缓慢变化并穿过某个临界值 <span class="arithmatex">\(\mu_c\)</span> 时，系统的<strong>动力学结构</strong>发生<strong>质变</strong>的现象。</p>
+<p>这里的“质变” (qualitative change) 是关键。它不是指不动点位置随参数发生的平滑移动（这是一种“量变”），而是指不动点的<strong>数量</strong>发生了改变（例如从0个变为2个），或者不动点的<strong>稳定性</strong>发生了根本逆转（例如一个稳定不动点突然变为不稳定）。发生这种质变的参数临界值 <span class="arithmatex">\(\mu_c\)</span> 被称为<strong>分岔点 (bifurcation point)</strong> 。</p>
+<p>从<strong>数学</strong>角度看，分岔的“魔力”发生在<strong>线性稳定性分析 (LSA) 失效</strong>的精确时刻。回顾第 2 节，LSA 依赖于泰勒展开的线性项 <span class="arithmatex">\(f'(u^*) \delta u\)</span>。在分岔点 <span class="arithmatex">\(\mu_c\)</span> 上，系统至少有一个不动点 <span class="arithmatex">\(u^*\)</span> 恰好满足：</p>
+<div class="arithmatex">\[
+\lambda = f'(u^*) = \left. \frac{\partial f}{\partial u} \right|_{u=u^*} = 0
+\]</div>
+<p>此时，<span class="arithmatex">\(\delta u\)</span> 演化方程 <span class="arithmatex">\(\frac{d(\delta u)}{dt} = \lambda \delta u\)</span> 中的线性“恢复力” <span class="arithmatex">\(\lambda\)</span> 变为零。这意味着，之前被忽略的<strong>高阶非线性项</strong>（如 <span class="arithmatex">\((\delta u)^2, (\delta u)^3\)</span> 等）不再可以被忽略，它们“接管”了系统的动力学，并成为决定系统命运（是演化到新状态还是保持原样）的主导因素。分岔理论的本质，就是研究这些非线性项如何决定系统在临界点附近的行为。</p>
+<p>从<strong>物理</strong>世界到生物系统，分岔现象无处不在，它是系统发生“突变”的普遍机制：</p>
+<p>1.<strong>力学中的屈曲 (Buckling)</strong> ：想象一根垂直放置的弹性直尺，其控制参数 <span class="arithmatex">\(\mu\)</span> 是从上方向下施加的压力。</p>
+<p>当 <span class="arithmatex">\(\mu &lt; \mu_c\)</span>（压力较小）时，系统只有一个稳定不动点 <span class="arithmatex">\(u=0\)</span>（直尺保持竖直）。</p>
+<p>当 <span class="arithmatex">\(\mu &gt; \mu_c\)</span>（压力超过临界值）时，竖直状态 <span class="arithmatex">\(u=0\)</span> 变为<strong>不稳定</strong>（像山峰），同时“分岔”出两个新的<strong>稳定</strong>不动点 <span class="arithmatex">\(u^* \neq 0\)</span>（直尺向左或向右弯曲）。这就是一个典型的分岔。</p>
+<p>2.<strong>流体力学中的对流 (Convection)</strong> ：考虑一个从底部加热的薄层液体，控制参数 <span class="arithmatex">\(\mu\)</span> 是液体顶层和底层的温差。</p>
+<p>当 <span class="arithmatex">\(\mu &lt; \mu_c\)</span>（温差较小）时，热量通过热传导（静止）传递，系统处于 <span class="arithmatex">\(u=0\)</span>（无宏观流动）的稳定状态。</p>
+<p>当 <span class="arithmatex">\(\mu &gt; \mu_c\)</span>（温差足够大）时，这个静止状态变得不稳定，系统“分岔”出一个新的稳定状态：液体开始形成宏观的对流“滚筒”（<span class="arithmatex">\(u \neq 0\)</span>），即瑞利-贝纳德对流 (Rayleigh-Bénard convection)。</p>
+<p>3.<strong>生物学中的种群爆发</strong> ：在某些生态模型中，控制参数 <span class="arithmatex">\(\mu\)</span> 可能是营养物质的富集程度。当 <span class="arithmatex">\(\mu\)</span> 超过某个临界值 <span class="arithmatex">\(\mu_c\)</span> 时，一个原本稳定的低密度种群平衡点可能消失，导致系统状态跃迁到一个高密度的“种群爆发”状态。</p>
+<p>这节课后续要讨论的鞍结分岔 (Saddle-Node) 和叉式分岔 (Pitchfork)，正是对这些纷繁复杂的突变现象背后最基本、最普适的数学原型的分类与研究。</p>
+<h2 id="32">3.2 鞍结分岔的常态形式<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>最简单、最常见的分岔类型是<strong>鞍结分岔 (Saddle-Node Bifurcation)</strong> 。它之所以重要，是因为它代表了不动点“诞生”和“湮灭”的最基本方式。</p>
+<h3 id="_2">常态方程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>它的<strong>常态形式 (normal form)</strong> ，即能够捕获此分岔现象的最简数学表达，为一个简单的二次方程：</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, \mu) = -\mu + u^2
+\]</div>
+<p>这里，为了分析方便，已将分岔点平移到 <span class="arithmatex">\(\mu_c = 0\)</span> 和 <span class="arithmatex">\(u^* = 0\)</span> 处。这个看似简单的方程具有极强的<strong>普适性 (universality)</strong> 。无论一个具体物理系统（如流体、化学反应、生态模型）的演化函数 <span class="arithmatex">\(f(u, \mu)\)</span> 多么复杂，只要它在分岔点附近可以通过泰勒展开，其主导动力学行为的项都可以被简化为此常态形式。</p>
+<h3 id="_3">动力学分析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>现在来详细分析这个方程的动力学行为如何依赖于参数 <span class="arithmatex">\(\mu\)</span>：</p>
+<ol>
+<li>
+<p><strong>寻找不动点</strong>：不动点 <span class="arithmatex">\(u^*\)</span> 满足 <span class="arithmatex">\(f(u^*) = 0\)</span>，即 <span class="arithmatex">\(-\mu + (u^*)^2 = 0\)</span>，解得：
+    $$
+    u^* = \pm\sqrt{\mu}
+    $$</p>
+</li>
+<li>
+<p><strong>分析不动点的存在性 (随 <span class="arithmatex">\(\mu\)</span> 的演化)</strong> ：</p>
+</li>
+</ol>
+<p><strong>当 <span class="arithmatex">\(\mu &lt; 0\)</span> 时</strong>：<span class="arithmatex">\(\sqrt{\mu}\)</span> 为虚数，方程<strong>没有实数解</strong>。此时， <span class="arithmatex">\(f(u) = -\mu + u^2\)</span> 始终大于零（抛物线在 <span class="arithmatex">\(u\)</span> 轴上方）。因此 <span class="arithmatex">\(\frac{du}{dt} &gt; 0\)</span>，系统中的状态 <span class="arithmatex">\(u\)</span> 会一直向 <span class="arithmatex">\(+\infty\)</span> 演化，系统<strong>没有不动点</strong>（没有平衡态）。</p>
+<p><strong>当 <span class="arithmatex">\(\mu = 0\)</span> 时</strong>：<span class="arithmatex">\(\frac{du}{dt} = u^2\)</span>。此时 <span class="arithmatex">\(u^* = 0\)</span> 是<strong>唯一的不动点</strong>。这个点是鞍结分岔发生的<strong>临界点</strong> <span class="arithmatex">\(\mu_c\)</span>。</p>
+<p><strong>当 <span class="arithmatex">\(\mu &gt; 0\)</span> 时</strong>：<span class="arithmatex">\(\sqrt{\mu}\)</span> 为实数，系统<strong>“凭空”诞生了两个不动点</strong>：</p>
+<div class="arithmatex">\[u_1^* = -\sqrt{\mu}\]</div>
+<div class="arithmatex">\[u_2^* = +\sqrt{\mu}\]</div>
+<p>3.<strong>稳定性分析</strong>：使用第 2 节的线性稳定性分析 (LSA)。首先计算 <span class="arithmatex">\(f(u)\)</span> 的导数：</p>
+<div class="arithmatex">\[
+f'(u) = \frac{d}{du}(-\mu + u^2) = 2u
+\]</div>
+<p><strong>对于 <span class="arithmatex">\(\mu &gt; 0\)</span> 的情况</strong> ：</p>
+<p>在 <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span> 处：<span class="arithmatex">\(f'(u_1^*) = 2(-\sqrt{\mu}) = -2\sqrt{\mu} &lt; 0\)</span>。因此 <span class="arithmatex">\(u_1^*\)</span> 是一个<strong>稳定不动点</strong>（吸引子）。</p>
+<p>在 <span class="arithmatex">\(u_2^* = +\sqrt{\mu}\)</span> 处：<span class="arithmatex">\(f'(u_2^*) = 2(+\sqrt{\mu}) = 2\sqrt{\mu} &gt; 0\)</span>。因此 <span class="arithmatex">\(u_2^*\)</span> 是一个<strong>不稳定不动点</strong>（排斥子）。</p>
+<p><strong>对于 <span class="arithmatex">\(\mu = 0\)</span> 的情况</strong>：</p>
+<p>在 <span class="arithmatex">\(u^* = 0\)</span> 处：<span class="arithmatex">\(f'(u^*) = 2(0) = 0\)</span>。LSA <strong>失效</strong>，证实了这正是一个分岔点。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_003_038a6a5d-1352-403a-ab55-214f975460b3.png" /></p>
+<p><strong>左图 (<span class="arithmatex">\(\mu &lt; 0\)</span>)</strong> ：抛物线 <span class="arithmatex">\(f(u) = -\mu + u^2\)</span> 完全位于 <span class="arithmatex">\(u\)</span> 轴上方，<span class="arithmatex">\(f(u)\)</span> 恒为正。流 (flow) 始终指向右侧 (<span class="arithmatex">\(\rightarrow\)</span>)，系统没有不动点。</p>
+<p><strong>右图 (<span class="arithmatex">\(\mu = 0\)</span>)</strong> ：在分岔点 <span class="arithmatex">\(\mu_c = 0\)</span>，抛物线 <span class="arithmatex">\(f(u) = u^2\)</span> 恰好与 <span class="arithmatex">\(u\)</span> 轴相切于 <span class="arithmatex">\(u=0\)</span>。此时 <span class="arithmatex">\(f(u) \ge 0\)</span>，流在 <span class="arithmatex">\(u=0\)</span> 两侧都指向右侧 (<span class="arithmatex">\(\rightarrow\)</span>)。<span class="arithmatex">\(u=0\)</span> 是一个“半稳定”不动点（从左侧汇聚，从右侧远离）。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_004_3f8e2250-dcf4-4620-b614-ad23642867fa.png" /></p>
+<p><strong>此图 (<span class="arithmatex">\(\mu &gt; 0\)</span>)</strong> ：抛物线 <span class="arithmatex">\(f(u) = -\mu + u^2\)</span> 与 <span class="arithmatex">\(u\)</span> 轴交于两点。</p>
+<p>在 <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span> 处，流向为 <span class="arithmatex">\(\rightarrow \bullet \leftarrow\)</span>，这是一个<strong>稳定不动点</strong>（实心点）。</p>
+<p>在 <span class="arithmatex">\(u_2^* = +\sqrt{\mu}\)</span> 处，流向为 <span class="arithmatex">\(\leftarrow \circ \rightarrow\)</span>，这是一个<strong>不稳定不动点</strong>（空心点）。</p>
+<p>总结一下，当参数 <span class="arithmatex">\(\mu\)</span> 从负值“穿过”0 时，一个稳定不动点和一个不稳定不动点在 <span class="arithmatex">\(u=0\)</span> 处碰撞并<strong>同时诞生</strong>（或者反过来看，当 <span class="arithmatex">\(\mu\)</span> 从正值减小到 0 时，两者碰撞后<strong>湮灭</strong>）。这就是“鞍结” (Saddle-Node) 名字的来源：在更高维度看，它是一个<strong>鞍点 (saddle)</strong> 和一个<strong>结点 (node)</strong> 的碰撞。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_005_cac7372d-fe34-430c-be02-de6381dfa183.png" /></p>
+<h2 id="33">3.3 势函数视角：在“能量景观”中滑行<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
+<p>这个分岔过程也可以通过势能景观 <span class="arithmatex">\(V(u)\)</span> 的变形来直观理解。回顾关系式 <span class="arithmatex">\(\frac{du}{dt} = -\frac{\partial V}{\partial u}\)</span>，对于常态形式 <span class="arithmatex">\(\frac{du}{dt} = -\mu + u^2\)</span>，可以通过积分找到其对应的势函数 <span class="arithmatex">\(V(u; \mu)\)</span>：</p>
+<div class="arithmatex">\[
+V(u; \mu) = - \int (-\mu + u^2) du = \mu u - \frac{1}{3}u^3
+\]</div>
+<p>现在可以从“小球在景观中滚动”的角度来重新审视分岔：</p>
+<p><strong>当 <span class="arithmatex">\(\mu &lt; 0\)</span> 时</strong>：势函数 <span class="arithmatex">\(V(u)\)</span> 是一条单调倾斜的曲线，没有局部极值点（没有山谷或山峰）。因此，系统没有不动点，小球会一直“滚落”到无穷远。</p>
+<p><strong>当 <span class="arithmatex">\(\mu = 0\)</span> 时</strong>：势函数变为 <span class="arithmatex">\(V(u) = -u^3/3\)</span>。在 <span class="arithmatex">\(u=0\)</span> 处出现一个<strong>拐点</strong>，景观在该点变得平坦。</p>
+<p><strong>当 <span class="arithmatex">\(\mu &gt; 0\)</span> 时</strong>：势函数图像上出现了一个<strong>局部极小值（山谷）</strong>和一个<strong>局部极大值（山峰）</strong> 。</p>
+<p><strong>山谷</strong> 对应<strong>稳定不动点</strong> <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span> (因为 <span class="arithmatex">\(V'' &gt; 0\)</span>)。</p>
+<p><strong>山峰</strong> 对应<strong>不稳定不动点</strong> <span class="arithmatex">\(u_2^* = +\sqrt{\mu}\)</span> (因为 <span class="arithmatex">\(V'' &lt; 0\)</span>)。</p>
+<p>分岔事件可以被看作是势能景观 <span class="arithmatex">\(V(u)\)</span> 随着 <span class="arithmatex">\(\mu\)</span> 的变化而变形，在 <span class="arithmatex">\(\mu=0\)</span> 时，一个平坦的“斜坡”在 <span class="arithmatex">\(\mu&gt;0\)</span> 时突然隆起，同时创造出一个“山谷”和一个“山峰”的瞬间。</p>
+<h2 id="34">3.4 物理意义：“引爆点”与“共维数”<a class="headerlink" href="#34" title="Permanent link">&para;</a></h2>
+<p>鞍结分岔在物理和生物系统中极为重要，因为它描述了<strong>临界转变 (critical transitions)</strong> 或 <strong>“引爆点” (tipping points)</strong> 。</p>
+<p><strong>引爆点</strong>：想象一个系统处于 <span class="arithmatex">\(\mu&gt;0\)</span> 时的稳定不动点 <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span>（例如一个健康的生态系统）。现在让外部环境恶化（即 <span class="arithmatex">\(\mu\)</span> 缓慢减小）。这个稳定状态会缓慢移动。当 <span class="arithmatex">\(\mu\)</span> 减小到 0 时，这个稳定状态与不稳定状态 <span class="arithmatex">\(u_2^*\)</span> 碰撞并<strong>湮灭</strong>。当 <span class="arithmatex">\(\mu\)</span> 变为负值时，系统唯一的平衡态消失了，系统将被迫发生灾难性的跳跃，演化到另一个（可能离得很远的）状态（例如 <span class="arithmatex">\(\mu &lt; 0\)</span> 时的 <span class="arithmatex">\(-\infty\)</span> 或 <span class="arithmatex">\(+\infty\)</span>）。这个过程通常是<strong>突然且不可逆的</strong>，例如渔业资源的崩溃、冰盖的融化或物种的灭绝。</p>
+<p><strong>共维数 (Co-dimension) = 1</strong>：这是一个深刻的数学概念。它意味着鞍结分岔在单参数系统中是<strong>普遍的 (generic)</strong> 。你不需要特殊的对称性（像下一节的叉式分岔）或精细的调节；只要一个单参数动力学系统并改变其参数，它在某个临界点发生质变，最先遇到的分岔类型很可能就是鞍结分岔。这是因为它只需要满足两个临界条件 <span class="arithmatex">\(f(u^*, \mu_c)=0\)</span> 和 <span class="arithmatex">\(\frac{\partial f}{\partial u}(u^*, \mu_c)=0\)</span>，这对于两个未知数（<span class="arithmatex">\(u^*\)</span> 和 <span class="arithmatex">\(\mu_c\)</span>）通常存在解。</p>
+<h2 id="35-python">3.5 Python模拟：可视化鞍结分岔<a class="headerlink" href="#35-python" title="Permanent link">&para;</a></h2>
+<p>为了更清晰地展示鞍结分岔，下面的 Python 代码将生成两个关键图形：</p>
+<p>1.<strong>分岔图 (Bifurcation Diagram)</strong> ：展示不动点 <span class="arithmatex">\(u^*\)</span> 的位置如何随控制参数 <span class="arithmatex">\(\mu\)</span> 变化。</p>
+<p>2.<strong>势能景观 (Potential Landscapes)</strong> ：展示 <span class="arithmatex">\(V(u)\)</span> 的形态在 <span class="arithmatex">\(\mu &lt; 0\)</span>, <span class="arithmatex">\(\mu = 0\)</span> 和 <span class="arithmatex">\(\mu &gt; 0\)</span> 三种情况下的演变。</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_saddle_node_bifurcation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate and display the bifurcation diagram and potential landscape for a saddle-node bifurcation.</span>
+<span class="sd">    Uses &#39;dark_background&#39; style.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># --- Set dark background theme ---</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+    <span class="c1"># --- Create figure and subplots ---</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># --- Figure 1: Bifurcation Diagram (u* vs mu) ---</span>
+    <span class="c1"># du/dt = -mu + u^2  =&gt;  u* = +/- sqrt(mu)</span>
+    <span class="n">mu_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">u_stable</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">)</span>
+    <span class="n">u_unstable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">)</span>
+
+    <span class="c1"># Plot stable branch (cyan)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">,</span> <span class="n">u_stable</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Point&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot unstable branch (magenta)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">,</span> <span class="n">u_unstable</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot line for no fixed points when mu &lt; 0 (gray)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $</span><span class="se">\\</span><span class="s1">mu$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Points $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Saddle-Node Bifurcation Diagram&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="c1"># Set legend text color to white</span>
+    <span class="n">legend1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend1</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># --- Figure 2: Potential Landscape V(u) = mu*u - (1/3)*u^3 ---</span>
+    <span class="n">u_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">mu_cases</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">]</span>  <span class="c1"># Blue, Orange, Green</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu = -1$ (No Fixed Points)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu = 0$ (Bifurcation Point)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu = 1$ (Two Fixed Points)&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">mu</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">mu_cases</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u_range</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_range</span><span class="o">**</span><span class="mi">3</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="c1"># Mark fixed points</span>
+        <span class="k">if</span> <span class="n">mu</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">u_s</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>  <span class="c1"># Stable point</span>
+            <span class="n">u_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>   <span class="c1"># Unstable point</span>
+            <span class="n">V_s</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u_s</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_s</span><span class="o">**</span><span class="mi">3</span>
+            <span class="n">V_u</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u_u</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_u</span><span class="o">**</span><span class="mi">3</span>
+            <span class="c1"># Stable point (valley) - solid cyan</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_s</span><span class="p">,</span> <span class="n">V_s</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+            <span class="c1"># Unstable point (peak) - hollow magenta</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_u</span><span class="p">,</span> <span class="n">V_u</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mu</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">V_0</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># Inflection point - yellow</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">V_0</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;State Variable $u$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Energy $V(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Evolution of Potential Landscape with $</span><span class="se">\\</span><span class="s1">mu$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set legend text color to white</span>
+    <span class="n">legend2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend2</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;saddle_node_bifurcation.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Run Simulation ---</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">plot_saddle_node_bifurcation</span><span class="p">()</span>
+</code></pre></div>
+<img alt="运行代码输出" src="../../../cn/assets/images/03_006_d0be1090-a825-48c8-af21-2cf9cfa4f7cc.png" /></p>
+<p><strong>左图 (分岔图)</strong> ：展示了不动点 <span class="arithmatex">\(u^*\)</span> 的位置如何依赖于控制参数 <span class="arithmatex">\(\mu\)</span>。当 <span class="arithmatex">\(\mu &lt; 0\)</span> 时，图上没有任何分支，表示系统没有不动点。在临界点 <span class="arithmatex">\(\mu = 0\)</span> 处，一个不动点“诞生”；而当 <span class="arithmatex">\(\mu &gt; 0\)</span> 时，这个点分裂为两个分支：一个<strong>稳定不动点</strong>（实心青色线， <span class="arithmatex">\(u^* = -\sqrt{\mu}\)</span>）和一个<strong>不稳定不动点</strong>（虚线品红线， <span class="arithmatex">\(u^* = +\sqrt{\mu}\)</span>）。</p>
+<p><strong>右图 (势能景观演变)</strong> ：从物理上解释了为什么会发生这种变化。</p>
+<p><strong><span class="arithmatex">\(\mu = -1\)</span> 时（蓝色曲线）</strong>：势能 <span class="arithmatex">\(V(u)\)</span> 是一个单调倾斜的斜坡，没有任何局部极值点（山谷或山峰），因此系统没有平衡态，会一直滑向 <span class="arithmatex">\(u \to \infty\)</span>。</p>
+<p><strong><span class="arithmatex">\(\mu = 0\)</span> 时（橙色曲线）</strong>：在分岔点，势能景观在 <span class="arithmatex">\(u=0\)</span> 处（黄色点）形成一个<strong>拐点</strong>，斜坡开始变得平坦。</p>
+<p><strong><span class="arithmatex">\(\mu = 1\)</span> 时（绿色曲线）</strong>：景观发生了质变，拐点“隆起”并分裂为一个<strong>局部极小值（山谷）</strong>在 <span class="arithmatex">\(u=-1\)</span> 处（青色点），和一个<strong>局部极大值（山峰）</strong>在 <span class="arithmatex">\(u=+1\)</span> 处（品红空心圆）。这分别对应新诞生的稳定不动点和不稳定不动点。</p>
+<h1 id="4">4. 叉式分岔：对称性的破缺与恢复<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>上一节课探讨了鞍结分岔（Saddle-Node Bifurcation），那是一种“凭空”产生或湮灭一对不动点的分岔，它不需要系统具备任何特殊条件，因此非常普遍。</p>
+<p>这节将探讨一种截然不同的、需要系统具备特定<strong>对称性 (symmetry)</strong> 的分岔——<strong>叉式分岔 (Pitchfork Bifurcation)</strong> 。这种分岔在物理学中占据核心地位，因为它与“<strong>自发对称性破缺 (spontaneous symmetry breaking)</strong> ”这一深刻概念直接相关。它完美地描述了系统如何从一个对称的无序状态，转变为一个破坏了对称性的有序状态，例如磁铁在临界温度以下产生磁化，或是力学结构在临界压力下发生屈曲。</p>
+<h2 id="41">4.1 对称性在动力学中的体现<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p>叉式分岔的核心前提是系统的演化函数 <span class="arithmatex">\(f(u)\)</span> 具有<strong>反射对称性</strong>（或称为 <span class="arithmatex">\(Z_2\)</span> 对称性）。在数学上，这意味着 <span class="arithmatex">\(f(u)\)</span> 必须是一个<strong>奇函数 (odd function)</strong> ：</p>
+<div class="arithmatex">\[
+f(-u) = -f(u)
+\]</div>
+<p>这个看似简单的数学约束具有深刻的动力学后果：</p>
+<p>1.<strong><span class="arithmatex">\(u=0\)</span> 永远是不动点</strong>：因为 <span class="arithmatex">\(f(0) = -f(-0) = -f(0)\)</span>，这迫使 <span class="arithmatex">\(f(0) = 0\)</span> 必须成立。因此，只要对称性存在，<span class="arithmatex">\(u=0\)</span> 永远是一个不动点（通常称为<strong>平凡不动点</strong>）。</p>
+<p>2.<strong>不动点成对出现</strong>：如果 <span class="arithmatex">\(u^*\)</span> 是一个不动点（即 <span class="arithmatex">\(f(u^*) = 0\)</span>），那么 <span class="arithmatex">\(f(-u^*) = -f(u^*) = 0\)</span> 也必然成立。这意味着 <span class="arithmatex">\(-u^*\)</span> 也一定是一个不动点。非零的不动点总是<strong>成对、对称地</strong>出现。</p>
+<p>这种对称性在物理系统中非常常见，例如磁铁中自旋向上 (<span class="arithmatex">\(+u\)</span>) 和向下 (<span class="arithmatex">\(-u\)</span>) 的对称性，或者力学直杆向左 (<span class="arithmatex">\(-u\)</span>) 或向右 (<span class="arithmatex">\(+u\)</span>) 屈曲的对称性。</p>
+<p>相比之下，上一节课鞍结分岔的常态形式 <span class="arithmatex">\(\dot{u} = -\mu + u^2\)</span> 包含 <span class="arithmatex">\(u^2\)</span>（偶函数）项，它<strong>不具备</strong>这种对称性。因此，它的不动点 <span class="arithmatex">\(u^* = \pm\sqrt{\mu}\)</span> 并不是对称地从 <span class="arithmatex">\(u=0\)</span> 分岔出来的，而是在 <span class="arithmatex">\(u=0\)</span> 处碰撞并湮灭。</p>
+<p>叉式分岔的常态形式是满足奇函数约束的最简单的非线性方程。根据非线性项的符号，它分为两种类型：超临界和亚临界。</p>
+<h2 id="42">4.2 超临界叉式分岔<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>超临界叉式分岔 (Supercritical Pitchfork Bifurcation) 是描述<strong>连续相变</strong>的经典模型。其常态形式为：</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, r) = ru - u^3
+\]</div>
+<p>这里使用 <span class="arithmatex">\(r\)</span> 作为控制参数（以对应相变理论中的约化温度）。</p>
+<p><span class="arithmatex">\(ru\)</span> 是线性项。当 <span class="arithmatex">\(r&gt;0\)</span> 时，它使 <span class="arithmatex">\(u=0\)</span> 不稳定（指数增长）；当 <span class="arithmatex">\(r&lt;0\)</span> 时，它使 <span class="arithmatex">\(u=0\)</span> 稳定（指数衰减）。</p>
+<p><span class="arithmatex">\(-u^3\)</span> 是最简单的、满足奇函数对称性的<strong>非线性稳定项</strong>。它确保当 <span class="arithmatex">\(u\)</span> 变得很大时，<span class="arithmatex">\(\frac{du}{dt}\)</span> 会变为负值，从而防止系统状态发散到无穷大。</p>
+<p>这对应于一个势函数 <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 + \frac{1}{4}u^4\)</span>。<span class="arithmatex">\(f = -dV/du\)</span>。这个势能在 <span class="arithmatex">\(r&gt;0\)</span> 时形如“墨西哥帽”或“酒瓶底”，是理解自发对称性破缺的关键。</p>
+<h3 id="_4">动力学分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>1.<strong>寻找不动点</strong>：令 <span class="arithmatex">\(\frac{du}{dt} = 0\)</span>，得到 <span class="arithmatex">\(u(r - u^2) = 0\)</span>。</p>
+<p><strong>平凡解</strong>：<span class="arithmatex">\(u_0^* = 0\)</span> (对所有 <span class="arithmatex">\(r\)</span> 都存在)。
+<strong>非平凡解</strong>：<span class="arithmatex">\(r - u^2 = 0 \implies u_{\pm}^* = \pm\sqrt{r}\)</span> (仅在 <span class="arithmatex">\(r \ge 0\)</span> 时存在实数解)。</p>
+<p>2.<strong>稳定性分析 (LSA)</strong> ：演化函数的导数为 <span class="arithmatex">\(f'(u) = r - 3u^2\)</span>。</p>
+<p><strong>对于平凡解 <span class="arithmatex">\(u_0^* = 0\)</span></strong> ：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(f'(0) = r\)</span>。</p>
+</li>
+<li>
+<p>当 <span class="arithmatex">\(r &lt; 0\)</span> 时，<span class="arithmatex">\(f'(0) &lt; 0\)</span>， <span class="arithmatex">\(u_0^*\)</span> 是<strong>稳定不动点</strong>。</p>
+</li>
+<li>
+<p>当 <span class="arithmatex">\(r &gt; 0\)</span> 时，<span class="arithmatex">\(f'(0) &gt; 0\)</span>， <span class="arithmatex">\(u_0^*\)</span> 变为<strong>不稳定不动点</strong>。</p>
+</li>
+</ul>
+<p><strong>对于非平凡解 <span class="arithmatex">\(u_{\pm}^* = \pm\sqrt{r}\)</span></strong> (仅在 <span class="arithmatex">\(r &gt; 0\)</span> 时分析)：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(f'(\pm\sqrt{r}) = r - 3(\pm\sqrt{r})^2 = r - 3r = -2r\)</span>。</p>
+</li>
+<li>
+<p>因为 <span class="arithmatex">\(r &gt; 0\)</span>，所以 <span class="arithmatex">\(f' = -2r &lt; 0\)</span>。这对新诞生的不动点<strong>总是稳定</strong>的。</p>
+</li>
+</ul>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_007_fac68eba-f242-4540-a0a0-28fbd4277803.jpg" /></p>
+<h3 id="_5">物理意义：二级相变与自发对称性破缺<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>超临界叉式分岔是<strong>二级相变 (second-order phase transition)</strong> 的完美数学描述，这直接呼应了金茨堡-朗道理论。</p>
+<p><span class="arithmatex">\(u\)</span> 扮演了<strong>序参量 (order parameter)</strong> 的角色（例如磁化强度）。</p>
+<p><span class="arithmatex">\(r\)</span> 对应于约化温度，例如 <span class="arithmatex">\(r \propto (T_c - T)\)</span>，其中 <span class="arithmatex">\(T_c\)</span> 是临界温度。</p>
+<p>1.<strong>当 <span class="arithmatex">\(r &lt; 0\)</span> 时 (高温, <span class="arithmatex">\(T &gt; T_c\)</span>)</strong> ：</p>
+<p>系统唯一的稳定状态是 <span class="arithmatex">\(u^*=0\)</span>（零磁化）。这个状态是完全对称的，对应于<strong>无序相</strong>（例如顺磁相）。势能 <span class="arithmatex">\(V(u)\)</span> 此时是一个以 <span class="arithmatex">\(u=0\)</span> 为最低点的单井。</p>
+<p>2.<strong>当 <span class="arithmatex">\(r &gt; 0\)</span> 时 (低温, <span class="arithmatex">\(T &lt; T_c\)</span>)</strong> ：</p>
+<p>原来的 <span class="arithmatex">\(u^*=0\)</span> 状态变得不稳定（势能 <span class="arithmatex">\(V(u)\)</span> 在 <span class="arithmatex">\(u=0\)</span> 处变为山峰）。系统<strong>必须</strong>选择两个新的、对称的、稳定的状态 <span class="arithmatex">\(u^*=+\sqrt{r}\)</span> 或 <span class="arithmatex">\(u^*=-\sqrt{r}\)</span> 中的一个（对应势能的两个新山谷）。</p>
+<p>这个过程被称为<strong>自发对称性破缺 (spontaneous symmetry breaking)</strong> 。尽管系统的物理规律（即 <span class="arithmatex">\(\frac{du}{dt}\)</span> 方程）仍然是 <span class="arithmatex">\(u \to -u\)</span> 对称的，但系统所处的基态（例如选择“向上”磁化 <span class="arithmatex">\(u^*=+\sqrt{r}\)</span>）却<strong>破坏</strong>了这种对称性。</p>
+<p>由于序参量 <span class="arithmatex">\(u^*\)</span> 从 <span class="arithmatex">\(r=0\)</span> 点开始<strong>连续</strong>地从0增长（<span class="arithmatex">\(u^* \propto \sqrt{r}\)</span>），这种相变被称为<strong>连续相变</strong>或二级相变。</p>
+<h2 id="43">4.3 亚临界叉式分岔<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p>亚临界叉式分岔 (Subcritical Pitchfork Bifurcation) 描述的是一种截然不同的、更具<strong>突变性</strong>的转变。其常态形式为：</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, r) = ru + u^3
+\]</div>
+<p><span class="arithmatex">\(ru\)</span> 仍然是线性项。</p>
+<p><span class="arithmatex">\(+u^3\)</span> 是一个<strong>非线性失稳项</strong>。它不再抑制 <span class="arithmatex">\(u\)</span> 的增长，反而会加速 <span class="arithmatex">\(u\)</span> 远离原点。</p>
+<p>这对应于一个势函数 <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 - \frac{1}{4}u^4\)</span>。这个势能在 <span class="arithmatex">\(r&gt;0\)</span> 时会朝 <span class="arithmatex">\(\pm\infty\)</span> 发散，在物理上是不现实的。</p>
+<h3 id="_6">“爆炸”与稳定化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>单独分析 <span class="arithmatex">\(\frac{du}{dt} = ru + u^3\)</span> 会发现：</p>
+<p>1.<strong>不动点</strong>：<span class="arithmatex">\(u(r + u^2) = 0 \implies u_0^*=0\)</span> 和 <span class="arithmatex">\(u_{\pm}^* = \pm\sqrt{-r}\)</span> (仅在 <span class="arithmatex">\(r \le 0\)</span> 时存在)。</p>
+<p>2.<strong>稳定性</strong>：<span class="arithmatex">\(f'(u) = r + 3u^2\)</span>。</p>
+<p><span class="arithmatex">\(u_0^*=0\)</span>：<span class="arithmatex">\(f'(0)=r\)</span>。在 <span class="arithmatex">\(r&lt;0\)</span> 时<strong>稳定</strong>，在 <span class="arithmatex">\(r&gt;0\)</span> 时<strong>不稳定</strong>。</p>
+<p><span class="arithmatex">\(u_{\pm}^* = \pm\sqrt{-r}\)</span> (for <span class="arithmatex">\(r &lt; 0\)</span>)：<span class="arithmatex">\(f'(\pm\sqrt{-r}) = r + 3(-r) = -2r\)</span>。因为 <span class="arithmatex">\(r&lt;0\)</span>，所以 <span class="arithmatex">\(f' &gt; 0\)</span>，这对新分支是<strong>不稳定</strong>的。</p>
+<p><strong>物理问题</strong>：这个模型是灾难性的。</p>
+<p>1.当 <span class="arithmatex">\(r\)</span> 从负变正时，稳定的 <span class="arithmatex">\(u=0\)</span> 态变为不稳定，但它“分岔”出的两个新分支（<span class="arithmatex">\(r&lt;0\)</span> 时）也是不稳定的。</p>
+<p>2.当 <span class="arithmatex">\(r&gt;0\)</span> 时，<span class="arithmatex">\(u=0\)</span> 不稳定，且 <span class="arithmatex">\(f(u)\)</span> 会将 <span class="arithmatex">\(u\)</span> 推向 <span class="arithmatex">\(\pm\infty\)</span>，系统“爆炸”了。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/03_008_86ceecd4-85bb-4166-824b-da7e61b024fa.png" /></p>
+<p><strong>物理现实（稳定化）</strong>：物理系统不会无限发散。这意味着，必须存在一个更高阶的<strong>稳定项</strong>（例如 <span class="arithmatex">\(-u^5\)</span>）在 <span class="arithmatex">\(u\)</span> 变得非常大时“接管”系统，防止其发散。一个更符合物理的、稳定化的亚临界模型是：</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = ru + u^3 - u^5
+\]</div>
+<p>这对应于一个更复杂的势能 <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 - \frac{1}{4}u^4 + \frac{1}{6}u^6\)</span>。</p>
+<h3 id="_7">物理意义：一级相变与滞后<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>这个稳定化的亚临界模型能够描述<strong>一级相变 (first-order phase transition)</strong> ，其动力学行为要复杂得多，并表现出<strong>滞后 (hysteresis)</strong> 现象：</p>
+<p>1.<strong>双稳态区域</strong> ：在某个 <span class="arithmatex">\(r\)</span> 的参数范围（例如 <span class="arithmatex">\(r &lt; 0\)</span> 的某段区间），系统会存在<strong>三个稳定不动点</strong>：<span class="arithmatex">\(u=0\)</span> 和一对新的对称不动点 <span class="arithmatex">\(u^* \neq 0\)</span>（由 <span class="arithmatex">\(-u^5\)</span> 项产生）。</p>
+<p>2.<strong>不连续跳跃</strong>：</p>
+<p>当 <span class="arithmatex">\(r\)</span> 从 <span class="arithmatex">\(r \ll 0\)</span> 缓慢<strong>增加</strong>时，系统会一直保持在 <span class="arithmatex">\(u=0\)</span> 的稳定态。即使 <span class="arithmatex">\(r\)</span> 增加到 0 以上（<span class="arithmatex">\(u=0\)</span> 在稳定化模型中仍可保持局部稳定），系统也会“卡”在这个状态。直到 <span class="arithmatex">\(r\)</span> 达到某个正的临界值 <span class="arithmatex">\(r_c &gt; 0\)</span>，<span class="arithmatex">\(u=0\)</span> 态与不稳定的分支碰撞（发生鞍结分岔）而湮灭，系统会<strong>突然跳跃</strong>到一个 <span class="arithmatex">\(u^* \neq 0\)</span> 的稳定态。</p>
+<p>当 <span class="arithmatex">\(r\)</span> 从 <span class="arithmatex">\(r &gt; 0\)</span> 缓慢<strong>减少</strong>时，系统会保持在 <span class="arithmatex">\(u^* \neq 0\)</span> 的状态。即使 <span class="arithmatex">\(r\)</span> 减小到 0 以下，系统也会“卡”在这个状态，直到 <span class="arithmatex">\(r\)</span> 达到某个负的临界值 <span class="arithmatex">\(r_s &lt; 0\)</span>， <span class="arithmatex">\(u^* \neq 0\)</span> 的稳定态湮灭，系统<strong>突然跳回</strong> <span class="arithmatex">\(u=0\)</span> 的状态。</p>
+<p>3.<strong>滞后回线</strong>：系统“跳上去”的 <span class="arithmatex">\(r\)</span> 值 (<span class="arithmatex">\(r_c\)</span>) 与“跳回来”的 <span class="arithmatex">\(r\)</span> 值 (<span class="arithmatex">\(r_s\)</span>) <strong>不同</strong>。系统的状态取决于它的历史路径，这便是<strong>滞后</strong>。这正是一级相变（如水结冰和冰融化）的特征：结冰点（0°C）和过冷水突然结冰的温度是不同的。</p>
+<h2 id="44-python">4.4 Python模拟：可视化叉式分岔<a class="headerlink" href="#44-python" title="Permanent link">&para;</a></h2>
+<p>下面的代码实践将分别可视化超临界和亚临界（稳定化形式）叉式分岔的分岔图及其对应的势能景观。
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_pitchfork_bifurcations</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates and displays plots for supercritical and subcritical </span>
+<span class="sd">    pitchfork bifurcations using a dark background.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># --- Use dark background style ---</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+    <span class="c1"># --- Create figure and axes ---</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+    <span class="c1"># --- 1. Supercritical Pitchfork Bifurcation ---</span>
+    <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">r_vals_super</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="c1"># --- ax1: Supercritical Bifurcation Diagram ---</span>
+    <span class="c1"># u* = 0 (Trivial branch)</span>
+    <span class="c1"># Stable for r &lt; 0 (cyan)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable&#39;</span><span class="p">)</span>
+    <span class="c1"># Unstable for r &gt; 0 (magenta)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable&#39;</span><span class="p">)</span>
+
+    <span class="c1"># u* = +/- sqrt(r) (Non-trivial branches)</span>
+    <span class="n">r_positive</span> <span class="o">=</span> <span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">u_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_positive</span><span class="p">)</span>
+    <span class="n">u_minus</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_positive</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_positive</span><span class="p">,</span> <span class="n">u_plus</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_positive</span><span class="p">,</span> <span class="n">u_minus</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Supercritical Pitchfork Diagram&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $r$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Point $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend1</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># --- ax2: Supercritical Potential V(u) = -r/2 * u^2 + 1/4 * u^4 ---</span>
+    <span class="n">u_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">r_cases</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;r = -1 (Single Well)&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">,</span> <span class="s1">&#39;r = 0 (Flat Bottom)&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="s1">&#39;r = 2 (Double Well)&#39;</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">r_val</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">r_cases</span><span class="p">:</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r_val</span> <span class="o">*</span> <span class="n">u_range</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u_range</span><span class="o">**</span><span class="mi">4</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Supercritical Potential Landscapes&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;State Variable $u$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Potential $V(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend2</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># --- 2. Subcritical Pitchfork Bifurcation (stabilized) ---</span>
+    <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># --- ax3: Subcritical Bifurcation Diagram ---</span>
+    <span class="c1"># f(u,r) = ru + u^3 - u^5 = 0</span>
+
+    <span class="c1"># Trivial branch: u = 0</span>
+    <span class="c1"># Stable for r &lt; 0 (cyan), Unstable for r &gt; 0 (magenta)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Non-trivial branches: u^4 - u^2 - r = 0 =&gt; u^2 = (1 +/- sqrt(1+4r))/2</span>
+    <span class="c1"># Outer stable branch: u^2 = (1 + sqrt(1+4r))/2 (exists for r &gt; -0.25)</span>
+    <span class="n">r_outer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">u_outer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">r_outer</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_outer</span><span class="p">,</span> <span class="n">u_outer</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_outer</span><span class="p">,</span> <span class="o">-</span><span class="n">u_outer</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="c1"># Inner unstable branch: u^2 = (1 - sqrt(1+4r))/2 (exists for -0.25 &lt; r &lt; 0)</span>
+    <span class="n">r_inner</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">u_inner</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">r_inner</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_inner</span><span class="p">,</span> <span class="n">u_inner</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_inner</span><span class="p">,</span> <span class="o">-</span><span class="n">u_inner</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Subcritical Pitchfork Diagram (Stabilized)&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $r$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Point $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend3</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Saddle-Node $r_s$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># --- ax4: Subcritical Potential V(u) = -r/2*u^2 - 1/4*u^4 + 1/6*u^6 ---</span>
+    <span class="n">u_range_sub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="c1"># r_s = -0.25 is where the non-trivial branch is born</span>
+    <span class="n">r_cases_sub</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;r = -0.5 (Bistable)&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;r = -0.25 (Saddle-Node)&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="s1">&#39;r = 0.1 (u=0 Unstable)&#39;</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">r_val</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">r_cases_sub</span><span class="p">:</span>
+        <span class="n">V_sub</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r_val</span> <span class="o">*</span> <span class="n">u_range_sub</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u_range_sub</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_range_sub</span><span class="o">**</span><span class="mi">6</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range_sub</span><span class="p">,</span> <span class="n">V_sub</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Subcritical Potential Landscapes (Stabilized)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;State Variable $u$&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Potential $V(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend4</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend4</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Run the simulation ---</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">plot_pitchfork_bifurcations</span><span class="p">()</span>
+</code></pre></div></p>
+<p><img alt="运行代码输出" src="../../../cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png" /></p>
+<p><strong>左上图 (超临界分岔图)</strong> ：展示了一个<strong>连续</strong>的相变。当 <span class="arithmatex">\(r&lt;0\)</span> 时，系统唯一的稳定态是 <span class="arithmatex">\(u=0\)</span>（青色实线）。在 <span class="arithmatex">\(r=0\)</span> 的临界点，这个 <span class="arithmatex">\(u=0\)</span> 的解变为不稳定（品红虚线），同时<strong>连续地</strong>“分岔”出两个新的、对称的稳定解（上下的青色实线），系统会平滑地过渡到其中一个新状态。</p>
+<p><strong>右上图 (超临界势能)</strong> ：在物理上解释了左上图的现象。势能景观 <span class="arithmatex">\(V(u)\)</span> 从 <span class="arithmatex">\(r&lt;0\)</span> 时的<strong>单井</strong>（蓝色曲线，最低点在 <span class="arithmatex">\(u=0\)</span>），演变为 <span class="arithmatex">\(r=0\)</span> 时的<strong>平底井</strong>（橙色曲线），最终在 <span class="arithmatex">\(r&gt;0\)</span> 时变为<strong>双井</strong>或“墨西哥帽”势（绿色曲线）。<span class="arithmatex">\(u=0\)</span> 处从势能谷底（稳定）隆起为势能山峰（不稳定），迫使系统“滑落”到两个新出现的、对称的谷底（<span class="arithmatex">\(u \neq 0\)</span>）中。</p>
+<p><strong>左下图 (亚临界分岔图)</strong> ：展示了一个<strong>不连续</strong>的、具有<strong>滞后</strong>特征的相变。分岔图呈现出一个“S”形和一条直线。在 <span class="arithmatex">\(r\)</span> 轴的某个区域（<span class="arithmatex">\(r_s &lt; r &lt; 0\)</span>）存在<strong>双稳态</strong>：<span class="arithmatex">\(u=0\)</span> 是稳定的（青色实线），同时两个 <span class="arithmatex">\(u \neq 0\)</span> 的外部分支也是稳定的（青色实线）。因此，当 <span class="arithmatex">\(r\)</span> 从负向正增加时，系统会停留在 <span class="arithmatex">\(u=0\)</span> 直到 <span class="arithmatex">\(r=0\)</span> 才跳跃；而当 <span class="arithmatex">\(r\)</span> 从正向负减少时，系统会停留在 <span class="arithmatex">\(u \neq 0\)</span> 的分支上，直到 <span class="arithmatex">\(r=r_s=-0.25\)</span> 处（黄色虚线，鞍结分岔点）才跳回 <span class="arithmatex">\(u=0\)</span>，形成一个滞后回线。</p>
+<p><strong>右下图 (亚临界势能)</strong> ：展示了左下图的双稳态是如何产生的。在 <span class="arithmatex">\(r=-0.5\)</span> 时（蓝色曲线），势能景观呈现<strong>三个山谷</strong>（三个稳定不动点），中间的山谷（<span class="arithmatex">\(u=0\)</span>）比两侧的更深。在 <span class="arithmatex">\(r=-0.25\)</span> 时（黄色曲线），两侧的山谷与中间的山脊（不稳定不动点）碰撞并湮灭（鞍结分岔）。在 <span class="arithmatex">\(r&gt;0\)</span> 时（绿色曲线），<span class="arithmatex">\(u=0\)</span> 处变为一个山峰（不稳定），系统只能存在于两侧的山谷中。</p>
+<h1 id="_8">总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<p>这节课探讨了一维动力系统的核心概念，为理解更复杂的自组织现象奠定了坚实的数学基础。课程从演化函数 <span class="arithmatex">\(f(u, \mu)\)</span> 出发，将<strong>不动点</strong> (<span class="arithmatex">\(f(u^*)=0\)</span>) 识别为系统的平衡态。核心工具<strong>线性稳定性分析 (LSA)</strong> 通过计算导数 <span class="arithmatex">\(f'(u^*)\)</span> 的符号，为判断不动点稳定性提供了严谨的数学方法。</p>
+<p>当控制参数 <span class="arithmatex">\(\mu\)</span> 改变时，系统会经历<strong>分岔 (bifurcation)</strong> ——其动力学行为发生质的改变。课程详细分析了两种最基本的分岔类型：</p>
+<p>1.<strong>鞍结分岔 (Saddle-Node)</strong> ：它不需要系统具备对称性，是系统中平衡态产生和消失的最普遍机制，与现实世界中的“引爆点” (tipping points) 密切相关。</p>
+<p>2.<strong>叉式分岔 (Pitchfork)</strong> ：它的发生以系统具有 <span class="arithmatex">\(u \to -u\)</span> 反射对称性为前提。它完美地描述了物理学中<strong>自发对称性破缺 (spontaneous symmetry breaking)</strong> 的过程。</p>
+<p>下表总结了这两种主要分岔类型的关键特征：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">分岔类型 (Bifurcation Type)</th>
+<th style="text-align: left;">常态形式 (Normal Form)</th>
+<th style="text-align: left;">分岔点 (Bifurcation Point)</th>
+<th style="text-align: left;">不动点行为 (Fixed Point Behavior)</th>
+<th style="text-align: left;">对称性 (Symmetry)</th>
+<th style="text-align: left;">物理关联 (Physical Analogy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>鞍结分岔</strong> (Saddle-Node)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\dot{u} = -\mu + u^2\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\mu = 0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\mu &lt; 0\)</span> 时0个; <br> <span class="arithmatex">\(\mu &gt; 0\)</span> 时2个 (1稳, 1不稳)</td>
+<td style="text-align: left;">无需对称性</td>
+<td style="text-align: left;">状态的创生/湮灭；引爆点</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>超临界叉式</strong> (Supercritical)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\dot{u} = ru - u^3\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(r = 0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(r &lt; 0\)</span> 时1个稳定; <br> <span class="arithmatex">\(r &gt; 0\)</span> 时3个 (2稳, 1不稳)</td>
+<td style="text-align: left;">需要 <span class="arithmatex">\(u \to -u\)</span> 对称性</td>
+<td style="text-align: left;"><strong>二级相变</strong> (2nd-order)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>亚临界叉式</strong> (Subcritical)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\dot{u} = ru + u^3 - u^5\)</span> <br> (需稳定化)</td>
+<td style="text-align: left;"><span class="arithmatex">\(r = 0\)</span></td>
+<td style="text-align: left;">存在双稳态与<strong>滞后</strong></td>
+<td style="text-align: left;">需要 <span class="arithmatex">\(u \to -u\)</span> 对称性</td>
+<td style="text-align: left;"><strong>一级相变</strong> (1st-order)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/03_010_af79bcf3-4fa0-42c4-ba8c-76d85e509682.png" /></p>
+<p>这张PPT总结了叉式分岔与物理模型的联系，特别是金茨堡-朗道理论 (Ginzburg-Landau model)。</p>
+<p><strong>核心方程</strong> ：<span class="arithmatex">\(\partial_t x = -\partial_x V_{\pm}(x) = rx \mp x^3\)</span>。这明确了动力学是势能 <span class="arithmatex">\(V(x)\)</span> 驱动的过阻尼运动 (over-damped motion)。</p>
+<p><strong>超临界 (Supercritical)</strong> ：对应 <span class="arithmatex">\(V_+(x) = -\frac{r}{2}x^2 + \frac{1}{4}x^4\)</span>。</p>
+<p><strong>势能 <span class="arithmatex">\(V_+\)</span></strong> ：当 <span class="arithmatex">\(r&gt;0\)</span> 时，势能从单井（虚线）变为双井（实线），在 <span class="arithmatex">\(u=0\)</span> 处从极小值变为极大值。</p>
+<p><strong>分岔图 <span class="arithmatex">\(x^*\)</span> vs. <span class="arithmatex">\(r\)</span></strong> ：稳定的 <span class="arithmatex">\(u=0\)</span> 解在 <span class="arithmatex">\(r=0\)</span> 处变为不稳定（虚线），并连续地分岔出两个新的稳定解 <span class="arithmatex">\(x^* = \pm\sqrt{r}\)</span>（实线）。这完美对应了二级相变。</p>
+<p><strong>亚临界 (Subcritical)</strong> ：对应 <span class="arithmatex">\(V_-(x) = -\frac{r}{2}x^2 - \frac{1}{4}x^4\)</span>。</p>
+<p><strong>势能 <span class="arithmatex">\(V_-\)</span></strong> ：当 <span class="arithmatex">\(r&lt;0\)</span> 时，势能从 <span class="arithmatex">\(u=0\)</span> 处的极小值（虚线）变为 <span class="arithmatex">\(r&gt;0\)</span> 时的极大值（实线），且势能向 <span class="arithmatex">\(\pm\infty\)</span> 发散。</p>
+<p><strong>分岔图 <span class="arithmatex">\(x^*\)</span> vs. <span class="arithmatex">\(r\)</span></strong> ：稳定的 <span class="arithmatex">\(u=0\)</span> 解（实线）在 <span class="arithmatex">\(r=0\)</span> 处变为不稳定（虚线），而新分岔出的两个解 <span class="arithmatex">\(x^* = \pm\sqrt{-r}\)</span>（虚线）在 <span class="arithmatex">\(r&lt;0\)</span> 时是<strong>不稳定</strong>的。</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/03_011_c501af70-026e-4064-9e86-f4c6aa435740.png" /></p>
+<p>简单的亚临界模型 <span class="arithmatex">\(\dot{u} = ru + u^3\)</span> 在物理上是不完整的，因为它会导致系统“爆炸”。这张PPT展示了如何解决这个问题，即引入更高阶的稳定项，这正是一级相变 (First order phase transitions) 的势能形式。</p>
+<p><strong>稳定化的势能</strong>：<span class="arithmatex">\(V(x) = -\frac{r}{2}x^2 - \frac{u}{4}x^4 + \frac{v}{6}x^6\)</span>。这里的 <span class="arithmatex">\(+x^6\)</span> 项（其中 <span class="arithmatex">\(v&gt;0\)</span>）确保了当 <span class="arithmatex">\(x\)</span> 很大时，势能 <span class="arithmatex">\(V(x)\)</span> 最终会上升，从而束缚住系统状态。</p>
+<p><strong>势能演化</strong>：当 <span class="arithmatex">\(r\)</span> 从正值（如 <span class="arithmatex">\(r_{c,1}\)</span>）减小到负值（红色曲线）时，这个势能景观的演化过程。</p>
+<p>当 <span class="arithmatex">\(r\)</span> 较大时（<span class="arithmatex">\(r &gt; r_{c,3}=0\)</span>），系统只有 <span class="arithmatex">\(x=0\)</span> 一个稳定态（绿色曲线）。</p>
+<p>当 <span class="arithmatex">\(r\)</span> 减小到 0 并变为负值时，势能景观在 <span class="arithmatex">\(x=0\)</span> 之外逐渐形成了两个新的、对称的“山谷”（蓝色、黑色曲线）。</p>
+<p>此时，系统出现了<strong>三个稳定不动点</strong>（<span class="arithmatex">\(x=0\)</span> 和两个 <span class="arithmatex">\(x \neq 0\)</span> 的点），形成了<strong>双稳态 (bistability)</strong> 区域。</p>
+<p>当 <span class="arithmatex">\(r\)</span> 进一步减小到 <span class="arithmatex">\(r_{c,2}\)</span> 时，三个山谷等深。当 <span class="arithmatex">\(r\)</span> 变得更负时（红色曲线），两侧的山谷变为全局最低能量态。</p>
+<p><strong>物理联系</strong>：这种三井结构（<span class="arithmatex">\(V(x)\)</span>）是亚临界分岔图（<span class="arithmatex">\(u^*\)</span> vs. <span class="arithmatex">\(r\)</span>）中“S”形分岔曲线的来源，它正是导致<strong>不连续跳跃</strong>和<strong>滞后 (hysteresis)</strong> 现象的根本原因，完美对应了一级相变。</p>
+<p>到目前为止，这节课的分析都集中在只有一个控制参数（<span class="arithmatex">\(\mu\)</span> 或 <span class="arithmatex">\(r\)</span>）的最简单分岔上。下一讲将自然地延续并扩展这些概念，探讨由<strong>多个参数</strong>控制的更复杂的分岔，以及这些分岔在现实模型中的应用：</p>
+<p><strong>尖点分岔 (Cusp Bifurcation)</strong> ：这是对亚临界分岔的直接扩展。它将研究当引入<strong>第二个控制参数</strong>（例如一个外场 <span class="arithmatex">\(h\)</span>，使势能 <span class="arithmatex">\(V(x)\)</span> 不再对称）时，亚临界分岔的“S”形曲线会如何演变为一个“尖点”曲面。</p>
+<p><strong>滞后 (Hysteresis)</strong> ：将深入探讨由尖点分岔和亚临界分岔导致的滞后回线，这是系统状态依赖于其历史路径的典型非线性现象。</p>
+<p><strong>跨临界分岔 (Transcritical Bifurcation)</strong> ：将介绍另一种常见的分岔类型，其中两个不动点碰撞并“交换”它们的稳定性，这在生物模型（如<strong>传染病模型 (Infection Model)</strong> ）中至关重要。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

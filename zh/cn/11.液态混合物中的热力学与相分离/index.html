@@ -1,0 +1,1418 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/">
+      
+      
+        <link rel="prev" href="../10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/">
+      
+      
+        <link rel="next" href="../12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/">
+      
+      
+        
+          <link rel="alternate" href="../../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>11. 液态混合物中的热力学与相分离 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. 液态混合物中的热力学与相分离
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从“固态的过去”到“液态的未来”
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生物学动机：细胞内的相分离革命
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="1">1. 引言<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<h2 id="_1">从“固态的过去”到“液态的未来”<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在凝聚态物理学的传统叙事中，晶体固体因其完美的对称性和静态有序结构，长期占据着理论研究的核心地位。然而，Erwin Frey 教授在这节课开篇提出了一个极具哲学意味的观点：“过去是固态的，而未来是液态的”。这句话是对软物质物理学兴起的隐喻，揭示了自然界组织形式的范式转换。</p>
+<p>回顾<strong>第9讲</strong>与<strong>第10讲</strong>，课程通过 Ginzburg-Landau 理论和 Allen-Cahn 方程（Model A），探讨了<strong>非守恒序参量</strong>（如磁化强度）的动力学。在那类系统中，畴壁的运动由曲率驱动，液滴可以通过局部自旋翻转而直接收缩湮灭，不受质量守恒的限制。然而，当我们把目光转向生命系统、软物质以及远离平衡态的流体混合物时，物理约束发生了根本性的变化。细胞内部充满了各种流体混合物，处于高度拥挤（crowded）的状态。在这种环境下，物质不能凭空产生或消失，必须遵循<strong>局部质量守恒</strong>定律。</p>
+<p>因此，这节课标志着课程重心的转移：从单组分或非守恒系统的界面动力学，转向<strong>多组分液态混合物</strong>的热力学平衡性质。这是理解细胞内“无膜细胞器”（membrane-less organelles）形成机制的物理基础，也是通向下一讲中探讨<strong>守恒型动力学（Model B / Cahn-Hilliard 方程）</strong>、渗透压效应及 Ostwald 熟化过程的必经之路。</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/11_001_05ada564-3f81-4cd0-9d8b-91492285ddb5.png" /></p>
+<p><img alt="课堂PP截图" src="../../../cn/assets/images/11_002_8b3cf7aa-bd55-450c-9587-913aa04fb1d6.jpg" /></p>
+<p>以上两幅图展示了二元混合物概念图及细胞内部拥挤环境</p>
+<h2 id="_2">生物学动机：细胞内的相分离革命<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在深入数学推导之前，有必要理解这一理论框架的现实生物学意义。Frey 教授特别提到了 Clifford Brangwynne 等人在 2009 年发表于《Science》杂志上的里程碑式工作——关于秀丽隐杆线虫（<em>C. elegans</em>）生殖颗粒（P granules）的研究。</p>
+<p>长期以来，生物学界普遍认为细胞内的功能结构主要由脂质膜（如细胞核膜、线粒体膜）界定。然而，P 颗粒以及核仁（nucleolus）、Cajal 体等结构虽然没有膜包裹，却能保持独特的成分和空间局域性。Brangwynne 等人的实验惊人地发现，这些 P 颗粒表现出了典型的<strong>液体物理性质</strong>：</p>
+<p><strong>润湿性（Wetting）</strong>：它们在接触细胞核膜时会像雨滴落在玻璃上一样展开，表明存在接触角和界面张力。</p>
+<p><strong>融合（Fusion/Coalescence）</strong>：两个接触的颗粒会迅速融合成一个更大的球体，且表面积减小，这是表面张力驱动的典型特征。</p>
+<p><strong>滴落（Dripping）</strong>：在剪切力作用下，它们会发生形变甚至分裂，表现出流体的不稳定性（如 Rayleigh-Plateau 不稳定性）。</p>
+<video controls width="100%">
+  <source src="../assets/images/P Granule Fusion and Wetting Phenomena.mp4" type="video/mp4">
+  您的浏览器不支持视频标签。
+</video>
+
+<p><em>P 颗粒的融合与润湿现象，来源：Brangwynne et al., Science 324:1729-1732 (2009)</em></p>
+<p>这些观察结果彻底改变了细胞生物学的范式：细胞内的某些复杂结构并非由精密的分子机器“组装”而成，而是通过物理上的<strong>液-液相分离（Liquid-Liquid Phase Separation, LLPS）</strong> 自发形成的。这种相分离过程直接受到热力学原理的支配——即系统的自由能最小化。</p>
+<p>这节课将液态混合物的热力学基础，从最基础的不可压缩流体假设出发，建立亥姆霍兹自由能密度函数，推导混合物发生相分离的凸性（convexity）判据，并详细解析著名的<strong>麦克斯韦构造法（Maxwell Construction）</strong>。这些静态的热力学分析，将最终汇聚成描述相共存区域的相图，为下一讲<strong>引入时间维度、建立 Cahn-Hilliard 动力学方程</strong>奠定坚实的静态理论基础。</p>
+<h1 id="1_1">1. 多组分混合物的热力学基础<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h1>
+<p>要从物理上精确描述细胞质这样一种包含蛋白质、RNA、脂质及水等多种分子的“大杂烩”，必须首先建立严格的热力学框架。与理想气体或简单的单组分流体不同，液态混合物的热力学行为不仅受温度和压力的控制，更受到组分浓度及其相互作用的深刻影响。这小节将从宏观热力学势出发，结合软物质物理中关键的“<strong>不可压缩性</strong>”假设，逐步推导出描述相分离行为的核心物理量——<strong>亥姆霍兹自由能密度（Helmholtz free energy density）。</strong></p>
+<h2 id="11">1.1 宏观状态变量与吉布斯自由能<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>考虑一个包含 <span class="arithmatex">\(n+1\)</span> 种组分的热力学系统。为了清晰地区分溶剂背景与溶质颗粒，通常将组分标记为 <span class="arithmatex">\(i=0, 1, \dots, n\)</span>。在生物物理的语境下，约定 <span class="arithmatex">\(i=0\)</span> 代表溶剂（Solvent，如水），而 <span class="arithmatex">\(i=1, \dots, n\)</span> 代表各类溶质（Solute，如蛋白质、聚合物等）。</p>
+<p>在典型的实验与生物体条件下，系统通常处于恒定的环境温度 <span class="arithmatex">\(T\)</span> 和环境压力 <span class="arithmatex">\(P\)</span> 之下。因此，描述该系统自然状态的最适宜的热力学势是吉布斯自由能（Gibbs Free Energy, <span class="arithmatex">\(G\)</span>）。系统的宏观状态由以下一组变量完全确定：</p>
+<ul>
+<li>
+<p><strong>温度 (<span class="arithmatex">\(T\)</span>)</strong> ：决定系统热运动的剧烈程度。</p>
+</li>
+<li>
+<p><strong>压力 (<span class="arithmatex">\(P\)</span>)</strong> ：决定系统的机械平衡状态。</p>
+</li>
+<li>
+<p><strong>分子数 (<span class="arithmatex">\(N_i\)</span>)</strong> ：每种组分 <span class="arithmatex">\(i\)</span> 的粒子数量，这是描述混合物组成的基本变量。</p>
+</li>
+</ul>
+<p>因此，吉布斯自由能 <span class="arithmatex">\(G\)</span> 是这些变量的函数：<span class="arithmatex">\(G = G(T, P, \{N_i\})\)</span>。根据热力学基本方程，其全微分形式表达为：</p>
+<div class="arithmatex">\[
+dG = -S dT + V dP + \sum_{i=0}^{n} \mu_i dN_i
+\]</div>
+<p>其中，各偏导数项具有明确的物理意义：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(S = -\left(\frac{\partial G}{\partial T}\right)_{P, \{N_i\}}\)</span> 是系统的熵。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(V = \left(\frac{\partial G}{\partial P}\right)_{T, \{N_i\}}\)</span> 是系统的总体积。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\mu_i = \left( \frac{\partial G}{\partial N_i} \right)_{T, P, N_{j \neq i}}\)</span> 是组分 <span class="arithmatex">\(i\)</span> 的化学势（Chemical Potential），代表在恒温恒压且保持其他组分不变时，向系统中添加一个粒子所需的能量变化。</p>
+</li>
+</ul>
+<p>为了简化分析并聚焦核心物理机制，这节课主要关注<strong>二元混合物（Binary Mixture, <span class="arithmatex">\(n=1\)</span>）</strong>，即系统简化为只有两种成分：溶剂 <span class="arithmatex">\(S\)</span> 和溶质 <span class="arithmatex">\(P\)</span>（Particle）。此时，系统的状态空间由 <span class="arithmatex">\((T, P, N_S, N_P)\)</span> 四个变量张成。</p>
+<h2 id="12">1.2 分子体积与不可压缩性假设<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>在气态物理中，体积 <span class="arithmatex">\(V\)</span> 是压力和温度的敏感函数（例如理想气体状态方程 <span class="arithmatex">\(PV=NkT\)</span>）。然而，在液态物理和软物质研究中，液体通常被视为<strong>不可压缩（Incompressible）</strong>的。这是一个极强的物理约束，它极大地简化了数学处理，同时也改变了系统的热力学自由度。</p>
+<h3 id="_3">分子体积的定义与欧拉定理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>为了定量描述体积与粒子数的关系，引入<strong>分子体积（Molecular Volume）</strong>的概念。对于溶质 <span class="arithmatex">\(P\)</span> 和溶剂 <span class="arithmatex">\(S\)</span>，其分子体积分别定义为总体积 <span class="arithmatex">\(V\)</span> 对相应粒子数的偏导数：</p>
+<div class="arithmatex">\[
+v_P \equiv \left( \frac{\partial V}{\partial N_P} \right)_{N_S, T, P}, \quad v_S \equiv \left( \frac{\partial V}{\partial N_S} \right)_{N_P, T, P}
+\]</div>
+<p>这里的物理意义是：在保持温度、压力和其他组分不变的情况下，往系统中每添加一个粒子，总体积所增加的量。由于体积 <span class="arithmatex">\(V\)</span> 是关于粒子数 <span class="arithmatex">\(\{N_i\}\)</span> 的<strong>广延量（Extensive Quantity）</strong>，即若将所有粒子数增加 <span class="arithmatex">\(\alpha\)</span> 倍，体积也相应增加 <span class="arithmatex">\(\alpha\)</span> 倍：<span class="arithmatex">\(V(\alpha N_S, \alpha N_P) = \alpha V(N_S, N_P)\)</span>。根据欧拉齐次函数定理（Euler's Homogeneous Function Theorem），对 <span class="arithmatex">\(\alpha\)</span> 求导并令 <span class="arithmatex">\(\alpha=1\)</span>，即可导出体积的可加性公式：</p>
+<div class="arithmatex">\[
+V(T, P, N_S, N_P) = v_P N_P + v_S N_S
+\]</div>
+<p>这一关系式表明，系统的总体积严格等于各组分占据体积之和。</p>
+<h3 id="_4">不可压缩条件及其推论<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>在软物质物理中，不可压缩性假设意味着：<strong>分子体积 <span class="arithmatex">\(v_P\)</span> 和 <span class="arithmatex">\(v_S\)</span> 是与其热力学状态（<span class="arithmatex">\(T, P\)</span> 及浓度）无关的常数。</strong></p>
+<p>这一假设对系统的热力学性质产生了两个深远的影响：</p>
+<p>1.<strong>体积不再是独立变量</strong>：一旦确定了粒子数 <span class="arithmatex">\(N_P\)</span> 和 <span class="arithmatex">\(N_S\)</span>，系统的总体积 <span class="arithmatex">\(V\)</span> 就被完全锁定了。这与气体系统截然不同，在气体中我们可以独立调节体积和粒子数。</p>
+<p>2.<strong>几何约束</strong>：系统的动力学演化受到几何约束方程 <span class="arithmatex">\(V = v_P N_P + v_S N_S\)</span> 的严格限制。这意味着粒子不能随意产生或消失，除非伴随着体积的相应变化或组分间的交换（例如一个大分子置换出多个水分子）。</p>
+<p>在许多理论模型（如晶格模型或著名的 Flory-Huggins 理论）中，为了进一步简化计算，通常假设溶质和溶剂具有相同的分子体积 <span class="arithmatex">\(v_P = v_S = v_0\)</span>。这相当于将液体看作由一个个相同大小的“格子”组成，每个格子要么被水分子占据，要么被蛋白分子占据，这种对称性大大简化了后续的熵计算。</p>
+<h2 id="13">1.3 从吉布斯自由能到亥姆霍兹自由能密度<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p>由于不可压缩性锁定了体积与粒子数的关系，直接使用包含 <span class="arithmatex">\(PV\)</span> 项的吉布斯自由能 <span class="arithmatex">\(G\)</span> 处理相分离问题往往不够直观。特别是在研究空间不均匀的相分离（Phase Separation）时，物理关注点通常从广延量（总能量）转移到了强度量（单位体积的能量）。</p>
+<p>通过<strong>勒让德变换（Legendre Transformation）</strong>可以建立不同热力学势之间的联系。已知吉布斯自由能与亥姆霍兹自由能 <span class="arithmatex">\(F\)</span> 的关系为 <span class="arithmatex">\(G = F + PV\)</span>。由于系统是不可压缩的，且 <span class="arithmatex">\(F\)</span> 本身也是一个广延量，它可以写成体积 <span class="arithmatex">\(V\)</span> 乘以一个单位体积的能量密度函数 <span class="arithmatex">\(f\)</span>。</p>
+<p>引入无量纲的<strong>体积分数（Volume Fraction, <span class="arithmatex">\(\phi\)</span>）</strong>作为核心序参量：</p>
+<div class="arithmatex">\[
+\phi \equiv \frac{N_P v_P}{V} = \frac{N_P v_P}{N_P v_P + N_S v_S}
+\]</div>
+<p>相应的，根据归一化条件，溶剂的体积分数自然为 <span class="arithmatex">\(1-\phi\)</span>。</p>
+<p>这一变量变换不仅是数学上的代换，更是物理图像的转换：</p>
+<p><strong>微观视角</strong>：追踪数以亿计的 <span class="arithmatex">\(N_P\)</span> 和 <span class="arithmatex">\(N_S\)</span> 个粒子的离散行为。</p>
+<p><strong>场论视角</strong>：关注一个连续的标量场 <span class="arithmatex">\(\phi(\mathbf{x})\)</span>，它代表了溶质在空间各处的局部浓度。</p>
+<p>利用这一变量，吉布斯自由能可以重写为：</p>
+<div class="arithmatex">\[
+G(T, P, N_P, N_S) = V \left[ P + f(T, \phi) \right]
+\]</div>
+<p>其中 <span class="arithmatex">\(f(T, \phi)\)</span> 即为<strong>亥姆霍兹自由能密度（Helmholtz free energy density）</strong>。</p>
+<h3 id="_5">物理意义与热力学势的简化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>上述公式揭示了在不可压缩流体中研究相变的关键逻辑：</p>
+<p>1.<strong>压力项的退耦</strong>：在 <span class="arithmatex">\(G = V[P + f(T, \phi)]\)</span> 中，压力 <span class="arithmatex">\(P\)</span> 仅作为一个线性项出现。如果系统处于恒定的环境压力 <span class="arithmatex">\(P\)</span> 下，那么 <span class="arithmatex">\(P \cdot V\)</span> 项仅仅是在总能量上叠加了一个与混合状态（<span class="arithmatex">\(\phi\)</span>）的凸凹性无关的线性背景（或者在总体积 <span class="arithmatex">\(V\)</span> 固定时为一个常数）。</p>
+<p>2.<strong>核心函数的确定</strong>：因此，<strong>决定系统是否发生混合或相分离的关键，完全取决于亥姆霍兹自由能密度函数 <span class="arithmatex">\(f(T, \phi)\)</span> 随体积分数 <span class="arithmatex">\(\phi\)</span> 变化的几何形状（即凸性）。</strong></p>
+<p>这一结论将复杂的多变量热力学问题简化为了一个单变量函数 <span class="arithmatex">\(f(\phi)\)</span> 的分析问题。后续的稳定性分析（Stability Analysis）和麦克斯韦构造（Maxwell Construction）都将完全基于对 <span class="arithmatex">\(f(\phi)\)</span> 曲线形状的探讨。</p>
+<h1 id="2">2. 混合与热力学稳定性准则<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>在确立了以体积分数 <span class="arithmatex">\(\phi\)</span> 为变量的亥姆霍兹自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 之后，这小节将探讨多组分系统的核心热力学问题：<strong>混合的稳定性。</strong>对于一个给定浓度的混合物，它究竟会保持均匀的单相状态，还是会自发分裂成两个不同浓度的相？这一问题的答案并不取决于分子的微观细节，而是完全由自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span> 的几何形状（凸凹性）决定。通过构建一个宏观混合的思想实验，可以推导出判断相分离发生的普适不等式。</p>
+<h2 id="21">2.1 混合思想实验：宏观守恒律<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>为了推导稳定性的数学判据，Frey 教授引入了一个经典的热力学思想实验。考虑两个初始隔离的流体系统，它们处于相同的温度 <span class="arithmatex">\(T\)</span> 和压力 <span class="arithmatex">\(P\)</span> 下：</p>
+<ul>
+<li>
+<p><strong>系统 1</strong>：体积为 <span class="arithmatex">\(V_1\)</span>，溶质的体积分数为 <span class="arithmatex">\(\phi_1\)</span>。</p>
+</li>
+<li>
+<p><strong>系统 2</strong>：体积为 <span class="arithmatex">\(V_2\)</span>，溶质的体积分数为 <span class="arithmatex">\(\phi_2\)</span>。</p>
+</li>
+</ul>
+<p>现将这两个系统合并为一个新的总系统。基于前一节建立的<strong>不可压缩性</strong>假设，混合过程必须遵循两个宏观守恒律：</p>
+<p>1.<strong>体积守恒</strong>：总系统的体积 <span class="arithmatex">\(V\)</span> 等于两个子系统体积之和。</p>
+<div class="arithmatex">\[V = V_1 + V_2\]</div>
+<p>2.<strong>粒子数守恒</strong>（即溶质体积守恒）：混合后的溶质总量等于混合前各部分之和。设混合后的平均体积分数为 <span class="arithmatex">\(\phi\)</span>，则有：</p>
+<div class="arithmatex">\[\phi V = \phi_1 V_1 + \phi_2 V_2\]</div>
+<p>为了描述混合比例，引入无量纲变量 <span class="arithmatex">\(x\)</span> 表示系统 1 在总体积中的占比：</p>
+<div class="arithmatex">\[x = \frac{V_1}{V}, \quad 1-x = \frac{V_2}{V}\]</div>
+<p>利用这一变量，混合后的平均体积分数 <span class="arithmatex">\(\phi\)</span> 可以表示为两个初始浓度的加权平均：</p>
+<div class="arithmatex">\[\phi = x \phi_1 + (1-x) \phi_2\]</div>
+<p>这一线性关系表明，在相图（浓度轴）上，混合系统的状态点必然位于 <span class="arithmatex">\(\phi_1\)</span> 和 <span class="arithmatex">\(\phi_2\)</span> 之间。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/11_004_dc200d4a-1049-4229-a2ff-378f71b90742.png" /></p>
+<p>混合思想实验示意图。板书展示了两个不同浓度（<span class="arithmatex">\(\phi_1, \phi_2\)</span>）和体积（<span class="arithmatex">\(V_1, V_2\)</span>）的子系统混合生成均一系统（<span class="arithmatex">\(\phi, V\)</span>）的过程，或者是反过来的DMIX（分层）过程，并列出了体积与粒子数的守恒关系。</p>
+<h2 id="22-vs">2.2 自由能的博弈：混合态 vs. 分离态<a class="headerlink" href="#22-vs" title="Permanent link">&para;</a></h2>
+<p>根据热力学第二定律，在恒温恒容条件下，系统总是演化至亥姆霍兹自由能最低的状态。因此，判断系统是否混合，需要比较“混合态”与“分离态”的总自由能大小。</p>
+<p><strong>分离态（Demixed State）的自由能：</strong>假设系统保持宏观相分离，即一部分体积维持浓度 <span class="arithmatex">\(\phi_1\)</span>，另一部分维持浓度 <span class="arithmatex">\(\phi_2\)</span>。此时系统的总自由能是两个子系统自由能的简单加和（忽略界面能，这在宏观极限下是合理的）：</p>
+<div class="arithmatex">\[F_{\text{demixed}} = V_1 f(\phi_1) + V_2 f(\phi_2)\]</div>
+<p>利用体积占比 <span class="arithmatex">\(x\)</span>，该式可重写为：</p>
+<div class="arithmatex">\[F_{\text{demixed}} = V [ x f(\phi_1) + (1-x) f(\phi_2) ]\]</div>
+<p>在几何上，这对应于自由能密度曲线 <span class="arithmatex">\(f(\phi)\)</span> 上连接点 <span class="arithmatex">\((\phi_1, f(\phi_1))\)</span> 和 <span class="arithmatex">\((\phi_2, f(\phi_2))\)</span> 的<strong>弦（Chord）</strong>上的某一点。</p>
+<p><strong>混合态（Mixed State）的自由能：</strong>假设系统完全均匀混合，形成单一的均相，其浓度处处为平均值 <span class="arithmatex">\(\phi\)</span>。此时系统的总自由能为：</p>
+<div class="arithmatex">\[F_{\text{mixed}} = V f(\phi) = V f(x \phi_1 + (1-x) \phi_2)\]</div>
+<p>在几何上，这对应于自由能密度<strong>函数曲线（Curve）</strong>上的某一点。</p>
+<h2 id="23">2.3 全局稳定性：凸性条件<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>系统最终选择混合还是分离，取决于哪种状态具有更低的自由能。</p>
+<p><strong>混合准则（Mixing Criterion）：</strong></p>
+<p>如果对于任意的初始浓度 <span class="arithmatex">\(\phi_1, \phi_2\)</span> 和任意混合比例 <span class="arithmatex">\(x\)</span>，混合态的自由能始终低于分离态的自由能，即：</p>
+<div class="arithmatex">\[F_{\text{mixed}} &lt; F_{\text{demixed}}\]</div>
+<p>代入表达式并消去公因子 <span class="arithmatex">\(V\)</span>，得到不等式：</p>
+<div class="arithmatex">\[f(x \phi_1 + (1-x) \phi_2) &lt; x f(\phi_1) + (1-x) f(\phi_2)\]</div>
+<p>这正是数学上<strong>凸函数（Convex Function）</strong>的定义。</p>
+<p><strong>物理结论</strong>：如果自由能密度曲线 <span class="arithmatex">\(f(\phi)\)</span> 是<strong>全局下凸</strong>的（像一个碗），那么无论如何混合，均相状态总是最稳定的，系统<strong>不会</strong>发生相分离。</p>
+<p><strong>不稳定性与分层（Instability &amp; Demixing）：</strong> 反之，如果 <span class="arithmatex">\(f(\phi)\)</span> 在某些浓度区间呈现<strong>上凸（Concave）</strong>特征（像一座山丘），即满足：</p>
+<div class="arithmatex">\[f_{\text{curve}} &gt; f_{\text{chord}}\]</div>
+<p>这意味着混合后的能量高于维持分离状态的能量。此时，均一的溶液是热力学不稳定的，系统会自发地通过“反向混合”——即相分离——来降低总能量。系统将分裂成两个共存相，使得系统的总自由能落在更低的“弦”上，而非较高的“弧”上。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/11_005_076ccf7c-f48e-4f8e-ab92-a89e05577506.png" /></p>
+<p>几何稳定性判据。左图展示了凸函数（Convex），混合态（曲线）能量低于分离态（弦），系统倾向于混合（mix）；右图展示了凹函数（Concave），混合态能量高于分离态，系统倾向于分层（demix）。</p>
+<h2 id="24-spinodal">2.4 局部稳定性与 Spinodal 区域<a class="headerlink" href="#24-spinodal" title="Permanent link">&para;</a></h2>
+<p>上述凸性条件提供了全局稳定性的判据。为了更精确地描述系统对微小扰动的响应，需要考察自由能函数的局部性质。对于光滑的自由能函数，可以通过泰勒展开分析微小浓度涨落 <span class="arithmatex">\(\delta \phi\)</span> 引起的自由能变化：</p>
+<div class="arithmatex">\[\Delta f \approx \frac{1}{2} f''(\phi) (\delta \phi)^2\]</div>
+<p>由此得到局部稳定性的判据：</p>
+<p><strong>局部稳定（Locally Stable）</strong>：<span class="arithmatex">\(\frac{\partial^2 f}{\partial \phi^2} &gt; 0\)</span>。此时自由能曲线局部下凸，微小涨落会增加系统能量，因此涨落会被抑制，溶液保持亚稳或稳定状态。</p>
+<p><strong>局部不稳定（Locally Unstable）</strong>：<span class="arithmatex">\(\frac{\partial^2 f}{\partial \phi^2} &lt; 0\)</span>。此时自由能曲线局部上凸，微小涨落会导致系统能量降低。这意味着任何无穷小的热噪声都会被自发放大，导致系统迅速失稳。</p>
+<p>这一二阶导数为负的区域被称为<strong>Spinodal 区域</strong>。该区域的边界由二阶导数的零点（即曲线的拐点）定义：</p>
+<div class="arithmatex">\[\frac{\partial^2 f}{\partial \phi^2} \bigg|_{\phi^*} = 0\]</div>
+<p>这两个拐点 <span class="arithmatex">\(\phi_A^*\)</span> 和 <span class="arithmatex">\(\phi_B^*\)</span> 也就是所谓的 <strong>Spinodal 点</strong>。在 <span class="arithmatex">\(\phi_A^*\)</span> 与 <span class="arithmatex">\(\phi_B^*\)</span> 之间的区域，系统发生<strong>Spinodal 分解（Spinodal Decomposition）</strong>，这是一种不需要克服成核势垒的、由扩散驱动的快速相分离过程。</p>
+<h1 id="3-maxwell">3. Maxwell构造法与相平衡<a class="headerlink" href="#3-maxwell" title="Permanent link">&para;</a></h1>
+<p>在前一小节中，分析确立了自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span> 的凸性是判断混合物稳定性的核心判据。当温度降低或相互作用增强时，自由能曲线往往会呈现出非凸的“双势井”（Double-Well）形状。这意味着系统在中间浓度范围内是不稳定的，将自发分离为两个不同浓度的相。</p>
+<p>这就引出了一个关键的定量问题：<strong>系统最终分离出的两个共存相，其浓度具体是多少？</strong>为了解决这一问题，这小节将引入著名的 <strong>Maxwell 构造法（Maxwell Construction）</strong>。这一方法不仅是一个优雅的几何操作，更深刻地体现了热力学平衡必须同时满足的物理条件。</p>
+<h2 id="31">3.1 双势井势能面与局部不稳定性<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p>考虑典型的二元混合物自由能密度曲线（例如 Flory-Huggins 理论在低温下的形式），其特征是在中间区域存在一个局部隆起。这种非凸性导致了系统相行为的复杂性。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/11_006_d3d79d05-cfdb-401e-9134-7a0e68269234.png" /></p>
+<p>双势井自由能曲线与凹陷区域。<span class="arithmatex">\(f(\phi)\)</span> 在中间区域呈现上凸（Concave）特征。标记为 <span class="arithmatex">\(\phi_a^*\)</span> 和 <span class="arithmatex">\(\phi_b^*\)</span> 的绿色点是曲线的拐点（<span class="arithmatex">\(f''=0\)</span>），它们界定了 Spinodal 区域。在此区域内，系统对微小涨落绝对不稳定。</p>
+<p><strong>Spinodal点 (<span class="arithmatex">\(\phi_a^*, \phi_b^*\)</span>)</strong> ：定义为自由能曲线二阶导数为零的点，即 <span class="arithmatex">\(f''(\phi) = 0\)</span>。这两个点界定了 <strong>Spinodal 不稳定性区域</strong>。在 <span class="arithmatex">\(\phi_a^* &lt; \phi &lt; \phi_b^*\)</span> 范围内，由于 <span class="arithmatex">\(f'' &lt; 0\)</span>，任何无穷小的浓度涨落都能降低系统总能量，导致自发的相分离（Spinodal 分解）。</p>
+<p>然而，仅仅避开 Spinodal 区域并不足以保证系统的热力学稳定性。在 Spinodal 点外侧，系统虽然对微小扰动是局部稳定的（<span class="arithmatex">\(f'' &gt; 0\)</span>），但可能仍处于自由能非全局最小的<strong>亚稳态（Metastable）</strong>。</p>
+<h2 id="32-common-tangent-construction">3.2 公切线构造（Common Tangent Construction）<a class="headerlink" href="#32-common-tangent-construction" title="Permanent link">&para;</a></h2>
+<p>为了确定系统的全局平衡态，必须寻找使总自由能最小化的浓度组合。根据混合法则，分离为两相后的总自由能位于连接两相点的弦（Chord）上。要使能量最低，这条弦必须位于自由能曲线的最下方。</p>
+<p>几何上，这意味着我们需要找到一条直线，使其同时与自由能曲线在两个不同的点 <span class="arithmatex">\(\phi_a\)</span>（稀相）和 <span class="arithmatex">\(\phi_b\)</span>（浓相）相切。这条直线被称为<strong>公切线（Common Tangent）</strong>。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/11_007_c2e7b514-b3f3-4c5a-b2df-8137eb460635.png" /></p>
+<p>Maxwell 公切线构造。红色直线同时切于自由能曲线的两个低点 <span class="arithmatex">\(\phi_a\)</span> 和 <span class="arithmatex">\(\phi_b\)</span>。这条公切线代表了相分离后的系统总自由能，它始终低于单相的自由能曲线（绿色实线），表明相分离是热力学有利的。</p>
+<p>根据几何关系，一条直线同时切于曲线上两点，必须满足以下两个数学条件：</p>
+<p>1.<strong>斜率相等（Equal Slopes）</strong>：两切点处的切线斜率必须相同。</p>
+<div class="arithmatex">\[
+f'(\phi_a) = f'(\phi_b)
+\]</div>
+<p>2.<strong>共切线条件（Common Intercept/Slope）</strong>：切线在 <span class="arithmatex">\(\phi_a\)</span> 处的方程必须经过点 <span class="arithmatex">\((\phi_b, f(\phi_b))\)</span>。换言之，两点连线的几何斜率必须等于该处的切线斜率。</p>
+<div class="arithmatex">\[
+\frac{f(\phi_b) - f(\phi_a)}{\phi_b - \phi_a} = f'(\phi_a)
+\]</div>
+<p>这两个方程构成了求解平衡浓度 <span class="arithmatex">\(\phi_a\)</span> 和 <span class="arithmatex">\(\phi_b\)</span> 的封闭非线性方程组。</p>
+<h2 id="33">3.3 物理诠释：化学势与渗透压的平衡<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
+<p>Maxwell 构造法之所以有效，是因为它实际上是热力学平衡条件在几何上的直接投影。Frey 教授指出，上述几何条件分别对应着相平衡的两个核心物理约束：<strong>物质扩散平衡</strong>与<strong>力学平衡</strong>。</p>
+<p><strong>1.交换化学势平衡（斜率条件）</strong></p>
+<p>定义交换化学势（Exchange Chemical Potential, <span class="arithmatex">\(\mu\)</span>）为自由能密度对浓度的导数：</p>
+<div class="arithmatex">\[
+\mu \equiv \frac{\partial f}{\partial \phi}
+\]</div>
+<p>物理上，它代表了将一个溶剂分子替换为一个溶质分子所需的能量代价。因此，几何上的<strong>斜率相等</strong>条件 <span class="arithmatex">\(f'(\phi_a) = f'(\phi_b)\)</span>，直接蕴含了<strong>两相化学势相等</strong>：</p>
+<div class="arithmatex">\[
+\mu(\phi_a) = \mu(\phi_b)
+\]</div>
+<p>这是物质在两相间停止净流动的必要条件。</p>
+<p><strong>2.渗透压平衡（截距条件）</strong></p>
+<p>根据勒让德变换，切线在 <span class="arithmatex">\(y\)</span> 轴上的截距具有特定的热力学意义。在不可压缩流体中，这一项对应于渗透压（Osmotic Pressure, <span class="arithmatex">\(\Pi\)</span>）的负值（或相关量，具体取决于参考态定义）。</p>
+<p>数学上，将共切线方程稍作变形，可得：</p>
+<div class="arithmatex">\[
+f(\phi_a) - \phi_a f'(\phi_a) = f(\phi_b) - \phi_b f'(\phi_b)
+\]</div>
+<p>式中 <span class="arithmatex">\(f - \phi f'\)</span> 正是与压力相关的热力学势。因此，几何上的<strong>共切线</strong>条件，实际上意味着<strong>两相的渗透压相等</strong>：</p>
+<div class="arithmatex">\[
+\Pi(\phi_a) = \Pi(\phi_b)
+\]</div>
+<p>这是两相界面保持力学稳定的必要条件。</p>
+<p><strong>结论</strong>：Maxwell 构造法不仅仅是一个画图技巧，它等价于寻找同时满足化学平衡 (<span class="arithmatex">\(\Delta \mu = 0\)</span>) 和机械平衡 (<span class="arithmatex">\(\Delta \Pi = 0\)</span>) 的共存相态。</p>
+<h2 id="34">3.4 稳定性区域总结<a class="headerlink" href="#34" title="Permanent link">&para;</a></h2>
+<p>通过 Maxwell 构造确定的平衡浓度 <span class="arithmatex">\(\phi_a\)</span> 和 <span class="arithmatex">\(\phi_b\)</span>（即 Binodal 点），结合之前的 Spinodal 点 <span class="arithmatex">\(\phi_a^*\)</span> 和 <span class="arithmatex">\(\phi_b^*\)</span>，可以将相图清晰地划分为三个物理性质截然不同的区域：</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/11_008_f1236b53-d6dc-4d28-898c-5443c182e894.jpg" /></p>
+<p>稳定性区域的完整分类。图中明确标记了三类区域：</p>
+<p>1.<strong>Binodal 点 (<span class="arithmatex">\(\phi_a, \phi_b\)</span>)</strong> ：由公切线确定的共存相浓度。</p>
+<p>2.<strong>Metastable (亚稳区)</strong> ：位于 Binodal 点与 Spinodal 点之间（黄色标记）。在此区域需克服成核势垒才能发生相变。</p>
+<p>3.<strong>Unstable (不稳定区)</strong> ：位于两个 Spinodal 点之间（绿色阴影）。在此区域系统发生自发的 Spinodal 分解。</p>
+<p><strong>1.稳定区（Stable / One-phase）</strong>
+范围：<span class="arithmatex">\(\phi &lt; \phi_a\)</span> 或 <span class="arithmatex">\(\phi &gt; \phi_b\)</span>。
+在此区域，自由能曲线本身构成凸包的下边界。均一混合态是全局能量最低态，系统不会发生相分离。</p>
+<p><strong>2.亚稳区（Metastable / Nucleation region）</strong>
+范围：<span class="arithmatex">\(\phi_a &lt; \phi &lt; \phi_a^*\)</span> 和 <span class="arithmatex">\(\phi_b^* &lt; \phi &lt; \phi_b\)</span>。
+在此区域，虽然 <span class="arithmatex">\(f''(\phi) &gt; 0\)</span> 使得系统对微小扰动保持局部稳定，但其自由能高于公切线对应的分相状态（全局不稳定）。系统需要足够大的涨落（如形成临界核）来克服势垒，这种机制被称为<strong>成核-生长（Nucleation and Growth）</strong>。</p>
+<p><strong>3不稳定区（Unstable / Spinodal region）</strong>
+范围：<span class="arithmatex">\(\phi_a^* &lt; \phi &lt; \phi_b^*\)</span>。
+在此区域，<span class="arithmatex">\(f''(\phi) &lt; 0\)</span>。均一状态本质上是不稳定的，任何热涨落都会导致自由能降低并被迅速放大。系统通过<strong>Spinodal 分解</strong>机制，自发形成特征性的双连续条纹结构或液滴。</p>
+<h1 id="4">4. 相图构建与临界现象<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>在前几小节中，分析主要集中在固定温度下的自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span> 及其几何特征。然而，热力学性质——特别是熵与焓的竞争——强烈依赖于温度 <span class="arithmatex">\(T\)</span>。随着温度的变化，自由能曲线的形状会发生演变：高温下熵占主导，曲线通常呈凸形（单井）；低温下焓（相互作用）占主导，曲线呈现双井形状。</p>
+<p>通过系统地改变温度 <span class="arithmatex">\(T\)</span>，并将每个温度下由 Maxwell 构造确定的共存浓度 <span class="arithmatex">\(\phi_a, \phi_b\)</span> 以及由拐点确定的失稳浓度 <span class="arithmatex">\(\phi_a^*, \phi_b^*\)</span> 投影到 <span class="arithmatex">\(T-\phi\)</span> 平面上，即可构建出描述系统相行为全貌的<strong>相图（Phase Diagram）</strong>。</p>
+<h2 id="41-binodal-spinodal">4.1 Binodal 线与 Spinodal 线<a class="headerlink" href="#41-binodal-spinodal" title="Permanent link">&para;</a></h2>
+<p>相图将热力学参数空间划分为性质截然不同的区域，其边界由两条关键曲线定义：</p>
+<p>1.<strong>Binodal 线（共存曲线）</strong>：连接不同温度下的平衡共存浓度 <span class="arithmatex">\(\phi_a(T)\)</span> 和 <span class="arithmatex">\(\phi_b(T)\)</span> 的轨迹。</p>
+<p><strong>物理意义</strong>：它是单相区（One-phase region）与两相共存区（Two-phase region）的热力学边界。在该线以外，系统处于热力学稳定的均相状态。</p>
+<p>2.<strong>Spinodal 线（失稳曲线）</strong>：连接不同温度下的 Spinodal 点 <span class="arithmatex">\(\phi_a^*(T)\)</span> 和 <span class="arithmatex">\(\phi_b^*(T)\)</span> 的轨迹。</p>
+<p><strong>物理意义</strong>：它位于 Binodal 线内部，界定了亚稳区（Metastable）与不稳定区（Unstable）。在该线以内，扩散系数变为负值，系统对任意微小涨落不稳定（发生 Spinodal 分解）。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/11_009_0eb85c5c-c920-4c29-becd-43dc018df542.png" /></p>
+<p>典型二元混合物的相图。纵轴为温度 <span class="arithmatex">\(T\)</span>，横轴为体积分数 <span class="arithmatex">\(\phi\)</span>。</p>
+<p><strong>外侧实线 (Binodal)</strong> ：界定了单相区（1 phase）和两相区。</p>
+<p><strong>内侧虚线 (Spinodal)</strong> ：界定了亚稳区（Metastable，黄色阴影）和不稳定区（Unstable，绿色阴影）。</p>
+<p><strong>CP (Critical Point)</strong> ：临界点，两线在此汇聚。</p>
+<p>在典型的相图中（如具有上临界溶解温度 UCST 的系统），这两条曲线通常呈现倒“U”型，并在顶点处相切。</p>
+<h2 id="42-critical-point">4.2 临界点 (Critical Point)<a class="headerlink" href="#42-critical-point" title="Permanent link">&para;</a></h2>
+<p>随着温度升高，混合熵（倾向于均匀混合）逐渐战胜相互作用焓（倾向于分离）。这导致 Binodal 线的两臂（稀相与浓相）逐渐靠近，最终在某一特定的温度 <span class="arithmatex">\(T_c\)</span> 和浓度 <span class="arithmatex">\(\phi_c\)</span> 处汇合。这一特殊点被称为<strong>临界点（Critical Point, CP）</strong>。</p>
+<p><strong>物理特征</strong>：
+在临界点处，两相的性质（密度、成分）变得完全相同，宏观相界面消失。系统处于一种微妙的临界状态，此时关联长度发散，会出现<strong>临界乳光（Critical Opalescence）</strong>现象，即长程密度涨落导致光散射增强。</p>
+<p><strong>数学定义</strong>：
+几何上，临界点对应于自由能曲线变得“极度平坦”的时刻。此时，<span class="arithmatex">\(f(\phi)\)</span> 不仅拐点重合（二阶导数为零），而且该点也是拐点的极值点（三阶导数为零）。只要四阶导数大于零，系统在此点就是局部稳定的（但在临界意义上）。
+数学判据为：</p>
+<div class="arithmatex">\[
+\frac{\partial^2 f}{\partial \phi^2}\bigg|_{T_c, \phi_c} = 0, \quad \frac{\partial^3 f}{\partial \phi^3}\bigg|_{T_c, \phi_c} = 0
+\]</div>
+<h1 id="5-">5. 案例研究：细胞内的液-液相分离<a class="headerlink" href="#5-" title="Permanent link">&para;</a></h1>
+<p>这节课的最后，理论视角从抽象的热力学回归到具体的生物学问题。引言中提到的秀丽隐杆线虫（C. elegans）P 颗粒的定位问题，正是相分离热力学在非平衡生物系统中的精彩应用。Frey 教授结合 Brangwynne 等人（2009）的研究，展示了细胞如何利用相图原理来组织胞内物质。</p>
+<p><img alt="实验证据排除细胞质流动对定位的主导作用。(A) 显微成像显示 P 颗粒（绿色）随时间推移逐渐向胚胎后极（P）局域化。(B-D) 粒子图像测速（PIV）与轨迹追踪显示，尽管胚胎内存在显著的细胞质流动（黄色箭头），P 颗粒也随之运动，但其运动是双向的。(F) 定量统计表明，由流动引起的跨越胚胎中线的净通量（Net Flux）几乎为零。这一结果否定了传统的“主动运输/流动输运”模型，为后续提出的“受控溶解与凝聚”相变模型提供了关键的反证。来源：Brangwynne et al.,Science 324:1729-1732(2009)" src="../../../cn/assets/images/11_010_f13b0b47-a70a-4803-9abc-e4fa13fb7bf4.jpg" /></p>
+<h2 id="51">5.1 空间位置依赖的热力学<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
+<p>在 C. elegans 胚胎发育过程中，P 颗粒（富含 RNA 和蛋白质的液滴）最初均匀分布，随后迅速定位于胚胎的后极（Posterior），从而决定生殖细胞的命运。传统生物学观点可能认为这是马达蛋白“搬运”颗粒的结果，但实验证据否定了主动运输模型。</p>
+<p><strong>物理机制：受控的溶解与凝聚</strong>
+Brangwynne 等人的研究揭示，P 颗粒的定位实际上是一个<strong>相变</strong>过程。细胞通过调节局部的化学环境，改变了 P 颗粒组分在细胞质中的热力学稳定性。</p>
+<p><strong>相图的生物学映射</strong>：在生物学语境下，相图中的“温度”轴可以被<strong>调节蛋白的浓度</strong>（如 MEX-5）所替代。这些蛋白通过改变 P 颗粒组分之间的有效相互作用强度（<span class="arithmatex">\(\chi\)</span> 参数），从而改变相图的位置或形状。</p>
+<h2 id="52-binodal">5.2 极性蛋白对 Binodal 点的调节<a class="headerlink" href="#52-binodal" title="Permanent link">&para;</a></h2>
+<p>细胞内极性蛋白 MEX-5 在胚胎中形成浓度梯度（前部高，后部低）。这种梯度导致了 P 颗粒组分的<strong>饱和浓度（Saturation Concentration, <span class="arithmatex">\(C_{sat}\)</span>）</strong>——即相图上的 Binodal 点——在空间上发生变化。</p>
+<p>1.<strong>胚胎前部（Anterior）</strong>：</p>
+<ul>
+<li>
+<p>高浓度的 MEX-5 抑制了 P 颗粒组分间的吸引作用（相当于升高了有效温度）。</p>
+</li>
+<li>
+<p>导致饱和浓度 <span class="arithmatex">\(C_{sat}\)</span> 升高。</p>
+</li>
+<li>
+<p><strong>结果</strong>：实际胞质浓度 <span class="arithmatex">\(C_{cyt} &lt; C_{sat}\)</span>。系统处于<strong>单相区</strong>（Binodal 线外），现有的 P 颗粒变得不稳定并<strong>溶解（Dissolution）</strong>，组分回归胞质。</p>
+</li>
+</ul>
+<p>2.<strong>胚胎后部（Posterior）</strong>：</p>
+<ul>
+<li>
+<p>低浓度的 MEX-5 允许 P 颗粒组分强相互作用（相当于降低了有效温度）。</p>
+</li>
+<li>
+<p>导致饱和浓度 <span class="arithmatex">\(C_{sat}\)</span> 降低。</p>
+</li>
+<li>
+<p><strong>结果</strong>：实际胞质浓度 <span class="arithmatex">\(C_{cyt} &gt; C_{sat}\)</span>。系统进入<strong>两相共存区</strong>（Binodal 线内），胞质处于过饱和状态，P 颗粒<strong>凝聚（Condensation）</strong>并生长。</p>
+</li>
+</ul>
+<p><strong>结论</strong>：细胞并非在物理上移动每一个颗粒，而是通过调节空间上的热力学参数（溶解度/Binodal点），利用<strong>扩散通量</strong>将物质从前部（溶解源）输送到后部（凝聚汇）。这是一种极其高效的、基于物理原理的自组织机制。</p>
+<p>虽然热力学相图成功解释了 P 颗粒“倾向于”出现在哪里的静态问题，但它无法描述液滴形成的速度、尺寸分布以及粗化过程。要回答这些动态问题，需要引入时间维度，建立描述守恒场演化的动力学方程。这正是<strong>下一讲（第12讲）</strong>的主题——<strong>Cahn-Hilliard 方程（Model B）</strong>。</p>
+<h1 id="6">6. 代码实践：相图与自由能曲面的可视化<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
+<p>代码实践将使用 Cahn-Hilliard 自由能模型（包含熵和焓的贡献）来生成数据，绘制系统的相图（Phase Diagram）和自由能曲面（Free Energy Surface）。这一实践旨在将前面几节中抽象的数学推导转化为具象的物理图像。</p>
+<p>1.<strong>复现 Maxwell 构造的宏观结果</strong>：通过计算双节线（Binodal Line）和旋节线（Spinodal Line），构建温度-浓度相图。这将直观展示系统在不同温度下的稳定性区域（稳定、亚稳、不稳定）。</p>
+<p>2.<strong>展示自由能景观的演化</strong>：通过 3D 曲面图，动态展示随着温度 <span class="arithmatex">\(T\)</span> 的变化，自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span> 如何从高温下的单势阱（凸函数）演变为低温下的双势阱（非凸函数），从而揭示相分离的热力学驱动力。</p>
+<p><div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Thermodynamics and Phase Separation in Liquid Mixtures - Visualization</span>
+<span class="sd">Phase Diagram and 3D Free Energy Surface</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Global Style Settings - Dark Theme</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#3a3a5a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#e0e0ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#e0e0ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#8080a0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#8080a0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;grid.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#2a2a4a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+    <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="s1">&#39;sans-serif&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1"># Custom Color Scheme</span>
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;primary&#39;</span><span class="p">:</span> <span class="s1">&#39;#00d4ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;secondary&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff6b6b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;accent&#39;</span><span class="p">:</span> <span class="s1">&#39;#a855f7&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="s1">&#39;#22c55e&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;warning&#39;</span><span class="p">:</span> <span class="s1">&#39;#f59e0b&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_phase_diagram_and_free_energy</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot Phase Diagram and 3D Free Energy Surface&quot;&quot;&quot;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#000000&#39;</span><span class="p">)</span>
+    <span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># Left: Phase Diagram (T vs c)</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">c_spinodal_low</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">c_spinodal_high</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">c_binodal_low</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">c_binodal_high</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+
+    <span class="c1"># Fill regions</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">c_binodal_low</span><span class="p">,</span> <span class="n">c_spinodal_low</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                      <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;warning&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Metastable Region&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">c_spinodal_high</span><span class="p">,</span> <span class="n">c_binodal_high</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                      <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;warning&#39;</span><span class="p">])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">c_spinodal_low</span><span class="p">,</span> <span class="n">c_spinodal_high</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> 
+                      <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spinodal Region&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot lines</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_binodal_low</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Binodal Line&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_binodal_high</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_spinodal_low</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spinodal Line&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_spinodal_high</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="c1"># Critical Point</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;accent&#39;</span><span class="p">]],</span> 
+                <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critical Point&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Critical Point</span><span class="se">\n</span><span class="s1">(Tc, cc)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> 
+                 <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;accent&#39;</span><span class="p">],</span>
+                 <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round,pad=0.5&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#1a1a2e&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;accent&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Concentration c&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature T / Tc&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Binary Phase Diagram&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Right: 3D Free Energy Surface</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#000000&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Construct free energy surface f(c, T)</span>
+    <span class="n">c_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+    <span class="n">T_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">C</span><span class="p">,</span> <span class="n">TT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">c_grid</span><span class="p">,</span> <span class="n">T_grid</span><span class="p">)</span>
+
+    <span class="c1"># Temperature dependent free energy</span>
+    <span class="n">Tc</span> <span class="o">=</span> <span class="mf">1.2</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+        <span class="n">entropy</span> <span class="o">=</span> <span class="n">TT</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">C</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">C</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">TT</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">entropy</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">neginf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># Create gradient colormap</span>
+    <span class="n">surf_cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;#0a0a1a&#39;</span><span class="p">,</span>  <span class="c1"># Very dark blue</span>
+            <span class="s1">&#39;#1e40af&#39;</span><span class="p">,</span>  <span class="c1"># Dark blue</span>
+            <span class="s1">&#39;#3b82f6&#39;</span><span class="p">,</span>  <span class="c1"># Blue</span>
+            <span class="s1">&#39;#22d3ee&#39;</span><span class="p">,</span>  <span class="c1"># Cyan</span>
+            <span class="s1">&#39;#a5f3fc&#39;</span><span class="p">,</span>  <span class="c1"># Light cyan</span>
+            <span class="s1">&#39;#fbbf24&#39;</span><span class="p">,</span>  <span class="c1"># Yellow</span>
+        <span class="p">],</span> <span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Plot surface</span>
+    <span class="n">surf</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">TT</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">surf_cmap</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                            <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add contour projection at the bottom</span>
+    <span class="n">contour_offset</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.03</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">TT</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">zdir</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">contour_offset</span><span class="p">,</span> 
+                <span class="n">levels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;cool&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+    <span class="c1"># Labels and title</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Concentration c&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature T/Tc&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Free Energy F&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Free Energy Surface F(c, T)&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="c1"># Adjust viewing angle</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">65</span><span class="p">)</span>
+
+    <span class="c1"># Customize 3D pane appearance</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;#3a3a5a&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;#3a3a5a&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;#3a3a5a&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="c1"># Add colorbar</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Free Energy&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Main title</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Cahn-Hilliard Model&#39;</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.96</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="c1"># Main Entry Point</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_phase_diagram_and_free_energy</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;phase_diagram_and_free_energy.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</code></pre></div>
+<img alt="运行代码输出" src="../../../cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg" /></p>
+<p><strong>左图（二元相图）</strong>：展示了温度 <span class="arithmatex">\(T\)</span> 与浓度 <span class="arithmatex">\(c\)</span> 的关系。</p>
+<p><strong>双节线（Binodal Line，实线）</strong>：包围了共存区域。在此区域内，混合物倾向于分离成两个相。</p>
+<p><strong>旋节线（Spinodal Line，虚线）</strong>：界定了热力学不稳定区域（Spinodal Region）。在此区域内，微小的浓度涨落会自发放大（即旋节分解）。</p>
+<p><strong>临界点（Critical Point，星号）</strong>：相分离发生的最高温度点。</p>
+<p><strong>右图（自由能曲面）</strong>：展示了自由能密度 <span class="arithmatex">\(F(c, T)\)</span> 随浓度和温度的变化。
+在低温下，自由能曲线呈现“双势阱”结构，导致相分离。
+在高温下（<span class="arithmatex">\(T &gt; T_c\)</span>），自由能曲线为单势阱，混合物处于均匀稳态。</p>
+<h1 id="_6">总结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>这节课通过引入严格的热力学框架，揭示了液态混合物相分离的物理本质。从不可压缩流体的假设出发，推导了以体积分数 <span class="arithmatex">\(\phi\)</span> 为变量的亥姆霍兹自由能密度。通过稳定性分析，确立了凸性（Convexity）作为系统稳定性的核心判据。Maxwell 构造法不仅是一个优雅的几何工具，更深刻地体现了多相平衡中的化学势相等与渗透压相等原则。最终，这些理论汇聚成了描述物质状态的相图，解释了从工业油水混合到细胞内 P 颗粒形成的广泛现象。</p>
+<p>这节课主要解决的是<strong>静力学（Statics）</strong>问题：即给定一个系统，其最终平衡状态为何？是否分层？分层后的平衡浓度是多少？</p>
+<p>然而，物理学同样关心<strong>动力学（Dynamics）</strong>过程：系统究竟是如何从不稳定的均匀态演化到分层的平衡态的？</p>
+<ul>
+<li>
+<p>如果是 Spinodal 分解，液滴如何涌现并形成特征条纹？</p>
+</li>
+<li>
+<p>如果是成核生长，液滴生长的速率由什么决定？</p>
+</li>
+<li>
+<p>液滴之间如何相互作用（例如 Ostwald 熟化）？</p>
+</li>
+</ul>
+<p>在<strong>下一讲</strong>中，课程将引入时间变量，建立非平衡态动力学场论。届时将重点对比两种基本的动力学模型：</p>
+<ul>
+<li><strong>Model A (Allen-Cahn)</strong> ：用于描述非守恒序参量（如磁性）。在此前的课程中已初步探讨过其界面动力学。</li>
+<li><strong>Model B (Cahn-Hilliard)</strong> ：用于描述守恒序参量（如这节课讨论的混合物浓度 <span class="arithmatex">\(\phi\)</span>，受粒子数守恒约束）。</li>
+</ul>
+<p>下一讲将深入探讨守恒律的引入如何从根本上改变相分离的动力学行为，揭示<strong>渗透压（Osmotic Pressure）</strong>在其中的作用，并推导导致扩散控制粗化过程的 <strong>Cahn-Hilliard 方程</strong>。这将为理解细胞内液滴的动态演化提供完整的理论图景。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

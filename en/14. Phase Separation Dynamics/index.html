@@ -1,0 +1,1654 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/en/14.%20Phase%20Separation%20Dynamics/">
+      
+      
+        <link rel="prev" href="../13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/">
+      
+      
+        <link rel="next" href="../15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/en/14.%20Phase%20Separation%20Dynamics/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>14. Phase Separation Dynamics - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-from-discrete-microscopic-models-to-continuous-field-theory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14. Phase Separation Dynamics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/en/14.%20Phase%20Separation%20Dynamics/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-from-discrete-microscopic-models-to-continuous-field-theory">Introduction - From Discrete Microscopic Models to Continuous Field Theory<a class="headerlink" href="#introduction-from-discrete-microscopic-models-to-continuous-field-theory" title="Permanent link">&para;</a></h1>
+<p><strong>Lecture 13</strong> established the thermodynamic cornerstone for describing phase behavior of binary mixtures (such as polymer blends, alloys). Through the <strong>Lattice Gas Model</strong> and <strong>Flory-Huggins Mean-Field Theory</strong>, not only was the physical picture of competition between mixing entropy (favoring disorder) and interaction energy (favoring aggregation) derived, but also the evolution of the Free Energy Landscape with interaction parameter <span class="arithmatex">\(\chi\)</span> was revealed.</p>
+<p>When <span class="arithmatex">\(\chi\)</span> exceeds the critical threshold, the free energy density function <span class="arithmatex">\(f(\phi)\)</span> abruptly transitions from single-well to double-well structure. Although the static thermodynamic potential surface successfully predicts that phase separation must occur and the final equilibrium concentrations (i.e., coexistence values on the binodal), it cannot answer core questions about the <strong>process</strong>: <strong>How does the system break free from the constraint of the single uniform state? What is the spatiotemporal path of phase separation?</strong></p>
+<p><strong>Lecture 14</strong> will shift from "static equilibrium" to "non-equilibrium dynamics." This is a further improvement and extension of dynamical theory following the introduction of non-conserved order parameter dynamics (Ginzburg-Landau/Allen-Cahn equation, i.e., Model A) in <strong>Lecture 9</strong>.</p>
+<p>Unlike Model A, this lecture focuses on <strong>Conserved Order Parameter</strong>—i.e., local concentration <span class="arithmatex">\(\phi(\vec{r},t)\)</span> must satisfy the continuity equation. The <strong>Cahn-Hilliard Equation (Model B)</strong> derived under this framework captures a counter-intuitive physical phenomenon in nature—<strong>Uphill Diffusion</strong>. In the early stages of phase separation (spinodal decomposition region), matter no longer follows the conventional Fick's law of flowing from high to low concentration, but spontaneously aggregates from low concentration regions to high concentration regions, leading to spontaneous enhancement of concentration gradients and interface formation.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/14_001_8f062cc1-f193-4de9-99d1-e5f8daf2d0d8.jpg" /></p>
+<p>This lecture first elaborates the continualization process of free energy functionals, starting from discrete Flory-Huggins free energy, constructing the Ginzburg-Landau effective free energy functional via Taylor expansion, and introducing squared gradient terms to characterize energy penalties for spatial non-uniformity. Based on this functional, solving the Euler-Lagrange equation derives the characteristic hyperbolic tangent (<span class="arithmatex">\(\tanh\)</span>) equilibrium interface profile between two phases and its surface tension, forming theoretical resonance with the interface dynamics in <strong>Lecture 10</strong>.</p>
+<p>Combining mass conservation law with linear non-equilibrium thermodynamic Flux, the fourth-order partial differential equation controlling phase separation evolution—the <strong>Cahn-Hilliard Equation</strong>—is derived. On this basis, using Linear Stability Analysis (LSA) and Fourier mode decomposition, the instability mechanism of uniform state under perturbation is analytically solved, deriving the dispersion relation <span class="arithmatex">\(\omega(q)\)</span> and determining the <strong>Fastest Growing Mode</strong> that sets early texture scales. Finally, the complete dynamical evolution picture from early-stage <strong>Spinodal Decomposition</strong> to late-stage <strong>Coarsening</strong> is described.</p>
+<p>This lecture mainly focuses on spontaneous phase separation mechanisms within the thermodynamically unstable region (<span class="arithmatex">\(f''(\phi)&lt;0\)</span>). For nucleation and growth mechanisms involving barrier crossing in the Metastable Region, these will be introduced in the next lecture.</p>
+<h1 id="1-construction-of-ginzburg-landau-free-energy-functional">1. Construction of Ginzburg-Landau Free Energy Functional<a class="headerlink" href="#1-construction-of-ginzburg-landau-free-energy-functional" title="Permanent link">&para;</a></h1>
+<p>To describe the spatially continuously varying concentration field <span class="arithmatex">\(c(\vec{r}, t)\)</span> during phase separation, physical description must undergo a fundamental mathematical upgrade: from ordinary functions <span class="arithmatex">\(F(c)\)</span> depending only on scalar variables, to <strong>Functionals</strong> <span class="arithmatex">\(\mathcal{F}[c(\vec{r})]\)</span> depending on entire spatial field distributions. This process is called Ginzburg-Landau expansion, which is not only the cornerstone for handling self-organization behavior in this course, but also the universal language in modern condensed matter physics for handling symmetry breaking and phase transition problems. This lecture will rigorously derive this macroscopic field theory description starting from microscopic lattice models.</p>
+<h2 id="11-from-flory-huggins-to-landau-polynomial-expansion">1.1 From Flory-Huggins to Landau Polynomial Expansion<a class="headerlink" href="#11-from-flory-huggins-to-landau-polynomial-expansion" title="Permanent link">&para;</a></h2>
+<p>Recall the dimensionless free energy density <span class="arithmatex">\(f_{FH}(\phi)\)</span> of binary mixtures (components A and B) derived in <strong>Lecture 13</strong>. Under mean-field approximation, this free energy consists of two competing parts—<strong>Entropic contribution</strong> and <strong>Enthalpic contribution</strong>:</p>
+<div class="arithmatex">\[
+f_{FH}(\phi) = \underbrace{\frac{k_B T}{v} \left[ \phi \ln \phi + (1-\phi) \ln (1-\phi) \right]}_{\text{Mixing entropy: favoring disordered uniformity}} + \underbrace{\frac{k_B T}{v} \chi \phi (1-\phi)}_{\text{Interaction energy: favoring phase separation}}
+\]</div>
+<p>The physical meanings of each term are as follows:
+- <span class="arithmatex">\(\phi(\vec{r})\)</span>: represents local volume fraction of component A (order parameter), value range <span class="arithmatex">\(0 \le \phi \le 1\)</span>.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(v\)</span>: lattice unit volume (molecular volume).</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\chi\)</span> (Chi): Flory-Huggins interaction parameter. Its physical essence originates from contact energy differences between different molecules <span class="arithmatex">\(\chi \propto \frac{z}{k_B T} [u_{AB} - \frac{1}{2}(u_{AA} + u_{BB})]\)</span>. Larger <span class="arithmatex">\(\chi\)</span> indicates higher energy cost for A-B contact, and like particles tend to aggregate to reduce total energy.</p>
+</li>
+</ul>
+<p>When the system is near the critical point, order parameter <span class="arithmatex">\(\phi\)</span> undergoes small fluctuations around critical concentration <span class="arithmatex">\(\phi_c = 1/2\)</span>. To capture universal features of phase transitions and simplify mathematical treatment, Taylor expand <span class="arithmatex">\(f_{FH}\)</span> around <span class="arithmatex">\(\phi_c\)</span>. Define the order parameter deviation (perturbation) from critical value as:</p>
+<div class="arithmatex">\[
+\delta \phi = \phi - \frac{1}{2}
+\]</div>
+<p>Using Taylor series expansion of logarithmic functions <span class="arithmatex">\(\ln(1/2 \pm x)\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\phi \ln \phi &amp;\approx \dots + 2(\delta \phi)^2 + \frac{4}{3}(\delta \phi)^4 \\
+(1-\phi) \ln (1-\phi) &amp;\approx \dots + 2(\delta \phi)^2 + \frac{4}{3}(\delta \phi)^4
+\end{aligned}
+\]</div>
+<p>And rewriting the interaction term <span class="arithmatex">\(\phi(1-\phi) = (1/2+\delta \phi)(1/2-\delta \phi) = 1/4 - (\delta \phi)^2\)</span>.</p>
+<p>Substituting the above expansions into the original free energy expression, ignoring constant terms that don't affect dynamical properties and linear terms that can be eliminated through chemical potential redefinition, finally obtain the <strong>Landau-type polynomial free energy density</strong>:</p>
+<div class="arithmatex">\[
+f_{loc}(\delta \phi) \approx \frac{1}{2} r_{eff} (\delta \phi)^2 + \frac{1}{4} u (\delta \phi)^4
+\]</div>
+<p>This expression clearly shows two key coefficients determining the system's fate:</p>
+<p><strong>1. Quadratic term coefficient <span class="arithmatex">\(r_{eff}\)</span> (switch controlling phase transition occurrence):</strong></p>
+<p>Composed of superposition of entropy term's second derivative (positive contribution) and interaction term's second derivative (negative contribution):</p>
+<div class="arithmatex">\[
+r_{eff} \propto k_B T (2 - \chi)
+\]</div>
+<ul>
+<li>
+<p><strong>When <span class="arithmatex">\(\chi &lt; 2\)</span> (high temperature or weak interaction)</strong>: <span class="arithmatex">\(r_{eff} &gt; 0\)</span>, free energy density has minimum at <span class="arithmatex">\(\delta \phi = 0\)</span> (potential well), system is in stable state of single uniform phase.</p>
+</li>
+<li>
+<p><strong>When <span class="arithmatex">\(\chi &gt; 2\)</span> (low temperature or strong interaction)</strong>: <span class="arithmatex">\(r_{eff} &lt; 0\)</span>, free energy density becomes maximum at <span class="arithmatex">\(\delta \phi = 0\)</span> (potential barrier), origin becomes unstable, system undergoes spontaneous symmetry breaking.</p>
+</li>
+</ul>
+<p><strong>2. Quartic term coefficient <span class="arithmatex">\(u\)</span> (provides thermodynamic stability):</strong></p>
+<p>Mainly originates from higher-order expansion of entropy term:</p>
+<div class="arithmatex">\[
+u \propto k_B T &gt; 0
+\]</div>
+<p><span class="arithmatex">\(u\)</span> must always be positive. This term provides nonlinear saturation mechanism, preventing concentration fluctuations from amplifying infinitely when <span class="arithmatex">\(r_{eff} &lt; 0\)</span>. It acts like a "bowl wall," constraining the system within finite concentration range, ultimately determining equilibrium concentrations of two coexisting phases <span class="arithmatex">\(c_{eq} = \pm \sqrt{|r_{eff}|/u}\)</span>.</p>
+<p>To conform to common notation in Cahn-Hilliard dynamics literature and facilitate subsequent derivation, usually define a positive parameter <span class="arithmatex">\(r &gt; 0\)</span> to describe curvature modulus in unstable region. Let <span class="arithmatex">\(c \equiv \delta \phi\)</span>, under conditions of quenching to unstable region (<span class="arithmatex">\(T &lt; T_c\)</span>), local free energy density is written in standard form:</p>
+<div class="arithmatex">\[
+f_{loc}(c) = - \frac{r}{2} c^2 + \frac{u}{4} c^4
+\]</div>
+<h2 id="12-cost-of-spatial-non-uniformity-gradient-energy-term">1.2 Cost of Spatial Non-uniformity: Gradient Energy Term<a class="headerlink" href="#12-cost-of-spatial-non-uniformity-gradient-energy-term" title="Permanent link">&para;</a></h2>
+<p>The above <span class="arithmatex">\(f_{loc}(c)\)</span> only applies to spatially completely uniform systems (local approximation). However, the physical essence of phase separation is forming A-rich and B-rich regions, which inevitably leads to <strong>Interface</strong> formation between the two phases. Interface means order parameter <span class="arithmatex">\(c(\vec{r})\)</span> varies drastically in space, disrupting local neighboring bonding environments, thus carrying energy cost.</p>
+<p>To describe this energy penalty from spatial non-uniformity, Ginzburg and Landau introduced terms depending on order parameter gradient. Based on spatial rotational invariance (Isotropy) and symmetry considerations, the lowest-order non-zero gradient term is <span class="arithmatex">\((\nabla c)^2\)</span>.</p>
+<p>Combining local potential energy with gradient energy yields total free energy functional <span class="arithmatex">\(\mathcal{F}[c]\)</span>:</p>
+<div class="arithmatex">\[
+\mathcal{F}[c(\vec{r})] = \int_V d^d r \left[ \underbrace{-\frac{r}{2} c^2 + \frac{u}{4} c^4}_{\text{Local free energy density } f_{loc}} + \underbrace{\frac{\kappa}{2} (\nabla c)^2}_{\text{Non-local gradient energy}} \right]
+\]</div>
+<p>This expression is the famous <strong>Ginzburg-Landau Free Energy Functional</strong>. The gradient coefficient <span class="arithmatex">\(\kappa\)</span> (Kappa) has clear physical constraints and microscopic origin:</p>
+<div class="arithmatex">\[
+\kappa &gt; 0
+\]</div>
+<p><strong>Physical Meaning</strong>: <span class="arithmatex">\(\kappa\)</span> represents interface "stiffness" or energy penalty strength. It directly determines the magnitude of phase interface surface tension.</p>
+<p><strong>Microscopic Connection</strong>: When derived from microscopic theory, <span class="arithmatex">\(\kappa\)</span> is closely related to molecular interaction <strong>Range</strong> <span class="arithmatex">\(\lambda\)</span>, approximately satisfying <span class="arithmatex">\(\kappa \approx k_B T \chi \lambda^2\)</span>. This means the longer the interaction range, the higher the energy cost for forming sharply varying interfaces.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/14_002_cbeddb79-07f2-4eca-8b01-ff03f693d4c8.png" /></p>
+<h2 id="comparison-flory-huggins-vs-ginzburg-landau">Comparison: Flory-Huggins vs Ginzburg-Landau<a class="headerlink" href="#comparison-flory-huggins-vs-ginzburg-landau" title="Permanent link">&para;</a></h2>
+<p>To demonstrate the mapping relationship from microscopic discrete models to macroscopic continuous field theory, the following table summarizes core correspondences between the two theoretical frameworks:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Flory-Huggins (Microscopic/Discrete)</th>
+<th style="text-align: left;">Ginzburg-Landau (Macroscopic/Continuous Field)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Basic Variable</strong></td>
+<td style="text-align: left;">Volume fraction <span class="arithmatex">\(\phi_i\)</span> on discrete lattice sites</td>
+<td style="text-align: left;">Order parameter field <span class="arithmatex">\(c(\vec{r})\)</span> in continuous space</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Control Parameter</strong></td>
+<td style="text-align: left;">Interaction parameter <span class="arithmatex">\(\chi\)</span> (dimensionless)</td>
+<td style="text-align: left;">Quadratic coefficient <span class="arithmatex">\(r\)</span> (has energy density dimension)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phase Transition Driving Force</strong></td>
+<td style="text-align: left;">Nonlinear competition between enthalpy and entropy</td>
+<td style="text-align: left;">Flipping of polynomial potential well (<span class="arithmatex">\(f''(0)&lt;0\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spatial Correlation</strong></td>
+<td style="text-align: left;">Implied in mean-field assumption (ignores correlations)</td>
+<td style="text-align: left;">Explicitly described by gradient term <span class="arithmatex">\(\frac{\kappa}{2} (\nabla c)^2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Free Energy Form</strong></td>
+<td style="text-align: left;">Logarithmic form <span class="arithmatex">\(\phi \ln \phi\)</span></td>
+<td style="text-align: left;">Polynomial form <span class="arithmatex">\(c^2, c^4\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Applicable Range</strong></td>
+<td style="text-align: left;">Any concentration <span class="arithmatex">\(0 \le \phi \le 1\)</span></td>
+<td style="text-align: left;">Near critical point <span class="arithmatex">\(c \approx 0\)</span> (long-wave approximation)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-equilibrium-properties-interface-profile-and-surface-tension">2. Equilibrium Properties: Interface Profile and Surface Tension<a class="headerlink" href="#2-equilibrium-properties-interface-profile-and-surface-tension" title="Permanent link">&para;</a></h1>
+<p>Before delving into Cahn-Hilliard dynamical evolution equations, the system's static equilibrium baseline must first be established. When phase separation is complete, the system is not in a single uniform state but forms coexisting enriched and depleted phases. The region connecting these two Bulk Phases is the interface. The specific structure of the interface—how wide is it? How much energy does it contain?—is completely determined by variational properties of the Ginzburg-Landau free energy functional. This section first analytically solves the interface equilibrium profile through the functional extremum problem, and thereby derives the microscopic expression of surface tension, laying the physical foundation for subsequent understanding of curvature-driven coarsening.</p>
+<h2 id="21-euler-lagrange-equation">2.1 Euler-Lagrange Equation<a class="headerlink" href="#21-euler-lagrange-equation" title="Permanent link">&para;</a></h2>
+<p>Equilibrium state corresponds to the minimum point of total free energy functional <span class="arithmatex">\(\mathcal{F}[c]\)</span>. According to variational principles, for functional <span class="arithmatex">\(\mathcal{F}\)</span> to take extremum with respect to field variable <span class="arithmatex">\(c(\vec{r})\)</span>, concentration field must satisfy Euler-Lagrange equation. This is physically equivalent to requiring generalized chemical potential <span class="arithmatex">\(\mu = \delta \mathcal{F}/\delta c\)</span> to be constant throughout space (in absence of external field and for symmetric potential well, this constant is 0).</p>
+<p>For the functional <span class="arithmatex">\(\mathcal{F} = \int [f_{loc}(c) + \frac{\kappa}{2} (\nabla c)^2] d^d r\)</span> constructed in previous section, its variational derivative is calculated as:</p>
+<div class="arithmatex">\[
+\frac{\delta \mathcal{F}}{\delta c} = \frac{\partial f_{loc}}{\partial c} - \nabla \cdot \frac{\partial}{\partial (\nabla c)} \left( \frac{\kappa}{2} (\nabla c)^2 \right) = f'_{loc}(c) - \kappa \nabla^2 c
+\]</div>
+<p>Setting variational derivative to zero (<span class="arithmatex">\(\mu = 0\)</span>) yields the differential equation describing equilibrium interface profile:</p>
+<div class="arithmatex">\[
+\kappa \nabla^2 c = f'_{loc}(c)
+\]</div>
+<p>This equation reveals the physical mechanism of interface formation: gradient diffusion term <span class="arithmatex">\(\kappa \nabla^2 c\)</span> (favoring smoothing) must reach mechanical equilibrium with local potential energy driving force <span class="arithmatex">\(f'_{loc}(c)\)</span> (favoring demixing) at each point.</p>
+<h2 id="22-interface-profile-solution">2.2 Interface Profile Solution<a class="headerlink" href="#22-interface-profile-solution" title="Permanent link">&para;</a></h2>
+<p>To analytically solve the specific interface shape, consider the simplest one-dimensional case. Assume interface is perpendicular to <span class="arithmatex">\(x\)</span> axis, concentration field <span class="arithmatex">\(c(x)\)</span> varies only with <span class="arithmatex">\(x\)</span>. Under double-well conditions at <span class="arithmatex">\(T &lt; T_c\)</span>, local free energy derivative is <span class="arithmatex">\(f'_{loc}(c) = -rc + uc^3\)</span>. Substituting into above equation, problem transforms to solving a nonlinear second-order ordinary differential equation:</p>
+<div class="arithmatex">\[
+\kappa \frac{d^2 c}{d x^2} = -r c + u c^3
+\]</div>
+<p><strong>Boundary Conditions</strong>: Interface connects two thermodynamically stable coexisting phases, so at infinity, concentration must approach the two minimum points of potential well:</p>
+<div class="arithmatex">\[
+x \to -\infty, \quad c \to c_- = -\sqrt{\frac{r}{u}}
+\]</div>
+<div class="arithmatex">\[
+x \to +\infty, \quad c \to c_+ = +\sqrt{\frac{r}{u}}
+\]</div>
+<p>This equation has a famous analytical solution, called <strong>Hyperbolic Tangent Solution (Kink Solution)</strong> or soliton solution:</p>
+<div class="arithmatex">\[
+c(x) = \sqrt{\frac{r}{u}} \tanh \left( \frac{x}{\sqrt{2} \xi} \right)
+\]</div>
+<p>In this solution, a key length scale naturally emerges—<strong>Correlation Length</strong> or <strong>Interface Width</strong> <span class="arithmatex">\(\xi\)</span>:</p>
+<div class="arithmatex">\[
+\xi \equiv \sqrt{\frac{\kappa}{r}}
+\]</div>
+<p><strong>Physical Meaning:</strong></p>
+<p>Interface width expression <span class="arithmatex">\(\sqrt{\kappa/r}\)</span> clearly embodies balance between two competing mechanisms:</p>
+<ul>
+<li>
+<p><strong>Numerator:</strong> Gradient coefficient <span class="arithmatex">\(\kappa\)</span>. Larger <span class="arithmatex">\(\kappa\)</span> means higher energy cost for non-uniformity, system tends to widen interface to slow gradient variation, leading to larger <span class="arithmatex">\(\xi\)</span>.</p>
+</li>
+<li>
+<p><strong>Denominator:</strong> Potential well depth parameter <span class="arithmatex">\(r\)</span>. Larger <span class="arithmatex">\(r\)</span> means deeper double-well, stronger tendency for like-particle aggregation, system tends to compress interface so more particles reside in low-energy bulk phases, leading to smaller <span class="arithmatex">\(\xi\)</span>.</p>
+</li>
+</ul>
+<p>When temperature approaches critical point (<span class="arithmatex">\(T \to T_c\)</span>), since <span class="arithmatex">\(r \propto (T_c - T)\)</span> approaches 0, interface width <span class="arithmatex">\(\xi \propto (T_c - T)^{-1/2}\)</span> tends to infinity. This means near critical point, boundary between two phases becomes extremely blurry, macroscopic interface disappears, consistent with experimentally observed <strong>Critical Opalescence</strong> phenomenon.</p>
+<h2 id="23-calculation-of-interface-tension">2.3 Calculation of Interface Tension<a class="headerlink" href="#23-calculation-of-interface-tension" title="Permanent link">&para;</a></h2>
+<p>Interface tension <span class="arithmatex">\(\gamma\)</span> is one of the core driving forces of phase separation dynamics (such as Laplace pressure). Its definition is: extra free energy added by introducing an interface relative to same volume of single uniform bulk phase. Mathematical expression is integral of energy density over all space:</p>
+<div class="arithmatex">\[
+\gamma = \int_{-\infty}^{+\infty} dx \left[ f_{loc}(c(x)) + \frac{\kappa}{2} \left(\frac{dc}{dx}\right)^2 - f_{min} \right]
+\]</div>
+<p>where <span class="arithmatex">\(f_{min} = f(c_{\pm})\)</span> is equilibrium free energy density of bulk phase.
+Direct integration of hyperbolic tangent function is tedious; this lecture introduces an elegant method using <strong>First Integral of Motion (Energy Equipartition Identity)</strong>. Similar to energy conservation in classical mechanics, on equilibrium paths satisfying Euler-Lagrange equation, gradient energy density and local potential energy increment are strictly equal in magnitude:</p>
+<div class="arithmatex">\[
+\frac{\kappa}{2} \left(\frac{dc}{dx}\right)^2 = f_{loc}(c) - f_{min}
+\]</div>
+<p>Using this identity, we can transform integration variable from spatial coordinate <span class="arithmatex">\(x\)</span> to order parameter <span class="arithmatex">\(c\)</span>, thereby avoiding complex spatial dependence:</p>
+<div class="arithmatex">\[
+\gamma = \int_{-\infty}^{+\infty} dx \left[ 2 \times \frac{\kappa}{2} \left(\frac{dc}{dx}\right)^2 \right] = \int_{c_-}^{c_+} dc \sqrt{2\kappa [f_{loc}(c) - f_{min}]}
+\]</div>
+<p>Substituting double-well form <span class="arithmatex">\(f_{loc}(c) - f_{min} = \frac{u}{4}(c^2 - c_0^2)^2\)</span>, integral becomes:</p>
+<div class="arithmatex">\[
+\gamma = \int_{-c_0}^{+c_0} dc \sqrt{\frac{\kappa u}{2}} (c_0^2 - c^2)
+\]</div>
+<p>After calculation (<span class="arithmatex">\(\int (c_0^2 - c^2) dc = \frac{4}{3}c_0^3\)</span>), finally obtain universal surface tension formula in Landau theory:</p>
+<div class="arithmatex">\[
+\gamma = \frac{2\sqrt{2}}{3} \frac{r^{3/2} \kappa^{1/2}}{u}
+\]</div>
+<p>This formula profoundly connects macroscopic and microscopic: macroscopically measurable surface tension <span class="arithmatex">\(\gamma\)</span> is completely determined by microscopic interaction parameters (<span class="arithmatex">\(r, u, \kappa\)</span>).</p>
+<p><strong>Temperature Dependence:</strong> Considering <span class="arithmatex">\(r \propto (T_c - T)\)</span> and <span class="arithmatex">\(u \approx const\)</span>, we have <span class="arithmatex">\(\gamma \propto (T_c - T)^{3/2}\)</span>.</p>
+<p><strong>Critical Behavior:</strong> When <span class="arithmatex">\(T \to T_c\)</span>, surface tension tends to zero with critical exponent 1.5, explaining why near critical point droplets deform easily and interfaces are extremely unstable.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/14_003_af77abc1-88d3-4159-aec0-79bb18758863.png" /></p>
+<h1 id="3-non-equilibrium-dynamics-derivation-of-cahn-hilliard-equation">3. Non-equilibrium Dynamics: Derivation of Cahn-Hilliard Equation<a class="headerlink" href="#3-non-equilibrium-dynamics-derivation-of-cahn-hilliard-equation" title="Permanent link">&para;</a></h1>
+<p>After constructing the Ginzburg-Landau functional <span class="arithmatex">\(\mathcal{F}\)</span> describing system's static energy characteristics, focus of theory construction shifts to system's spatiotemporal evolution mechanism. Static free energy only indicates system's "destination" (equilibrium state), while dynamical equations describe how the system traverses complex energy landscapes to reach there—the "path." For phase separation of binary mixtures, dynamical behavior is constrained by a most fundamental physical iron law: <strong>mass conservation</strong>. This section rigorously derives the equation of motion describing universal phase separation dynamics under this constraint.</p>
+<h2 id="31-conservation-law-and-model-b-classification">3.1 Conservation Law and Model B Classification<a class="headerlink" href="#31-conservation-law-and-model-b-classification" title="Permanent link">&para;</a></h2>
+<p>Unlike magnetic systems (such as spin flipping in Ising model), component A molecules in binary mixtures neither appear nor disappear out of thin air, but can only undergo positional migration through transport in physical space. This dynamical property is called <strong>Model B</strong> in Hohenberg and Halperin classification (in contrast, relaxation dynamics with non-conserved order parameter is called <strong>Model A</strong> or Allen-Cahn equation).</p>
+<p>Therefore, evolution of concentration field (order parameter) <span class="arithmatex">\(c(\vec{r}, t)\)</span> must strictly obey continuity equation:</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial t} + \nabla \cdot \vec{J} = 0 \quad \Rightarrow \quad \frac{\partial c}{\partial t} = - \nabla \cdot \vec{J}
+\]</div>
+<p>where <span class="arithmatex">\(\vec{J}(\vec{r}, t)\)</span> represents mass flux density. This conservation constraint profoundly changes system's dynamical behavior: any local concentration change must be accompanied by long-range material flow, causing extremely long relaxation times for long-wave modes (large-scale structures), forming sharp contrast with non-conserved systems where order parameter can directly relax locally.</p>
+<h2 id="32-generalized-thermodynamic-force-and-chemical-potential">3.2 Generalized Thermodynamic Force and Chemical Potential<a class="headerlink" href="#32-generalized-thermodynamic-force-and-chemical-potential" title="Permanent link">&para;</a></h2>
+<p>To close the equation, relationship between flux <span class="arithmatex">\(\vec{J}\)</span> and system state variables must be established. According to non-equilibrium thermodynamics (Onsager linear response theory), the fundamental cause driving material flow is not simply concentration gradient (Fick's law is only special case for ideal dilute solutions), but <strong>gradient of generalized chemical potential</strong>. Material always flows from high to low chemical potential regions, so flux is proportional to generalized thermodynamic force:</p>
+<div class="arithmatex">\[
+\vec{J} = - M \nabla \mu
+\]</div>
+<p>In this relation:</p>
+<p><span class="arithmatex">\(M\)</span>: <strong>Mobility</strong>. It characterizes difficulty of particle movement in medium. In basic theoretical derivation, <span class="arithmatex">\(M\)</span> is usually assumed constant (isotropic and uniform). But in more refined polymer dynamics models, <span class="arithmatex">\(M\)</span> often depends on local concentration, e.g., <span class="arithmatex">\(M(c) \propto 1-c^2\)</span> (reflecting restricted migration in pure component regions); this lecture mainly focuses on simplest case of constant <span class="arithmatex">\(M\)</span>.</p>
+<p><span class="arithmatex">\(\mu\)</span>: <strong>Generalized Chemical Potential</strong>, corresponding to exchange chemical potential <span class="arithmatex">\(\mu_{ex} = \mu_A - \mu_B\)</span>.</p>
+<h2 id="33-variational-derivative-determines-chemical-potential">3.3 Variational Derivative Determines Chemical Potential<a class="headerlink" href="#33-variational-derivative-determines-chemical-potential" title="Permanent link">&para;</a></h2>
+<p>Core of Ginzburg-Landau theory is that chemical potential <span class="arithmatex">\(\mu\)</span> here is no longer simple partial derivative of thermodynamic function, but <strong>Functional Derivative</strong> of free energy functional <span class="arithmatex">\(\mathcal{F}\)</span> with respect to field variable <span class="arithmatex">\(c(\vec{r})\)</span>. This introduces spatially non-local interactions:</p>
+<div class="arithmatex">\[
+\mu(\vec{r}) = \frac{\delta \mathcal{F}}{\delta c(\vec{r})} = \underbrace{\frac{\partial f_{loc}}{\partial c}}_{\text{Local contribution}} - \underbrace{\kappa \nabla^2 c}_{\text{Non-local/Interface contribution}}
+\]</div>
+<p><strong>Physical Meaning:</strong></p>
+<p><strong>Local Contribution</strong>: Originates from Flory-Huggins double-well, driving system toward equilibrium concentrations.</p>
+<p><strong>Interface Contribution (<span class="arithmatex">\(-\kappa \nabla^2 c\)</span>)</strong>: This term is crucial, representing <strong>interface curvature</strong> correction to chemical potential. Inside droplets (convex interface), concentration distribution appears "peak-shaped," <span class="arithmatex">\(\nabla^2 c &lt; 0\)</span>, making <span class="arithmatex">\(-\kappa \nabla^2 c &gt; 0\)</span>, thus <strong>raising</strong> local chemical potential. This is precisely the direct expression of classical <strong>Gibbs-Thomson Effect</strong> in continuous field theory: droplets with larger curvature have higher internal chemical potential, causing material to escape and diffuse into larger droplets. This mechanism directly drives Ostwald Ripening phenomenon in late-stage phase separation.</p>
+<h2 id="34-complete-form-of-cahn-hilliard-equation-model-b">3.4 Complete Form of Cahn-Hilliard Equation (Model B)<a class="headerlink" href="#34-complete-form-of-cahn-hilliard-equation-model-b" title="Permanent link">&para;</a></h2>
+<p>Substituting chemical potential <span class="arithmatex">\(\mu\)</span> determined by functional derivative into flux formula, then combining with continuity equation, the famous <strong>Cahn-Hilliard Equation</strong> is assembled. This is a fourth-order nonlinear partial differential equation describing conserved order parameter evolution in thermodynamically unstable region:</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial t} = \nabla \cdot \left[ M \nabla \left( \frac{\partial f_{loc}}{\partial c} - \kappa \nabla^2 c \right) \right]
+\]</div>
+<p>Assuming mobility <span class="arithmatex">\(M\)</span> is constant, and substituting Landau polynomial potential derivative <span class="arithmatex">\(f'_{loc}(c) = -rc + uc^3\)</span>, equation expands to specific form:</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial t} = M \nabla^2 (-r c + u c^3) - M \kappa \nabla^4 c
+\]</div>
+<p>To deeply understand its physical mechanism, the right side of equation can be interpreted in two parts:</p>
+<p>1.<strong>Uphill Diffusion Term</strong>: <span class="arithmatex">\(M \nabla^2 (-r c)\)</span></p>
+<p>When system is in spinodal region (<span class="arithmatex">\(r&gt;0\)</span>), this term is equivalent to <span class="arithmatex">\(D_{eff} \nabla^2 c\)</span>, where effective diffusion coefficient <span class="arithmatex">\(D_{eff} = -M r &lt; 0\)</span>. <strong>Negative diffusion coefficient</strong> means material flow direction is opposite to conventional Fick diffusion: material spontaneously flows from low to high concentration regions, causing small concentration fluctuations to be continuously amplified rather than smoothed. This is the fundamental driving force for phase separation.</p>
+<p>2.<strong>Bi-harmonic Stabilization Term</strong>: <span class="arithmatex">\(- M \kappa \nabla^4 c\)</span> </p>
+<p>This is a fourth-order derivative term originating from gradient energy penalty. Since <span class="arithmatex">\(\kappa &gt; 0\)</span>, this term dominates in short-wavelength (high wavenumber) range and acts as <strong>damping/stabilization</strong>. It physically suppresses violent fluctuations at extremely short distances, preventing concentration gradients from diverging infinitely due to uphill diffusion, thus ensuring formed interfaces have finite width (<span class="arithmatex">\(\xi\)</span>), avoiding non-physical singularities.</p>
+<h1 id="4-linear-stability-analysis-and-dispersion-relation">4. Linear Stability Analysis and Dispersion Relation<a class="headerlink" href="#4-linear-stability-analysis-and-dispersion-relation" title="Permanent link">&para;</a></h1>
+<p>Cahn-Hilliard equation is a highly nonlinear fourth-order partial differential equation, generally difficult to obtain analytical general solutions. However, to quantitatively understand how phase separation <strong>initiates</strong>, key to theoretical analysis is examining how a uniformly mixed state responds to small thermodynamic fluctuations. If small perturbations decay over time, mixed state is stable; if perturbations amplify over time, system is unstable. This method is called <strong>Linear Stability Analysis (LSA)</strong>, and it is the golden key to understanding physical picture of Spinodal Decomposition.</p>
+<h2 id="41-linearized-perturbation-equation">4.1 Linearized Perturbation Equation<a class="headerlink" href="#41-linearized-perturbation-equation" title="Permanent link">&para;</a></h2>
+<p>Assume system initially is in uniform mixed state with average concentration <span class="arithmatex">\(c_0\)</span> (in critical quench experiments, usually take critical composition <span class="arithmatex">\(c_0 = 0\)</span>). Superimpose a small spatiotemporal perturbation <span class="arithmatex">\(\delta c(\vec{r}, t)\)</span> on this background:</p>
+<div class="arithmatex">\[
+c(\vec{r}, t) = c_0 + \delta c(\vec{r}, t), \quad \text{where } |\delta c| \ll 1
+\]</div>
+<p>Substitute this expression into Cahn-Hilliard equation, use Taylor expansion <span class="arithmatex">\(f'(c) \approx f'(c_0) + f''(c_0)\delta c\)</span>, and ignore all higher-order nonlinear terms of <span class="arithmatex">\(\delta c\)</span> (such as <span class="arithmatex">\((\delta c)^3\)</span>), equation is linearized to:</p>
+<div class="arithmatex">\[
+\frac{\partial \delta c}{\partial t} = M \nabla^2 \left( f''(c_0) \delta c - \kappa \nabla^2 \delta c \right)
+\]</div>
+<p>For critical quench (<span class="arithmatex">\(c_0=0\)</span>), according to Landau free energy <span class="arithmatex">\(f_{loc}(c) = -\frac{r}{2}c^2 + \frac{u}{4}c^4\)</span> defined in Section 1, second derivative <span class="arithmatex">\(f''(0) = -r\)</span>. This indicates within spinodal region, second derivative is negative, providing driving force for instability.</p>
+<h2 id="42-fourier-modes-and-dispersion-relation">4.2 Fourier Modes and Dispersion Relation<a class="headerlink" href="#42-fourier-modes-and-dispersion-relation" title="Permanent link">&para;</a></h2>
+<p>Since linearized equation coefficients are constants, and boundary conditions are usually periodic or infinite, various fluctuation modes in space are mutually decoupled. This allows Fourier Transform of perturbation field, converting complex spatial differentiation into algebraic operations.</p>
+<p>Introduce plane wave trial solution:</p>
+<div class="arithmatex">\[
+\delta c(\vec{r}, t) = \int \frac{d^d q}{(2\pi)^d} \hat{c}(\vec{q}, t) e^{i \vec{q} \cdot \vec{r}}
+\]</div>
+<p>where <span class="arithmatex">\(\vec{q}\)</span> is Wavenumber vector. Substituting into linear equation, using operator correspondences <span class="arithmatex">\(\nabla \to i\vec{q}\)</span> and <span class="arithmatex">\(\nabla^2 \to -q^2\)</span>, each Fourier mode <span class="arithmatex">\(\hat{c}(\vec{q}, t)\)</span> evolution follows first-order ODE:</p>
+<div class="arithmatex">\[
+\frac{\partial \hat{c}(\vec{q}, t)}{\partial t} = \sigma(q) \hat{c}(\vec{q}, t)
+\]</div>
+<p>Solution exhibits exponential form <span class="arithmatex">\(\hat{c}(\vec{q}, t) = \hat{c}(\vec{q}, 0) e^{\sigma(q) t}\)</span>. The functional relationship between growth rate <span class="arithmatex">\(\sigma(q)\)</span> and wavenumber magnitude <span class="arithmatex">\(q\)</span> is called <strong>Dispersion Relation</strong>:</p>
+<div class="arithmatex">\[
+\sigma(q) = -M q^2 \left( f''(c_0) + \kappa q^2 \right)
+\]</div>
+<p>In thermodynamically unstable region (Spinodal Region, <span class="arithmatex">\(f''(c_0) &lt; 0\)</span>), letting <span class="arithmatex">\(|f''(c_0)| = r\)</span>, dispersion relation can be rewritten in more intuitive form:</p>
+<div class="arithmatex">\[
+\sigma(q) = M q^2 \left( r - \kappa q^2 \right) = M r q^2 - M \kappa q^4
+\]</div>
+<h2 id="43-mode-selection-fingerprint-of-spinodal-decomposition">4.3 Mode Selection: Fingerprint of Spinodal Decomposition<a class="headerlink" href="#43-mode-selection-fingerprint-of-spinodal-decomposition" title="Permanent link">&para;</a></h2>
+<p>Analytical form of dispersion relation <span class="arithmatex">\(\sigma(q)\)</span> reveals the most core physical characteristic distinguishing Spinodal Decomposition from nucleation and growth—<strong>Scale Selectivity</strong>. <span class="arithmatex">\(\sigma(q)\)</span> presents as inverted parabola (bell-shaped curve), this non-monotonicity arises from competition between two physical mechanisms:</p>
+<p>1.<strong>Long-wave Instability (<span class="arithmatex">\(q \to 0\)</span>)</strong>:
+When <span class="arithmatex">\(q\)</span> is small, ignoring higher-order terms, <span class="arithmatex">\(\sigma(q) \approx M r q^2 &gt; 0\)</span>.</p>
+<p><strong>Positive Growth</strong>: Indicates long-wave perturbations are unstable and will exponentially amplify over time.</p>
+<p><strong>Zero-point Constraint</strong>: Note <span class="arithmatex">\(\sigma(0)=0\)</span>. This originates from <strong>mass conservation law</strong> (Cahn-Hilliard is Model B). Total mass of entire system cannot change (<span class="arithmatex">\(q=0\)</span> corresponds to average concentration), so infinitely long wavelength mode cannot grow, phase separation must proceed through local material rearrangement.</p>
+<p>2.<strong>Short-wave Cut-off (<span class="arithmatex">\(q \to \infty\)</span>)</strong>:</p>
+<p>As <span class="arithmatex">\(q\)</span> increases, gradient energy term <span class="arithmatex">\(-M \kappa q^4\)</span> gradually dominates, causing <span class="arithmatex">\(\sigma(q)\)</span> to become negative.</p>
+<p><strong>Physical Meaning</strong>: Extremely short wavelength fluctuations mean extremely large concentration gradients, requiring huge interface energy cost. When wavelength is shorter than certain threshold, energy penalty exceeds benefit from demixing, perturbation will be suppressed and decay.</p>
+<p><strong>Cut-off Wavenumber <span class="arithmatex">\(q_c\)</span> (or <span class="arithmatex">\(q_0\)</span>)</strong>: Setting <span class="arithmatex">\(\sigma(q_c) = 0\)</span>, solve for critical wavenumber:</p>
+<div class="arithmatex">\[
+q_c = \sqrt{\frac{r}{\kappa}} = \sqrt{\frac{-f''(c_0)}{\kappa}}
+\]</div>
+<p>This defines minimum structural size <span class="arithmatex">\(\lambda_c = 2\pi/q_c\)</span> system can form.</p>
+<p>3.<strong>Fastest Growing Mode (<span class="arithmatex">\(q_{max}\)</span>)</strong>:</p>
+<p>Within unstable interval <span class="arithmatex">\(0 &lt; q &lt; q_c\)</span>, <span class="arithmatex">\(\sigma(q)\)</span> must have a maximum. Solving <span class="arithmatex">\(d\sigma/dq = 0\)</span>:</p>
+<div class="arithmatex">\[
+\frac{d}{dq} (M r q^2 - M \kappa q^4) = 2Mrq - 4M\kappa q^3 = 0
+\]</div>
+<p>Solve for characteristic wavenumber with fastest growth:</p>
+<div class="arithmatex">\[
+q_{max} = \sqrt{\frac{r}{2\kappa}} = \frac{q_c}{\sqrt{2}}
+\]</div>
+<p><strong>Physical Conclusion:</strong></p>
+<p>This result constitutes "fingerprint" of Spinodal Decomposition. Although initial thermal fluctuations (white noise) contain all frequency components, linear dynamical equation acts as <strong>Band-pass Filter</strong>. It preferentially amplifies fluctuation modes with wavelength <span class="arithmatex">\(\lambda_{max} \approx 2\pi/q_{max}\)</span>.</p>
+<p>This explains why in early phase separation, system spontaneously emerges with characteristic uniformly scaled, labyrinth-like <strong>Bicontinuous Pattern</strong>. This spontaneous selection of characteristic scale is its most essential difference from nucleation and growth (random and local droplet formation).</p>
+<h1 id="5-code-practice-emergence-of-collective-oscillations-in-crowded-crowds">5. Code Practice: Emergence of Collective Oscillations in Crowded Crowds<a class="headerlink" href="#5-code-practice-emergence-of-collective-oscillations-in-crowded-crowds" title="Permanent link">&para;</a></h1>
+<p>In previous lectures, we have clearly explained <strong>"how phase separation spatial patterns grow from uniform state"</strong>:<br />
+- Model A (Allen–Cahn): relaxation of non-conserved order parameter</p>
+<ul>
+<li>Model B (Cahn–Hilliard): uphill diffusion of conserved order parameter, dispersion relation and fastest growing mode </li>
+</ul>
+<p>But in many non-equilibrium systems in real world, "phase transition" signature is not necessarily spatial phase separation structure,
+but may be <strong>"spontaneously selecting a frequency" in time dimension</strong> (<strong>from noise → periodic oscillation</strong>). This section uses a 2025 Nature paper on crowd dynamics as practice case, transferring "linear stability/mode decomposition" learned in CH equation to "spectrum—phase transition" toolkit.</p>
+<p><img alt="Gu, F., Guiselin, B., Bain, N. et al. Emergence of collective oscillations in massive human crowds. Nature 638, 112–119 (2025)." src="../../cn/assets/images/14_004_c527695a-941b-471b-b25c-8674978c9cf8.png" /></p>
+<p>In large gatherings, <strong>dense crowds are strongly constrained in limited space</strong>, once uncontrolled collective motion occurs, it may lead to crushing risks at walls, breathing obstruction, stampedes, casualties. Typical cases include "crowd quakes" in 2010 Love Parade (Duisburg, Germany) accident, and Korea Itaewon stampede.</p>
+<p>Over past decades, mainstream pedestrian crowd models often start from "pairwise interactions between individuals" (e.g., heuristic collision/social force models), effective for trajectory prediction of small crowds; but when crowd size reaches <strong>thousands and extremely crowded</strong>, system becomes huge many-body problem, difficult to establish verifiable first-principles explanations from microscopic behavioral rules.</p>
+<p>Crowd at Spain's San Fermín festival (video, source: Gu, F., Guiselin, B., Bain, N. et al. Nature 638, 112–119 (2025)):</p>
+<video controls preload="metadata" style="width: 100%;">
+  <source src="../cn/assets/images/San Fermín.mp4" type="video/mp4" />
+</video>
+
+<p>Download: <a href="../../cn/assets/images/San%20Ferm%C3%ADn.mp4"><code>San Fermín.mp4</code></a></p>
+<p>Breakthrough of this paper: authors seized a rare opportunity—at Spanish Pamplona <strong>San Fermín festival opening ceremony (Chupinazo)</strong>, obtained repeatable crowd video data over multiple consecutive years, at same location, same time, similar organization; and treated dense crowd as <strong>continuous medium (active continuum)</strong> for measurement and modeling, thereby discovering and explaining a phenomenon:</p>
+<p><strong>When average density crosses threshold, dense crowd spontaneously self-organizes into macroscopic "chiral oscillator," hundreds of people synchronously performing orbital motion; without external command, without rhythm signal.</strong></p>
+<p>This study treats crowd as two-dimensional continuum, core observables are two "fields":</p>
+<p>1.<strong>Local Density Field</strong> <span class="arithmatex">\(\rho(\mathbf{r},t)\)</span>: obtain discrete points through head detection, then calculate local density in spatial window</p>
+<p>2.<strong>Eulerian Velocity Field</strong> <span class="arithmatex">\(\mathbf{v}(\mathbf{r},t)\)</span>: use PIV (particle image velocimetry) to measure velocity vector in ~1.5m scale window</p>
+<p><img alt="Crowd gathering and density growth before San Fermín festival &quot;Chupinazo&quot; opening. (a) Crowd photo from 2019 San Fermín festival opening; (b) Overhead view of Plaza Consistorial and study region (dashed polygon), orange dots are observation points (scale bar 10 m); (c,d) Close-up at 57:15 and 00:30 before opening, green dots are participant positions from head detection; (e) Average number density monotonically increasing over time for 2022/2023/2024, crossing into extremely crowded state near critical density \(\rho^*\) shown by dashed line; inset shows radial distribution function \(g(r)\); (f) Local density heatmaps at two times (white areas are view blocked by buildings/flags/balloons). This figure shows: during gradual crowd density increase, system enters new dynamical phase near \(\rho^*\) (subsequently manifesting as collective oscillations). Source: Gu, F., Guiselin, B., Bain, N. et al. Nature 638, 112–119 (2025)." src="../../cn/assets/images/14_005_3ce843de-cf42-4947-a95a-0924653ec993.jpg" /></p>
+<p>This step is crucial—this study <strong>no longer views crowd merely as collection of many individual trajectories, but as a continuous dynamical field that can be measured and analyzed</strong>. Through systematic processing of dense crowd videos, they constructed time-varying <strong>velocity field</strong> and <strong>density field</strong>, enabling "crowd dynamics" to truly enter analysis framework of <strong>continuous field theory</strong> and statistical physics for first time. This step is crucial because it provides unified, comparable objects for subsequent spectral analysis and phase transition criteria.</p>
+<p>Study found that as crowd density slowly rises over time, overall motion state does not change gradually and smoothly. Instead, approaching certain <strong>critical density</strong>, crowd velocity fluctuations suddenly undergo qualitative change: from originally featureless, approximately random noise state, transitioning to collective motion state with obvious periodicity. To reveal essence of this phase transition, authors introduced <strong>spectral analysis</strong> as tool, decomposing velocity field structure in time dimension.</p>
+<p><img alt="Spectral characteristics and dynamical phase transition of crowd collective oscillations. Top row shows crowd velocity (kinetic energy) and decomposed direction and speed magnitude power spectra from different years and events; middle row uses raw trajectories and schematics to illustrate oscillation has orbital (not back-and-forth) characteristics; bottom row gives spectrum heatmaps varying with control parameter. Experimental results use average crowd density as horizontal axis, numerical results use dimensionless parameter \(\beta/\beta_c\) as horizontal axis. Black dashed line marks critical point, black dots indicate dominant oscillation frequency \(\omega_0\). Can see \(\omega_0\) jumps from 0 to non-zero near critical point, marking system entering collective oscillation phase. Source: Gu, F., Guiselin, B., Bain, N. et al. Nature 638, 112–119 (2025)." src="../../cn/assets/images/14_006_ea7e179d-0ed0-4251-9e90-9593551e3920.jpg" /></p>
+<p>Specifically, they performed temporal Fourier transform on crowd velocity field <span class="arithmatex">\(\mathbf{v}(\mathbf{r},t)\)</span>, constructing velocity (or kinetic energy) power spectrum <span class="arithmatex">\(S_v(\omega)\)</span>. Results show: under high density conditions, spectrum function is no longer flat, but exhibits stable and clear peaks at pair of symmetric finite frequencies <span class="arithmatex">\(\pm \omega_0\)</span>. Time scale corresponding to this dominant frequency is about ten seconds, indicating crowd as whole undergoes periodic collective motion at this time scale. Further decomposition analysis revealed counter-intuitive but extremely important fact: <strong>these spectral peaks mainly come from periodic changes in motion direction, not periodic changes in speed magnitude</strong>. This means crowd is not "swaying back and forth," but performing orbit-like <strong>orbital motion</strong> in space, embodying a kind of macroscopic chiral collective oscillation.</p>
+<p>To more clearly present this "from nothing to something" transition process, study further adopted <strong>time-frequency analysis</strong> method. They used sliding time windows (e.g., several minutes width), repeatedly calculated velocity spectrum in different time periods, and assembled results into two-dimensional heatmap. Resulting images intuitively show how spectral structure evolves with control parameter changes: in experimental data, horizontal axis is local average crowd density; in theory and numerical simulation, horizontal axis corresponds to dimensionless control parameter <span class="arithmatex">\(\beta/\beta_c\)</span> in model. In such plots (above figure f), can clearly see: <strong>when system crosses critical point, dominant frequency <span class="arithmatex">\(\omega_0\)</span> suddenly jumps from zero to finite value</strong>. Therefore, <span class="arithmatex">\(\omega_0\)</span> can naturally be understood as <strong>dynamical order parameter</strong> characterizing whether "oscillation phase" appears.</p>
+<p>In CH model, <span class="arithmatex">\(\sigma(q)\)</span> determines which spatial wavelength will spontaneously grow, corresponding to spatial structure formation; in crowd system, velocity spectrum <span class="arithmatex">\(S_v(\omega)\)</span> reveals whether system will spontaneously select finite oscillation frequency <span class="arithmatex">\(\omega_0\)</span>, corresponding to temporal structure formation. In other words, CH describes "how spatial instability leads to structure self-organization," while crowd dynamics demonstrates "how temporal instability leads to periodic state (limit cycle) self-organization."</p>
+<p>Both are isomorphic in analytical logic, but physical results point to completely different types of phase transitions. Furthermore, this difference originates from different dynamical essences: Cahn–Hilliard equation is strictly a gradient flow system, its evolution follows monotonic dissipation of free energy functional <span class="arithmatex">\(\mathcal{F}[c]\)</span>, inevitably heading toward static equilibrium (phase separation and coarsening); while chiral oscillations in crowds belong to <strong>non-reciprocal non-equilibrium phase</strong>, system does not descend along some free energy function, but can stably run on limit cycle without external periodic driving. Precisely because of this, in this section we no longer repeat "phase separation heatmaps" already deeply discussed in previous lectures, but instead use <strong>spectral heatmaps</strong>, providing phase transition observation perspective centered on temporal frequency.</p>
+<p>Following code reproduces a simple spatial coupling model with two-dimensional lattice and local overdamped dynamics, reproducing <strong>emergence of collective oscillations</strong> in dense crowds—this non-equilibrium dynamical phenomenon. First, code simulates "toy continuum model" on two-dimensional lattice simulating wall-constrained crowd, treating crowd as continuum, generating visualizable <strong>crowd turbulence animation</strong> through local overdamped dynamics and simple spatial coupling.</p>
+<p>At temporal level, construct mean-field (0D) model, scan control parameter <span class="arithmatex">\(\beta/\beta_c\)</span>, perform Fourier analysis on system velocity time series, calculate velocity spectrum <span class="arithmatex">\(S_v(\omega)\)</span>, capturing process of dominant oscillation frequency <span class="arithmatex">\(\omega_0\)</span> jumping from 0 to non-zero near critical point.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span><span class="p">,</span> <span class="n">PillowWriter</span>
+
+<span class="c1"># 0) Utility functions</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">laplacian_periodic</span><span class="p">(</span><span class="n">field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;2D Laplacian with periodic boundaries: ∇²f ≈ neighbors - 4f&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">field</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">moving_average_1d</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fft_spectrum_sv</span><span class="p">(</span><span class="n">vx</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">vy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Velocity spectrum: S_v(ω) = |FFT(vx)|^2 + |FFT(vy)|^2</span>
+<span class="sd">    Returns: omega_sorted (rad/s), Sv_sorted</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">)</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vx</span> <span class="o">-</span> <span class="n">vx</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">fy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vy</span> <span class="o">-</span> <span class="n">vy</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">Sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># Simple normalization (shape only)</span>
+
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># Hz</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span>      <span class="c1"># rad/s</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">omega</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">Sv</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<span class="c1"># 1) Part A: Cool GIF (2D toy spatial model)</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GifParams</span><span class="p">:</span>
+    <span class="c1"># Grid</span>
+    <span class="n">N</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.005</span>
+    <span class="n">relax_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1200</span>
+    <span class="n">steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3600</span>
+
+    <span class="n">frame_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span>
+    <span class="n">quiver_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+
+    <span class="c1"># Local dynamics parameters (aligned with author&#39;s magnitude):contentReference[oaicite:4]{index=4}</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.027</span>
+    <span class="n">gamma_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">18.0</span>
+    <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.10</span>
+    <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.025</span>     <span class="c1"># eta/gamma_p (author script same name eps):contentReference[oaicite:5]{index=5}</span>
+    <span class="n">sigma_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.50</span>      <span class="c1"># toy noise</span>
+
+    <span class="c1"># Toy spatial coupling (visually form clusters/large-scale flows)</span>
+    <span class="n">Du</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.30</span>
+    <span class="n">Dp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.30</span>
+
+    <span class="c1"># Particles</span>
+    <span class="n">show_particles</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">n_particles</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span>
+    <span class="n">particle_speed_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_lattice_for_gif</span><span class="p">(</span><span class="n">prm</span><span class="p">:</span> <span class="n">GifParams</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns: vx_frames, vy_frames, speed_frames</span>
+<span class="sd">    shape: (n_frames, N, N)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">N</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span>
+
+    <span class="c1"># Initial small perturbation</span>
+    <span class="n">ux</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">uy</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">px</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">py</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+    <span class="n">n_frames</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">steps</span> <span class="o">//</span> <span class="n">prm</span><span class="o">.</span><span class="n">frame_stride</span>
+    <span class="n">vx_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">vy_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">sp_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="n">frame_idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_steps</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">relax_steps</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">steps</span>
+
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_steps</span><span class="p">):</span>
+        <span class="n">lap_ux</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">ux</span><span class="p">)</span>
+        <span class="n">lap_uy</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">uy</span><span class="p">)</span>
+
+        <span class="c1"># v = du/dt</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">px</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Du</span> <span class="o">*</span> <span class="n">lap_ux</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">py</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Du</span> <span class="o">*</span> <span class="n">lap_uy</span>
+
+        <span class="c1"># Update u</span>
+        <span class="n">ux</span> <span class="o">=</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">vx</span>
+        <span class="n">uy</span> <span class="o">=</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">vy</span>
+
+        <span class="c1"># p dynamics: toy version of &quot;windsock + nonlinear saturation + odd-friction&quot;</span>
+        <span class="c1"># We use an equivalent structure (consistent with your previous script) to ensure the visual effect of &quot;collective oscillation&quot;.</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">px</span> <span class="o">+</span> <span class="n">py</span> <span class="o">*</span> <span class="n">py</span>
+        <span class="n">pv</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">py</span> <span class="o">*</span> <span class="n">vy</span>
+        <span class="n">odd_x</span> <span class="o">=</span> <span class="o">-</span><span class="n">p2</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">pv</span> <span class="o">*</span> <span class="n">px</span>
+        <span class="n">odd_y</span> <span class="o">=</span> <span class="o">-</span><span class="n">p2</span> <span class="o">*</span> <span class="n">vy</span> <span class="o">+</span> <span class="n">pv</span> <span class="o">*</span> <span class="n">py</span>
+
+        <span class="n">lap_px</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">px</span><span class="p">)</span>
+        <span class="n">lap_py</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">py</span><span class="p">)</span>
+
+        <span class="n">dpx</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">px</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">prm</span><span class="o">.</span><span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">*</span> <span class="n">p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">vx</span>
+            <span class="o">+</span> <span class="n">odd_x</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Dp</span> <span class="o">*</span> <span class="n">lap_px</span>
+        <span class="p">)</span>
+        <span class="n">dpy</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">py</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">prm</span><span class="o">.</span><span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">*</span> <span class="n">p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">vy</span>
+            <span class="o">+</span> <span class="n">odd_y</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Dp</span> <span class="o">*</span> <span class="n">lap_py</span>
+        <span class="p">)</span>
+
+        <span class="n">px</span> <span class="o">=</span> <span class="n">px</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dpx</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">sigma_p</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+        <span class="n">py</span> <span class="o">=</span> <span class="n">py</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dpy</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">sigma_p</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;=</span> <span class="n">prm</span><span class="o">.</span><span class="n">relax_steps</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">-</span> <span class="n">prm</span><span class="o">.</span><span class="n">relax_steps</span><span class="p">)</span> <span class="o">%</span> <span class="n">prm</span><span class="o">.</span><span class="n">frame_stride</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">frame_idx</span> <span class="o">&lt;</span> <span class="n">n_frames</span><span class="p">:</span>
+                <span class="n">speed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">vy</span> <span class="o">*</span> <span class="n">vy</span><span class="p">)</span>
+                <span class="n">vx_frames</span><span class="p">[</span><span class="n">frame_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+                <span class="n">vy_frames</span><span class="p">[</span><span class="n">frame_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+                <span class="n">sp_frames</span><span class="p">[</span><span class="n">frame_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">speed</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+                <span class="n">frame_idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">vx_frames</span><span class="p">,</span> <span class="n">vy_frames</span><span class="p">,</span> <span class="n">sp_frames</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">render_gif</span><span class="p">(</span><span class="n">vx_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">vy_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sp_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">prm</span><span class="p">:</span> <span class="n">GifParams</span><span class="p">,</span> <span class="n">out_gif</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Crowd oscillations (toy spatial model)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+
+    <span class="n">vmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sp_frames</span><span class="p">,</span> <span class="mi">99</span><span class="p">))</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">sp_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+        <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
+        <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span>
+        <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdYlBu_r&quot;</span><span class="p">,</span>  <span class="c1"># Blue→Red, close to Fig3f visual perception</span>
+    <span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;|v| (a.u.)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># quiver</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">quiver_stride</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">U0</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+    <span class="n">V0</span> <span class="o">=</span> <span class="n">vy_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+    <span class="n">quiv</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U0</span><span class="p">,</span> <span class="n">V0</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.004</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Particles (pure visual enhancement)</span>
+    <span class="n">scat</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">prm</span><span class="o">.</span><span class="n">show_particles</span><span class="p">:</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">123</span><span class="p">)</span>
+        <span class="n">px</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">prm</span><span class="o">.</span><span class="n">n_particles</span><span class="p">)</span>
+        <span class="n">py</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">prm</span><span class="o">.</span><span class="n">n_particles</span><span class="p">)</span>
+        <span class="n">scat</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="n">dt_frame</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">prm</span><span class="o">.</span><span class="n">frame_stride</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">sp_frames</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">Ui</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+        <span class="n">Vi</span> <span class="o">=</span> <span class="n">vy_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+        <span class="n">quiv</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="n">Ui</span><span class="p">,</span> <span class="n">Vi</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">scat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">scat</span><span class="o">.</span><span class="n">get_offsets</span><span class="p">()</span>
+            <span class="n">gi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">gj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">vel_x</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">gi</span><span class="p">,</span> <span class="n">gj</span><span class="p">]</span>
+            <span class="n">vel_y</span> <span class="o">=</span> <span class="n">vy_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">gi</span><span class="p">,</span> <span class="n">gj</span><span class="p">]</span>
+            <span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">particle_speed_scale</span> <span class="o">*</span> <span class="n">dt_frame</span> <span class="o">*</span> <span class="n">vel_x</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span>
+            <span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">particle_speed_scale</span> <span class="o">*</span> <span class="n">dt_frame</span> <span class="o">*</span> <span class="n">vel_y</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span>
+            <span class="n">scat</span><span class="o">.</span><span class="n">set_offsets</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">quiv</span><span class="p">,</span> <span class="n">scat</span>
+
+        <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">quiv</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">prm</span><span class="o">.</span><span class="n">fps</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_gif</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">prm</span><span class="o">.</span><span class="n">fps</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="c1"># 2) Part B: Fig.3f-like (0D mean-field scan beta)</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Fig3FParams</span><span class="p">:</span>
+    <span class="c1"># Scan range (fewer points = faster)</span>
+    <span class="n">beta_ratio_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">beta_ratio_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.5</span>
+    <span class="n">n_beta</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">35</span>
+
+    <span class="c1"># Mean-field parameters (aligned with author script magnitude):contentReference[oaicite:6]{index=6}</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.027</span>
+    <span class="n">gamma_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">18.0</span>
+    <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.025</span>   <span class="c1"># eta/gamma_p</span>
+    <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span>       <span class="c1"># Noise amplitude (author script sigma):contentReference[oaicite:7]{index=7}</span>
+
+    <span class="c1"># Numerical integration (significantly shortened for speedup)</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.002</span>
+    <span class="n">n_relax</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20000</span>
+    <span class="n">n_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60000</span>
+    <span class="n">n_run</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="c1"># Frequency domain settings</span>
+    <span class="n">omega_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.2</span>        <span class="c1"># rad/s (matching paper Fig3f vertical axis magnitude)</span>
+    <span class="n">smooth_window</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span>        <span class="c1"># Light smoothing of spectrum</span>
+    <span class="n">peak_exclude_omega</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.10</span>  <span class="c1"># Avoid treating ω≈0 energy as peaks</span>
+
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mf_dynamics</span><span class="p">(</span><span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">gamma_p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    We adopt the same mean-field structure as the author script (Eq.(S17)-style),</span>
+<span class="sd">    directly using the expression form from the author&#39;s public code (but our own implementation).:contentReference[oaicite:8]{index=8}</span>
+<span class="sd">    Y = [ux, uy, px, py]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">Y</span>
+    <span class="n">prod_p</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">py</span>
+    <span class="n">norm_p2</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">px</span> <span class="o">+</span> <span class="n">py</span> <span class="o">*</span> <span class="n">py</span>
+    <span class="n">dux</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">px</span>
+    <span class="n">duy</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">py</span>
+
+    <span class="n">dpx</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">px</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">ux</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">prod_p</span> <span class="o">*</span> <span class="n">uy</span>
+        <span class="o">+</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">py</span> <span class="o">*</span> <span class="n">py</span><span class="p">)</span> <span class="o">*</span> <span class="n">ux</span>
+    <span class="p">)</span>
+    <span class="n">dpy</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">py</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">uy</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">prod_p</span> <span class="o">*</span> <span class="n">ux</span>
+        <span class="o">+</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">px</span> <span class="o">*</span> <span class="n">px</span><span class="p">)</span> <span class="o">*</span> <span class="n">uy</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dux</span><span class="p">,</span> <span class="n">duy</span><span class="p">,</span> <span class="n">dpx</span><span class="p">,</span> <span class="n">dpy</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mf_integrate_one_run</span><span class="p">(</span><span class="n">prm</span><span class="p">:</span> <span class="n">Fig3FParams</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rng</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Integrate mean-field using Euler–Maruyama (fast enough).</span>
+<span class="sd">    Noise is added only to the p equation, aligning with the author script approach.:contentReference[oaicite:9]{index=9}</span>
+<span class="sd">    Returns: vx(t), vy(t) (steady-state segment)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="mf">1e-10</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Small perturbation</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span>
+    <span class="n">noise_amp</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">sigma</span>
+
+    <span class="c1"># Relaxation phase</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_relax</span><span class="p">):</span>
+        <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)])</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">mf_dynamics</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">dW</span>
+
+    <span class="c1"># Recording phase</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)])</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">mf_dynamics</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">dW</span>
+        <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">Y</span>
+        <span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">px</span>
+        <span class="n">vy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">py</span>
+
+    <span class="k">return</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_fig3f_like</span><span class="p">(</span><span class="n">prm</span><span class="p">:</span> <span class="n">Fig3FParams</span><span class="p">,</span> <span class="n">out_png</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="c1"># Critical beta_c formula: beta_c = 1 + k/gamma_p (author script IC condition also uses this):contentReference[oaicite:10]{index=10}</span>
+    <span class="n">beta_c</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span>
+
+    <span class="n">beta_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">beta_ratio_min</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">beta_ratio_max</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="p">)</span>
+    <span class="n">betas</span> <span class="o">=</span> <span class="n">beta_ratio</span> <span class="o">*</span> <span class="n">beta_c</span>
+
+    <span class="c1"># Unified frequency axis: build once with FFTfreq</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">omega</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">omega</span> <span class="o">&lt;=</span> <span class="n">prm</span><span class="o">.</span><span class="n">omega_max</span><span class="p">)</span>
+    <span class="n">omega_pos</span> <span class="o">=</span> <span class="n">omega</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+
+    <span class="n">heat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="p">,</span> <span class="n">omega_pos</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">omega0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">rng0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">be</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">betas</span><span class="p">):</span>
+        <span class="n">Sv_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="c1"># Average over multiple runs (but small n_run for speedup)</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_run</span><span class="p">):</span>
+            <span class="c1"># Use different sub-seeds for each run</span>
+            <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rng0</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">mf_integrate_one_run</span><span class="p">(</span><span class="n">prm</span><span class="p">,</span> <span class="n">be</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+            <span class="n">w_sorted</span><span class="p">,</span> <span class="n">Sv_sorted</span> <span class="o">=</span> <span class="n">fft_spectrum_sv</span><span class="p">(</span><span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+            <span class="c1"># Re-calculate unsorted Sv instead of interpolating back sorted values</span>
+            <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vx</span> <span class="o">-</span> <span class="n">vx</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+            <span class="n">fy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vy</span> <span class="o">-</span> <span class="n">vy</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+            <span class="n">Sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">Sv_acc</span> <span class="o">+=</span> <span class="n">Sv</span>
+
+        <span class="n">Sv_mean</span> <span class="o">=</span> <span class="n">Sv_acc</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_run</span><span class="p">)</span>
+
+        <span class="c1"># Take positive frequencies and apply light smoothing</span>
+        <span class="n">Sv_pos</span> <span class="o">=</span> <span class="n">Sv_mean</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+        <span class="n">Sv_pos</span> <span class="o">=</span> <span class="n">moving_average_1d</span><span class="p">(</span><span class="n">Sv_pos</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">smooth_window</span><span class="p">)</span>
+
+        <span class="c1"># Normalize (to make heatmap resemble paper&#39;s &quot;bright band&quot; contrast; does not affect ω0)</span>
+        <span class="n">Sv_pos_norm</span> <span class="o">=</span> <span class="n">Sv_pos</span> <span class="o">/</span> <span class="p">(</span><span class="n">Sv_pos</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+        <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">Sv_pos_norm</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+        <span class="c1"># Extract dominant peak ω0: exclude near-zero peaks</span>
+        <span class="k">if</span> <span class="n">be</span> <span class="o">&lt;</span> <span class="n">beta_c</span><span class="p">:</span>
+            <span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mask_peak</span> <span class="o">=</span> <span class="n">omega_pos</span> <span class="o">&gt;=</span> <span class="n">prm</span><span class="o">.</span><span class="n">peak_exclude_omega</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_peak</span><span class="p">):</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Sv_pos_norm</span><span class="p">[</span><span class="n">mask_peak</span><span class="p">])</span>
+                <span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">omega_pos</span><span class="p">[</span><span class="n">mask_peak</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[fig3f] </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="si">}</span><span class="s2"> beta/beta_c=</span><span class="si">{</span><span class="n">beta_ratio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> omega0=</span><span class="si">{</span><span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># --------- Plot Fig3f-like ---------</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">))</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">heat</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+        <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+        <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">beta_ratio</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta_ratio</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">omega_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">omega_pos</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdYlBu_r&quot;</span><span class="p">,</span>   <span class="c1"># Close to paper color scheme style</span>
+        <span class="n">vmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="mi">99</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\beta/\beta_c$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\omega\ (\mathrm</span><span class="si">{rad}</span><span class="s1">\ s^{-1})$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Numerics (own): Fig.3f-like spectrum heatmap&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Threshold dashed line (beta/beta_c=1)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Overlay ω0 black dots</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">beta_ratio</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="s2">&quot;ko&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">\,S_v(\omega)$ (norm.)&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out_png</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="c1"># 3) Main: One-click output GIF + Fig3f</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">out_gif</span> <span class="o">=</span> <span class="s2">&quot;crowd_oscillation.gif&quot;</span>
+    <span class="n">out_fig3f</span> <span class="o">=</span> <span class="s2">&quot;fig3f_like_numerics.png&quot;</span>
+
+    <span class="c1"># ---- A) GIF ----</span>
+    <span class="n">gp</span> <span class="o">=</span> <span class="n">GifParams</span><span class="p">(</span>
+        <span class="n">N</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+        <span class="n">relax_steps</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+        <span class="n">steps</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+        <span class="n">beta</span><span class="o">=</span><span class="mf">1.10</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">vx_f</span><span class="p">,</span> <span class="n">vy_f</span><span class="p">,</span> <span class="n">sp_f</span> <span class="o">=</span> <span class="n">simulate_lattice_for_gif</span><span class="p">(</span><span class="n">gp</span><span class="p">)</span>
+    <span class="n">render_gif</span><span class="p">(</span><span class="n">vx_f</span><span class="p">,</span> <span class="n">vy_f</span><span class="p">,</span> <span class="n">sp_f</span><span class="p">,</span> <span class="n">gp</span><span class="p">,</span> <span class="n">out_gif</span><span class="o">=</span><span class="n">out_gif</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[done] saved </span><span class="si">{</span><span class="n">out_gif</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ---- B) Fig3f-like ----</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">Fig3FParams</span><span class="p">(</span>
+        <span class="n">beta_ratio_min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">beta_ratio_max</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">n_beta</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span>
+        <span class="n">n_relax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
+        <span class="n">n_steps</span><span class="o">=</span><span class="mi">60000</span><span class="p">,</span>
+        <span class="n">n_run</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">omega_max</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span>
+        <span class="n">smooth_window</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+        <span class="n">peak_exclude_omega</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">compute_fig3f_like</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">out_png</span><span class="o">=</span><span class="n">out_fig3f</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[done] saved </span><span class="si">{</span><span class="n">out_fig3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../cn/assets/images/crowd_oscillation.gif" /></p>
+<p>Crowd oscillation figure, background color is heatmap of local velocity magnitude <span class="arithmatex">\(|\mathbf{v}|\)</span> (blue→red means slow to fast), black arrows show velocity direction; velocity hotspots appear, migrate, merge or dissipate in space; more importantly, arrow directions show coordinated changes over time in certain regions. Velocity hotspot spatial heterogeneity and directional correlation significantly enhance at high density, meaning not about showing phase separation domains, but that non-equilibrium system can suddenly transition from near-static noise state to organized macroscopic motion state—it corresponds to spatial manifestation of <strong>dynamical instability</strong>, not result of thermodynamic free energy minimization.</p>
+<p><img alt="Code Output" src="../../cn/assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png" /></p>
+<p>Spectral heatmap horizontal axis is control parameter <span class="arithmatex">\(\beta/\beta_c\)</span>, vertical axis is frequency <span class="arithmatex">\(\omega\)</span>, color represents log intensity of velocity spectrum <span class="arithmatex">\(S_v(\omega)\)</span> (normalized and <span class="arithmatex">\(\log_{10}\)</span> taken to highlight spectral peak structure). Black vertical dashed line marks <span class="arithmatex">\(\beta/\beta_c=1\)</span> critical point; black dots are dominant frequency <span class="arithmatex">\(\omega_0\)</span> at each parameter. Left of critical point spectrum is basically "flat," system has no stable finite frequency characteristic; right of critical point clear finite frequency peak band appears, and <span class="arithmatex">\(\omega_0\)</span> slowly shifts with parameter—this is spectral fingerprint of "oscillation phase."</p>
+<p>In Cahn–Hilliard, learned dispersion relation <span class="arithmatex">\(\sigma(q)\)</span> and fastest growing mode <span class="arithmatex">\(q_{\max}\)</span> is spatial Fourier mode selection; here shows <strong>temporal Fourier mode selection</strong>, system spontaneously selects <span class="arithmatex">\(\omega_0\)</span>. Therefore, <span class="arithmatex">\(\omega_0\)</span> plays role similar to "order parameter": it quantifies "noise state → oscillation state" dynamical phase transition.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture, by introducing Ginzburg-Landau free energy functional, constructed bridge from microscopic discrete models to macroscopic continuous field theory, successfully organically combining static picture of thermodynamic phase transitions with dynamical processes of non-equilibrium transport. Course first used Taylor expansion to simplify Flory-Huggins free energy to Landau polynomial form, clarifying that thermodynamic driving force for phase transition originates from concavity of local free energy (<span class="arithmatex">\(f''(c) &lt; 0\)</span>). On this basis, by introducing gradient terms to describe energy cost of spatial non-uniformity, not only completed functionalization of free energy, but also theoretically determined key physical properties like phase interface width and tension.</p>
+<p>At dynamical level, based on mass conservation law, derived cornerstone equation of soft matter physics—Cahn-Hilliard Equation (Model B). This fourth-order nonlinear partial differential equation reveals unique physical mechanism of phase separation: uphill material transport driven by "negative diffusion" term leads to spontaneous concentration aggregation, while gradient penalty provided by "bi-Laplacian" term stabilizes high-frequency modes, preventing singularity formation. Linear stability analysis further clarifies that phase separation within Spinodal region is not haphazard random process, but dynamical process dominated by system spontaneously selecting fastest growing wavelength <span class="arithmatex">\(\lambda_{max}\)</span>—this "long-wave selection mechanism" explains characteristic labyrinth-like bicontinuous structures widely observed in experiments.</p>
+<p>It should be noted that this lecture's discussion is limited to barrierless Spinodal unstable region. In metastable region of phase diagram (<span class="arithmatex">\(f'' &gt; 0\)</span>), linear stability analysis predicts uniform state is stable, but in physical reality system can still undergo phase transition through rare thermal fluctuations crossing barriers. Next lecture will turn to this completely different dynamical pathway, deeply exploring Classical Nucleation Theory, Gibbs-Thomson Effect, and critical nucleus formation mechanism, analyzing individual droplet growth and dissipation behavior in metastable background.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

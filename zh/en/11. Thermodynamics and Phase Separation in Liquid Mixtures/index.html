@@ -1,0 +1,1369 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>1. Introduction - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h1>
+<h2 id="from-the-solid-past-to-the-liquid-future">From "The Solid Past" to "The Liquid Future"<a class="headerlink" href="#from-the-solid-past-to-the-liquid-future" title="Permanent link">&para;</a></h2>
+<p>In the traditional narrative of condensed matter physics, crystalline solids have long occupied the central position of theoretical research due to their perfect symmetry and static ordered structure. However, Professor Erwin Frey raised a highly philosophical viewpoint at the beginning of this lecture: "The past is solid, and the future is liquid." This statement is a metaphor for the rise of soft matter physics, revealing the paradigm shift in nature's organizational forms.</p>
+<p>Reviewing <strong>Lecture 9</strong> and <strong>Lecture 10</strong>, the course explored the dynamics of <strong>non-conserved order parameters</strong> (such as magnetization) through Ginzburg-Landau theory and the Allen-Cahn equation (Model A). In those systems, domain wall motion is curvature-driven, and droplets can directly shrink and annihilate through local spin flipping, without being constrained by mass conservation. However, when we turn our attention to living systems, soft matter, and fluid mixtures far from equilibrium, the physical constraints undergo fundamental changes. The interior of cells is filled with various fluid mixtures, in a highly crowded state. In this environment, matter cannot appear or disappear out of thin air but must follow the <strong>local mass conservation</strong> law.</p>
+<p>Therefore, this lecture marks a shift in the course's focus: from interface dynamics of single-component or non-conserved systems, to the thermodynamic equilibrium properties of <strong>multi-component liquid mixtures</strong>. This is the physical foundation for understanding the formation mechanism of "membrane-less organelles" inside cells, and also the necessary path toward exploring <strong>conserved dynamics (Model B / Cahn-Hilliard equation)</strong>, osmotic pressure effects, and Ostwald ripening processes in the next lecture.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/11_001_05ada564-3f81-4cd0-9d8b-91492285ddb5.png" /></p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/11_002_8b3cf7aa-bd55-450c-9587-913aa04fb1d6.jpg" /></p>
+<p>The above two figures show binary mixture conceptual diagrams and the crowded environment inside cells</p>
+<h2 id="biological-motivation-the-phase-separation-revolution-inside-cells">Biological Motivation - The Phase Separation Revolution Inside Cells<a class="headerlink" href="#biological-motivation-the-phase-separation-revolution-inside-cells" title="Permanent link">&para;</a></h2>
+<p>Before diving into mathematical derivations, it is necessary to understand the practical biological significance of this theoretical framework. Professor Frey specifically mentioned the landmark work published in <em>Science</em> in 2009 by Clifford Brangwynne and colleagues—research on P granules in the nematode <em>C. elegans</em>.</p>
+<p>For a long time, the biology community generally believed that functional structures inside cells are mainly defined by lipid membranes (such as nuclear envelope, mitochondrial membrane). However, P granules, nucleolus, Cajal bodies, and similar structures, although not enclosed by membranes, can maintain unique composition and spatial locality. The experiments by Brangwynne et al. surprisingly discovered that these P granules exhibit typical <strong>liquid physical properties</strong>:</p>
+<p><strong>Wetting</strong>: They spread out like raindrops on glass when contacting the nuclear envelope, indicating the existence of contact angle and interfacial tension.</p>
+<p><strong>Fusion/Coalescence</strong>: Two contacting granules rapidly fuse into a larger sphere with reduced surface area—this is a typical feature of surface tension-driven behavior.</p>
+<p><strong>Dripping</strong>: Under shear force, they deform and even split, exhibiting fluid instabilities (such as Rayleigh-Plateau instability).</p>
+<video controls width="100%">
+  <source src="../cn/assets/images/P Granule Fusion and Wetting Phenomena.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p><em>P Granule Fusion and Wetting Phenomena, Source: Brangwynne et al., Science 324:1729-1732 (2009)</em></p>
+<p>These observations completely changed the paradigm of cell biology: some complex structures inside cells are not "assembled" by sophisticated molecular machines, but spontaneously formed through physical <strong>Liquid-Liquid Phase Separation (LLPS)</strong>. This phase separation process is directly governed by thermodynamic principles—namely system free energy minimization.</p>
+<p>This lecture will cover the thermodynamic foundations of liquid mixtures, starting from the most basic incompressible fluid assumption, establishing the Helmholtz free energy density function, deriving the convexity criterion for mixture phase separation, and analyzing in detail the famous <strong>Maxwell Construction</strong>. These static thermodynamic analyses will ultimately converge into phase diagrams describing coexistence regions, laying a solid static theoretical foundation for <strong>introducing the time dimension and establishing Cahn-Hilliard dynamical equations</strong> in the next lecture.</p>
+<h1 id="1-thermodynamic-foundations-of-multi-component-mixtures">1. Thermodynamic Foundations of Multi-Component Mixtures<a class="headerlink" href="#1-thermodynamic-foundations-of-multi-component-mixtures" title="Permanent link">&para;</a></h1>
+<p>To physically and precisely describe cytoplasm—a "hodgepodge" containing proteins, RNA, lipids, water, and various other molecules—we must first establish a rigorous thermodynamic framework. Unlike ideal gases or simple single-component fluids, the thermodynamic behavior of liquid mixtures is not only controlled by temperature and pressure, but is also profoundly influenced by component concentrations and their interactions. This section will start from macroscopic thermodynamic potentials and, combined with the key "<strong>incompressibility</strong>" assumption in soft matter physics, gradually derive the core physical quantity describing phase separation behavior—<strong>Helmholtz free energy density</strong>.</p>
+<h2 id="11-macroscopic-state-variables-and-gibbs-free-energy">1.1 Macroscopic State Variables and Gibbs Free Energy<a class="headerlink" href="#11-macroscopic-state-variables-and-gibbs-free-energy" title="Permanent link">&para;</a></h2>
+<p>Consider a thermodynamic system containing <span class="arithmatex">\(n+1\)</span> components. To clearly distinguish solvent background from solute particles, components are usually labeled as <span class="arithmatex">\(i=0, 1, \dots, n\)</span>. In the biophysics context, by convention <span class="arithmatex">\(i=0\)</span> represents Solvent (such as water), while <span class="arithmatex">\(i=1, \dots, n\)</span> represent various Solutes (such as proteins, polymers, etc.).</p>
+<p>Under typical experimental and biological conditions, the system is usually at constant environmental temperature <span class="arithmatex">\(T\)</span> and environmental pressure <span class="arithmatex">\(P\)</span>. Therefore, the most suitable thermodynamic potential for describing the natural state of this system is the Gibbs Free Energy (<span class="arithmatex">\(G\)</span>). The macroscopic state of the system is completely determined by the following set of variables:</p>
+<ul>
+<li>
+<p><strong>Temperature (<span class="arithmatex">\(T\)</span>)</strong>: Determines the intensity of the system's thermal motion.</p>
+</li>
+<li>
+<p><strong>Pressure (<span class="arithmatex">\(P\)</span>)</strong>: Determines the mechanical equilibrium state of the system.</p>
+</li>
+<li>
+<p><strong>Particle number (<span class="arithmatex">\(N_i\)</span>)</strong>: The number of particles of each component <span class="arithmatex">\(i\)</span>, which is the basic variable describing mixture composition.</p>
+</li>
+</ul>
+<p>Therefore, Gibbs free energy <span class="arithmatex">\(G\)</span> is a function of these variables: <span class="arithmatex">\(G = G(T, P, \{N_i\})\)</span>. According to the fundamental equation of thermodynamics, its total differential form is expressed as:</p>
+<div class="arithmatex">\[
+dG = -S dT + V dP + \sum_{i=0}^{n} \mu_i dN_i
+\]</div>
+<p>where each partial derivative term has clear physical meaning:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(S = -\left(\frac{\partial G}{\partial T}\right)_{P, \{N_i\}}\)</span> is the entropy of the system.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(V = \left(\frac{\partial G}{\partial P}\right)_{T, \{N_i\}}\)</span> is the total volume of the system.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\mu_i = \left( \frac{\partial G}{\partial N_i} \right)_{T, P, N_{j \neq i}}\)</span> is the Chemical Potential of component <span class="arithmatex">\(i\)</span>, representing the energy change required to add one particle to the system at constant temperature and pressure while keeping other components unchanged.</p>
+</li>
+</ul>
+<p>To simplify analysis and focus on core physical mechanisms, this lecture mainly focuses on <strong>Binary Mixtures (<span class="arithmatex">\(n=1\)</span>)</strong>, where the system is simplified to only two components: solvent <span class="arithmatex">\(S\)</span> and solute <span class="arithmatex">\(P\)</span> (Particle). At this point, the system's state space is spanned by four variables <span class="arithmatex">\((T, P, N_S, N_P)\)</span>.</p>
+<h2 id="12-molecular-volume-and-incompressibility-assumption">1.2 Molecular Volume and Incompressibility Assumption<a class="headerlink" href="#12-molecular-volume-and-incompressibility-assumption" title="Permanent link">&para;</a></h2>
+<p>In gas physics, volume <span class="arithmatex">\(V\)</span> is a sensitive function of pressure and temperature (e.g., ideal gas equation of state <span class="arithmatex">\(PV=NkT\)</span>). However, in liquid physics and soft matter research, liquids are usually regarded as <strong>Incompressible</strong>. This is an extremely strong physical constraint that greatly simplifies mathematical treatment while also changing the system's thermodynamic degrees of freedom.</p>
+<h3 id="definition-of-molecular-volume-and-eulers-theorem">Definition of Molecular Volume and Euler's Theorem<a class="headerlink" href="#definition-of-molecular-volume-and-eulers-theorem" title="Permanent link">&para;</a></h3>
+<p>To quantitatively describe the relationship between volume and particle number, the concept of <strong>Molecular Volume</strong> is introduced. For solute <span class="arithmatex">\(P\)</span> and solvent <span class="arithmatex">\(S\)</span>, their molecular volumes are defined as the partial derivatives of total volume <span class="arithmatex">\(V\)</span> with respect to corresponding particle numbers:</p>
+<div class="arithmatex">\[
+v_P \equiv \left( \frac{\partial V}{\partial N_P} \right)_{N_S, T, P}, \quad v_S \equiv \left( \frac{\partial V}{\partial N_S} \right)_{N_P, T, P}
+\]</div>
+<p>The physical meaning here is: while keeping temperature, pressure, and other components unchanged, the amount by which total volume increases when adding one particle to the system. Since volume <span class="arithmatex">\(V\)</span> is an <strong>Extensive Quantity</strong> with respect to particle numbers <span class="arithmatex">\(\{N_i\}\)</span>, meaning if all particle numbers are increased by a factor of <span class="arithmatex">\(\alpha\)</span>, volume correspondingly increases by a factor of <span class="arithmatex">\(\alpha\)</span>: <span class="arithmatex">\(V(\alpha N_S, \alpha N_P) = \alpha V(N_S, N_P)\)</span>. According to Euler's Homogeneous Function Theorem, differentiating with respect to <span class="arithmatex">\(\alpha\)</span> and setting <span class="arithmatex">\(\alpha=1\)</span>, we derive the volume additivity formula:</p>
+<div class="arithmatex">\[
+V(T, P, N_S, N_P) = v_P N_P + v_S N_S
+\]</div>
+<p>This relation indicates that the total volume of the system strictly equals the sum of volumes occupied by each component.</p>
+<h3 id="incompressibility-condition-and-its-implications">Incompressibility Condition and Its Implications<a class="headerlink" href="#incompressibility-condition-and-its-implications" title="Permanent link">&para;</a></h3>
+<p>In soft matter physics, the incompressibility assumption means: <strong>Molecular volumes <span class="arithmatex">\(v_P\)</span> and <span class="arithmatex">\(v_S\)</span> are constants independent of their thermodynamic state (<span class="arithmatex">\(T, P\)</span> and concentration).</strong></p>
+<p>This assumption has two profound impacts on the system's thermodynamic properties:</p>
+<p>1.<strong>Volume is no longer an independent variable</strong>: Once particle numbers <span class="arithmatex">\(N_P\)</span> and <span class="arithmatex">\(N_S\)</span> are determined, the system's total volume <span class="arithmatex">\(V\)</span> is completely locked. This is fundamentally different from gas systems, where we can independently adjust volume and particle number.</p>
+<p>2.<strong>Geometric constraint</strong>: The system's dynamical evolution is strictly constrained by the geometric constraint equation <span class="arithmatex">\(V = v_P N_P + v_S N_S\)</span>. This means particles cannot arbitrarily appear or disappear unless accompanied by corresponding volume changes or exchange between components (e.g., one large molecule displacing multiple water molecules).</p>
+<p>In many theoretical models (such as lattice models or the famous Flory-Huggins theory), to further simplify calculations, it is usually assumed that solute and solvent have the same molecular volume <span class="arithmatex">\(v_P = v_S = v_0\)</span>. This is equivalent to viewing the liquid as composed of identical-sized "lattice sites," where each site is occupied by either a water molecule or a protein molecule—this symmetry greatly simplifies subsequent entropy calculations.</p>
+<h2 id="13-from-gibbs-free-energy-to-helmholtz-free-energy-density">1.3 From Gibbs Free Energy to Helmholtz Free Energy Density<a class="headerlink" href="#13-from-gibbs-free-energy-to-helmholtz-free-energy-density" title="Permanent link">&para;</a></h2>
+<p>Since incompressibility locks the relationship between volume and particle number, directly using Gibbs free energy <span class="arithmatex">\(G\)</span> containing the <span class="arithmatex">\(PV\)</span> term to handle phase separation problems is often not intuitive enough. Especially when studying spatially non-uniform Phase Separation, the physical focus usually shifts from extensive quantities (total energy) to intensive quantities (energy per unit volume).</p>
+<p>Through <strong>Legendre Transformation</strong>, connections between different thermodynamic potentials can be established. The known relationship between Gibbs free energy and Helmholtz free energy <span class="arithmatex">\(F\)</span> is <span class="arithmatex">\(G = F + PV\)</span>. Since the system is incompressible, and <span class="arithmatex">\(F\)</span> itself is also an extensive quantity, it can be written as volume <span class="arithmatex">\(V\)</span> multiplied by an energy density function <span class="arithmatex">\(f\)</span> per unit volume.</p>
+<p>Introducing the dimensionless <strong>Volume Fraction (<span class="arithmatex">\(\phi\)</span>)</strong> as the core order parameter:</p>
+<div class="arithmatex">\[
+\phi \equiv \frac{N_P v_P}{V} = \frac{N_P v_P}{N_P v_P + N_S v_S}
+\]</div>
+<p>Correspondingly, according to the normalization condition, the solvent's volume fraction is naturally <span class="arithmatex">\(1-\phi\)</span>.</p>
+<p>This variable transformation is not just a mathematical substitution, but a transformation of physical pictures:</p>
+<p><strong>Microscopic perspective</strong>: Tracking the discrete behavior of hundreds of millions of <span class="arithmatex">\(N_P\)</span> and <span class="arithmatex">\(N_S\)</span> particles.</p>
+<p><strong>Field theory perspective</strong>: Focusing on a continuous scalar field <span class="arithmatex">\(\phi(\mathbf{x})\)</span>, representing the local concentration of solute at various spatial locations.</p>
+<p>Using this variable, Gibbs free energy can be rewritten as:</p>
+<div class="arithmatex">\[
+G(T, P, N_P, N_S) = V \left[ P + f(T, \phi) \right]
+\]</div>
+<p>where <span class="arithmatex">\(f(T, \phi)\)</span> is the <strong>Helmholtz free energy density</strong>.</p>
+<h3 id="physical-meaning-and-simplification-of-thermodynamic-potentials">Physical Meaning and Simplification of Thermodynamic Potentials<a class="headerlink" href="#physical-meaning-and-simplification-of-thermodynamic-potentials" title="Permanent link">&para;</a></h3>
+<p>The above formula reveals the key logic for studying phase transitions in incompressible fluids:</p>
+<p>1.<strong>Decoupling of the pressure term</strong>: In <span class="arithmatex">\(G = V[P + f(T, \phi)]\)</span>, pressure <span class="arithmatex">\(P\)</span> only appears as a linear term. If the system is under constant environmental pressure <span class="arithmatex">\(P\)</span>, then the <span class="arithmatex">\(P \cdot V\)</span> term merely superimposes a linear background on total energy that is unrelated to the convexity of the mixed state (<span class="arithmatex">\(\phi\)</span>) (or is a constant when total volume <span class="arithmatex">\(V\)</span> is fixed).</p>
+<p>2.<strong>Determining the core function</strong>: Therefore, <strong>the key to determining whether the system undergoes mixing or phase separation lies entirely in the geometric shape (i.e., convexity) of the Helmholtz free energy density function <span class="arithmatex">\(f(T, \phi)\)</span> as it varies with volume fraction <span class="arithmatex">\(\phi\)</span>.</strong></p>
+<p>This conclusion simplifies the complex multi-variable thermodynamics problem to a single-variable function <span class="arithmatex">\(f(\phi)\)</span> analysis problem. Subsequent Stability Analysis and Maxwell Construction will be entirely based on exploring the shape of the <span class="arithmatex">\(f(\phi)\)</span> curve.</p>
+<h1 id="2-mixing-and-thermodynamic-stability-criteria">2. Mixing and Thermodynamic Stability Criteria<a class="headerlink" href="#2-mixing-and-thermodynamic-stability-criteria" title="Permanent link">&para;</a></h1>
+<p>After establishing the Helmholtz free energy density <span class="arithmatex">\(f(\phi)\)</span> with volume fraction <span class="arithmatex">\(\phi\)</span> as the variable, this section will explore the core thermodynamic problem of multi-component systems: <strong>Stability of mixing.</strong> For a mixture of given concentration, will it maintain a uniform single-phase state, or will it spontaneously split into two phases of different concentrations? The answer to this question does not depend on microscopic molecular details, but is completely determined by the geometric shape (convexity/concavity) of the free energy density function <span class="arithmatex">\(f(\phi)\)</span>. By constructing a macroscopic mixing thought experiment, universal inequalities for judging phase separation occurrence can be derived.</p>
+<h2 id="21-mixing-thought-experiment-macroscopic-conservation-laws">2.1 Mixing Thought Experiment - Macroscopic Conservation Laws<a class="headerlink" href="#21-mixing-thought-experiment-macroscopic-conservation-laws" title="Permanent link">&para;</a></h2>
+<p>To derive the mathematical criterion for stability, Professor Frey introduces a classical thermodynamic thought experiment. Consider two initially isolated fluid systems at the same temperature <span class="arithmatex">\(T\)</span> and pressure <span class="arithmatex">\(P\)</span>:</p>
+<ul>
+<li>
+<p><strong>System 1</strong>: Volume <span class="arithmatex">\(V_1\)</span>, solute volume fraction <span class="arithmatex">\(\phi_1\)</span>.</p>
+</li>
+<li>
+<p><strong>System 2</strong>: Volume <span class="arithmatex">\(V_2\)</span>, solute volume fraction <span class="arithmatex">\(\phi_2\)</span>.</p>
+</li>
+</ul>
+<p>Now merge these two systems into a new total system. Based on the <strong>incompressibility</strong> assumption established in the previous section, the mixing process must follow two macroscopic conservation laws:</p>
+<p>1.<strong>Volume conservation</strong>: The total system volume <span class="arithmatex">\(V\)</span> equals the sum of the two subsystem volumes.</p>
+<div class="arithmatex">\[
+V = V_1 + V_2
+\]</div>
+<p>2.<strong>Particle number conservation</strong> (i.e., solute volume conservation): The total solute amount after mixing equals the sum of parts before mixing. Let the average volume fraction after mixing be <span class="arithmatex">\(\phi\)</span>, then:</p>
+<div class="arithmatex">\[
+\phi V = \phi_1 V_1 + \phi_2 V_2
+\]</div>
+<p>To describe the mixing ratio, introduce a dimensionless variable <span class="arithmatex">\(x\)</span> representing the proportion of System 1 in total volume:</p>
+<div class="arithmatex">\[
+x = \frac{V_1}{V}, \quad 1-x = \frac{V_2}{V}
+\]</div>
+<p>Using this variable, the average volume fraction <span class="arithmatex">\(\phi\)</span> after mixing can be expressed as a weighted average of the two initial concentrations:</p>
+<div class="arithmatex">\[
+\phi = x \phi_1 + (1-x) \phi_2
+\]</div>
+<p>This linear relationship indicates that on the phase diagram (concentration axis), the state point of the mixed system must lie between <span class="arithmatex">\(\phi_1\)</span> and <span class="arithmatex">\(\phi_2\)</span>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/11_004_dc200d4a-1049-4229-a2ff-378f71b90742.png" /></p>
+<p>Schematic of mixing thought experiment. The blackboard shows the process of two subsystems with different concentrations (<span class="arithmatex">\(\phi_1, \phi_2\)</span>) and volumes (<span class="arithmatex">\(V_1, V_2\)</span>) mixing to generate a uniform system (<span class="arithmatex">\(\phi, V\)</span>), or the reverse DMIX (demixing) process, and lists volume and particle number conservation relations.</p>
+<h2 id="22-free-energy-competition-mixed-state-vs-separated-state">2.2 Free Energy Competition - Mixed State vs. Separated State<a class="headerlink" href="#22-free-energy-competition-mixed-state-vs-separated-state" title="Permanent link">&para;</a></h2>
+<p>According to the second law of thermodynamics, under isothermal isochoric conditions, the system always evolves to the state of lowest Helmholtz free energy. Therefore, judging whether the system mixes requires comparing the total free energy of "mixed state" and "separated state."</p>
+<p><strong>Free energy of separated state (Demixed State):</strong> Assume the system maintains macroscopic phase separation, i.e., one part of the volume maintains concentration <span class="arithmatex">\(\phi_1\)</span>, another part maintains concentration <span class="arithmatex">\(\phi_2\)</span>. At this point the system's total free energy is the simple sum of the two subsystems' free energies (neglecting interfacial energy, which is reasonable in the macroscopic limit):</p>
+<div class="arithmatex">\[
+F_{\text{demixed}} = V_1 f(\phi_1) + V_2 f(\phi_2)
+\]</div>
+<p>Using volume fraction <span class="arithmatex">\(x\)</span>, this expression can be rewritten as:</p>
+<div class="arithmatex">\[
+F_{\text{demixed}} = V [ x f(\phi_1) + (1-x) f(\phi_2) ]
+\]</div>
+<p>Geometrically, this corresponds to a certain point on the <strong>Chord</strong> connecting points <span class="arithmatex">\((\phi_1, f(\phi_1))\)</span> and <span class="arithmatex">\((\phi_2, f(\phi_2))\)</span> on the free energy density curve <span class="arithmatex">\(f(\phi)\)</span>.</p>
+<p><strong>Free energy of mixed state (Mixed State):</strong> Assume the system is completely uniformly mixed, forming a single homogeneous phase with concentration everywhere equal to the average value <span class="arithmatex">\(\phi\)</span>. At this point the system's total free energy is:</p>
+<div class="arithmatex">\[
+F_{\text{mixed}} = V f(\phi) = V f(x \phi_1 + (1-x) \phi_2)
+\]</div>
+<p>Geometrically, this corresponds to a certain point on the free energy density <strong>function curve (Curve)</strong>.</p>
+<h2 id="23-global-stability-convexity-condition">2.3 Global Stability - Convexity Condition<a class="headerlink" href="#23-global-stability-convexity-condition" title="Permanent link">&para;</a></h2>
+<p>Whether the system ultimately chooses mixing or separation depends on which state has lower free energy.</p>
+<p><strong>Mixing Criterion:</strong></p>
+<p>If for any initial concentrations <span class="arithmatex">\(\phi_1, \phi_2\)</span> and any mixing ratio <span class="arithmatex">\(x\)</span>, the mixed state's free energy is always lower than the separated state's free energy, i.e.:</p>
+<div class="arithmatex">\[
+F_{\text{mixed}} &lt; F_{\text{demixed}}
+\]</div>
+<p>Substituting expressions and canceling common factor <span class="arithmatex">\(V\)</span>, we obtain the inequality:</p>
+<div class="arithmatex">\[
+f(x \phi_1 + (1-x) \phi_2) &lt; x f(\phi_1) + (1-x) f(\phi_2)
+\]</div>
+<p>This is precisely the mathematical definition of a <strong>Convex Function</strong>.</p>
+<p><strong>Physical conclusion</strong>: If the free energy density curve <span class="arithmatex">\(f(\phi)\)</span> is <strong>globally convex</strong> (like a bowl), then no matter how mixing occurs, the homogeneous state is always the most stable, and the system <strong>will not</strong> undergo phase separation.</p>
+<p><strong>Instability and Demixing:</strong> Conversely, if <span class="arithmatex">\(f(\phi)\)</span> exhibits <strong>Concave</strong> characteristics in certain concentration ranges (like a hill), i.e., satisfying:</p>
+<div class="arithmatex">\[
+f_{\text{curve}} &gt; f_{\text{chord}}
+\]</div>
+<p>This means the energy after mixing is higher than maintaining the separated state. At this point, the uniform solution is thermodynamically unstable, and the system will spontaneously reduce total energy through "reverse mixing"—i.e., phase separation. The system will split into two coexisting phases, so that the system's total free energy falls on the lower "chord" rather than the higher "arc."</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/11_005_076ccf7c-f48e-4f8e-ab92-a89e05577506.png" /></p>
+<p>Geometric stability criterion. Left figure shows convex function (Convex), mixed state (curve) energy lower than separated state (chord), system tends to mix; right figure shows concave function (Concave), mixed state energy higher than separated state, system tends to demix.</p>
+<h2 id="24-local-stability-and-spinodal-region">2.4 Local Stability and Spinodal Region<a class="headerlink" href="#24-local-stability-and-spinodal-region" title="Permanent link">&para;</a></h2>
+<p>The above convexity condition provides a criterion for global stability. To more precisely describe the system's response to small perturbations, the local properties of the free energy function need to be examined. For smooth free energy functions, Taylor expansion can be used to analyze free energy changes caused by small concentration fluctuations <span class="arithmatex">\(\delta \phi\)</span>:</p>
+<div class="arithmatex">\[
+\Delta f \approx \frac{1}{2} f''(\phi) (\delta \phi)^2
+\]</div>
+<p>This yields the criterion for local stability:</p>
+<p><strong>Locally Stable</strong>: <span class="arithmatex">\(\frac{\partial^2 f}{\partial \phi^2} &gt; 0\)</span>. At this point the free energy curve is locally convex, small fluctuations will increase system energy, so fluctuations are suppressed, and the solution maintains metastable or stable state.</p>
+<p><strong>Locally Unstable</strong>: <span class="arithmatex">\(\frac{\partial^2 f}{\partial \phi^2} &lt; 0\)</span>. At this point the free energy curve is locally concave, small fluctuations will cause system energy to decrease. This means any infinitesimal thermal noise will be spontaneously amplified, leading to rapid system destabilization.</p>
+<p>This region where the second derivative is negative is called the <strong>Spinodal Region</strong>. The boundary of this region is defined by the zeros of the second derivative (i.e., inflection points of the curve):</p>
+<div class="arithmatex">\[
+\frac{\partial^2 f}{\partial \phi^2} \bigg|_{\phi^*} = 0
+\]</div>
+<p>These two inflection points <span class="arithmatex">\(\phi_A^*\)</span> and <span class="arithmatex">\(\phi_B^*\)</span> are the so-called <strong>Spinodal Points</strong>. In the region between <span class="arithmatex">\(\phi_A^*\)</span> and <span class="arithmatex">\(\phi_B^*\)</span>, the system undergoes <strong>Spinodal Decomposition</strong>, a rapid phase separation process driven by diffusion that does not require overcoming nucleation barriers.</p>
+<h1 id="3-maxwell-construction-and-phase-equilibrium">3. Maxwell Construction and Phase Equilibrium<a class="headerlink" href="#3-maxwell-construction-and-phase-equilibrium" title="Permanent link">&para;</a></h1>
+<p>In the previous section, the analysis established that the convexity of free energy density function <span class="arithmatex">\(f(\phi)\)</span> is the core criterion for judging mixture stability. When temperature decreases or interactions strengthen, the free energy curve often exhibits a non-convex "Double-Well" shape. This means the system is unstable in the intermediate concentration range and will spontaneously separate into two phases of different concentrations.</p>
+<p>This leads to a key quantitative question: <strong>What exactly are the concentrations of the two coexisting phases that the system ultimately separates into?</strong> To solve this problem, this section will introduce the famous <strong>Maxwell Construction</strong>. This method is not only an elegant geometric operation, but also profoundly embodies the physical conditions that thermodynamic equilibrium must simultaneously satisfy.</p>
+<h2 id="31-double-well-potential-energy-surface-and-local-instability">3.1 Double-Well Potential Energy Surface and Local Instability<a class="headerlink" href="#31-double-well-potential-energy-surface-and-local-instability" title="Permanent link">&para;</a></h2>
+<p>Consider a typical binary mixture free energy density curve (e.g., the Flory-Huggins theory form at low temperature), characterized by a local hump in the middle region. This non-convexity leads to the complexity of the system's phase behavior.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/11_006_d3d79d05-cfdb-401e-9134-7a0e68269234.png" /></p>
+<p>Double-well free energy curve and concave region. <span class="arithmatex">\(f(\phi)\)</span> exhibits concave characteristics in the middle region. The green points marked as <span class="arithmatex">\(\phi_a^*\)</span> and <span class="arithmatex">\(\phi_b^*\)</span> are inflection points of the curve (<span class="arithmatex">\(f''=0\)</span>), which define the Spinodal region. Within this region, the system is absolutely unstable to small fluctuations.</p>
+<p><strong>Spinodal points (<span class="arithmatex">\(\phi_a^*, \phi_b^*\)</span>)</strong>: Defined as points where the second derivative of the free energy curve is zero, i.e., <span class="arithmatex">\(f''(\phi) = 0\)</span>. These two points define the <strong>Spinodal instability region</strong>. In the range <span class="arithmatex">\(\phi_a^* &lt; \phi &lt; \phi_b^*\)</span>, since <span class="arithmatex">\(f'' &lt; 0\)</span>, any infinitesimal concentration fluctuation can lower the system's total energy, leading to spontaneous phase separation (Spinodal decomposition).</p>
+<p>However, merely avoiding the Spinodal region is not sufficient to guarantee the system's thermodynamic stability. Outside the Spinodal points, although the system is locally stable to small perturbations (<span class="arithmatex">\(f'' &gt; 0\)</span>), it may still be in a <strong>Metastable</strong> state where free energy is not globally minimal.</p>
+<h2 id="32-common-tangent-construction">3.2 Common Tangent Construction<a class="headerlink" href="#32-common-tangent-construction" title="Permanent link">&para;</a></h2>
+<p>To determine the system's global equilibrium state, we must find the concentration combination that minimizes total free energy. According to the mixing rule, the total free energy after separating into two phases lies on the chord connecting the two phase points. To minimize energy, this chord must be located at the lowest position of the free energy curve.</p>
+<p>Geometrically, this means we need to find a line that is simultaneously tangent to the free energy curve at two different points <span class="arithmatex">\(\phi_a\)</span> (dilute phase) and <span class="arithmatex">\(\phi_b\)</span> (concentrated phase). This line is called the <strong>Common Tangent</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/11_007_c2e7b514-b3f3-4c5a-b2df-8137eb460635.png" /></p>
+<p>Maxwell common tangent construction. The red line is simultaneously tangent to the two low points <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> of the free energy curve. This common tangent represents the total free energy of the system after phase separation, which is always lower than the single-phase free energy curve (green solid line), indicating that phase separation is thermodynamically favorable.</p>
+<p>According to geometric relations, for a line to be simultaneously tangent to a curve at two points, the following two mathematical conditions must be satisfied:</p>
+<p>1.<strong>Equal Slopes</strong>: The slopes at the two tangent points must be equal.</p>
+<div class="arithmatex">\[
+f'(\phi_a) = f'(\phi_b)
+\]</div>
+<p>2.<strong>Common Tangent Condition (Common Intercept/Slope)</strong>: The tangent line equation at <span class="arithmatex">\(\phi_a\)</span> must pass through point <span class="arithmatex">\((\phi_b, f(\phi_b))\)</span>. In other words, the geometric slope of the line connecting the two points must equal the tangent slope at that point.</p>
+<div class="arithmatex">\[
+\frac{f(\phi_b) - f(\phi_a)}{\phi_b - \phi_a} = f'(\phi_a)
+\]</div>
+<p>These two equations constitute a closed nonlinear system of equations for solving equilibrium concentrations <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span>.</p>
+<h2 id="33-physical-interpretation-balance-of-chemical-potential-and-osmotic-pressure">3.3 Physical Interpretation - Balance of Chemical Potential and Osmotic Pressure<a class="headerlink" href="#33-physical-interpretation-balance-of-chemical-potential-and-osmotic-pressure" title="Permanent link">&para;</a></h2>
+<p>The Maxwell construction works because it is actually the direct geometric projection of thermodynamic equilibrium conditions. Professor Frey points out that the above geometric conditions respectively correspond to two core physical constraints of phase equilibrium: <strong>material diffusion equilibrium</strong> and <strong>mechanical equilibrium</strong>.</p>
+<p><strong>1. Exchange Chemical Potential Equilibrium (Slope Condition)</strong></p>
+<p>Define the Exchange Chemical Potential (<span class="arithmatex">\(\mu\)</span>) as the derivative of free energy density with respect to concentration:</p>
+<div class="arithmatex">\[
+\mu \equiv \frac{\partial f}{\partial \phi}
+\]</div>
+<p>Physically, it represents the energy cost required to replace one solvent molecule with one solute molecule. Therefore, the geometric <strong>equal slope</strong> condition <span class="arithmatex">\(f'(\phi_a) = f'(\phi_b)\)</span> directly implies <strong>equal chemical potential of two phases</strong>:</p>
+<div class="arithmatex">\[
+\mu(\phi_a) = \mu(\phi_b)
+\]</div>
+<p>This is the necessary condition for matter to stop net flow between two phases.</p>
+<p><strong>2. Osmotic Pressure Equilibrium (Intercept Condition)</strong></p>
+<p>According to Legendre transformation, the intercept of the tangent line on the <span class="arithmatex">\(y\)</span>-axis has specific thermodynamic meaning. In incompressible fluids, this term corresponds to the negative of Osmotic Pressure (<span class="arithmatex">\(\Pi\)</span>) (or related quantity, depending on reference state definition).</p>
+<p>Mathematically, slightly rearranging the common tangent equation yields:</p>
+<div class="arithmatex">\[
+f(\phi_a) - \phi_a f'(\phi_a) = f(\phi_b) - \phi_b f'(\phi_b)
+\]</div>
+<p>The expression <span class="arithmatex">\(f - \phi f'\)</span> is precisely the thermodynamic potential related to pressure. Therefore, the geometric <strong>common tangent</strong> condition actually means <strong>equal osmotic pressure of two phases</strong>:</p>
+<div class="arithmatex">\[
+\Pi(\phi_a) = \Pi(\phi_b)
+\]</div>
+<p>This is the necessary condition for the interface between two phases to maintain mechanical stability.</p>
+<p><strong>Conclusion</strong>: Maxwell construction is not merely a drawing technique—it is equivalent to finding coexisting phase states that simultaneously satisfy chemical equilibrium (<span class="arithmatex">\(\Delta \mu = 0\)</span>) and mechanical equilibrium (<span class="arithmatex">\(\Delta \Pi = 0\)</span>).</p>
+<h2 id="34-summary-of-stability-regions">3.4 Summary of Stability Regions<a class="headerlink" href="#34-summary-of-stability-regions" title="Permanent link">&para;</a></h2>
+<p>Through the equilibrium concentrations <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> (i.e., Binodal points) determined by Maxwell construction, combined with the previous Spinodal points <span class="arithmatex">\(\phi_a^*\)</span> and <span class="arithmatex">\(\phi_b^*\)</span>, the phase diagram can be clearly divided into three regions with distinctly different physical properties:</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/11_008_f1236b53-d6dc-4d28-898c-5443c182e894.jpg" /></p>
+<p>Complete classification of stability regions. The figure clearly marks three types of regions:</p>
+<p>1.<strong>Binodal points (<span class="arithmatex">\(\phi_a, \phi_b\)</span>)</strong>: Coexisting phase concentrations determined by common tangent.</p>
+<p>2.<strong>Metastable region</strong>: Located between Binodal points and Spinodal points (yellow marked). In this region, nucleation barriers must be overcome for phase transition to occur.</p>
+<p>3.<strong>Unstable region</strong>: Located between two Spinodal points (green shaded). In this region, the system undergoes spontaneous Spinodal decomposition.</p>
+<p><strong>1. Stable region (Stable / One-phase)</strong>
+Range: <span class="arithmatex">\(\phi &lt; \phi_a\)</span> or <span class="arithmatex">\(\phi &gt; \phi_b\)</span>.
+In this region, the free energy curve itself constitutes the lower boundary of the convex hull. The uniformly mixed state is the globally lowest energy state, and the system will not undergo phase separation.</p>
+<p><strong>2. Metastable region (Metastable / Nucleation region)</strong>
+Range: <span class="arithmatex">\(\phi_a &lt; \phi &lt; \phi_a^*\)</span> and <span class="arithmatex">\(\phi_b^* &lt; \phi &lt; \phi_b\)</span>.
+In this region, although <span class="arithmatex">\(f''(\phi) &gt; 0\)</span> keeps the system locally stable to small perturbations, its free energy is higher than the phase-separated state corresponding to the common tangent (globally unstable). The system requires sufficiently large fluctuations (such as forming critical nuclei) to overcome barriers—this mechanism is called <strong>Nucleation and Growth</strong>.</p>
+<p><strong>3. Unstable region (Unstable / Spinodal region)</strong>
+Range: <span class="arithmatex">\(\phi_a^* &lt; \phi &lt; \phi_b^*\)</span>.
+In this region, <span class="arithmatex">\(f''(\phi) &lt; 0\)</span>. The uniform state is inherently unstable, and any thermal fluctuation will cause free energy to decrease and be rapidly amplified. The system spontaneously forms characteristic bicontinuous stripe structures or droplets through the <strong>Spinodal decomposition</strong> mechanism.</p>
+<h1 id="4-phase-diagram-construction-and-critical-phenomena">4. Phase Diagram Construction and Critical Phenomena<a class="headerlink" href="#4-phase-diagram-construction-and-critical-phenomena" title="Permanent link">&para;</a></h1>
+<p>In the previous sections, analysis mainly focused on the free energy density function <span class="arithmatex">\(f(\phi)\)</span> at fixed temperature and its geometric features. However, thermodynamic properties—especially the competition between entropy and enthalpy—strongly depend on temperature <span class="arithmatex">\(T\)</span>. As temperature changes, the shape of the free energy curve evolves: at high temperatures entropy dominates, and the curve is usually convex (single well); at low temperatures enthalpy (interactions) dominates, and the curve exhibits a double-well shape.</p>
+<p>By systematically varying temperature <span class="arithmatex">\(T\)</span>, and projecting the coexistence concentrations <span class="arithmatex">\(\phi_a, \phi_b\)</span> determined by Maxwell construction at each temperature, as well as the instability concentrations <span class="arithmatex">\(\phi_a^*, \phi_b^*\)</span> determined by inflection points, onto the <span class="arithmatex">\(T-\phi\)</span> plane, a <strong>Phase Diagram</strong> describing the complete picture of system phase behavior can be constructed.</p>
+<h2 id="41-binodal-line-and-spinodal-line">4.1 Binodal Line and Spinodal Line<a class="headerlink" href="#41-binodal-line-and-spinodal-line" title="Permanent link">&para;</a></h2>
+<p>The phase diagram divides thermodynamic parameter space into regions of distinctly different properties, with boundaries defined by two key curves:</p>
+<p>1.<strong>Binodal Line (Coexistence Curve)</strong>: The trajectory connecting equilibrium coexistence concentrations <span class="arithmatex">\(\phi_a(T)\)</span> and <span class="arithmatex">\(\phi_b(T)\)</span> at different temperatures.</p>
+<p><strong>Physical meaning</strong>: It is the thermodynamic boundary between the one-phase region and two-phase coexistence region. Outside this line, the system is in a thermodynamically stable homogeneous state.</p>
+<p>2.<strong>Spinodal Line (Instability Curve)</strong>: The trajectory connecting Spinodal points <span class="arithmatex">\(\phi_a^*(T)\)</span> and <span class="arithmatex">\(\phi_b^*(T)\)</span> at different temperatures.</p>
+<p><strong>Physical meaning</strong>: It lies inside the Binodal line, defining the boundary between Metastable and Unstable regions. Inside this line, the diffusion coefficient becomes negative, and the system is unstable to any small fluctuation (Spinodal decomposition occurs).</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/11_009_0eb85c5c-c920-4c29-becd-43dc018df542.png" /></p>
+<p>Phase diagram of a typical binary mixture. Vertical axis is temperature <span class="arithmatex">\(T\)</span>, horizontal axis is volume fraction <span class="arithmatex">\(\phi\)</span>.</p>
+<p><strong>Outer solid line (Binodal)</strong>: Defines the single-phase region (1 phase) and two-phase region.</p>
+<p><strong>Inner dashed line (Spinodal)</strong>: Defines the metastable region (Metastable, yellow shaded) and unstable region (Unstable, green shaded).</p>
+<p><strong>CP (Critical Point)</strong>: Critical point, where both lines converge.</p>
+<p>In typical phase diagrams (such as systems with Upper Critical Solution Temperature UCST), these two curves usually present an inverted "U" shape and are tangent at the apex.</p>
+<h2 id="42-critical-point">4.2 Critical Point<a class="headerlink" href="#42-critical-point" title="Permanent link">&para;</a></h2>
+<p>As temperature increases, mixing entropy (favoring uniform mixing) gradually overcomes interaction enthalpy (favoring separation). This causes the two arms of the Binodal line (dilute and concentrated phases) to gradually approach, eventually merging at a specific temperature <span class="arithmatex">\(T_c\)</span> and concentration <span class="arithmatex">\(\phi_c\)</span>. This special point is called the <strong>Critical Point (CP)</strong>.</p>
+<p><strong>Physical characteristics</strong>:
+At the critical point, the properties of the two phases (density, composition) become completely identical, and the macroscopic phase interface disappears. The system is in a delicate critical state, where correlation length diverges, and <strong>Critical Opalescence</strong> occurs, i.e., long-range density fluctuations cause enhanced light scattering.</p>
+<p><strong>Mathematical definition</strong>:
+Geometrically, the critical point corresponds to the moment when the free energy curve becomes "extremely flat." At this point, <span class="arithmatex">\(f(\phi)\)</span> not only has coinciding inflection points (second derivative equals zero), but this point is also an extremum of inflection points (third derivative equals zero). As long as the fourth derivative is greater than zero, the system is locally stable at this point (but in the critical sense).
+Mathematical criteria are:</p>
+<div class="arithmatex">\[
+\frac{\partial^2 f}{\partial \phi^2}\bigg|_{T_c, \phi_c} = 0, \quad \frac{\partial^3 f}{\partial \phi^3}\bigg|_{T_c, \phi_c} = 0
+\]</div>
+<h1 id="5-case-study-liquid-liquid-phase-separation-inside-cells">5. Case Study - Liquid-Liquid Phase Separation Inside Cells<a class="headerlink" href="#5-case-study-liquid-liquid-phase-separation-inside-cells" title="Permanent link">&para;</a></h1>
+<p>At the end of this lecture, the theoretical perspective returns from abstract thermodynamics to concrete biological problems. The localization problem of P granules in <em>C. elegans</em> mentioned in the introduction is a wonderful application of phase separation thermodynamics in non-equilibrium biological systems. Professor Frey, combined with research by Brangwynne et al. (2009), demonstrates how cells use phase diagram principles to organize intracellular materials.</p>
+<p><img alt="Experimental evidence ruling out dominant role of cytoplasmic flow in localization. (A) Microscopy shows P granules (green) gradually localizing to embryo posterior pole (P) over time. (B-D) Particle Image Velocimetry (PIV) and trajectory tracking show that although significant cytoplasmic flow exists in the embryo (yellow arrows), and P granules move with it, their movement is bidirectional. (F) Quantitative statistics show that Net Flux across the embryo midline caused by flow is nearly zero. This result negates the traditional &quot;active transport/flow transport&quot; model and provides key counter-evidence for the subsequently proposed &quot;controlled dissolution and condensation&quot; phase transition model. Source: Brangwynne et al., Science 324:1729-1732 (2009)" src="../../../cn/assets/images/11_010_f13b0b47-a70a-4803-9abc-e4fa13fb7bf4.jpg" /></p>
+<h2 id="51-spatially-position-dependent-thermodynamics">5.1 Spatially Position-Dependent Thermodynamics<a class="headerlink" href="#51-spatially-position-dependent-thermodynamics" title="Permanent link">&para;</a></h2>
+<p>During <em>C. elegans</em> embryo development, P granules (droplets rich in RNA and proteins) are initially uniformly distributed, then rapidly localize to the embryo's Posterior, thereby determining germ cell fate. Traditional biological views might consider this the result of motor proteins "carrying" granules, but experimental evidence negates the active transport model.</p>
+<p><strong>Physical mechanism: Controlled dissolution and condensation</strong>
+Research by Brangwynne et al. revealed that P granule localization is actually a <strong>phase transition</strong> process. Cells regulate local chemical environments to change the thermodynamic stability of P granule components in cytoplasm.</p>
+<p><strong>Biological mapping of phase diagram</strong>: In the biological context, the "temperature" axis in phase diagrams can be replaced by <strong>regulatory protein concentration</strong> (such as MEX-5). These proteins change the phase diagram's position or shape by altering effective interaction strength between P granule components (<span class="arithmatex">\(\chi\)</span> parameter).</p>
+<h2 id="52-polar-protein-regulation-of-binodal-points">5.2 Polar Protein Regulation of Binodal Points<a class="headerlink" href="#52-polar-protein-regulation-of-binodal-points" title="Permanent link">&para;</a></h2>
+<p>Intracellular polar protein MEX-5 forms a concentration gradient in the embryo (high anterior, low posterior). This gradient causes the <strong>Saturation Concentration (<span class="arithmatex">\(C_{sat}\)</span>)</strong> of P granule components—i.e., Binodal points on the phase diagram—to vary spatially.</p>
+<p>1.<strong>Embryo Anterior</strong>:</p>
+<ul>
+<li>
+<p>High concentration of MEX-5 inhibits attractive interactions between P granule components (equivalent to raising effective temperature).</p>
+</li>
+<li>
+<p>Causes saturation concentration <span class="arithmatex">\(C_{sat}\)</span> to increase.</p>
+</li>
+<li>
+<p><strong>Result</strong>: Actual cytoplasmic concentration <span class="arithmatex">\(C_{cyt} &lt; C_{sat}\)</span>. System is in <strong>one-phase region</strong> (outside Binodal line), existing P granules become unstable and <strong>dissolve (Dissolution)</strong>, components return to cytoplasm.</p>
+</li>
+</ul>
+<p>2.<strong>Embryo Posterior</strong>:</p>
+<ul>
+<li>
+<p>Low concentration of MEX-5 allows strong interactions between P granule components (equivalent to lowering effective temperature).</p>
+</li>
+<li>
+<p>Causes saturation concentration <span class="arithmatex">\(C_{sat}\)</span> to decrease.</p>
+</li>
+<li>
+<p><strong>Result</strong>: Actual cytoplasmic concentration <span class="arithmatex">\(C_{cyt} &gt; C_{sat}\)</span>. System enters <strong>two-phase coexistence region</strong> (inside Binodal line), cytoplasm is supersaturated, P granules <strong>condense (Condensation)</strong> and grow.</p>
+</li>
+</ul>
+<p><strong>Conclusion</strong>: Cells do not physically move each granule, but by regulating thermodynamic parameters (solubility/Binodal points) spatially, use <strong>diffusive flux</strong> to transport material from anterior (dissolution source) to posterior (condensation sink). This is an extremely efficient self-organization mechanism based on physical principles.</p>
+<p>Although thermodynamic phase diagrams successfully explain the static question of "where" P granules "tend to" appear, they cannot describe the speed of droplet formation, size distribution, and coarsening processes. To answer these dynamic questions, the time dimension needs to be introduced to establish dynamical equations describing conserved field evolution. This is exactly the topic of <strong>the next lecture (Lecture 12)</strong>—<strong>Cahn-Hilliard Equation (Model B)</strong>.</p>
+<h1 id="6-code-practice-visualization-of-phase-diagram-and-free-energy-surface">6. Code Practice - Visualization of Phase Diagram and Free Energy Surface<a class="headerlink" href="#6-code-practice-visualization-of-phase-diagram-and-free-energy-surface" title="Permanent link">&para;</a></h1>
+<p>The code practice will use the Cahn-Hilliard free energy model (including entropy and enthalpy contributions) to generate data, plotting the system's Phase Diagram and Free Energy Surface. This practice aims to transform the abstract mathematical derivations from previous sections into concrete physical images.</p>
+<p>1.<strong>Reproduce macroscopic results of Maxwell construction</strong>: By calculating the Binodal Line and Spinodal Line, construct the temperature-concentration phase diagram. This will intuitively display the system's stability regions (stable, metastable, unstable) at different temperatures.</p>
+<p>2.<strong>Display evolution of free energy landscape</strong>: Through 3D surface plots, dynamically display how the free energy density function <span class="arithmatex">\(f(\phi)\)</span> evolves from a single potential well (convex function) at high temperature to a double potential well (non-convex function) at low temperature as temperature <span class="arithmatex">\(T\)</span> changes, thereby revealing the thermodynamic driving force of phase separation.</p>
+<p><div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Thermodynamics and Phase Separation in Liquid Mixtures - Visualization</span>
+<span class="sd">Phase Diagram and 3D Free Energy Surface</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Global Style Settings - Dark Theme</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#3a3a5a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#e0e0ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;text.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#e0e0ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;xtick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#8080a0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ytick.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#8080a0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;grid.color&#39;</span><span class="p">:</span> <span class="s1">&#39;#2a2a4a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+    <span class="s1">&#39;font.family&#39;</span><span class="p">:</span> <span class="s1">&#39;sans-serif&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1"># Custom Color Scheme</span>
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;primary&#39;</span><span class="p">:</span> <span class="s1">&#39;#00d4ff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;secondary&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff6b6b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;accent&#39;</span><span class="p">:</span> <span class="s1">&#39;#a855f7&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="s1">&#39;#22c55e&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;warning&#39;</span><span class="p">:</span> <span class="s1">&#39;#f59e0b&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_phase_diagram_and_free_energy</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot Phase Diagram and 3D Free Energy Surface&quot;&quot;&quot;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#000000&#39;</span><span class="p">)</span>
+    <span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># Left: Phase Diagram (T vs c)</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">c_spinodal_low</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">c_spinodal_high</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">c_binodal_low</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">c_binodal_high</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.45</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">T</span><span class="o">/</span><span class="mf">1.2</span><span class="p">)</span>
+
+    <span class="c1"># Fill regions</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">c_binodal_low</span><span class="p">,</span> <span class="n">c_spinodal_low</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                      <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;warning&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Metastable Region&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">c_spinodal_high</span><span class="p">,</span> <span class="n">c_binodal_high</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                      <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;warning&#39;</span><span class="p">])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">c_spinodal_low</span><span class="p">,</span> <span class="n">c_spinodal_high</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> 
+                      <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spinodal Region&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot lines</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_binodal_low</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Binodal Line&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_binodal_high</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_spinodal_low</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spinodal Line&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_spinodal_high</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;secondary&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="c1"># Critical Point</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;accent&#39;</span><span class="p">]],</span> 
+                <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critical Point&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Critical Point</span><span class="se">\n</span><span class="s1">(Tc, cc)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> 
+                 <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;accent&#39;</span><span class="p">],</span>
+                 <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round,pad=0.5&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#1a1a2e&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;accent&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Concentration c&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature T / Tc&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Binary Phase Diagram&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Right: 3D Free Energy Surface</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#000000&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Construct free energy surface f(c, T)</span>
+    <span class="n">c_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+    <span class="n">T_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">C</span><span class="p">,</span> <span class="n">TT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">c_grid</span><span class="p">,</span> <span class="n">T_grid</span><span class="p">)</span>
+
+    <span class="c1"># Temperature dependent free energy</span>
+    <span class="n">Tc</span> <span class="o">=</span> <span class="mf">1.2</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+        <span class="n">entropy</span> <span class="o">=</span> <span class="n">TT</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">C</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">C</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">TT</span><span class="o">/</span><span class="n">Tc</span><span class="p">)</span> <span class="o">*</span> <span class="n">C</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">entropy</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">neginf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># Create gradient colormap</span>
+    <span class="n">surf_cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;#0a0a1a&#39;</span><span class="p">,</span>  <span class="c1"># Very dark blue</span>
+            <span class="s1">&#39;#1e40af&#39;</span><span class="p">,</span>  <span class="c1"># Dark blue</span>
+            <span class="s1">&#39;#3b82f6&#39;</span><span class="p">,</span>  <span class="c1"># Blue</span>
+            <span class="s1">&#39;#22d3ee&#39;</span><span class="p">,</span>  <span class="c1"># Cyan</span>
+            <span class="s1">&#39;#a5f3fc&#39;</span><span class="p">,</span>  <span class="c1"># Light cyan</span>
+            <span class="s1">&#39;#fbbf24&#39;</span><span class="p">,</span>  <span class="c1"># Yellow</span>
+        <span class="p">],</span> <span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Plot surface</span>
+    <span class="n">surf</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">TT</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">surf_cmap</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                            <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add contour projection at the bottom</span>
+    <span class="n">contour_offset</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.03</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">TT</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">zdir</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">contour_offset</span><span class="p">,</span> 
+                <span class="n">levels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;cool&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+    <span class="c1"># Labels and title</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Concentration c&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature T/Tc&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Free Energy F&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Free Energy Surface F(c, T)&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="c1"># Adjust viewing angle</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">65</span><span class="p">)</span>
+
+    <span class="c1"># Customize 3D pane appearance</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;#3a3a5a&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;#3a3a5a&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">zaxis</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;#3a3a5a&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="c1"># Add colorbar</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Free Energy&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Main title</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Cahn-Hilliard Model&#39;</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.96</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="c1"># Main Entry Point</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plot_phase_diagram_and_free_energy</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;phase_diagram_and_free_energy.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</code></pre></div>
+<img alt="Code Output" src="../../../cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg" /></p>
+<p><strong>Left figure (Binary Phase Diagram)</strong>: Shows the relationship between temperature <span class="arithmatex">\(T\)</span> and concentration <span class="arithmatex">\(c\)</span>.</p>
+<p><strong>Binodal Line (solid line)</strong>: Encloses the coexistence region. Within this region, the mixture tends to separate into two phases.</p>
+<p><strong>Spinodal Line (dashed line)</strong>: Defines the thermodynamically unstable region (Spinodal Region). Within this region, small concentration fluctuations spontaneously amplify (i.e., Spinodal decomposition).</p>
+<p><strong>Critical Point (star)</strong>: The highest temperature point where phase separation occurs.</p>
+<p><strong>Right figure (Free Energy Surface)</strong>: Shows how free energy density <span class="arithmatex">\(F(c, T)\)</span> varies with concentration and temperature.
+At low temperatures, the free energy curve exhibits a "double potential well" structure, leading to phase separation.
+At high temperatures (<span class="arithmatex">\(T &gt; T_c\)</span>), the free energy curve is a single potential well, and the mixture is in a uniform steady state.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture revealed the physical essence of phase separation in liquid mixtures by introducing a rigorous thermodynamic framework. Starting from the incompressible fluid assumption, the Helmholtz free energy density with volume fraction <span class="arithmatex">\(\phi\)</span> as the variable was derived. Through stability analysis, Convexity was established as the core criterion for system stability. Maxwell construction is not only an elegant geometric tool, but also profoundly embodies the principles of equal chemical potential and equal osmotic pressure in multi-phase equilibrium. Ultimately, these theories converge into phase diagrams describing material states, explaining a wide range of phenomena from industrial oil-water mixing to P granule formation inside cells.</p>
+<p>This lecture mainly solves <strong>Statics</strong> problems: given a system, what is its final equilibrium state? Does it phase separate? What are the equilibrium concentrations after separation?</p>
+<p>However, physics is equally concerned with <strong>Dynamics</strong> processes: how exactly does the system evolve from an unstable uniform state to the separated equilibrium state?</p>
+<ul>
+<li>
+<p>If it's Spinodal decomposition, how do droplets emerge and form characteristic stripes?</p>
+</li>
+<li>
+<p>If it's nucleation and growth, what determines the droplet growth rate?</p>
+</li>
+<li>
+<p>How do droplets interact with each other (e.g., Ostwald ripening)?</p>
+</li>
+</ul>
+<p>In <strong>the next lecture</strong>, the course will introduce time variables and establish non-equilibrium dynamical field theory. The focus will be on comparing two basic dynamical models:</p>
+<ul>
+<li><strong>Model A (Allen-Cahn)</strong>: Used to describe non-conserved order parameters (such as magnetism). Its interface dynamics has been preliminarily explored in previous lectures.</li>
+<li><strong>Model B (Cahn-Hilliard)</strong>: Used to describe conserved order parameters (such as the mixture concentration <span class="arithmatex">\(\phi\)</span> discussed in this lecture, constrained by particle number conservation).</li>
+</ul>
+<p>The next lecture will delve into how the introduction of conservation laws fundamentally changes the dynamics of phase separation, reveal the role of <strong>Osmotic Pressure</strong>, and derive the <strong>Cahn-Hilliard equation</strong> leading to diffusion-controlled coarsening processes. This will provide a complete theoretical picture for understanding the dynamic evolution of intracellular droplets.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

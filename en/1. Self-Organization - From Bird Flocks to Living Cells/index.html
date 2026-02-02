@@ -1,0 +1,1137 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>1. Self-Organization - From Bird Flocks to Living Cells - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-philosophy-born-of-wonder-and-the-mystery-of-collective-order" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Self-Organization - From Bird Flocks to Living Cells
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-philosophy-born-of-wonder-and-the-mystery-of-collective-order">Introduction: Philosophy Born of Wonder and the Mystery of Collective Order<a class="headerlink" href="#introduction-philosophy-born-of-wonder-and-the-mystery-of-collective-order" title="Permanent link">&para;</a></h1>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_002_cc81eda4-a098-4dcb-84b5-d930f0ae2a84.png" /></p>
+<p>Prof. Erwin Frey opens the course with a quote from Plato's <em>Theaetetus</em>: "Wonder is the feeling of a philosopher, and philosophy begins in wonder; in fact, science has no other beginning." This philosophical statement establishes the starting point of the course: scientific research begins with wonder at natural phenomena, and its goal is to deeply understand the causes behind these phenomena.</p>
+<p><img alt="Screenshot of Starling Video Shown in Lecture" src="../../cn/assets/images/01_003_185b6550-b11c-4bd3-b7c5-44d7154fff35.png" /></p>
+<p>To make the abstract concept of self-organization concrete, the professor first shows a video of starling flocks (i.e., "murmuration"). Thousands of starlings form complex and fluid dynamic patterns in the sky, moving as a whole, yet without any leader or central controller issuing commands. This is a hallmark feature of self-organizing systems: macroscopic, coordinated collective behavior emerges spontaneously from simple, local interactions between individuals.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_004_1f6b48db-29e8-4427-959b-408c7d29d15a.jpg" /></p>
+<p>In stark contrast is the example of an orchestra conductor. The conductor coordinates the entire orchestra through global commands, representing a "top-down" centralized control mode. Self-organizing systems, however, lack such centralized control; their order is generated "bottom-up."</p>
+<p>The lecture then shifts from the macroscopic world to the microscopic cellular scale. Prof. Frey presents four cutting-edge research examples from his group. These cases are concrete applications of self-organization theory in biology and provide real-world research context for the theories to be developed in subsequent lectures.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_005_628b5bcd-b483-413a-b7e3-e7c245694aa2.png" /></p>
+<p><strong>1. Cell polarity of yeast</strong>: How does an originally symmetric spherical yeast cell spontaneously break symmetry and select a specific site to form a "polar cap" for budding reproduction? This is a fundamental symmetry-breaking problem.</p>
+<p><strong>Self-organization mechanism:</strong> The polar cap itself is a pattern spontaneously formed by proteins. It serves as a biological "landmark" to organize other structures within the cell (such as actin filaments).</p>
+<p>These organized actin bundles then push against the cell wall, forming a "bud" that eventually produces a new yeast cell. This example demonstrates how self-organized spatial patterns serve critical biological functions (cell proliferation).</p>
+<p><strong>2. Min oscillations in <em>E. coli</em></strong>: How does a protein system (Min proteins) inside <em>E. coli</em> cells form a concentration wave oscillating back and forth between the cell poles, thereby precisely locating the cell center to ensure symmetric cell division?</p>
+<p><strong>Self-organization mechanism:</strong> A protein system (Min proteins) inside the cell spontaneously forms a concentration pattern oscillating between the two cell poles.</p>
+<p>The time-averaged effect of this dynamic oscillation results in the lowest concentration of a division-inhibiting protein at the cell center. This "permits" the assembly of the division ring (Z-ring) at the cell midpoint, ensuring that the cell divides symmetrically.</p>
+<p><strong>3. Starfish oocytes</strong>: In early-stage egg cells, how does the cytoskeleton (especially actin) organize into dynamic patterns that drive cytoplasmic flow and material redistribution?</p>
+<p><strong>Self-organization mechanism:</strong> The lecture shows chaotic, spiral-like ripples formed by proteins on the cell surface. When a wave sweeps across the cell, not only does the protein pattern change, but the cell's shape also deforms.</p>
+<p>This example reveals the deep connection between self-organized pattern formation and cellular geometry. This poses a theoretical challenge because it requires combining pattern formation theory with differential geometry (to describe shape changes).</p>
+<p><strong>4. Synthetic cell motility</strong>: In artificially reconstructed "synthetic cells" composed of basic biomolecules, how can we design molecular interactions to achieve spontaneous motion and deformation?</p>
+<p><strong>Self-organization mechanism:</strong> Researchers extracted the Min protein system from <em>E. coli</em> and placed it on a two-dimensional surface, where it also formed dynamic patterns. When an artificial cell (vesicle) composed only of a lipid bilayer interacts with this protein pattern, the vesicle begins spontaneous directional motion.</p>
+<p>This belongs to the realm of "synthetic biology." It demonstrates that by understanding the physical principles of self-organization, fundamental features of life (such as motility) can be decomposed and reconstructed.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_006_ef0983f4-78d7-4272-a6e1-a5a5fd862ae3.png" /></p>
+<p>The professor also gives the example of morphogenesis in <em>Drosophila</em>. At a higher organizational level, how do living organisms form complex shapes? The image shows the early developmental process of a fruit fly embryo. Using light sheet microscopy for real-time observation, one can see how cells reorganize on a large scale, form different shapes, and eventually produce complex body structures such as segmentation. This is an instance of "morphogenesis," representing self-organization at the tissue dynamics level. Establishing theoretical descriptions for such complex life processes is one of the frontier challenges in this field.</p>
+<p><strong>In this course, "pattern" is a core concept. These five examples all demonstrate how biological systems produce functional spatiotemporal patterns through self-organization.</strong></p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_007_6272f954-6442-48e2-820c-09bd15ac2d57.png" /></p>
+<p>The lecture quotes physicist Erwin Schrödinger from his famous book <em>What Is Life?</em>: "Living matter, while not eluding the 'laws of physics'... is likely to involve 'other laws of physics' hitherto unknown, which, however, once they have been revealed, will form just as integral a part of this science."</p>
+<p>This quote establishes a key theoretical framework for the entire course. In modern physics, Schrödinger's "other laws of physics" can be understood as the physical laws governing systems <strong>far from thermodynamic equilibrium</strong>. A fundamental difference between living systems and non-living matter is that they are open, energy-consuming systems. Cells maintain their highly ordered structures and perform various life functions by continuously hydrolyzing chemical fuels such as ATP. This continuous energy input makes living systems inherently nonequilibrium. Thus, Schrödinger's quote hints at the core focus of this course: <strong>studying energy-driven nonequilibrium physics, because it is in this domain that the most fascinating self-organization and pattern formation phenomena occur. The four biophysics cases mentioned earlier are all typical nonequilibrium systems.</strong></p>
+<p>The lecture presents several examples from fluid dynamics to emphasize the universality of pattern formation.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_008_14b3b5c4-7434-422c-9282-2a9e2d8b77c2.jpg" /></p>
+<p><strong>Munich river wave:</strong> Shows the standing wave (surfing spot) in a river channel in Munich. This is a spontaneously formed fluid pattern dominated by nonlinear dynamics, governed by the Navier–Stokes equations.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_009_f0e4ee19-7855-423c-9fb3-9bdcf3b01ce9.jpg" /></p>
+<p><strong>Von Kármán vortex street:</strong> Shows cloud layers above the Juan Fernández Islands forming regular vortex patterns behind the islands (obstacles).</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_010_6c9c6347-b452-4ce4-a734-f65009f858d8.jpg" /></p>
+<p><strong>Ripple patterns:</strong> Shows various stripe-like or differently shaped ripples formed by the interaction of water flow and sand particles in shallow water.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_011_1e994037-dccb-447d-abfa-4e62e69f1355.jpg" /></p>
+<p><strong>Sand dunes:</strong> Shows huge dune patterns shaped by wind in Morocco. These dunes form over centuries and are another type of self-organized pattern formed by granular media under wind forcing.</p>
+<p>These examples show that despite vast differences in physical systems (from urban rivers, the atmosphere, to shallow sandy beaches), they can give rise to geometrically similar patterns. This strongly suggests that behind these phenomena lie universal mathematical principles independent of system-specific details. <strong>This is also the core goal of this course: to establish "coarse-grained" theories that can predict such emergent order by using fundamental principles such as universality, symmetry, and conservation laws.</strong></p>
+<p>Below is an overview of the course outline and content.
+<img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_012_65ce6600-39d4-45bd-ac28-4484a95a7096.jpg" /></p>
+<p>To establish a predictive theory for these phenomena, the course will focus on three core theoretical pillars:</p>
+<p>1.Dynamical Systems Theory</p>
+<p>2.Phase Transitions &amp; Collective Phenomena</p>
+<p>3.Pattern Formation &amp; Self-Organization</p>
+<h1 id="1-dynamical-systems-theorythe-geometry-of-change">1. Dynamical Systems Theory—The Geometry of Change<a class="headerlink" href="#1-dynamical-systems-theorythe-geometry-of-change" title="Permanent link">&para;</a></h1>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_013_29035af8-33c9-4090-a285-725501591d46.png" /></p>
+<h2 id="11-core-concepts-of-nonlinear-dynamics">1.1 Core Concepts of Nonlinear Dynamics<a class="headerlink" href="#11-core-concepts-of-nonlinear-dynamics" title="Permanent link">&para;</a></h2>
+<p>Nonlinear dynamics theory provides a geometric perspective for understanding system evolution, transcending the limitations of the "superposition principle" in linear systems. It shows how feedback and constraints organize stability, attractors, and transitions.</p>
+<p>In an abstract space called <strong>phase space</strong>, the system's state at any moment (e.g., positions and velocities of all particles) is represented as a point. As time progresses, this point traces a trajectory, revealing the system's evolution.</p>
+<ul>
+<li>
+<p><strong>Phase-space geometry</strong>: The long-term behavior of a system is typically governed by special invariant sets in phase space, called <strong>attractors</strong>. The simplest attractors are <strong>fixed points</strong>, corresponding to steady states; another common type is <strong>limit cycles</strong>, corresponding to periodic oscillations. Each attractor has its <strong>basin of attraction</strong>, the set of all initial states that eventually evolve to that attractor.</p>
+</li>
+<li>
+<p><strong>Stability &amp; manifolds</strong>: By <strong>linearizing</strong> the dynamical equations near a fixed point or limit cycle, one can analyze its stability. The <strong>eigenmodes</strong> from linearization reveal the system's behavior in different directions: perturbations decay in stable directions and grow in unstable directions. These stable and unstable directions together form the <strong>stable and unstable manifolds</strong> that guide trajectory flow in phase space.</p>
+</li>
+<li>
+<p><strong>Bifurcation theory</strong>: When a control parameter (such as temperature, reactant concentration, or energy input rate) slowly changes, the geometry of phase space may undergo qualitative changes. For example, a stable fixed point may become unstable and give rise to a stable limit cycle. Such qualitative changes in dynamical behavior are called <strong>bifurcations</strong>. Bifurcation theory reveals that these transitions have universal local "templates," such as <strong>saddle-node</strong>, <strong>pitchfork</strong>, and <strong>Hopf</strong> bifurcations.</p>
+</li>
+<li>
+<p><strong>Symmetry &amp; constraints</strong>: <strong>Symmetries</strong> and <strong>conservation laws</strong> (such as energy conservation, mass conservation) impose strong constraints on dynamics. These constraints not only limit the possible evolutionary paths but also determine the types of bifurcations that can occur, greatly simplifying analysis and enabling predictions.</p>
+</li>
+</ul>
+<h2 id="12-classical-examples-from-fixed-points-to-chaotic-attractors">1.2 Classical Examples: From Fixed Points to Chaotic Attractors<a class="headerlink" href="#12-classical-examples-from-fixed-points-to-chaotic-attractors" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_014_2150a77d-4aa1-4626-ac1a-bf733dd2972b.png" /></p>
+<p>To illustrate the core concept of "attractor," the lecture begins with a simple two-dimensional system and gradually introduces more complex attractor types. The first example shows a two-dimensional phase space containing two "landmark" fixed points: an unstable <strong>saddle point</strong> (open circle) and a <strong>stable fixed point</strong> (solid dot). This stable fixed point is an <strong>attractor</strong>; all trajectories starting from within its "basin of attraction" will eventually flow toward and stop at this point, representing the system reaching a <strong>steady state</strong>. This system is described by the equations <span class="arithmatex">\(\partial_{t}u = -u + u^{2}v\)</span> and <span class="arithmatex">\(\partial_{t}v = u - v\)</span>.</p>
+<p>The second example is the famous "Brusselator" model, which introduces another type of attractor—the <strong>limit cycle</strong> (red closed curve). In this system, trajectories starting from either inside or outside the cycle eventually converge to the cycle, representing the system entering a <strong>periodic oscillation</strong> state. Such limit cycles are the mathematical foundation for understanding many biological rhythms (such as circadian clocks). Its dynamical equations are <span class="arithmatex">\(\partial_{t}u = \mu + u^{2}v - (\lambda + 1)u\)</span> and <span class="arithmatex">\(\partial_{t}v = \lambda v - u^{2}v\)</span>.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_015_95a1bbde-e867-4637-b7aa-9cbbb561bfc6.png" /></p>
+<p>After introducing fixed points and limit cycles, the lecture turns to a more complex and famous three-dimensional system—the <strong>Lorenz attractor</strong>. This set of equations was originally proposed as a simplified model for atmospheric convection:</p>
+<div class="arithmatex">\[
+\begin{aligned} 
+\frac{dx}{dt} &amp;= \sigma(y - x) \\ 
+\frac{dy}{dt} &amp;= x(\rho - z) - y \\ 
+\frac{dz}{dt} &amp;= xy - \beta z 
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(x, y, z\)</span> are variables describing the system state (corresponding to convection rate, temperature difference, and temperature profile deviation), and <span class="arithmatex">\(\sigma, \rho, \beta\)</span> are physical parameters. When parameters are set to specific values (e.g., <span class="arithmatex">\(\sigma = 10, \rho = 28, \beta = 8/3\)</span>), this completely deterministic system exhibits "<strong>deterministic chaos</strong>" behavior.</p>
+<p>The system's trajectory is confined to a bounded "butterfly" shaped region, but it never repeats and is extremely sensitive to initial conditions. This means that even if two initial states differ only infinitesimally, their subsequent trajectories will diverge exponentially, making long-term behavior completely unpredictable. Lorenz's discovery was revolutionary: it revealed that even in systems without randomness, governed by simple nonlinear rules, complex and unpredictable behavior can arise intrinsically.</p>
+<h2 id="13-research-frontiers-in-dynamical-systems">1.3 Research Frontiers in Dynamical Systems<a class="headerlink" href="#13-research-frontiers-in-dynamical-systems" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_016_c7f1f319-8e46-4733-a555-7ef58b5d4dbe.png" /></p>
+<p>The lecture connects these foundational theories to three active research frontiers, showing applications of dynamical systems theory in modern science.</p>
+<p>1.<strong>Reaction Networks</strong>: Applying stability and bifurcation analysis to understand complex networks in biology (such as gene regulatory networks, cellular signaling pathways) and ecology (such as population dynamics). The goal is to draw "phase diagrams" that clarify what behavior the system will exhibit in different parameter regimes, such as species coexistence, bistability (the system can switch between two stable states), or periodic oscillations.</p>
+<p>2.<strong>Learning Dynamical Systems</strong>: A modern, data-driven research paradigm. Unlike the traditional approach of building equations from known physical laws, this field aims to use time-series data from experiments or simulations to infer the dynamical rules governing system evolution. This is a core topic at the intersection of machine learning and scientific AI.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_017_1467ee47-bb2d-4bb4-a207-f4b9121a3efb.png" /></p>
+<p>3.<strong>Kinetic Self-Assembly</strong>: Using nonlinear rate equations to model, predict, and control the formation of microscopic structures, such as virus capsid assembly or DNA origami. Theoretical analysis can help predict nucleation thresholds, delay times, and size distributions and yields of final products during self-assembly, which is crucial for nanotechnology and new material design.</p>
+<p>By contrasting with IKEA furniture (which requires external assembly), the professor emphasizes the uniqueness of biological systems. This slide lists various complex structures that spontaneously form inside living organisms, including microtubules, flagellar motors, virus capsids, and artificially designed DNA origami. The purpose of this figure is to visually present the core question studied in this field: <strong>How do these exquisite biomolecular machines automatically "assemble" from simple building blocks without external intervention.</strong></p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_018_681076e8-45a1-4e67-8d32-02d6a4dd72eb.png" /></p>
+<p>Biological self-assembly can be analogized to a "computational problem." The slide establishes a one-to-one correspondence between computer science and self-assembly: the computer's "algorithm" corresponds to the biological system's "assembly scenario"; "CPU time" corresponds to "real time"; and "input size" corresponds to "size of target structure." Through this analogy, the professor introduces a key theoretical concept—"time complexity of self-assembly," i.e., how the real time required to assemble a structure (like a virus) changes with the size of that structure.</p>
+<p>Presenting these three frontiers together reveals a profound duality in theoretical physics research. The first two fields, "reaction networks" and "kinetic self-assembly," represent the traditional "<strong>forward problem</strong>": Given a set of rules (differential equations), what behavior will emerge? This is the classical path of theoretical physics. The third frontier, "learning dynamical systems," represents the "<strong>inverse problem</strong>": Given observed behavior (data), what are the underlying rules? The rise of inverse problems driven by machine learning is an important feature of 21st-century scientific research. Juxtaposing them indicates that a complete understanding of complex systems requires both the ability to predict from theory and the ability to infer from data—they complement each other.</p>
+<h1 id="2-phase-transitions-collective-phenomenathe-emergence-of-the-whole">2. Phase Transitions &amp; Collective Phenomena—The Emergence of the Whole<a class="headerlink" href="#2-phase-transitions-collective-phenomenathe-emergence-of-the-whole" title="Permanent link">&para;</a></h1>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_019_8b27320d-1c35-41d4-a4ed-d6fff453f240.png" /></p>
+<p>The second theoretical pillar of the course shifts perspective from systems described by a few variables (ordinary differential equations, ODEs) to spatially extended systems (partial differential equations, PDEs). In such systems, we focus on one or more fields that vary continuously in space and time, i.e., the <strong>order parameter</strong> <span class="arithmatex">\(\phi(\mathbf{x}, t)\)</span>, such as local concentration, density, or average molecular orientation. This is a field-theoretic view of spatially extended systems that links symmetry, conservation laws with instabilities, universality, and the emergence of macroscopic order and patterns.</p>
+<p><strong>Nonequilibrium field theories</strong>: Theories describing the evolution of these fields are built from the order parameter, symmetry, and conservation laws. For systems near thermodynamic equilibrium, dynamics typically follows a "gradient flow," meaning the system evolves toward minimizing a <strong>free energy functional</strong>. However, for active systems, the situation is completely different. Build them from order parameters, symmetry, and conservation laws—using gradient flows when a free energy exists; otherwise, include active driving terms that break detailed balance and reciprocity (i.e., Onsager symmetry).</p>
+<p>In active systems, due to continuous energy input (e.g., ATP hydrolysis in cells), there are sustained energy and probability currents within the system, breaking microscopic reversibility or time-reversal symmetry, i.e., "detailed balance." The direct consequence is that such systems typically lack a simple free energy that can be minimized by dynamics. Broken detailed balance is the core feature distinguishing nonequilibrium physics from equilibrium physics.</p>
+<p><strong>Linear stability analysis</strong>: To study whether a spatially uniform base state is stable, the usual method is to introduce a small sinusoidal perturbation with a specific wavevector <span class="arithmatex">\(\mathbf{k}\)</span> (of the form <span class="arithmatex">\(e^{i\mathbf{k}\cdot\mathbf{x} + \omega t}\)</span>). By solving the linearized dynamical equations, one obtains the relationship between the growth rate <span class="arithmatex">\(\omega\)</span> and the wavevector <span class="arithmatex">\(\mathbf{k}\)</span>, i.e., the <strong>dispersion relation</strong> <span class="arithmatex">\(\omega(\mathbf{k})\)</span>. If for some <span class="arithmatex">\(\mathbf{k}\)</span>, <span class="arithmatex">\(\text{Re}(\omega) &gt; 0\)</span>, then perturbations at that wavelength grow exponentially, the system becomes unstable, and tends to form a spatial pattern with characteristic wavelength <span class="arithmatex">\(2\pi/|\mathbf{k}|\)</span>.</p>
+<p><strong>Interfaces &amp; topological defects</strong>: After pattern formation, the long-term evolution is often dominated by the motion of boundaries between different ordered regions (<strong>interfaces</strong>) or singular points in the order parameter field (<strong>topological defects</strong>). The dynamics of these interfaces and defects, such as motion, interaction, creation, and annihilation, control macroscopic processes like "coarsening" (i.e., the growth of ordered domain size with time). Long-term behavior is governed by the motion and interaction of domain walls and defects; curvature and (in driven systems) active stresses determine coarsening laws, front speeds, and persistent textures.</p>
+<h2 id="22-classical-example-1-phase-separation-in-binary-mixtures">2.2 Classical Example 1: Phase Separation in Binary Mixtures<a class="headerlink" href="#22-classical-example-1-phase-separation-in-binary-mixtures" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_020_a7e0189f-09b6-4806-b8cc-0c1026c36e19.png" /></p>
+<p>This example describes how a homogeneous mixture like oil and water spontaneously separates into two regions enriched in each component. The classical model describing this process is the <strong>Cahn–Hilliard equation</strong>.</p>
+<p>The model consists of three core parts:</p>
+<p>1.<strong>Ginzburg–Landau free energy functional <span class="arithmatex">\(F[\phi]\)</span></strong>: This expression describes the system's total energy and contains two terms.</p>
+<div class="arithmatex">\[
+F[\phi] = \int_{\Omega} \left[ f(\phi) + \frac{\kappa}{2}|\nabla\phi|^2 \right] d\mathbf{x}
+\]</div>
+<ul>
+<li>
+<p><strong>Bulk free energy density <span class="arithmatex">\(f(\phi)\)</span></strong>: This term describes the energy of a homogeneous mixture. Its graph is a <strong>double-well potential</strong>, meaning the system's energy is lower in the two pure phase states (e.g., order parameter <span class="arithmatex">\(\phi = \pm 1\)</span>) than in the mixed state (<span class="arithmatex">\(\phi = 0\)</span>).</p>
+</li>
+<li>
+<p><strong>Gradient energy <span class="arithmatex">\(\frac{\kappa}{2}|\nabla\phi|^2\)</span></strong>: This term is proportional to the square of the order parameter gradient and penalizes sharp spatial concentration variations. Thus, forming an interface between phase domains costs energy. The parameter <span class="arithmatex">\(\kappa\)</span> controls the interface thickness and energy.</p>
+</li>
+</ul>
+<p>2.<strong>Chemical potential <span class="arithmatex">\(\mu\)</span></strong>:</p>
+<div class="arithmatex">\[
+\mu = \frac{\delta F}{\delta \phi} = f'(\phi) - \kappa\nabla^2\phi
+\]</div>
+<p>The chemical potential is the functional derivative of the free energy functional with respect to the order parameter field. It plays the role of a thermodynamic force, driving the system toward lower energy states, and is the local driving force for mass diffusion.</p>
+<p>3.<strong>Continuity equation <span class="arithmatex">\(\partial_t \phi\)</span></strong>:</p>
+<div class="arithmatex">\[
+\partial_t \phi = \nabla \cdot (M(\phi) \nabla \mu)
+\]</div>
+<p>This is the core dynamical equation, essentially a statement of <strong>mass conservation</strong>, i.e., <span class="arithmatex">\(\partial_t \phi = -\nabla \cdot \mathbf{J}\)</span>, where <span class="arithmatex">\(\mathbf{J}\)</span> is the mass flux. Here, the flux <span class="arithmatex">\(\mathbf{J}\)</span> is assumed proportional to the gradient of the chemical potential, <span class="arithmatex">\(\mathbf{J} = -M\nabla\mu\)</span>, which is a generalization of the classical Fick's diffusion law. <span class="arithmatex">\(M\)</span> is the mobility.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_021_e6466392-0002-45cd-9c48-9d41d629be61.png" /></p>
+<p><strong>Physical process (spinodal decomposition):</strong> If a homogeneous mixture is rapidly quenched into the unstable region of its phase diagram (the spinodal region), then small, random concentration fluctuations in the system will spontaneously grow exponentially. This leads to rapid separation into two interpenetrating, connected phase domains. Subsequently, these domains "coarsen" through interface motion, with small domains being absorbed by larger ones, thereby continuously reducing the system's total interfacial energy.</p>
+<h2 id="23-classical-example-2-topological-defects-in-active-matter">2.3 Classical Example 2: Topological Defects in Active Matter<a class="headerlink" href="#23-classical-example-2-topological-defects-in-active-matter" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_022_03855f37-8fe7-4935-a6b8-413dba90b93f.png" /></p>
+<p>The professor then introduces another typical active matter system: <strong>active nematics</strong>. This is a fluid composed of elongated particles capable of actively exerting forces (such as kinesin-driven microtubule bundles or bacteria).</p>
+<p><strong>Order parameter</strong>: The local orientational order of the system is described by a second-rank traceless symmetric tensor <span class="arithmatex">\(\mathbf{Q}\)</span>.</p>
+<p><strong>Topological defects</strong>: In two-dimensional systems, these are point-like singularities in the orientation field, characterized by a topological charge (or winding number), most commonly <span class="arithmatex">\(+1/2\)</span> and <span class="arithmatex">\(-1/2\)</span> defects. In active nematics, these defects are not stationary. Due to symmetry breaking, <span class="arithmatex">\(+1/2\)</span> defects can self-propel like particles, stirring the surrounding fluid and generating complex flows.</p>
+<p><strong>Coupled equations</strong>: The system's dynamics is described by coupled partial differential equations for the order parameter tensor <span class="arithmatex">\(\mathbf{Q}\)</span> and the fluid velocity field <span class="arithmatex">\(\mathbf{u}\)</span>. A key term is the <strong>active stress</strong>, typically of the form <span class="arithmatex">\(\sigma_a \propto \alpha \mathbf{Q}\)</span>, where <span class="arithmatex">\(\alpha\)</span> is the activity coefficient. This term represents the systematic forces exerted by active particles on the fluid. It is this active stress that drives the system into a persistent, chaotic flow state called "<strong>active turbulence</strong>" or "<strong>defect chaos</strong>."</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_023_47021ca1-e86e-4981-adcb-92c19d5e89c1.png" /></p>
+<p>The professor classifies the frontier field of active matter field theories, showing several key phenomena that researchers aim to describe.</p>
+<p>1."Scalar active matter," consisting of self-propelled particles, different from traditional thermodynamic mixtures.</p>
+<p>2."Active nematics," the chaotic system of microtubules and motor proteins shown in the previous slide.</p>
+<p>3."Chiral active fluids," showing patterns with chirality.</p>
+<p>4."Active metamaterials," whose dynamical behavior (such as topologically protected edge flows) is confined to the system's boundary.</p>
+<p>At the bottom of the slide are the "nonequilibrium field theory" equations used to describe these systems. The professor uses this to emphasize two key features of these theories. First, for "scalar active matter," although the equations are formally similar to equilibrium phase separation models, the chemical potential <strong>cannot</strong> be derived from a free energy functional, mathematically reflecting the system's violation of "detailed balance." Second, for "active nematics," the theory becomes more complex, requiring not only scalar fields (like density) but also "vector fields" (to describe fluid velocity) and "tensor fields" (to describe local orientation of active particles).</p>
+<h2 id="24-research-frontiers-in-collective-phenomena">2.4 Research Frontiers in Collective Phenomena<a class="headerlink" href="#24-research-frontiers-in-collective-phenomena" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_024_228c7647-05be-4dae-856a-adede65b4166.png" />
+1.<strong>Active Scalar Matter</strong>: From self-propelled colloids and chemotactic populations to active emulsions, (using) nonlinear dynamics—via linear stability analysis, field theory, and interface theory—to map out which (behavioral) regimes (homogeneous, phase-separated, microphase/clustered, traveling wave fronts) occur, how they change with activity and interactions, and how to control them.</p>
+<p>This type of system consists of self-propelled particles without orientational alignment interactions. Its signature phenomenon is <strong>motility-induced phase separation (MIPS)</strong>. In this phenomenon, even when particles only have purely repulsive interactions, they can undergo phase separation. The mechanism is: when self-propelled particles enter denser regions during motion, their effective speed decreases due to frequent collisions. This causes particles to more easily "jam" and accumulate in dense regions, further increasing the density there. This positive feedback loop eventually leads to spontaneous separation into a high-density "liquid phase" and a low-density "gas phase."</p>
+<p>2.<strong>Active Condensates in Cells</strong>: From nucleoli and stress granules to transcriptional hubs, (using) nonlinear dynamics—via reaction–diffusion models and phase-field models with active turnover—to map out which (behavioral) regimes (nucleation/growth, arrested microphase, localization, oscillation/wetting) occur, how they change with energy input and kinetics, and how to control them.</p>
+<p>Applying phase separation physics to understand the widely present "membraneless organelles" in cells, such as nucleoli and stress granules. These structures are thought to be "droplets" (i.e., <strong>biomolecular condensates</strong>) in the cytoplasm or nucleus. Unlike simple physical phase separation, the formation, dissolution, and dynamic behavior of these condensates are precisely regulated by active, energy-consuming biochemical reactions within the cell (such as protein synthesis/degradation, phosphorylation/dephosphorylation).</p>
+<p>3.<strong>Data-driven theory</strong>: Identifying necessary order parameters from data, recovering continuum field equations consistent with symmetry and conservation laws. Similar to the frontier in the dynamical systems section, but applied to spatially extended systems. The goal is to use high-resolution experimental data (e.g., microscopy videos) to automatically discover the partial differential equations governing active matter system evolution through machine learning and sparse regression methods.</p>
+<p>This part of the lecture demonstrates the powerful unifying force of the <strong>field theory</strong> conceptual framework. From phase separation in binary fluids (a "passive" system driven by thermodynamics), to active nematics (an "active" system driven by intrinsic motors), to MIPS in active scalar particles and active condensates in cells, all these seemingly disparate phenomena can be described by a unified mathematical language—theories based on continuous order parameter fields. They all obey partial differential equations determined by symmetry and conservation laws. The fundamental difference between passive and active systems is simply whether the equations contain those "active terms" (like active stress) that break detailed balance. This shows that the field theory framework has great flexibility and universality: by modifying specific terms in the equations, the same conceptual language can describe a wide range of physical phenomena from oil-water mixtures to the interior of living cells. The frontier of "data-driven theory" is the ultimate embodiment of this idea—it attempts to find these key equation terms directly from raw data.</p>
+<h1 id="3-pattern-formation-self-organizationthe-physics-of-life">3. Pattern Formation &amp; Self-Organization—The Physics of Life<a class="headerlink" href="#3-pattern-formation-self-organizationthe-physics-of-life" title="Permanent link">&para;</a></h1>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_025_694f2928-3e1e-45aa-b129-ff460043f107.png" /></p>
+<p>The third theoretical pillar of the course aims to synthesize the tools and ideas from the first two pillars (dynamical systems theory and nonequilibrium field theory) to address how functional patterns arise in biological contexts. The core here is <strong>reaction–transport cycles</strong> and <strong>active mechanics</strong> dominated by the <strong>cytoskeleton</strong>.</p>
+<p>A <strong>unified view of living systems</strong> in which <strong>reaction–transport cycles</strong> and <strong>active cytoskeletal mechanics</strong>—shaped by symmetry, conservation laws, and geometry—organize <strong>interfaces, waves, and polar domains</strong> into functional intracellular and tissue-level patterns.</p>
+<p><strong>Classical pattern-forming models</strong>:
+Canonical PDEs (such as Turing, Swift–Hohenberg, Ginzburg–Landau, Kuramoto–Sivashinsky), using dispersion relations and amplitude reductions to predict thresholds, wavelengths, and planform stability.</p>
+<p>Introduces a series of classical partial differential equations viewed as "paradigms" or "universal templates" for pattern formation, such as the <strong>Turing model</strong>, <strong>Swift–Hohenberg equation</strong>, and <strong>Ginzburg–Landau equation</strong>. These models can predict pattern formation thresholds, characteristic wavelengths, and the stability of different geometric patterns (such as stripes, hexagons) through linear stability analysis and weakly nonlinear analysis.</p>
+<p><strong>Mass-conserving reaction–diffusion</strong>: Using conservation laws and flux-balance geometry (nullclines, slope criterion) to locate admissible steady states and classify the occurrence of lateral instabilities.</p>
+<p>This is a crucial constraint in biological systems. Unlike many open chemical reactors, the total amount of many proteins within a cell is fixed. This conservation law dramatically changes the possible instabilities and resulting patterns.</p>
+<p><strong>Sharp-interface dynamics</strong>:
+Deriving front/domain-wall motion from phase-field models—(such as) mean-curvature flow and Stefan/Gibbs–Thomson conditions—and using these laws to compute coarsening rates and front speeds.</p>
+<p>In many cases, directly solving the entire field's partial differential equations is very complex. An effective simplification is to derive equations describing the motion of region boundaries (interfaces or fronts). This approach can directly calculate interface propagation speeds or phase domain coarsening rates without concerning details far from the interface.</p>
+<h2 id="31-classical-example-1-swifthohenberg-equation">3.1 Classical Example 1: Swift–Hohenberg Equation<a class="headerlink" href="#31-classical-example-1-swifthohenberg-equation" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_026_8294b141-2509-4ef1-9904-1befbec82348.jpg" /></p>
+<p>The lecture uses the Swift–Hohenberg (SH) equation as a paradigm model to describe systems that spontaneously form patterns with a characteristic wavelength.</p>
+<p>A simplified but representative form of the SH equation is:</p>
+<div class="arithmatex">\[
+\partial_t \phi = \mu \phi - (\nabla^2 + q_c^2)^2 \phi - \phi^3
+\]</div>
+<p><strong>Linear growth/decay term <span class="arithmatex">\(\mu \phi\)</span></strong>: <span class="arithmatex">\(\mu\)</span> is a control parameter. When <span class="arithmatex">\(\mu &lt; 0\)</span>, the uniform state <span class="arithmatex">\(\phi=0\)</span> is stable, and any perturbation decays. When <span class="arithmatex">\(\mu &gt; 0\)</span>, the uniform state becomes unstable, and perturbations start to grow.</p>
+<p><strong>Pattern selection term <span class="arithmatex">\(-(\nabla^2 + q_c^2)^2 \phi\)</span></strong>: This is the most crucial term in the SH equation. In Fourier space, the Laplacian <span class="arithmatex">\(\nabla^2\)</span> becomes <span class="arithmatex">\(-k^2\)</span> (where <span class="arithmatex">\(k\)</span> is the wavenumber). Thus, this term becomes <span class="arithmatex">\(-(-k^2 + q_c^2)^2\)</span>. This operator strongly damps modes with wavenumbers <span class="arithmatex">\(k\)</span> far from <span class="arithmatex">\(q_c\)</span>, but for <span class="arithmatex">\(k = q_c\)</span>, its damping is zero. Thus, it strongly "selects" patterns with wavenumber <span class="arithmatex">\(q_c\)</span> (i.e., wavelength <span class="arithmatex">\(2\pi/q_c\)</span>), making them the first to destabilize and grow.</p>
+<p><strong>Nonlinear saturation term <span class="arithmatex">\(-\phi^3\)</span></strong>: This is a suppression term that prevents pattern amplitude from growing indefinitely, allowing the system to eventually reach a stable pattern state with finite amplitude.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_027_d4f79328-0e05-4518-8ce9-bf5611884931.jpg" /></p>
+<p>The SH equation was originally derived as a simplified model for Rayleigh–Bénard convection (convection rolls forming in heated fluid layers), but it successfully captures the universal features of the transition from uniform state to periodic pattern in many different physical systems, making it a paradigm for studying pattern formation.</p>
+<h2 id="32-classical-example-2-min-protein-oscillations-in-e-coli">3.2 Classical Example 2: Min Protein Oscillations in <em>E. coli</em><a class="headerlink" href="#32-classical-example-2-min-protein-oscillations-in-e-coli" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_028_21ea48b2-e036-467f-84c0-b0daae964f0f.png" /></p>
+<p>The lecture returns to the example mentioned in the introduction. The biological function of this system is to precisely locate the cell center for <em>E. coli</em> before division.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_029_8f295ba7-aff1-4960-8025-3fb9e036a6e4.png" /></p>
+<p>This is a self-organized oscillator driven by reactions, diffusion, and material cycling between different compartments (cytoplasm and membrane).</p>
+<p>1.<strong>Players</strong>: The core consists of two proteins, MinD and MinE. MinD, when bound to ATP, can attach to the cell membrane.</p>
+<p>2.<strong>Cycle process</strong>: Cytoplasmic MinD-ATP binds to the cell membrane. Membrane-bound MinD cooperatively recruits more MinD-ATP, forming a concentrated "polar zone." At the same time, membrane-bound MinD also recruits MinE from the cytoplasm.</p>
+<p>3.<strong>Negative feedback</strong>: Once MinE binds to membrane-bound MinD, it activates MinD's ATPase activity, causing ATP hydrolysis to ADP. MinD-ADP has low affinity for the membrane and detaches, bringing MinE back to the cytoplasm.</p>
+<p>4.<strong>Oscillation</strong>: This "attachment-cooperative recruitment-activation-detachment" cycle, within the cell's finite geometry and accompanied by protein diffusion in the cytoplasm, eventually forms a protein concentration wave traveling back and forth from one cell pole to the other. This is a typical mass-conserving reaction–diffusion system because the total amounts of MinD and MinE within the cell are constant. The division-inhibiting protein MinC moves together with MinD, so after time-averaging, MinC concentration is lowest at the cell center. This "permits" assembly of the division ring at the cell midpoint, ensuring symmetric cell division.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_030_029291f9-318c-4241-82d6-1d87f1225b43.png" /></p>
+<p>The professor revisits the "starfish oocyte" example mentioned at the beginning of the lecture. <strong>The purpose is to emphasize the deep connection between "pattern formation" and "differential geometry" in theory.</strong></p>
+<p>In the preceding minutes, he explained how the Min protein pattern in <em>E. coli</em> "senses" and "reads" the cell's geometry (i.e., the cylinder). This starfish oocyte slide shows a more advanced, complex coupling:</p>
+<p>1.<strong>Pattern causes deformation</strong>: The video shows a protein wave (i.e., "pattern") sweeping across the oocyte surface.</p>
+<p>2.<strong>Geometric response</strong>: Crucially, accompanying this wave, the cell itself undergoes "<strong>geometric deformation</strong>."</p>
+<p>A "<strong>bidirectional coupling</strong>": Not only does geometry ("differential geometry") affect "pattern formation," but conversely, "pattern formation" actively changes geometry. The professor calls this "a very challenging theoretical task" because it requires theorists to establish a unified model that simultaneously describes the interaction between these two.</p>
+<h2 id="33-open-research-questions">3.3 Open Research Questions<a class="headerlink" href="#33-open-research-questions" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/01_031_39ac7bc1-1691-4a6e-8bcd-bba1a0d4c6bf.png" /></p>
+<p>At the conclusion, the professor poses a series of forward-looking questions connecting physics and biology, representing future research directions in this field.</p>
+<ul>
+<li><strong>Computation with patterns?</strong> Can the complex spatiotemporal patterns within cells be used to perform some form of information processing or "computation"? As Alan Turing, a pioneer of modern computing theory, himself speculated.</li>
+</ul>
+<p>"Most of an organism, most of the time, is developing from one pattern into another, rather than from homogeneity into a pattern." (Alan Turing)</p>
+<ul>
+<li>
+<p><strong>Reaction-induced micro-phase-separation?</strong> Can chemical reactions induce spatial organization within cells? Can biochemical reaction networks within cells actively drive and regulate the formation and dissolution of biomolecular condensates, thereby achieving dynamic organization of intracellular space?</p>
+</li>
+<li>
+<p><strong>Pattern-induced transport?</strong> Can traveling chemical waves or other dynamic patterns within cells be used to actively and directionally transport molecular "cargo," achieving more efficient material transport than simple diffusion?</p>
+</li>
+</ul>
+<p>From the first two theoretical pillars mainly focusing on how to <strong>describe</strong> and <strong>predict</strong> pattern emergence, to these open questions in the final part, the course shifts from <strong>phenomena</strong> to <strong>function</strong>. The core of these questions is no longer just "What pattern forms?" but "<strong>What are these patterns for?</strong>" Can they compute? Can they organize space? Can they transport materials? This reflects the ultimate goal of modern biophysics: not only to build physical models for life phenomena but also to understand how the physical principles behind these phenomena serve and ultimately realize complex biological functions. This elegantly echoes Schrödinger's profound thoughts on "living matter" at the beginning of the lecture, forming a complete and inspiring closed loop.</p>
+<h1 id="summary-a-unified-view-of-emergent-order">Summary: A Unified View of Emergent Order<a class="headerlink" href="#summary-a-unified-view-of-emergent-order" title="Permanent link">&para;</a></h1>
+<p>The table below summarizes the three core theoretical pillars of this course series:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Dynamical Systems Theory</th>
+<th>Phase Transitions &amp; Collective Phenomena</th>
+<th>Pattern Formation &amp; Self-Organization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Typical systems</td>
+<td>Low-dimensional, well-mixed systems</td>
+<td>Spatially extended, many-body systems</td>
+<td>Biological systems (cells, tissues)</td>
+</tr>
+<tr>
+<td>Mathematical language</td>
+<td>Ordinary differential equations (ODEs)</td>
+<td>Partial differential equations (PDEs), field theory</td>
+<td>Reaction–diffusion PDEs, active mechanics</td>
+</tr>
+<tr>
+<td>Core concepts</td>
+<td>Phase space, attractors, bifurcations, chaos</td>
+<td>Order parameter, free energy, linear stability, defects</td>
+<td>Mass conservation, feedback loops, function</td>
+</tr>
+<tr>
+<td>Classical examples</td>
+<td>Lorenz attractor</td>
+<td>Cahn–Hilliard equation, active nematics</td>
+<td>Swift–Hohenberg equation, Min protein oscillations</td>
+</tr>
+</tbody>
+</table>
+<p>Through three interrelated theoretical pillars—dynamical systems theory, nonequilibrium field theory, and biological pattern formation theory—a powerful and unified analytical toolkit is constructed.</p>
+<p>The core content of the course is that by abstracting from microscopic details and instead focusing on universal principles such as symmetry, conservation laws, and the nature of instabilities, we can build coarse-grained theories with strong predictive power. These theories can explain the emergence of order from non-living physical systems to complex living systems.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

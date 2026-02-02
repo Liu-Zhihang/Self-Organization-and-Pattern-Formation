@@ -1,0 +1,1517 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>引言 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              引言
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>在<strong>第2讲</strong>中，我们确立了动力系统理论作为描述集体行为的普适语言，其核心是研究动态变量 <span class="arithmatex">\(u_i\)</span> 如何随时间演化的常微分方程 (ODE)：<span class="arithmatex">\(\partial_t u_i(t) = f_i(\{u_i(t)\}; \{\mu_l\})\)</span>。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/04_001_aab6beaa-3169-4d21-ae9e-0943226281d0.png" /></p>
+<p><strong>第3讲</strong>深入探讨了这类系统中最简单、但也最根本的情形：<strong>单分量一维系统</strong> <span class="arithmatex">\(\partial_t u = f(u; \mu)\)</span>。分析的焦点集中在当<strong>单个控制参数</strong> <span class="arithmatex">\(\mu\)</span> 变化时，系统的不动点（即平衡态）会如何发生质的改变。课程详细剖析了两种最基本的分岔类型：</p>
+<p>1.<strong>鞍结分岔 (Saddle-Node Bifurcation)</strong> ：其常态形式为 <span class="arithmatex">\(\partial_t u = -\mu + u^2\)</span>，它描述了不动点“凭空”产生和湮灭的最基本方式，是系统“引爆点”的数学原型。</p>
+<p>2.<strong>叉式分岔 (Pitchfork Bifurcation)</strong> ：其常态形式为 <span class="arithmatex">\(\partial_t u = ru - u^3\)</span>，它以系统的 <span class="arithmatex">\(u \to -u\)</span> 对称性为前提，完美描述了物理学中（如金茨堡-朗道理论）的“自发对称性破缺”现象。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/04_002_3ac9c2b2-22af-422e-9597-dc00702b5341.png" /></p>
+<p><img alt="课堂PPT截图" src="../assets/images/04_003_6c7cecfe-f786-41bc-8279-4d7c6736f93b.png" /></p>
+<p>这些例子都围绕着一个核心问题：当<strong>单个</strong>控制参数 <span class="arithmatex">\(\mu\)</span> 变化时，系统的定性行为会如何改变？</p>
+<p>这节课将在此基础上迈出关键一步，探讨由<strong>两个控制参数</strong>调控时更为复杂和丰富的动力学现象。为此，将深入研究<strong>尖点分岔 (Cusp Bifurcation)</strong> 。尖点分岔可以被视为叉形分岔的直接推广：它描述了当一个具有 <span class="arithmatex">\(u \to -u\)</span> 对称性的系统（由参数 <span class="arithmatex">\(r\)</span> 控制，如叉形分岔）同时受到一个<strong>破坏该对称性的外部场</strong> <span class="arithmatex">\(h\)</span>（第二个控制参数）作用时的普遍行为。</p>
+<p>尖点分岔是一个至关重要的“组织中心”，它不仅统一了前述的分岔类型，更从数学上解释了两个在自然界和工程学中极为普遍的非线性现象：</p>
+<p>1.<strong>双稳态 (Bistability)</strong> ：系统在完全相同的参数条件下，可以稳定地存在于两个不同的状态之一。</p>
+<p>2.<strong>滞后效应 (Hysteresis)</strong> ：系统的当前状态依赖于其参数变化的历史路径，表现出“记忆效应”。</p>
+<p>随后，课程将转向一种性质截然不同的分岔类型——<strong>跨临界分岔 (Transcritical Bifurcation)</strong> 。与之前不动点<strong>数量</strong>发生改变的分岔（鞍结分岔：0 <span class="arithmatex">\(\leftrightarrow\)</span> 2；叉形分岔：1 <span class="arithmatex">\(\leftrightarrow\)</span> 3）不同，跨临界分岔描述的是两个不动点在碰撞后<strong>交换彼此稳定性</strong>的过程。</p>
+<p>为了使这些抽象的数学概念更具现实意义，这节课将紧密结合具体的物理和生物模型进行阐述。尖点分岔将通过经典的伊辛模型 (Ising model) 来理解，其中两个控制参数 <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(h\)</span> 分别对应于温度和外磁场。而跨临界分岔则将通过一个简洁而深刻的疾病传播模型——<strong>接触过程 (Contact Process)</strong> ——来进行分析，揭示流行病爆发的临界阈值现象。</p>
+<p>这节课建立的一维系统分析方法将为后续课程奠定基础，届时这些思想将被推广到二维系统，为理解图灵斑图 (Turing Patterns) 等复杂的时空模式形成现象做好准备。</p>
+<h1 id="1-cusp-bifurcation-bistability-and-hysteresis">1. 尖点分岔 (Cusp Bifurcation): 双稳态与磁滞回线 (Bistability and Hysteresis)<a class="headerlink" href="#1-cusp-bifurcation-bistability-and-hysteresis" title="Permanent link">&para;</a></h1>
+<p>在<strong>第3讲</strong>中，我们分析了具有 <span class="arithmatex">\(u \to -u\)</span> 对称性的系统，其典型代表是<strong>叉形分岔 (Pitchfork Bifurcation)</strong> 。这种对称性在物理上（如伊辛模型中没有外磁场）非常重要，它保证了 <span class="arithmatex">\(u=0\)</span> 永远是一个不动点，而新出现的有序态 <span class="arithmatex">\(u^* = \pm\sqrt{r}\)</span> 必须是成对、对称的。这小节将探讨一个更普遍、更丰富的场景：当这个 <span class="arithmatex">\(u \to -u\)</span> 对称性被一个外部因素<strong>明确地破坏</strong>时，系统的动力学行为会发生什么变化？这将引导我们从单参数 <span class="arithmatex">\(r\)</span> 的世界，进入由两个控制参数 <span class="arithmatex">\((r, h)\)</span> 调控的动力学“相图”，其核心便是<strong>尖点分岔 (Cusp Bifurcation)</strong> 。</p>
+<h2 id="11">1.1. 从叉形分岔到尖点分岔：对称性破缺场<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>回顾上一讲，超临界叉形分岔的常态形式为 <span class="arithmatex">\(\partial_t u = r u - u^3\)</span>。这个方程可以看作是一个粒子在对称的“势能景观” <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 + \frac{1}{4}u^4\)</span> 中的过阻尼运动。</p>
+<p>现在，我们引入<strong>第二个控制参数 <span class="arithmatex">\(h\)</span></strong> ，它代表一个破坏系统对称性的外部“偏置”或“力场”。这使得动力学方程变为尖点分岔的常态形式 (normal form)：</p>
+<div class="arithmatex">\[
+\partial_t u = r u - u^3 + h \equiv f(u; r, h)
+\]</div>
+<p>这个方程同样可以写成势能景观中的弛豫动力学形式 <span class="arithmatex">\(\partial_t u = -\partial_u F(u)\)</span>，其中新的势函数 <span class="arithmatex">\(F(u)\)</span> 为：</p>
+<div class="arithmatex">\[
+F(u) = -\frac{r}{2}u^2 + \frac{1}{4}u^4 - hu
+\]</div>
+<div class="arithmatex">\[-\partial_u F = -\partial_u(-\frac{r}{2}u^2 + \frac{1}{4}u^4 - hu) = -(-ru + u^3 - h) = ru - u^3 + h\]</div>
+<p><img alt="课堂板书截图" src="../assets/images/04_004_b8f91b4d-d16a-49df-ad84-2f6a20b14b2e.png" /></p>
+<p>这个新增加的项 <span class="arithmatex">\(-hu\)</span> 在物理上具有深刻的意义。以<strong>第2讲</strong>和<strong>第3讲</strong>中讨论的伊辛模型为例：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(u\)</span> 仍然代表系统的磁化强度（序参量）。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(r\)</span> 仍然与温度相关（例如 <span class="arithmatex">\(r \propto T_c - T\)</span>）。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(h\)</span> 则精确对应于施加在系统上的<strong>外部磁场</strong>。</p>
+</li>
+</ul>
+<p>当 <span class="arithmatex">\(h=0\)</span> 时，我们恢复了具有 <span class="arithmatex">\(u \to -u\)</span> 对称性的叉形分岔（即“自旋向上”和“自旋向下”完全等价）。而当 <span class="arithmatex">\(h \neq 0\)</span> 时，这个外磁场明确地打破了对称性（例如 <span class="arithmatex">\(h&gt;0\)</span> 时，系统更倾向于 <span class="arithmatex">\(u&gt;0\)</span> 的状态），势能景观 <span class="arithmatex">\(F(u)\)</span> 会发生倾斜。尖点分岔研究的正是这个更普适的、非对称系统 <span class="arithmatex">\((r, h)\)</span> 参数空间中的完整动力学行为。</p>
+<h2 id="12">1.2. 求解不动点：一种图形化的方法<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>系统的长期行为由其不动点 <span class="arithmatex">\(u^*\)</span> 决定，不动点是动力学停止的地方，即 <span class="arithmatex">\(\partial_t u = 0\)</span>。因此，我们需要求解代数方程：</p>
+<div class="arithmatex">\[
+f(u; r, h) = r u - u^3 + h = 0
+\]</div>
+<p>这是一个关于 <span class="arithmatex">\(u\)</span> 的三次方程，直接求解 <span class="arithmatex">\(u^*(r, h)\)</span> 会很繁琐。课堂上介绍了一种非常直观的<strong>图形化方法</strong> 来理解解的结构。我们将方程变形为：</p>
+<div class="arithmatex">\[
+r u - u^3 = -h
+\]</div>
+<p>这样，寻找不动点 <span class="arithmatex">\(u^*\)</span> 的问题就转化为了寻找<strong>两条曲线交点</strong>的问题：</p>
+<p>1.一条是N形的<strong>三次曲线</strong> <span class="arithmatex">\(y_2(u) = r u - u^3\)</span>。</p>
+<p>2.另一条是<strong>水平直线</strong> <span class="arithmatex">\(y_1(u) = -h\)</span>。</p>
+<p>这种方法的巧妙之处在于，它将两个控制参数的作用清晰地分离开来：</p>
+<ul>
+<li>
+<p>参数 <span class="arithmatex">\(r\)</span> 决定了三次曲线 <span class="arithmatex">\(y_2(u)\)</span> 的<strong>形状</strong>（Shape）。</p>
+</li>
+<li>
+<p>参数 <span class="arithmatex">\(h\)</span> 决定了水平直线 <span class="arithmatex">\(y_1(u)\)</span> 的<strong>垂直位置</strong>（Position）。</p>
+</li>
+</ul>
+<p>通过分析 <span class="arithmatex">\(r\)</span> 的符号，我们可以分两种情况来讨论 <span class="arithmatex">\(y_2\)</span> 的形状：</p>
+<p>1.<strong>当 <span class="arithmatex">\(r &lt; 0\)</span> 时 (对应 <span class="arithmatex">\(T &gt; T_c\)</span>)</strong> ：<span class="arithmatex">\(y_2(u)\)</span> 的导数 <span class="arithmatex">\(y_2'(u) = r - 3u^2\)</span> 恒为负。因此曲线 <span class="arithmatex">\(y_2(u)\)</span> 是单调递减的。这意味着无论水平直线 <span class="arithmatex">\(y_1 = -h\)</span> 在什么位置，它与 <span class="arithmatex">\(y_2(u)\)</span> 都<strong>只有一个交点</strong> 。因此，对于任意 <span class="arithmatex">\(h\)</span>，系统只有一个不动点，是<strong>单稳态的 (monostable)</strong> 。</p>
+<p>2.<strong>当 <span class="arithmatex">\(r &gt; 0\)</span> 时 (对应 <span class="arithmatex">\(T &lt; T_c\)</span>)</strong> ：<span class="arithmatex">\(y_2(u)\)</span> 不再是单调的，它在 <span class="arithmatex">\(u = \pm\sqrt{r/3}\)</span> 处有局部极大值和极小值，呈现出一个 "N" 形。此时，交点的数量取决于水平直线 <span class="arithmatex">\(y_1 = -h\)</span> 的位置：</p>
+<ul>
+<li>
+<p>如果 <span class="arithmatex">\(|h|\)</span> 足够大（直线在N形之外），则<strong>只有一个交点</strong>。</p>
+</li>
+<li>
+<p>如果 <span class="arithmatex">\(|h|\)</span> 恰好使得直线与 <span class="arithmatex">\(y_2(u)\)</span> 的某个极值点相切，则有<strong>两个交点</strong> 。</p>
+</li>
+<li>
+<p>如果 <span class="arithmatex">\(|h|\)</span> 足够小（直线横切N形），则会有<strong>三个交点</strong>。</p>
+</li>
+</ul>
+<p><img alt="课堂PPT截图" src="../assets/images/04_005_68c8772e-d4d6-4b3c-8e62-71bc93d38af1.png" /></p>
+<p>这张PPT展示了从<strong>代数和图形分析</strong>的角度解释了<strong>双稳态 (Bistability)</strong> 是如何从尖点分岔的常态方程中产生的。方程 Equilibria (fixed points): <span class="arithmatex">\(f(u; r, h) = ru - u^3 + h = 0\)</span> 定义了不动点：即动力学函数 <span class="arithmatex">\(f(u)\)</span> 为零的点。为了求解这个三次方程，PPT将其变形为寻找两条曲线的交点：<span class="arithmatex">\(y2 = ru - u^3\)</span>（N形曲线）和 <span class="arithmatex">\(y1 = h4\)</span>（水平线）。(请注意：根据顶部的方程 <span class="arithmatex">\(ru - u^3 + h = 0\)</span>，正确的变形应该是 <span class="arithmatex">\(ru - u^3 = -h\)</span>。因此，水平线应该是 <span class="arithmatex">\(y_1 = -h\)</span>。PPT上 <span class="arithmatex">\(y_1 = h\)</span> 的标签很可能是一个小笔误，但这不影响图形分析的逻辑。)</p>
+<p>图 (a) 展示了单稳态的情况 (r &lt; 0)。当 <span class="arithmatex">\(r &lt; 0\)</span> 时， <span class="arithmatex">\(y_2 = ru - u^3\)</span> 这条曲线是单调递减的。因此，无论水平线 <span class="arithmatex">\(y_1\)</span> 在什么位置，它们<strong>永远只有一个交点</strong> 。这意味着系统在 <span class="arithmatex">\(r &lt; 0\)</span> 的参数区域（对应物理上的高温区）总是<strong>单稳态的 (monostable)</strong> 。</p>
+<p>图 (b) 展示了双稳态的情况 (r &gt; 0)。当 <span class="arithmatex">\(r &gt; 0\)</span> 时， <span class="arithmatex">\(y_2 = ru - u^3\)</span> 曲线呈现 "N" 字形，拥有一个局部极大值和一个局部极小值。此时，交点的数量取决于 <span class="arithmatex">\(h\)</span>：当 <strong><span class="arithmatex">\(|h| &gt; h_c(r)\)</span></strong> (直线在N形上下方) 时，存在 <strong>1 个交点</strong>（单稳态）；当 <strong><span class="arithmatex">\(|h| = h_c(r)\)</span></strong> (直线与N形相切) 时，存在 <strong>2 个交点</strong>（这是鞍点-节点分岔的临界点）；当 <strong><span class="arithmatex">\(|h| &lt; h_c(r)\)</span></strong> (直线横穿N形) 时，存在 <strong>3 个交点</strong>（双稳态）。</p>
+<p>图 (c) 是 <span class="arithmatex">\((r, h)\)</span> <strong>参数空间</strong>的“地图”。它总结了图形分析的结果：在 <span class="arithmatex">\(r &lt; 0\)</span> 时，系统总是单稳态的 (monostable)。在 <span class="arithmatex">\(r &gt; 0\)</span> 时，存在一个由 <span class="arithmatex">\(h_c(r) = \frac{2}{3\sqrt{3}}r^{3/2}\)</span> 围成的楔形区域，在这个区域内系统是<strong>双稳态的 (bistable)</strong> 。这个楔形区域的尖端 <span class="arithmatex">\((0, 0)\)</span> 就是<strong>尖点 (Cusp)</strong> 。</p>
+<p>总结来说，PPT展示了为什么 <span class="arithmatex">\(r &gt; 0\)</span> 是产生双稳态的必要条件，以及参数 <span class="arithmatex">\(h\)</span> 如何充当一个“开关”，控制系统在单稳态和双稳态之间切换。图 (c) 中的尖点区域正是图 (b) 中存在三个交点的参数范围。</p>
+<p>这种几何方法将一个代数问题转化为直观的图像分析，让我们能清晰地“看到”不动点的数量是如何随着参数 <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(h\)</span> 的变化而改变的。</p>
+<h2 id="13-">1.3. 双稳态、鞍点-节点分岔与尖点<a class="headerlink" href="#13-" title="Permanent link">&para;</a></h2>
+<p>上一节的图形分析表明，当 <span class="arithmatex">\(r &gt; 0\)</span> 且 <span class="arithmatex">\(|h|\)</span> 足够小时，系统存在三个不动点。这种<strong>三个不动点共存</strong>（其中两个稳定，一个不稳定）的现象被称为<strong>双稳态 (Bistability)</strong> 。</p>
+<p>为了严格确定这些不动点的稳定性，我们使用<strong>第3讲</strong>介绍的<strong>线性稳定性分析 (LSA)</strong> 。不动点的稳定性由导数 <span class="arithmatex">\(f'(u^*)\)</span> 的符号决定：</p>
+<div class="arithmatex">\[
+f'(u) = \frac{\partial f}{\partial u} = \frac{\partial}{\partial u}(r u - u^3 + h) = r - 3u^2
+\]</div>
+<ul>
+<li>
+<p><strong>稳定 (Stable)</strong>: <span class="arithmatex">\(f'(u^*) &lt; 0\)</span></p>
+</li>
+<li>
+<p><strong>不稳定 (Unstable)</strong>: <span class="arithmatex">\(f'(u^*) &gt; 0\)</span></p>
+</li>
+</ul>
+<p>现在我们来分析 <span class="arithmatex">\(r&gt;0\)</span> 时三个不动点的情况：</p>
+<ul>
+<li>
+<p>N形曲线 <span class="arithmatex">\(y_2(u)\)</span> 的极值点（峰和谷）位于 <span class="arithmatex">\(y_2'(u) = r - 3u^2 = 0\)</span> 的地方，即 <span class="arithmatex">\(u = \pm\sqrt{r/3}\)</span>。</p>
+</li>
+<li>
+<p>在<strong>中间区域</strong> (<span class="arithmatex">\(- \sqrt{r/3} &lt; u &lt; \sqrt{r/3}\)</span>)，<span class="arithmatex">\(u^2 &lt; r/3\)</span>，因此 <span class="arithmatex">\(f'(u) = r - 3u^2 &gt; 0\)</span>。位于此区域的<strong>中间不动点</strong>总是<strong>不稳定</strong>的。</p>
+</li>
+<li>
+<p>在<strong>两侧区域</strong> (<span class="arithmatex">\(|u| &gt; \sqrt{r/3}\)</span>)，<span class="arithmatex">\(u^2 &gt; r/3\)</span>，因此 <span class="arithmatex">\(f'(u) = r - 3u^2 &lt; 0\)</span>。位于此区域的<strong>两个外侧不动点</strong>总是<strong>稳定</strong>的。</p>
+</li>
+</ul>
+<p>因此，双稳态区域确实由<strong>两个稳定不动点</strong>和一个<strong>不稳定不动点</strong>构成。</p>
+<p>双稳态区域的边界在何处？这个边界恰好是<strong>稳定</strong>不动点与<strong>不稳定</strong>不动点相互碰撞并湮灭的地方。回顾<strong>第3讲</strong>，这正是<strong>鞍点-节点分岔 (Saddle-Node Bifurcation)</strong> 的特征。发生鞍点-节点分岔的临界条件是线性稳定性分析失效，即：</p>
+<p>1.<span class="arithmatex">\(f(u) = r u - u^3 + h = 0\)</span> （系统位于不动点上）</p>
+<p>2.<span class="arithmatex">\(f'(u) = r - 3u^2 = 0\)</span> （该不动点的稳定性即将改变）</p>
+<p>我们可以通过求解这个方程组来找到 <span class="arithmatex">\((r, h)\)</span> 参数空间中发生鞍点-节点分岔的边界线：</p>
+<p>1.从条件 2 (切线条件)，解得发生分岔的位置点 <span class="arithmatex">\(u_{\text{SN}}\)</span> (SN = Saddle-Node)：</p>
+<div class="arithmatex">\[
+u_{\text{SN}}^{\pm} = \pm \sqrt{r/3}
+\]</div>
+<p>这个解只在 <span class="arithmatex">\(r &gt; 0\)</span> 时有实数意义（对应 <span class="arithmatex">\(T &lt; T_c\)</span>）。</p>
+<p>2.将 <span class="arithmatex">\(u_{\text{SN}}^{\pm}\)</span> 代入条件 1 (不动点条件)，解出此时对应的临界磁场 <span class="arithmatex">\(h_c\)</span>：</p>
+<div class="arithmatex">\[
+h_c = - (r u_{\text{SN}}^{\pm} - (u_{\text{SN}}^{\pm})^3) = - u_{\text{SN}}^{\pm} (r - (u_{\text{SN}}^{\pm})^2)
+\]</div>
+<p>将 <span class="arithmatex">\((u_{\text{SN}}^{\pm})^2 = r/3\)</span> 代入：</p>
+<div class="arithmatex">\[
+h_c = - (\pm \sqrt{r/3}) (r - r/3) = \mp \sqrt{r/3} (\frac{2r}{3})
+\]</div>
+<p>整理后得到：</p>
+<div class="arithmatex">\[
+h_c(r) = \pm \frac{2}{3\sqrt{3}}r^{3/2}
+\]</div>
+<p>这个方程 <span class="arithmatex">\(h_c(r) \propto r^{3/2}\)</span> 在 <span class="arithmatex">\((r, h)\)</span> 参数平面上定义了两条曲线。它们在原点 <span class="arithmatex">\((r=0, h=0)\)</span> 相遇，形成一个尖角，这便是“<strong>尖点 (Cusp)</strong> ” 名称的由来。</p>
+<p>这两条曲线（鞍点-节点分岔线）围成的区域，就是系统存在三个不动点（即双稳态）的区域。原点 <span class="arithmatex">\((0,0)\)</span> 是一个更高阶的分岔点，它像一个“组织中心”，两条鞍点-节点分岔线从这里延伸出来。这个尖点分岔图是系统动力学行为的完整“相图”。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/04_006_b0c2b86d-03d5-4d29-a87a-c31df3a12959.png" /></p>
+<h2 id="14-hysteresis">1.4. 磁滞现象 (Hysteresis): 系统的记忆效应<a class="headerlink" href="#14-hysteresis" title="Permanent link">&para;</a></h2>
+<p><strong>磁滞现象</strong>是双稳态区域存在的直接动力学后果。它描述了系统状态对参数变化历史的依赖性。</p>
+<p>想象一个实验：我们固定 <span class="arithmatex">\(r &gt; 0\)</span>（即系统温度低于 <span class="arithmatex">\(T_c\)</span>，处于双稳态区域内），然后缓慢地来回改变外部磁场 <span class="arithmatex">\(h\)</span>。</p>
+<p>1.<strong><span class="arithmatex">\(h\)</span> 从负无穷增大</strong>：</p>
+<ul>
+<li>
+<p>当 <span class="arithmatex">\(h\)</span> 非常负时，系统处于单稳态区域，只有一个稳定的不动点 <span class="arithmatex">\(u &lt; 0\)</span>（例如，磁铁被强行磁化为“下”）。</p>
+</li>
+<li>
+<p>逐渐增大 <span class="arithmatex">\(h\)</span>，系统状态会平滑地跟随这个 <span class="arithmatex">\(u &lt; 0\)</span> 的稳定分支移动。</p>
+</li>
+<li>
+<p>当 <span class="arithmatex">\(h\)</span> 增大到上边界临界值 <span class="arithmatex">\(h_c(r) = +\frac{2}{3\sqrt{3}}r^{3/2}\)</span> 时，系统到达鞍点-节点分岔点。此时，系统所在的这个 <span class="arithmatex">\(u &lt; 0\)</span> 的稳定分支与 <span class="arithmatex">\(u &gt; 0\)</span> 的不稳定分支碰撞后<strong>湮灭</strong>了。</p>
+</li>
+<li>
+<p>系统无法再维持原来的状态，动力学 <span class="arithmatex">\(\partial_t u &gt; 0\)</span> 接管，迫使系统发生一次剧烈的<strong>“跳跃”</strong>（教授称之为“灾难”，Catastrophe），跃迁到 <span class="arithmatex">\((r,h)\)</span> 平面上唯一剩下的那个稳定分支，即 <span class="arithmatex">\(u &gt; 0\)</span> 的状态（磁铁“翻转”为“上。</p>
+</li>
+</ul>
+<p>2.<strong><span class="arithmatex">\(h\)</span> 从正无穷减小</strong>：</p>
+<ul>
+<li>
+<p>现在系统处于 <span class="arithmatex">\(u &gt; 0\)</span> 的稳定分支（磁化为“上”）。</p>
+</li>
+<li>
+<p>逐渐减小 <span class="arithmatex">\(h\)</span>，系统会一直停留在 <span class="arithmatex">\(u &gt; 0\)</span> 的这个稳定分支上，即使 <span class="arithmatex">\(h\)</span> 越过 <span class="arithmatex">\(h=0\)</span> 变为负值。</p>
+</li>
+<li>
+<p>直到 <span class="arithmatex">\(h\)</span> 减小到下边界临界值 <span class="arithmatex">\(-h_c(r) = -\frac{2}{3\sqrt{3}}r^{3/2}\)</span> 时，系统到达另一个鞍点-节点分岔点。</p>
+</li>
+<li>
+<p>此时 <span class="arithmatex">\(u &gt; 0\)</span> 的稳定分支湮灭，系统被迫“跳跃”回 <span class="arithmatex">\(u &lt; 0\)</span> 的稳定状态。</p>
+</li>
+</ul>
+<p>这个过程表明，系统状态 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(h\)</span> 增大和减小时所遵循的路径<strong>并不重合</strong> ，形成了一个“<strong>磁滞回线 (Hysteresis Loop)</strong> ”。系统的当前状态不仅取决于当前的参数值 <span class="arithmatex">\((r, h)\)</span>，还取决于它是“从哪里来”的。</p>
+<p><img alt="课堂PPT 截图" src="../assets/images/04_007_42324a90-e143-4055-90c9-2d7fd9113786.png" /></p>
+<p>这张PPT从三个维度完整地展示了<strong>尖点分岔 (Cusp Bifurcation)</strong> 的几何结构，揭示了它作为一个“组织中心”的角色。图 (a) 是核心视图，它在一个三维空间中绘制了不动点 <span class="arithmatex">\(u^*\)</span> 如何随两个控制参数 <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(h\)</span> 变化。水平面是 <span class="arithmatex">\((r, h)\)</span> <strong>参数空间</strong>，垂直轴是 <span class="arithmatex">\(u\)</span> <strong>状态空间</strong>。灰色的曲面 <span class="arithmatex">\(u^*(r, h)\)</span> 代表了系统所有可能的不动点（平衡态）。这个曲面最显著的特征是它像一张纸一样<strong>折叠</strong>了。在折叠区域内部（<span class="arithmatex">\(r&gt;0\)</span> 且 <span class="arithmatex">\(|h|\)</span> 较小），一条垂线会与曲面相交<strong>三次</strong>，对应三个不动点（上、下两个分支稳定，中间虚线分支不稳定）。在折叠区域外部，垂线只与曲面相交<strong>一次</strong>，对应一个稳定的不动点。这个折叠区域在 <span class="arithmatex">\((r, h)\)</span> 平面上的投影，就形成了由 <strong>cusp（尖点）</strong>和两条鞍点-节点分岔线 <span class="arithmatex">\(h_c(r)\)</span> 围成的楔形区域。</p>
+<p>图 (b) 是图 (a) 在 <span class="arithmatex">\(r &gt; 0\)</span> 处的一个<strong>二维切片</strong>（固定 <span class="arithmatex">\(r\)</span>，观察 <span class="arithmatex">\(u\)</span> 随 <span class="arithmatex">\(h\)</span> 的变化）。它展示了经典的 "S" 形曲线，这正是<strong>双稳态 (Bistability)</strong> 的特征。红色箭头清晰地描绘了<strong>磁滞回线 (Hysteresis Loop)</strong> ：当 <span class="arithmatex">\(h\)</span> 从负值增大时，系统会停留在下方的稳定分支，直到 <span class="arithmatex">\(h_c\)</span> 点（鞍点-节点分岔，SN）处被迫“跳跃”到上方的稳定分支；反向减小 <span class="arithmatex">\(h\)</span> 时，系统会“记住”它在上分支的状态，直到 <span class="arithmatex">\(-h_c\)</span> 点才“跳跃”回下分支。</p>
+<p>图 (c) 是图 (a) 在 <span class="arithmatex">\(h = 0\)</span> 处的另一个<strong>二维切片</strong>（固定 <span class="arithmatex">\(h=0\)</span>，观察 <span class="arithmatex">\(u\)</span> 随 <span class="arithmatex">\(r\)</span> 的变化）。这正是我们在上一讲中学到的<strong>（超临界）叉形分岔</strong>图。它显示了当 <span class="arithmatex">\(r\)</span> 穿过0时，系统如何从一个对称的稳定态 (<span class="arithmatex">\(u=0\)</span>) 自发地转变为两个新的、对称的稳定态。</p>
+<p>总结来说，它将图 (b) 的磁滞现象和图 (c) 的叉形分岔统一为同一个三维几何结构（图 (a)）的两个不同侧面。尖点分岔是更普遍的结构，而叉形分岔只是它在 <span class="arithmatex">\(h=0\)</span> 这条对称线上的一个特例。</p>
+<h1 id="2-python">2. 尖点分岔的Python模拟与可视化<a class="headerlink" href="#2-python" title="Permanent link">&para;</a></h1>
+<p>为了复现尖点分岔的动力学特性，代码实践将可视化势能景观、绘制磁滞回线以及展示参数空间中的尖点区域。</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Set black theme style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_all_in_one</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot all charts in one figure with black theme background</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        save_fig (bool): Whether to save the figure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create a figure with three subplots</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Subplot 1: Potential functions with different parameters</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+
+    <span class="c1"># Plot multiple potential curves</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="c1"># Case r &lt; 0 (monostable)</span>
+    <span class="n">r1</span><span class="p">,</span> <span class="n">h1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span>
+    <span class="n">F1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">h1</span> <span class="o">*</span> <span class="n">u</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">F1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$r=</span><span class="si">{</span><span class="n">r1</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">, h=</span><span class="si">{</span><span class="n">h1</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Case r &gt; 0, h = 0 (symmetric bistable)</span>
+    <span class="n">r2</span><span class="p">,</span> <span class="n">h2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">F2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">h2</span> <span class="o">*</span> <span class="n">u</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">F2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$r=</span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">, h=</span><span class="si">{</span><span class="n">h2</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Case r &gt; 0, h != 0 (asymmetric bistable)</span>
+    <span class="n">r3</span><span class="p">,</span> <span class="n">h3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span>
+    <span class="n">F3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r3</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">h3</span> <span class="o">*</span> <span class="n">u</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">F3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$r=</span><span class="si">{</span><span class="n">r3</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">, h=</span><span class="si">{</span><span class="n">h3</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Potential Landscapes $F(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$u$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$F(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="c1"># Subplot 2: Hysteresis loop</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># For hysteresis phenomenon, r must be positive</span>
+    <span class="n">h_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">u_stars</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">h_vals</span><span class="p">:</span>
+        <span class="c1"># Find roots of f(u) = r*u - u^3 + h = 0</span>
+        <span class="n">coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span>
+        <span class="c1"># Filter for real roots</span>
+        <span class="n">real_roots</span> <span class="o">=</span> <span class="n">roots</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isreal</span><span class="p">(</span><span class="n">roots</span><span class="p">)]</span><span class="o">.</span><span class="n">real</span>
+        <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">real_roots</span><span class="p">):</span>
+            <span class="n">u_stars</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">root</span><span class="p">))</span>
+
+    <span class="n">h_coords</span><span class="p">,</span> <span class="n">u_coords</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">u_stars</span><span class="p">)</span>
+
+    <span class="c1"># Stability analysis: f&#39;(u) = r - 3u^2</span>
+    <span class="n">stability</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">u_coords</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">stable_h</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">h_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">stable_u</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">u_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">unstable_h</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">h_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">unstable_u</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">u_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stable_h</span><span class="p">,</span> <span class="n">stable_u</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Points&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">unstable_h</span><span class="p">,</span> <span class="n">unstable_u</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Points&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add jump arrows</span>
+    <span class="n">h_c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">u_sn_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">u_sn_neg</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># Jump up</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">h_c</span><span class="p">,</span> <span class="n">u_sn_pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">u_sn_pos</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+              <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="c1"># Jump down</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">h_c</span><span class="p">,</span> <span class="n">u_sn_neg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">u_sn_neg</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+              <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hysteresis Loop for $r=</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$h$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Points $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># Subplot 3: Cusp bifurcation region diagram</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+    <span class="n">r_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">h_c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="o">*</span> <span class="n">r_vals</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals</span><span class="p">,</span> <span class="n">h_c</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Saddle-Node Bifurcation Line&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals</span><span class="p">,</span> <span class="o">-</span><span class="n">h_c</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">r_vals</span><span class="p">,</span> <span class="n">h_c</span><span class="p">,</span> <span class="o">-</span><span class="n">h_c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Bistable Region&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;Monostable Region&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;Monostable Region&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cusp Bifurcation Diagram&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$r$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$h$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># Adjust layout</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="c1"># Save figure (if needed)</span>
+    <span class="k">if</span> <span class="n">save_fig</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cusp_bifurcation_combined.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Figure saved as cusp_bifurcation_combined.png&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_potential</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the potential F(u) for the cusp bifurcation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        r (float): The control parameter r.</span>
+<span class="sd">        h (float): The control parameter h.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">h</span> <span class="o">*</span> <span class="n">u</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Potential Landscape $F(u)$ for $r=</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$, $h=</span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$u$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$F(u)$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_hysteresis_loop</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the fixed points u* as a function of h for a given r &gt; 0,</span>
+<span class="sd">    illustrating the hysteresis loop.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        r (float): The control parameter r. Must be positive.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hysteresis is only observed for r &gt; 0.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">h_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">u_stars</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">h_vals</span><span class="p">:</span>
+        <span class="c1"># Find roots of f(u) = r*u - u^3 + h = 0</span>
+        <span class="n">coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">]</span>
+        <span class="n">roots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span>
+        <span class="c1"># Filter for real roots</span>
+        <span class="n">real_roots</span> <span class="o">=</span> <span class="n">roots</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isreal</span><span class="p">(</span><span class="n">roots</span><span class="p">)]</span><span class="o">.</span><span class="n">real</span>
+        <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">real_roots</span><span class="p">):</span>
+            <span class="n">u_stars</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">root</span><span class="p">))</span>
+
+    <span class="n">h_coords</span><span class="p">,</span> <span class="n">u_coords</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">u_stars</span><span class="p">)</span>
+
+    <span class="c1"># Stability analysis: f&#39;(u) = r - 3u^2</span>
+    <span class="n">stability</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">u_coords</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">stable_h</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">h_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">stable_u</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">u_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">unstable_h</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">h_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">unstable_u</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">u_coords</span><span class="p">,</span> <span class="n">stability</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stable_h</span><span class="p">,</span> <span class="n">stable_u</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Points&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">unstable_h</span><span class="p">,</span> <span class="n">unstable_u</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Points&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add arrows to show the jumps</span>
+    <span class="n">h_c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">u_sn_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">u_sn_neg</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># Jump up</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">h_c</span><span class="p">,</span> <span class="n">u_sn_pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">u_sn_pos</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="c1"># Jump down</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="n">h_c</span><span class="p">,</span> <span class="n">u_sn_neg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">u_sn_neg</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hysteresis Loop for $r=</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$h$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Points $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_cusp_region</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the cusp bifurcation diagram in the (r, h) parameter space.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">h_c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="o">*</span> <span class="n">r_vals</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals</span><span class="p">,</span> <span class="n">h_c</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Saddle-Node Bifurcation Line&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals</span><span class="p">,</span> <span class="o">-</span><span class="n">h_c</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">r_vals</span><span class="p">,</span> <span class="n">h_c</span><span class="p">,</span> <span class="o">-</span><span class="n">h_c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Bistable Region&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;Monostable Region&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;Monostable Region&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Cusp Bifurcation Diagram&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$r$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$h$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Generate combined figure and save</span>
+    <span class="n">plot_all_in_one</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<img alt="运行代码输出" src="../assets/images/04_008_2b441799-2822-4439-bcaa-67292e672b48.png" /></p>
+<p><strong>左图（势能景观）</strong> 展示了系统的势能 <span class="arithmatex">\(F(u)\)</span> 如何随控制参数 <span class="arithmatex">\(r\)</span> 和 <span class="arithmatex">\(h\)</span> 变化。曲线显示，当 <span class="arithmatex">\(r&lt;0\)</span> 时（如 <span class="arithmatex">\(r=-1.0\)</span>），系统只有一个势能极小值点，对应一个<strong>单稳态</strong>系统。而当 <span class="arithmatex">\(r&gt;0\)</span> 时（如 <span class="arithmatex">\(r=1.0\)</span>），势能景观呈现出<strong>双井</strong>形态，这意味着系统存在两个稳定的平衡态（双稳态）。参数 <span class="arithmatex">\(h\)</span>（如 <span class="arithmatex">\(h=0.1\)</span> 所示）的作用是打破 <span class="arithmatex">\(h=0\)</span> 时的对称性，使一个势能井低于另一个。</p>
+<p><strong>中图（磁滞回线）</strong> 深入探讨了 <span class="arithmatex">\(r=1.0\)</span> 时的双稳态区域。它绘制了不动点 <span class="arithmatex">\(u^*\)</span>（纵轴）随参数 <span class="arithmatex">\(h\)</span>（横轴）变化的“S”形曲线。青色实线代表稳定的不动点（对应势能的“谷底”），而橙色虚线是分离两个稳定态的不稳定不动点（对应势能的“山峰”）。白色箭头生动地展示了<strong>磁滞现象</strong>：当 <span class="arithmatex">\(h\)</span> 从负值增大时，系统会停留在下方的稳定分支，直到该分支消失的临界点（鞍点-节点分岔点），才被迫“跳跃”到上方的稳定分支；反之亦然。</p>
+<p><strong>右图（分岔图）</strong> 则是 <span class="arithmatex">\((r, h)\)</span> <strong>参数空间的“相图”</strong>。它在 <span class="arithmatex">\(r-h\)</span> 平面上标出了由鞍点-节点分岔线（青色实线）围成的楔形<strong>“双稳态区域”</strong>。这个尖点图是一个完整的“地图”：位于该区域内的任何 <span class="arithmatex">\((r, h)\)</span> 参数组合（如中图所示的 <span class="arithmatex">\(r=1.0\)</span>），都会产生磁滞现象；而位于区域外的参数（如左图 <span class="arithmatex">\(r=-1.0\)</span> 的情况），系统则表现为单稳态。这三幅图紧密相连，从不同维度共同揭示了尖点分岔的丰富动力学行为。</p>
+<h1 id="3-transcritical-bifurcation">3. 跨临界分岔 (Transcritical Bifurcation): 疾病传播模型<a class="headerlink" href="#3-transcritical-bifurcation" title="Permanent link">&para;</a></h1>
+<p>在分析了由两个参数 <span class="arithmatex">\((r, h)\)</span> 控制的尖点分岔后，这节课将转向一种动力学行为截然不同的分岔类型。在之前讨论的分岔中（如鞍结分岔和叉形分岔），不动点的<strong>数量</strong>在分岔点会发生根本性的改变（例如从0个变为2个，或从1个变为3个）。</p>
+<p>现在探讨的<strong>跨临界分岔 (Transcritical Bifurcation)</strong> 则不同：在分岔点前后，不动点的总数保持不变（例如，始终为两个）。它的核心特征是两个不动点在临界点<strong>碰撞</strong>，并<strong>交换了彼此的稳定性</strong>。一个原本稳定的状态会变得不稳定，而原本不稳定的状态则会变得稳定。</p>
+<h2 id="31">3.1. 一种新的分岔场景：接触过程<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p>为了理解这种分岔的物理情景，课程引入了一个流行病学中的经典简化模型：<strong>接触过程 (Contact Process)</strong> 。</p>
+<p>设想在一个<strong>充分混合 (well-mixed)</strong> 的环境中，存在两类个体：</p>
+<ul>
+<li>
+<p><strong>M</strong>: 代表生病/感染者 (sick)</p>
+</li>
+<li>
+<p><strong>C</strong>: 代表健康/易感者 (healthy)</p>
+</li>
+</ul>
+<p>这个系统的演化由以下两个基本微观过程驱动：</p>
+<p>1.<strong>感染 (Infection):</strong> 一个感染者 M 和一个健康者 C 相遇，健康者以一定的<strong>感染速率 <span class="arithmatex">\(\lambda\)</span></strong> (probability per unit time) 被感染，变为感染者。</p>
+<div class="arithmatex">\[
+M + C \xrightarrow{\lambda} M + M
+\]</div>
+<p>2.<strong>康复 (Recovery):</strong> 一个感染者 M 以一定的<strong>康复速率 <span class="arithmatex">\(\delta\)</span></strong> 自发康复，变为健康者。</p>
+<div class="arithmatex">\[
+M \xrightarrow{\delta} C
+\]</div>
+<h2 id="32">3.2. 从微观规则到宏观速率方程<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>如何从这些描述个体行为的离散、随机的微观规则，过渡到描述整个群体宏观变化的确定性方程？这需要引入一个关键的物理假设：<strong>平均场近似 (Mean-Field Approximation)</strong> 。</p>
+<p>这个假设源于“充分混合”的前提，它忽略了所有空间结构（如个体位置）或局部差异。它假设任意两个个体（如一个M和一个C）相遇的频率，正比于它们各自在系统中的<strong>平均浓度（或数量）的乘积</strong>。</p>
+<p>基于这个假设，可以写出描述感染者数量 <span class="arithmatex">\(m\)</span> 和健康者数量 <span class="arithmatex">\(c\)</span> 随时间变化的<strong>速率方程 (Rate Equations)</strong> ：</p>
+<p><strong>感染者 <span class="arithmatex">\(m\)</span> 的变化率 <span class="arithmatex">\(\partial_t m\)</span></strong> ：</p>
+<ul>
+<li>
+<p><strong>增加项（来自感染）</strong>: 感染事件 <span class="arithmatex">\(M+C \to M+M\)</span> 发生的速率正比于 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(c\)</span> 的乘积，即 <span class="arithmatex">\(\lambda m c\)</span>。</p>
+</li>
+<li>
+<p><strong>减少项（来自康复）</strong>: 康复事件 <span class="arithmatex">\(M \to C\)</span> 发生的速率正比于 <span class="arithmatex">\(m\)</span> 本身，即 <span class="arithmatex">\(-\delta m\)</span>。</p>
+</li>
+</ul>
+<p>因此，感染者数量的净变化率为：</p>
+<div class="arithmatex">\[
+\partial_t m = \lambda m c - \delta m
+\]</div>
+<p><strong>健康者 <span class="arithmatex">\(c\)</span> 的变化率 <span class="arithmatex">\(\partial_t c\)</span></strong> ：</p>
+<ul>
+<li>
+<p><strong>减少项（来自感染）</strong>: 健康者在 <span class="arithmatex">\(M+C \to M+M\)</span> 事件中被消耗，速率为 <span class="arithmatex">\(-\lambda m c\)</span>。</p>
+</li>
+<li>
+<p><strong>增加项（来自康复）</strong>: 健康者在 <span class="arithmatex">\(M \to C\)</span> 事件中被产生，速率为 <span class="arithmatex">\(+\delta m\)</span>。</p>
+</li>
+</ul>
+<p>因此，健康者数量的净变化率为：</p>
+<div class="arithmatex">\[
+\partial_t c = -\lambda m c + \delta m
+\]</div>
+<p><img alt="课堂板书截图" src="../assets/images/04_009_333a92e0-c917-4cb1-9db1-81f867eff190.jpg" /></p>
+<h2 id="33">3.3. 守恒律与维度约减<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
+<p>现在有了一对描述系统的耦合常微分方程。在分析之前，首先观察这对
+方程的一个非常重要的特性。如果将两个方程相加，会得到：</p>
+<div class="arithmatex">\[
+\partial_t (m+c) = (\lambda m c - \delta m) + (-\lambda m c + \delta m) = 0
+\]</div>
+<p>这个结果 <span class="arithmatex">\(\partial_t(m+c) = 0\)</span> 意味着总人口数量 <span class="arithmatex">\(n = m + c\)</span> 是一个<strong>守恒量 (conservation law)</strong> ；它不随时间变化。</p>
+<p><strong>物理意义</strong>：这个守恒律源于模型的假设。在这个系统中，没有个体的出生或死亡，个体只是在“健康”和“生病”两种状态之间转换。因此，总人数 <span class="arithmatex">\(n\)</span> 必然是恒定的。</p>
+<p>这个守恒律极大地简化了分析。它意味着这个二维动力系统（变量为 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(c\)</span>）的演化轨迹，并不是在整个 <span class="arithmatex">\((m, c)\)</span> 二维平面上任意移动，而是被<strong>约束 (constrained)</strong> 在 <span class="arithmatex">\(m+c=n\)</span> 这条一维直线上。</p>
+<p>因此，可以通过代换 <span class="arithmatex">\(c = n - m\)</span> 来<strong>消去一个变量</strong>，将系统<strong>约减 (reduce)</strong> 为一个我们熟悉的一维系统，只用感染者数量 <span class="arithmatex">\(m\)</span> 来描述整个系统的状态：</p>
+<div class="arithmatex">\[
+\partial_t m = \lambda m (n-m) - \delta m \equiv f(m)
+\]</div>
+<p>这个方程现在已经是一个标准的一维动力系统 <span class="arithmatex">\(\partial_t u = f(u)\)</span> 的形式。接下来，就可以运用<strong>第3讲</strong>中学习的分析方法：首先找出这个方程所有的不动点（平衡态），然后通过线性稳定性分析来判断这些平衡态的稳定性，从而揭示跨临界分岔的动力学行为。</p>
+<h1 id="4-python">4. 跨临界分岔的稳定性分析与Python模拟<a class="headerlink" href="#4-python" title="Permanent link">&para;</a></h1>
+<p>通过引入“平均场近似”和利用“守恒律”，我们成功地将一个二维的疾病传播模型（接触过程）约减为一个标准的一维动力系统：</p>
+<div class="arithmatex">\[
+\partial_t m = f(m) \equiv m \left[ \lambda (n-m) - \delta \right]
+\]</div>
+<p>现在的任务就是运用<strong>第3讲</strong>中确立的分析框架——即寻找不动点并进行线性稳定性分析——来彻底解剖这个方程，从而揭示跨临界分岔的动力学特性和流行病爆发的临界条件。</p>
+<h2 id="41-vs">4.1. 不动点：无病状态 vs. 地方病状态<a class="headerlink" href="#41-vs" title="Permanent link">&para;</a></h2>
+<p>首先，寻找系统的所有平衡态（不动点 <span class="arithmatex">\(m^*\)</span>），即求解 <span class="arithmatex">\(f(m^*) = 0\)</span>：</p>
+<div class="arithmatex">\[
+m^* \left[ \lambda (n - m^*) - \delta \right] = 0
+\]</div>
+<p>这个方程显然有两个可能的解，对应两种截然不同的宏观状态：</p>
+<p>1.<strong><span class="arithmatex">\(m_1^* = 0\)</span></strong></p>
+<ul>
+<li><strong>物理意义</strong>: 这个解对应<strong>无病状态 (disease-free state)</strong> 。无论参数 <span class="arithmatex">\(\lambda\)</span>, <span class="arithmatex">\(\delta\)</span>, <span class="arithmatex">\(n\)</span> 如何，系统中没有任何感染者（<span class="arithmatex">\(m=0\)</span>）总是一个可能的平衡态。</li>
+</ul>
+<p>2.<strong><span class="arithmatex">\(\lambda (n - m^*) - \delta = 0 \implies m_2^* = n - \frac{\delta}{\lambda}\)</span></strong></p>
+<ul>
+<li>
+<p><strong>物理意义</strong>: 这个解对应<strong>地方病状态 (endemic state)</strong> ，即疾病在人群中以一个非零的稳定比例 <span class="arithmatex">\(m_2^*\)</span> 持续存在。</p>
+</li>
+<li>
+<p><strong>物理约束</strong>: 这个解只有在 <span class="arithmatex">\(m_2^* \ge 0\)</span> 时才具有物理意义（因为感染人数不能为负）。这要求 <span class="arithmatex">\(n - \frac{\delta}{\lambda} \ge 0\)</span>，即总人口 <span class="arithmatex">\(n\)</span> 必须大于或等于一个临界值 <span class="arithmatex">\(\frac{\delta}{\lambda}\)</span>。</p>
+</li>
+</ul>
+<h2 id="42">4.2. 线性稳定性分析与稳定性交换<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>找到了两个不动点，但它们是稳定的（吸引子）还是不稳定的（排斥子）？这取决于控制参数 <span class="arithmatex">\(n\)</span>（总人口）。运用线性稳定性分析 (LSA) 来判断。</p>
+<p>首先，计算 <span class="arithmatex">\(f(m)\)</span> 的导数 <span class="arithmatex">\(f'(m)\)</span>（即“恢复力”）：</p>
+<div class="arithmatex">\[
+f(m) = \lambda n m - \lambda m^2 - \delta m
+\]</div>
+<div class="arithmatex">\[
+f'(m) = \frac{d f}{d m} = \lambda n - 2\lambda m - \delta
+\]</div>
+<p>接下来，分别在两个不动点处评估 <span class="arithmatex">\(f'(m^*)\)</span> 的符号：</p>
+<p><strong>对于无病状态 <span class="arithmatex">\(m_1^* = 0\)</span></strong> ：</p>
+<div class="arithmatex">\[
+f'(0) = \lambda n - 2\lambda(0) - \delta = \lambda n - \delta
+\]</div>
+<p><strong>稳定 (<span class="arithmatex">\(f' &lt; 0\)</span>)</strong>: 如果 <span class="arithmatex">\(\lambda n - \delta &lt; 0 \iff n &lt; \frac{\delta}{\lambda}\)</span>。</p>
+<p><strong>物理意义</strong>: 如果总人口 <span class="arithmatex">\(n\)</span> <strong>低于</strong>临界值 <span class="arithmatex">\(\frac{\delta}{\lambda}\)</span>（或者说，康复率 <span class="arithmatex">\(\delta\)</span> 相对较高），<span class="arithmatex">\(m_1^*=0\)</span> 是稳定的。任何零星的感染（一个小的 <span class="arithmatex">\(m\)</span> 扰动）都会因为 <span class="arithmatex">\(f' &lt; 0\)</span> 而指数衰减，疾病会自行消亡。</p>
+<p><strong>不稳定 (<span class="arithmatex">\(f' &gt; 0\)</span>)</strong>: 如果 <span class="arithmatex">\(\lambda n - \delta &gt; 0 \iff n &gt; \frac{\delta}{\lambda}\)</span>。</p>
+<p><strong>物理意义</strong>: 如果总人口 <span class="arithmatex">\(n\)</span> <strong>超过</strong>临界值 <span class="arithmatex">\(\frac{\delta}{\lambda}\)</span>，<span class="arithmatex">\(m_1^*=0\)</span> 变得不稳定。此时 <span class="arithmatex">\(f' &gt; 0\)</span>，任何微小的感染扰动都会被指数放大，导致疾病在人群中爆发。</p>
+<p><strong>对于地方病状态 <span class="arithmatex">\(m_2^* = n - \frac{\delta}{\lambda}\)</span></strong>：</p>
+<p>将 <span class="arithmatex">\(m_2^*\)</span> 代入 <span class="arithmatex">\(f'(m)\)</span>：</p>
+<div class="arithmatex">\[
+f'(m_2^*) = \lambda n - 2\lambda \left( n - \frac{\delta}{\lambda} \right) - \delta
+\]</div>
+<div class="arithmatex">\[
+f'(m_2^*) = \lambda n - 2\lambda n + 2\delta - \delta = \delta - \lambda n
+\]</div>
+<p><strong>稳定 (<span class="arithmatex">\(f' &lt; 0\)</span>)</strong>: 如果 <span class="arithmatex">\(\delta - \lambda n &lt; 0 \iff n &gt; \frac{\delta}{\lambda}\)</span>。</p>
+<p><strong>物理意义</strong>: 当总人口 <span class="arithmatex">\(n\)</span> <strong>超过</strong>临界值时，这个地方病状态是稳定的。系统在疾病爆发后，会稳定在这个非零的感染水平上。</p>
+<p><strong>不稳定 (<span class="arithmatex">\(f' &gt; 0\)</span>)</strong>: 如果 <span class="arithmatex">\(\delta - \lambda n &gt; 0 \iff n &lt; \frac{\delta}{\lambda}\)</span>。</p>
+<p><strong>物理意义</strong>: 当总人口 <span class="arithmatex">\(n\)</span> <strong>低于</strong>临界值时，这个不动点是 <span class="arithmatex">\(m_2^* &lt; 0\)</span>（无物理意义），并且它在数学上也是不稳定的。</p>
+<p><strong>跨临界分岔的本质：稳定性交换</strong></p>
+<p>分析结果揭示了跨临界分岔的核心特征。请注意一个关键的数学关系：</p>
+<div class="arithmatex">\[
+f'(m_2^*) = \delta - \lambda n = - (\lambda n - \delta) = -f'(m_1^*)
+\]</div>
+<p>两个不动点的稳定性<strong>总是相反的</strong>！</p>
+<p>在临界点 <span class="arithmatex">\(n_c = \frac{\delta}{\lambda}\)</span> 处，两个不动点发生碰撞（<span class="arithmatex">\(m_1^* = m_2^* = 0\)</span>），并且 <span class="arithmatex">\(f' = 0\)</span>，LSA失效。当 <span class="arithmatex">\(n\)</span> 穿过这个临界点时，它们<strong>交换了彼此的稳定性</strong>：
+* 当 <span class="arithmatex">\(n &lt; n_c\)</span> 时：<span class="arithmatex">\(m_1^*=0\)</span> <strong>稳定</strong>；<span class="arithmatex">\(m_2^*\)</span> 不稳定（且无物理意义）。
+* 当 <span class="arithmatex">\(n &gt; n_c\)</span> 时：<span class="arithmatex">\(m_1^*=0\)</span> <strong>不稳定</strong>；<span class="arithmatex">\(m_2^*\)</span> <strong>稳定</strong>。</p>
+<p>这个临界点 <span class="arithmatex">\(n_c = \frac{\delta}{\lambda}\)</span> 代表了<strong>流行病爆发的阈值</strong>。当人口密度低于此阈值时，无病状态是唯一稳定的结局；而当人口密度超过此阈值时，无病状态变得不稳定，系统会演化到一个新的、稳定的地方病状态。</p>
+<p>在流行病学中，这个临界条件通常用<strong>基本再生数 <span class="arithmatex">\(R_0\)</span></strong> 来表示。<span class="arithmatex">\(R_0 = \frac{\lambda n}{\delta}\)</span>（一个感染者在康复前平均能感染的健康人数）。分岔发生在 <span class="arithmatex">\(R_0 = 1\)</span> 时。</p>
+<h2 id="43-python">4.3. 分岔图与Python模拟<a class="headerlink" href="#43-python" title="Permanent link">&para;</a></h2>
+<p>跨临界分岔的分岔图具有非常典型的特征：两条不动点分支线（<span class="arithmatex">\(m^*=0\)</span> 和 <span class="arithmatex">\(m^*=n-\delta/\lambda\)</span>）在分岔点 <span class="arithmatex">\(n_c\)</span> 相交。在分岔点前后，稳定分支（通常用实线表示）和不稳定分支（通常用虚线表示）发生了互换。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/04_010_ad936009-b88f-4bfd-96d6-6e68a2ddc397.png" />
+这张PPT完整地概述了<strong>跨临界分岔 (Transcritical bifurcation)</strong> ，并使用“<strong>接触过程 (contact process)</strong> ”（流行病模型）作为物理案例 。</p>
+<p>它首先定义了模型的微观规则 ：</p>
+<p>1.<strong>感染</strong>：<span class="arithmatex">\(M + C \xrightarrow{\lambda} M + M\)</span></p>
+<p>2.<strong>康复</strong>：<span class="arithmatex">\(M \xrightarrow{\delta} C\)</span></p>
+<p>接着，它将这些规则转化为宏观的“<strong>速率方程 (rate equations)</strong> ” ，描述了感染者 (<span class="arithmatex">\(m\)</span>) 和健康者 (<span class="arithmatex">\(c\)</span>) 数量的变化 。一个关键洞察是“<strong>动力学守恒总粒子数 (dynamics conserves the total number of particles)</strong> ” ，即总人口 <span class="arithmatex">\(n = m + c\)</span> 是一个常数 (<span class="arithmatex">\(\partial_t n = 0)\)</span> 。</p>
+<p>利用这个守恒律，系统可以被简化（约减）为一个<strong>一维动力学方程</strong>：<span class="arithmatex">\(\partial_t m = \lambda m(n-m) - \delta m =: f(m)\)</span> 。</p>
+<p><strong>不动点 (fixed points)</strong> ：通过求解 <span class="arithmatex">\(f(m)=0\)</span>，找到了两个平衡状态：<span class="arithmatex">\(m_1^* = 0\)</span>（无病状态）和 <span class="arithmatex">\(m_2^* = n - \frac{\delta}{\lambda}\)</span>（地方病状态） 。</p>
+<p><strong>稳定性分析 (stability analysis)</strong> ：通过计算导数 <span class="arithmatex">\(f'(m)\)</span> ，得到了两个不动点的稳定性：<span class="arithmatex">\(f'(m_1^*) = \lambda n - \delta\)</span> 和 <span class="arithmatex">\(f'(m_2^*) = \delta - \lambda n\)</span> 。</p>
+<p>最后，<strong>分岔图</strong> 直观地展示了分析结果。该图以总人口 <span class="arithmatex">\(n\)</span> 为控制参数 ，绘制了不动点 <span class="arithmatex">\(m^*\)</span> 的位置和稳定性。在临界点 <span class="arithmatex">\(n_c = \frac{\delta}{\lambda}\)</span> 处，两条不动点分支（<span class="arithmatex">\(m_1^*\)</span> 和 <span class="arithmatex">\(m_2^*\)</span>）相交 。在这一点上，它们<strong>交换了稳定性</strong>：</p>
+<p>当 <span class="arithmatex">\(n &lt; n_c\)</span> 时，<span class="arithmatex">\(m_1^*=0\)</span> 分支是稳定的（实线），而 <span class="arithmatex">\(m_2^*\)</span> 分支是不稳定的（虚线）。</p>
+<p>当 <span class="arithmatex">\(n &gt; n_c\)</span> 时，<span class="arithmatex">\(m_1^*=0\)</span> 分支变为不稳定的（虚线），而 <span class="arithmatex">\(m_2^*\)</span> 分支获得了稳定性（实线）。</p>
+<p>这展示了跨临界分岔的核心特征：不动点总数不变，但在临界点发生碰撞并交换稳定性。</p>
+<p>下面的Python代码可以生成这个分岔图，展示稳定性交换的过程。</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_transcritical_bifurcation</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the bifurcation diagram for the transcritical bifurcation</span>
+<span class="sd">    in the infection model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lam (float): Infection rate lambda.</span>
+<span class="sd">        delta (float): Recovery rate delta.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_c</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">/</span> <span class="n">lam</span>
+    <span class="n">n_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_c</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+    <span class="c1"># Fixed point 1: m1* = 0 (the horizontal axis)</span>
+    <span class="n">m1_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">n_vals</span><span class="p">)</span>
+
+    <span class="c1"># Fixed point 2: m2* = n - delta/lambda (the diagonal line)</span>
+    <span class="n">m2_star</span> <span class="o">=</span> <span class="n">n_vals</span> <span class="o">-</span> <span class="n">n_c</span>
+
+    <span class="c1"># --- Stability analysis ---</span>
+
+    <span class="c1"># Branch 1 (m1* = 0)</span>
+    <span class="c1"># m1* is stable for n &lt; n_c</span>
+    <span class="n">n_stable1</span> <span class="o">=</span> <span class="n">n_vals</span><span class="p">[</span><span class="n">n_vals</span> <span class="o">&lt;</span> <span class="n">n_c</span><span class="p">]</span>
+    <span class="n">m_stable1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">n_stable1</span><span class="p">)</span>
+    <span class="c1"># m1* is unstable for n &gt; n_c</span>
+    <span class="n">n_unstable1</span> <span class="o">=</span> <span class="n">n_vals</span><span class="p">[</span><span class="n">n_vals</span> <span class="o">&gt;=</span> <span class="n">n_c</span><span class="p">]</span>
+    <span class="n">m_unstable1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">n_unstable1</span><span class="p">)</span>
+
+    <span class="c1"># Branch 2 (m2* = n - n_c)</span>
+    <span class="c1"># m2* is stable for n &gt; n_c (and physically relevant)</span>
+    <span class="n">n_stable2</span> <span class="o">=</span> <span class="n">n_vals</span><span class="p">[</span><span class="n">n_vals</span> <span class="o">&gt;=</span> <span class="n">n_c</span><span class="p">]</span>
+    <span class="n">m_stable2</span> <span class="o">=</span> <span class="n">n_stable2</span> <span class="o">-</span> <span class="n">n_c</span>
+    <span class="c1"># m2* is unstable for n &lt; n_c (and unphysical)</span>
+    <span class="n">n_unstable2</span> <span class="o">=</span> <span class="n">n_vals</span><span class="p">[</span><span class="n">n_vals</span> <span class="o">&lt;</span> <span class="n">n_c</span><span class="p">]</span>
+    <span class="n">m_unstable2</span> <span class="o">=</span> <span class="n">n_unstable2</span> <span class="o">-</span> <span class="n">n_c</span>
+
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span> <span class="c1"># Use dark theme</span>
+
+    <span class="c1"># Plot stable branches (e.g., in cyan)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_stable1</span><span class="p">,</span> <span class="n">m_stable1</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Points&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_stable2</span><span class="p">,</span> <span class="n">m_stable2</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="c1"># Plot unstable branches (e.g., in magenta)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_unstable1</span><span class="p">,</span> <span class="n">m_unstable1</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Points&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_unstable2</span><span class="p">,</span> <span class="n">m_unstable2</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">n_c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Bifurcation Point $n_c = </span><span class="se">\\</span><span class="s1">delta/</span><span class="se">\\</span><span class="s1">lambda = </span><span class="si">{</span><span class="n">n_c</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Transcritical Bifurcation in the Infection Model&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Population Density $n$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Infected Population $m^*$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">n_c</span><span class="p">,</span> <span class="mf">1.1</span> <span class="o">*</span> <span class="n">n_c</span><span class="p">)</span> <span class="c1"># Adjust ylim to show the unphysical branch</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_c</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Define model parameters</span>
+    <span class="n">lambda_rate</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Infection rate</span>
+    <span class="n">delta_rate</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Recovery rate</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plotting the transcritical bifurcation diagram...&quot;</span><span class="p">)</span>
+    <span class="n">plot_transcritical_bifurcation</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="n">lambda_rate</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="n">delta_rate</span><span class="p">)</span>
+</code></pre></div>
+<img alt="运行代码输出" src="../assets/images/04_011_6e149644-d36a-456c-97a5-43c30d64b8c3.png" /></p>
+<p>两条不动点分支如何在临界点 <span class="arithmatex">\(n_c\)</span> 处相交，并且蓝色的稳定分支线从 <span class="arithmatex">\(m^*=0\)</span> 切换到了 <span class="arithmatex">\(m^*=n-n_c\)</span> 分支，而红色的不稳定虚线则反之。这正是稳定性交换的体现。</p>
+<h1 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>这节课探讨了两种在物理和生物系统中具有普遍意义的分岔类型。首先，<strong>尖点分岔 (Cusp Bifurcation)</strong> 被构建为<strong>第3讲</strong>中叉形分岔的推广，是描述系统在<strong>两个控制参数</strong>（一个调谐参数 <span class="arithmatex">\(r\)</span> 和一个对称破缺场 <span class="arithmatex">\(h\)</span>）作用下的通用模型。通过对尖点分岔的分析，理解了<strong>双稳态 (Bistability)</strong> 和<strong>磁滞现象 (Hysteresis)</strong> 的产生机制：系统可以在参数空间的一个特定区域内存在两个稳定的状态，并且其状态转换路径依赖于参数变化的历史。这为理解记忆效应、开关行为以及物理学中的一阶相变提供了坚实的理论基础。</p>
+<p>其次，课程通过一个简洁的疾病传播模型（接触过程）引入了<strong>跨临界分岔 (Transcritical Bifurcation)</strong> 。与之前学习的分岔不同，跨临界分岔的核心特征是<strong>稳定性的交换</strong>，而非不动点数量的改变。分析显示，一个原本稳定的“无病”状态，在系统参数（如总人口 <span class="arithmatex">\(n\)</span>）越过一个临界阈值 <span class="arithmatex">\(n_c\)</span> 后会变得不稳定，并将稳定性“传递”给一个新出现的“地方病”状态。这种分岔是理解生态系统、化学反应网络和流行病学中临界转变现象的关键。</p>
+<p><strong>一维动力系统分析框架</strong>通过寻找不动点（<span class="arithmatex">\(f(u^*)=0\)</span>）和进行线性稳定性分析（判断 <span class="arithmatex">\(f'(u^*)\)</span> 的符号）来预测系统的长期行为。</p>
+<p>这个分析框架是动力系统理论的基石，但它有其局限性：它只能处理单个动态变量。<strong>第5讲</strong>将从一维系统推广到<strong>二维（2D）系统</strong>，即形如 <span class="arithmatex">\(\partial_t u = f(u, v)\)</span> 和 <span class="arithmatex">\(\partial_t v = g(u, v)\)</span> 的耦合方程组。这一推广是至关重要的，因为<strong>空间图案的形成</strong>（如<strong>图灵斑图 (Turing Patterns)</strong> ）本质上是一个至少需要两个分量（例如，一个激活子和一个抑制子）才能产生的现象。</p>
+<p>在二维系统中，稳定性不再由一个简单的导数决定，而是由<strong>雅可比矩阵 (Jacobian Matrix)</strong> 的 <span class="arithmatex">\(2 \times 2\)</span> 矩阵的特征值来判断。通过分析这个矩阵，将能理解在满足<strong>质量守恒 (Mass Conserving)</strong> 等生物物理约束条件下，一个空间均匀的系统是如何失稳并自发形成精美、静态的空间结构（即图灵斑图）的，这是自组织理论中最引人入胜的现象之一。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1307 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>引言：从离散动力系统到连续场论的范式转换 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              引言：从离散动力系统到连续场论的范式转换
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言：从离散动力系统到连续场论的范式转换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>在此前的课程中，分析的视角主要聚焦于零维或有限维度的动力系统。从<strong>第2讲</strong>的金茨堡-朗道势能景观，到<strong>第7讲</strong>的 RhoGTPase 分子开关循环及岩石-剪刀-布生态循环，这些模型的一个共同特征是基于“均匀混合”（well-mixed）假设：关注的是某一物种的总数量或某一化学物质的总体浓度，而忽略了它们在空间上的分布差异。这类系统的数学语言是常微分方程（ODEs），其核心关注点在于时间维度上的演化——系统是趋向于一个不动点（Fixed Point），还是进入一个极限环（Limit Cycle）振荡，亦或是陷入混沌（Chaos）。</p>
+<p><strong>第8讲</strong>通过从微观随机游走推导出宏观扩散方程，迈出了引入空间维度的关键一步，确立了物质如何在空间中输运的物理基础。然而，仅仅有扩散是不够的。当我们放眼更广阔的物理世界，从凝聚态物理中的超导体涡旋点阵，到流体力学中的瑞利-贝纳德对流斑图，再到生物发育过程中的图灵斑图，空间自由度不仅不可忽略，甚至是现象的核心。所谓的“模式”（Pattern），本质上就是物理量在空间上的非均匀有序分布。为了描述这种空间延展系统（Spatially Extended Systems），必须将前几讲的非线性反应动力学与<strong>第8讲</strong>的空间扩散机制相结合，进行一次深刻的范式转换：<strong>从有限自由度的动力系统过渡到无限自由度的场论（Field Theory）</strong>。</p>
+<p>在本讲中，系统的状态不再由一组离散的变量 <span class="arithmatex">\(\vec{X}(t)\)</span> 描述，而是引入了<strong>场</strong>的概念 <span class="arithmatex">\(\phi(\vec{x}, t)\)</span>。这个标量场 <span class="arithmatex">\(\phi\)</span> 可以代表磁性材料中的局域磁化强度（Magnetization），二元合金中的局域组分浓度，或者生物组织中的某种形态发生素浓度。物理学中处理此类复杂系统的核心思想是<strong>粗粒化（Coarse-graining）</strong>。与其追踪每一个原子、电子或分子的微观运动（这将导致 <span class="arithmatex">\(10^{23}\)</span> 量级的天文数字般的自由度），不如通过平均化过程，定义介观尺度上的有效变量。这种方法论的巨大成功在于其<strong>普适性（Universality）</strong>：截然不同的微观系统——无论是铁磁体的自旋翻转，还是二元液体的相分离——在临界点附近往往遵循相同的宏观动力学方程。</p>
+<p>这节课阐述如何基于对称性原则和热力学定律，构建描述非守恒标量场动力学的 <strong>Ginzburg-Landau (GL) 理论</strong>，并推导著名的 <strong>Model A</strong>（亦称 <strong>Allen-Cahn 方程</strong>）。分析将深入剖析该模型的每一个数学细节，从自由能泛函的构建到变分原理的应用，从线性稳定性分析到数值模拟的实现。这一理论框架不仅解释了相分离的早期动力学，也为下一讲中深入探讨<strong>界面动力学（Interface Dynamics）</strong>与<strong>曲率驱动流（Curvature-Driven Flow）</strong>奠定了数学与物理基础。</p>
+<h1 id="1-isinglandau">1. 统计物理基石：Ising模型与Landau平均场理论<a class="headerlink" href="#1-isinglandau" title="Permanent link">&para;</a></h1>
+<p>为了构建描述空间延展系统的场论模型，这节课首先回顾统计物理中最基础的模型——Ising模型，并以此引入Landau平均场理论。这一理论框架不仅是将微观离散自由度粗粒化为宏观连续场的关键步骤，也为后续理解非平衡态动力学中的相变与模式形成提供了热力学势能基础。</p>
+<h2 id="11-ising">1.1 Ising模型的物理图景<a class="headerlink" href="#11-ising" title="Permanent link">&para;</a></h2>
+<p>Ising模型提供了一个描述磁性系统相变的最简微观图景。考虑一个晶格系统，每个格点 <span class="arithmatex">\(i\)</span> 上存在一个离散的自旋变量 <span class="arithmatex">\(s_i\)</span>，其取值仅限于 <span class="arithmatex">\(+1\)</span>（自旋向上）或 <span class="arithmatex">\(-1\)</span>（自旋向下）。自旋之间存在倾向于使相邻自旋方向一致的铁磁相互作用。</p>
+<p>为了从微观过渡到宏观，定义<strong>序参量 (Order Parameter)</strong> <span class="arithmatex">\(\phi\)</span> 为局部区域内自旋的平均值。这一宏观变量的统计行为决定了系统的热力学相：</p>
+<p><strong>高温相 (High Temperature Phase)</strong> ：热涨落剧烈，克服了相互作用能，导致自旋取向随机化。宏观上，局部平均磁化强度 <span class="arithmatex">\(\phi \approx 0\)</span>。系统处于<strong>无序状态 (Disordered Phase)</strong> ，对应物理上的顺磁性 (Paramagnetism)。</p>
+<p><strong>低温相 (Low Temperature Phase)</strong> ：铁磁相互作用能主导，抑制了热涨落，系统发生<strong>自发对称性破缺 (Spontaneous Symmetry Breaking)</strong> 。自旋倾向于集体朝上 (<span class="arithmatex">\(\phi &gt; 0\)</span>) 或集体朝下 (<span class="arithmatex">\(\phi &lt; 0\)</span>)。系统处于<strong>有序状态 (Ordered Phase)</strong> ，对应物理上的铁磁性 (Ferromagnetism)。</p>
+<h2 id="12-landau">1.2 Landau自由能密度的构建原则<a class="headerlink" href="#12-landau" title="Permanent link">&para;</a></h2>
+<p>Lev Landau 在1937年提出的相变理论指出，在相变点附近，序参量 <span class="arithmatex">\(\phi\)</span> 的数值很小，因此可以将系统的自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 展开为 <span class="arithmatex">\(\phi\)</span> 的幂级数。构建该自由能泛函的核心依据是系统的<strong>对称性</strong>。</p>
+<p>对于Ising类系统，物理定律具有 <strong><span class="arithmatex">\(\mathbb{Z}_2\)</span> 对称性</strong>（即上下翻转对称性）：系统能量不应依赖于“向上”或“向下”的正负定义。这意味着自由能密度必须满足偶函数性质：</p>
+<div class="arithmatex">\[
+f(\phi) = f(-\phi)
+\]</div>
+<p>基于此对称性约束，展开式中只能包含 <span class="arithmatex">\(\phi\)</span> 的偶数次幂。保留至四阶项的 Landau 自由能密度形式如下：</p>
+<div class="arithmatex">\[
+f(\phi) = f_0 - \frac{r}{2}\phi^2 + \frac{u}{4}\phi^4
+\]</div>
+<p>其中 <span class="arithmatex">\(f_0\)</span> 为背景自由能（通常设为0）。此处各系数的符号与物理意义至关重要，特别是二次项系数的符号约定：</p>
+<p><img alt="课堂PPT截图" src="../assets/images/09_001_2f4a7d13-4707-41b4-ad84-b1e877d599b5.png" /></p>
+<p>Landau自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 随控制参数 <span class="arithmatex">\(r\)</span> 的变化。虚线表示高温相（单势阱），实线表示低温相（双势阱）。</p>
+<p><strong>二次项系数 <span class="arithmatex">\(r\)</span> (控制参数)：</strong></p>
+<p>该参数控制相变过程，线性依赖于温度偏差：<span class="arithmatex">\(r \propto (T_c - T)\)</span>（注意符号差异）。在Erwin Frey教授的板书约定中，公式写作 <strong><span class="arithmatex">\(-\frac{r}{2}\phi^2\)</span></strong> 。为了保证物理图像的正确性，需要仔细分析 <span class="arithmatex">\(r\)</span> 的符号对势能形状的影响：</p>
+<p><strong>高温相 (<span class="arithmatex">\(T &gt; T_c\)</span>)</strong> ：系统处于无序态，<span class="arithmatex">\(\phi=0\)</span> 必须是势能的全局极小值（稳定点）。对于函数 <span class="arithmatex">\(ax^2\)</span>，需 <span class="arithmatex">\(a&gt;0\)</span>。因此，<span class="arithmatex">\(-\frac{r}{2} &gt; 0 \Rightarrow r &lt; 0\)</span>。此时势能曲线为开口向上的单阱抛物线。</p>
+<p><strong>低温相 (<span class="arithmatex">\(T &lt; T_c\)</span>)</strong> ：系统处于有序态，<span class="arithmatex">\(\phi=0\)</span> 必须变为局部极大值（不稳定点），从而允许非零解的出现。因此，<span class="arithmatex">\(-\frac{r}{2} &lt; 0 \Rightarrow r &gt; 0\)</span>。此时势能曲线在原点处上凸，在两侧形成两个对称的极小值势阱（双阱势，Double-Well Potential）。</p>
+<p><strong>四次项系数 <span class="arithmatex">\(u\)</span> (稳定性参数)：</strong></p>
+<p>为了保证热力学稳定性，自由能必须有下界。当 <span class="arithmatex">\(|\phi| \to \infty\)</span> 时，最高次项 <span class="arithmatex">\(\phi^4\)</span> 主导。因此必须要求 <strong><span class="arithmatex">\(u &gt; 0\)</span></strong> ，确保势能在无穷远处趋于正无穷，防止系统“塌缩”至无限大的序参量状态。</p>
+<p><strong>外场项 <span class="arithmatex">\(h\)</span> (对称性破缺场)：</strong></p>
+<p>若存在外部磁场 <span class="arithmatex">\(h\)</span>，系统的 <span class="arithmatex">\(\mathbb{Z}_2\)</span> 对称性被显式破坏，自由能需加入线性项 <span class="arithmatex">\(-h\phi\)</span>：</p>
+<div class="arithmatex">\[
+f(\phi) = -\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4 - h\phi
+\]</div>
+<p>这一项会导致自由能景观发生倾斜（Tilt），使得其中一个势阱比另一个更深，从而偏向某一特定的磁化方向。</p>
+<h2 id="13-bifurcation-diagram">1.3 分岔图与临界行为 (Bifurcation Diagram)<a class="headerlink" href="#13-bifurcation-diagram" title="Permanent link">&para;</a></h2>
+<p>通过求解极值条件 <span class="arithmatex">\(f'(\phi) = 0\)</span>，可以得到序参量稳态值 <span class="arithmatex">\(\phi^*\)</span> 随控制参数 <span class="arithmatex">\(r\)</span> 的变化关系。这种数学结构在动力系统理论中被称为<strong>超临界叉式分岔 (Supercritical Pitchfork Bifurcation)</strong> 。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/09_002_a9142d87-ca5d-4ce0-90d6-20489db0725e.png" /></p>
+<p>序参量稳态值 <span class="arithmatex">\(\phi^*\)</span> 随控制参数 <span class="arithmatex">\(r\)</span> 的变化分岔图。当 <span class="arithmatex">\(r\)</span> 穿过零点时，系统从单稳态（无序）突变为双稳态（有序）。</p>
+<p>各阶段的物理状态与数学特征总结如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">控制参数 <span class="arithmatex">\(r\)</span></th>
+<th style="text-align: left;">自由能形状 <span class="arithmatex">\(f(\phi)\)</span></th>
+<th style="text-align: left;">稳态解 <span class="arithmatex">\(\phi^*\)</span> (极值点)</th>
+<th style="text-align: left;">物理状态</th>
+<th style="text-align: left;">分岔类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(r &lt; 0\)</span></strong> <br> (高温)</td>
+<td style="text-align: left;"><strong>单势阱</strong> <br> (Single Well)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\phi^* = 0\)</span> <br> (唯一稳定，全局极小)</td>
+<td style="text-align: left;"><strong>顺磁相</strong> <br> (无序 Disordered)</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(r = 0\)</span></strong> <br> (临界点)</td>
+<td style="text-align: left;"><strong>平底四次势</strong> <br> (Flat bottom)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\phi^* = 0\)</span> <br> (临界稳定，二阶导为0)</td>
+<td style="text-align: left;"><strong>相变点</strong> <br> (临界慢化)</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(r &gt; 0\)</span></strong> <br> (低温)</td>
+<td style="text-align: left;"><strong>双势阱</strong> <br> (Double Well)</td>
+<td style="text-align: left;"><span class="arithmatex">\(\phi^* = 0\)</span> (不稳定，局部极大) <br> <span class="arithmatex">\(\phi^* = \pm\sqrt{r/u}\)</span> (稳定，全局极小)</td>
+<td style="text-align: left;"><strong>铁磁相</strong> <br> (有序 Ordered)</td>
+<td style="text-align: left;"><strong>叉式分岔</strong> <br> (Pitchfork)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>临界行为解析：</strong>
+当控制参数 <span class="arithmatex">\(r\)</span> 从负值逐渐增加并穿过零点时，原本稳定的原点 <span class="arithmatex">\(\phi=0\)</span> 突然失去稳定性（失稳），并在其两侧“分岔”出两个新的稳定分支 <span class="arithmatex">\(\pm\sqrt{r/u}\)</span>。系统必须从这两个等价的状态中“选择”一个，这正是<strong>自发对称性破缺</strong>的数学体现。这一简单的多项式模型不仅成功捕捉了磁体相变的本质，也普适地描述了诸如欧拉压杆失稳、激光阈值产生等广泛的物理现象。</p>
+<h1 id="2-ginzburg-landau">2. 空间非均匀性的代价：Ginzburg-Landau自由能泛函<a class="headerlink" href="#2-ginzburg-landau" title="Permanent link">&para;</a></h1>
+<p>前一小节讨论的 Landau 平均场理论虽然成功解释了相变的基本特征，但它本质上是一个“零维”理论。它假设序参量 <span class="arithmatex">\(\phi\)</span> 在整个样本空间中是均匀分布的常数，忽略了所有空间涨落。然而，在真实物理系统中，空间结构无处不在：从临界点附近的剧烈热涨落，到铁磁体中的磁畴壁 (Domain Walls)，再到气液两相共存时的相界面。为了描述这些现象，必须将序参量推广为空间坐标的函数 <span class="arithmatex">\(\phi(\vec{x})\)</span>，即引入<strong>场 (Field)</strong> 的概念。</p>
+<p>相应的，系统的总能量不再是一个简单的单变量函数，而是依赖于场分布形态的<strong>泛函 (Functional)</strong> ，记为 <span class="arithmatex">\(\mathcal{F}[\phi]\)</span>。本节将展示如何基于对称性原则和长波近似，构建描述空间非均匀系统的 Ginzburg-Landau (GL) 自由能泛函。</p>
+<h2 id="21-gradient-expansion">2.1 梯度展开法 (Gradient Expansion)<a class="headerlink" href="#21-gradient-expansion" title="Permanent link">&para;</a></h2>
+<p>构建泛函的核心思想是<strong>梯度展开</strong>。物理上假设在介观尺度下，场 <span class="arithmatex">\(\phi(\vec{x})\)</span> 的空间变化相对于微观原子尺度是缓慢的（即<strong>长波近似</strong>，Long-wavelength approximation）。因此，可以将总自由能写成局域自由能密度与梯度修正项的空间积分：</p>
+<div class="arithmatex">\[
+\mathcal{F}[\phi] = \int d^d x \left[ f(\phi(\vec{x})) + f_{\text{grad}}(\nabla \phi, \nabla^2 \phi, \dots) \right]
+\]</div>
+<p>对于梯度项 <span class="arithmatex">\(f_{\text{grad}}\)</span> 的形式，必须满足以下严格的物理对称性限制：</p>
+<p><strong>旋转不变性 (Rotational Invariance)</strong> ：自由能必须是标量，其数值不应依赖于坐标系的选择。因此，梯度项不能包含孤立的矢量（如 <span class="arithmatex">\(\nabla \phi\)</span>），只能由标量组合构成，例如 <span class="arithmatex">\((\nabla \phi)^2\)</span>, <span class="arithmatex">\((\nabla^2 \phi)^2\)</span>, 或 <span class="arithmatex">\((\nabla \phi \cdot \nabla \phi)\)</span> 等。</p>
+<p><strong>空间反演对称性 (Parity)</strong> ：对于各向同性系统，<span class="arithmatex">\(\vec{x} \to -\vec{x}\)</span> 不应改变能量。</p>
+<p><strong>序参量反演对称性</strong> ：对于 Ising 类系统，物理定律在 <span class="arithmatex">\(\phi \to -\phi\)</span> 变换下保持不变。这要求梯度项必须是 <span class="arithmatex">\(\phi\)</span> 及其导数的偶次函数。项如 <span class="arithmatex">\(\phi (\nabla \phi)\)</span> 在体积分后通常转化为边界项或零，而 <span class="arithmatex">\((\nabla \phi)^2\)</span> 在 <span class="arithmatex">\(\phi\)</span> 变号时保持不变（因为 <span class="arithmatex">\((-1)^2=1\)</span>）。</p>
+<p>在长波近似下，空间导数的阶数越高，其对应于傅里叶空间中的波数 <span class="arithmatex">\(q\)</span> 的幂次也越高。为了描述最主要的物理效应，通常只需保留<strong>最低阶的非零导数项</strong>。根据上述分析，这一项即为 <span class="arithmatex">\((\nabla \phi)^2\)</span>。</p>
+<h2 id="22-ginzburg-landau-gl">2.2 Ginzburg-Landau (GL) 自由能泛函<a class="headerlink" href="#22-ginzburg-landau-gl" title="Permanent link">&para;</a></h2>
+<p>将局域势能项 <span class="arithmatex">\(f(\phi)\)</span>（来自 Landau 理论）与最低阶梯度项结合，便得到了现代理论物理中最著名的泛函之一——<strong>Ginzburg-Landau 自由能泛函</strong>：</p>
+<div class="arithmatex">\[
+\mathcal{F}[\phi(\vec{x})] = \int d^d x \left[ \underbrace{-\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4}_{\text{局域势能 } f(\phi)} + \underbrace{\frac{\kappa}{2}(\nabla \phi)^2}_{\text{梯度能 (弹性罚分)}} \right]
+\]</div>
+<p>Ginzburg-Landau 自由能泛函的数学形式，展示了局域势能项与梯度项的加和结构。这一公式不仅是统计物理处理连续相变的标准模型，也是粒子物理中 Higgs 机制和超导唯象理论的数学基础。</p>
+<h2 id="23-kappa">2.3 刚度系数 <span class="arithmatex">\(\kappa\)</span> 的物理诠释<a class="headerlink" href="#23-kappa" title="Permanent link">&para;</a></h2>
+<p><img alt="课堂板书截图" src="../assets/images/09_003_4699c874-7395-4b78-b711-382ee6b5eac4.png" /></p>
+<p>梯度项前的系数 <span class="arithmatex">\(\kappa\)</span> 在不同物理语境下被称为<strong>刚度 (Rigidity)</strong>、<strong>劲度 (Stiffness)</strong> 或梯度系数。它深刻影响着系统的空间构型：</p>
+<p><strong>平滑作用与稳定性</strong>：</p>
+<p>热力学稳定性要求 <span class="arithmatex">\(\kappa &gt; 0\)</span>。</p>
+<p>若 <span class="arithmatex">\(\kappa &gt; 0\)</span>，任何空间不均匀性（<span class="arithmatex">\(\nabla \phi \neq 0\)</span>）都会导致总能量增加。这就像一根被拉伸的橡皮筋，系统具有一种抗拒空间变化、倾向于使场 <span class="arithmatex">\(\phi\)</span> 变得平滑均匀的“弹性”。因此，这一项也被称为<strong>弹性罚分 (Elastic Penalty)</strong> 。</p>
+<p>若 <span class="arithmatex">\(\kappa &lt; 0\)</span>，系统会倾向于产生无限剧烈的空间震荡（高频模式）以降低能量，导致基态不存在（热力学不稳定）。</p>
+<p><strong>关联长度 (Correlation Length)</strong> ：</p>
+<p>系统中存在两种竞争机制：局域势能 <span class="arithmatex">\(f(\phi)\)</span> 倾向于使 <span class="arithmatex">\(\phi\)</span> 处于势阱极小值（有序化），而梯度能 <span class="arithmatex">\(\frac{\kappa}{2}(\nabla \phi)^2\)</span> 倾向于抹平空间差异（均匀化）。这两者的竞争定义了一个特征长度尺度——<strong>关联长度 <span class="arithmatex">\(\xi\)</span></strong> 。</p>
+<p>通过量纲分析（Dimensional Analysis）可以估算这一尺度：</p>
+<p>将梯度项 <span class="arithmatex">\(\kappa (\phi/L)^2\)</span> 与二次势能项 <span class="arithmatex">\(|r| \phi^2\)</span> 进行比较，当两者量级相当时：</p>
+<div class="arithmatex">\[
+\frac{\kappa}{L^2} \sim |r| \implies L \sim \sqrt{\frac{\kappa}{|r|}}
+\]</div>
+<p>因此，定义关联长度为：</p>
+<div class="arithmatex">\[
+\xi = \sqrt{\frac{\kappa}{|r|}}
+\]</div>
+<p>这一公式揭示了二阶相变的标志性特征：当系统趋近临界点 (<span class="arithmatex">\(T \to T_c\)</span>) 时，控制参数 <span class="arithmatex">\(r \to 0\)</span>，导致关联长度发散 (<span class="arithmatex">\(\xi \to \infty\)</span>)。这意味着在相变点附近，系统中一点的涨落可以“感知”并影响到无穷远处的区域，导致宏观尺度的集体行为。</p>
+<h1 id="3-model-a-allen-cahn">3. 非平衡弛豫动力学：Model A (Allen-Cahn方程) 的推导<a class="headerlink" href="#3-model-a-allen-cahn" title="Permanent link">&para;</a></h1>
+<p>在确立了 Ginzburg-Landau 自由能泛函 <span class="arithmatex">\(\mathcal{F}[\phi]\)</span> 这一静态能量景观后，理论构建的下一步是引入时间维度，探索系统如何从非平衡初态（例如高温淬火后）演化至平衡态。对于<strong>非守恒标量场 (Non-conserved scalar field)</strong> ——即序参量 <span class="arithmatex">\(\phi\)</span> 的空间总积分不守恒（例如磁矩可以自由翻转，或者光子数量不守恒）——其动力学遵循最自然的物理直觉：系统总是沿着能量景观最陡峭的下降方向演化。这一过程被称为弛豫动力学 (Relaxational Dynamics)。</p>
+<h2 id="31">3.1 唯象动力学假设：最速下降原理<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p>为了描述场的演化，理论引入了 Onsager 线性响应假设。该假设认为，推动序参量 <span class="arithmatex">\(\phi(\vec{x}, t)\)</span> 随时间变化的热力学广义力，正是自由能泛函对场的变分导数（Functional Derivative）的负值。</p>
+<p>相应的动力学方程可以写为：</p>
+<div class="arithmatex">\[
+\frac{\partial \phi(\vec{x}, t)}{\partial t} = -\Lambda \frac{\delta \mathcal{F}[\phi]}{\delta \phi(\vec{x}, t)}
+\]</div>
+<p>非守恒标量场的动力学方程定义，其中 <span class="arithmatex">\(\Lambda\)</span> 为 Onsager 动力学系数。</p>
+<p><strong>Onsager 系数 <span class="arithmatex">\(\Lambda\)</span></strong> ：这是一个唯象的动力学输运系数（Kinetic Coefficient），设定了系统弛豫的时间尺度。虽然它由微观物理机制决定，但在宏观场论中通常视为常数。为了简化数学表达，后续推导中常设定 <span class="arithmatex">\(\Lambda = 1\)</span>（或将其吸收到时间单位中）。</p>
+<p><strong>负号的物理含义</strong> ：确保了能量耗散。这保证了演化流（Flow）总是指向自由能减小的方向，正如小球在重力势能面上总是滚向最低点。</p>
+<p>在 Hohenberg 和 Halperin 的动力学临界现象分类综述中，这种仅由耗散和非守恒序参量构成的模型被命名为 <strong>Model A</strong>。在材料科学（如合金相分离）和数学物理领域，该方程更常被称为 <strong>Allen-Cahn 方程</strong>。</p>
+<h2 id="32">3.2 泛函微积分与变分推导详解<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>为了获得显式的偏微分方程 (PDE)，必须计算泛函导数 <span class="arithmatex">\(\frac{\delta \mathcal{F}}{\delta \phi}\)</span>。这是一个涉及变分法的数学过程。</p>
+<p>回顾 Ginzburg-Landau 泛函形式 <span class="arithmatex">\(\mathcal{F} = \int d^d x \, \mathcal{L}(\phi, \nabla \phi)\)</span>，其中拉格朗日密度为：</p>
+<div class="arithmatex">\[
+\mathcal{L} = f(\phi) + \frac{\kappa}{2}(\nabla \phi)^2
+\]</div>
+<p>考虑场 <span class="arithmatex">\(\phi\)</span> 发生微小变分 <span class="arithmatex">\(\delta \phi\)</span>，泛函的变分 <span class="arithmatex">\(\delta \mathcal{F}\)</span> 为：</p>
+<div class="arithmatex">\[
+\delta \mathcal{F} = \int d^d x \left[ \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial (\nabla \phi)} \cdot \delta (\nabla \phi) \right]
+\]</div>
+<p><strong>第一项（局域势能导数）</strong>：</p>
+<div class="arithmatex">\[
+\frac{\partial \mathcal{L}}{\partial \phi} = \frac{d}{d\phi} \left( -\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4 \right) = -r\phi + u\phi^3 = f'(\phi)
+\]</div>
+<p><strong>第二项（梯度项导数与分部积分）</strong>：</p>
+<p>梯度项对 <span class="arithmatex">\(\nabla \phi\)</span> 的导数为 <span class="arithmatex">\(\kappa \nabla \phi\)</span>。由于 <span class="arithmatex">\(\delta (\nabla \phi) = \nabla (\delta \phi)\)</span>，积分中的第二部分为 <span class="arithmatex">\(\kappa \nabla \phi \cdot \nabla (\delta \phi)\)</span>。为了提取公因子 <span class="arithmatex">\(\delta \phi\)</span>，必须对该项进行<strong>分部积分 (Integration by Parts)</strong> ：</p>
+<div class="arithmatex">\[
+\int d^d x \, (\kappa \nabla \phi) \cdot \nabla (\delta \phi) = \oint_{\partial V} (\kappa \nabla \phi \delta \phi) \cdot d\vec{S} - \int d^d x \, (\nabla \cdot (\kappa \nabla \phi)) \delta \phi
+\]</div>
+<p>通常假设在无穷远处场为零，或系统满足周期性边界条件，因此<strong>表面积分项（第一项）消失</strong>。保留下来的体积分项贡献了 <span class="arithmatex">\(-\kappa \nabla^2 \phi\)</span>。</p>
+<p>合并上述两部分，得到泛函导数的最终形式：</p>
+<div class="arithmatex">\[
+\frac{\delta \mathcal{F}}{\delta \phi} = f'(\phi) - \kappa \nabla^2 \phi
+\]</div>
+<h2 id="33-allen-cahn">3.3 Allen-Cahn方程的物理结构<a class="headerlink" href="#33-allen-cahn" title="Permanent link">&para;</a></h2>
+<p>将变分结果代入动力学方程，并设 <span class="arithmatex">\(\Lambda=1\)</span>，即得到了著名的 <strong>Allen-Cahn 方程</strong>（亦称 Model A）：</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = - \left( f'(\phi) - \kappa \nabla^2 \phi \right)
+\]</div>
+<p>整理后，方程展现出清晰的物理结构：</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = \underbrace{\kappa \nabla^2 \phi}_{\text{扩散项}} - \underbrace{f'(\phi)}_{\text{反应项}}
+\]</div>
+<p>或者显式写出势能导数：</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = \kappa \nabla^2 \phi + (r\phi - u\phi^3)
+\]</div>
+<p>Allen-Cahn 方程的结构分解：扩散项（源自梯度能）与反应项（源自局域势能）。</p>
+<p>这一方程在数学形式上属于经典的<strong>反应-扩散方程 (Reaction-Diffusion Equation)</strong> ，揭示了相变动力学中两种核心机制的竞争：</p>
+<p><strong>扩散项 (<span class="arithmatex">\(\kappa \nabla^2 \phi\)</span>)</strong> ：源于梯度能罚分。它类似于热传导方程，倾向于抹平空间上的不均匀性，使场变得平滑。这对应于系统内的“弹性”恢复力。</p>
+<p><strong>反应项 (<span class="arithmatex">\(-f'(\phi)\)</span>)</strong> ：源于局域双阱势。它是一个非线性的源项，驱动场 <span class="arithmatex">\(\phi\)</span> 远离不稳定的极大值点（<span class="arithmatex">\(\phi=0\)</span>），并加速“滚落”至稳定的极小值点（<span class="arithmatex">\(\pm \phi_0\)</span>）。这是一种局域的“自催化”机制，倾向于增强差异，形成明确的有序相。</p>
+<p>正是这种试图“平滑化”的扩散机制与试图“分化”的反应机制之间的动态平衡，主导了畴壁形成与粗化等复杂的模式形成过程。</p>
+<h2 id="34-h-lyapunov">3.4 H-定理与 Lyapunov 泛函证明<a class="headerlink" href="#34-h-lyapunov" title="Permanent link">&para;</a></h2>
+<p>该动力学模型是否保证系统最终能达到平衡态？是否存在永恒振荡的可能性？通过引入 Lyapunov 泛函的概念，可以严格证明系统的稳定性。</p>
+<p>考察自由能 <span class="arithmatex">\(\mathcal{F}\)</span> 随时间的全导数：</p>
+<div class="arithmatex">\[
+\frac{d\mathcal{F}}{dt} = \int d^d x \frac{\delta \mathcal{F}}{\delta \phi(\vec{x}, t)} \frac{\partial \phi(\vec{x}, t)}{\partial t}
+\]</div>
+<p>将运动方程 <span class="arithmatex">\(\frac{\partial \phi}{\partial t} = -\Lambda \frac{\delta \mathcal{F}}{\delta \phi}\)</span> 代入上式：</p>
+<div class="arithmatex">\[
+\frac{d\mathcal{F}}{dt} = \int d^d x \frac{\delta \mathcal{F}}{\delta \phi} \left( -\Lambda \frac{\delta \mathcal{F}}{\delta \phi} \right) = -\Lambda \int d^d x \left( \frac{\delta \mathcal{F}}{\delta \phi} \right)^2
+\]</div>
+<p>由于 Onsager 系数 <span class="arithmatex">\(\Lambda &gt; 0\)</span> 且被积函数是实数的平方（恒非负），因此自由能的时间导数必然非正：</p>
+<div class="arithmatex">\[
+\frac{d\mathcal{F}}{dt} \leq 0
+\]</div>
+<p>等号仅在 <span class="arithmatex">\(\frac{\delta \mathcal{F}}{\delta \phi} = 0\)</span> 时成立，即系统达到自由能极值的平衡态。这一数学推导（类似于玻尔兹曼 H-定理）严格保证了 Model A 系统是一个<strong>梯度流 (Gradient Flow)</strong> 系统。在没有外力驱动的情况下，系统不存在极限环或混沌吸引子，其最终命运必然是静止于某个局部自由能极小态。</p>
+<h1 id="4">4. 线性稳定性分析与相变动力学<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>在建立了 Allen-Cahn 方程后，一个核心问题随之而来：如果系统处于某个均匀的稳态（例如高温下的无序相 <span class="arithmatex">\(\phi=0\)</span>），当外部条件突然改变（例如温度骤降至临界点以下，即“淬火” Quench）时，这个均匀状态是否还能维持？微小的热涨落是会随时间衰减，还是会被放大从而破坏均匀性？为了回答这个问题，这小节采用<strong>线性稳定性分析 (Linear Stability Analysis, LSA)</strong> ，通过考察系统对微小扰动的响应，来揭示相变发生的早期动力学机制。</p>
+<h2 id="41">4.1 微扰展开与线性化方程<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p>假设系统初始处于某个空间均匀的、与时间无关的稳态 <span class="arithmatex">\(\phi^*\)</span>。根据定义，该稳态必须满足 <span class="arithmatex">\(f'(\phi^*) = 0\)</span>（即局域势能的极值点）。现在，在 <span class="arithmatex">\(\phi^*\)</span> 之上叠加一个微小的时空扰动 <span class="arithmatex">\(\delta \phi(\vec{x}, t)\)</span>：</p>
+<div class="arithmatex">\[
+\phi(\vec{x}, t) = \phi^* + \delta \phi(\vec{x}, t)
+\]</div>
+<p><img alt="课堂PPT截图" src="../assets/images/09_004_0a337a17-3e96-41c3-ac09-339776c7f822.png" /></p>
+<p>线性稳定性分析的基本设定：在均匀稳态 <span class="arithmatex">\(\phi^*\)</span> 附近引入微小扰动 <span class="arithmatex">\(\delta \phi\)</span>。</p>
+<p>将此表达式代入 Allen-Cahn 方程 <span class="arithmatex">\(\partial_t \phi = -f'(\phi) + \kappa \nabla^2 \phi\)</span>。对于反应项 <span class="arithmatex">\(f'(\phi)\)</span>，在 <span class="arithmatex">\(\phi^*\)</span> 处进行泰勒展开：</p>
+<div class="arithmatex">\[
+f'(\phi^* + \delta \phi) \approx f'(\phi^*) + f''(\phi^*) \delta \phi + \mathcal{O}(\delta \phi^2)
+\]</div>
+<p>由于 <span class="arithmatex">\(\phi^*\)</span> 是稳态，首项 <span class="arithmatex">\(f'(\phi^*) = 0\)</span>。忽略高阶项 <span class="arithmatex">\(\mathcal{O}(\delta \phi^2)\)</span>，这一步骤即为<strong>线性化</strong>。扩散项是线性的，直接作用于 <span class="arithmatex">\(\delta \phi\)</span>。</p>
+<p>最终得到的线性化演化方程为：</p>
+<div class="arithmatex">\[
+\frac{\partial \delta \phi(\vec{x}, t)}{\partial t} = -f''(\phi^*) \delta \phi(\vec{x}, t) + \kappa \nabla^2 \delta \phi(\vec{x}, t)
+\]</div>
+<h2 id="42">4.2 傅里叶模与色散关系<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>上述方程是一个常系数线性偏微分方程。根据线性系统理论，其解可以分解为不同波矢量 <span class="arithmatex">\(\vec{q}\)</span> 的平面波模式的叠加。引入傅里叶变换：</p>
+<div class="arithmatex">\[
+\delta \phi(\vec{x}, t) = \int \frac{d^d q}{(2\pi)^d} e^{-i \vec{q} \cdot \vec{x}} \delta \phi(\vec{q}, t)
+\]</div>
+<p>将空间扰动 <span class="arithmatex">\(\delta \phi(\vec{x}, t)\)</span> 分解为傅里叶模式 <span class="arithmatex">\(\delta \phi(\vec{q}, t)\)</span>。</p>
+<p>将傅里叶积分代入线性化方程，利用 <span class="arithmatex">\(\nabla^2 e^{-i\vec{q}\cdot\vec{x}} = -q^2 e^{-i\vec{q}\cdot\vec{x}}\)</span> 的性质，可以将偏微分方程转化为每个模式 <span class="arithmatex">\(\vec{q}\)</span> 独立的常微分方程：</p>
+<div class="arithmatex">\[
+\frac{\partial \delta \phi(\vec{q}, t)}{\partial t} = \left[ -f''(\phi^*) - \kappa q^2 \right] \delta \phi(\vec{q}, t)
+\]</div>
+<p>该方程的解呈指数形式：<span class="arithmatex">\(\delta \phi(\vec{q}, t) \sim e^{\sigma(q)t}\)</span>。其中 <span class="arithmatex">\(\sigma(q)\)</span> 被称为<strong>增长率 (Growth Rate)</strong> ，其随波数 <span class="arithmatex">\(q\)</span> 的变化关系称为<strong>色散关系 (Dispersion Relation)</strong> ：</p>
+<div class="arithmatex">\[
+\sigma(q) = -f''(\phi^*) - \kappa q^2
+\]</div>
+<p>扰动模式的增长率 <span class="arithmatex">\(\sigma(q)\)</span>，由局域势能曲率 <span class="arithmatex">\(-f''(\phi^*)\)</span> 和梯度罚分 <span class="arithmatex">\(-\kappa q^2\)</span> 共同决定。</p>
+<p>这一公式清晰地展示了两种物理机制的竞争：</p>
+<p><strong>局域反应项 <span class="arithmatex">\(-f''(\phi^*)\)</span></strong> ：决定了反应动力学是抑制还是放大扰动，取决于势能曲线在该点的曲率。</p>
+<p><strong>扩散项 <span class="arithmatex">\(-\kappa q^2\)</span></strong> ：总是负值（因为 <span class="arithmatex">\(\kappa &gt; 0\)</span>），代表扩散作用总是倾向于抑制空间非均匀性，且波数 <span class="arithmatex">\(q\)</span> 越高（波长越短），抑制作用越强。</p>
+<h2 id="43">4.3 物理状态的稳定性判据<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p>通过分析增长率 <span class="arithmatex">\(\sigma(q)\)</span> 的符号，可以严格判断不同物理状态的稳定性。</p>
+<h3 id="a-phi_pm-pmsqrtru">情形 A：在势阱极小值 <span class="arithmatex">\(\phi_{\pm} = \pm\sqrt{r/u}\)</span> 处（有序相）<a class="headerlink" href="#a-phi_pm-pmsqrtru" title="Permanent link">&para;</a></h3>
+<p>当系统处于低温有序相的平衡位置 <span class="arithmatex">\(\phi_{\pm}\)</span> 时，局域势能处于极小值，其二阶导数（曲率）为正：</p>
+<div class="arithmatex">\[
+f''(\phi_{\pm}) = -r + 3u(\pm\sqrt{r/u})^2 = -r + 3r = 2r &gt; 0 \quad (\text{对于 } r&gt;0)
+\]</div>
+<p>此时色散关系为：</p>
+<div class="arithmatex">\[
+\sigma(q) = -2r - \kappa q^2
+\]</div>
+<p>由于 <span class="arithmatex">\(r&gt;0\)</span> 且 <span class="arithmatex">\(\kappa&gt;0\)</span>，对于任意波数 <span class="arithmatex">\(q\)</span>，都有 <strong><span class="arithmatex">\(\sigma(q) &lt; 0\)</span></strong> 。</p>
+<p><strong>结论</strong>：有序相是<strong>线性稳定</strong>的。这意味着任何波长的微小热涨落都会随时间指数衰减，系统具有很强的恢复力，能够自发维持在均匀的铁磁有序态。这解释了为什么低温下的磁体宏观状态是稳定的。</p>
+<h3 id="b-phi_0-0">情形 B：在势垒顶端 <span class="arithmatex">\(\phi_0 = 0\)</span> 处（不稳定点与淬火）<a class="headerlink" href="#b-phi_0-0" title="Permanent link">&para;</a></h3>
+<p>这是相变动力学中最关键的情形，对应于将系统从高温相（<span class="arithmatex">\(r&lt;0\)</span>）突然冷却至低温相（<span class="arithmatex">\(r&gt;0\)</span>）的瞬间，即<strong>淬火 (Quench)</strong> 。此时，系统仍暂时停留在 <span class="arithmatex">\(\phi=0\)</span> 的位置，但在新的低温环境下，该位置已变成势能的极大值点（势垒顶端）。</p>
+<p>此时势能曲率为负：</p>
+<div class="arithmatex">\[
+f''(0) = -r &lt; 0 \quad (\text{对于 } r&gt;0)
+\]</div>
+<p>色散关系变为：</p>
+<div class="arithmatex">\[
+\sigma(q) = r - \kappa q^2
+\]</div>
+<p><img alt="课堂板书截图" src="../assets/images/09_005_5c3e86ef-9827-486b-9f52-ce7086c94fae.png" /></p>
+<p>在淬火条件下 (<span class="arithmatex">\(\phi_0=0\)</span>)，增长率 <span class="arithmatex">\(\sigma(q)\)</span> 呈现倒抛物线型。存在一个<strong>不稳定模态带 (band of unstable modes)</strong> ，即 <span class="arithmatex">\(0 \le q &lt; q_c\)</span> 的区域，这些模式会指数增长。</p>
+<p>这一色散关系揭示了丰富的物理图像：</p>
+<p><strong>长波不稳定性 (Long-wavelength Instability)</strong> ：</p>
+<p>当 <span class="arithmatex">\(\kappa q^2 &lt; r\)</span> 时，即对于波数小于临界值 <span class="arithmatex">\(q_c = \sqrt{r/\kappa}\)</span> 的模式，增长率 <span class="arithmatex">\(\sigma(q) &gt; 0\)</span>。这些长波模式（波长 <span class="arithmatex">\(\lambda &gt; 2\pi\sqrt{\kappa/r}\)</span>）会随时间指数增长。这种由局域势能不稳定性驱动的长波涨落放大过程，被称为 <strong>Spinodal Decomposition（失稳分解）</strong>。</p>
+<p><strong>短波稳定性</strong> ：</p>
+<p>当 <span class="arithmatex">\(q\)</span> 足够大（<span class="arithmatex">\(q &gt; q_c\)</span>）时，扩散项 <span class="arithmatex">\(-\kappa q^2\)</span> 占据主导，使得 <span class="arithmatex">\(\sigma(q) &lt; 0\)</span>。这意味着极短波长的剧烈涨落会被扩散迅速抹平，系统不会形成无限细碎的结构，这体现了表面张力（由 <span class="arithmatex">\(\kappa\)</span> 代表）对界面的平滑作用。</p>
+<p><strong>最快增长模式与 Model A 特征</strong> ：</p>
+<p>在 Model A 中，增长率 <span class="arithmatex">\(\sigma(q)\)</span> 在 <strong><span class="arithmatex">\(q=0\)</span></strong> 处达到最大值 <span class="arithmatex">\(\sigma_{max} = r\)</span>。</p>
+<p>这意味着，系统最倾向于以无限长的波长（即整体均匀地）演化。系统整体倾向于“滚落”到 <span class="arithmatex">\(\phi_+\)</span> 或 <span class="arithmatex">\(\phi_-\)</span> 中的某一个。这与守恒场动力学（<strong>Model B / Cahn-Hilliard 方程</strong>）形成了鲜明对比：在 Model B 中，由于守恒律限制，<span class="arithmatex">\(\sigma(q=0)\)</span> 必须为 0，最快增长模式出现在某个有限的 <span class="arithmatex">\(q_{max} \neq 0\)</span> 处，从而导致特征长度尺度的选择。而在 Model A 中，实际上观察到的畴壁形成涉及非线性效应，线性稳定性分析仅描述了动力学的最初始瞬间。</p>
+<h1 id="5-allen-cahn">5. 代码实践：Allen-Cahn方程的计算实现<a class="headerlink" href="#5-allen-cahn" title="Permanent link">&para;</a></h1>
+<p>为了直观验证前述理论，特别是从高温无序态骤冷（Quench）至低温有序态后的动力学演化，Erwin Frey教授在课堂上展示了 Allen-Cahn 方程的数值模拟结果。这节课将通过 Python 代码复现这一模拟，通过数值实验“看到”相分离与斑图形成的全过程。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/09_006_5f542c2e-b711-4be3-a43c-cbfa3657a2ec.jpg" /></p>
+<h2 id="51-finite-difference-method">5.1 数值算法：有限差分法 (Finite Difference Method)<a class="headerlink" href="#51-finite-difference-method" title="Permanent link">&para;</a></h2>
+<p>我们采用<strong>显式欧拉法 (Explicit Euler)</strong> 进行时间积分，并使用<strong>中心差分 (Central Difference)</strong> 处理空间拉普拉斯算子。这种方法虽然简单，但物理图像清晰，非常适合演示目的。</p>
+<p>假设二维空间网格间距为 <span class="arithmatex">\(\Delta x\)</span>，时间步长为 <span class="arithmatex">\(\Delta t\)</span>。场变量 <span class="arithmatex">\(\phi\)</span> 在格点 <span class="arithmatex">\((i, j)\)</span> 和时间步 <span class="arithmatex">\(n\)</span> 的离散值记为 <span class="arithmatex">\(\phi^n_{i,j}\)</span>。</p>
+<p>二维拉普拉斯算子的离散形式为：</p>
+<div class="arithmatex">\[
+\nabla^2 \phi \approx \frac{\phi_{i+1,j} + \phi_{i-1,j} + \phi_{i,j+1} + \phi_{i,j-1} - 4\phi_{i,j}}{(\Delta x)^2}
+\]</div>
+<p>代入 Allen-Cahn 方程，得到迭代更新公式：</p>
+<div class="arithmatex">\[
+\phi^{n+1}_{i,j} = \phi^n_{i,j} + \Delta t \left[ \kappa (\nabla^2 \phi)^n_{i,j} + (r\phi^n_{i,j} - u(\phi^n_{i,j})^3) \right]
+\]</div>
+<p><strong>数值稳定性警告 (CFL Condition)</strong> ：
+显式解法是条件稳定的。为了防止数值解发散（出现非物理的高频振荡），时间步长必须满足 Courant-Friedrichs-Lewy (CFL) 条件：</p>
+<div class="arithmatex">\[
+\Delta t \leq \frac{(\Delta x)^2}{4\kappa}
+\]</div>
+<p>若 <span class="arithmatex">\(\Delta t\)</span> 超过此阈值，模拟将迅速崩溃。</p>
+<h2 id="52-python">5.2 Python完整代码实现<a class="headerlink" href="#52-python" title="Permanent link">&para;</a></h2>
+<p>以下代码复现了课堂演示的物理场景：系统从接近 <span class="arithmatex">\(\phi=0\)</span> 的微小随机热涨落（高温无序态）开始，经历骤冷后演化出宏观有序结构。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+
+<span class="c1"># Use dark background style to match lecture slides</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 1. Physics &amp; Simulation Parameters</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># Spatial parameters</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>                 <span class="c1"># Grid size (N x N)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">100.0</span>               <span class="c1"># Physical size of the system</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">N</span>              <span class="c1"># Spatial resolution</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># Time parameters</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>               <span class="c1"># Time step</span>
+<span class="n">total_steps</span> <span class="o">=</span> <span class="mi">4000</span>      <span class="c1"># Total simulation steps</span>
+<span class="n">plot_interval</span> <span class="o">=</span> <span class="mi">50</span>      <span class="c1"># Frame update interval</span>
+
+<span class="c1"># Ginzburg-Landau Model Parameters</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="mf">1.0</span>             <span class="c1"># Stiffness / Diffusion coefficient</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>                 <span class="c1"># Control parameter (r &gt; 0 for double well potential)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>                 <span class="c1"># Nonlinear coefficient (Quartic term)</span>
+
+<span class="c1"># Stability Check (CFL Condition)</span>
+<span class="n">stability_limit</span> <span class="o">=</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">kappa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stability Check: dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2">, Max Stable dt = </span><span class="si">{</span><span class="n">stability_limit</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">dt</span> <span class="o">&gt;</span> <span class="n">stability_limit</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: dt exceeds stability limit! Simulation may diverge.&quot;</span><span class="p">)</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 2. Initial Condition (Quench)</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># Simulate a quench from high T (phi ~ 0) to low T.</span>
+<span class="c1"># Initial state is small random noise around 0.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Fixed seed for reproducibility</span>
+<span class="n">noise_strength</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">noise_strength</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Uniform noise in [-0.1, 0.1]</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 3. Numerical Solver Kernel</span>
+<span class="c1"># ==========================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">laplacian_pbc</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute 2D discrete Laplacian with Periodic Boundary Conditions (PBC).</span>
+<span class="sd">    Using np.roll for efficient neighbor indexing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">left</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">up</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">down</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span> <span class="o">+</span> <span class="n">up</span> <span class="o">+</span> <span class="n">down</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_step</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Execute one Forward Euler time step.</span>
+<span class="sd">    Equation: dphi/dt = kappa * grad^2 phi + (r*phi - u*phi^3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Diffusion term (Elastic relaxation)</span>
+    <span class="n">lap</span> <span class="o">=</span> <span class="n">laplacian_pbc</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+    <span class="c1"># Reaction term (Local potential drive)</span>
+    <span class="c1"># Derivative f&#39;(phi) = -r*phi + u*phi^3 =&gt; Reaction = -f&#39; = r*phi - u*phi^3</span>
+    <span class="n">reaction</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span> <span class="o">-</span> <span class="n">u</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">3</span>
+
+    <span class="c1"># Update field</span>
+    <span class="n">phi_new</span> <span class="o">=</span> <span class="n">phi</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">kappa</span> <span class="o">*</span> <span class="n">lap</span> <span class="o">+</span> <span class="n">reaction</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phi_new</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 4. Visualization Setup</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># Custom Colormap: Replicating the lecture&#39;s visual style</span>
+<span class="c1"># -1 (Spin Down) -&gt; Blue</span>
+<span class="c1">#  0 (Interface) -&gt; Green/Yellowish (Transition region)</span>
+<span class="c1"># +1 (Spin Up)   -&gt; Red</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>  <span class="c1"># Blue -&gt; Green -&gt; Red</span>
+<span class="n">n_bins</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">cmap_name</span> <span class="o">=</span> <span class="s1">&#39;spin_decomposition_map&#39;</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">n_bins</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Set vmin/vmax slightly &gt; 1 to avoid color saturation at stable points</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model A Dynamics (Step 0)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Text for time step display</span>
+<span class="n">time_text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">frame_idx</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">phi</span>
+    <span class="c1"># Perform multiple physics steps per animation frame for speed</span>
+    <span class="n">steps_per_frame</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps_per_frame</span><span class="p">):</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">update_step</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+
+    <span class="n">im</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">current_step</span> <span class="o">=</span> <span class="n">frame_idx</span> <span class="o">*</span> <span class="n">steps_per_frame</span>
+    <span class="n">time_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Step: </span><span class="si">{</span><span class="n">current_step</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model A Dynamics (Step </span><span class="si">{</span><span class="n">current_step</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">im</span><span class="p">,</span> <span class="n">time_text</span><span class="p">]</span>
+
+<span class="c1"># Create animation object</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">total_steps</span><span class="o">//</span><span class="mi">20</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Save the animation as a video file</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving simulation as video...&quot;</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model_a_dynamics.mp4&#39;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;ffmpeg&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Video saved as &#39;model_a_dynamics.mp4&#39;.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting simulation visualization...&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<video controls width="100%">
+  <source src="../assets/images/model_a_dynamics.mp4" type="video/mp4">
+  您的浏览器不支持视频标签。
+</video>
+
+<p>这个动态视频展示了数值模拟的演化过程。整个区域呈现出均匀的绿色背景，这对应于 <span class="arithmatex">\(\phi \approx 0\)</span> 的值。这代表了高温下的<strong>无序相</strong>，此时系统尚未发生相分离，序参量在零附近只有微小的热涨落。随着模拟的进行（如后续动画所示），这个均匀的绿色区域将迅速分解为代表两个有序相的红色（<span class="arithmatex">\(\phi \approx +1\)</span>）和蓝色（<span class="arithmatex">\(\phi \approx -1\)</span>）斑块，并在其间形成清晰的界面。</p>
+<h2 id="53">5.3 模拟结果分析：三个动力学阶段<a class="headerlink" href="#53" title="Permanent link">&para;</a></h2>
+<p>通过运行代码并观察演化过程，可以清晰地识别出相分离动力学的三个特征阶段：</p>
+<p><img alt="课堂PPT截图" src="../assets/images/09_008_10131412-2e53-482d-8576-c2d3008bfa32.jpg" /></p>
+<p>Allen-Cahn 方程数值解的时间演化序列。左上：初始随机涨落；右上：Spinodal分解导致的早期斑图；左下：界面形成与畴壁粗化；右下：晚期大尺度畴的合并。</p>
+<h3 id="1-spinodal-decomposition">1. 早期阶段：失稳分解 (Spinodal Decomposition)<a class="headerlink" href="#1-spinodal-decomposition" title="Permanent link">&para;</a></h3>
+<p><strong>现象</strong>：初始的均匀绿色背景迅速变得“斑驳”。微小的涨落被迅速放大，场值 <span class="arithmatex">\(\phi\)</span> 局域地向 <span class="arithmatex">\(\pm \sqrt{r/u}\)</span>（红/蓝）分化。</p>
+<p><strong>机制</strong>：这一阶段主要由反应项 <span class="arithmatex">\(r\phi - u\phi^3\)</span> 驱动。由于 <span class="arithmatex">\(r&gt;0\)</span>，原点 <span class="arithmatex">\(\phi=0\)</span> 是不稳定的（<span class="arithmatex">\(f''(0)&lt;0\)</span>），导致长波模式（<span class="arithmatex">\(q \approx 0\)</span>）呈指数增长。系统在极短时间内建立了局域的有序，但整体仍呈现细碎的迷宫状结构。</p>
+<h3 id="2-domain-formation">2. 中期阶段：畴壁形成 (Domain Formation)<a class="headerlink" href="#2-domain-formation" title="Permanent link">&para;</a></h3>
+<p><strong>现象</strong>：场值迅速饱和在 <span class="arithmatex">\(\pm 1\)</span> 附近，红色区域和蓝色区域之间形成了清晰、锐利的边界。这些边界处 <span class="arithmatex">\(\phi\)</span> 必须经过 0，因此呈现出绿色的线条，即<strong>界面 (Interface)</strong> 或磁畴壁。</p>
+<p><strong>特征</strong>：此时系统的大部分能量都集中在这些界面上（梯度能密度高）。非线性项限制了 <span class="arithmatex">\(\phi\)</span> 的无限增长，使得界面宽度稳定在关联长度 <span class="arithmatex">\(\xi\)</span> 附近。</p>
+<h3 id="3-coarsening">3. 晚期阶段：粗化 (Coarsening)<a class="headerlink" href="#3-coarsening" title="Permanent link">&para;</a></h3>
+<p><strong>现象</strong>：迷宫状的斑图逐渐变“粗”。较小的磁畴（岛屿）收缩并消失，较大的磁畴吞并周围的小磁畴，弯曲的界面逐渐变直。</p>
+<p><strong>机制</strong>：这一阶段的演化极其缓慢，主要由扩散项 <span class="arithmatex">\(\kappa \nabla^2 \phi\)</span> 驱动。物理上，这是<strong>表面张力</strong>在起作用——系统通过减少总界面长度来降低总自由能。这直接预示了下一节的主题：<strong>曲率驱动流</strong>。特征尺度 <span class="arithmatex">\(L(t)\)</span> 随时间遵循幂律增长 <span class="arithmatex">\(L(t) \sim t^{1/2}\)</span>，这是非守恒型动力学的标志性特征。</p>
+<h1 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>这节课标志着这系列课程的进入到跨越尺度的理论构建。通过 Landau 理论，分析忽略了自旋的微观细节，仅利用对称性捕捉了相变的本质，实现了从微观到宏观的跨越；引入弛豫假设，将热力学泛函转化为 Model A 动力学方程，成功描述了非平衡态的时间演化，实现了从静态到动态的转变；利用线性稳定性分析解释了模式的起始（Spinodal 分解），并通过数值模拟展示了非线性的粗化与界面形成，实现了从线性到非线性的深入。Model A 现已成为描述自然界中“无守恒约束的有序化过程”的通用语言。</p>
+<p>在数值模拟的晚期阶段，一个显著的几何效应浮现：界面总是试图“变直”或“收缩”。这蕴含了深刻的物理机制——<strong>表面张力与能量最小化</strong>。Ginzburg-Landau 自由能中的梯度项 <span class="arithmatex">\(\frac{\kappa}{2}(\nabla \phi)^2\)</span> 本质上体现了表面张力。在界面处，序参量 <span class="arithmatex">\(\phi\)</span> 的剧烈变化形成高能量密度的“墙”，导致总自由能正比于界面的总面积（或二维中的总长度）。根据弛豫动力学原理 <span class="arithmatex">\(\frac{d\mathcal{F}}{dt} \le 0\)</span>，系统必须不断减小界面的总长度以降低能量。</p>
+<p>这种几何效应预示了 Model A 在晚期阶段退化为界面动力学方程，即 <strong>Allen-Cahn 定律</strong>：界面的法向速度 <span class="arithmatex">\(V\)</span> 正比于其平均曲率 <span class="arithmatex">\(H\)</span>：</p>
+<div class="arithmatex">\[
+V = -\mu \kappa H
+\]</div>
+<p>其中负号意味着界面总是向曲率中心的反方向运动（即向内凹陷的一侧运动）。凸起的区域会被磨平，凹陷的区域会被填补，闭合的小圆环会以不断加速的速率收缩直至湮灭。这正是模拟中观察到的“粗化”现象的微观几何解释。</p>
+<p>目前关于界面运动的分析主要基于定性类比（如肥皂泡）或数值观察。<strong>下一讲 (Lecture 10)</strong> 将引入理论物理的核心技巧——<strong>奇异摄动理论 (Singular Perturbation Theory)</strong> 。课程将从 Allen-Cahn 方程出发，通过多尺度展开 (Multiscale Expansion)，严格推导出界面运动方程。这将证明“曲率驱动流”不仅仅是一个直观的类比，而是 Model A 在尖锐界面极限下的严格数学结论，从而将反应-扩散系统与微分几何紧密联系起来，为理解生物膜动力学和晶体生长奠定基础。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

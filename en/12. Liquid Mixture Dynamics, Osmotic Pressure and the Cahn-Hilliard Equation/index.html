@@ -1,0 +1,1378 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/">
+      
+      
+        <link rel="prev" href="../11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/">
+      
+      
+        <link rel="next" href="../13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-from-static-potential-energy-surfaces-to-conserved-dynamical-flow-fields" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-from-static-potential-energy-surfaces-to-conserved-dynamical-flow-fields">Introduction - From Static Potential Energy Surfaces to Conserved Dynamical Flow Fields<a class="headerlink" href="#introduction-from-static-potential-energy-surfaces-to-conserved-dynamical-flow-fields" title="Permanent link">&para;</a></h1>
+<p>In previous lectures, the theoretical framework for nonlinear dynamical systems has been progressively constructed. From the Ginzburg-Landau theory and <strong>Model A (Allen-Cahn Equation)</strong> introduced in <strong>Lecture 9</strong> and <strong>Lecture 10</strong>, we can clearly see how non-conserved order parameters (such as magnetization) achieve energy relaxation through curvature-driven flow. In that model, droplets can directly appear or annihilate through local order flipping, without being constrained by total mass. However, for liquid mixtures widely present in soft condensed matter physics and biophysics, physical processes are subject to more stringent <strong>local mass conservation</strong> constraints.</p>
+<p><strong>Lecture 11</strong> discussed the thermodynamics of liquid mixtures, constructing the free energy landscape of multi-component liquid mixtures based on the core assumption of <strong>Incompressibility</strong>, and determining the equilibrium end state of phase separation through <strong>Maxwell Construction</strong>. However, thermodynamics can only indicate the system's lowest energy state (such as P granule formation) or evolutionary trends, but cannot describe how the system evolves from an unstable uniform state to a stratified equilibrium state, nor can it characterize the specific path, rate, or resulting <strong>spatiotemporal patterns</strong> of evolution. To understand the rapidly changing dynamic structures inside cells, we must shift our gaze from the static Helmholtz free energy function <span class="arithmatex">\(f(\phi)\)</span> to non-equilibrium dynamical equations describing material transport.</p>
+<p>This lecture will bridge the gap between static potential energy surfaces and dynamic evolution, deriving from macroscopic thermodynamic potentials the dynamical equation describing the evolution of <strong>conserved order parameters</strong>—the <strong>Cahn-Hilliard Equation (Model B)</strong>. Professor Erwin Frey first reviews the geometric interpretation of free energy landscapes and phase stability, then delves into two key physical quantities connecting macroscopic phenomena with microscopic driving forces: <strong>Osmotic Pressure</strong> and <strong>Exchange Chemical Potential</strong>. Particularly under the dual constraints of "constant volume" and "incompressibility" in cells, the establishment of exchange chemical potential gradients reveals the fundamental dynamical mechanism of material transport.</p>
+<p>Based on <strong>mass conservation law</strong> (continuity equation) and <strong>Onsager Reciprocal Relations</strong>, the course will derive the flux formula <span class="arithmatex">\(\vec{j}(\vec{x}, t)\)</span> describing phase separation dynamics. This derivation will reveal the counter-intuitive "<strong>Negative Diffusion</strong>" phenomenon appearing in thermodynamically unstable regions (Spinodal region)—that is, <strong>matter spontaneously aggregates against concentration gradients</strong>. This is not only a generalization of Fick's diffusion law in non-ideal mixtures but also the mathematical essence of spontaneous phase separation (Spinodal Decomposition) and pattern formation.</p>
+<p>The macroscopic field theory equations established in this lecture will lay the framework foundation for subsequent courses. In <strong>the next lecture</strong>, the course will further delve into the microscopic level, deriving from statistical mechanics the free energy function forms and mixing entropy expressions (Flory-Huggins theory) phenomenologically introduced in this lecture, thereby completing the full theoretical loop from microscopic interactions to macroscopic phase separation dynamics.</p>
+<h1 id="1-thermodynamic-stability-review-and-phase-diagram-construction">1. Thermodynamic Stability Review and Phase Diagram Construction<a class="headerlink" href="#1-thermodynamic-stability-review-and-phase-diagram-construction" title="Permanent link">&para;</a></h1>
+<p>Before establishing dynamical equations describing the temporal evolution of liquid mixtures, it is first necessary to clarify the stability characteristics determined by the thermodynamic potential energy surface. For binary liquid mixtures described by the order parameter (solute volume fraction) <span class="arithmatex">\(\phi\)</span>, their thermodynamic properties are completely contained in the Helmholtz free energy density <span class="arithmatex">\(f(\phi)\)</span>. The essence of dynamics is how the system responds to local thermodynamic driving forces in the process of minimizing free energy. This section first reviews the geometric features of the free energy Landscape from <strong>the previous lecture</strong>, and determines the equilibrium end state of phase separation through Maxwell Construction, laying the static foundation for subsequently deriving the Cahn-Hilliard equation.</p>
+<h2 id="11-geometric-features-of-free-energy-landscape-and-stability-criteria">1.1 Geometric Features of Free Energy Landscape and Stability Criteria<a class="headerlink" href="#11-geometric-features-of-free-energy-landscape-and-stability-criteria" title="Permanent link">&para;</a></h2>
+<p>The curve of free energy density <span class="arithmatex">\(f(\phi)\)</span> varying with concentration <span class="arithmatex">\(\phi\)</span> not only determines the system's equilibrium state, but its geometric curvature (i.e., the sign of second derivative <span class="arithmatex">\(f''(\phi)\)</span>) is the core criterion for judging mixture local stability.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/12_001_5f51c819-2240-4bb4-932d-fa8e4e8f2724.png" /></p>
+<p>Thermodynamic foundation of free energy landscape and phase separation. The left figure shows the double-well free energy density curve <span class="arithmatex">\(f(\phi)\)</span>. The red arrow indicates that in the unstable region (Spinodal regime, <span class="arithmatex">\(f''&lt;0\)</span>), the system is unstable to small perturbations and will spontaneously phase separate. The equilibrium coexistence concentrations <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> are determined by the Maxwell Common Tangent Construction, which corresponds to the physical conditions of equal chemical potential and equal osmotic pressure of the two phases. The right figure is the corresponding temperature-concentration phase diagram, showing stable, metastable, and unstable regions divided by the Binodal (blue region boundary) and Spinodal (green region boundary) lines.</p>
+<h3 id="111-stable-regime">1.1.1 Stable Regime<a class="headerlink" href="#111-stable-regime" title="Permanent link">&para;</a></h3>
+<p>When the free energy curve is in a <strong>convex</strong> interval, i.e., satisfying the second derivative condition:</p>
+<div class="arithmatex">\[
+f''(\phi) = \frac{\partial^2 f}{\partial \phi^2} &gt; 0
+\]</div>
+<p>The system is in a thermodynamically stable state. Physically, this means any small local concentration fluctuation <span class="arithmatex">\(\delta \phi\)</span> will cause an increase in total system free energy (<span class="arithmatex">\(\Delta F &gt; 0\)</span>). According to the second law of thermodynamics, the system tends to minimize free energy, so these fluctuations are spontaneously suppressed, and the mixture maintains a macroscopically uniform state. In the phase diagram, this region lies outside the Binodal line.</p>
+<h3 id="112-unstable-spinodal-regime">1.1.2 Unstable / Spinodal Regime<a class="headerlink" href="#112-unstable-spinodal-regime" title="Permanent link">&para;</a></h3>
+<p>When the free energy curve is in a <strong>concave</strong> interval, i.e., satisfying:</p>
+<div class="arithmatex">\[
+f''(\phi) &lt; 0
+\]</div>
+<p>The system is in a thermodynamically unstable state, and this region is called the <strong>Spinodal Region</strong>. In this region, the second derivative of the free energy function with respect to concentration is negative, meaning small concentration inhomogeneities will cause total system free energy to decrease. Therefore, the system is unstable to any long-wave perturbation and will undergo spontaneous, barrierless phase separation, i.e., <strong>Spinodal Decomposition</strong>. This process manifests as exponential growth of concentration fluctuation amplitude with time, and is the focus of the dynamics section of this lecture.</p>
+<h3 id="113-metastable-regime">1.1.3 Metastable Regime<a class="headerlink" href="#113-metastable-regime" title="Permanent link">&para;</a></h3>
+<p>Between the stable and unstable regions, there exists a region where <span class="arithmatex">\(f''(\phi) &gt; 0\)</span> but the total free energy is not globally minimum. This region lies between the Binodal and Spinodal lines. In this state, although the system is linearly stable to small perturbations, there exists a lower-energy phase-separated state. The system must undergo large-amplitude fluctuations that cross the free energy barrier—i.e., the <strong>Nucleation and Growth</strong> process—to enter the phase-separated state. As Professor Frey points out, this requires "finite-sized perturbations" to trigger.</p>
+<h2 id="12-maxwell-construction-and-geometric-meaning-of-the-lever-rule">1.2 Maxwell Construction and Geometric Meaning of the Lever Rule<a class="headerlink" href="#12-maxwell-construction-and-geometric-meaning-of-the-lever-rule" title="Permanent link">&para;</a></h2>
+<p>When the system is in an unstable or metastable state, the thermodynamic equilibrium state is not a uniform mixture but splits into two coexisting phases: a solute-enriched phase (concentration <span class="arithmatex">\(\phi_a\)</span>) and a solute-depleted phase (concentration <span class="arithmatex">\(\phi_b\)</span>). These two equilibrium concentrations are uniquely determined by the <strong>Maxwell Common Tangent Construction</strong>.</p>
+<h3 id="121-geometric-definition-of-common-tangent-and-physical-correspondence">1.2.1 Geometric Definition of Common Tangent and Physical Correspondence<a class="headerlink" href="#121-geometric-definition-of-common-tangent-and-physical-correspondence" title="Permanent link">&para;</a></h3>
+<p>Geometrically, finding equilibrium concentrations is equivalent to finding two points <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> on the <span class="arithmatex">\(f(\phi)\)</span> curve such that the line connecting these two points is simultaneously tangent to the curve at both points. This means these two points not only share the same tangent line, but the slope and intercept of the tangent must be equal respectively.</p>
+<p><strong>1. Equal Slope Condition:</strong></p>
+<div class="arithmatex">\[
+f'(\phi_a) = f'(\phi_b)
+\]</div>
+<p>This mathematical condition corresponds to profound physical meaning: the <strong>Exchange Chemical Potential</strong> of the two phases is equal. Exchange chemical potential is defined as <span class="arithmatex">\(\bar{\mu} = \partial f / \partial \phi\)</span>, representing the energy cost of exchanging particles. Equal potentials mean there is no net particle diffusion flow between the two phases, achieving <strong>Chemical Equilibrium</strong>.</p>
+<p><strong>2. Equal Intercept Condition:</strong></p>
+<p>The intercept of the tangent on the vertical axis is given by Legendre transformation: <span class="arithmatex">\(f(\phi) - \phi f'(\phi)\)</span>. Equal intercepts at both points means:</p>
+<div class="arithmatex">\[
+f(\phi_a) - \phi_a f'(\phi_a) = f(\phi_b) - \phi_b f'(\phi_b)
+\]</div>
+<p>This condition physically corresponds to equal <strong>Osmotic Pressure (<span class="arithmatex">\(\Pi\)</span>)</strong> of the two phases (to be derived in detail in Section 2: <span class="arithmatex">\(\Pi \approx \phi f' - f\)</span>). Osmotic pressure represents the mechanical equilibrium condition for maintaining the phase interface, i.e., <strong>Mechanical Equilibrium</strong>.</p>
+<h3 id="122-lever-rule">1.2.2 Lever Rule<a class="headerlink" href="#122-lever-rule" title="Permanent link">&para;</a></h3>
+<p>Once coexistence concentrations <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> are determined, the volumes <span class="arithmatex">\(V_a\)</span> and <span class="arithmatex">\(V_b\)</span> occupied by the two phases in the macroscopic system are strictly constrained by mass conservation and volume conservation. For a system with total volume <span class="arithmatex">\(V\)</span> and average concentration <span class="arithmatex">\(\phi\)</span>:</p>
+<div class="arithmatex">\[
+\begin{cases}
+V = V_a + V_b \\
+V \phi = V_a \phi_a + V_b \phi_b
+\end{cases}
+\]</div>
+<p>Solving this system yields the <strong>Lever Rule</strong>:</p>
+<div class="arithmatex">\[
+\frac{V_a}{V_b} = \frac{\phi_b - \phi}{\phi - \phi_a}
+\]</div>
+<p>This rule graphically shows that the system's state point <span class="arithmatex">\(\phi\)</span> is like a fulcrum falling on a lever connecting <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span>, with the volume ratio of the two phases inversely proportional to the distance from the fulcrum to the endpoints.</p>
+<h2 id="13-phenomenological-display-of-dynamical-phenomena">1.3 Phenomenological Display of Dynamical Phenomena<a class="headerlink" href="#13-phenomenological-display-of-dynamical-phenomena" title="Permanent link">&para;</a></h2>
+<p>To establish intuitive understanding of phase separation dynamics, the class also showed previously demonstrated numerical simulation evolution processes—the spatiotemporal picture of system evolution from unstable state to equilibrium state.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/12_002_aa43c669-e28d-46e8-a555-c67bc8963f22.jpg" /></p>
+<p>Dynamical evolution of Spinodal Decomposition. Left figure is phase diagram schematic, right figure is numerical simulation animation. In the unstable region (Spinodal region), the uniform system spontaneously destabilizes, forming characteristic labyrinthine or bi-continuous patterns. Over time, these patterns undergo Coarsening, eventually evolving into macroscopically separated phases.</p>
+<ul>
+<li>
+<p><strong>Initial Quench:</strong> The process begins from a macroscopically uniform but microscopically randomly thermally fluctuating state. This corresponds to suddenly cooling (Quench) a uniformly mixed solution at high temperature into the Spinodal region of the phase diagram. At this point, the system is in a thermodynamically unstable state.</p>
+</li>
+<li>
+<p><strong>Early Stage:</strong> Due to <span class="arithmatex">\(f''(\phi) &lt; 0\)</span>, small concentration fluctuations are rapidly amplified. The image shows characteristic labyrinthine structures. The characteristic wavelength of these patterns is determined by the fastest growing mode, a direct result of linear instability analysis.</p>
+</li>
+<li>
+<p><strong>Coarsening Stage:</strong> Over time, the phase-separated enriched and depleted regions gradually merge. Small droplets disappear, large droplets grow, and interface curvature gradually decreases. This process is driven by interfacial tension, aiming to minimize the system's total interface area, thereby reducing interfacial free energy.</p>
+</li>
+<li>
+<p><strong>Final State:</strong> Evolution continues until the system completely separates into two macroscopic regions, with concentrations stable at <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> respectively, reaching thermodynamic equilibrium.</p>
+</li>
+</ul>
+<p>This spatiotemporal evolution from disorder to order, from uniform to phase-separated, is precisely the core content that this lecture attempts to capture by constructing the <strong>Cahn-Hilliard equation</strong> and its physical mechanisms.</p>
+<h1 id="2-osmotic-pressure-physical-picture-and-mathematical-microscopic-derivation">2. Osmotic Pressure - Physical Picture and Mathematical Microscopic Derivation<a class="headerlink" href="#2-osmotic-pressure-physical-picture-and-mathematical-microscopic-derivation" title="Permanent link">&para;</a></h1>
+<p>In the previous section's discussion of Maxwell construction, the geometric condition of equal tangent intercepts implied key physical constraints for system phase equilibrium. To endow this geometric feature with clear physical meaning, this section introduces and derives in detail <strong>Osmotic Pressure (<span class="arithmatex">\(\Pi\)</span>)</strong>.</p>
+<p>In biophysics and soft matter systems, osmotic pressure is not only a key mechanical quantity for maintaining cell morphology and driving membrane transport, but also a cornerstone for understanding mixture thermodynamic stability and phase separation mechanisms. Therefore, we will start from the macroscopic semi-permeable membrane model and, combined with microscopic free energy density functions, establish a rigorous mathematical connection between osmotic pressure and Helmholtz free energy.</p>
+<h2 id="21-physical-picture-of-the-semi-permeable-membrane-model">2.1 Physical Picture of the Semi-Permeable Membrane Model<a class="headerlink" href="#21-physical-picture-of-the-semi-permeable-membrane-model" title="Permanent link">&para;</a></h2>
+<p>To define osmotic pressure, first construct a classic thermodynamic thought experiment model: consider a rigid container divided by a <strong>Semi-permeable wall</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/12_003_86ad5691-65e7-487a-ba84-c9400211e81a.png" /></p>
+<p>Microscopic physical model of osmotic pressure. The diagram shows a container divided by a semi-permeable membrane, which only allows solvent to pass while blocking solute particles. The left side is a solution with solute concentration <span class="arithmatex">\(\phi\)</span>, the right side is pure solvent. Osmotic pressure <span class="arithmatex">\(\Pi\)</span> is defined as the additional mechanical pressure required to maintain constant volume, whose essence originates from the entropic force of solute particles. In incompressible fluid dynamics, the existence of osmotic pressure gradients (combined with exchange chemical potential) is the core thermodynamic driving force driving material transport and causing phase separation evolution.</p>
+<p><strong>System Setup and Boundary Conditions:</strong></p>
+<ul>
+<li>
+<p><strong>Semi-permeable Membrane Properties</strong>: This membrane has selective permeability, allowing only solvent molecules (Solvent, S) to pass freely while strictly blocking solute particles (Particle/Solute, P). This means the solvent can reach chemical equilibrium between the two chambers, while solute is confined in a specific region.</p>
+</li>
+<li>
+<p><strong>State Description</strong>: The left side of the membrane contains a solution with volume <span class="arithmatex">\(V\)</span> and solute volume fraction <span class="arithmatex">\(\phi\)</span>; the right side is an infinite pure solvent reservoir (<span class="arithmatex">\(\phi=0\)</span>).</p>
+</li>
+</ul>
+<p><strong>Equilibrium Mechanism</strong>:
+Due to the presence of solute on the left side, the chemical potential of the solvent is lowered (entropy increases), and pure solvent on the right side tends to spontaneously pass through the membrane into the left side to dilute the solution. To prevent this net flow and maintain left side volume <span class="arithmatex">\(V\)</span> unchanged, an additional mechanical pressure must be applied on the left side. This extra pressure applied to resist the natural osmotic tendency of the solvent is defined as <strong>Osmotic Pressure <span class="arithmatex">\(\Pi\)</span></strong>.</p>
+<h2 id="22-rigorous-thermodynamic-derivation-of-osmotic-pressure">2.2 Rigorous Thermodynamic Derivation of Osmotic Pressure<a class="headerlink" href="#22-rigorous-thermodynamic-derivation-of-osmotic-pressure" title="Permanent link">&para;</a></h2>
+<p>From an energy conservation perspective, osmotic pressure corresponds to the work done by the system during reversible volume changes. Assume moving the semi-permeable membrane slightly to the right, increasing solution volume by <span class="arithmatex">\(dV\)</span> (while pure solvent volume decreases by <span class="arithmatex">\(dV\)</span>, keeping total volume <span class="arithmatex">\(V_{total}\)</span> unchanged).</p>
+<p>In this process, the external environment must do work against the osmotic pressure, i.e., the system does external work <span class="arithmatex">\(dW_{ext} = \Pi dV\)</span>. According to thermodynamic relations, this work equals the decrease in total system Helmholtz free energy <span class="arithmatex">\(F_{total}\)</span>. Therefore, osmotic pressure can be defined as the negative of the partial derivative of total free energy with respect to solution volume:</p>
+<div class="arithmatex">\[
+\Pi = - \left( \frac{\partial F_{total}}{\partial V} \right)_{T, N_p}
+\]</div>
+<p>The total system free energy <span class="arithmatex">\(F_{total}\)</span> consists of two parts: the free energy of the left side solution and the free energy of the right side pure solvent:</p>
+<div class="arithmatex">\[
+F_{total}(V, \phi) = V f(\phi) + (V_{total} - V) f(0)
+\]</div>
+<p>where <span class="arithmatex">\(f(\phi)\)</span> is the Helmholtz free energy density (free energy per unit volume) of the solution, and <span class="arithmatex">\(f(0)\)</span> is the free energy density of pure solvent.</p>
+<p><strong>Key Derivation Steps:</strong></p>
+<p>When differentiating with respect to volume <span class="arithmatex">\(V\)</span>, note that the solution's volume fraction <span class="arithmatex">\(\phi\)</span> itself is also a function of <span class="arithmatex">\(V\)</span>. Because the total number of solute particles <span class="arithmatex">\(N_p\)</span> is confined within left side volume <span class="arithmatex">\(V\)</span> by the semi-permeable membrane, according to the definition of <span class="arithmatex">\(\phi\)</span>: <span class="arithmatex">\(\phi = N_p v_p / V\)</span> (assuming solute molecular volume is <span class="arithmatex">\(v_p\)</span>), using the chain rule:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial V} = N_p v_p \cdot \frac{\partial}{\partial V} \left( \frac{1}{V} \right) = N_p v_p \cdot \left( -\frac{1}{V^2} \right) = -\frac{\phi}{V}
+\]</div>
+<p>Substituting this relation into the osmotic pressure definition for calculation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\Pi &amp;= - \frac{\partial}{\partial V} \left[ V f(\phi) + (V_{total} - V) f(0) \right] \\
+&amp;= - \left[ f(\phi) + V \frac{\partial f(\phi)}{\partial \phi} \frac{\partial \phi}{\partial V} - f(0) \right] \\
+&amp;= - \left[ f(\phi) + V f'(\phi) \left( -\frac{\phi}{V} \right) - f(0) \right] \\
+&amp;= \phi f'(\phi) - f(\phi) + f(0)
+\end{aligned}
+\]</div>
+<p>Rearranging, we obtain the universal relation between osmotic pressure and free energy density:</p>
+<div class="arithmatex">\[
+\Pi(\phi) = \phi f'(\phi) - [f(\phi) - f(0)]
+\]</div>
+<p><strong>Physical Meaning:</strong></p>
+<p>This formula is concise and elegant in mathematical form, and directly corresponds to the <strong>intercept condition</strong> in the Maxwell construction from the previous section.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(f(\phi) - \phi f'(\phi)\)</span> is precisely the negative of the intercept on the vertical axis (<span class="arithmatex">\(f\)</span> axis) of the tangent line passing through point <span class="arithmatex">\((\phi, f(\phi))\)</span> (relative to <span class="arithmatex">\(f(0)\)</span>).</p>
+</li>
+<li>
+<p>If requiring equal osmotic pressure (<span class="arithmatex">\(\Pi(\phi_a) = \Pi(\phi_b)\)</span>) when two phases <span class="arithmatex">\(\phi_a\)</span> and <span class="arithmatex">\(\phi_b\)</span> coexist, then the tangent intercepts at both points must be equal.</p>
+</li>
+<li>
+<p>This proves that the geometric tangent intercepts of Maxwell construction indeed represent the physical <strong>mechanical equilibrium condition</strong>: in the final state of phase separation, both sides of the coexisting phase interface must reach mechanical equilibrium, i.e., equal osmotic pressure, otherwise the interface will move.</p>
+</li>
+</ul>
+<h2 id="23-vant-hoff-law-and-virial-expansion-from-ideal-gas-to-interactions">2.3 Van't Hoff Law and Virial Expansion - From Ideal Gas to Interactions<a class="headerlink" href="#23-vant-hoff-law-and-virial-expansion-from-ideal-gas-to-interactions" title="Permanent link">&para;</a></h2>
+<p>To connect abstract thermodynamic formulas to concrete experimental measurements and reveal microscopic interactions, the professor further explores osmotic pressure behavior in the dilute solution limit and introduces the <strong>Virial Expansion</strong>.</p>
+<h3 id="231-vant-hoff-law">2.3.1 Van't Hoff Law<a class="headerlink" href="#231-vant-hoff-law" title="Permanent link">&para;</a></h3>
+<p>For extremely dilute solutions (<span class="arithmatex">\(\phi \ll 1\)</span>), solute particles are far apart, interactions can be neglected, and they behave like ideal gas molecules. At this point, free energy density is mainly contributed by mixing entropy. Experimentally measured osmotic pressure follows the famous Van't Hoff law:</p>
+<div class="arithmatex">\[
+\Pi \approx \frac{k_B T}{v_p} \phi
+\]</div>
+<p>This is formally completely consistent with the ideal gas equation of state <span class="arithmatex">\(PV = N k_B T\)</span> (i.e., <span class="arithmatex">\(P = \frac{N}{V} k_B T = \frac{\phi}{v_p} k_B T\)</span>).</p>
+<p><strong>Physical Essence</strong>: This is a purely <strong>Entropic force</strong>. The "pressure" generated by solute particles hitting the semi-permeable membrane originates from their tendency to explore phase space volume through Brownian motion in solution (translational entropy). This limiting law provides a benchmark for calibrating low-concentration behavior of free energy density.</p>
+<h3 id="232-virial-expansion-and-interaction-coefficients">2.3.2 Virial Expansion and Interaction Coefficients<a class="headerlink" href="#232-virial-expansion-and-interaction-coefficients" title="Permanent link">&para;</a></h3>
+<p>As concentration <span class="arithmatex">\(\phi\)</span> increases, interactions between solute particles can no longer be neglected. To describe this deviation, osmotic pressure is usually expanded as a power series in concentration, the virial expansion:</p>
+<div class="arithmatex">\[
+\Pi = \frac{k_B T}{v_p} \phi + A_2 \phi^2 + A_3 \phi^3 + \dots
+\]</div>
+<p>The expansion coefficients <span class="arithmatex">\(A_2, A_3\)</span> here have profound microscopic physical meanings, especially the second virial coefficient <span class="arithmatex">\(A_2\)</span>:</p>
+<ul>
+<li>
+<p><strong><span class="arithmatex">\(A_2 &gt; 0\)</span> (Repulsive interaction)</strong>: Particles tend to stay apart (like hard sphere repulsion). This increases the effective frequency of particles hitting the membrane, causing osmotic pressure to rise, promoting mixing and stability of the solution.</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(A_2 &lt; 0\)</span> (Attractive interaction)</strong>: Particles tend to aggregate together. This attraction reduces the effective pressure of particles hitting the membrane (osmotic pressure decreases). It is precisely this <strong>negative second virial coefficient</strong> (attractive interaction) that causes the free energy curve to develop a concavity at intermediate concentrations (<span class="arithmatex">\(f'' &lt; 0\)</span>), thereby triggering phase separation. This provides a microscopic mechanical perspective for understanding phase separation: phase separation is essentially the result of attraction between particles overcoming mixing entropy forces.</p>
+</li>
+</ul>
+<p>Using the differential form of the osmotic pressure formula <span class="arithmatex">\(\Pi(\phi) = \phi^2 \frac{\partial}{\partial \phi} \left(\frac{f(\phi)}{\phi}\right)\)</span> (assuming <span class="arithmatex">\(f(0)=0\)</span>), the analytical form of free energy density can be back-calculated by integrating experimentally measured osmotic pressure curves:</p>
+<div class="arithmatex">\[
+f(\phi) \approx f(0) + \underbrace{\frac{k_B T}{v_p} \phi \ln \phi}_{\text{Mixing entropy term}} + \underbrace{A_2 \phi^2 + \frac{1}{2}A_3 \phi^3}_{\text{Interaction enthalpy terms}} + \dots
+\]</div>
+<p>The <span class="arithmatex">\(\phi \ln \phi\)</span> term is precisely the famous <strong>Mixing Entropy</strong> term, which always tends toward mixing; while <span class="arithmatex">\(A_2 \phi^2\)</span> and other higher-order terms represent enthalpic contributions. This structure will be rigorously derived from microscopic statistical mechanics through the Lattice Gas Model and Flory-Huggins theory in the next lecture (Lecture 13).</p>
+<h1 id="3-exchange-chemical-potential-driving-force-in-incompressible-systems">3. Exchange Chemical Potential - Driving Force in Incompressible Systems<a class="headerlink" href="#3-exchange-chemical-potential-driving-force-in-incompressible-systems" title="Permanent link">&para;</a></h1>
+<p>After establishing osmotic pressure as the physical correspondence to the equal intercept condition in Maxwell construction, the focus of analysis shifts to the geometric condition of equal tangent slopes. In classical thermodynamics, slopes correspond to chemical potential equilibrium. However, for biological cells and soft matter systems, the physical environment is often subject to dual constraints of <strong>Incompressibility</strong> and <strong>fixed volume</strong>. This makes the classical chemical potential definition based on "adding particles causes volume expansion" no longer applicable.</p>
+<p>The professor introduces the concept of <strong>Exchange Chemical Potential</strong>, which not only solves the theoretical definition problem but also reveals the fundamental dynamical mechanism of material transport inside cells—material movement is essentially a displacement process.</p>
+<h2 id="31-limitations-of-classical-definition-and-incompressibility-constraint">3.1 Limitations of Classical Definition and Incompressibility Constraint<a class="headerlink" href="#31-limitations-of-classical-definition-and-incompressibility-constraint" title="Permanent link">&para;</a></h2>
+<p>In the classical thermodynamic framework, the chemical potential <span class="arithmatex">\(\mu_i\)</span> of component <span class="arithmatex">\(i\)</span> is usually defined as the partial derivative of Gibbs free energy <span class="arithmatex">\(G\)</span> with respect to particle number <span class="arithmatex">\(N_i\)</span>:</p>
+<div class="arithmatex">\[
+\mu_i = \left( \frac{\partial G}{\partial N_i} \right)_{T, P, N_{j \neq i}}
+\]</div>
+<p>This definition implies a physical operation: adding one <span class="arithmatex">\(i\)</span> particle to the system while keeping other component particle numbers <span class="arithmatex">\(N_j\)</span> unchanged. Under constant pressure conditions, for condensed matter, adding particles necessarily causes expansion of the system's total volume <span class="arithmatex">\(V\)</span>.</p>
+<p>However, the interior of biological cells is a highly Crowded environment constrained by cell membrane geometry. In this environment, the system must obey strict volume conservation constraints. If assuming the fluid is incompressible, i.e., molecular volume <span class="arithmatex">\(v_i\)</span> is constant, then a rigid constraint exists between total volume <span class="arithmatex">\(V\)</span> and particle numbers: <span class="arithmatex">\(V = \sum N_i v_i\)</span>.</p>
+<p>Under this <strong>constant volume <span class="arithmatex">\(V\)</span></strong> constraint, simply "squeezing in" a particle without removing other particles is an invalid physical operation because it violates the incompressibility condition. Therefore, a new thermodynamic quantity must be sought to describe energy changes in this constrained environment.</p>
+<h2 id="32-definition-and-derivation-of-exchange-chemical-potential">3.2 Definition and Derivation of Exchange Chemical Potential<a class="headerlink" href="#32-definition-and-derivation-of-exchange-chemical-potential" title="Permanent link">&para;</a></h2>
+<p>Under the fixed volume <span class="arithmatex">\(V\)</span> constraint, the only natural way to change system composition is <strong>Exchange</strong>: to place one solute particle (Solute P) within volume <span class="arithmatex">\(V\)</span>, one or more solvent molecules (Solvent S) must be simultaneously removed to make room. Assuming solute and solvent have similar molecular volumes (<span class="arithmatex">\(v_p \approx v_s\)</span>), this process is an equal-volume particle displacement.</p>
+<p>Based on this, this lecture introduces <strong>Exchange Chemical Potential <span class="arithmatex">\(\bar{\mu}_p\)</span></strong>, defined as the change in Gibbs free energy with solute particle number while maintaining volume <span class="arithmatex">\(V\)</span> (as well as temperature <span class="arithmatex">\(T\)</span>, pressure <span class="arithmatex">\(P\)</span>) unchanged:</p>
+<div class="arithmatex">\[
+\bar{\mu}_p = \left( \frac{\partial G}{\partial N_p} \right)_{T, V, P}
+\]</div>
+<p>This is actually a partial derivative after Legendre transformation, reflecting the energy cost under volume constraints. To establish its relationship with free energy density <span class="arithmatex">\(f(\phi)\)</span>, use the thermodynamic relation established in <strong>Lecture 11</strong>: <span class="arithmatex">\(G = V [P + f(\phi)]\)</span> (where <span class="arithmatex">\(P\)</span> is external pressure, <span class="arithmatex">\(f(\phi)\)</span> is Helmholtz free energy density).</p>
+<p><strong>Derivation Process:</strong></p>
+<p>Applying the chain rule, take the partial derivative of <span class="arithmatex">\(G\)</span> with respect to <span class="arithmatex">\(N_p\)</span>, noting that <span class="arithmatex">\(V\)</span> is treated as constant:</p>
+<div class="arithmatex">\[
+\bar{\mu}_p = \frac{\partial}{\partial N_p} \left( V [P + f(\phi)] \right)_{V} = V \frac{\partial f(\phi)}{\partial \phi} \frac{\partial \phi}{\partial N_p}
+\]</div>
+<p>According to the volume fraction definition <span class="arithmatex">\(\phi = \frac{N_p v_p}{V}\)</span>, its derivative with respect to particle number is:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial N_p} = \frac{v_p}{V}
+\]</div>
+<p>Substituting this result into the above equation, volume <span class="arithmatex">\(V\)</span> cancels, yielding the concise analytical expression:</p>
+<div class="arithmatex">\[
+\bar{\mu}_p = v_p f'(\phi)
+\]</div>
+<p>Similarly, for the solvent (Solvent S), since adding solvent means decreasing solute concentration (<span class="arithmatex">\(\partial \phi / \partial N_s &lt; 0\)</span>), the solvent's exchange chemical potential can be derived:</p>
+<div class="arithmatex">\[
+\bar{\mu}_s = - v_s f'(\phi)
+\]</div>
+<p>This set of formulas reveals the physical connection: <strong>The slope of Helmholtz free energy density <span class="arithmatex">\(f'(\phi)\)</span> is physically the normalized exchange chemical potential.</strong></p>
+<h2 id="33-unified-physical-picture-and-biological-significance">3.3 Unified Physical Picture and Biological Significance<a class="headerlink" href="#33-unified-physical-picture-and-biological-significance" title="Permanent link">&para;</a></h2>
+<p>By introducing exchange chemical potential, the <strong>equal slope condition</strong> <span class="arithmatex">\(f'(\phi_a) = f'(\phi_b)\)</span> in Maxwell construction obtains clear physical interpretation:</p>
+<div class="arithmatex">\[
+\frac{\bar{\mu}_p(\phi_a)}{v_p} = \frac{\bar{\mu}_p(\phi_b)}{v_p}
+\]</div>
+<p>This indicates that in the phase separation equilibrium state, the exchange chemical potentials between the two phases must be equal. Physically, this means exchanging one particle from the enriched phase (Phase A) to the depleted phase (Phase B) requires no net energy consumption, and the system has reached <strong>Chemical Equilibrium</strong>.</p>
+<p>Combined with the previous section's discussion of osmotic pressure (mechanical equilibrium), Maxwell construction unifies the two thermodynamic pillars of phase separation:</p>
+<p>1.<strong>Equal Intercepts</strong> <span class="arithmatex">\(\leftrightarrow\)</span> <strong>Equal Osmotic Pressure</strong> <span class="arithmatex">\(\leftrightarrow\)</span> <strong>Mechanical Equilibrium</strong> (interface does not move).</p>
+<p>2.<strong>Equal Slopes</strong> <span class="arithmatex">\(\leftrightarrow\)</span> <strong>Equal Exchange Chemical Potential</strong> <span class="arithmatex">\(\leftrightarrow\)</span> <strong>Chemical Equilibrium</strong> (no net particle flow).</p>
+<p><strong>Biological Significance:</strong>
+In the cell biology context, this concept is crucial. It shows that the aggregation and dispersion of proteins or other biomacromolecules in cytoplasm should not be viewed as free particle movement in vacuum, but must be understood as <strong>competitive displacement</strong> of solute and solvent molecules. The "force" driving material transport is not the absolute chemical potential gradient, but the exchange chemical potential gradient relative to solvent <span class="arithmatex">\(\nabla \bar{\mu}\)</span>. This conclusion provides direct physical basis for deriving the flux term in the Cahn-Hilliard dynamical equation in the next section.</p>
+<h1 id="4-non-equilibrium-dynamics-from-onsager-reciprocal-relations-to-negative-diffusion">4. Non-equilibrium Dynamics - From Onsager Reciprocal Relations to Negative Diffusion<a class="headerlink" href="#4-non-equilibrium-dynamics-from-onsager-reciprocal-relations-to-negative-diffusion" title="Permanent link">&para;</a></h1>
+<p>At this point, the static thermodynamic description of liquid mixtures—including free energy landscape, osmotic pressure, and exchange chemical potential—has been completely constructed.</p>
+<p>However, thermodynamics can only determine the system's equilibrium state or evolutionary trends, and cannot describe the rate and path of evolution. To capture the spatiotemporal characteristics of phase separation, the time variable <span class="arithmatex">\(t\)</span> must be introduced into the theoretical framework, constructing <strong>partial differential equations describing the temporal evolution of concentration field <span class="arithmatex">\(\phi(\mathbf{x}, t)\)</span></strong>. This section will start from conservation laws, combine with linear response theory of non-equilibrium thermodynamics, and derive the core equations governing mixture dynamics, thereby achieving the key leap from static potential energy surfaces to dynamic flow fields.</p>
+<h2 id="41-continuity-equation-conservation-law">4.1 Continuity Equation (Conservation Law)<a class="headerlink" href="#41-continuity-equation-conservation-law" title="Permanent link">&para;</a></h2>
+<p>In liquid mixture systems, solute particles are strictly constrained by <strong>local mass conservation</strong>. Without chemical reactions generating or consuming particles, solute can neither appear nor disappear out of thin air, but can only redistribute in space through flow. Therefore, the temporal evolution of concentration field <span class="arithmatex">\(\phi(\mathbf{x}, t)\)</span> must obey the Continuity Equation:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi(\mathbf{x}, t)}{\partial t} = - \nabla \cdot \mathbf{J}(\mathbf{x}, t)
+\]</div>
+<p>where <span class="arithmatex">\(\mathbf{J}(\mathbf{x}, t)\)</span> represents <strong>Particle Flux Current</strong>, whose physical meaning is the particle volume (or number) passing through unit cross-sectional area per unit time. This equation states that the rate of local concentration change (<span class="arithmatex">\(\partial_t \phi\)</span>) at a point in space is completely determined by the divergence of net outward flux (<span class="arithmatex">\(\nabla \cdot \mathbf{J}\)</span>) at that point. This is the mathematical starting point for constructing any conserved dynamics (Model B).</p>
+<h2 id="42-onsager-theory-and-thermodynamic-driving-forces">4.2 Onsager Theory and Thermodynamic Driving Forces<a class="headerlink" href="#42-onsager-theory-and-thermodynamic-driving-forces" title="Permanent link">&para;</a></h2>
+<p>After establishing the conservation law, the core question transforms to: how to determine the specific form of flux <span class="arithmatex">\(\mathbf{J}\)</span>?</p>
+<p>According to Non-equilibrium Thermodynamics, material flow is driven by <strong>Thermodynamic Forces</strong>. When the system deviates from equilibrium, chemical potential gradients existing in space constitute driving forces, driving material flow to eliminate these gradients, thereby returning the system to equilibrium where chemical potential is equal everywhere.</p>
+<p>In the near-equilibrium region, applying <strong>Onsager Linear Response Theory</strong>, a linear relationship exists between flux and thermodynamic force:</p>
+<div class="arithmatex">\[
+\mathbf{J} = - \Lambda \nabla \bar{\mu}
+\]</div>
+<p>The physical meaning of each term in this formula is:</p>
+<ul>
+<li>
+<p><strong><span class="arithmatex">\(\nabla \bar{\mu}\)</span></strong>: Driving force, i.e., <strong>gradient of exchange chemical potential</strong>. Note that the exchange chemical potential <span class="arithmatex">\(\bar{\mu}\)</span> derived in Section 3 is used here, because it correctly describes the particle displacement process in incompressible fluids.</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(\Lambda\)</span></strong>: <strong>Onsager Coefficient</strong>, also called Mobility. It characterizes the system's response capability to thermodynamic driving forces, usually depending on temperature <span class="arithmatex">\(T\)</span> and local concentration <span class="arithmatex">\(\phi\)</span>.</p>
+</li>
+<li>
+<p><strong>Negative sign</strong>: Indicates material flows toward the direction of decreasing chemical potential (from high to low potential energy regions), which ensures non-negativity of entropy production.</p>
+</li>
+</ul>
+<p>According to the second law of thermodynamics, to ensure energy dissipation (entropy increase) during the process, the Onsager coefficient must be positive (<span class="arithmatex">\(\Lambda &gt; 0\)</span>).</p>
+<h2 id="43-derivation-of-dynamical-equations-and-effective-diffusion-coefficient">4.3 Derivation of Dynamical Equations and Effective Diffusion Coefficient<a class="headerlink" href="#43-derivation-of-dynamical-equations-and-effective-diffusion-coefficient" title="Permanent link">&para;</a></h2>
+<p>To obtain closed concentration evolution equations, the flux <span class="arithmatex">\(\mathbf{J}\)</span> needs to be expressed as a function of concentration <span class="arithmatex">\(\phi\)</span>. Using the relation between exchange chemical potential and free energy density derived in Section 3: <span class="arithmatex">\(\bar{\mu}_p \approx v_p f'(\phi)\)</span> (ignoring constant terms), apply the chain rule to calculate its gradient:</p>
+<div class="arithmatex">\[
+\nabla \bar{\mu}_p = \nabla \left( v_p \frac{\partial f}{\partial \phi} \right) = v_p \frac{\partial^2 f}{\partial \phi^2} \nabla \phi = v_p f''(\phi) \nabla \phi
+\]</div>
+<p>Substituting this gradient expression into the Onsager transport equation:</p>
+<div class="arithmatex">\[
+\mathbf{J} = - \Lambda(\phi) v_p f''(\phi) \nabla \phi
+\]</div>
+<p>Finally, substituting the particle flux into the continuity equation yields the nonlinear partial differential equation describing concentration field evolution:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = \nabla \cdot \left[ \Lambda(\phi) v_p f''(\phi) \nabla \phi \right]
+\]</div>
+<p>To deeply analyze the physical properties of this equation, compare it with the classical <strong>Fick's Second Law</strong> <span class="arithmatex">\(\frac{\partial \phi}{\partial t} = \nabla \cdot (D \nabla \phi)\)</span>. This defines the system's <strong>Effective Diffusion Coefficient</strong>:</p>
+<div class="arithmatex">\[
+D_{\text{eff}}(\phi) = \Lambda(\phi) v_p f''(\phi)
+\]</div>
+<p>This result profoundly reveals the microscopic thermodynamic origin of diffusion: the macroscopic diffusion coefficient is not simply a constant, but is jointly determined by <strong>kinetic mobility</strong> <span class="arithmatex">\(\Lambda(\phi)\)</span> and <strong>thermodynamic driving force factor</strong> <span class="arithmatex">\(f''(\phi)\)</span> (free energy curvature).</p>
+<h2 id="44-stability-analysis-positive-diffusion-and-negative-diffusion">4.4 Stability Analysis - Positive Diffusion and Negative Diffusion<a class="headerlink" href="#44-stability-analysis-positive-diffusion-and-negative-diffusion" title="Permanent link">&para;</a></h2>
+<p>The sign of effective diffusion coefficient <span class="arithmatex">\(D_{\text{eff}}\)</span> directly determines the system's dynamical evolution behavior, which is key to understanding phase separation mechanisms.</p>
+<h3 id="1-stable-regime-f-0">1. Stable Regime (<span class="arithmatex">\(f'' &gt; 0\)</span>)<a class="headerlink" href="#1-stable-regime-f-0" title="Permanent link">&para;</a></h3>
+<p>When the system is in the stable region of the phase diagram, the free energy curve is convex (<span class="arithmatex">\(f'' &gt; 0\)</span>). Since mobility <span class="arithmatex">\(\Lambda &gt; 0\)</span> and molecular volume <span class="arithmatex">\(v_p &gt; 0\)</span>, the effective diffusion coefficient is always positive:</p>
+<div class="arithmatex">\[
+D_{\text{eff}} &gt; 0
+\]</div>
+<p>This corresponds to classical <strong>Positive Diffusion (Fickian Diffusion)</strong>. Material flows from high to low concentration along concentration gradients, any local concentration fluctuations are dissipated and smoothed, and the system tends toward uniformity.</p>
+<p><strong>Concentration Dependence of Onsager Coefficient</strong></p>
+<p>The professor specifically points out that in the dilute solution limit (<span class="arithmatex">\(\phi \ll 1\)</span>), free energy is mainly dominated by mixing entropy, i.e., <span class="arithmatex">\(f(\phi) \sim \phi \ln \phi\)</span>, leading to second derivative <span class="arithmatex">\(f''(\phi) \sim 1/\phi\)</span>. For the macroscopic diffusion coefficient <span class="arithmatex">\(D_{\text{eff}}\)</span> to return to constant <span class="arithmatex">\(D\)</span> (Brownian motion behavior), the Onsager coefficient must have the following form:</p>
+<div class="arithmatex">\[
+D_{\text{eff}} \approx \Lambda(\phi) v_p \frac{k_B T}{v_p \phi} = \text{const} \implies \Lambda(\phi) \propto \phi
+\]</div>
+<p>This means mobility is not spatially uniform, but proportional to local particle concentration. <strong>This derivation verifies the self-consistency of Onsager theory in the dilute solution limit.</strong></p>
+<h3 id="2-spinodal-regime-f-0">2. Spinodal Regime (<span class="arithmatex">\(f'' &lt; 0\)</span>)<a class="headerlink" href="#2-spinodal-regime-f-0" title="Permanent link">&para;</a></h3>
+<p>This is the most striking case in phase transition dynamics. When the system is quenched into the Spinodal region, the free energy curve exhibits concavity (<span class="arithmatex">\(f'' &lt; 0\)</span>), causing the effective diffusion coefficient to become negative:</p>
+<div class="arithmatex">\[
+D_{\text{eff}} &lt; 0
+\]</div>
+<p><strong>Negative Diffusion</strong> means the direction of material flow undergoes fundamental reversal: <strong>material flows against concentration gradients</strong>, i.e., spontaneously flowing from low to high concentration regions.</p>
+<p><strong>Physical Consequence: Uphill Diffusion</strong></p>
+<p>Originally small concentration peaks not only do not disperse, but become higher by continuously drawing material from surroundings; surrounding low concentration regions become lower due to material loss. This positive feedback mechanism leads to spontaneous destabilization of the system to long-wave fluctuations, with concentration fluctuations rapidly amplified, forming the labyrinthine patterns observed in previous video demonstrations. This is precisely the microscopic dynamical origin of <strong>Spinodal Decomposition</strong>—instability driven by negative diffusion coefficient.</p>
+<h1 id="5-cahn-hilliard-equation-model-b-from-local-to-non-local">5. Cahn-Hilliard Equation (Model B) - From Local to Non-local<a class="headerlink" href="#5-cahn-hilliard-equation-model-b-from-local-to-non-local" title="Permanent link">&para;</a></h1>
+<p>In the previous section's derivation, although the dynamical equation based on local free energy density <span class="arithmatex">\(\partial_t \phi = \nabla \cdot (\Lambda f'' \nabla \phi)\)</span> successfully predicted the "<strong>Negative Diffusion</strong>" phenomenon in the Spinodal region mathematically, it faces serious regularity problems physically. Pure negative diffusion mechanisms cause growth rates of short-wavelength (high-frequency) modes to be infinite, causing concentration gradients to tend toward infinity, forming non-physical mathematical singularities, meaning interface width will narrow infinitely until collapse.</p>
+<p>To describe physically realistic phase separation processes, especially to form stable interfaces with finite width, a mechanism must be introduced to penalize excessive concentration gradients. Therefore, the professor further introduces the <strong>Cahn-Hilliard Equation</strong> (called <strong>Model B</strong> in dynamical system classification). This equation introduces the physical effect of interfacial tension by introducing non-local gradient terms in free energy, thereby suppressing short-wave divergence while maintaining long-wave instability, describing the complete dynamics from spinodal decomposition to late-stage coarsening for conserved order parameters.</p>
+<h2 id="51-gradient-energy-term-and-generalized-chemical-potential">5.1 Gradient Energy Term and Generalized Chemical Potential<a class="headerlink" href="#51-gradient-energy-term-and-generalized-chemical-potential" title="Permanent link">&para;</a></h2>
+<p>Cahn and Hilliard pointed out that the total free energy of non-uniform systems depends not only on local concentration <span class="arithmatex">\(\phi(\mathbf{x})\)</span>, but also on the rate of concentration variation in space (gradient). Therefore, the system's free energy functional should be modified to <strong>Ginzburg-Landau form</strong>:</p>
+<div class="arithmatex">\[
+F[\phi] = \int dV \left[ f(\phi) + \frac{\kappa}{2} (\nabla \phi)^2 \right]
+\]</div>
+<p>The physical meaning of each term in the formula:
+* <strong><span class="arithmatex">\(f(\phi)\)</span></strong>: Local free energy density (double-well). It drives local concentration to separate toward equilibrium values <span class="arithmatex">\(\phi_a, \phi_b\)</span>.</p>
+<ul>
+<li><strong><span class="arithmatex">\(\frac{\kappa}{2} (\nabla \phi)^2\)</span></strong>: <strong>Gradient Energy Term</strong>. Coefficient <span class="arithmatex">\(\kappa &gt; 0\)</span> is directly related to interfacial tension. The existence of this term means that producing any gradient requires paying an energy cost, thus tending to make the concentration field smooth.</li>
+</ul>
+<p>To derive the dynamical equation, first calculate the system's <strong>Generalized Chemical Potential</strong>. It is the Functional Derivative of total free energy functional with respect to concentration field. Using variational calculus (and applying integration by parts to handle gradient terms):</p>
+<div class="arithmatex">\[
+\mu = \frac{\delta F}{\delta \phi} = \frac{\partial f}{\partial \phi} - \nabla \cdot \left( \frac{\partial (\frac{\kappa}{2}(\nabla \phi)^2)}{\partial (\nabla \phi)} \right)
+\]</div>
+<p>Calculation yields:</p>
+<div class="arithmatex">\[
+\mu = f'(\phi) - \kappa \nabla^2 \phi
+\]</div>
+<p><strong>Physical Meaning:</strong></p>
+<p>The chemical potential <span class="arithmatex">\(\mu\)</span> obtained here contains two terms. The first term <span class="arithmatex">\(f'(\phi)\)</span> is the <strong>local exchange chemical potential</strong> we are familiar with; while the second term <span class="arithmatex">\(-\kappa \nabla^2 \phi\)</span> is a <strong>Non-local term</strong>. It indicates that the chemical potential at a point depends not only on the concentration at that point, but is also influenced by the concentration distribution (curvature <span class="arithmatex">\(\nabla^2 \phi\)</span>) in neighboring regions. It is precisely this term that introduces spatial coupling, making interfaces no longer mathematical singularities but transition layers with physical width.</p>
+<h2 id="52-complete-cahn-hilliard-equation">5.2 Complete Cahn-Hilliard Equation<a class="headerlink" href="#52-complete-cahn-hilliard-equation" title="Permanent link">&para;</a></h2>
+<p>Substituting the derived generalized chemical potential into the continuity equation <span class="arithmatex">\(\partial_t \phi = - \nabla \cdot \mathbf{J}\)</span> for conserved dynamics, and combining with the Onsager relation <span class="arithmatex">\(\mathbf{J} = -\Lambda \nabla \mu\)</span>, yields the famous <strong>Cahn-Hilliard Equation</strong>:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = \nabla \cdot \left[ \Lambda \nabla \left( f'(\phi) - \kappa \nabla^2 \phi \right) \right]
+\]</div>
+<p>To see the dynamical structure more clearly, assume the Onsager coefficient (mobility) <span class="arithmatex">\(\Lambda\)</span> is constant (usually denoted <span class="arithmatex">\(M\)</span>), and expand the equation:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = M \nabla^2 f'(\phi) - M \kappa \nabla^4 \phi
+\]</div>
+<p>This is a <strong>fourth-order nonlinear partial differential equation</strong> (containing the biharmonic operator <span class="arithmatex">\(\nabla^4\)</span>).</p>
+<h2 id="53-physical-competition-of-equation-terms-and-dynamical-characteristics">5.3 Physical Competition of Equation Terms and Dynamical Characteristics<a class="headerlink" href="#53-physical-competition-of-equation-terms-and-dynamical-characteristics" title="Permanent link">&para;</a></h2>
+<p>The right side of the Cahn-Hilliard equation contains two terms that play completely opposite yet complementary roles in the phase separation process, jointly determining the characteristic scale of patterns.</p>
+<p><strong>1. Destabilizing Term (<span class="arithmatex">\(M \nabla^2 f'(\phi)\)</span>): Driving Phase Separation</strong></p>
+<ul>
+<li>
+<p>In the Spinodal region (<span class="arithmatex">\(f'' &lt; 0\)</span>), this term is equivalent to <span class="arithmatex">\(M f'' \nabla^2 \phi\)</span> (negative diffusion).</p>
+</li>
+<li>
+<p>It causes exponential growth of long-wave mode (large-scale fluctuation) amplitudes, driving the system from uniform state to undergo <strong>Uphill Diffusion</strong>, forming enriched and depleted phases. This is the dynamical engine of phase separation.</p>
+</li>
+</ul>
+<p><strong>2. Stabilizing Term (<span class="arithmatex">\(- M \kappa \nabla^4 \phi\)</span>): Setting Characteristic Scale</strong></p>
+<ul>
+<li>
+<p>This is a fourth-order derivative term originating from gradient energy. In Fourier space, <span class="arithmatex">\(\nabla^4\)</span> corresponds to <span class="arithmatex">\(k^4\)</span>.</p>
+</li>
+<li>
+<p>Due to the negative sign in front, this term always acts as <strong>Damping</strong>, with extremely strong suppression of short-wave (high <span class="arithmatex">\(k\)</span>) modes (<span class="arithmatex">\(\propto -k^4\)</span>).</p>
+</li>
+<li>
+<p><strong>Physical Consequence</strong>: It effectively cuts off growth of high-frequency modes, preventing interfaces from narrowing infinitely. The competition between destabilizing and stabilizing terms selects a <strong>Fastest Growing Wavelength (<span class="arithmatex">\(\lambda_m\)</span>)</strong>, which determines the characteristic size of labyrinthine patterns in early phase separation.</p>
+</li>
+</ul>
+<p><strong>Dynamical Scaling Law:</strong></p>
+<p>Compared with Model A (non-conserved Allen-Cahn equation) introduced in <strong>Lecture 9</strong>, the Cahn-Hilliard equation (Model B) strictly obeys local mass conservation. This means phase region growth cannot be completed through local spin flipping, but must be achieved through long-range diffusion of material. This leads to fundamentally different scaling laws in late-stage coarsening:</p>
+<ul>
+<li>
+<p><strong>Model A</strong>: <span class="arithmatex">\(L(t) \sim t^{1/2}\)</span> (curvature-driven, no conservation constraint).</p>
+</li>
+<li>
+<p><strong>Model B</strong>: <span class="arithmatex">\(L(t) \sim t^{1/3}\)</span> (diffusion-limited aggregation, i.e., <strong>Ostwald Ripening</strong> mechanism).</p>
+</li>
+</ul>
+<p>The establishment of the Cahn-Hilliard equation marks the successful unification of microscopic molecular interactions (through <span class="arithmatex">\(f(\phi)\)</span>) and mesoscopic interface properties (through <span class="arithmatex">\(\kappa\)</span>) into a macroscopic dynamical field theory framework, becoming the standard language for simulating phase separation in soft matter physics and materials science.</p>
+<h1 id="6-code-practice-unification-from-dead-matter-to-living-matter">6. Code Practice - Unification from Dead Matter to Living Matter<a class="headerlink" href="#6-code-practice-unification-from-dead-matter-to-living-matter" title="Permanent link">&para;</a></h1>
+<p>The Cahn-Hilliard equation (Model B) is established as the standard model for describing phase separation dynamics of <strong>dead matter</strong> (such as alloys, polymer blends). The physical picture of this model is based on equilibrium thermodynamics: system evolution is entirely driven by free energy minimization, interfacial tension explicitly originates from the gradient energy term <span class="arithmatex">\(\frac{\kappa}{2}(\nabla\phi)^2\)</span>, and coarsening follows the Lifshitz-Slyozov-Wagner (LSW) scaling law <span class="arithmatex">\(L(t) \sim t^{1/3}\)</span>.</p>
+<p>However, phase separation in biological systems—such as PAR protein distribution during cell polarization, or formation of membrane-less organelles inside cells—occurs in <strong>far-from-equilibrium</strong> active environments. These systems continuously consume energy (such as ATP hydrolysis) and do not follow the principle of least action. This raises a core physical question: <strong>Why do these highly non-equilibrium active systems exhibit macroscopic pattern evolution strikingly similar to equilibrium Cahn-Hilliard systems?</strong></p>
+<p>Just recently, Professor Erwin Frey published a paper in Nature Physics, "Protein pattern morphology and dynamics emerging from effective interfacial tension," providing the answer to this question.</p>
+<p><img alt="Recent paper by Professor Erwin Frey" src="../../cn/assets/images/12_004_c3ca74b0-ce62-4c63-968b-afc030e5527d.png" /></p>
+<h2 id="61-mass-conserving-reaction-diffusion-systems-mcrd-and-effective-tension">6.1 Mass-Conserving Reaction-Diffusion Systems (McRD) and Effective Tension<a class="headerlink" href="#61-mass-conserving-reaction-diffusion-systems-mcrd-and-effective-tension" title="Permanent link">&para;</a></h2>
+<p>The professor's research focuses on a class of <strong>Mass-Conserving Reaction-Diffusion (McRD)</strong> systems. These models do not presuppose a free energy functional, but are based on microscopic biochemical reaction kinetics equations:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t m &amp;= D_m \nabla^2 m + f(m, c) \\
+\partial_t c &amp;= D_c \nabla^2 c - f(m, c)
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(c\)</span> represent membrane-bound (slow diffusion) and cytosolic (fast diffusion) protein densities respectively.</p>
+<p><strong>Core Finding: Emergence of Effective Interfacial Tension</strong></p>
+<p><img alt="Comparison of equilibrium and non-equilibrium interfacial tension mechanisms. (d) Classical phase separation (Cahn-Hilliard mechanism): In liquid mixtures, interface curvature (\(\kappa\)) causes local chemical potential (\(\delta\mu\)) to increase (Gibbs-Thomson effect). This energetic disadvantage drives particle flow toward low-curvature regions, thereby straightening interfaces, manifesting as thermodynamic surface tension. (e) Active reaction-diffusion system (McRD mechanism): In mass-conserving active systems, no explicit energy functional exists. However, interface curvature changes the relative area ratio of protein &quot;attachment zones&quot; and &quot;detachment zones&quot; on the membrane. A convex interface causes the detachment zone to expand, breaking local reaction equilibrium, thereby generating net material flow. This reaction flux induced by geometric curvature emerges macroscopically as a kind of &quot;effective interfacial tension,&quot; whose dynamical effect is highly consistent with classical surface tension. Source: Weyer, H., Roth, T.A. &amp; Frey, E. Protein pattern morphology and dynamics emerging from effective interfacial tension. Nat. Phys. (2025)." src="../../cn/assets/images/12_005_8ffdde23-b983-4b3e-a765-b731b2ce59e7.png" /></p>
+<p>The paper proves through multiscale analysis that although the microscopic equations of McRD systems do not contain explicit gradient energy terms, at macroscopic scales, nonlinear reaction kinetics (particularly <strong>Mutual Detachment/Antagonism</strong> between proteins) induce an <strong>Effective Interfacial Tension (<span class="arithmatex">\(\tilde{\sigma}\)</span>)</strong>.</p>
+<p>The existence of this effective tension leads to the following physical consequences:</p>
+<p>1.<strong>Universality of Geometric Laws</strong>: Interface motion in active systems also follows curvature-driven flow rules (<span class="arithmatex">\(v_n \propto -H\)</span>), consistent with passive fluids described by Cahn-Hilliard.</p>
+<p>2.<strong>Turing Foams</strong>: In specific parameter spaces, systems form polyhedral foam-like network structures. The stability of these structures is maintained by dynamic balance between reaction flux and diffusion flux, rather than static mechanical equilibrium.</p>
+<p>3.<strong>Degeneracy of Macroscopic Dynamics</strong>: Pattern formation originally belonging to the Turing Instability category, under mass conservation constraints, exhibits coarsening behavior highly similar to phase separation (Spinodal Decomposition).</p>
+<h2 id="62-python-code-practice-comparative-simulation-of-passive-and-active-phase-separation">6.2 Python Code Practice - Comparative Simulation of Passive and Active Phase Separation<a class="headerlink" href="#62-python-code-practice-comparative-simulation-of-passive-and-active-phase-separation" title="Permanent link">&para;</a></h2>
+<p>We use code to simulate the classical Cahn-Hilliard equation (passive system) and McRD dynamics based on the PAR system model from Frey's paper (active system).</p>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CahnHilliard vs McRD: Passive vs Active Phase Separation</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span><span class="p">,</span> <span class="n">FFMpegWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">dx</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="o">/</span><span class="mi">128</span>
+<span class="n">dt_ch</span><span class="p">,</span> <span class="n">dt_rd</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.001</span>
+
+<span class="c1"># Cahn-Hilliard parameters</span>
+<span class="n">M</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">phi0</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="n">kx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">ky</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">KX</span><span class="p">,</span> <span class="n">KY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">K2</span><span class="p">,</span> <span class="n">K4</span> <span class="o">=</span> <span class="n">KX</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">KY</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">KX</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">KY</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># McRD parameters</span>
+<span class="n">Dm</span><span class="p">,</span> <span class="n">Dc</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">5.0</span>
+<span class="n">k_on</span><span class="p">,</span> <span class="n">k_off</span><span class="p">,</span> <span class="n">k_ant</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">8.0</span>
+<span class="n">rho_A</span><span class="p">,</span> <span class="n">rho_B</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ch_step</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">nonlinear_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">phi</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">phi</span><span class="p">)</span>
+    <span class="n">phi_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft2</span><span class="p">((</span><span class="n">phi_hat</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">K2</span><span class="o">*</span><span class="n">nonlinear_hat</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">M</span><span class="o">*</span><span class="n">kappa</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">K4</span><span class="p">)))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">laplacian</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rd_step</span><span class="p">(</span><span class="n">mA</span><span class="p">,</span> <span class="n">mB</span><span class="p">,</span> <span class="n">cA</span><span class="p">,</span> <span class="n">cB</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="n">fA</span> <span class="o">=</span> <span class="n">k_on</span><span class="o">*</span><span class="n">cA</span> <span class="o">-</span> <span class="n">k_off</span><span class="o">*</span><span class="n">mA</span> <span class="o">-</span> <span class="n">k_ant</span><span class="o">*</span><span class="n">mA</span><span class="o">*</span><span class="n">mB</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">fB</span> <span class="o">=</span> <span class="n">k_on</span><span class="o">*</span><span class="n">cB</span> <span class="o">-</span> <span class="n">k_off</span><span class="o">*</span><span class="n">mB</span> <span class="o">-</span> <span class="n">k_ant</span><span class="o">*</span><span class="n">mB</span><span class="o">*</span><span class="n">mA</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">mA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">mA</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">Dm</span><span class="o">*</span><span class="n">laplacian</span><span class="p">(</span><span class="n">mA</span><span class="p">)</span> <span class="o">+</span> <span class="n">fA</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">mB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">mB</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">Dm</span><span class="o">*</span><span class="n">laplacian</span><span class="p">(</span><span class="n">mB</span><span class="p">)</span> <span class="o">+</span> <span class="n">fB</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">cA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">cA</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">Dc</span><span class="o">*</span><span class="n">laplacian</span><span class="p">(</span><span class="n">cA</span><span class="p">)</span> <span class="o">-</span> <span class="n">fA</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">cB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">cB</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">Dc</span><span class="o">*</span><span class="n">laplacian</span><span class="p">(</span><span class="n">cB</span><span class="p">)</span> <span class="o">-</span> <span class="n">fB</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mA</span><span class="p">,</span> <span class="n">mB</span><span class="p">,</span> <span class="n">cA</span><span class="p">,</span> <span class="n">cB</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">noise1</span><span class="p">,</span> <span class="n">noise2</span> <span class="o">=</span> <span class="mf">0.05</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">0.05</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">phi0</span> <span class="o">+</span> <span class="n">noise1</span>
+    <span class="n">mA</span><span class="p">,</span> <span class="n">mB</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">rho_A</span> <span class="o">+</span> <span class="n">noise1</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">rho_B</span> <span class="o">+</span> <span class="n">noise2</span>
+    <span class="n">cA</span><span class="p">,</span> <span class="n">cB</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">rho_A</span> <span class="o">-</span> <span class="n">noise1</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">rho_B</span> <span class="o">-</span> <span class="n">noise2</span>
+
+    <span class="n">frames_ch</span><span class="p">,</span> <span class="n">frames_rd</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">phi</span><span class="o">.</span><span class="n">copy</span><span class="p">()],</span> <span class="p">[(</span><span class="n">mA</span><span class="o">-</span><span class="n">mB</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">ch_step</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dt_ch</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span> <span class="n">mA</span><span class="p">,</span> <span class="n">mB</span><span class="p">,</span> <span class="n">cA</span><span class="p">,</span> <span class="n">cB</span> <span class="o">=</span> <span class="n">rd_step</span><span class="p">(</span><span class="n">mA</span><span class="p">,</span> <span class="n">mB</span><span class="p">,</span> <span class="n">cA</span><span class="p">,</span> <span class="n">cB</span><span class="p">,</span> <span class="n">dt_rd</span><span class="p">)</span>
+        <span class="n">frames_ch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">phi</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+        <span class="n">frames_rd</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">mA</span><span class="o">-</span><span class="n">mB</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+        <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="n">dt_ch</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">Progress: </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Done!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frames_ch</span><span class="p">,</span> <span class="n">frames_rd</span><span class="p">,</span> <span class="n">times</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_animation</span><span class="p">(</span><span class="n">frames_ch</span><span class="p">,</span> <span class="n">frames_rd</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s1">&#39;ph&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;#2166ac&#39;</span><span class="p">,</span><span class="s1">&#39;#f7f7f7&#39;</span><span class="p">,</span><span class="s1">&#39;#b2182b&#39;</span><span class="p">],</span> <span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">vmax_rd</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">frames_rd</span><span class="p">)),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">frames_rd</span><span class="p">)))</span> <span class="o">*</span> <span class="mf">0.8</span>
+
+    <span class="n">im_ch</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">frames_ch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cahn-Hilliard (Model B)</span><span class="se">\n</span><span class="s1">Passive Phase Separation&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ch</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">phi$&#39;</span><span class="p">)</span>
+
+    <span class="n">im_rd</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">frames_rd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax_rd</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_rd</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;McRD (Active Matter)</span><span class="se">\n</span><span class="s1">Effective Interfacial Tension&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_rd</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$m_A - m_B$&#39;</span><span class="p">)</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">im_ch</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">frames_ch</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">im_rd</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">frames_rd</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">title</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;t = </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">im_ch</span><span class="p">,</span> <span class="n">im_rd</span><span class="p">,</span> <span class="n">title</span><span class="p">]</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;CahnHilliard_vs_McRD.mp4&#39;</span><span class="p">)</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">FFMpegWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">bitrate</span><span class="o">=</span><span class="mi">3000</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved: </span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">frames_ch</span><span class="p">,</span> <span class="n">frames_rd</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">()</span>
+    <span class="n">create_animation</span><span class="p">(</span><span class="n">frames_ch</span><span class="p">,</span> <span class="n">frames_rd</span><span class="p">,</span> <span class="n">times</span><span class="p">)</span>
+</code></pre></div>
+<video controls width="100%">
+  <source src="../cn/assets/images/CahnHilliard_vs_McRD.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p>By comparing the outputs of the above numerical experiments, the striking similarity in macroscopic morphology between the two systems can be observed, as well as the differences in underlying physical mechanisms.</p>
+<p><strong>1. Universality of Morphology</strong></p>
+<p>Both the Cahn-Hilliard system on the left and the McRD system on the right spontaneously form characteristic <strong>Labyrinthine</strong> patterns. In the McRD system, red regions represent species A dominance, blue regions represent species B dominance. Despite fundamentally different microscopic equations, both exhibit clear phase interfaces, directly validating Frey's paper's core thesis: <strong>Mutually antagonistic biochemical reactions renormalize macroscopically into an effective interfacial tension</strong>. This effective tension acts like a rubber band contracting interfaces, driving the system to minimize phase boundary length.</p>
+<p><strong>2. Essential Opposition and Unity of Physical Mechanisms</strong></p>
+<p>Despite similar visual effects, the physical driving forces of the two systems have essential differences. For the passive Cahn-Hilliard system, the driving force of phase separation is <strong>free energy minimization</strong>, interfacial tension <span class="arithmatex">\(\sigma \propto \sqrt{\kappa}\)</span> is a static energy penalty term, and the system eventually tends toward thermodynamic equilibrium (quiescence). Conversely, for the active McRD system, phase separation is a non-equilibrium steady state maintained by <strong>ATP-driven reaction cycles</strong>. Interfacial tension <span class="arithmatex">\(\tilde{\sigma}\)</span> is a <strong>dynamically emergent property</strong>, originating from mutual repulsion of proteins on membranes and rapid diffusive replenishment from cytosol.</p>
+<p><strong>3. Dynamical Scaling Laws</strong></p>
+<p>As simulation time progresses, both systems exhibit <strong>Coarsening</strong> behavior—small droplets disappear, large patches merge, and characteristic length scale <span class="arithmatex">\(L(t)\)</span> grows with time. This indicates that even in far-from-equilibrium active matter, as long as conservation laws and effective surface tension exist, their large-scale dynamical behavior is still classified as <strong>Model B universality class</strong> (<span class="arithmatex">\(L(t) \sim t^{1/3}\)</span>).</p>
+<p>This conclusion greatly simplifies our understanding of complex pattern formation inside cells: living systems cleverly mimic the laws of equilibrium physics by consuming energy to construct ordered structures. This means that thermodynamic concepts (such as chemical potential, interfacial tension) may emerge in "effective" forms even in non-equilibrium active systems, enabling us to use intuition from equilibrium physics to understand complex behavior of living systems.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture no longer merely satisfies predicting phase separation occurrence through thermodynamic phase diagrams, but derives the deterministic mathematical equations describing its evolution process.</p>
+<p><strong>Deep Unification of Physical Picture</strong>: Osmotic pressure, chemical potential, and diffusion flux are no longer isolated thermodynamic concepts, but are tightly woven together through free energy density <span class="arithmatex">\(f(\phi)\)</span> and its derivatives. Osmotic pressure equilibrium corresponds to mechanical equilibrium, exchange chemical potential equilibrium corresponds to chemical equilibrium—both together constitute the physical cornerstone of Maxwell construction.</p>
+<p><strong>Microscopic Origin of Dynamics</strong>: Through the continuity equation and Onsager linear response theory, the essence of diffusion is revealed as material flow driven by chemical potential gradients. When the free energy curve exhibits concavity (<span class="arithmatex">\(f'' &lt; 0\)</span>), this driving force reverses, leading to counter-intuitive "negative diffusion"—this is precisely the microscopic engine of spontaneous phase separation (Spinodal decomposition).</p>
+<p><strong>Completeness of Model B</strong>: The Cahn-Hilliard equation as the paradigm of conserved dynamics (Model B) not only contains negative diffusion mechanisms causing instability, but also introduces interfacial tension through non-local gradient energy terms. This enables it to completely describe the entire process from initial perturbation growth, interface formation, to late-stage coarsening, becoming the universal language for simulating phase separation in soft matter physics and materials science.</p>
+<p>In the subsequent <strong>Lecture 13</strong>, the perspective will turn to more microscopic scales. The free energy density <span class="arithmatex">\(f(\phi)\)</span> will no longer be viewed as a given phenomenological function, but through statistical mechanics derivation of Lattice Gas Model and Flory-Huggins theory, starting from molecular-level mixing entropy and interaction energy, computing from scratch the parameters <span class="arithmatex">\(A_2, A_3\)</span> etc. introduced as coefficients in this lecture. This will ultimately establish the complete physical picture from microscopic molecular interactions to macroscopic phase separation dynamics.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

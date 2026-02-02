@@ -1,0 +1,1307 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - Paradigm Shift from Discrete Dynamical Systems to Continuous Field Theory - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-paradigm-shift-from-discrete-dynamical-systems-to-continuous-field-theory" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction - Paradigm Shift from Discrete Dynamical Systems to Continuous Field Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-paradigm-shift-from-discrete-dynamical-systems-to-continuous-field-theory">Introduction - Paradigm Shift from Discrete Dynamical Systems to Continuous Field Theory<a class="headerlink" href="#introduction-paradigm-shift-from-discrete-dynamical-systems-to-continuous-field-theory" title="Permanent link">&para;</a></h1>
+<p>In previous lectures, the analytical perspective primarily focused on zero-dimensional or finite-dimensional dynamical systems. From the Ginzburg-Landau potential landscape in <strong>Lecture 2</strong>, to the RhoGTPase molecular switch cycle and Rock-Paper-Scissors ecological cycle in <strong>Lecture 7</strong>, a common characteristic of these models is the "well-mixed" assumption: focusing on the total number of a species or the overall concentration of a chemical substance, while ignoring their spatial distribution differences. The mathematical language for such systems is ordinary differential equations (ODEs), with the core concern being temporal evolution—whether the system tends toward a Fixed Point, enters a Limit Cycle oscillation, or falls into Chaos.</p>
+<p><strong>Lecture 8</strong> took the crucial step of introducing spatial dimensions by deriving the macroscopic diffusion equation from microscopic random walks, establishing the physical foundation for how matter is transported in space. However, diffusion alone is not enough. When we look at the broader physical world—from superconductor vortex lattices in condensed matter physics, to Rayleigh-Bénard convection patterns in fluid dynamics, to Turing patterns in biological development—spatial degrees of freedom are not only non-negligible but are the core of the phenomena. A "pattern" is essentially an ordered non-uniform distribution of physical quantities in space. To describe such Spatially Extended Systems, we must combine the nonlinear reaction dynamics from previous lectures with the spatial diffusion mechanism from <strong>Lecture 8</strong>, undertaking a profound paradigm shift: <strong>transitioning from dynamical systems with finite degrees of freedom to Field Theory with infinite degrees of freedom</strong>.</p>
+<p>In this lecture, the system's state is no longer described by a set of discrete variables <span class="arithmatex">\(\vec{X}(t)\)</span>, but introduces the concept of a <strong>field</strong> <span class="arithmatex">\(\phi(\vec{x}, t)\)</span>. This scalar field <span class="arithmatex">\(\phi\)</span> can represent the local Magnetization in magnetic materials, the local compositional concentration in binary alloys, or the concentration of a morphogen in biological tissues. The core idea in physics for handling such complex systems is <strong>Coarse-graining</strong>. Rather than tracking the microscopic motion of every atom, electron, or molecule (which would lead to astronomical degrees of freedom on the order of <span class="arithmatex">\(10^{23}\)</span>), we define effective variables at mesoscopic scales through averaging processes. The tremendous success of this methodology lies in its <strong>Universality</strong>: disparate microscopic systems—whether spin flips in ferromagnets or phase separation in binary liquids—often follow the same macroscopic dynamical equations near critical points.</p>
+<p>This lecture explains how to construct <strong>Ginzburg-Landau (GL) Theory</strong> describing the dynamics of non-conserved scalar fields based on symmetry principles and thermodynamic laws, and derive the famous <strong>Model A</strong> (also known as the <strong>Allen-Cahn Equation</strong>). The analysis will delve into every mathematical detail of this model, from the construction of free energy functionals to the application of variational principles, from linear stability analysis to numerical simulation implementation. This theoretical framework not only explains the early dynamics of phase separation but also lays the mathematical and physical foundation for in-depth exploration of <strong>Interface Dynamics</strong> and <strong>Curvature-Driven Flow</strong> in the next lecture.</p>
+<h1 id="1-cornerstones-of-statistical-physics-the-ising-model-and-landau-mean-field-theory">1. Cornerstones of Statistical Physics - The Ising Model and Landau Mean-Field Theory<a class="headerlink" href="#1-cornerstones-of-statistical-physics-the-ising-model-and-landau-mean-field-theory" title="Permanent link">&para;</a></h1>
+<p>To construct field theory models describing spatially extended systems, this lecture first reviews the most fundamental model in statistical physics—the Ising model—and uses it to introduce Landau mean-field theory. This theoretical framework is not only a key step in coarse-graining microscopic discrete degrees of freedom into macroscopic continuous fields, but also provides the thermodynamic potential foundation for understanding phase transitions and pattern formation in non-equilibrium dynamics.</p>
+<h2 id="11-physical-picture-of-the-ising-model">1.1 Physical Picture of the Ising Model<a class="headerlink" href="#11-physical-picture-of-the-ising-model" title="Permanent link">&para;</a></h2>
+<p>The Ising model provides the simplest microscopic picture for describing phase transitions in magnetic systems. Consider a lattice system where each site <span class="arithmatex">\(i\)</span> has a discrete spin variable <span class="arithmatex">\(s_i\)</span>, whose values are restricted to <span class="arithmatex">\(+1\)</span> (spin up) or <span class="arithmatex">\(-1\)</span> (spin down). There exists a ferromagnetic interaction between spins that tends to align adjacent spins in the same direction.</p>
+<p>To transition from microscopic to macroscopic, we define the <strong>Order Parameter</strong> <span class="arithmatex">\(\phi\)</span> as the average value of spins within a local region. The statistical behavior of this macroscopic variable determines the thermodynamic phase of the system:</p>
+<p><strong>High Temperature Phase</strong>: Thermal fluctuations are violent, overcoming the interaction energy, causing spin orientations to become randomized. Macroscopically, the local average magnetization <span class="arithmatex">\(\phi \approx 0\)</span>. The system is in a <strong>Disordered Phase</strong>, corresponding physically to Paramagnetism.</p>
+<p><strong>Low Temperature Phase</strong>: Ferromagnetic interaction energy dominates, suppressing thermal fluctuations, and the system undergoes <strong>Spontaneous Symmetry Breaking</strong>. Spins tend to collectively point up (<span class="arithmatex">\(\phi &gt; 0\)</span>) or collectively point down (<span class="arithmatex">\(\phi &lt; 0\)</span>). The system is in an <strong>Ordered Phase</strong>, corresponding physically to Ferromagnetism.</p>
+<h2 id="12-construction-principles-of-landau-free-energy-density">1.2 Construction Principles of Landau Free Energy Density<a class="headerlink" href="#12-construction-principles-of-landau-free-energy-density" title="Permanent link">&para;</a></h2>
+<p>Lev Landau's phase transition theory proposed in 1937 states that near phase transition points, the order parameter <span class="arithmatex">\(\phi\)</span> has small numerical values, so the system's free energy density <span class="arithmatex">\(f(\phi)\)</span> can be expanded as a power series in <span class="arithmatex">\(\phi\)</span>. The core basis for constructing this free energy functional is the system's <strong>symmetry</strong>.</p>
+<p>For Ising-type systems, physical laws possess <strong><span class="arithmatex">\(\mathbb{Z}_2\)</span> symmetry</strong> (i.e., up-down flip symmetry): the system energy should not depend on the positive or negative definition of "up" or "down." This means the free energy density must satisfy the even function property:</p>
+<div class="arithmatex">\[
+f(\phi) = f(-\phi)
+\]</div>
+<p>Based on this symmetry constraint, the expansion can only contain even powers of <span class="arithmatex">\(\phi\)</span>. The Landau free energy density form keeping terms up to fourth order is:</p>
+<div class="arithmatex">\[
+f(\phi) = f_0 - \frac{r}{2}\phi^2 + \frac{u}{4}\phi^4
+\]</div>
+<p>where <span class="arithmatex">\(f_0\)</span> is the background free energy (usually set to 0). The signs and physical meanings of each coefficient are crucial, especially the sign convention for the quadratic term coefficient:</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/09_001_2f4a7d13-4707-41b4-ad84-b1e877d599b5.png" /></p>
+<p>Landau free energy density <span class="arithmatex">\(f(\phi)\)</span> as a function of control parameter <span class="arithmatex">\(r\)</span>. Dashed line indicates high temperature phase (single potential well), solid line indicates low temperature phase (double potential well).</p>
+<p><strong>Quadratic term coefficient <span class="arithmatex">\(r\)</span> (control parameter):</strong></p>
+<p>This parameter controls the phase transition process, depending linearly on temperature deviation: <span class="arithmatex">\(r \propto (T_c - T)\)</span> (note the sign difference). In Professor Erwin Frey's blackboard convention, the formula is written as <strong><span class="arithmatex">\(-\frac{r}{2}\phi^2\)</span></strong>. To ensure correctness of the physical picture, we need to carefully analyze how the sign of <span class="arithmatex">\(r\)</span> affects the potential shape:</p>
+<p><strong>High temperature phase (<span class="arithmatex">\(T &gt; T_c\)</span>)</strong>: The system is in a disordered state, and <span class="arithmatex">\(\phi=0\)</span> must be the global minimum of the potential (stable point). For the function <span class="arithmatex">\(ax^2\)</span>, we need <span class="arithmatex">\(a&gt;0\)</span>. Therefore, <span class="arithmatex">\(-\frac{r}{2} &gt; 0 \Rightarrow r &lt; 0\)</span>. At this point the potential curve is a single-well parabola opening upward.</p>
+<p><strong>Low temperature phase (<span class="arithmatex">\(T &lt; T_c\)</span>)</strong>: The system is in an ordered state, and <span class="arithmatex">\(\phi=0\)</span> must become a local maximum (unstable point), allowing non-zero solutions to appear. Therefore, <span class="arithmatex">\(-\frac{r}{2} &lt; 0 \Rightarrow r &gt; 0\)</span>. At this point the potential curve is convex upward at the origin, forming two symmetric minimum potential wells on both sides (Double-Well Potential).</p>
+<p><strong>Quartic term coefficient <span class="arithmatex">\(u\)</span> (stability parameter):</strong></p>
+<p>To ensure thermodynamic stability, the free energy must have a lower bound. When <span class="arithmatex">\(|\phi| \to \infty\)</span>, the highest-order term <span class="arithmatex">\(\phi^4\)</span> dominates. Therefore <strong><span class="arithmatex">\(u &gt; 0\)</span></strong> must be required, ensuring the potential tends to positive infinity at infinity, preventing the system from "collapsing" to infinitely large order parameter states.</p>
+<p><strong>External field term <span class="arithmatex">\(h\)</span> (symmetry breaking field):</strong></p>
+<p>If an external magnetic field <span class="arithmatex">\(h\)</span> exists, the system's <span class="arithmatex">\(\mathbb{Z}_2\)</span> symmetry is explicitly broken, and a linear term <span class="arithmatex">\(-h\phi\)</span> must be added to the free energy:</p>
+<div class="arithmatex">\[
+f(\phi) = -\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4 - h\phi
+\]</div>
+<p>This term causes the free energy landscape to Tilt, making one potential well deeper than the other, thus favoring a specific magnetization direction.</p>
+<h2 id="13-bifurcation-diagram-and-critical-behavior">1.3 Bifurcation Diagram and Critical Behavior<a class="headerlink" href="#13-bifurcation-diagram-and-critical-behavior" title="Permanent link">&para;</a></h2>
+<p>By solving the extremum condition <span class="arithmatex">\(f'(\phi) = 0\)</span>, we can obtain the relationship between the steady-state value <span class="arithmatex">\(\phi^*\)</span> of the order parameter and the control parameter <span class="arithmatex">\(r\)</span>. This mathematical structure is called a <strong>Supercritical Pitchfork Bifurcation</strong> in dynamical systems theory.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/09_002_a9142d87-ca5d-4ce0-90d6-20489db0725e.png" /></p>
+<p>Bifurcation diagram of order parameter steady-state value <span class="arithmatex">\(\phi^*\)</span> as a function of control parameter <span class="arithmatex">\(r\)</span>. When <span class="arithmatex">\(r\)</span> crosses zero, the system abruptly changes from monostable (disordered) to bistable (ordered).</p>
+<p>The physical states and mathematical characteristics at each stage are summarized as follows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Control Parameter <span class="arithmatex">\(r\)</span></th>
+<th style="text-align: left;">Free Energy Shape <span class="arithmatex">\(f(\phi)\)</span></th>
+<th style="text-align: left;">Steady-State Solution <span class="arithmatex">\(\phi^*\)</span> (Extrema)</th>
+<th style="text-align: left;">Physical State</th>
+<th style="text-align: left;">Bifurcation Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(r &lt; 0\)</span></strong> <br> (High T)</td>
+<td style="text-align: left;"><strong>Single Well</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\phi^* = 0\)</span> <br> (Unique stable, global min)</td>
+<td style="text-align: left;"><strong>Paramagnetic Phase</strong> <br> (Disordered)</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(r = 0\)</span></strong> <br> (Critical point)</td>
+<td style="text-align: left;"><strong>Flat bottom quartic</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\phi^* = 0\)</span> <br> (Critically stable, second derivative = 0)</td>
+<td style="text-align: left;"><strong>Phase Transition Point</strong> <br> (Critical slowing down)</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(r &gt; 0\)</span></strong> <br> (Low T)</td>
+<td style="text-align: left;"><strong>Double Well</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\phi^* = 0\)</span> (Unstable, local max) <br> <span class="arithmatex">\(\phi^* = \pm\sqrt{r/u}\)</span> (Stable, global min)</td>
+<td style="text-align: left;"><strong>Ferromagnetic Phase</strong> <br> (Ordered)</td>
+<td style="text-align: left;"><strong>Pitchfork Bifurcation</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical behavior analysis:</strong>
+When the control parameter <span class="arithmatex">\(r\)</span> gradually increases from negative values and crosses zero, the originally stable origin <span class="arithmatex">\(\phi=0\)</span> suddenly loses stability (destabilizes), and two new stable branches <span class="arithmatex">\(\pm\sqrt{r/u}\)</span> "bifurcate" on either side. The system must "choose" one of these two equivalent states—this is precisely the mathematical manifestation of <strong>Spontaneous Symmetry Breaking</strong>. This simple polynomial model not only successfully captures the essence of magnetic phase transitions but also universally describes a wide range of physical phenomena such as Euler column buckling instability and laser threshold generation.</p>
+<h1 id="2-the-cost-of-spatial-non-uniformity-ginzburg-landau-free-energy-functional">2. The Cost of Spatial Non-uniformity - Ginzburg-Landau Free Energy Functional<a class="headerlink" href="#2-the-cost-of-spatial-non-uniformity-ginzburg-landau-free-energy-functional" title="Permanent link">&para;</a></h1>
+<p>Although the Landau mean-field theory discussed in the previous section successfully explains the basic characteristics of phase transitions, it is essentially a "zero-dimensional" theory. It assumes the order parameter <span class="arithmatex">\(\phi\)</span> is a uniformly distributed constant throughout the sample space, ignoring all spatial fluctuations. However, in real physical systems, spatial structure is ubiquitous: from violent thermal fluctuations near critical points, to Domain Walls in ferromagnets, to interfaces between coexisting gas and liquid phases. To describe these phenomena, the order parameter must be generalized to a function of spatial coordinates <span class="arithmatex">\(\phi(\vec{x})\)</span>, i.e., introducing the concept of a <strong>Field</strong>.</p>
+<p>Correspondingly, the system's total energy is no longer a simple single-variable function, but a <strong>Functional</strong> that depends on the field distribution configuration, denoted as <span class="arithmatex">\(\mathcal{F}[\phi]\)</span>. This section will show how to construct the Ginzburg-Landau (GL) free energy functional describing spatially non-uniform systems based on symmetry principles and long-wavelength approximation.</p>
+<h2 id="21-gradient-expansion-method">2.1 Gradient Expansion Method<a class="headerlink" href="#21-gradient-expansion-method" title="Permanent link">&para;</a></h2>
+<p>The core idea for constructing the functional is <strong>Gradient Expansion</strong>. Physically, it is assumed that at mesoscopic scales, the spatial variation of field <span class="arithmatex">\(\phi(\vec{x})\)</span> is slow relative to microscopic atomic scales (i.e., <strong>Long-wavelength approximation</strong>). Therefore, the total free energy can be written as the spatial integral of local free energy density plus gradient correction terms:</p>
+<div class="arithmatex">\[
+\mathcal{F}[\phi] = \int d^d x \left[ f(\phi(\vec{x})) + f_{\text{grad}}(\nabla \phi, \nabla^2 \phi, \dots) \right]
+\]</div>
+<p>For the form of the gradient term <span class="arithmatex">\(f_{\text{grad}}\)</span>, the following strict physical symmetry constraints must be satisfied:</p>
+<p><strong>Rotational Invariance</strong>: The free energy must be a scalar whose value should not depend on the choice of coordinate system. Therefore, gradient terms cannot contain isolated vectors (such as <span class="arithmatex">\(\nabla \phi\)</span>), and can only be composed of scalar combinations, such as <span class="arithmatex">\((\nabla \phi)^2\)</span>, <span class="arithmatex">\((\nabla^2 \phi)^2\)</span>, or <span class="arithmatex">\((\nabla \phi \cdot \nabla \phi)\)</span>, etc.</p>
+<p><strong>Spatial Parity Symmetry</strong>: For isotropic systems, <span class="arithmatex">\(\vec{x} \to -\vec{x}\)</span> should not change the energy.</p>
+<p><strong>Order Parameter Inversion Symmetry</strong>: For Ising-type systems, physical laws remain unchanged under the <span class="arithmatex">\(\phi \to -\phi\)</span> transformation. This requires gradient terms to be even-order functions of <span class="arithmatex">\(\phi\)</span> and its derivatives. Terms like <span class="arithmatex">\(\phi (\nabla \phi)\)</span> typically convert to boundary terms or zero after volume integration, while <span class="arithmatex">\((\nabla \phi)^2\)</span> remains unchanged when <span class="arithmatex">\(\phi\)</span> changes sign (because <span class="arithmatex">\((-1)^2=1\)</span>).</p>
+<p>Under long-wavelength approximation, the higher the order of spatial derivatives, the higher the power of wavenumber <span class="arithmatex">\(q\)</span> in Fourier space. To describe the most important physical effects, usually only the <strong>lowest-order non-zero derivative term</strong> needs to be retained. According to the above analysis, this term is <span class="arithmatex">\((\nabla \phi)^2\)</span>.</p>
+<h2 id="22-ginzburg-landau-gl-free-energy-functional">2.2 Ginzburg-Landau (GL) Free Energy Functional<a class="headerlink" href="#22-ginzburg-landau-gl-free-energy-functional" title="Permanent link">&para;</a></h2>
+<p>Combining the local potential energy term <span class="arithmatex">\(f(\phi)\)</span> (from Landau theory) with the lowest-order gradient term yields one of the most famous functionals in modern theoretical physics—the <strong>Ginzburg-Landau Free Energy Functional</strong>:</p>
+<div class="arithmatex">\[
+\mathcal{F}[\phi(\vec{x})] = \int d^d x \left[ \underbrace{-\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4}_{\text{Local potential } f(\phi)} + \underbrace{\frac{\kappa}{2}(\nabla \phi)^2}_{\text{Gradient energy (Elastic penalty)}} \right]
+\]</div>
+<p>The mathematical form of the Ginzburg-Landau free energy functional, showing the additive structure of local potential energy terms and gradient terms. This formula is not only the standard model for treating continuous phase transitions in statistical physics but also the mathematical foundation for the Higgs mechanism in particle physics and phenomenological theories of superconductivity.</p>
+<h2 id="23-physical-interpretation-of-stiffness-coefficient-kappa">2.3 Physical Interpretation of Stiffness Coefficient <span class="arithmatex">\(\kappa\)</span><a class="headerlink" href="#23-physical-interpretation-of-stiffness-coefficient-kappa" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/09_003_4699c874-7395-4b78-b711-382ee6b5eac4.png" /></p>
+<p>The coefficient <span class="arithmatex">\(\kappa\)</span> in front of the gradient term is called <strong>Rigidity</strong>, <strong>Stiffness</strong>, or gradient coefficient in different physical contexts. It profoundly influences the system's spatial configuration:</p>
+<p><strong>Smoothing Effect and Stability</strong>:</p>
+<p>Thermodynamic stability requires <span class="arithmatex">\(\kappa &gt; 0\)</span>.</p>
+<p>If <span class="arithmatex">\(\kappa &gt; 0\)</span>, any spatial non-uniformity (<span class="arithmatex">\(\nabla \phi \neq 0\)</span>) causes an increase in total energy. This is like a stretched rubber band—the system has a kind of "elasticity" that resists spatial changes and tends to make the field <span class="arithmatex">\(\phi\)</span> smooth and uniform. Therefore, this term is also called <strong>Elastic Penalty</strong>.</p>
+<p>If <span class="arithmatex">\(\kappa &lt; 0\)</span>, the system would tend to produce infinitely violent spatial oscillations (high-frequency modes) to lower energy, causing the ground state to not exist (thermodynamic instability).</p>
+<p><strong>Correlation Length</strong>:</p>
+<p>Two competing mechanisms exist in the system: local potential energy <span class="arithmatex">\(f(\phi)\)</span> tends to make <span class="arithmatex">\(\phi\)</span> settle at the potential well minimum (ordering), while gradient energy <span class="arithmatex">\(\frac{\kappa}{2}(\nabla \phi)^2\)</span> tends to smooth out spatial differences (homogenization). The competition between these two defines a characteristic length scale—the <strong>Correlation Length <span class="arithmatex">\(\xi\)</span></strong>.</p>
+<p>This scale can be estimated through Dimensional Analysis:</p>
+<p>Comparing the gradient term <span class="arithmatex">\(\kappa (\phi/L)^2\)</span> with the quadratic potential energy term <span class="arithmatex">\(|r| \phi^2\)</span>, when the two are of comparable magnitude:</p>
+<div class="arithmatex">\[
+\frac{\kappa}{L^2} \sim |r| \implies L \sim \sqrt{\frac{\kappa}{|r|}}
+\]</div>
+<p>Therefore, the correlation length is defined as:</p>
+<div class="arithmatex">\[
+\xi = \sqrt{\frac{\kappa}{|r|}}
+\]</div>
+<p>This formula reveals the signature characteristic of second-order phase transitions: when the system approaches the critical point (<span class="arithmatex">\(T \to T_c\)</span>), the control parameter <span class="arithmatex">\(r \to 0\)</span>, causing the correlation length to diverge (<span class="arithmatex">\(\xi \to \infty\)</span>). This means that near the phase transition point, fluctuations at one point in the system can "sense" and influence regions infinitely far away, leading to collective behavior at macroscopic scales.</p>
+<h1 id="3-non-equilibrium-relaxational-dynamics-derivation-of-model-a-allen-cahn-equation">3. Non-equilibrium Relaxational Dynamics - Derivation of Model A (Allen-Cahn Equation)<a class="headerlink" href="#3-non-equilibrium-relaxational-dynamics-derivation-of-model-a-allen-cahn-equation" title="Permanent link">&para;</a></h1>
+<p>After establishing the Ginzburg-Landau free energy functional <span class="arithmatex">\(\mathcal{F}[\phi]\)</span> as the static energy landscape, the next step in theoretical construction is to introduce the time dimension and explore how the system evolves from a non-equilibrium initial state (e.g., after high-temperature quenching) to equilibrium. For a <strong>Non-conserved scalar field</strong>—where the spatial integral of order parameter <span class="arithmatex">\(\phi\)</span> is not conserved (e.g., magnetic moments can flip freely, or photon numbers are not conserved)—its dynamics follows the most natural physical intuition: the system always evolves along the steepest descent direction of the energy landscape. This process is called Relaxational Dynamics.</p>
+<h2 id="31-phenomenological-dynamics-hypothesis-steepest-descent-principle">3.1 Phenomenological Dynamics Hypothesis - Steepest Descent Principle<a class="headerlink" href="#31-phenomenological-dynamics-hypothesis-steepest-descent-principle" title="Permanent link">&para;</a></h2>
+<p>To describe field evolution, the theory introduces the Onsager linear response hypothesis. This hypothesis states that the thermodynamic generalized force driving the order parameter <span class="arithmatex">\(\phi(\vec{x}, t)\)</span> to change with time is precisely the negative of the Functional Derivative of the free energy functional with respect to the field.</p>
+<p>The corresponding dynamical equation can be written as:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi(\vec{x}, t)}{\partial t} = -\Lambda \frac{\delta \mathcal{F}[\phi]}{\delta \phi(\vec{x}, t)}
+\]</div>
+<p>Definition of the dynamical equation for non-conserved scalar fields, where <span class="arithmatex">\(\Lambda\)</span> is the Onsager kinetic coefficient.</p>
+<p><strong>Onsager Coefficient <span class="arithmatex">\(\Lambda\)</span></strong>: This is a phenomenological Kinetic Coefficient that sets the time scale of system relaxation. Although it is determined by microscopic physical mechanisms, in macroscopic field theory it is usually treated as a constant. To simplify mathematical expressions, subsequent derivations often set <span class="arithmatex">\(\Lambda = 1\)</span> (or absorb it into time units).</p>
+<p><strong>Physical meaning of the negative sign</strong>: Ensures energy dissipation. This guarantees that the evolution flow always points toward decreasing free energy, just as a ball on a gravitational potential surface always rolls toward the lowest point.</p>
+<p>In the dynamic critical phenomena classification review by Hohenberg and Halperin, this model consisting only of dissipation and non-conserved order parameter is named <strong>Model A</strong>. In materials science (such as alloy phase separation) and mathematical physics, this equation is more commonly called the <strong>Allen-Cahn Equation</strong>.</p>
+<h2 id="32-detailed-functional-calculus-and-variational-derivation">3.2 Detailed Functional Calculus and Variational Derivation<a class="headerlink" href="#32-detailed-functional-calculus-and-variational-derivation" title="Permanent link">&para;</a></h2>
+<p>To obtain an explicit partial differential equation (PDE), the functional derivative <span class="arithmatex">\(\frac{\delta \mathcal{F}}{\delta \phi}\)</span> must be calculated. This is a mathematical process involving variational calculus.</p>
+<p>Recall the Ginzburg-Landau functional form <span class="arithmatex">\(\mathcal{F} = \int d^d x \, \mathcal{L}(\phi, \nabla \phi)\)</span>, where the Lagrangian density is:</p>
+<div class="arithmatex">\[
+\mathcal{L} = f(\phi) + \frac{\kappa}{2}(\nabla \phi)^2
+\]</div>
+<p>Consider a small variation <span class="arithmatex">\(\delta \phi\)</span> of field <span class="arithmatex">\(\phi\)</span>, the variation <span class="arithmatex">\(\delta \mathcal{F}\)</span> of the functional is:</p>
+<div class="arithmatex">\[
+\delta \mathcal{F} = \int d^d x \left[ \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial (\nabla \phi)} \cdot \delta (\nabla \phi) \right]
+\]</div>
+<p><strong>First term (local potential energy derivative)</strong>:</p>
+<div class="arithmatex">\[
+\frac{\partial \mathcal{L}}{\partial \phi} = \frac{d}{d\phi} \left( -\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4 \right) = -r\phi + u\phi^3 = f'(\phi)
+\]</div>
+<p><strong>Second term (gradient term derivative and integration by parts)</strong>:</p>
+<p>The derivative of the gradient term with respect to <span class="arithmatex">\(\nabla \phi\)</span> is <span class="arithmatex">\(\kappa \nabla \phi\)</span>. Since <span class="arithmatex">\(\delta (\nabla \phi) = \nabla (\delta \phi)\)</span>, the second part in the integral is <span class="arithmatex">\(\kappa \nabla \phi \cdot \nabla (\delta \phi)\)</span>. To extract the common factor <span class="arithmatex">\(\delta \phi\)</span>, <strong>Integration by Parts</strong> must be performed on this term:</p>
+<div class="arithmatex">\[
+\int d^d x \, (\kappa \nabla \phi) \cdot \nabla (\delta \phi) = \oint_{\partial V} (\kappa \nabla \phi \delta \phi) \cdot d\vec{S} - \int d^d x \, (\nabla \cdot (\kappa \nabla \phi)) \delta \phi
+\]</div>
+<p>Usually assuming the field is zero at infinity, or the system satisfies periodic boundary conditions, the <strong>surface integral term (first term) vanishes</strong>. The remaining volume integral term contributes <span class="arithmatex">\(-\kappa \nabla^2 \phi\)</span>.</p>
+<p>Combining the above two parts yields the final form of the functional derivative:</p>
+<div class="arithmatex">\[
+\frac{\delta \mathcal{F}}{\delta \phi} = f'(\phi) - \kappa \nabla^2 \phi
+\]</div>
+<h2 id="33-physical-structure-of-the-allen-cahn-equation">3.3 Physical Structure of the Allen-Cahn Equation<a class="headerlink" href="#33-physical-structure-of-the-allen-cahn-equation" title="Permanent link">&para;</a></h2>
+<p>Substituting the variational result into the dynamical equation and setting <span class="arithmatex">\(\Lambda=1\)</span> yields the famous <strong>Allen-Cahn Equation</strong> (also called Model A):</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = - \left( f'(\phi) - \kappa \nabla^2 \phi \right)
+\]</div>
+<p>After rearranging, the equation reveals a clear physical structure:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = \underbrace{\kappa \nabla^2 \phi}_{\text{Diffusion term}} - \underbrace{f'(\phi)}_{\text{Reaction term}}
+\]</div>
+<p>Or explicitly writing out the potential energy derivative:</p>
+<div class="arithmatex">\[
+\frac{\partial \phi}{\partial t} = \kappa \nabla^2 \phi + (r\phi - u\phi^3)
+\]</div>
+<p>Structural decomposition of the Allen-Cahn equation: diffusion term (from gradient energy) and reaction term (from local potential energy).</p>
+<p>This equation mathematically belongs to the classical <strong>Reaction-Diffusion Equation</strong>, revealing the competition between two core mechanisms in phase transition dynamics:</p>
+<p><strong>Diffusion term (<span class="arithmatex">\(\kappa \nabla^2 \phi\)</span>)</strong>: Originates from gradient energy penalty. Similar to the heat conduction equation, it tends to smooth out spatial non-uniformities, making the field smooth. This corresponds to "elastic" restoring forces within the system.</p>
+<p><strong>Reaction term (<span class="arithmatex">\(-f'(\phi)\)</span>)</strong>: Originates from the local double-well potential. It is a nonlinear source term that drives field <span class="arithmatex">\(\phi\)</span> away from the unstable maximum (<span class="arithmatex">\(\phi=0\)</span>) and accelerates "rolling" toward stable minima (<span class="arithmatex">\(\pm \phi_0\)</span>). This is a local "autocatalytic" mechanism that tends to enhance differences and form distinct ordered phases.</p>
+<p>It is precisely this dynamic balance between the "smoothing" diffusion mechanism and the "differentiating" reaction mechanism that dominates complex pattern formation processes such as domain wall formation and coarsening.</p>
+<h2 id="34-h-theorem-and-lyapunov-functional-proof">3.4 H-Theorem and Lyapunov Functional Proof<a class="headerlink" href="#34-h-theorem-and-lyapunov-functional-proof" title="Permanent link">&para;</a></h2>
+<p>Does this dynamical model guarantee that the system eventually reaches equilibrium? Is there a possibility of eternal oscillation? By introducing the concept of a Lyapunov functional, the system's stability can be rigorously proven.</p>
+<p>Examine the total derivative of free energy <span class="arithmatex">\(\mathcal{F}\)</span> with respect to time:</p>
+<div class="arithmatex">\[
+\frac{d\mathcal{F}}{dt} = \int d^d x \frac{\delta \mathcal{F}}{\delta \phi(\vec{x}, t)} \frac{\partial \phi(\vec{x}, t)}{\partial t}
+\]</div>
+<p>Substituting the equation of motion <span class="arithmatex">\(\frac{\partial \phi}{\partial t} = -\Lambda \frac{\delta \mathcal{F}}{\delta \phi}\)</span> into the above:</p>
+<div class="arithmatex">\[
+\frac{d\mathcal{F}}{dt} = \int d^d x \frac{\delta \mathcal{F}}{\delta \phi} \left( -\Lambda \frac{\delta \mathcal{F}}{\delta \phi} \right) = -\Lambda \int d^d x \left( \frac{\delta \mathcal{F}}{\delta \phi} \right)^2
+\]</div>
+<p>Since the Onsager coefficient <span class="arithmatex">\(\Lambda &gt; 0\)</span> and the integrand is the square of a real number (always non-negative), the time derivative of free energy must be non-positive:</p>
+<div class="arithmatex">\[
+\frac{d\mathcal{F}}{dt} \leq 0
+\]</div>
+<p>Equality holds only when <span class="arithmatex">\(\frac{\delta \mathcal{F}}{\delta \phi} = 0\)</span>, i.e., the system reaches an equilibrium state at a free energy extremum. This mathematical derivation (similar to Boltzmann's H-theorem) rigorously guarantees that Model A systems are <strong>Gradient Flow</strong> systems. Without external driving forces, the system has no limit cycles or chaotic attractors, and its ultimate fate is necessarily to rest at some local free energy minimum.</p>
+<h1 id="4-linear-stability-analysis-and-phase-transition-dynamics">4. Linear Stability Analysis and Phase Transition Dynamics<a class="headerlink" href="#4-linear-stability-analysis-and-phase-transition-dynamics" title="Permanent link">&para;</a></h1>
+<p>After establishing the Allen-Cahn equation, a core question follows: if the system is in some uniform steady state (e.g., the disordered phase <span class="arithmatex">\(\phi=0\)</span> at high temperature), when external conditions suddenly change (e.g., temperature drops abruptly below the critical point, i.e., "Quench"), can this uniform state be maintained? Will small thermal fluctuations decay over time, or will they be amplified to destroy uniformity? To answer this question, this section employs <strong>Linear Stability Analysis (LSA)</strong>, examining the system's response to small perturbations to reveal the early dynamical mechanisms of phase transitions.</p>
+<h2 id="41-perturbation-expansion-and-linearized-equation">4.1 Perturbation Expansion and Linearized Equation<a class="headerlink" href="#41-perturbation-expansion-and-linearized-equation" title="Permanent link">&para;</a></h2>
+<p>Assume the system is initially in a spatially uniform, time-independent steady state <span class="arithmatex">\(\phi^*\)</span>. By definition, this steady state must satisfy <span class="arithmatex">\(f'(\phi^*) = 0\)</span> (i.e., an extremum of local potential energy). Now, superimpose a small spatiotemporal perturbation <span class="arithmatex">\(\delta \phi(\vec{x}, t)\)</span> on <span class="arithmatex">\(\phi^*\)</span>:</p>
+<div class="arithmatex">\[
+\phi(\vec{x}, t) = \phi^* + \delta \phi(\vec{x}, t)
+\]</div>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/09_004_0a337a17-3e96-41c3-ac09-339776c7f822.png" /></p>
+<p>Basic setup of linear stability analysis: introducing small perturbation <span class="arithmatex">\(\delta \phi\)</span> near uniform steady state <span class="arithmatex">\(\phi^*\)</span>.</p>
+<p>Substitute this expression into the Allen-Cahn equation <span class="arithmatex">\(\partial_t \phi = -f'(\phi) + \kappa \nabla^2 \phi\)</span>. For the reaction term <span class="arithmatex">\(f'(\phi)\)</span>, perform Taylor expansion at <span class="arithmatex">\(\phi^*\)</span>:</p>
+<div class="arithmatex">\[
+f'(\phi^* + \delta \phi) \approx f'(\phi^*) + f''(\phi^*) \delta \phi + \mathcal{O}(\delta \phi^2)
+\]</div>
+<p>Since <span class="arithmatex">\(\phi^*\)</span> is a steady state, the first term <span class="arithmatex">\(f'(\phi^*) = 0\)</span>. Ignoring higher-order terms <span class="arithmatex">\(\mathcal{O}(\delta \phi^2)\)</span>, this step is <strong>linearization</strong>. The diffusion term is linear and acts directly on <span class="arithmatex">\(\delta \phi\)</span>.</p>
+<p>The resulting linearized evolution equation is:</p>
+<div class="arithmatex">\[
+\frac{\partial \delta \phi(\vec{x}, t)}{\partial t} = -f''(\phi^*) \delta \phi(\vec{x}, t) + \kappa \nabla^2 \delta \phi(\vec{x}, t)
+\]</div>
+<h2 id="42-fourier-modes-and-dispersion-relation">4.2 Fourier Modes and Dispersion Relation<a class="headerlink" href="#42-fourier-modes-and-dispersion-relation" title="Permanent link">&para;</a></h2>
+<p>The above equation is a linear partial differential equation with constant coefficients. According to linear systems theory, its solution can be decomposed into a superposition of plane wave modes with different wave vectors <span class="arithmatex">\(\vec{q}\)</span>. Introduce the Fourier transform:</p>
+<div class="arithmatex">\[
+\delta \phi(\vec{x}, t) = \int \frac{d^d q}{(2\pi)^d} e^{-i \vec{q} \cdot \vec{x}} \delta \phi(\vec{q}, t)
+\]</div>
+<p>Decomposing spatial perturbation <span class="arithmatex">\(\delta \phi(\vec{x}, t)\)</span> into Fourier modes <span class="arithmatex">\(\delta \phi(\vec{q}, t)\)</span>.</p>
+<p>Substituting the Fourier integral into the linearized equation and using the property <span class="arithmatex">\(\nabla^2 e^{-i\vec{q}\cdot\vec{x}} = -q^2 e^{-i\vec{q}\cdot\vec{x}}\)</span>, the partial differential equation can be transformed into independent ordinary differential equations for each mode <span class="arithmatex">\(\vec{q}\)</span>:</p>
+<div class="arithmatex">\[
+\frac{\partial \delta \phi(\vec{q}, t)}{\partial t} = \left[ -f''(\phi^*) - \kappa q^2 \right] \delta \phi(\vec{q}, t)
+\]</div>
+<p>The solution of this equation takes exponential form: <span class="arithmatex">\(\delta \phi(\vec{q}, t) \sim e^{\sigma(q)t}\)</span>. Here <span class="arithmatex">\(\sigma(q)\)</span> is called the <strong>Growth Rate</strong>, and its variation with wavenumber <span class="arithmatex">\(q\)</span> is called the <strong>Dispersion Relation</strong>:</p>
+<div class="arithmatex">\[
+\sigma(q) = -f''(\phi^*) - \kappa q^2
+\]</div>
+<p>Growth rate <span class="arithmatex">\(\sigma(q)\)</span> of perturbation modes, determined jointly by local potential energy curvature <span class="arithmatex">\(-f''(\phi^*)\)</span> and gradient penalty <span class="arithmatex">\(-\kappa q^2\)</span>.</p>
+<p>This formula clearly shows the competition between two physical mechanisms:</p>
+<p><strong>Local reaction term <span class="arithmatex">\(-f''(\phi^*)\)</span></strong>: Determines whether reaction dynamics suppresses or amplifies perturbations, depending on the curvature of the potential curve at that point.</p>
+<p><strong>Diffusion term <span class="arithmatex">\(-\kappa q^2\)</span></strong>: Always negative (since <span class="arithmatex">\(\kappa &gt; 0\)</span>), representing that diffusion always tends to suppress spatial non-uniformity, and the higher the wavenumber <span class="arithmatex">\(q\)</span> (shorter wavelength), the stronger the suppression.</p>
+<h2 id="43-stability-criteria-for-physical-states">4.3 Stability Criteria for Physical States<a class="headerlink" href="#43-stability-criteria-for-physical-states" title="Permanent link">&para;</a></h2>
+<p>By analyzing the sign of growth rate <span class="arithmatex">\(\sigma(q)\)</span>, the stability of different physical states can be rigorously determined.</p>
+<h3 id="case-a-at-potential-well-minima-phi_pm-pmsqrtru-ordered-phase">Case A: At potential well minima <span class="arithmatex">\(\phi_{\pm} = \pm\sqrt{r/u}\)</span> (Ordered phase)<a class="headerlink" href="#case-a-at-potential-well-minima-phi_pm-pmsqrtru-ordered-phase" title="Permanent link">&para;</a></h3>
+<p>When the system is at the equilibrium positions <span class="arithmatex">\(\phi_{\pm}\)</span> of the low-temperature ordered phase, the local potential energy is at a minimum, and its second derivative (curvature) is positive:</p>
+<div class="arithmatex">\[
+f''(\phi_{\pm}) = -r + 3u(\pm\sqrt{r/u})^2 = -r + 3r = 2r &gt; 0 \quad (\text{for } r&gt;0)
+\]</div>
+<p>The dispersion relation at this point is:</p>
+<div class="arithmatex">\[
+\sigma(q) = -2r - \kappa q^2
+\]</div>
+<p>Since <span class="arithmatex">\(r&gt;0\)</span> and <span class="arithmatex">\(\kappa&gt;0\)</span>, for any wavenumber <span class="arithmatex">\(q\)</span>, <strong><span class="arithmatex">\(\sigma(q) &lt; 0\)</span></strong>.</p>
+<p><strong>Conclusion</strong>: The ordered phase is <strong>linearly stable</strong>. This means any small thermal fluctuations of any wavelength will decay exponentially with time. The system has strong restoring forces and can spontaneously maintain a uniform ferromagnetic ordered state. This explains why the macroscopic state of magnets at low temperatures is stable.</p>
+<h3 id="case-b-at-the-potential-barrier-top-phi_0-0-unstable-point-and-quenching">Case B: At the potential barrier top <span class="arithmatex">\(\phi_0 = 0\)</span> (Unstable point and quenching)<a class="headerlink" href="#case-b-at-the-potential-barrier-top-phi_0-0-unstable-point-and-quenching" title="Permanent link">&para;</a></h3>
+<p>This is the most critical case in phase transition dynamics, corresponding to the instant when the system is suddenly cooled from high-temperature phase (<span class="arithmatex">\(r&lt;0\)</span>) to low-temperature phase (<span class="arithmatex">\(r&gt;0\)</span>), i.e., <strong>Quench</strong>. At this point, the system still temporarily remains at position <span class="arithmatex">\(\phi=0\)</span>, but under the new low-temperature environment, this position has become a potential energy maximum (top of the potential barrier).</p>
+<p>At this point the potential energy curvature is negative:</p>
+<div class="arithmatex">\[
+f''(0) = -r &lt; 0 \quad (\text{for } r&gt;0)
+\]</div>
+<p>The dispersion relation becomes:</p>
+<div class="arithmatex">\[
+\sigma(q) = r - \kappa q^2
+\]</div>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/09_005_5c3e86ef-9827-486b-9f52-ce7086c94fae.png" /></p>
+<p>Under quench conditions (<span class="arithmatex">\(\phi_0=0\)</span>), growth rate <span class="arithmatex">\(\sigma(q)\)</span> shows an inverted parabola shape. There exists a <strong>band of unstable modes</strong>, i.e., the region <span class="arithmatex">\(0 \le q &lt; q_c\)</span>, where these modes grow exponentially.</p>
+<p>This dispersion relation reveals a rich physical picture:</p>
+<p><strong>Long-wavelength Instability</strong>:</p>
+<p>When <span class="arithmatex">\(\kappa q^2 &lt; r\)</span>, i.e., for modes with wavenumber less than critical value <span class="arithmatex">\(q_c = \sqrt{r/\kappa}\)</span>, growth rate <span class="arithmatex">\(\sigma(q) &gt; 0\)</span>. These long-wave modes (wavelength <span class="arithmatex">\(\lambda &gt; 2\pi\sqrt{\kappa/r}\)</span>) grow exponentially with time. This long-wavelength fluctuation amplification process driven by local potential energy instability is called <strong>Spinodal Decomposition</strong>.</p>
+<p><strong>Short-wave Stability</strong>:</p>
+<p>When <span class="arithmatex">\(q\)</span> is sufficiently large (<span class="arithmatex">\(q &gt; q_c\)</span>), the diffusion term <span class="arithmatex">\(-\kappa q^2\)</span> dominates, making <span class="arithmatex">\(\sigma(q) &lt; 0\)</span>. This means extremely short-wavelength violent fluctuations are rapidly smoothed by diffusion, and the system will not form infinitely fragmented structures. This reflects the smoothing effect of surface tension (represented by <span class="arithmatex">\(\kappa\)</span>) on interfaces.</p>
+<p><strong>Fastest Growing Mode and Model A Characteristics</strong>:</p>
+<p>In Model A, growth rate <span class="arithmatex">\(\sigma(q)\)</span> reaches its maximum value <span class="arithmatex">\(\sigma_{max} = r\)</span> at <strong><span class="arithmatex">\(q=0\)</span></strong>.</p>
+<p>This means the system most tends to evolve with infinitely long wavelengths (i.e., overall uniformly). The system as a whole tends to "roll down" to either <span class="arithmatex">\(\phi_+\)</span> or <span class="arithmatex">\(\phi_-\)</span>. This contrasts sharply with conserved field dynamics (<strong>Model B / Cahn-Hilliard equation</strong>): in Model B, due to conservation law constraints, <span class="arithmatex">\(\sigma(q=0)\)</span> must be 0, and the fastest growing mode appears at some finite <span class="arithmatex">\(q_{max} \neq 0\)</span>, thus leading to characteristic length scale selection. In Model A, the actually observed domain wall formation involves nonlinear effects; linear stability analysis only describes the very initial instant of dynamics.</p>
+<h1 id="5-code-practice-computational-implementation-of-the-allen-cahn-equation">5. Code Practice - Computational Implementation of the Allen-Cahn Equation<a class="headerlink" href="#5-code-practice-computational-implementation-of-the-allen-cahn-equation" title="Permanent link">&para;</a></h1>
+<p>To intuitively verify the preceding theory, especially the dynamical evolution after quenching from a high-temperature disordered state to a low-temperature ordered state, Professor Erwin Frey demonstrated numerical simulation results of the Allen-Cahn equation in class. This lecture will reproduce this simulation through Python code, "seeing" the entire process of phase separation and pattern formation through numerical experiments.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/09_006_5f542c2e-b711-4be3-a43c-cbfa3657a2ec.jpg" /></p>
+<h2 id="51-numerical-algorithm-finite-difference-method">5.1 Numerical Algorithm - Finite Difference Method<a class="headerlink" href="#51-numerical-algorithm-finite-difference-method" title="Permanent link">&para;</a></h2>
+<p>We use <strong>Explicit Euler</strong> for time integration and <strong>Central Difference</strong> for handling the spatial Laplacian operator. Although this method is simple, the physical picture is clear, making it well-suited for demonstration purposes.</p>
+<p>Assume a two-dimensional spatial grid spacing of <span class="arithmatex">\(\Delta x\)</span> and time step of <span class="arithmatex">\(\Delta t\)</span>. The discrete value of field variable <span class="arithmatex">\(\phi\)</span> at grid point <span class="arithmatex">\((i, j)\)</span> and time step <span class="arithmatex">\(n\)</span> is denoted as <span class="arithmatex">\(\phi^n_{i,j}\)</span>.</p>
+<p>The discrete form of the two-dimensional Laplacian operator is:</p>
+<div class="arithmatex">\[
+\nabla^2 \phi \approx \frac{\phi_{i+1,j} + \phi_{i-1,j} + \phi_{i,j+1} + \phi_{i,j-1} - 4\phi_{i,j}}{(\Delta x)^2}
+\]</div>
+<p>Substituting into the Allen-Cahn equation yields the iterative update formula:</p>
+<div class="arithmatex">\[
+\phi^{n+1}_{i,j} = \phi^n_{i,j} + \Delta t \left[ \kappa (\nabla^2 \phi)^n_{i,j} + (r\phi^n_{i,j} - u(\phi^n_{i,j})^3) \right]
+\]</div>
+<p><strong>Numerical Stability Warning (CFL Condition)</strong>:
+Explicit schemes are conditionally stable. To prevent the numerical solution from diverging (producing non-physical high-frequency oscillations), the time step must satisfy the Courant-Friedrichs-Lewy (CFL) condition:</p>
+<div class="arithmatex">\[
+\Delta t \leq \frac{(\Delta x)^2}{4\kappa}
+\]</div>
+<p>If <span class="arithmatex">\(\Delta t\)</span> exceeds this threshold, the simulation will rapidly collapse.</p>
+<h2 id="52-complete-python-code-implementation">5.2 Complete Python Code Implementation<a class="headerlink" href="#52-complete-python-code-implementation" title="Permanent link">&para;</a></h2>
+<p>The following code reproduces the physical scenario demonstrated in class: the system starts from small random thermal fluctuations near <span class="arithmatex">\(\phi=0\)</span> (high-temperature disordered state), and evolves into macroscopic ordered structures after quenching.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+
+<span class="c1"># Use dark background style to match lecture slides</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 1. Physics &amp; Simulation Parameters</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># Spatial parameters</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>                 <span class="c1"># Grid size (N x N)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">100.0</span>               <span class="c1"># Physical size of the system</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">N</span>              <span class="c1"># Spatial resolution</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># Time parameters</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>               <span class="c1"># Time step</span>
+<span class="n">total_steps</span> <span class="o">=</span> <span class="mi">4000</span>      <span class="c1"># Total simulation steps</span>
+<span class="n">plot_interval</span> <span class="o">=</span> <span class="mi">50</span>      <span class="c1"># Frame update interval</span>
+
+<span class="c1"># Ginzburg-Landau Model Parameters</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="mf">1.0</span>             <span class="c1"># Stiffness / Diffusion coefficient</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>                 <span class="c1"># Control parameter (r &gt; 0 for double well potential)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>                 <span class="c1"># Nonlinear coefficient (Quartic term)</span>
+
+<span class="c1"># Stability Check (CFL Condition)</span>
+<span class="n">stability_limit</span> <span class="o">=</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">kappa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stability Check: dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2">, Max Stable dt = </span><span class="si">{</span><span class="n">stability_limit</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">dt</span> <span class="o">&gt;</span> <span class="n">stability_limit</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: dt exceeds stability limit! Simulation may diverge.&quot;</span><span class="p">)</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 2. Initial Condition (Quench)</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># Simulate a quench from high T (phi ~ 0) to low T.</span>
+<span class="c1"># Initial state is small random noise around 0.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Fixed seed for reproducibility</span>
+<span class="n">noise_strength</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">noise_strength</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Uniform noise in [-0.1, 0.1]</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 3. Numerical Solver Kernel</span>
+<span class="c1"># ==========================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">laplacian_pbc</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute 2D discrete Laplacian with Periodic Boundary Conditions (PBC).</span>
+<span class="sd">    Using np.roll for efficient neighbor indexing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">left</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">up</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">down</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span> <span class="o">+</span> <span class="n">up</span> <span class="o">+</span> <span class="n">down</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_step</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Execute one Forward Euler time step.</span>
+<span class="sd">    Equation: dphi/dt = kappa * grad^2 phi + (r*phi - u*phi^3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Diffusion term (Elastic relaxation)</span>
+    <span class="n">lap</span> <span class="o">=</span> <span class="n">laplacian_pbc</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+    <span class="c1"># Reaction term (Local potential drive)</span>
+    <span class="c1"># Derivative f&#39;(phi) = -r*phi + u*phi^3 =&gt; Reaction = -f&#39; = r*phi - u*phi^3</span>
+    <span class="n">reaction</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span> <span class="o">-</span> <span class="n">u</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">3</span>
+
+    <span class="c1"># Update field</span>
+    <span class="n">phi_new</span> <span class="o">=</span> <span class="n">phi</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">kappa</span> <span class="o">*</span> <span class="n">lap</span> <span class="o">+</span> <span class="n">reaction</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phi_new</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 4. Visualization Setup</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># Custom Colormap: Replicating the lecture&#39;s visual style</span>
+<span class="c1"># -1 (Spin Down) -&gt; Blue</span>
+<span class="c1">#  0 (Interface) -&gt; Green/Yellowish (Transition region)</span>
+<span class="c1"># +1 (Spin Up)   -&gt; Red</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>  <span class="c1"># Blue -&gt; Green -&gt; Red</span>
+<span class="n">n_bins</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">cmap_name</span> <span class="o">=</span> <span class="s1">&#39;spin_decomposition_map&#39;</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">n_bins</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Set vmin/vmax slightly &gt; 1 to avoid color saturation at stable points</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model A Dynamics (Step 0)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="c1"># Text for time step display</span>
+<span class="n">time_text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">frame_idx</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">phi</span>
+    <span class="c1"># Perform multiple physics steps per animation frame for speed</span>
+    <span class="n">steps_per_frame</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps_per_frame</span><span class="p">):</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">update_step</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+
+    <span class="n">im</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">current_step</span> <span class="o">=</span> <span class="n">frame_idx</span> <span class="o">*</span> <span class="n">steps_per_frame</span>
+    <span class="n">time_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Step: </span><span class="si">{</span><span class="n">current_step</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model A Dynamics (Step </span><span class="si">{</span><span class="n">current_step</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">im</span><span class="p">,</span> <span class="n">time_text</span><span class="p">]</span>
+
+<span class="c1"># Create animation object</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">total_steps</span><span class="o">//</span><span class="mi">20</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Save the animation as a video file</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving simulation as video...&quot;</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model_a_dynamics.mp4&#39;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;ffmpeg&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Video saved as &#39;model_a_dynamics.mp4&#39;.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting simulation visualization...&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<video controls width="100%">
+  <source src="../cn/assets/images/model_a_dynamics.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p>This dynamic video shows the evolution of the numerical simulation. The entire region displays a uniform green background, corresponding to values of <span class="arithmatex">\(\phi \approx 0\)</span>. This represents the <strong>Disordered Phase</strong> at high temperature, where the system has not yet undergone phase separation, and the order parameter has only small thermal fluctuations around zero. As the simulation progresses (as shown in subsequent animation), this uniform green region will rapidly decompose into red (<span class="arithmatex">\(\phi \approx +1\)</span>) and blue (<span class="arithmatex">\(\phi \approx -1\)</span>) patches representing the two ordered phases, with clear interfaces forming between them.</p>
+<h2 id="53-simulation-results-analysis-three-dynamical-stages">5.3 Simulation Results Analysis - Three Dynamical Stages<a class="headerlink" href="#53-simulation-results-analysis-three-dynamical-stages" title="Permanent link">&para;</a></h2>
+<p>By running the code and observing the evolution process, three characteristic stages of phase separation dynamics can be clearly identified:</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/09_008_10131412-2e53-482d-8576-c2d3008bfa32.jpg" /></p>
+<p>Time evolution sequence of Allen-Cahn equation numerical solution. Top left: initial random fluctuations; Top right: early patterns from Spinodal decomposition; Bottom left: interface formation and domain wall coarsening; Bottom right: late-stage merging of large-scale domains.</p>
+<h3 id="1-early-stage-spinodal-decomposition">1. Early Stage: Spinodal Decomposition<a class="headerlink" href="#1-early-stage-spinodal-decomposition" title="Permanent link">&para;</a></h3>
+<p><strong>Phenomenon</strong>: The initially uniform green background rapidly becomes "mottled." Small fluctuations are rapidly amplified, with field values <span class="arithmatex">\(\phi\)</span> locally differentiating toward <span class="arithmatex">\(\pm \sqrt{r/u}\)</span> (red/blue).</p>
+<p><strong>Mechanism</strong>: This stage is mainly driven by the reaction term <span class="arithmatex">\(r\phi - u\phi^3\)</span>. Since <span class="arithmatex">\(r&gt;0\)</span>, the origin <span class="arithmatex">\(\phi=0\)</span> is unstable (<span class="arithmatex">\(f''(0)&lt;0\)</span>), causing long-wave modes (<span class="arithmatex">\(q \approx 0\)</span>) to grow exponentially. The system establishes local order in an extremely short time, but overall still presents a fragmented labyrinthine structure.</p>
+<h3 id="2-middle-stage-domain-formation">2. Middle Stage: Domain Formation<a class="headerlink" href="#2-middle-stage-domain-formation" title="Permanent link">&para;</a></h3>
+<p><strong>Phenomenon</strong>: Field values rapidly saturate near <span class="arithmatex">\(\pm 1\)</span>, with clear, sharp boundaries forming between red and blue regions. At these boundaries <span class="arithmatex">\(\phi\)</span> must pass through 0, thus appearing as green lines, i.e., <strong>Interfaces</strong> or domain walls.</p>
+<p><strong>Characteristics</strong>: At this point most of the system's energy is concentrated at these interfaces (high gradient energy density). Nonlinear terms limit infinite growth of <span class="arithmatex">\(\phi\)</span>, stabilizing interface width at around the correlation length <span class="arithmatex">\(\xi\)</span>.</p>
+<h3 id="3-late-stage-coarsening">3. Late Stage: Coarsening<a class="headerlink" href="#3-late-stage-coarsening" title="Permanent link">&para;</a></h3>
+<p><strong>Phenomenon</strong>: The labyrinthine pattern gradually becomes "coarser." Smaller domains (islands) shrink and disappear, larger domains engulf surrounding small domains, and curved interfaces gradually straighten.</p>
+<p><strong>Mechanism</strong>: Evolution in this stage is extremely slow, mainly driven by the diffusion term <span class="arithmatex">\(\kappa \nabla^2 \phi\)</span>. Physically, this is <strong>Surface Tension</strong> at work—the system reduces total free energy by reducing total interface length. This directly presages the theme of the next section: <strong>Curvature-Driven Flow</strong>. The characteristic scale <span class="arithmatex">\(L(t)\)</span> follows power-law growth with time <span class="arithmatex">\(L(t) \sim t^{1/2}\)</span>, which is the signature characteristic of non-conserved dynamics.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture marks the entry of this course series into cross-scale theoretical construction. Through Landau theory, the analysis ignored microscopic spin details, using only symmetry to capture the essence of phase transitions, achieving the leap from microscopic to macroscopic; introducing the relaxation hypothesis transformed thermodynamic functionals into Model A dynamical equations, successfully describing non-equilibrium time evolution, achieving the transition from static to dynamic; using linear stability analysis to explain the initiation of patterns (Spinodal decomposition), and demonstrating nonlinear coarsening and interface formation through numerical simulation, achieving the deepening from linear to nonlinear. Model A has now become a universal language for describing "ordering processes without conservation constraints" in nature.</p>
+<p>In the late stage of numerical simulations, a significant geometric effect emerges: interfaces always try to "straighten" or "contract." This contains a profound physical mechanism—<strong>Surface Tension and Energy Minimization</strong>. The gradient term <span class="arithmatex">\(\frac{\kappa}{2}(\nabla \phi)^2\)</span> in the Ginzburg-Landau free energy essentially embodies surface tension. At interfaces, the sharp changes in order parameter <span class="arithmatex">\(\phi\)</span> form high energy density "walls," causing total free energy to be proportional to the total area (or total length in two dimensions) of interfaces. According to the relaxational dynamics principle <span class="arithmatex">\(\frac{d\mathcal{F}}{dt} \le 0\)</span>, the system must continuously reduce total interface length to lower energy.</p>
+<p>This geometric effect presages that Model A in the late stage degenerates to an interface dynamics equation, the <strong>Allen-Cahn Law</strong>: the normal velocity <span class="arithmatex">\(V\)</span> of an interface is proportional to its mean curvature <span class="arithmatex">\(H\)</span>:</p>
+<div class="arithmatex">\[
+V = -\mu \kappa H
+\]</div>
+<p>where the negative sign means the interface always moves opposite to the direction of the curvature center (i.e., toward the concave side). Convex regions are smoothed out, concave regions are filled in, and closed small rings shrink at an ever-accelerating rate until annihilation. This is precisely the microscopic geometric explanation for the "coarsening" phenomenon observed in simulations.</p>
+<p>Currently, analysis of interface motion is mainly based on qualitative analogies (such as soap bubbles) or numerical observations. <strong>The next lecture (Lecture 10)</strong> will introduce a core technique of theoretical physics—<strong>Singular Perturbation Theory</strong>. Starting from the Allen-Cahn equation, through Multiscale Expansion, the course will rigorously derive the interface motion equation. This will prove that "curvature-driven flow" is not merely an intuitive analogy, but a rigorous mathematical conclusion of Model A in the sharp interface limit, thus closely connecting reaction-diffusion systems with differential geometry, and laying the foundation for understanding biological membrane dynamics and crystal growth.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

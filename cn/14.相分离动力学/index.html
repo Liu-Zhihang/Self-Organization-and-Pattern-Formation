@@ -1,0 +1,1640 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>引言：从离散微观模型到连续场论 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              引言：从离散微观模型到连续场论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言：从离散微观模型到连续场论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>第13讲</strong> 建立了描述二元混合物（如聚合物共混物、合金）相行为的热力学基石。通过 <strong>格子气模型 (Lattice Gas Model)</strong> 和 <strong>Flory-Huggins 平均场理论</strong>，不仅推导出了混合熵（倾向于无序）与相互作用能（倾向于聚集）竞争的物理图像，还揭示了自由能景观（Free Energy Landscape）随相互作用参数 <span class="arithmatex">\(\chi\)</span> 的演化规律。</p>
+<p>当 <span class="arithmatex">\(\chi\)</span> 超过临界阈值时，自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span> 从单势阱突变为双势阱结构。虽然静态热力学势能面成功预言了系统必然发生相分离以及最终的平衡态浓度（即双节线上的共存值），但它无法回答关于<strong>过程</strong>的核心问题：<strong>系统如何突破单一均匀态的束缚？相分离的时空路径是怎样的？</strong></p>
+<p><strong>第14讲</strong>将从“静态平衡”转向“非平衡动力学”。这是继<strong>第9讲</strong>引入非守恒型序参量动力学（Ginzburg-Landau/Allen-Cahn 方程，即 Model A）之后，对动力学理论的进一步完善与扩充。</p>
+<p>与 Model A 不同，这节课聚焦于 <strong>守恒序参量 (Conserved Order Parameter)</strong> ——即局域浓度 <span class="arithmatex">\(\phi(\vec{r},t)\)</span> 必须满足连续性方程。在这一框架下推导出的 <strong>Cahn-Hilliard 方程 (Model B)</strong>，捕捉了自然界中一种反直觉的物理现象——<strong>逆向扩散 (Uphill Diffusion)</strong> 。在相分离的早期（旋节分解区域），物质不再遵循由高浓度向低浓度流动的常规费克定律，而是自发地从低浓度区域向高浓度区域聚集，导致浓度梯度的自发增强与界面的形成。</p>
+<p><img alt="课堂板书截图" src="../assets/images/14_001_8f062cc1-f193-4de9-99d1-e5f8daf2d0d8.jpg" /></p>
+<p>这节课首先阐述自由能泛函的连续化过程，从离散的 Flory-Huggins 自由能出发，经由泰勒展开构建出 Ginzburg-Landau 有效自由能泛函，并引入平方梯度项以表征对空间非均匀性的能量惩罚。基于此泛函求解欧拉-拉格朗日方程，导出两相之间特征的双曲正切（<span class="arithmatex">\(\tanh\)</span>）平衡态界面轮廓及其表面张力，这一静态解与<strong>第10讲</strong>中的界面动力学形成了理论呼应。</p>
+<p>结合质量守恒定律与线性非平衡热力学通量（Flux），推导出控制相分离演化的四阶偏微分方程——<strong>Cahn-Hilliard 方程</strong>。在此基础上，利用线性稳定性分析 (LSA) 及傅里叶模态分解，解析均匀态在微扰下的不稳定性机制，推导出色散关系 <span class="arithmatex">\(\omega(q)\)</span> 并确定决定早期纹理尺度的 <strong>最快生长模式 (Fastest Growing Mode)</strong> 。最终，描述出系统从初期的 <strong>旋节分解 (Spinodal Decomposition)</strong> 到晚期 <strong>粗化 (Coarsening)</strong> 的完整动力学演化图景。</p>
+<p>这节课主要聚焦于热力学不稳定区域（<span class="arithmatex">\(f''(\phi)&lt;0\)</span>）内的自发相分离机制。对于亚稳态区域（Metastable Region）内涉及能垒跨越的液滴成核与生长机制，将在下一讲介绍。</p>
+<h1 id="1-ginzburg-landau">1. Ginzburg-Landau 自由能泛函的构建<a class="headerlink" href="#1-ginzburg-landau" title="Permanent link">&para;</a></h1>
+<p>为了描述相分离过程中空间上连续变化的浓度场 <span class="arithmatex">\(c(\vec{r}, t)\)</span>，物理描述必须完成一次根本性的数学升级：从仅依赖于标量变量的普通函数 <span class="arithmatex">\(F(c)\)</span>，转变为依赖于整个空间场分布的<strong>泛函 (Functional)</strong> <span class="arithmatex">\(\mathcal{F}[c(\vec{r})]\)</span>。这一过程被称为 Ginzburg-Landau 展开，它不仅是本课程处理自组织行为的基石，也是现代凝聚态物理处理对称性破缺与相变问题的通用语言。这节课将从微观的晶格模型出发，严格推导这一宏观场论描述。</p>
+<h2 id="11-flory-huggins-landau">1.1 从 Flory-Huggins 到 Landau 多项式展开<a class="headerlink" href="#11-flory-huggins-landau" title="Permanent link">&para;</a></h2>
+<p>回顾<strong>第13讲</strong>中推导的二元混合物（组分A和B）的无量纲自由能密度 <span class="arithmatex">\(f_{FH}(\phi)\)</span>。在平均场近似下，该自由能由<strong>混合熵</strong>（Entropic contribution）和<strong>相互作用焓</strong>（Enthalpic contribution）两部分竞争而成：</p>
+<div class="arithmatex">\[
+f_{FH}(\phi) = \underbrace{\frac{k_B T}{v} \left[ \phi \ln \phi + (1-\phi) \ln (1-\phi) \right]}_{\text{混合熵：倾向于无序均匀}} + \underbrace{\frac{k_B T}{v} \chi \phi (1-\phi)}_{\text{相互作用能：倾向于相分离}}
+\]</div>
+<p>其中各项物理意义如下：
+- <span class="arithmatex">\(\phi(\vec{r})\)</span>：代表组分A的局域体积分数（序参量），取值范围 <span class="arithmatex">\(0 \le \phi \le 1\)</span>。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(v\)</span>：晶格单元体积（分子体积）。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\chi\)</span> (Chi)：Flory-Huggins 相互作用参数。其物理本质来源于不同分子间的接触能差异 <span class="arithmatex">\(\chi \propto \frac{z}{k_B T} [u_{AB} - \frac{1}{2}(u_{AA} + u_{BB})]\)</span>。<span class="arithmatex">\(\chi\)</span> 值越大，表明 A-B 接触的能量代价越高，同种粒子越倾向于聚集以降低总能。</p>
+</li>
+</ul>
+<p>当系统处于临界点附近时，序参量 <span class="arithmatex">\(\phi\)</span> 会在临界浓度 <span class="arithmatex">\(\phi_c = 1/2\)</span> 附近发生微小涨落。为了捕捉相变的普适特征并简化数学处理，在 <span class="arithmatex">\(\phi_c\)</span> 附近对 <span class="arithmatex">\(f_{FH}\)</span> 进行泰勒展开。定义序参量相对于临界值的偏差（微扰）为：</p>
+<div class="arithmatex">\[
+\delta \phi = \phi - \frac{1}{2}
+\]</div>
+<p>利用对数函数 <span class="arithmatex">\(\ln(1/2 \pm x)\)</span> 的泰勒级数展开：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\phi \ln \phi &amp;\approx \dots + 2(\delta \phi)^2 + \frac{4}{3}(\delta \phi)^4 \\
+(1-\phi) \ln (1-\phi) &amp;\approx \dots + 2(\delta \phi)^2 + \frac{4}{3}(\delta \phi)^4
+\end{aligned}
+\]</div>
+<p>以及相互作用项的改写 <span class="arithmatex">\(\phi(1-\phi) = (1/2+\delta \phi)(1/2-\delta \phi) = 1/4 - (\delta \phi)^2\)</span>。</p>
+<p>将上述展开代入原始自由能表达式，忽略掉不影响动力学性质的常数项和可以通过化学势重定义消除的线性项，最终得到 <strong>Landau 型多项式自由能密度</strong>：</p>
+<div class="arithmatex">\[
+f_{loc}(\delta \phi) \approx \frac{1}{2} r_{eff} (\delta \phi)^2 + \frac{1}{4} u (\delta \phi)^4
+\]</div>
+<p>此式清晰地展示了决定系统命运的两个关键系数：</p>
+<p><strong>1. 二次项系数 <span class="arithmatex">\(r_{eff}\)</span>（控制相变发生的开关）：</strong></p>
+<p>由熵项的二阶导数（正贡献）与相互作用项的二阶导数（负贡献）叠加而成：</p>
+<div class="arithmatex">\[
+r_{eff} \propto k_B T (2 - \chi)
+\]</div>
+<ul>
+<li>
+<p><strong>当 <span class="arithmatex">\(\chi &lt; 2\)</span>（高温或弱相互作用）</strong>：<span class="arithmatex">\(r_{eff} &gt; 0\)</span>，自由能密度在 <span class="arithmatex">\(\delta \phi = 0\)</span> 处为极小值（势阱），系统处于单一均匀相的稳定状态。</p>
+</li>
+<li>
+<p><strong>当 <span class="arithmatex">\(\chi &gt; 2\)</span>（低温或强相互作用）</strong>：<span class="arithmatex">\(r_{eff} &lt; 0\)</span>，自由能密度在 <span class="arithmatex">\(\delta \phi = 0\)</span> 处变为极大值（势垒），原点失稳，系统发生自发对称性破缺。</p>
+</li>
+</ul>
+<p><strong>2. 四次项系数 <span class="arithmatex">\(u\)</span>（提供热力学稳定性）：</strong></p>
+<p>主要源于熵项的高阶展开：</p>
+<div class="arithmatex">\[
+u \propto k_B T &gt; 0
+\]</div>
+<p><span class="arithmatex">\(u\)</span> 必须恒为正值。这一项提供了非线性饱和机制，防止在 <span class="arithmatex">\(r_{eff} &lt; 0\)</span> 时浓度波动无限放大。它就像一个“碗壁”，将系统约束在有限的浓度范围内，最终确定了两个共存相的平衡浓度 <span class="arithmatex">\(c_{eq} = \pm \sqrt{|r_{eff}|/u}\)</span>。</p>
+<p>为了符合 Cahn-Hilliard 动力学文献的通用记号，并方便后续推导，通常定义一个正参数 <span class="arithmatex">\(r &gt; 0\)</span> 来描述不稳定区域的曲率模。令 <span class="arithmatex">\(c \equiv \delta \phi\)</span>，在淬火至不稳定区 (<span class="arithmatex">\(T &lt; T_c\)</span>) 的条件下，局域自由能密度写作标准形式：</p>
+<div class="arithmatex">\[
+f_{loc}(c) = - \frac{r}{2} c^2 + \frac{u}{4} c^4
+\]</div>
+<h2 id="12">1.2 空间非均匀性的代价：梯度能量项<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>上述 <span class="arithmatex">\(f_{loc}(c)\)</span> 仅适用于空间完全均匀的系统（局域近似）。然而，相分离的物理本质是形成富 A 相与富 B 相的区域，这必然导致在两相之间形成<strong>界面 (Interface)</strong> 。界面意味着序参量 <span class="arithmatex">\(c(\vec{r})\)</span> 在空间上存在剧烈变化，破坏了局部近邻的键合环境，因此在能量上是有代价的。</p>
+<p>为了描述这种空间非均匀性带来的能量惩罚，Ginzburg 和 Landau 引入了依赖于序参量梯度的项。基于空间旋转不变性（Isotropy）和对称性考虑，最低阶的非零梯度项为 <span class="arithmatex">\((\nabla c)^2\)</span>。</p>
+<p>将局域势能与梯度能结合，得到总自由能泛函 <span class="arithmatex">\(\mathcal{F}[c]\)</span>：</p>
+<div class="arithmatex">\[
+\mathcal{F}[c(\vec{r})] = \int_V d^d r \left[ \underbrace{-\frac{r}{2} c^2 + \frac{u}{4} c^4}_{\text{局域自由能密度 } f_{loc}} + \underbrace{\frac{\kappa}{2} (\nabla c)^2}_{\text{非局域梯度能}} \right]
+\]</div>
+<p>此式即为著名的 <strong>Ginzburg-Landau 自由能泛函</strong>。其中梯度系数 <span class="arithmatex">\(\kappa\)</span> (Kappa) 具有明确的物理约束与微观起源：</p>
+<div class="arithmatex">\[
+\kappa &gt; 0
+\]</div>
+<p><strong>物理意义</strong>：<span class="arithmatex">\(\kappa\)</span> 代表了界面的“硬度”或能量罚分强度。它直接决定了相界面的表面张力大小。</p>
+<p><strong>微观联系</strong>：在从微观理论推导时，<span class="arithmatex">\(\kappa\)</span> 与分子间相互作用的<strong>力程 (Interaction Range)</strong> <span class="arithmatex">\(\lambda\)</span> 密切相关，近似满足 <span class="arithmatex">\(\kappa \approx k_B T \chi \lambda^2\)</span>。这意味着相互作用范围越长，形成急剧变化的界面所需的能量代价就越高。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/14_002_cbeddb79-07f2-4eca-8b01-ff03f693d4c8.png" /></p>
+<h2 id="flory-huggins-ginzburg-landau">对比：Flory-Huggins 与 Ginzburg-Landau<a class="headerlink" href="#flory-huggins-ginzburg-landau" title="Permanent link">&para;</a></h2>
+<p>为了展示从微观离散模型到宏观连续场论的映射关系，下表总结了两个理论框架的核心对应：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">Flory-Huggins (微观/离散)</th>
+<th style="text-align: left;">Ginzburg-Landau (宏观/连续场)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>基本变量</strong></td>
+<td style="text-align: left;">离散格点上的体积分数 <span class="arithmatex">\(\phi_i\)</span></td>
+<td style="text-align: left;">连续空间中的序参量场 <span class="arithmatex">\(c(\vec{r})\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>控制参数</strong></td>
+<td style="text-align: left;">相互作用参数 <span class="arithmatex">\(\chi\)</span> (无量纲)</td>
+<td style="text-align: left;">二次项系数 <span class="arithmatex">\(r\)</span> (具有能量密度量纲)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>相变驱动力</strong></td>
+<td style="text-align: left;">焓与熵的非线性竞争</td>
+<td style="text-align: left;">多项式势阱的翻转 (<span class="arithmatex">\(f''(0)&lt;0\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>空间关联</strong></td>
+<td style="text-align: left;">隐含在平均场假设中 (忽略关联)</td>
+<td style="text-align: left;">显式通过梯度项 <span class="arithmatex">\(\frac{\kappa}{2} (\nabla c)^2\)</span> 描述</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>自由能形式</strong></td>
+<td style="text-align: left;">对数形式 (Logarithmic) <span class="arithmatex">\(\phi \ln \phi\)</span></td>
+<td style="text-align: left;">多项式形式 (Polynomial) <span class="arithmatex">\(c^2, c^4\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>适用范围</strong></td>
+<td style="text-align: left;">任意浓度 <span class="arithmatex">\(0 \le \phi \le 1\)</span></td>
+<td style="text-align: left;">临界点附近 <span class="arithmatex">\(c \approx 0\)</span> (长波近似)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="2">2. 平衡态性质：界面轮廓与表面张力<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>在深入研究 Cahn-Hilliard 动力学演化方程之前，必须先确立系统的静态平衡基准。当相分离完成时，系统并非处于单一的均匀态，而是形成了共存的富集相与贫瘠相。连接这两个体相（Bulk Phases）的区域即为界面。界面的具体结构——它有多宽？它蕴含了多少能量？——完全由 Ginzburg-Landau 自由能泛函的变分性质决定。这小节首先通过求解泛函极值问题，解析界面的平衡轮廓，并由此推导出表面张力的微观表达，为后续理解由曲率驱动的粗化过程奠定物理基础。</p>
+<h2 id="21-euler-lagrange-equation">2.1 欧拉-拉格朗日方程 (Euler-Lagrange Equation)<a class="headerlink" href="#21-euler-lagrange-equation" title="Permanent link">&para;</a></h2>
+<p>平衡态对应于总自由能泛函 <span class="arithmatex">\(\mathcal{F}[c]\)</span> 的极小值点。根据变分法原理，要使泛函 <span class="arithmatex">\(\mathcal{F}\)</span> 对场变量 <span class="arithmatex">\(c(\vec{r})\)</span> 取极值，浓度场必须满足欧拉-拉格朗日方程。这在物理上等价于要求广义化学势 <span class="arithmatex">\(\mu = \delta \mathcal{F}/\delta c\)</span> 在全空间为常数（在无外场且对称势阱下，该常数为0）。</p>
+<p>对于上一节构建的泛函 <span class="arithmatex">\(\mathcal{F} = \int [f_{loc}(c) + \frac{\kappa}{2} (\nabla c)^2] d^d r\)</span>，其变分导数计算如下：</p>
+<div class="arithmatex">\[
+\frac{\delta \mathcal{F}}{\delta c} = \frac{\partial f_{loc}}{\partial c} - \nabla \cdot \frac{\partial}{\partial (\nabla c)} \left( \frac{\kappa}{2} (\nabla c)^2 \right) = f'_{loc}(c) - \kappa \nabla^2 c
+\]</div>
+<p>令变分导数为零（<span class="arithmatex">\(\mu = 0\)</span>），即得到描述平衡态界面轮廓的微分方程：</p>
+<div class="arithmatex">\[
+\kappa \nabla^2 c = f'_{loc}(c)
+\]</div>
+<p>这一方程揭示了界面形成的物理机制：梯度的扩散项 <span class="arithmatex">\(\kappa \nabla^2 c\)</span>（倾向于平滑化）必须与局域势能的驱动力 <span class="arithmatex">\(f'_{loc}(c)\)</span>（倾向于分相）在每一点达到力学平衡。</p>
+<h2 id="22-interface-profile">2.2 界面轮廓解 (Interface Profile)<a class="headerlink" href="#22-interface-profile" title="Permanent link">&para;</a></h2>
+<p>为了解析界面的具体形状，考虑最简单的一维情形。假设界面垂直于 <span class="arithmatex">\(x\)</span> 轴，浓度场 <span class="arithmatex">\(c(x)\)</span> 仅随 <span class="arithmatex">\(x\)</span> 变化。在 <span class="arithmatex">\(T &lt; T_c\)</span> 的双势阱条件下，局域自由能导数为 <span class="arithmatex">\(f'_{loc}(c) = -rc + uc^3\)</span>。代入上述方程，问题转化为求解一个非线性二阶常微分方程：</p>
+<div class="arithmatex">\[
+\kappa \frac{d^2 c}{d x^2} = -r c + u c^3
+\]</div>
+<p><strong>边界条件</strong>：界面连接了两个热力学稳定的共存相，因此在无穷远处，浓度必须趋于势阱的两个极小值点：</p>
+<div class="arithmatex">\[
+x \to -\infty, \quad c \to c_- = -\sqrt{\frac{r}{u}}
+\]</div>
+<div class="arithmatex">\[
+x \to +\infty, \quad c \to c_+ = +\sqrt{\frac{r}{u}}
+\]</div>
+<p>该方程存在一个著名的解析解，被称为<strong>双曲正切解 (Kink Solution)</strong> 或孤子解：</p>
+<div class="arithmatex">\[
+c(x) = \sqrt{\frac{r}{u}} \tanh \left( \frac{x}{\sqrt{2} \xi} \right)
+\]</div>
+<p>在此解中，自然涌现出一个关键的长度尺度——<strong>关联长度 (Correlation Length)</strong> 或 <strong>界面宽度 (Interface Width)</strong> <span class="arithmatex">\(\xi\)</span>：</p>
+<div class="arithmatex">\[
+\xi \equiv \sqrt{\frac{\kappa}{r}}
+\]</div>
+<p><strong>物理意义：</strong></p>
+<p>界面宽度 <span class="arithmatex">\(\xi\)</span> 的表达式 <span class="arithmatex">\(\sqrt{\kappa/r}\)</span> 清晰地体现了两种竞争机制的平衡：</p>
+<ul>
+<li>
+<p><strong>分子：</strong> 梯度系数 <span class="arithmatex">\(\kappa\)</span>。<span class="arithmatex">\(\kappa\)</span> 越大，非均匀性的能量代价越高，系统倾向于拉宽界面以减缓梯度变化，导致 <span class="arithmatex">\(\xi\)</span> 增大。</p>
+</li>
+<li>
+<p><strong>分母：</strong> 势阱深度参数 <span class="arithmatex">\(r\)</span>。<span class="arithmatex">\(r\)</span> 越大，双势阱越深，同种粒子聚集的倾向越强，系统倾向于压缩界面以使更多粒子处于低能的体相中，导致 <span class="arithmatex">\(\xi\)</span> 减小。</p>
+</li>
+</ul>
+<p>当温度趋近于临界点 (<span class="arithmatex">\(T \to T_c\)</span>) 时，由于 <span class="arithmatex">\(r \propto (T_c - T)\)</span> 趋于 0，界面宽度 <span class="arithmatex">\(\xi \propto (T_c - T)^{-1/2}\)</span> 将趋于无穷大。这意味着在临界点附近，两相之间的界限变得极其模糊，宏观界面消失，这与实验中观测到的<strong>临界乳光 (Critical Opalescence)</strong> 现象契合。</p>
+<h2 id="23-interface-tension">2.3 界面张力 (Interface Tension) 的计算<a class="headerlink" href="#23-interface-tension" title="Permanent link">&para;</a></h2>
+<p>界面张力 <span class="arithmatex">\(\gamma\)</span> 是相分离动力学的核心驱动力之一（如 Laplace 压强）。其定义为：引入一个界面相对于同体积的单一均匀体相所增加的额外自由能。数学表达为全空间的能量密度积分：</p>
+<div class="arithmatex">\[
+\gamma = \int_{-\infty}^{+\infty} dx \left[ f_{loc}(c(x)) + \frac{\kappa}{2} \left(\frac{dc}{dx}\right)^2 - f_{min} \right]
+\]</div>
+<p>其中 <span class="arithmatex">\(f_{min} = f(c_{\pm})\)</span> 是体相的平衡自由能密度。
+直接积分双曲正切函数较为繁琐，这节课介绍一种利用<strong>能量均分恒等式 (First Integral of Motion)</strong> 的巧妙方法。类似于经典力学中的能量守恒，在满足欧拉-拉格朗日方程的平衡路径上，梯度能密度与局域势能增量在数值上严格相等：</p>
+<div class="arithmatex">\[
+\frac{\kappa}{2} \left(\frac{dc}{dx}\right)^2 = f_{loc}(c) - f_{min}
+\]</div>
+<p>利用这一恒等式，我们可以将积分变量从空间坐标 <span class="arithmatex">\(x\)</span> 变换为序参量 <span class="arithmatex">\(c\)</span>，从而避开复杂的空间依赖性：</p>
+<div class="arithmatex">\[
+\gamma = \int_{-\infty}^{+\infty} dx \left[ 2 \times \frac{\kappa}{2} \left(\frac{dc}{dx}\right)^2 \right] = \int_{c_-}^{c_+} dc \sqrt{2\kappa [f_{loc}(c) - f_{min}]}
+\]</div>
+<p>代入双势阱形式 <span class="arithmatex">\(f_{loc}(c) - f_{min} = \frac{u}{4}(c^2 - c_0^2)^2\)</span>，积分变为：</p>
+<div class="arithmatex">\[
+\gamma = \int_{-c_0}^{+c_0} dc \sqrt{\frac{\kappa u}{2}} (c_0^2 - c^2)
+\]</div>
+<p>经过计算（<span class="arithmatex">\(\int (c_0^2 - c^2) dc = \frac{4}{3}c_0^3\)</span>），最终得到 Landau 理论下的表面张力普适公式：</p>
+<div class="arithmatex">\[
+\gamma = \frac{2\sqrt{2}}{3} \frac{r^{3/2} \kappa^{1/2}}{u}
+\]</div>
+<p>这一公式深刻地联系了宏观与微观：宏观可测量的表面张力 <span class="arithmatex">\(\gamma\)</span>，完全由微观的相互作用参数（<span class="arithmatex">\(r, u, \kappa\)</span>）决定。</p>
+<p><strong>温度依赖性：</strong> 考虑到 <span class="arithmatex">\(r \propto (T_c - T)\)</span> 且 <span class="arithmatex">\(u \approx const\)</span>，可知 <span class="arithmatex">\(\gamma \propto (T_c - T)^{3/2}\)</span>。</p>
+<p><strong>临界行为：</strong> 当 <span class="arithmatex">\(T \to T_c\)</span> 时，表面张力以 1.5 的临界指数趋于零，这解释了为什么在临界点附近液滴极易变形且界面极不稳定。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/14_003_af77abc1-88d3-4159-aec0-79bb18758863.png" /></p>
+<h1 id="3-cahn-hilliard">3. 非平衡动力学：Cahn-Hilliard 方程推导<a class="headerlink" href="#3-cahn-hilliard" title="Permanent link">&para;</a></h1>
+<p>构建了描述系统静态能量特征的 Ginzburg-Landau 泛函 <span class="arithmatex">\(\mathcal{F}\)</span> 之后，理论构建的重心随之转移至系统的时空演化机制。静态自由能仅指明了系统的“归宿”（平衡态），而动力学方程则描述了系统如何穿越复杂的能量景观到达那里的“路径”。对于二元混合物的相分离问题，其动力学行为受到一个最基本的物理铁律约束：<strong>质量守恒</strong>。本节在此约束下，严格推导描述相分离普适动力学的运动方程。</p>
+<h2 id="31-model-b">3.1 守恒律与 Model B 分类<a class="headerlink" href="#31-model-b" title="Permanent link">&para;</a></h2>
+<p>与磁性系统（如 Ising 模型中的自旋翻转）不同，二元混合物中的组分 A 分子既不会凭空产生也不会凭空消失，只能通过物理空间的输运发生位置迁移。这种动力学性质在 Hohenberg 和 Halperin 的分类中被称为 <strong>Model B</strong>（相比之下，序参量不守恒的弛豫动力学被称为 <strong>Model A</strong> 或 Allen-Cahn 方程）。</p>
+<p>因此，浓度场（序参量）<span class="arithmatex">\(c(\vec{r}, t)\)</span> 的演化必须严格遵循连续性方程：</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial t} + \nabla \cdot \vec{J} = 0 \quad \Rightarrow \quad \frac{\partial c}{\partial t} = - \nabla \cdot \vec{J}
+\]</div>
+<p>其中 <span class="arithmatex">\(\vec{J}(\vec{r}, t)\)</span> 表示物质流通量密度。这一守恒约束深刻地改变了系统的动力学行为：任何局域浓度的改变都必须伴随着物质的长程流动，导致长波模式（大尺度结构）的弛豫时间极长，这与非守恒系统中序参量可以直接局地弛豫的行为形成了鲜明对比。</p>
+<h2 id="32">3.2 广义热力学力与化学势<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>为了封闭方程，必须建立通量 <span class="arithmatex">\(\vec{J}\)</span> 与系统状态量之间的关系。根据非平衡热力学（Onsager 线性响应理论），驱动物质流动的根本原因并非单纯的浓度梯度（Fick 定律仅是理想稀溶液下的特例），而是<strong>广义化学势的梯度</strong>。物质总是从高化学势区域流向低化学势区域，因此通量与广义热力学力成正比：</p>
+<div class="arithmatex">\[
+\vec{J} = - M \nabla \mu
+\]</div>
+<p>在此关系式中：</p>
+<p><span class="arithmatex">\(M\)</span>：<strong>迁移率 (Mobility)</strong> 。它表征了粒子在介质中运动的难易程度。在基础理论推导中，通常假设 <span class="arithmatex">\(M\)</span> 为常数（各向同性且均匀）。但在更精细的聚合物动力学模型中，<span class="arithmatex">\(M\)</span> 往往依赖于局部浓度，例如 <span class="arithmatex">\(M(c) \propto 1-c^2\)</span>（反映纯组分区域的迁移受限），这节课主要关注 <span class="arithmatex">\(M\)</span> 为常数的最简情形。</p>
+<p><span class="arithmatex">\(\mu\)</span>：<strong>广义化学势 (Generalized Chemical Potential)</strong> ，对应于交换化学势 <span class="arithmatex">\(\mu_{ex} = \mu_A - \mu_B\)</span>。</p>
+<h2 id="33">3.3 变分导数确定化学势<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
+<p>Ginzburg-Landau 理论的核心在于，这里的化学势 <span class="arithmatex">\(\mu\)</span> 不再是简单热力学函数的偏导数，而是自由能泛函 <span class="arithmatex">\(\mathcal{F}\)</span> 对场变量 <span class="arithmatex">\(c(\vec{r})\)</span> 的<strong>泛函导数 (Functional Derivative)</strong> 。这引入了空间非局域的相互作用：</p>
+<div class="arithmatex">\[
+\mu(\vec{r}) = \frac{\delta \mathcal{F}}{\delta c(\vec{r})} = \underbrace{\frac{\partial f_{loc}}{\partial c}}_{\text{局域贡献}} - \underbrace{\kappa \nabla^2 c}_{\text{非局域/界面贡献}}
+\]</div>
+<p><strong>物理意义：</strong></p>
+<p><strong>局域贡献</strong>：源于 Flory-Huggins 双势阱，驱动系统向平衡浓度演化。</p>
+<p><strong>界面贡献 (<span class="arithmatex">\(-\kappa \nabla^2 c\)</span>)</strong>：这一项至关重要，它代表了<strong>界面曲率</strong>对化学势的修正。在液滴内部（凸界面），浓度分布呈现“山峰”状，<span class="arithmatex">\(\nabla^2 c &lt; 0\)</span>，使得 <span class="arithmatex">\(-\kappa \nabla^2 c &gt; 0\)</span>，从而<strong>抬高</strong>了局域化学势。这正是经典的 <strong>Gibbs-Thomson 效应</strong> 在连续场论中的直接表达：曲率越大的液滴，其内部化学势越高，导致物质倾向于逃逸并扩散到大液滴中。这一机制直接驱动了相分离晚期的 Ostwald Ripening（奥斯特瓦尔德熟化）现象。</p>
+<h2 id="34-cahn-hilliard-model-b">3.4 Cahn-Hilliard 方程 (Model B) 的完整形式<a class="headerlink" href="#34-cahn-hilliard-model-b" title="Permanent link">&para;</a></h2>
+<p>将由泛函导数确定的化学势 <span class="arithmatex">\(\mu\)</span> 代入通量公式，再结合连续性方程，即可组装出著名的 <strong>Cahn-Hilliard 方程</strong>。这是一个描述守恒序参量在热力学不稳定区演化的四阶非线性偏微分方程：</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial t} = \nabla \cdot \left[ M \nabla \left( \frac{\partial f_{loc}}{\partial c} - \kappa \nabla^2 c \right) \right]
+\]</div>
+<p>在假定迁移率 <span class="arithmatex">\(M\)</span> 为常数，并代入 Landau 多项式势能导数 <span class="arithmatex">\(f'_{loc}(c) = -rc + uc^3\)</span> 后，方程展开为具体形式：</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial t} = M \nabla^2 (-r c + u c^3) - M \kappa \nabla^4 c
+\]</div>
+<p>为了深入理解其物理机制，可将方程右侧分为两部分解读：</p>
+<p>1.<strong>逆向扩散项 (Uphill Diffusion)</strong> ：<span class="arithmatex">\(M \nabla^2 (-r c)\)</span></p>
+<p>当系统处于 spinodal 区域（<span class="arithmatex">\(r&gt;0\)</span>）时，这一项等效于 <span class="arithmatex">\(D_{eff} \nabla^2 c\)</span>，其中有效扩散系数 <span class="arithmatex">\(D_{eff} = -M r &lt; 0\)</span>。<strong>负扩散系数</strong>意味着物质流向与常规 Fick 扩散相反：物质自发地从低浓度区流向高浓度区，导致微小的浓度涨落被不断放大而非平滑消失。这是相分离发生的根本动力。</p>
+<p>2.<strong>双拉普拉斯稳定项 (Bi-harmonic Stabilization)</strong> ：<span class="arithmatex">\(- M \kappa \nabla^4 c\)</span> </p>
+<p>这是一个四阶导数项，源于梯度能惩罚。由于 <span class="arithmatex">\(\kappa &gt; 0\)</span>，该项在短波长（高波数）范围内占主导地位并起<strong>阻尼/稳定</strong>作用。它物理上抑制了极短距离内的剧烈波动，防止了逆向扩散导致的浓度梯度无限发散，从而确保了形成的界面具有有限的宽度（<span class="arithmatex">\(\xi\)</span>），避免了非物理的奇点。</p>
+<h1 id="4">4. 线性稳定性分析与色散关系<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>Cahn-Hilliard 方程是一个高度非线性的四阶偏微分方程，通常难以获得解析的通解。然而，为了定量理解相分离是如何<strong>启动</strong>的，理论分析的关键在于考察一个均匀混合的状态对微小热力学涨落的响应。如果微小的扰动随时间衰减，混合态是稳定的；如果扰动随时间放大，系统则是不稳定的。这一方法被称为 <strong>线性稳定性分析 (Linear Stability Analysis, LSA)</strong> ，它是理解 Spinodal Decomposition（旋节分解）物理图像的金钥匙。</p>
+<h2 id="41">4.1 线性化扰动方程<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p>假设系统初始处于均匀混合状态，其平均浓度为 <span class="arithmatex">\(c_0\)</span>（在临界淬火实验中，通常取临界成分 <span class="arithmatex">\(c_0 = 0\)</span>）。在此背景上叠加一个微小的时空扰动 <span class="arithmatex">\(\delta c(\vec{r}, t)\)</span>：</p>
+<div class="arithmatex">\[
+c(\vec{r}, t) = c_0 + \delta c(\vec{r}, t), \quad \text{其中 } |\delta c| \ll 1
+\]</div>
+<p>将此表达式代入 Cahn-Hilliard 方程，利用泰勒展开 <span class="arithmatex">\(f'(c) \approx f'(c_0) + f''(c_0)\delta c\)</span>，并忽略所有关于 <span class="arithmatex">\(\delta c\)</span> 的高阶非线性项（如 <span class="arithmatex">\((\delta c)^3\)</span>），方程被线性化为：</p>
+<div class="arithmatex">\[
+\frac{\partial \delta c}{\partial t} = M \nabla^2 \left( f''(c_0) \delta c - \kappa \nabla^2 \delta c \right)
+\]</div>
+<p>对于临界淬火 (<span class="arithmatex">\(c_0=0\)</span>)，根据第1节定义的 Landau 自由能 <span class="arithmatex">\(f_{loc}(c) = -\frac{r}{2}c^2 + \frac{u}{4}c^4\)</span>，二阶导数 <span class="arithmatex">\(f''(0) = -r\)</span>。这表明在 spinodal 区域内，二阶导数为负，提供了不稳定性的驱动力。</p>
+<h2 id="42">4.2 傅里叶模态与色散关系<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>由于线性化方程的系数是常数，且边界条件通常设为周期性或无穷大，空间中的各个波动模式是相互解耦的。这允许对扰动场进行傅里叶变换（Fourier Transform），将复杂的空间微分转化为代数运算。</p>
+<p>引入平面波试探解：</p>
+<div class="arithmatex">\[
+\delta c(\vec{r}, t) = \int \frac{d^d q}{(2\pi)^d} \hat{c}(\vec{q}, t) e^{i \vec{q} \cdot \vec{r}}
+\]</div>
+<p>其中 <span class="arithmatex">\(\vec{q}\)</span> 为波矢量（Wavenumber）。代入线性方程，利用算符对应关系 <span class="arithmatex">\(\nabla \to i\vec{q}\)</span> 和 <span class="arithmatex">\(\nabla^2 \to -q^2\)</span>，可得每个傅里叶模态 <span class="arithmatex">\(\hat{c}(\vec{q}, t)\)</span> 的演化遵循一阶常微分方程：</p>
+<div class="arithmatex">\[
+\frac{\partial \hat{c}(\vec{q}, t)}{\partial t} = \sigma(q) \hat{c}(\vec{q}, t)
+\]</div>
+<p>其解表现为指数形式 <span class="arithmatex">\(\hat{c}(\vec{q}, t) = \hat{c}(\vec{q}, 0) e^{\sigma(q) t}\)</span>。这里的增长率 <span class="arithmatex">\(\sigma(q)\)</span> 与波数的大小 <span class="arithmatex">\(q\)</span> 之间的函数关系，被称为 <strong>色散关系 (Dispersion Relation)</strong> ：</p>
+<div class="arithmatex">\[
+\sigma(q) = -M q^2 \left( f''(c_0) + \kappa q^2 \right)
+\]</div>
+<p>在热力学不稳定区域（Spinodal Region, <span class="arithmatex">\(f''(c_0) &lt; 0\)</span>），令 <span class="arithmatex">\(|f''(c_0)| = r\)</span>，色散关系可重写为更直观的形式：</p>
+<div class="arithmatex">\[
+\sigma(q) = M q^2 \left( r - \kappa q^2 \right) = M r q^2 - M \kappa q^4
+\]</div>
+<h2 id="43-spinodal-decomposition">4.3 模式选择：Spinodal Decomposition 的指纹<a class="headerlink" href="#43-spinodal-decomposition" title="Permanent link">&para;</a></h2>
+<p>色散关系 <span class="arithmatex">\(\sigma(q)\)</span> 的解析形式揭示了 Spinodal Decomposition 区别于成核生长的最核心物理特征——<strong>尺度选择性</strong> 。 <span class="arithmatex">\(\sigma(q)\)</span> 呈现为一个倒置的抛物线（钟形曲线），这种非单调性由以下两个物理机制的竞争产生：</p>
+<p>1.<strong>长波不稳定性 (Long-wave Instability, <span class="arithmatex">\(q \to 0\)</span>)</strong> ：
+当 <span class="arithmatex">\(q\)</span> 很小时，忽略高阶项，<span class="arithmatex">\(\sigma(q) \approx M r q^2 &gt; 0\)</span>。</p>
+<p><strong>正增长</strong>：表明长波扰动是不稳定的，会随时间指数放大。</p>
+<p><strong>零点约束</strong>：注意 <span class="arithmatex">\(\sigma(0)=0\)</span>。这源于<strong>质量守恒律</strong>（Cahn-Hilliard 是 Model B）。全系统的总质量无法改变（<span class="arithmatex">\(q=0\)</span> 对应平均浓度），因此无限长波长的模式无法增长，相分离必须通过物质的局部重排来进行。</p>
+<p>2.<strong>短波截止 (Short-wave Cut-off, <span class="arithmatex">\(q \to \infty\)</span>)</strong> ：</p>
+<p>随着 <span class="arithmatex">\(q\)</span> 增大，梯度能量项 <span class="arithmatex">\(-M \kappa q^4\)</span> 逐渐占据主导，导致 <span class="arithmatex">\(\sigma(q)\)</span> 变为负值。</p>
+<p><strong>物理意义</strong>：波长极短的波动意味着极大的浓度梯度，这需要付出巨大的界面能代价。当波长短于某一阈值时，能量惩罚超过了分相带来的收益，扰动将被抑制并衰减。</p>
+<p><strong>截止波数 <span class="arithmatex">\(q_c\)</span> (或 <span class="arithmatex">\(q_0\)</span>)</strong>：令 <span class="arithmatex">\(\sigma(q_c) = 0\)</span>，解得临界波数：</p>
+<div class="arithmatex">\[
+q_c = \sqrt{\frac{r}{\kappa}} = \sqrt{\frac{-f''(c_0)}{\kappa}}
+\]</div>
+<p>这定义了系统能形成的最小结构尺寸 <span class="arithmatex">\(\lambda_c = 2\pi/q_c\)</span>。</p>
+<p>3.<strong>最快生长模式 (Fastest Growing Mode, <span class="arithmatex">\(q_{max}\)</span>)</strong> ：</p>
+<p>在 <span class="arithmatex">\(0 &lt; q &lt; q_c\)</span> 的不稳定区间内，<span class="arithmatex">\(\sigma(q)\)</span> 必然存在一个极大值。通过求解 <span class="arithmatex">\(d\sigma/dq = 0\)</span>：</p>
+<div class="arithmatex">\[
+\frac{d}{dq} (M r q^2 - M \kappa q^4) = 2Mrq - 4M\kappa q^3 = 0
+\]</div>
+<p>解得增长最快的特征波数：</p>
+<div class="arithmatex">\[
+q_{max} = \sqrt{\frac{r}{2\kappa}} = \frac{q_c}{\sqrt{2}}
+\]</div>
+<p><strong>物理结论：</strong></p>
+<p>这一结果构成了 Spinodal Decomposition 的“指纹”。尽管初始的热涨落（白噪声）包含了所有频率的成分，但线性动力学方程起到了<strong>带通滤波器 (Band-pass Filter)</strong> 的作用。它优先放大波长为 <span class="arithmatex">\(\lambda_{max} \approx 2\pi/q_{max}\)</span> 的波动模式。</p>
+<p>这解释了为何在相分离初期，系统会自发涌现出一种特征尺度均匀、结构类似于迷宫的<strong>双连续相 (Bicontinuous Pattern)</strong> 。这种特征尺度的自发选择，是其与成核生长（随机且局部的液滴形成）最本质的区别。</p>
+<h1 id="5">5. 代码实践：拥挤人群集体振荡的涌现<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<p>在前面几讲里，我们已经把 <strong>“相分离的空间图样如何从均匀态中长出来”</strong> 讲清楚了：<br />
+- Model A（Allen–Cahn）：非守恒序参量的弛豫</p>
+<ul>
+<li>Model B（Cahn–Hilliard）：守恒序参量的逆向扩散、色散关系与最快增长模态 </li>
+</ul>
+<p>但在真实世界的很多非平衡系统里，“相变”的标志并不一定是空间上的相分离结构，
+也可能是<strong>时间维度上的“自发选择一个频率”</strong>（<strong>从噪声 → 周期振荡</strong>）。本节使用用 Nature 2025年的一篇人群动力学论文作为实践案例，把CH程里学到的“线性稳定性/模态分解”迁移到“频谱—相变”这一套工具上。</p>
+<p><img alt="Gu, F., Guiselin, B., Bain, N. et al. Emergence of collective oscillations in massive human crowds. Nature 638, 112–119 (2025)." src="../assets/images/14_004_c527695a-941b-471b-b25c-8674978c9cf8.png" /></p>
+<p>在大型集会中，<strong>密集人群在有限空间内受到强约束</strong>，一旦出现不受控的整体运动，就可能导致人群被挤压到墙边产生挤压风险，呼吸受阻、踩踏、伤亡事故，典型案例有2010 Love Parade（德国杜伊斯堡）事故的“crowd quakes”（人群地震式震荡），韩国梨泰院踩踏事故。</p>
+<p>过去几十年里，主流的行人群模型往往从“个体之间两两作用”出发（例如启发式碰撞/社交力模型），对小规模人群的轨迹预测很有效；但当人群规模达到 <strong>上千人并且极度拥挤</strong> 时，系统变成一个巨大的多体问题，靠微观行为规则很难建立可验证的第一性原理解释。</p>
+<p>西班牙 San Fermín 节人群（视频，源自：Gu, F., Guiselin, B., Bain, N. et al. Nature 638, 112–119 (2025)）：</p>
+<video controls preload="metadata" style="width: 100%;">
+  <source src="assets/images/San Fermín.mp4" type="video/mp4" />
+</video>
+
+<p>下载：<a href="../assets/images/San%20Ferm%C3%ADn.mp4"><code>San Fermín.mp4</code></a></p>
+<p>这篇论文的突破在于：作者抓住了一个罕见机会——在西班牙潘普洛纳 <strong>San Fermín 节开幕仪式（Chupinazo）</strong> 上，连续多年、在同一地点、同一时刻、类似的组织方式下，获得了可重复的人群视频数据；并把密集人群当作<strong>连续介质（active continuum）</strong>来测量与建模，从而发现并解释一种现象：</p>
+<p><strong>当平均密度跨过阈值后，密集人群会自发组织成宏观“手性振荡器”，数百人同步做轨道式（orbital）运动；没有外部指挥、没有节拍信号。</strong></p>
+<p>这项研究将人群视为二维连续体，核心观测量是两个“场”：</p>
+<p>1.<strong>局域密度场</strong> <span class="arithmatex">\(\rho(\mathbf{r},t)\)</span>：通过检测人头位置（head detection）得到离散点，再在空间窗口内统计得到局域密度</p>
+<p>2.<strong>欧拉速度场</strong> <span class="arithmatex">\(\mathbf{v}(\mathbf{r},t)\)</span>：使用 PIV（particle image velocimetry）在约 1.5m 尺度窗口上测量速度矢量</p>
+<p><img alt="San Fermín 节“Chupinazo”开幕前的人群聚集与密度增长。(a) 2019 年 San Fermín 节开幕现场的人群照片；(b) Plaza Consistorial 的俯视图与研究区域（虚线多边形），橙色点为观测点（比例尺 10 m）；(c,d) 开幕前 57:15 与 00:30 的局部放大图，绿色点为头部检测到的参与者位置；(e) 2022/2023/2024 三年的平均数密度随时间单调上升，并在虚线所示临界密度 \(\rho^*\) 附近跨入极度拥挤状态；内嵌图为径向分布函数 \(g(r)\)；(f) 两个时刻的局部密度热力图（白色区域为被建筑/旗帜/气球遮挡的视野区域）。该图说明：在人群密度缓慢增加的过程中，系统在达到 \(\rho^*\) 附近会进入新的动力学阶段（后续将表现为集体振荡）。图源：Gu, F., Guiselin, B., Bain, N. et al. Nature 638, 112–119 (2025)." src="../assets/images/14_005_3ce843de-cf42-4947-a95a-0924653ec993.jpg" /></p>
+<p>这一步很关键，这项研究<strong>不再把人群仅仅看作大量个体轨迹的集合，而是将其视为一个可以被测量、分析的连续动力学场</strong>。通过对密集人群视频的系统处理，他们构建了随时间变化的<strong>速度场</strong>和<strong>密度场</strong>，从而使“人群动力学”第一次真正进入了<strong>连续场论</strong>与统计物理的分析框架。这一步至关重要，因为它为后续的频谱分析和相变判据提供了统一、可比较的对象。</p>
+<p>研究发现，当人群密度随着时间缓慢上升时，整体运动状态并不是逐渐、平滑地变化的。相反，在接近某个<strong>临界密度</strong>时，人群的速度涨落会突然发生质变：从原本无特征、近似随机的噪声状态，跃迁到一种具有明显周期性的集体运动状态。为了揭示这一相变的本质，作者引入了<strong>频谱分析</strong>这一工具，对速度场在时间维度上的结构进行分解。</p>
+<p><img alt="人群集体振荡的频谱特征与动力学相变。上排展示不同年份与不同事件中测得的人群速度（动能）及其分解后的方向与速度大小的功率谱；中排通过原始轨迹与示意图说明振荡具有轨道式（而非往复式）特征；下排给出了频谱随控制参数变化的热力图。实验结果以平均人群密度为横轴，数值结果以无量纲参数 \(\beta/\beta_c\) 为横轴。黑色虚线标示临界点，黑点表示主振荡频率 \(\omega_0\)。可以看到，\(\omega_0\) 在临界点附近从 0 跃迁到非零，标志着系统进入集体振荡相。图源：Gu, F., Guiselin, B., Bain, N. et al. Nature 638, 112–119 (2025)." src="../assets/images/14_006_ea7e179d-0ed0-4251-9e90-9593551e3920.jpg" /></p>
+<p>具体而言，他们对人群的速度场 <span class="arithmatex">\(\mathbf{v}(\mathbf{r},t)\)</span> 进行时间上的傅里叶变换，构造了速度（或动能）的功率谱 <span class="arithmatex">\(S_v(\omega)\)</span>。结果显示：在高密度条件下，谱函数不再是平坦的，而是在一对对称的有限频率 <span class="arithmatex">\(\pm \omega_0\)</span> 处出现了稳定而清晰的峰值。这个主频对应的时间尺度约为十几秒，表明人群整体在这个时间尺度上发生了周期性的集体运动。进一步的分解分析揭示了一个反直觉但极其重要的事实：<strong>这些谱峰主要来自运动方向的周期性变化，而不是速度大小的周期变化</strong>。这意味着人群并非在“前后摇摆”，而是在空间中进行类似绕圈的<strong>轨道式（orbital）运动</strong>，体现出一种宏观的手性集体振荡。</p>
+<p>为了更清楚地呈现这一“从无到有”的转变过程，这项研究进一步采用了<strong>时间–频率分析</strong>的方法。他们使用滑动时间窗（例如数分钟宽度），在不同时间段反复计算速度谱，并将结果拼接成二维热力图。这样得到的图像直观地展示了频谱结构如何随着控制参数的变化而演化：在实验数据中，横轴是局域平均人群密度；在理论与数值模拟中，横轴则对应于模型中的无量纲控制参数 <span class="arithmatex">\(\beta/\beta_c\)</span>。在这类图中（上图f）可以清晰看到：<strong>当系统跨过临界点时，主频 <span class="arithmatex">\(\omega_0\)</span> 从零突然跃迁到一个有限值</strong>。因此，<span class="arithmatex">\(\omega_0\)</span> 可以被自然地理解为刻画“振荡相”出现与否的<strong>动力学序参量</strong>。</p>
+<p>在 CH 模型中，<span class="arithmatex">\(\sigma(q)\)</span>决定了哪一个空间波长会自发长出来，对应的是空间结构的形成；而在人群系统中，速度谱<span class="arithmatex">\(S_v(\omega)\)</span>则揭示了系统是否会自发选择一个有限的振荡频率<span class="arithmatex">\(\omega_0\)</span>，对应的是时间结构的形成。换句话说，CH 描述的是“空间不稳定性如何导致结构自组织”，而人群动力学展示的则是“时间不稳定性如何导致周期态（极限环）的自组织”。</p>
+<p>两者在分析逻辑上同构，但物理结果指向了截然不同的相变类型。进一步而言，这种差异源于动力学本质的不同：Cahn–Hilliard 方程是一个严格的梯度流系统，其演化遵循自由能泛函<span class="arithmatex">\(\mathcal{F}[c]\)</span>的单调耗散，最终不可避免地走向静态平衡态（相分离与粗化）；而人群中的手性振荡则属于一种<strong>非互易的非平衡相</strong>，系统并非沿着某个自由能函数下降，而是能够在没有外部周期驱动的情况下稳定地运行在一个极限环上。正因为如此，在本节中我们不再重复前几讲已经深入讨论过的“相分离热力图”，而是转而使用 <strong>频谱热图</strong>，提供一种以时间频率为核心的相变观测视角。</p>
+<p>下面代码复现了一个二维格点与局部过阻尼动力学的简单空间耦合模型，复现了密集人群中<strong>集体振荡的涌现</strong>这一非平衡动力学现象。首先代码模拟一个二维格点的“玩具连续模型”模拟被墙壁约束的人群，将人群视为连续介质，通过局部过阻尼动力学与简单空间耦合，生成可视化的<strong>人群动荡动图</strong>。</p>
+<p>在时间层面，构建一个平均场（0D）模型，扫描控制参数 <span class="arithmatex">\(\beta/\beta_c\)</span>，对系统速度时间序列进行傅里叶分析，计算速度谱<span class="arithmatex">\(S_v(\omega)\)</span>，捕捉到主振荡频率<span class="arithmatex">\(\omega_0\)</span>在临界点附近从 0 跃迁到非零的过程。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span><span class="p">,</span> <span class="n">PillowWriter</span>
+
+<span class="c1"># 0) Utility functions</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">laplacian_periodic</span><span class="p">(</span><span class="n">field</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;2D Laplacian with periodic boundaries: ∇²f ≈ neighbors - 4f&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">-</span><span class="mf">4.0</span> <span class="o">*</span> <span class="n">field</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">moving_average_1d</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fft_spectrum_sv</span><span class="p">(</span><span class="n">vx</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">vy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Velocity spectrum: S_v(ω) = |FFT(vx)|^2 + |FFT(vy)|^2</span>
+<span class="sd">    Returns: omega_sorted (rad/s), Sv_sorted</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">)</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vx</span> <span class="o">-</span> <span class="n">vx</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">fy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vy</span> <span class="o">-</span> <span class="n">vy</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">Sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># Simple normalization (shape only)</span>
+
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># Hz</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span>      <span class="c1"># rad/s</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">omega</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">Sv</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<span class="c1"># 1) Part A: Cool GIF (2D toy spatial model)</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GifParams</span><span class="p">:</span>
+    <span class="c1"># Grid</span>
+    <span class="n">N</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.005</span>
+    <span class="n">relax_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1200</span>
+    <span class="n">steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3600</span>
+
+    <span class="n">frame_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span>
+    <span class="n">quiver_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">fps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+
+    <span class="c1"># Local dynamics parameters (aligned with author&#39;s magnitude):contentReference[oaicite:4]{index=4}</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.027</span>
+    <span class="n">gamma_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">18.0</span>
+    <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.10</span>
+    <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.025</span>     <span class="c1"># eta/gamma_p (author script same name eps):contentReference[oaicite:5]{index=5}</span>
+    <span class="n">sigma_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.50</span>      <span class="c1"># toy noise</span>
+
+    <span class="c1"># Toy spatial coupling (visually form clusters/large-scale flows)</span>
+    <span class="n">Du</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.30</span>
+    <span class="n">Dp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.30</span>
+
+    <span class="c1"># Particles</span>
+    <span class="n">show_particles</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">n_particles</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span>
+    <span class="n">particle_speed_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_lattice_for_gif</span><span class="p">(</span><span class="n">prm</span><span class="p">:</span> <span class="n">GifParams</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns: vx_frames, vy_frames, speed_frames</span>
+<span class="sd">    shape: (n_frames, N, N)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">N</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span>
+
+    <span class="c1"># Initial small perturbation</span>
+    <span class="n">ux</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">uy</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">px</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">py</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+    <span class="n">n_frames</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">steps</span> <span class="o">//</span> <span class="n">prm</span><span class="o">.</span><span class="n">frame_stride</span>
+    <span class="n">vx_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">vy_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">sp_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="n">frame_idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_steps</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">relax_steps</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">steps</span>
+
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_steps</span><span class="p">):</span>
+        <span class="n">lap_ux</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">ux</span><span class="p">)</span>
+        <span class="n">lap_uy</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">uy</span><span class="p">)</span>
+
+        <span class="c1"># v = du/dt</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">px</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Du</span> <span class="o">*</span> <span class="n">lap_ux</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">py</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Du</span> <span class="o">*</span> <span class="n">lap_uy</span>
+
+        <span class="c1"># Update u</span>
+        <span class="n">ux</span> <span class="o">=</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">vx</span>
+        <span class="n">uy</span> <span class="o">=</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">vy</span>
+
+        <span class="c1"># p dynamics: toy version of &quot;windsock + nonlinear saturation + odd-friction&quot;</span>
+        <span class="c1"># We use an equivalent structure (consistent with your previous script) to ensure the visual effect of &quot;collective oscillation&quot;.</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">px</span> <span class="o">+</span> <span class="n">py</span> <span class="o">*</span> <span class="n">py</span>
+        <span class="n">pv</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">py</span> <span class="o">*</span> <span class="n">vy</span>
+        <span class="n">odd_x</span> <span class="o">=</span> <span class="o">-</span><span class="n">p2</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">pv</span> <span class="o">*</span> <span class="n">px</span>
+        <span class="n">odd_y</span> <span class="o">=</span> <span class="o">-</span><span class="n">p2</span> <span class="o">*</span> <span class="n">vy</span> <span class="o">+</span> <span class="n">pv</span> <span class="o">*</span> <span class="n">py</span>
+
+        <span class="n">lap_px</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">px</span><span class="p">)</span>
+        <span class="n">lap_py</span> <span class="o">=</span> <span class="n">laplacian_periodic</span><span class="p">(</span><span class="n">py</span><span class="p">)</span>
+
+        <span class="n">dpx</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">px</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">prm</span><span class="o">.</span><span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">*</span> <span class="n">p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">vx</span>
+            <span class="o">+</span> <span class="n">odd_x</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Dp</span> <span class="o">*</span> <span class="n">lap_px</span>
+        <span class="p">)</span>
+        <span class="n">dpy</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">py</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="n">prm</span><span class="o">.</span><span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">*</span> <span class="n">p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">vy</span>
+            <span class="o">+</span> <span class="n">odd_y</span>
+            <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">Dp</span> <span class="o">*</span> <span class="n">lap_py</span>
+        <span class="p">)</span>
+
+        <span class="n">px</span> <span class="o">=</span> <span class="n">px</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dpx</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">sigma_p</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+        <span class="n">py</span> <span class="o">=</span> <span class="n">py</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dpy</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">sigma_p</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;=</span> <span class="n">prm</span><span class="o">.</span><span class="n">relax_steps</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">-</span> <span class="n">prm</span><span class="o">.</span><span class="n">relax_steps</span><span class="p">)</span> <span class="o">%</span> <span class="n">prm</span><span class="o">.</span><span class="n">frame_stride</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">frame_idx</span> <span class="o">&lt;</span> <span class="n">n_frames</span><span class="p">:</span>
+                <span class="n">speed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">vy</span> <span class="o">*</span> <span class="n">vy</span><span class="p">)</span>
+                <span class="n">vx_frames</span><span class="p">[</span><span class="n">frame_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+                <span class="n">vy_frames</span><span class="p">[</span><span class="n">frame_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+                <span class="n">sp_frames</span><span class="p">[</span><span class="n">frame_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">speed</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+                <span class="n">frame_idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">vx_frames</span><span class="p">,</span> <span class="n">vy_frames</span><span class="p">,</span> <span class="n">sp_frames</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">render_gif</span><span class="p">(</span><span class="n">vx_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">vy_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sp_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">prm</span><span class="p">:</span> <span class="n">GifParams</span><span class="p">,</span> <span class="n">out_gif</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">n_frames</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Crowd oscillations (toy spatial model)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+
+    <span class="n">vmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">sp_frames</span><span class="p">,</span> <span class="mi">99</span><span class="p">))</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">sp_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+        <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
+        <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span>
+        <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdYlBu_r&quot;</span><span class="p">,</span>  <span class="c1"># Blue→Red, close to Fig3f visual perception</span>
+    <span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;|v| (a.u.)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># quiver</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">quiver_stride</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">U0</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+    <span class="n">V0</span> <span class="o">=</span> <span class="n">vy_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+    <span class="n">quiv</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U0</span><span class="p">,</span> <span class="n">V0</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.004</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Particles (pure visual enhancement)</span>
+    <span class="n">scat</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">prm</span><span class="o">.</span><span class="n">show_particles</span><span class="p">:</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">123</span><span class="p">)</span>
+        <span class="n">px</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">prm</span><span class="o">.</span><span class="n">n_particles</span><span class="p">)</span>
+        <span class="n">py</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">prm</span><span class="o">.</span><span class="n">n_particles</span><span class="p">)</span>
+        <span class="n">scat</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="n">dt_frame</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">prm</span><span class="o">.</span><span class="n">frame_stride</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">sp_frames</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="n">Ui</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+        <span class="n">Vi</span> <span class="o">=</span> <span class="n">vy_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+        <span class="n">quiv</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="n">Ui</span><span class="p">,</span> <span class="n">Vi</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">scat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">scat</span><span class="o">.</span><span class="n">get_offsets</span><span class="p">()</span>
+            <span class="n">gi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">gj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">vel_x</span> <span class="o">=</span> <span class="n">vx_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">gi</span><span class="p">,</span> <span class="n">gj</span><span class="p">]</span>
+            <span class="n">vel_y</span> <span class="o">=</span> <span class="n">vy_frames</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">gi</span><span class="p">,</span> <span class="n">gj</span><span class="p">]</span>
+            <span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">particle_speed_scale</span> <span class="o">*</span> <span class="n">dt_frame</span> <span class="o">*</span> <span class="n">vel_x</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span>
+            <span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">particle_speed_scale</span> <span class="o">*</span> <span class="n">dt_frame</span> <span class="o">*</span> <span class="n">vel_y</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span>
+            <span class="n">scat</span><span class="o">.</span><span class="n">set_offsets</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">quiv</span><span class="p">,</span> <span class="n">scat</span>
+
+        <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">quiv</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">prm</span><span class="o">.</span><span class="n">fps</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_gif</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">prm</span><span class="o">.</span><span class="n">fps</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="c1"># 2) Part B: Fig.3f-like (0D mean-field scan beta)</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Fig3FParams</span><span class="p">:</span>
+    <span class="c1"># Scan range (fewer points = faster)</span>
+    <span class="n">beta_ratio_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">beta_ratio_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.5</span>
+    <span class="n">n_beta</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">35</span>
+
+    <span class="c1"># Mean-field parameters (aligned with author script magnitude):contentReference[oaicite:6]{index=6}</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.027</span>
+    <span class="n">gamma_p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">18.0</span>
+    <span class="n">epsilon</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.025</span>   <span class="c1"># eta/gamma_p</span>
+    <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span>       <span class="c1"># Noise amplitude (author script sigma):contentReference[oaicite:7]{index=7}</span>
+
+    <span class="c1"># Numerical integration (significantly shortened for speedup)</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.002</span>
+    <span class="n">n_relax</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20000</span>
+    <span class="n">n_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60000</span>
+    <span class="n">n_run</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="c1"># Frequency domain settings</span>
+    <span class="n">omega_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.2</span>        <span class="c1"># rad/s (matching paper Fig3f vertical axis magnitude)</span>
+    <span class="n">smooth_window</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span>        <span class="c1"># Light smoothing of spectrum</span>
+    <span class="n">peak_exclude_omega</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.10</span>  <span class="c1"># Avoid treating ω≈0 energy as peaks</span>
+
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mf_dynamics</span><span class="p">(</span><span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">gamma_p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    We adopt the same mean-field structure as the author script (Eq.(S17)-style),</span>
+<span class="sd">    directly using the expression form from the author&#39;s public code (but our own implementation).:contentReference[oaicite:8]{index=8}</span>
+<span class="sd">    Y = [ux, uy, px, py]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">Y</span>
+    <span class="n">prod_p</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">py</span>
+    <span class="n">norm_p2</span> <span class="o">=</span> <span class="n">px</span> <span class="o">*</span> <span class="n">px</span> <span class="o">+</span> <span class="n">py</span> <span class="o">*</span> <span class="n">py</span>
+    <span class="n">dux</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">px</span>
+    <span class="n">duy</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">py</span>
+
+    <span class="n">dpx</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">px</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">ux</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">prod_p</span> <span class="o">*</span> <span class="n">uy</span>
+        <span class="o">+</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">py</span> <span class="o">*</span> <span class="n">py</span><span class="p">)</span> <span class="o">*</span> <span class="n">ux</span>
+    <span class="p">)</span>
+    <span class="n">dpy</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="o">-</span><span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">py</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">gamma_p</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">norm_p2</span><span class="p">)</span> <span class="o">*</span> <span class="n">uy</span>
+        <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">prod_p</span> <span class="o">*</span> <span class="n">ux</span>
+        <span class="o">+</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">px</span> <span class="o">*</span> <span class="n">px</span><span class="p">)</span> <span class="o">*</span> <span class="n">uy</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dux</span><span class="p">,</span> <span class="n">duy</span><span class="p">,</span> <span class="n">dpx</span><span class="p">,</span> <span class="n">dpy</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mf_integrate_one_run</span><span class="p">(</span><span class="n">prm</span><span class="p">:</span> <span class="n">Fig3FParams</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rng</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Integrate mean-field using Euler–Maruyama (fast enough).</span>
+<span class="sd">    Noise is added only to the p equation, aligning with the author script approach.:contentReference[oaicite:9]{index=9}</span>
+<span class="sd">    Returns: vx(t), vy(t) (steady-state segment)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="mf">1e-10</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># Small perturbation</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span>
+    <span class="n">noise_amp</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">sigma</span>
+
+    <span class="c1"># Relaxation phase</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_relax</span><span class="p">):</span>
+        <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)])</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">mf_dynamics</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">dW</span>
+
+    <span class="c1"># Recording phase</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">()</span> <span class="o">*</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)])</span>
+        <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">mf_dynamics</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">dW</span>
+        <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">Y</span>
+        <span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">ux</span> <span class="o">+</span> <span class="n">px</span>
+        <span class="n">vy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="n">uy</span> <span class="o">+</span> <span class="n">py</span>
+
+    <span class="k">return</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_fig3f_like</span><span class="p">(</span><span class="n">prm</span><span class="p">:</span> <span class="n">Fig3FParams</span><span class="p">,</span> <span class="n">out_png</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="c1"># Critical beta_c formula: beta_c = 1 + k/gamma_p (author script IC condition also uses this):contentReference[oaicite:10]{index=10}</span>
+    <span class="n">beta_c</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">prm</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="n">prm</span><span class="o">.</span><span class="n">gamma_p</span>
+
+    <span class="n">beta_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">beta_ratio_min</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">beta_ratio_max</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="p">)</span>
+    <span class="n">betas</span> <span class="o">=</span> <span class="n">beta_ratio</span> <span class="o">*</span> <span class="n">beta_c</span>
+
+    <span class="c1"># Unified frequency axis: build once with FFTfreq</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">n_steps</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">omega</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">omega</span> <span class="o">&lt;=</span> <span class="n">prm</span><span class="o">.</span><span class="n">omega_max</span><span class="p">)</span>
+    <span class="n">omega_pos</span> <span class="o">=</span> <span class="n">omega</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+
+    <span class="n">heat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="p">,</span> <span class="n">omega_pos</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">omega0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">rng0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">be</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">betas</span><span class="p">):</span>
+        <span class="n">Sv_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="c1"># Average over multiple runs (but small n_run for speedup)</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_run</span><span class="p">):</span>
+            <span class="c1"># Use different sub-seeds for each run</span>
+            <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rng0</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">mf_integrate_one_run</span><span class="p">(</span><span class="n">prm</span><span class="p">,</span> <span class="n">be</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+            <span class="n">w_sorted</span><span class="p">,</span> <span class="n">Sv_sorted</span> <span class="o">=</span> <span class="n">fft_spectrum_sv</span><span class="p">(</span><span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+            <span class="c1"># Re-calculate unsorted Sv instead of interpolating back sorted values</span>
+            <span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vx</span> <span class="o">-</span> <span class="n">vx</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+            <span class="n">fy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">vy</span> <span class="o">-</span> <span class="n">vy</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+            <span class="n">Sv</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">Sv_acc</span> <span class="o">+=</span> <span class="n">Sv</span>
+
+        <span class="n">Sv_mean</span> <span class="o">=</span> <span class="n">Sv_acc</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">prm</span><span class="o">.</span><span class="n">n_run</span><span class="p">)</span>
+
+        <span class="c1"># Take positive frequencies and apply light smoothing</span>
+        <span class="n">Sv_pos</span> <span class="o">=</span> <span class="n">Sv_mean</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+        <span class="n">Sv_pos</span> <span class="o">=</span> <span class="n">moving_average_1d</span><span class="p">(</span><span class="n">Sv_pos</span><span class="p">,</span> <span class="n">prm</span><span class="o">.</span><span class="n">smooth_window</span><span class="p">)</span>
+
+        <span class="c1"># Normalize (to make heatmap resemble paper&#39;s &quot;bright band&quot; contrast; does not affect ω0)</span>
+        <span class="n">Sv_pos_norm</span> <span class="o">=</span> <span class="n">Sv_pos</span> <span class="o">/</span> <span class="p">(</span><span class="n">Sv_pos</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+        <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">Sv_pos_norm</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+        <span class="c1"># Extract dominant peak ω0: exclude near-zero peaks</span>
+        <span class="k">if</span> <span class="n">be</span> <span class="o">&lt;</span> <span class="n">beta_c</span><span class="p">:</span>
+            <span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mask_peak</span> <span class="o">=</span> <span class="n">omega_pos</span> <span class="o">&gt;=</span> <span class="n">prm</span><span class="o">.</span><span class="n">peak_exclude_omega</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_peak</span><span class="p">):</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Sv_pos_norm</span><span class="p">[</span><span class="n">mask_peak</span><span class="p">])</span>
+                <span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">omega_pos</span><span class="p">[</span><span class="n">mask_peak</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[fig3f] </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">prm</span><span class="o">.</span><span class="n">n_beta</span><span class="si">}</span><span class="s2"> beta/beta_c=</span><span class="si">{</span><span class="n">beta_ratio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> omega0=</span><span class="si">{</span><span class="n">omega0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># --------- Plot Fig3f-like ---------</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">))</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+        <span class="n">heat</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+        <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+        <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">beta_ratio</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">beta_ratio</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">omega_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">omega_pos</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdYlBu_r&quot;</span><span class="p">,</span>   <span class="c1"># Close to paper color scheme style</span>
+        <span class="n">vmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="mi">99</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\beta/\beta_c$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\omega\ (\mathrm</span><span class="si">{rad}</span><span class="s1">\ s^{-1})$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Numerics (own): Fig.3f-like spectrum heatmap&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Threshold dashed line (beta/beta_c=1)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Overlay ω0 black dots</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">beta_ratio</span><span class="p">,</span> <span class="n">omega0</span><span class="p">,</span> <span class="s2">&quot;ko&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">\,S_v(\omega)$ (norm.)&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out_png</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="c1"># 3) Main: One-click output GIF + Fig3f</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">out_gif</span> <span class="o">=</span> <span class="s2">&quot;crowd_oscillation.gif&quot;</span>
+    <span class="n">out_fig3f</span> <span class="o">=</span> <span class="s2">&quot;fig3f_like_numerics.png&quot;</span>
+
+    <span class="c1"># ---- A) GIF ----</span>
+    <span class="n">gp</span> <span class="o">=</span> <span class="n">GifParams</span><span class="p">(</span>
+        <span class="n">N</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+        <span class="n">relax_steps</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+        <span class="n">steps</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+        <span class="n">beta</span><span class="o">=</span><span class="mf">1.10</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">vx_f</span><span class="p">,</span> <span class="n">vy_f</span><span class="p">,</span> <span class="n">sp_f</span> <span class="o">=</span> <span class="n">simulate_lattice_for_gif</span><span class="p">(</span><span class="n">gp</span><span class="p">)</span>
+    <span class="n">render_gif</span><span class="p">(</span><span class="n">vx_f</span><span class="p">,</span> <span class="n">vy_f</span><span class="p">,</span> <span class="n">sp_f</span><span class="p">,</span> <span class="n">gp</span><span class="p">,</span> <span class="n">out_gif</span><span class="o">=</span><span class="n">out_gif</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[done] saved </span><span class="si">{</span><span class="n">out_gif</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ---- B) Fig3f-like ----</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">Fig3FParams</span><span class="p">(</span>
+        <span class="n">beta_ratio_min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">beta_ratio_max</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">n_beta</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span>
+        <span class="n">n_relax</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
+        <span class="n">n_steps</span><span class="o">=</span><span class="mi">60000</span><span class="p">,</span>
+        <span class="n">n_run</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">omega_max</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span>
+        <span class="n">smooth_window</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+        <span class="n">peak_exclude_omega</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">compute_fig3f_like</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">out_png</span><span class="o">=</span><span class="n">out_fig3f</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[done] saved </span><span class="si">{</span><span class="n">out_fig3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="运行代码输出" src="../assets/images/crowd_oscillation.gif" /></p>
+<p>人群振荡图，背景颜色是局域速度幅值 <span class="arithmatex">\(|\mathbf{v}|\)</span> 的热力图（蓝→红表示从慢到快），黑色箭头给出速度方向；速度热点在空间中出现、迁移、合并或消散；更重要的是，箭头方向会在某些区域呈现随时间的协调变化。速度热点的空间异质性和方向相关在高密度下显著增强，意义不在于展示相分离域，而是非平衡系统可以从近乎静止的噪声态，突然进入有组织的宏观运动态，它对应的是<strong>动力学不稳定性</strong>的空间表现，而不是热力学自由能最小化的结果。</p>
+<p><img alt="运行代码输出" src="../assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png" /></p>
+<p>频谱热力图横轴是控制参数 <span class="arithmatex">\(\beta/\beta_c\)</span>，纵轴是频率 <span class="arithmatex">\(\omega\)</span>，颜色表示速度谱 <span class="arithmatex">\(S_v(\omega)\)</span> 的对数强度（归一化与取 <span class="arithmatex">\(\log_{10}\)</span> 来突出谱峰结构）。黑色竖虚线标出 <span class="arithmatex">\(\beta/\beta_c=1\)</span> 的临界点；黑点是每个参数下谱峰所在的主频 <span class="arithmatex">\(\omega_0\)</span>。临界点左侧谱基本“平”，系统没有稳定的有限频率特征；临界点右侧出现清晰的有限频率峰带，且 <span class="arithmatex">\(\omega_0\)</span> 随参数变化缓慢移动——这就是“振荡相”的频谱指纹。</p>
+<p>在 Cahn–Hilliard 中学到的色散关系 <span class="arithmatex">\(\sigma(q)\)</span> 与最快增长模态 <span class="arithmatex">\(q_{\max}\)</span>是空间Fourier模态选择；而这里展示的是<strong>时间Fourier模态选择</strong>，系统自发选出 <span class="arithmatex">\(\omega_0\)</span>。因此，<span class="arithmatex">\(\omega_0\)</span> 扮演了类似“序参量”的角色：它把“噪声态 → 振荡态”的动力学相变定量化了。</p>
+<h1 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>这节课通过引入 Ginzburg-Landau 自由能泛函，构建了从微观离散模型通向宏观连续场论的桥梁，成功将热力学相变的静态图像与非平衡输运的动力学过程有机结合。课程首先利用泰勒展开将 Flory-Huggins 自由能简化为 Landau 多项式形式，明确了相变的热力学驱动力源于局域自由能的凹性（<span class="arithmatex">\(f''(c) &lt; 0\)</span>）。在此基础上，通过引入梯度项来描述空间非均匀性的能量代价，不仅完成了自由能的泛函化，更从理论上确定了相界面的宽度与张力等关键物理属性。</p>
+<p>在动力学层面，基于质量守恒律导出了软物质物理中的基石方程——Cahn-Hilliard 方程（Model B）。这一四阶非线性偏微分方程揭示了相分离独特的物理机制：由“负扩散”项驱动的逆向物质输运导致了浓度的自发聚集，而由“双拉普拉斯”项提供的梯度惩罚则稳定了高频模态，防止了奇异性的产生。线性稳定性分析进一步阐明，Spinodal 区域内的相分离并非杂乱无章的随机过程，而是由系统自发选择最快生长波长 <span class="arithmatex">\(\lambda_{max}\)</span> 主导的动力学过程，这一“长波选择机制”解释了实验中广泛观测到的特征迷宫状双连续结构。</p>
+<p>需要指出的是，这节课的讨论局限于无能垒的 Spinodal 不稳定区域。在相图的亚稳区（<span class="arithmatex">\(f'' &gt; 0\)</span>），线性稳定性分析预言均匀态是稳定的，但物理现实中系统仍可通过稀有的热涨落跨越能垒发生相变。下一讲将转向这一完全不同的动力学路径，深入探讨经典的成核理论 (Classical Nucleation Theory)、Gibbs-Thomson 效应以及临界核的形成机制，分析单个液滴在亚稳态背景下的生长与消散行为。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1474 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/">
+      
+      
+        <link rel="prev" href="../1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/">
+      
+      
+        <link rel="next" href="../3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/">
+      
+      
+        
+          <link rel="alternate" href="../../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>2. 动力系统：从物理相变到演化博弈 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. 动力系统：从物理相变到演化博弈
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>第1讲</strong>课程导探讨了自组织现象的核心思想：<strong>普适性 (universality)</strong> 从鸟群的集体飞翔到细胞内蛋白质的精确定位，宏观有序模式的涌现似乎遵循着不依赖于微观细节的普适规律。能否为这些看似无关的系统建立一个统一的、具有预测能力的理论框架？ 为此课程将分三个理论部分展开：</p>
+<ol>
+<li>
+<p>动力系统理论 (Dynamic Systems Theory) </p>
+</li>
+<li>
+<p>相变与集体现象 (Phase Transitions &amp; Collective Phenomena)</p>
+</li>
+<li>
+<p>模式形成与自组织 (Pattern Formation &amp; Self-Organisation)</p>
+</li>
+</ol>
+<p>第2讲开始“动力系统”部分的介绍。这部分将引入一套数学语言，用以描述系统状态如何随时间<strong>演化 (evolution)</strong>、<strong>变化 (change)</strong> 和<strong>稳定 (stabilization)</strong>。这节课将从两个截然不同的科学领域出发，展示动力系统理论的威力与普适性：</p>
+<ol>
+<li>
+<p><strong>物理学视角下的相变理论：</strong> 以<strong>金茨堡-朗道理论 (Ginzburg-Landau Theory)</strong> 为例，展示如何仅基于对称性和观测现象等基本物理原则，构建一个描述物质从无序到有序转变的唯象模型。</p>
+</li>
+<li>
+<p><strong>生物学视角下的策略演化：</strong> 以<strong>演化博弈论 (Evolutionary Game Theory)</strong> 为例，展示如何用数学模型描述生物种群中不同策略（如合作与背叛）的动态竞争与最终命运。</p>
+</li>
+</ol>
+<p>尽管这两个理论的起源和应用场景大相径庭，但它们都体现了<strong>唯象建模 (phenomenological modeling)</strong> 的精髓：通过识别系统中关键的宏观自由度（序参量 <span class="arithmatex">\(\phi\)</span> 或策略频率 <span class="arithmatex">\(x\)</span>），并为其建立动力学方程，从而绕开复杂的微观细节，直击集体行为的本质。无论是描述磁铁的相变还是种群的演化，其背后都隐藏着相同的数学结构——<strong>非线性常微分方程 (Nonlinear Ordinary Differential Equations)</strong>，以及<strong>相空间 (phase space)</strong>、<strong>吸引子 (attractors)</strong>（或不动点）和<strong>分岔 (bifurcations)</strong> 等共通的几何概念。这些概念也为后续课程深入探讨不动点的稳定性和分岔的具体类型（如鞍结分岔、叉式分岔）奠定了基础。</p>
+<h1 id="1-">1. 金茨堡-朗道理论：一种关于有序的物理学<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h1>
+<p>这小节将介绍第一个核心理论框架——金茨堡-朗道 (Ginzburg-Landau) 理论。这是统计物理学中描述相变的经典理论，也是<strong>唯象建模 (phenomenological modeling)</strong> 的典范。它绕开了系统微观细节，转而从宏观的<strong>对称性 (symmetry)</strong> 和观测现象出发，构建一个有效的自由能函数，以此来描述和预测系统从无序到有序的转变。</p>
+<h2 id="11">1.1 序参量：将集体行为浓缩于单一变量<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>为了描述一个宏观系统的状态，追踪其内部每一个微观组分（如原子、分子）的运动是不可行的。因此，需要一种如导论中提到的“粗粒化 (coarse-graining)”描述方式。金茨堡-朗道理论的核心起点是引入一个宏观变量，称为<strong>序参量 (order parameter)</strong> ，记为 <span class="arithmatex">\(\phi\)</span>。</p>
+<p>序参量是一个精心选择的物理量，它能够量化系统整体的有序程度。它的定义具有以下关键特征：</p>
+<ul>
+<li>
+<p>在系统的<strong>无序相</strong>（通常在高温或高熵状态，如顺磁相），序参量的值为<strong>零</strong>。</p>
+</li>
+<li>
+<p>在系统的<strong>有序相</strong>（通常在低温或低熵状态，如铁磁相），序参量的值<strong>非零</strong>。</p>
+</li>
+</ul>
+<p>例如，在铁磁性材料中，序参量可以是净磁化强度 <span class="arithmatex">\(M\)</span>。在顺磁相（高温, <span class="arithmatex">\(T &gt; T_c\)</span>），各个原子的磁矩方向随机，宏观净磁化为零；而在铁磁相（低温, <span class="arithmatex">\(T &lt; T_c\)</span>），磁矩趋于同向排列，系统出现非零的净磁化强度。同样，对于气液相变，序参量可以是液体和气体密度之差。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/02_001_04a90d3c-5c6a-466c-8355-9c6213a40d8d.jpg" /></p>
+<p>通过引入序参量 <span class="arithmatex">\(\phi\)</span>，一个拥有海量微观自由度的复杂系统被简化为一个仅由单一变量描述的宏观实体，为后续构建能量模型奠定了基础。</p>
+<h2 id="12">1.2 构建自由能：由对称性决定的能量景观<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>在确定了序参量后，下一步是构建一个描述系统能量的函数，即<strong>自由能 (free energy)</strong> <span class="arithmatex">\(f(\phi)\)</span>。在热力学中，系统的稳定平衡态对应于自由能的<strong>最小值点</strong>。因此，这个函数 <span class="arithmatex">\(f(\phi)\)</span> 可以被想象成一个“能量景观”，系统的状态会自发地“滚向”景观中的最低点。</p>
+<p>根据朗道的假设，在相变临界点附近，序参量 <span class="arithmatex">\(\phi\)</span> 的值很小。因此，自由能 <span class="arithmatex">\(f(\phi)\)</span> 可以被（解析地）展开为关于 <span class="arithmatex">\(\phi\)</span> 的泰勒级数。这个展开式的具体形式受到系统<strong>对称性 (symmetry)</strong> 的严格约束。</p>
+<p>以具有“上/下”对称性的伊辛模型为例，系统在没有外磁场时，将所有自旋反转（<span class="arithmatex">\(\phi \rightarrow -\phi\)</span>）不会改变系统的能量。这种对称性反映在自由能函数上，即 <span class="arithmatex">\(f(\phi)\)</span> 必须满足 <span class="arithmatex">\(f(\phi) = f(-\phi)\)</span> 的关系，也就是说，自由能必须是 <span class="arithmatex">\(\phi\)</span> 的<strong>偶函数</strong>。这个强大的对称性约束排除了泰勒展开中所有奇数次幂的项（如 <span class="arithmatex">\(\phi, \phi^3, \phi^5\)</span> 等），只保留偶数次幂的项。</p>
+<p>因此，对于这类系统，自由能函数 <span class="arithmatex">\(f(\phi)\)</span>（在板书中也记为 <span class="arithmatex">\(\mathcal{V}(\phi)\)</span>）最一般的形式可以写为：</p>
+<div class="arithmatex">\[f(\phi) = \frac{1}{2} r \, \phi^2 + \frac{1}{4} u \, \phi^4 + \frac{1}{6} v \, \phi^6 + \dots\]</div>
+<p>这是一个截断的泰勒级数，通常保留到 <span class="arithmatex">\(\phi^6\)</span> 项足以描述大多数一级和二级相变。</p>
+<p>常数项 <span class="arithmatex">\(f(0)\)</span> 被省略了，因为它只是对能量零点的平移，不影响能量景观的形状和最小值点的位置。</p>
+<p>系数 <span class="arithmatex">\(\frac{1}{2}, \frac{1}{4}, \frac{1}{6}\)</span> 是历史约定，它们使得后续在计算动力学方程（求导 <span class="arithmatex">\(\frac{\partial f}{\partial \phi}\)</span>）时形式更简洁。</p>
+<p>这个方程是金茨堡-朗道理论的核心。它并非从第一性原理推导而来，而是一个基于对称性和解析性假设构建的<strong>唯象模型</strong>。其中的系数 <span class="arithmatex">\(r, u, v\)</span> 是唯象参数，其具体数值需要通过实验或更底层的微观理论来确定。</p>
+<h2 id="13-r-u-v">1.3 唯象参数 (r, u, v) 的物理意义与调控作用<a class="headerlink" href="#13-r-u-v" title="Permanent link">&para;</a></h2>
+<p>自由能函数中的参数 <span class="arithmatex">\(r, u, v\)</span> 共同决定了能量景观的形状，从而控制着系统的相变行为。</p>
+<p><strong><span class="arithmatex">\(r\)</span> (控制参数):</strong> 这个参数是相变的主要驱动力，它直接关联于系统与临界点的"距离"。在物理学中，它通常与温度 <span class="arithmatex">\(T\)</span> 线性相关，可以近似写为 <span class="arithmatex">\(r \propto (T - T_c)\)</span>，其中 <span class="arithmatex">\(T_c\)</span> 是临界温度。<span class="arithmatex">\(r\)</span> 的正负号决定了能量景观在原点 <span class="arithmatex">\(\phi=0\)</span> 附近的基本形态：</p>
+<p>当 <span class="arithmatex">\(r &gt; 0\)</span> (<span class="arithmatex">\(T &gt; T_c\)</span>) 时，<span class="arithmatex">\(\phi^2\)</span> 项为正，在 <span class="arithmatex">\(\phi=0\)</span> 附近 <span class="arithmatex">\(f(\phi) \approx \frac{1}{2} r \phi^2\)</span> 是一个开口向上的抛物线。此时 <span class="arithmatex">\(\phi=0\)</span> 是自由能唯一的最小值点。这对应于系统稳定的<strong>无序相</strong>（例如顺磁相）。</p>
+<p>当 <span class="arithmatex">\(r &lt; 0\)</span> (<span class="arithmatex">\(T &lt; T_c\)</span>) 时，<span class="arithmatex">\(\phi^2\)</span> 项为负，原点 <span class="arithmatex">\(\phi=0\)</span> 从最小值点变为局部最大值点（变得不稳定）。能量景观在两侧出现两个新的对称的最小值点，位于 <span class="arithmatex">\(\phi_\pm = \pm \phi_0\)</span>。这对应于系统进入了稳定的<strong>有序相</strong>（例如铁磁相）。系统必须“选择”其中一个最小值（<span class="arithmatex">\(+\phi_0\)</span> 或 <span class="arithmatex">\(-\phi_0\)</span>），这个过程被称为<strong>自发对称性破缺 (spontaneous symmetry breaking)</strong> 。</p>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/02_002_99c02326-1d70-4877-bf31-0271539a03a9.jpg" /></p>
+<p><strong><span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> (稳定性参数):</strong> 这两个参数决定了能量景观的高阶形状（即远离 <span class="arithmatex">\(\phi=0\)</span> 时的行为），并确保能量有下界（即 <span class="arithmatex">\(f(\phi) \rightarrow \infty\)</span> 当 <span class="arithmatex">\(|\phi| \rightarrow \infty\)</span> 时），从而决定了相变的类型：</p>
+<p>当 <span class="arithmatex">\(u &gt; 0\)</span> 时，<span class="arithmatex">\(\phi^4\)</span> 项保证了当 <span class="arithmatex">\(\phi\)</span> 很大时自由能是正的，使得能量景观有界。在这种情况下，当 <span class="arithmatex">\(r\)</span> 从正变负时，序参量 <span class="arithmatex">\(\phi_0\)</span> 从零连续地变为非零值，这对应于<strong>二级相变 (second-order phase transition)</strong> 或称连续相变。</p>
+<p>当 <span class="arithmatex">\(u &lt; 0\)</span> 时，仅有 <span class="arithmatex">\(\phi^4\)</span> 项会使系统在 <span class="arithmatex">\(r&lt;0\)</span> 时不稳定（能量会奔向负无穷）。此时必须引入一个 <span class="arithmatex">\(v &gt; 0\)</span> 的 <span class="arithmatex">\(\phi^6\)</span> 项来确保能量有下界。这种由 <span class="arithmatex">\(r, u, v\)</span> 共同构成的复杂能量景观会导致序参量发生不连续的跳变，对应于<strong>一级相变 (first-order phase transition)</strong> 或称不连续相变。</p>
+<h2 id="14-python-">1.4 Python模拟：可视化金茨堡-朗道势<a class="headerlink" href="#14-python-" title="Permanent link">&para;</a></h2>
+<p>下面的代码实践可视化了金兹堡-朗道(Ginzburg-Landau)理论中的自由能势函数随温度变化的行为。它展示了两种不同温度条件下的系统状态：当温度高于临界温度(<span class="arithmatex">\(T&gt;T_c\)</span>)时，系统只有一个全局最小值点，对应于对称相；当温度低于临界温度($T&lt;T_c <span class="arithmatex">\()时，系统出现两个对称的最小值点，表示系统发生了对称性破缺，进入了有序相。这种可视化帮助我们理解相变过程中系统的动力学行为和稳定性，以及序参量（在这里是\)</span>\phi$）如何随着温度变化而改变其平衡态。
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ginzburg_landau_potential</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the Ginzburg-Landau free energy potential (v=0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">4</span>
+
+<span class="c1"># --- Use dark background as a base ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Create a single figure and axes with default dark background ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># --- Parameters ---</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">phi_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span> <span class="c1"># Focus on the central region</span>
+
+<span class="c1"># --- Plot the T &gt; Tc (r &gt; 0) case (White Curve) ---</span>
+<span class="n">r_pos</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">f_pos</span> <span class="o">=</span> <span class="n">ginzburg_landau_potential</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">r_pos</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="c1"># Plot in white, mimicking the professor&#39;s drawing</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">f_pos</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="c1"># Add text annotation</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;$T &gt; T_c$ ($r &gt; 0$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+
+<span class="c1"># --- Plot the T &lt; Tc (r &lt; 0) case (Yellow Curve) ---</span>
+<span class="n">r_neg</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">f_neg</span> <span class="o">=</span> <span class="n">ginzburg_landau_potential</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">r_neg</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="c1"># Plot the potential curve in yellow</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">f_neg</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="c1"># Add text annotation</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;$T &lt; T_c$ ($r &lt; 0$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># --- Calculate minima for T &lt; Tc ---</span>
+<span class="n">minima_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">r_neg</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span>
+<span class="n">minima_f</span> <span class="o">=</span> <span class="n">ginzburg_landau_potential</span><span class="p">(</span><span class="n">minima_phi</span><span class="p">,</span> <span class="n">r_neg</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+
+<span class="c1"># --- Add text annotations like the blackboard ---</span>
+<span class="c1"># Add &quot;f&quot; (for the y-axis)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">minima_f</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="s1">&#39;$f$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="c1"># Add &quot;phi&quot; (for the x-axis)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;$\phi$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="c1"># Add &quot;phi_+&quot; and &quot;phi_-&quot; for the T &lt; Tc minima</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">minima_phi</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;$\phi_+$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">minima_phi</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;$\phi_-$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="c1"># Add small vertical ticks for the minima</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">minima_phi</span><span class="p">,</span> <span class="n">minima_phi</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="n">minima_phi</span><span class="p">,</span> <span class="o">-</span><span class="n">minima_phi</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># --- Add arrows (annotations) to show dynamics for T &lt; Tc ---</span>
+<span class="n">arrow_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Arrow from (phi &gt; phi_+) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">minima_phi</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="c1"># Arrow from (phi &lt; -phi_+) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">minima_phi</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="c1"># Arrow from (0 &lt; phi &lt; phi_+) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="c1"># Arrow from (-phi_+ &lt; phi &lt; 0) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+
+
+<span class="c1"># --- Clean up the plot ---</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Turn off grid</span>
+<span class="c1"># 显示坐标轴刻度标签</span>
+<span class="c1"># ax.set_xticklabels([]) </span>
+<span class="c1"># ax.set_yticklabels([]) </span>
+
+<span class="c1"># 显示坐标轴边框</span>
+<span class="c1"># ax.spines[&#39;top&#39;].set_visible(False)</span>
+<span class="c1"># ax.spines[&#39;right&#39;].set_visible(False)</span>
+<span class="c1"># ax.spines[&#39;bottom&#39;].set_visible(False)</span>
+<span class="c1"># ax.spines[&#39;left&#39;].set_visible(False)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 设置坐标轴标签</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\phi$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$f$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Set plot limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">f_neg</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">)</span> <span class="c1"># Adjust y-limit to show both curves</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ginzburg-Landau Potential: $T &gt; T_c$ vs $T &lt; T_c$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Ginzburg-Landauyon.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></p>
+<p><img alt="运行代码输出" src="../../../cn/assets/images/02_003_621bc300-3817-4cf6-bb3a-baaced59b8f5.png" /></p>
+<p>相变的核心思想：<strong>相变是能量景观的拓扑形变</strong>。</p>
+<p><strong>白色虚线</strong>代表高温 <span class="arithmatex">\(T &gt; T_c\)</span>（<span class="arithmatex">\(r &gt; 0\)</span>）时的状态。此时自由能 <span class="arithmatex">\(f\)</span> 是一个单井势，其唯一的能量最低点（稳定态）在 <span class="arithmatex">\(\phi=0\)</span>，这对应于系统的<strong>无序相</strong>（例如顺磁相）。</p>
+<p><strong>黄色实线</strong>代表低温 <span class="arithmatex">\(T &lt; T_c\)</span>（<span class="arithmatex">\(r &lt; 0\)</span>）时的状态。当温度降低到临界点以下，能量景观发生了质变：原先在 <span class="arithmatex">\(\phi=0\)</span> 处的稳定点“凸起”成一个不稳定的局部最高点，同时在两侧对称地“凹陷”出两个新的、能量更低（<span class="arithmatex">\(f &lt; 0\)</span>）的最低点 <span class="arithmatex">\(\phi_-\)</span> 和 <span class="arithmatex">\(\phi_+\)</span>。这两个新的井底代表了系统“自发对称性破缺”后形成的两个等价的<strong>有序相</strong>（例如磁化方向“上”或“下”），系统必须选择其中一个。</p>
+<p>整个相变过程就被可视化为能量势从白色曲线平滑地转变为黄色曲线的过程，这个转变是由控制参数 <span class="arithmatex">\(r\)</span> 穿越 <span class="arithmatex">\(r=0\)</span> 这个临界点（即分岔点）所驱动的。</p>
+<h1 id="2">2. 弛豫动力学：通往平衡之路<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>通过金茨堡-朗道理论，成功地将相变问题简化为对一个“能量景观”——即自由能 <span class="arithmatex">\(f(\phi)\)</span> ——的分析。这个静态的景观告诉了我们系统所有可能的<strong>平衡态</strong>（即 <span class="arithmatex">\(f(\phi)\)</span> 的极值点）以及它们的<strong>相对稳定性</strong>（即 <span class="arithmatex">\(f(\phi)\)</span> 的最小值点）。然而，这个模型并没有回答一个关键问题：如果系统一开始不处于最低点，它将<strong>如何</strong>随时间演化？演化到最低点<strong>需要多长时间</strong>？</p>
+<p>本节的目的就是引入<strong>动力学 (dynamics)</strong> ，将静态的能量景观转变为一个动态的演化过程。我们将推导出一个关于序参量 <span class="arithmatex">\(\phi(t)\)</span> 随时间变化的<strong>运动方程 (equation of motion)</strong> ，并证明这个方程确实会引导系统“滚向”自由能的最低点。</p>
+<h2 id="21">2.1 最小自由能原理与翁萨格假设<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>对于一个与环境（热库）有能量交换的<strong>耗散系统 (dissipative system)</strong> ，热力学第二定律的一个推论是，系统会自发地向自由能更低的状态演化，最终达到自由能最小的平衡态。</p>
+<p>那么，如何将这个热力学趋势转化为一个具体的数学方程呢？翁萨格 (Onsager) 的理论为此提供了关键的唯象假设。该假设认为，系统状态的变化率（“流”）正比于将其推向平衡态的“热力学力”。</p>
+<ul>
+<li>
+<p><strong>热力学力 (Thermodynamic Force):</strong> 在金茨堡-朗道的能量景观中，推动序参量 <span class="arithmatex">\(\phi\)</span> 变化的“力”可以被定义为自由能景观的<strong>负梯度</strong>（即最陡峭的下坡方向）：<span class="arithmatex">\(F_{thermo} = - \frac{\partial f}{\partial \phi}\)</span>。</p>
+</li>
+<li>
+<p><strong>线性响应 (Linear Response):</strong> 翁萨格假设变化率 <span class="arithmatex">\(\partial_t \phi\)</span> 与这个力成正比：<span class="arithmatex">\(\partial_t \phi \propto F_{thermo}\)</span>。</p>
+</li>
+</ul>
+<p>这个假设是连接热力学（静态的 <span class="arithmatex">\(f\)</span>）和动力学（动态的 <span class="arithmatex">\(\partial_t \phi\)</span>）的桥梁。</p>
+<h2 id="22-partial_t-phi-gamma-fracpartial-fpartial-phi">2.2 动力学方程：<span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span><a class="headerlink" href="#22-partial_t-phi-gamma-fracpartial-fpartial-phi" title="Permanent link">&para;</a></h2>
+<p>基于翁萨格的线性响应假设，可以写出描述序参量 <span class="arithmatex">\(\phi\)</span> 随时间演化的最简单的动力学方程，这在临界动力学中被称为<strong>模型A (Model A)</strong> ，或称纯弛豫动力学：</p>
+<div class="arithmatex">\[\partial_t \phi(t) = -\Gamma \frac{\partial f}{\partial \phi}\]</div>
+<p>这个方程的各项具有清晰的物理意义：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\partial_t \phi(t)\)</span>：序参量随时间的变化率。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\frac{\partial f}{\partial \phi}\)</span>：自由能景观的<strong>梯度</strong>或斜率。当斜率为零时（在景观的最低点或最高点），热力学力为零，<span class="arithmatex">\(\partial_t \phi = 0\)</span>，动力学停止。这些点因此被称为<strong>不动点 (fixed points)</strong> 。</p>
+</li>
+<li>
+<p>负号 "<span class="arithmatex">\(-\)</span>"：确保了系统的演化方向。如果 <span class="arithmatex">\(\phi\)</span> 位于能量最低点的右侧，则斜率 <span class="arithmatex">\(\frac{\partial f}{\partial \phi} &gt; 0\)</span>，导致 <span class="arithmatex">\(\partial_t \phi &lt; 0\)</span>，<span class="arithmatex">\(\phi\)</span> 将减小（向左移动）；反之亦然。这保证了系统总是沿着能量景观的<strong>下坡方向</strong>演化。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\Gamma\)</span>：一个正的<strong>动力学系数 (kinetic coefficient)</strong> ，也称为<strong>迁移率 (mobility)</strong> 。它描述了系统对热力学力的响应速度，决定了弛豫过程的<strong>时间尺度</strong> 。<span class="arithmatex">\(\Gamma\)</span> 越大，系统向平衡态“滚动”得越快。</p>
+</li>
+</ul>
+<p>将第一节中构建的自由能 <span class="arithmatex">\(f(\phi) = \frac{1}{2} r \, \phi^2 + \frac{1}{4} u \, \phi^4 + \frac{1}{6} v \, \phi^6\)</span> 代入上式，求导后便得到了一个具体的<strong>常微分方程 (ODE)</strong> ：</p>
+<div class="arithmatex">\[\partial_t \phi = -\Gamma \left(r\phi + u\phi^3 + v\phi^5 \right)\]</div>
+<p>此处的 <span class="arithmatex">\(\phi^5\)</span> 项自于对 <span class="arithmatex">\(\frac{1}{6} v \phi^6\)</span> 项的求导。至此，复杂的相变问题被成功地简化为了求解这个非线性常微分方程的动力学问题。</p>
+<h2 id="23">2.3 自由能作为李雅普诺夫函数<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>我们已经构建了一个动力学方程，它“看起来”总是驱使系统走向能量最低点。但能否在数学上严格证明这一点呢？这便是通过将自由能 <span class="arithmatex">\(f\)</span> 识别为一个<strong>李雅普诺夫函数 (Lyapunov function)</strong> 来实现的。</p>
+<p>李雅普诺夫函数 <span class="arithmatex">\(V(x)\)</span> 是动力系统理论中一个强大的工具，用于证明平衡点的稳定性，而无需直接求解微分方程。一个函数要成为李雅普诺夫函数，必须满足两个核心条件：</p>
+<p>1.<strong>正定性：</strong> 函数在平衡点处有最小值（好比一个碗的形状）。</p>
+<p>2.<strong>导数负定性：</strong> 函数沿着系统演化的轨迹，其时间导数<strong>永不增加</strong>（<span class="arithmatex">\(\frac{dV}{dt} \le 0\)</span>）。</p>
+<p>现在来检验金茨堡-朗道自由能 <span class="arithmatex">\(f(\phi)\)</span> 是否满足第二个条件。其随时间的变化率可以通过链式法则计算：</p>
+<div class="arithmatex">\[\frac{df}{dt} = \frac{\partial f}{\partial \phi} \frac{d\phi}{dt}\]</div>
+<p>接着，将我们推导出的动力学方程 <span class="arithmatex">\(\frac{d\phi}{dt} = -\Gamma \frac{\partial f}{\partial \phi}\)</span> 代入上式：</p>
+<div class="arithmatex">\[\frac{df}{dt} = \frac{\partial f}{\partial \phi} \left( -\Gamma \frac{\partial f}{\partial \phi} \right) = -\Gamma \left( \frac{\partial f}{\partial \phi} \right)^2\]</div>
+<ul>
+<li>
+<p>动力学系数 <span class="arithmatex">\(\Gamma\)</span> 是一个正数 (<span class="arithmatex">\(\Gamma &gt; 0\)</span>)。</p>
+</li>
+<li>
+<p>平方项 <span class="arithmatex">\(\left( \frac{\partial f}{\partial \phi} \right)^2\)</span> 永远是<strong>非负的</strong> (<span class="arithmatex">\(\ge 0\)</span>)。</p>
+</li>
+</ul>
+<p>因此，我们可以得出结论：</p>
+<div class="arithmatex">\[\frac{df}{dt} = - (\text{正数}) \times (\text{非负数}) \le 0\]</div>
+<p>这严格证明了自由能 <span class="arithmatex">\(f\)</span> 在弛豫动力学过程中<strong>永不增加</strong>。系统状态点永远不会“爬坡”，只会停留在原地或向更低的能量水平移动，即“<strong>在自由能景观上下坡</strong>” (downhill on the free energy landscape)。</p>
+<p>动力学过程<strong>何时停止</strong>呢？当且仅当 <span class="arithmatex">\(\frac{df}{dt} = 0\)</span> 时。这要求 <span class="arithmatex">\(\frac{\partial f}{\partial \phi} = 0\)</span>，而这正是第一节中定义的静态平衡点（不动点）。这个证明将第一节的静态分析（寻找 <span class="arithmatex">\(f\)</span> 的最小值）和第二节的动力学分析（<span class="arithmatex">\(\phi\)</span> 的时间演化）严谨地联系在了一起。</p>
+<h1 id="3">3. 相变即分岔<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>在前两节中，我们建立了金茨堡-朗道理论的静态和动态图像。第一节展示了系统的<strong>静态平衡态</strong>由自由能 <span class="arithmatex">\(f(\phi)\)</span> 的<strong>能量景观</strong>决定。第二节为其增加了<strong>动力学</strong>，即 <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span>，展示了系统<strong>如何演化</strong>以达到这些平衡态。</p>
+<p>本节将这两个概念联系起来，揭示一个深刻的等价关系：物理学中的<strong>相变</strong>，在数学上正是一种被称为<strong>分岔 (bifurcation)</strong> 的现象。我们将看到，能量景观的拓扑形变（第一节）与动力学不动点（第二节）的定性改变，是同一个故事的两种表述。</p>
+<h2 id="31">3.1 动力系统中的分岔<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p>在动力系统理论中，<strong>分岔</strong>指的是当系统的某个<strong>控制参数</strong>（如金茨堡-朗道理论中的 <span class="arithmatex">\(r\)</span>）平滑地变化并通过一个临界值时，系统行为发生<strong>定性改变</strong>的现象。这里的"定性改变"不是指数值的微小变化，而是指系统<strong>不动点 (fixed points)</strong>（或称平衡点）的<strong>数量</strong>或其<strong>稳定性</strong>发生了根本性的改变。</p>
+<h2 id="32-">3.2 金茨堡-朗道理论中的叉式分岔<a class="headerlink" href="#32-" title="Permanent link">&para;</a></h2>
+<p>金茨堡-朗道动力学（二级相变模型）是<strong>超临界叉式分岔 (supercritical pitchfork bifurcation)</strong> 的一个经典范例。</p>
+<p>首先，寻找系统的不动点 <span class="arithmatex">\(\phi^*\)</span>。不动点是系统状态不再随时间变化的点，即 <span class="arithmatex">\(\frac{d\phi}{dt} = 0\)</span>。根据第二节的动力学方程（为简单起见，设 <span class="arithmatex">\(v=0\)</span>）：</p>
+<div class="arithmatex">\[\partial_t \phi = -\Gamma \left(r\phi + u\phi^3 \right)\]</div>
+<p>令 <span class="arithmatex">\(\partial_t \phi = 0\)</span>，由于 <span class="arithmatex">\(\Gamma &gt; 0\)</span>，我们只需要求解：</p>
+<div class="arithmatex">\[r\phi + u\phi^3 = 0 \quad \implies \quad \phi(r + u\phi^2) = 0\]</div>
+<p>现在，我们来分析不动点 <span class="arithmatex">\(\phi^*\)</span> 如何随控制参数 <span class="arithmatex">\(r\)</span> 的变化而改变（假设 <span class="arithmatex">\(u&gt;0\)</span>）：</p>
+<p><strong>当 <span class="arithmatex">\(r &gt; 0\)</span> (<span class="arithmatex">\(T &gt; T_c\)</span>) 时：</strong>
+  * 由于 <span class="arithmatex">\(u &gt; 0\)</span> 且 <span class="arithmatex">\(\phi^2 \ge 0\)</span>，项 <span class="arithmatex">\(r + u\phi^2\)</span> 恒为正。</p>
+<ul>
+<li>
+<p>因此，方程 <span class="arithmatex">\(\phi(r + u\phi^2) = 0\)</span> 唯一的实数解是 <span class="arithmatex">\(\phi^* = 0\)</span>。</p>
+</li>
+<li>
+<p><strong>稳定性：</strong> 这个不动点是<strong>稳定</strong>的。从能量景观上看，它是自由能唯一的最小值点（单井）。对应于物理上的<strong>无序相</strong>。</p>
+</li>
+</ul>
+<p><strong>当 <span class="arithmatex">\(r &lt; 0\)</span> (<span class="arithmatex">\(T &lt; T_c\)</span>) 时：</strong>
+  * 此时方程变为 <span class="arithmatex">\(\phi(r + u\phi^2) = 0\)</span>，它有<strong>三个</strong>实数解：</p>
+<div class="highlight"><pre><span></span><code>  1. $\phi_0^* = 0$
+
+  2. $r + u\phi^2 = 0 \implies \phi^2 = -r/u \implies \phi_\pm^* = \pm\sqrt{-r/u}$
+</code></pre></div>
+<p><strong>稳定性：</strong>
+  * 原来的不动点 <span class="arithmatex">\(\phi_0^* = 0\)</span> 现在变为<strong>不稳定</strong>的（它成了能量景观上的局部最高点）。</p>
+<ul>
+<li>
+<p>两个新出现的不动点 <span class="arithmatex">\(\phi_\pm^*\)</span> 则是<strong>稳定</strong>的（它们是能量景观中的两个新的最小值点）。</p>
+</li>
+<li>
+<p>这对应于物理上的<strong>有序相</strong>，系统发生了“自发对称性破缺”，必须选择 <span class="arithmatex">\(\phi_+\)</span> 或 <span class="arithmatex">\(\phi_-\)</span> 两个等价的稳定状态之一。</p>
+</li>
+</ul>
+<p><strong>物理与数学的对应：</strong>
+这个过程清晰地表明，物理上的<strong>二级相变</strong>——即系统从一个唯一的稳定状态（无序相）转变为两个新的稳定状态（有序相）——在数学上正是一个<strong>叉式分岔</strong>：一个稳定的不动点在 <span class="arithmatex">\(r=0\)</span> 处失稳，同时“分岔”出两个新的稳定不动点和一个不稳定的不动点。</p>
+<h2 id="33-python">3.3 Python模拟：绘制分岔图<a class="headerlink" href="#33-python" title="Permanent link">&para;</a></h2>
+<p>叉式分岔的行为可以通过分岔图直观地展示出来。该图描绘了系统不动点 <span class="arithmatex">\(\phi^*\)</span> 的位置（纵轴）如何随控制参数 <span class="arithmatex">\(r\)</span>（横轴）的变化而改变。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define parameters</span>
+<span class="n">r_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># --- Calculate fixed points ---</span>
+
+<span class="c1"># 1. For r &lt; 0 (Ordered Phase)</span>
+<span class="n">r_neg</span> <span class="o">=</span> <span class="n">r_range</span><span class="p">[</span><span class="n">r_range</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># The two new stable branches</span>
+<span class="n">phi_stable_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">r_neg</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span>
+<span class="n">phi_stable_neg</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">r_neg</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span>
+<span class="c1"># The phi=0 branch becomes unstable</span>
+<span class="n">phi_unstable_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_neg</span><span class="p">)</span>
+
+<span class="c1"># 2. For r &gt;= 0 (Disordered Phase)</span>
+<span class="n">r_pos</span> <span class="o">=</span> <span class="n">r_range</span><span class="p">[</span><span class="n">r_range</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># The phi=0 branch is stable</span>
+<span class="n">phi_stable_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_pos</span><span class="p">)</span>
+
+
+<span class="c1"># --- Create the plot ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># --- Plot the branches with visible colors ---</span>
+
+<span class="c1"># Plot stable fixed points (solid bright lines)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_neg</span><span class="p">,</span> <span class="n">phi_stable_pos</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Points ($\phi^* = \pm\sqrt{-r/u}$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_neg</span><span class="p">,</span> <span class="n">phi_stable_neg</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_pos</span><span class="p">,</span> <span class="n">phi_stable_zero</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+<span class="c1"># Plot unstable fixed point (dashed bright line)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_neg</span><span class="p">,</span> <span class="n">phi_unstable_zero</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point ($\phi^* = 0$)&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Style the plot ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Supercritical Pitchfork Bifurcation in Ginzburg-Landau Model&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $r \propto (T - T_c)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Points $\phi^*$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Add reference lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bifurcation Point (r=0)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="运行代码输出" src="../../../cn/assets/images/02_004_89cf16e7-61e4-4535-836a-4314cd5c8b69.png" /></p>
+<p>金茨堡-朗道模型的叉式分岔图。横轴是控制参数 <span class="arithmatex">\(r\)</span>，纵轴是不动点 <span class="arithmatex">\(\phi^*\)</span> 的位置。<strong>青色实线</strong>代表稳定不动点，<strong>洋红色虚线</strong>代表不稳定不动点。当 <span class="arithmatex">\(r\)</span> 从正变负时，系统在 <span class="arithmatex">\(r=0\)</span> 处发生分岔，原先唯一的稳定点 <span class="arithmatex">\(\phi^*=0\)</span> 失稳，并产生两个新的稳定分支。</p>
+<h1 id="4">4. 演化博弈论：一种关于策略的生物学<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>在介绍了源于物理学的金茨堡-朗道理论后，课程转向了一个源于生物学和经济学的全新领域——<strong>演化博弈论 (Evolutionary Game Theory)</strong> 。此举旨在展示动力系统思想的<strong>普适性 (universality)</strong> 。</p>
+<p>这种类比是深刻的：
+* 在<strong>金茨堡-朗道理论</strong>中，存在一个“势函数”——<strong>自由能 <span class="arithmatex">\(f(\phi)\)</span></strong> 。系统的动力学 <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span> 驱使序参量 <span class="arithmatex">\(\phi\)</span> 演化到 <span class="arithmatex">\(f(\phi)\)</span> 的<strong>最低点</strong> 。</p>
+<ul>
+<li>在<strong>演化博弈论</strong>中，同样存在一个关键函数——<strong>适应度 <span class="arithmatex">\(f(x)\)</span> (fitness)</strong> 。系统的动力学（即下一节将要介绍的“复制子方程”）将驱使策略比例 <span class="arithmatex">\(x\)</span> 演化到 <span class="arithmatex">\(f(x)\)</span> 的<strong>最高点</strong> 。</li>
+</ul>
+<p>两者都是由一个“势函数”决定的非线性动力学问题，其核心都是研究状态变量（<span class="arithmatex">\(\phi\)</span> 或 <span class="arithmatex">\(x\)</span>）如何随时间演化并达到稳定的不动点。</p>
+<h2 id="41-vs">4.1 从经典博弈到演化博弈：纳什 vs. 梅纳德·史密斯<a class="headerlink" href="#41-vs" title="Permanent link">&para;</a></h2>
+<p>课程首先区分了两种博弈论的范式，这两种范式基于截然不同的假设：</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/02_005_48d41b69-dba0-4c5e-9fee-4da34a237179.png" /></p>
+<ul>
+<li>
+<p><strong>经典博弈论 (Classical Game Theory):</strong> 以约翰·冯·诺伊曼 (John von Neumann)、奥斯卡·摩根斯坦 (Oskar Morgenstern) 和约翰·纳什 (John Nash) 的工作为代表。其核心假设是参与者是<strong>完全理性</strong>的。他们了解博弈的全部规则和所有参与者的可能收益，并在此基础上进行逻辑推演，做出能使自己利益最大化的最优决策。其核心概念是<strong>纳什均衡 (Nash Equilibrium)</strong> ，正如纳什所定义：“当没有任何一方可以通过单方面改变策略来增加其收益时，就达到了均衡。” 这是一个<strong>静态的、基于理性</strong>的平衡概念。</p>
+</li>
+<li>
+<p><strong>演化博弈论 (Evolutionary Game Theory):</strong> 以约翰·梅纳德·史密斯 (John Maynard Smith) 和乔治·普莱斯 (George R. Price) 的工作为代表。它放弃了完全理性的假设，转而考虑一个由大量个体组成的<strong>种群</strong> 。个体不进行逻辑推演，而是简单地遵循一个预设的行为策略（如同基因编码）。个体之间随机相遇并进行"博弈"，其收益直接转化为<strong>适应度 (fitness)</strong> ，即其繁殖成功率。成功的策略（高适应度）将在种群中通过“复制”而扩散开来，而不成功的策略则被淘汰。</p>
+</li>
+</ul>
+<p>其核心概念是<strong>演化稳定策略 (Evolutionary Stable Strategy, ESS)</strong> ，即“如果一个种群的个体一致地采用某个策略，并且该策略有能力胜过并消灭任何被引入种群的少量突变策略时，该策略就被称为演化稳定的。” ESS 是一个<strong>动态的、基于选择和复制</strong>的稳定性概念。对于本课程而言，演化博弈论这种基于种群和动力学的视角，使其成为研究自组织现象的理想框架。</p>
+<h2 id="42-vs">4.2 定义博弈：合作者 vs. 背叛者<a class="headerlink" href="#42-vs" title="Permanent link">&para;</a></h2>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/02_006_7d278ee3-91af-4053-b381-ecc9cb25b238.png" /></p>
+<p>为了具体说明演化博弈论，课程采用了一个经典模型：<strong>囚徒困境 (Prisoner's Dilemma)</strong> 。在这个模型中，种群由两种策略的个体组成：<strong>合作者 (Cooperators, C)</strong> 和 <strong>背叛者 (Defectors, D)</strong> 。</p>
+<p>博弈规则由两个参数定义：</p>
+<p><strong>收益 <span class="arithmatex">\(b\)</span> (benefit):</strong> 合作行为为对方创造的价值。</p>
+<p><strong>成本 <span class="arithmatex">\(c\)</span> (cost):</strong> 合作者为创造价值所付出的代价。</p>
+<p>假设种群非常大（理论上无限大），个体之间随机相遇。设种群中合作者 (C) 的比例为 <span class="arithmatex">\(x\)</span>（<span class="arithmatex">\(0 \le x \le 1\)</span>），则背叛者 (D) 的比例为 <span class="arithmatex">\((1-x)\)</span>。</p>
+<p>此时，任何一个个体（无论是C还是D）在下一次博弈中遇到合作者 (C) 的概率是 <span class="arithmatex">\(x\)</span>，遇到背叛者 (D) 的概率是 <span class="arithmatex">\((1-x)\)</span>。基于此，可以计算出两种策略的<strong>期望适应度 (expected fitness)</strong> <span class="arithmatex">\(f\)</span>：</p>
+<p><strong>合作者的期望适应度 <span class="arithmatex">\(f_{coop}\)</span>:</strong></p>
+<p>一个合作者 (C) 期望的收益是：</p>
+<p><span class="arithmatex">\(f_{coop} = (\text{遇到C的概率}) \times (\text{对C的收益}) + (\text{遇到D的概率}) \times (\text{对D的收益})\)</span></p>
+<p>根据规则，C对C的收益是 <span class="arithmatex">\(b-c\)</span>（得到收益，付出成本），C对D的收益是 <span class="arithmatex">\(-c\)</span>（付出成本，无收益）。</p>
+<div class="arithmatex">\[f_{coop} = x \cdot (b-c) + (1-x) \cdot (-c)\]</div>
+<p>整理得：</p>
+<div class="arithmatex">\[f_{coop} = (b-c)x - c(1-x)\]</div>
+<p><strong>背叛者的期望适应度 <span class="arithmatex">\(f_{def}\)</span>:</strong></p>
+<p>一个背叛者 (D) 期望的收益是：</p>
+<p><span class="arithmatex">\(f_{def} = (\text{遇到C的概率}) \times (\text{对C的收益}) + (\text{遇到D的概率}) \times (\text{对D的收益})\)</span></p>
+<p>根据规则，D对C的收益是 <span class="arithmatex">\(b\)</span>（得到收益，不付成本），D对D的收益是 <span class="arithmatex">\(0\)</span>（无收益，无成本）。</p>
+<div class="arithmatex">\[f_{def} = x \cdot (b) + (1-x) \cdot (0)\]</div>
+<p>整理得：</p>
+<div class="arithmatex">\[f_{def} = bx\]</div>
+<p><strong>物理/生物意义阐释：</strong></p>
+<p>这里的关键在于，<span class="arithmatex">\(f_{coop}\)</span> 和 <span class="arithmatex">\(f_{def}\)</span> <strong>不是</strong>固定的常数，它们都依赖于<strong>当前种群的状态 <span class="arithmatex">\(x\)</span></strong> 。这意味着系统的“能量景观”（适应度景观）本身是<strong>动态变化</strong>的。当种群中合作者变多（<span class="arithmatex">\(x\)</span> 增大）时，两种策略的适应度都会随之改变。这是一种<strong>非线性反馈</strong> ，也是动力学复杂性的根源。</p>
+<p>为了更清晰地展示，可以将此博弈整理成标准的<strong>收益矩阵 (payoff matrix)</strong> 形式，如PPT所示。下表展示了“行”玩家（焦点玩家）在面对“列”玩家（对手）时所获得的收益。</p>
+<p><strong>表1：囚徒困境的收益矩阵</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">对手是合作者 (C)</th>
+<th style="text-align: center;">对手是背叛者 (D)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>玩家是合作者 (C)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(b - c\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-c\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>玩家是背叛者 (D)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(b\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>与经典博弈论的联系：</strong></p>
+<p>在经典博弈论中，这个矩阵的四个收益值通常用符号表示：</p>
+<p><span class="arithmatex">\(R = b-c\)</span> (Reward: 双方合作的奖励)</p>
+<p><span class="arithmatex">\(S = -c\)</span> (Sucker: 合作者被背叛的“傻瓜”收益)</p>
+<p><span class="arithmatex">\(T = b\)</span> (Temptation: 背叛合作者的诱惑)</p>
+<p><span class="arithmatex">\(P = 0\)</span> (Punishment: 双方背叛的惩罚)</p>
+<p>一个博弈构成真正的<strong>囚徒困境</strong>，需要满足收益排序 <span class="arithmatex">\(T &gt; R &gt; P &gt; S\)</span>。在我们的模型中，如果假设收益 <span class="arithmatex">\(b\)</span> 大于成本 <span class="arithmatex">\(c\)</span> (<span class="arithmatex">\(b&gt;c&gt;0\)</span>)，那么 <span class="arithmatex">\(b &gt; b-c &gt; 0 &gt; -c\)</span>，这个条件是<strong>满足</strong>的。这说明，对于单个的、理性的玩家来说，无论对方做什么，选择“背叛”总是最优策略（<span class="arithmatex">\(T&gt;R\)</span> 且 <span class="arithmatex">\(P&gt;S\)</span>），导致双方最终陷入 <span class="arithmatex">\(P=0\)</span> 的“纳什均衡”，而不是 <span class="arithmatex">\(R=b-c\)</span> 的集体最优解。</p>
+<h1 id="5">5. 复制子方程：选择的动力学<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<p>在第四节中，我们为演化博弈论建立了“静态”描述，即定义了不同策略（合作者C vs. 背叛者D）在给定种群状态 <span class="arithmatex">\(x\)</span> 下的<strong>期望适应度 <span class="arithmatex">\(f_{coop}(x)\)</span> 和 <span class="arithmatex">\(f_{def}(x)\)</span></strong> 。这类似于金茨堡-朗道理论中的自由能 <span class="arithmatex">\(f(\phi)\)</span>，它为系统定义了一个“景观”。</p>
+<p>现在，我们需要引入<strong>动力学</strong>，即一个描述策略频率 <span class="arithmatex">\(x(t)\)</span> 如何随时间演化的运动方程。这个方程在演化博弈论中被称为<strong>复制子方程 (Replicator Equation)</strong> ，它扮演着与物理学中 <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span> 完全相同的角色：它为系统提供了演化的“力”和“规则”。</p>
+<h2 id="51">5.1 复制子方程的推导<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
+<p>复制子方程的基本思想非常直观：<strong>一个策略在种群中所占比例的增长率，正比于该策略的适应度与整个种群平均适应度之差。</strong> 换言之，比平均水平更“适应”的策略将会扩张，反之则会萎缩。</p>
+<p>下面是该方程的详细推导步骤：</p>
+<p>1.<strong>基本原理：</strong> 假设任何子种群（例如合作者）的数量增长率与其适应度成正比。设合作者数量为 <span class="arithmatex">\(N_c(t)\)</span>，总种群数量为 <span class="arithmatex">\(N(t)\)</span>，则有：</p>
+<p><span class="arithmatex">\(\frac{dN_c}{dt} = f_{coop} \cdot N_c\)</span></p>
+<p>同理，背叛者数量 <span class="arithmatex">\(N_d\)</span> 的增长率为 <span class="arithmatex">\(\frac{dN_d}{dt} = f_{def} \cdot N_d\)</span>。</p>
+<p>2.<strong>定义平均适应度 <span class="arithmatex">\(\bar{f}\)</span>:</strong> 整个种群的平均适应度是各种策略适应度的加权平均值，权重为其在种群中的比例。</p>
+<div class="arithmatex">\[\bar{f} = x \cdot f_{coop} + (1-x) \cdot f_{def}\]</div>
+<p>因此，总种群的增长率为 <span class="arithmatex">\(\frac{dN}{dt} = \bar{f} \cdot N\)</span>。</p>
+<p>3.<strong>计算比例的变化率：</strong> 我们关心的核心变量是合作者所占的<strong>比例</strong> <span class="arithmatex">\(x = \frac{N_c}{N}\)</span> 如何随时间变化。使用导数的商法则：</p>
+<div class="arithmatex">\[\frac{dx}{dt} = \frac{d}{dt}\left(\frac{N_c}{N}\right) = \frac{\frac{dN_c}{dt}N - N_c\frac{dN}{dt}}{N^2}\]</div>
+<p>4.<strong>代入增长率：</strong> 将第一步和第二步中的增长率表达式代入上式：</p>
+<div class="arithmatex">\[\frac{dx}{dt} = \frac{(f_{coop} N_c)N - N_c(\bar{f} N)}{N^2} = \frac{f_{coop} N_c}{N} - \frac{N_c \bar{f}}{N}\]</div>
+<p>5.<strong>简化得到基本形式：</strong> 由于 <span class="arithmatex">\(x = \frac{N_c}{N}\)</span>，上式可以简化为复制子方程的<strong>基本形式</strong>：</p>
+<div class="arithmatex">\[\dot{x} = x(f_{coop} - \bar{f})\]</div>
+<p><strong>物理/生物意义阐释：</strong> 这个形式最能体现“选择”的本质。<span class="arithmatex">\(f_{coop} - \bar{f}\)</span> 是合作策略的“相对适应度优势”。只有当一个策略比平均水平更好（<span class="arithmatex">\(f_{coop} &gt; \bar{f}\)</span>）时，它的比例 <span class="arithmatex">\(x\)</span> 才会增加（<span class="arithmatex">\(\dot{x} &gt; 0\)</span>）。</p>
+<p>6.<strong>推导实用形式：</strong> 在两种策略的博弈中，还可以进一步推导。将平均适应度 <span class="arithmatex">\(\bar{f} = x \cdot f_{coop} + (1-x) \cdot f_{def}\)</span> 代入基本形式：</p>
+<div class="arithmatex">\[\dot{x} = x(f_{coop} - [x \cdot f_{coop} + (1-x) \cdot f_{def}])\]</div>
+<div class="arithmatex">\[\dot{x} = x(f_{coop}(1-x) - f_{def}(1-x))\]</div>
+<p>最终得到在两种策略博弈中更常用的<strong>实用形式</strong>：</p>
+<div class="arithmatex">\[\dot{x} = x(1-x)(f_{coop} - f_{def})\]</div>
+<p>这个形式同样直观：合作者比例 <span class="arithmatex">\(x\)</span> 的变化，取决于两种策略适应度的直接竞争 <span class="arithmatex">\(f_{coop} - f_{def}\)</span>。</p>
+<h2 id="52">5.2 动力学分析：不动点与稳定性<a class="headerlink" href="#52" title="Permanent link">&para;</a></h2>
+<p>复制子方程是一个非线性常微分方程，其长期行为由其不动点及其稳定性决定。不动点是 <span class="arithmatex">\(\dot{x}=0\)</span> 的点，此时策略频率不再变化。</p>
+<p>从实用形式 <span class="arithmatex">\(\dot{x} = x(1-x)(f_{coop} - f_{def})\)</span> 可以看出，不动点存在于以下三种情况：</p>
+<p>1.<strong><span class="arithmatex">\(x^*=0\)</span></strong>: 种群中没有合作者，全是背叛者。这是一个<strong>边界不动点</strong> 。</p>
+<p>2.<strong><span class="arithmatex">\(x^*=1\)</span></strong>: 种群中没有背叛者，全是合作者。这是另一个<strong>边界不动点</strong> 。</p>
+<p>3.<strong><span class="arithmatex">\(f_{coop} = f_{def}\)</span></strong>: 合作者与背叛者的适应度相等，此时可能存在一个 <span class="arithmatex">\(0 &lt; x^* &lt; 1\)</span> 的<strong>内部不动点</strong> 。</p>
+<p>现在，我们来分析<strong>囚徒困境</strong>的具体情况（<span class="arithmatex">\(b&gt;c&gt;0\)</span>）。在上一节中，我们已经计算出两种策略的适应度：</p>
+<div class="arithmatex">\[f_{coop} = (b-c)x - c(1-x)\]</div>
+<div class="arithmatex">\[f_{def} = bx\]</div>
+<p>计算它们的差值：</p>
+<div class="arithmatex">\[f_{coop} - f_{def} = [(b-c)x - c(1-x)] - [bx] = bx - cx - c + cx - bx = -c\]</div>
+<p>由于成本 <span class="arithmatex">\(c&gt;0\)</span>，所以我们得到了一个非常强的结论：<span class="arithmatex">\(f_{coop} - f_{def} = -c &lt; 0\)</span>。</p>
+<p><strong>物理/生物意义阐释：</strong> 这意味着，在囚徒困境中，<strong>无论当前种群状态 <span class="arithmatex">\(x\)</span> 是多少，背叛者的适应度总是严格高于合作者</strong>。</p>
+<p>将这个结果代入复制子方程：</p>
+<div class="arithmatex">\[\dot{x} = x(1-x)(-c) = -c \cdot x(1-x)\]</div>
+<p>对于任何一个混合种群（即 <span class="arithmatex">\(x \in (0, 1)\)</span>），<span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\((1-x)\)</span> 都是正数，因此 <span class="arithmatex">\(\dot{x}\)</span> <strong>恒为负</strong>。</p>
+<p>这意味着合作者的比例将<strong>持续下降</strong>，演化的“流”总是从 <span class="arithmatex">\(x=1\)</span> 指向 <span class="arithmatex">\(x=0\)</span>。</p>
+<p>因此，不动点 <span class="arithmatex">\(x^*=1\)</span> (全体合作) 是<strong>不稳定</strong>的，任何微小的背叛者入侵都会导致合作的崩溃。</p>
+<p>不动点 <span class="arithmatex">\(x^*=0\)</span> (全体背叛) 是<strong>唯一稳定</strong>的，系统最终会演化到此状态。</p>
+<p>演化的最终结果是<strong>合作的灭绝</strong>，这正是“公地悲剧”的数学体现。</p>
+<h2 id="53-python">5.3 Python模拟：合作的命运<a class="headerlink" href="#53-python" title="Permanent link">&para;</a></h2>
+<p>下面的Python代码通过数值求解复制子方程，动态地展示了在囚徒困境中合作策略的消亡过程。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">replicator_equation</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replicator equation for the Prisoner&#39;s Dilemma.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    t (float): Time (required by scipy.integrate).</span>
+<span class="sd">    x (list): A list containing the fraction of cooperators, e.g., [0.5].</span>
+<span class="sd">    b (float): Benefit from cooperation.</span>
+<span class="sd">    c (float): Cost of cooperation.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    list: A list containing the rate of change of the cooperator fraction, [dx/dt].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x_val</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x_val</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Calculate fitnesses as derived in the notes</span>
+    <span class="n">f_coop</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">x_val</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_val</span><span class="p">)</span>
+    <span class="n">f_def</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x_val</span>
+
+    <span class="c1"># Replicator equation in the form: dx/dt = x * (1 - x) * (f_coop - f_def)</span>
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">x_val</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_val</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f_coop</span> <span class="o">-</span> <span class="n">f_def</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">dxdt</span><span class="p">]</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set game parameters (Prisoner&#39;s Dilemma condition: b &gt; c &gt; 0)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.0</span>  <span class="c1"># Benefit</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Cost</span>
+
+<span class="c1"># Set simulation parameters</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Solve and plot for each initial condition</span>
+<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">initial_conditions</span><span class="p">:</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">replicator_equation</span><span class="p">,</span> 
+        <span class="n">t_span</span><span class="p">,</span> 
+        <span class="p">[</span><span class="n">x0</span><span class="p">],</span> 
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> 
+        <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_span</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_span</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$x(0) = </span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Style the plot for dark theme ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolution of Cooperation in Prisoner&#39;s Dilemma&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time $t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of Cooperators $x(t)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Highlight the fixed points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Point (All Defectors)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point (All Cooperators)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="运行代码输出" src="../../../cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png" /></p>
+<p>囚徒困境中合作者比例 <span class="arithmatex">\(x(t)\)</span> 的时间演化。无论初始时合作者的比例有多高，演化的最终结果都是合作者被完全淘汰，种群趋向于唯一的稳定不动点 <span class="arithmatex">\(x=0\)</span>（全体背叛）。</p>
+<h1 id="6">6. 统一的语言：相空间与流<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
+<p>在前面几节中，我们深入探讨了两个看似截然不同的模型：</p>
+<p>1.<strong>物理学（金茨堡-朗道）：</strong> 序参量 <span class="arithmatex">\(\phi\)</span> 的演化由一个势函数（自由能 <span class="arithmatex">\(f\)</span>）决定，动力学为 <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span>。</p>
+<p>2.<strong>生物学（演化博弈）：</strong> 策略比例 <span class="arithmatex">\(x\)</span> 的演化由一个势函数（适应度 <span class="arithmatex">\(\bar{f}\)</span>）决定，动力学为 <span class="arithmatex">\(\dot{x} = x(f_{coop} - \bar{f})\)</span>。</p>
+<p>尽管它们的来源和物理意义不同，但在数学上它们<strong>完全等价</strong>：它们都是由少数几个<strong>动态变量</strong>（<span class="arithmatex">\(\phi\)</span> 或 <span class="arithmatex">\(x\)</span>）和几个<strong>控制参数</strong>（<span class="arithmatex">\(r\)</span> 或 <span class="arithmatex">\(b, c\)</span>）定义的<strong>非线性常微分方程 (ODE)</strong> 。</p>
+<p>本节的目的就是将这个共同的数学结构抽象出来，回归到动力系统理论的通用语言。这个语言不仅统一了本讲的两个模型，也为后续课程中更复杂的现象（如振荡、混沌和时空斑图）提供了必要的基础。</p>
+<h2 id="61-partial_t-u_i-f_iu_j-mu_ell">6.1 动力学的普适形式：<span class="arithmatex">\(\partial_t u_i = f_i(\{u_j\}, \{\mu_\ell\})\)</span><a class="headerlink" href="#61-partial_t-u_i-f_iu_j-mu_ell" title="Permanent link">&para;</a></h2>
+<p>无论是金茨堡-朗道方程还是复制子方程，它们都可以被写成一个普适的数学形式：</p>
+<div class="arithmatex">\[\partial_t u_i = f_i(\{u_j\}, \{\mu_\ell\})\]</div>
+<p>这个方程组是描述确定性动力系统的通用语言：</p>
+<p><strong><span class="arithmatex">\(u_i\)</span> (<span class="arithmatex">\(i=1, \dots, S\)</span>)</strong>: 描述系统状态的<strong>动态变量</strong> (state variables)。<span class="arithmatex">\(S\)</span> 是系统的自由度（或维度）。</p>
+<ul>
+<li>
+<p>金茨堡-朗道模型中：<span class="arithmatex">\(S=1\)</span>，动态变量是 <span class="arithmatex">\(u_1 = \phi\)</span>。</p>
+</li>
+<li>
+<p>囚徒困境模型中：<span class="arithmatex">\(S=1\)</span>，动态变量是 <span class="arithmatex">\(u_1 = x\)</span>。</p>
+</li>
+</ul>
+<p>（在课程中提到的）捕食者-猎物模型中：<span class="arithmatex">\(S=2\)</span>，动态变量是 <span class="arithmatex">\(u_1 = \text{猎物数量}, u_2 = \text{捕食者数量}\)</span>。</p>
+<p><strong><span class="arithmatex">\(f_i\)</span></strong>: 一组（通常是<strong>非线性的</strong>）函数，它们定义了系统演化的"规则"或"力场"。</p>
+<p>金茨堡-朗道模型中：<span class="arithmatex">\(f_1(u_1; \{\mu\}) = -\Gamma (r u_1 + u u_1^3 + v u_1^5)\)</span>。</p>
+<p>囚徒困境模型中：<span class="arithmatex">\(f_1(u_1; \{\mu\}) = u_1(1-u_1)(f_{coop}(u_1) - f_{def}(u_1))\)</span>。</p>
+<p><strong><span class="arithmatex">\(\mu_\ell\)</span> (<span class="arithmatex">\(\ell=1, \dots, P\)</span>)</strong>: 系统的<strong>控制参数</strong> (control parameters)。这些是我们可以从外部调节的“旋钮”，改变它们会改变系统的行为。</p>
+<ul>
+<li>
+<p>金茨堡-朗道模型中：<span class="arithmatex">\(\{\mu_\ell\} = \{r, u, v, \Gamma\}\)</span>。</p>
+</li>
+<li>
+<p>囚徒困境模型中：<span class="arithmatex">\(\{\mu_\ell\} = \{b, c\}\)</span>。</p>
+</li>
+</ul>
+<h2 id="62">6.2 几何视角：相空间、轨迹与矢量场<a class="headerlink" href="#62" title="Permanent link">&para;</a></h2>
+<p><img alt="课堂板书截图" src="../../../cn/assets/images/02_008_b01998ff-25d5-4f40-8d90-f9a8143a8cdb.png" /></p>
+<p>动力系统理论提供了一种强大的<strong>几何视角</strong>来理解这类方程，将一个（可能很难解的）微积分问题转化为一个（可能更直观的）几何问题。</p>
+<p><strong>相空间 (Phase Space):</strong> 这是一个 <span class="arithmatex">\(S\)</span> 维的抽象空间，其每一个坐标轴对应一个动态变量 <span class="arithmatex">\(u_i\)</span>。相空间中的一个<strong>点</strong>就代表了系统在某一时刻的<strong>完整状态</strong> 。</p>
+<p>我们的两个模型：由于 <span class="arithmatex">\(S=1\)</span>，相空间只是一条<strong>一维直线</strong>（<span class="arithmatex">\(\phi\)</span> 轴或 <span class="arithmatex">\(x\)</span> 轴）。</p>
+<p>捕食者-猎物模型：由于 <span class="arithmatex">\(S=2\)</span>，相空间是一个<strong>二维平面</strong>。</p>
+<p><strong>轨迹 (Trajectory):</strong> 随着时间的流逝，系统状态点 <span class="arithmatex">\(u(t)\)</span> 在相空间中移动，描绘出一条曲线，这条曲线就是系统的轨迹。对于一个确定性系统，给定一个初始点，其未来的轨迹是<strong>唯一</strong>的（轨迹之间不能交叉）。</p>
+<p><strong>流/矢量场 (Flow / Vector Field):</strong> 函数 <span class="arithmatex">\(f_i\)</span> 在相空间的每一点都定义了一个矢量 <span class="arithmatex">\(\mathbf{f} = (f_1, f_2, \dots, f_S)\)</span>。这个矢量指明了状态点在该点的瞬时运动方向和速度。整个相空间充满了这样的矢量，形成一个矢量场或“流”。</p>
+<p><strong>物理意义</strong>：系统的轨迹就是处处与该矢量场相切的积分曲线。演化过程就是“顺着流的方向漂浮”。在我们的 G-L 模型中，<span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span> 所定义的“流”正是驱动系统“滚下”能量景观的“力”。</p>
+<h2 id="63">6.3 耗散系统中的吸引子：系统的最终归宿<a class="headerlink" href="#63" title="Permanent link">&para;</a></h2>
+<p>对于本课程关注的<strong>耗散系统 (dissipative system)</strong> （如与热库接触的物理系统或存在选择压力的生物系统），相空间中的体积元会随着时间演化而<strong>收缩</strong>。</p>
+<p>这意味着系统会“忘记”它的精确初始条件。无论系统从多大范围的初始状态出发，它们的轨迹最终都会汇集到相空间中一个维度更低的子集上。这个子集被称为<strong>吸引子 (attractor)</strong> 。</p>
+<p>吸引子是系统长期行为的几何体现，它决定了系统的<strong>最终命运</strong>和<strong>可观测的稳态行为</strong>。吸引子的类型多种多样：</p>
+<p><strong>不动点 (Fixed Point):</strong> 维度为0的吸引子。系统最终静止于一个平衡状态。</p>
+<p>金茨堡-朗道模型中 (<span class="arithmatex">\(r&lt;0\)</span>)：吸引子是两个稳定的不动点 <span class="arithmatex">\(\phi_\pm^*\)</span>。</p>
+<p>囚徒困境模型中：吸引子是 <span class="arithmatex">\(x^*=0\)</span> 这一个稳定的不动点。</p>
+<p><strong>极限环 (Limit Cycle):</strong> 维度为1的吸引子。系统最终进入一个稳定的周期性振荡（这将在后续课程中探讨）。</p>
+<p><strong>奇异吸引子 (Strange Attractor):</strong> 具有分形结构的吸引子。系统表现出混沌行为，轨迹永不重复但被限制在一个有限区域内。</p>
+<p>动力系统理论的核心目标，就是对不同系统中的“流”进行几何分类，理解其<strong>吸引子</strong>（不动点、极限环等）的结构，并研究这些结构如何随着<strong>控制参数</strong>（<span class="arithmatex">\(\mu_\ell\)</span>）的变化而改变。这种吸引子结构发生的定性改变，正是我们之前遇到的<strong>分岔 (bifurcation)</strong> 这为下一讲的主题——如何系统地分析不动点的稳定性和分类叉式分岔等现象——铺平了道路。</p>
+<h1 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>这节课通过两个看似无关的范例——物理学中的<strong>金茨堡-朗道理论</strong>和生物学中的<strong>演化博弈论</strong>——为理解自组织现象引入了动力系统的核心工具。课程揭示了一个的共通点：复杂的宏观集体行为，可以通过少数几个关键变量的低维非线性常微分方程（ODE）来描述。</p>
+<p>无论是描述相变的<strong>自由能</strong>，还是描述策略演化的<strong>适应度</strong>，它们都扮演了某种形式的“势函数”角色。系统的动力学，无论是物理上的<strong>弛豫</strong>（<span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span>）还是生物学上的<strong>选择</strong>（<span class="arithmatex">\(\dot{x} = x(f - \bar{f})\)</span>），都驱使系统走向这些势函数的“极值点”。当外部条件（控制参数 <span class="arithmatex">\(r\)</span> 或 <span class="arithmatex">\(b, c\)</span>）改变时，这些稳定状态的结构会发生根本性的改变，即<strong>分岔</strong>。</p>
+<p>最终，所有这些具体的动力学过程都可以被抽象为<strong>相空间 (Phase Space)</strong> 中的<strong>几何流 (Flow)</strong> 。系统的长期行为由<strong>吸引子 (Attractors)</strong> 的结构所决定。</p>
+<p>本讲从“势函数”的几何直觉出发，“看”到了不动点（<span class="arithmatex">\(\phi^*=0\)</span>）是如何失稳的。但这还不够严谨。留下了一个关键问题：<strong>是否有通用的数学工具，可以在不依赖“势函数”的情况下，分析任何一个不动点的稳定性？</strong></p>
+<p>下一讲将学习如何通过<strong>线性稳定性分析 (Linear Stability Analysis)</strong> 来系统地判断一个不动点是稳定的还是不稳定的。更重要的是，我们将学习如何对<strong>分岔</strong>这一现象本身进行分类，揭示其普适的数学结构，例如本讲中看到的<strong>叉式分岔 (Pitchfork Bifurcation)</strong> 和即将学习的<strong>鞍结分岔 (Saddle-Node Bifurcation)</strong> 。掌握这些分析不动点和分岔的工具，是理解更复杂动力学（如振荡和混沌）的基石。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

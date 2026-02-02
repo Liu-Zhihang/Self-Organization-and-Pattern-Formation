@@ -1,0 +1,1514 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p><strong>Lecture 1</strong> explored the core ideas of self-organization: <strong>universality</strong>—from the collective flight of bird flocks to the precise localization of proteins inside cells, the emergence of macroscopic ordered patterns seems to follow universal laws independent of microscopic details. Can we build a unified, predictive theoretical framework for these seemingly unrelated systems? To this end, the course unfolds in three theoretical parts:</p>
+<p>1.Dynamical Systems Theory</p>
+<p>2.Phase Transitions &amp; Collective Phenomena</p>
+<p>3.Pattern Formation &amp; Self-Organization</p>
+<p>Lecture 2 begins the introduction to the "Dynamical Systems" part. This part will introduce a mathematical language to describe how system states <strong>evolve</strong>, <strong>change</strong>, and <strong>stabilize</strong> over time. This lecture will demonstrate the power and universality of dynamical systems theory from two very different scientific fields:</p>
+<p>1.<strong>Phase transition theory from the physics perspective:</strong> Using the <strong>Ginzburg–Landau theory</strong> as an example, it shows how to construct a phenomenological model describing the transition of matter from disorder to order, based solely on fundamental physical principles such as symmetry and observed phenomena.</p>
+<p>2.<strong>Strategy evolution from the biology perspective:</strong> Using <strong>evolutionary game theory</strong> as an example, it shows how to use mathematical models to describe the dynamic competition and ultimate fate of different strategies (such as cooperation and defection) in biological populations.</p>
+<p>Although the origins and applications of these two theories are vastly different, they both embody the essence of <strong>phenomenological modeling</strong>: by identifying key macroscopic degrees of freedom (order parameter <span class="arithmatex">\(\phi\)</span> or strategy frequency <span class="arithmatex">\(x\)</span>) and establishing dynamical equations for them, we can bypass complex microscopic details and directly address the essence of collective behavior. Whether describing the phase transition of a magnet or the evolution of a population, the same mathematical structure lies behind them—<strong>nonlinear ordinary differential equations (ODEs)</strong>, along with common geometric concepts such as <strong>phase space</strong>, <strong>attractors</strong> (or fixed points), and <strong>bifurcations</strong>. These concepts also lay the foundation for subsequent lectures to delve into the stability of fixed points and specific types of bifurcations (such as saddle-node and pitchfork bifurcations).</p>
+<h1 id="1-ginzburglandau-theory-a-physics-of-order">1. Ginzburg–Landau Theory - A Physics of Order<a class="headerlink" href="#1-ginzburglandau-theory-a-physics-of-order" title="Permanent link">&para;</a></h1>
+<p>This section introduces the first core theoretical framework—the Ginzburg–Landau theory. This is a classical theory in statistical physics for describing phase transitions and is also a paradigm of <strong>phenomenological modeling</strong>. It bypasses the microscopic details of the system and instead starts from macroscopic <strong>symmetry</strong> and observed phenomena, constructing an effective free energy function to describe and predict the transition of the system from disorder to order.</p>
+<h2 id="11-order-parameter-condensing-collective-behavior-into-a-single-variable">1.1 Order Parameter - Condensing Collective Behavior into a Single Variable<a class="headerlink" href="#11-order-parameter-condensing-collective-behavior-into-a-single-variable" title="Permanent link">&para;</a></h2>
+<p>To describe the state of a macroscopic system, it is infeasible to track the motion of every microscopic component (such as atoms or molecules) inside it. Thus, a "coarse-graining" approach as mentioned in the introduction is needed. The core starting point of Ginzburg–Landau theory is to introduce a macroscopic variable called the <strong>order parameter</strong>, denoted as <span class="arithmatex">\(\phi\)</span>.</p>
+<p>The order parameter is a carefully chosen physical quantity that can quantify the overall degree of order of the system. Its definition has the following key characteristics:</p>
+<ul>
+<li>
+<p>In the <strong>disordered phase</strong> of the system (usually at high temperature or high entropy states, such as the paramagnetic phase), the value of the order parameter is <strong>zero</strong>.</p>
+</li>
+<li>
+<p>In the <strong>ordered phase</strong> of the system (usually at low temperature or low entropy states, such as the ferromagnetic phase), the value of the order parameter is <strong>non-zero</strong>.</p>
+</li>
+</ul>
+<p>For example, in ferromagnetic materials, the order parameter can be the net magnetization <span class="arithmatex">\(M\)</span>. In the paramagnetic phase (high temperature, <span class="arithmatex">\(T &gt; T_c\)</span>), the magnetic moments of individual atoms point in random directions, and the macroscopic net magnetization is zero; in the ferromagnetic phase (low temperature, <span class="arithmatex">\(T &lt; T_c\)</span>), the magnetic moments tend to align in the same direction, and the system exhibits non-zero net magnetization. Similarly, for the gas-liquid phase transition, the order parameter can be the difference between liquid and gas densities.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/02_001_04a90d3c-5c6a-466c-8355-9c6213a40d8d.jpg" /></p>
+<p>By introducing the order parameter <span class="arithmatex">\(\phi\)</span>, a complex system with a huge number of microscopic degrees of freedom is reduced to a macroscopic entity described by a single variable, laying the foundation for constructing an energy model.</p>
+<h2 id="12-constructing-free-energy-the-energy-landscape-determined-by-symmetry">1.2 Constructing Free Energy - The Energy Landscape Determined by Symmetry<a class="headerlink" href="#12-constructing-free-energy-the-energy-landscape-determined-by-symmetry" title="Permanent link">&para;</a></h2>
+<p>After determining the order parameter, the next step is to construct a function that describes the system's energy, namely the <strong>free energy</strong> <span class="arithmatex">\(f(\phi)\)</span>. In thermodynamics, the stable equilibrium state of a system corresponds to the <strong>minimum point</strong> of the free energy. Thus, the function <span class="arithmatex">\(f(\phi)\)</span> can be imagined as an "energy landscape," and the system's state will spontaneously "roll toward" the lowest point of the landscape.</p>
+<p>According to Landau's assumption, near the phase transition critical point, the value of the order parameter <span class="arithmatex">\(\phi\)</span> is small. Therefore, the free energy <span class="arithmatex">\(f(\phi)\)</span> can be (analytically) expanded as a Taylor series in <span class="arithmatex">\(\phi\)</span>. The specific form of this expansion is strictly constrained by the <strong>symmetry</strong> of the system.</p>
+<p>Taking the Ising model with "up/down" symmetry as an example, when there is no external magnetic field, flipping all spins (<span class="arithmatex">\(\phi \rightarrow -\phi\)</span>) does not change the system's energy. This symmetry is reflected in the free energy function, meaning <span class="arithmatex">\(f(\phi)\)</span> must satisfy <span class="arithmatex">\(f(\phi) = f(-\phi)\)</span>, i.e., the free energy must be an <strong>even function</strong> of <span class="arithmatex">\(\phi\)</span>. This powerful symmetry constraint excludes all odd-power terms in the Taylor expansion (such as <span class="arithmatex">\(\phi, \phi^3, \phi^5\)</span>, etc.), retaining only even-power terms.</p>
+<p>Thus, for such systems, the most general form of the free energy function <span class="arithmatex">\(f(\phi)\)</span> (also denoted as <span class="arithmatex">\(\mathcal{V}(\phi)\)</span> in the blackboard notes) can be written as:</p>
+<div class="arithmatex">\[
+f(\phi) = \frac{1}{2} r \, \phi^2 + \frac{1}{4} u \, \phi^4 + \frac{1}{6} v \, \phi^6 + \dots
+\]</div>
+<p>This is a truncated Taylor series; retaining terms up to <span class="arithmatex">\(\phi^6\)</span> is usually sufficient to describe most first-order and second-order phase transitions.</p>
+<p>The constant term <span class="arithmatex">\(f(0)\)</span> is omitted because it only shifts the energy zero point and does not affect the shape of the energy landscape or the position of the minimum points.</p>
+<p>The coefficients <span class="arithmatex">\(\frac{1}{2}, \frac{1}{4}, \frac{1}{6}\)</span> are historical conventions that make subsequent calculations of the dynamical equation (taking the derivative <span class="arithmatex">\(\frac{\partial f}{\partial \phi}\)</span>) more concise.</p>
+<p>This equation is the core of Ginzburg–Landau theory. It is not derived from first principles but is a <strong>phenomenological model</strong> constructed based on symmetry and analyticity assumptions. The coefficients <span class="arithmatex">\(r, u, v\)</span> are phenomenological parameters whose specific values need to be determined through experiments or more fundamental microscopic theories.</p>
+<h2 id="13-physical-meaning-and-regulatory-role-of-phenomenological-parameters-r-u-v">1.3 Physical Meaning and Regulatory Role of Phenomenological Parameters (r, u, v)<a class="headerlink" href="#13-physical-meaning-and-regulatory-role-of-phenomenological-parameters-r-u-v" title="Permanent link">&para;</a></h2>
+<p>The parameters <span class="arithmatex">\(r, u, v\)</span> in the free energy function together determine the shape of the energy landscape, thus controlling the phase transition behavior of the system.</p>
+<p><strong><span class="arithmatex">\(r\)</span> (control parameter):</strong> This parameter is the main driver of phase transitions, directly related to the system's "distance" from the critical point. In physics, it is usually linearly related to temperature <span class="arithmatex">\(T\)</span> and can be approximately written as <span class="arithmatex">\(r \propto (T - T_c)\)</span>, where <span class="arithmatex">\(T_c\)</span> is the critical temperature. The sign of <span class="arithmatex">\(r\)</span> determines the basic shape of the energy landscape near the origin <span class="arithmatex">\(\phi=0\)</span>:</p>
+<p>When <span class="arithmatex">\(r &gt; 0\)</span> (<span class="arithmatex">\(T &gt; T_c\)</span>), the <span class="arithmatex">\(\phi^2\)</span> term is positive, and near <span class="arithmatex">\(\phi=0\)</span>, <span class="arithmatex">\(f(\phi) \approx \frac{1}{2} r \phi^2\)</span> is an upward-opening parabola. At this time, <span class="arithmatex">\(\phi=0\)</span> is the only minimum point of the free energy. This corresponds to the system's stable <strong>disordered phase</strong> (e.g., paramagnetic phase).</p>
+<p>When <span class="arithmatex">\(r &lt; 0\)</span> (<span class="arithmatex">\(T &lt; T_c\)</span>), the <span class="arithmatex">\(\phi^2\)</span> term is negative, and the origin <span class="arithmatex">\(\phi=0\)</span> changes from a minimum point to a local maximum point (becomes unstable). Two new symmetric minimum points appear on both sides of the energy landscape, located at <span class="arithmatex">\(\phi_\pm = \pm \phi_0\)</span>. This corresponds to the system entering a stable <strong>ordered phase</strong> (e.g., ferromagnetic phase). The system must "choose" one of the minima (<span class="arithmatex">\(+\phi_0\)</span> or <span class="arithmatex">\(-\phi_0\)</span>), a process called <strong>spontaneous symmetry breaking</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/02_002_99c02326-1d70-4877-bf31-0271539a03a9.jpg" /></p>
+<p><strong><span class="arithmatex">\(u\)</span> and <span class="arithmatex">\(v\)</span> (stability parameters):</strong> These two parameters determine the higher-order shape of the energy landscape (i.e., behavior far from <span class="arithmatex">\(\phi=0\)</span>) and ensure that the energy has a lower bound (i.e., <span class="arithmatex">\(f(\phi) \rightarrow \infty\)</span> when <span class="arithmatex">\(|\phi| \rightarrow \infty\)</span>), thus determining the type of phase transition:</p>
+<p>When <span class="arithmatex">\(u &gt; 0\)</span>, the <span class="arithmatex">\(\phi^4\)</span> term ensures that the free energy is positive when <span class="arithmatex">\(\phi\)</span> is large, making the energy landscape bounded. In this case, when <span class="arithmatex">\(r\)</span> changes from positive to negative, the order parameter <span class="arithmatex">\(\phi_0\)</span> continuously changes from zero to a non-zero value, corresponding to a <strong>second-order phase transition</strong> or continuous phase transition.</p>
+<p>When <span class="arithmatex">\(u &lt; 0\)</span>, the <span class="arithmatex">\(\phi^4\)</span> term alone would make the system unstable when <span class="arithmatex">\(r&lt;0\)</span> (energy would go to negative infinity). At this time, a <span class="arithmatex">\(\phi^6\)</span> term with <span class="arithmatex">\(v &gt; 0\)</span> must be introduced to ensure the energy has a lower bound. This complex energy landscape composed of <span class="arithmatex">\(r, u, v\)</span> leads to discontinuous jumps in the order parameter, corresponding to a <strong>first-order phase transition</strong> or discontinuous phase transition.</p>
+<h2 id="14-python-simulation-visualizing-the-ginzburglandau-potential">1.4 Python Simulation - Visualizing the Ginzburg–Landau Potential<a class="headerlink" href="#14-python-simulation-visualizing-the-ginzburglandau-potential" title="Permanent link">&para;</a></h2>
+<p>The following code visualizes the behavior of the free energy potential function in Ginzburg–Landau theory as temperature changes. It shows the system states under two different temperature conditions: when the temperature is above the critical temperature (<span class="arithmatex">\(T&gt;T_c\)</span>), the system has only one global minimum, corresponding to the symmetric phase; when the temperature is below the critical temperature (<span class="arithmatex">\(T&lt;T_c\)</span>), the system exhibits two symmetric minimum points, indicating that the system has undergone symmetry breaking and entered the ordered phase. This visualization helps us understand the dynamical behavior and stability of the system during the phase transition process, and how the order parameter (here <span class="arithmatex">\(\phi\)</span>) changes its equilibrium state as temperature varies.
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ginzburg_landau_potential</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the Ginzburg-Landau free energy potential (v=0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">4</span>
+
+<span class="c1"># --- Use dark background as a base ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Create a single figure and axes with default dark background ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># --- Parameters ---</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">phi_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span> <span class="c1"># Focus on the central region</span>
+
+<span class="c1"># --- Plot the T &gt; Tc (r &gt; 0) case (White Curve) ---</span>
+<span class="n">r_pos</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">f_pos</span> <span class="o">=</span> <span class="n">ginzburg_landau_potential</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">r_pos</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="c1"># Plot in white, mimicking the professor&#39;s drawing</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">f_pos</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="c1"># Add text annotation</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;$T &gt; T_c$ ($r &gt; 0$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+
+<span class="c1"># --- Plot the T &lt; Tc (r &lt; 0) case (Yellow Curve) ---</span>
+<span class="n">r_neg</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">f_neg</span> <span class="o">=</span> <span class="n">ginzburg_landau_potential</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">r_neg</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="c1"># Plot the potential curve in yellow</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_range</span><span class="p">,</span> <span class="n">f_neg</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="c1"># Add text annotation</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;$T &lt; T_c$ ($r &lt; 0$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># --- Calculate minima for T &lt; Tc ---</span>
+<span class="n">minima_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">r_neg</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span>
+<span class="n">minima_f</span> <span class="o">=</span> <span class="n">ginzburg_landau_potential</span><span class="p">(</span><span class="n">minima_phi</span><span class="p">,</span> <span class="n">r_neg</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+
+<span class="c1"># --- Add text annotations like the blackboard ---</span>
+<span class="c1"># Add &quot;f&quot; (for the y-axis)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">minima_f</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="s1">&#39;$f$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="c1"># Add &quot;phi&quot; (for the x-axis)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;$\phi$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="c1"># Add &quot;phi_+&quot; and &quot;phi_-&quot; for the T &lt; Tc minima</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">minima_phi</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;$\phi_+$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="n">minima_phi</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;$\phi_-$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="c1"># Add small vertical ticks for the minima</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">minima_phi</span><span class="p">,</span> <span class="n">minima_phi</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="n">minima_phi</span><span class="p">,</span> <span class="o">-</span><span class="n">minima_phi</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># --- Add arrows (annotations) to show dynamics for T &lt; Tc ---</span>
+<span class="n">arrow_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Arrow from (phi &gt; phi_+) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">minima_phi</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="c1"># Arrow from (phi &lt; -phi_+) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">minima_phi</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="c1"># Arrow from (0 &lt; phi &lt; phi_+) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="c1"># Arrow from (-phi_+ &lt; phi &lt; 0) downhill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">minima_f</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> 
+            <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+
+
+<span class="c1"># --- Clean up the plot ---</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Turn off grid</span>
+<span class="c1"># Show axis tick labels</span>
+<span class="c1"># ax.set_xticklabels([]) </span>
+<span class="c1"># ax.set_yticklabels([]) </span>
+
+<span class="c1"># Show axis spines</span>
+<span class="c1"># ax.spines[&#39;top&#39;].set_visible(False)</span>
+<span class="c1"># ax.spines[&#39;right&#39;].set_visible(False)</span>
+<span class="c1"># ax.spines[&#39;bottom&#39;].set_visible(False)</span>
+<span class="c1"># ax.spines[&#39;left&#39;].set_visible(False)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Set axis labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\phi$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$f$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Set plot limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">f_neg</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">)</span> <span class="c1"># Adjust y-limit to show both curves</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ginzburg-Landau Potential: $T &gt; T_c$ vs $T &lt; T_c$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Ginzburg-Landauyon.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></p>
+<p><img alt="Code Output" src="../../../cn/assets/images/02_003_621bc300-3817-4cf6-bb3a-baaced59b8f5.png" /></p>
+<p>The core idea of phase transitions: <strong>Phase transition is a topological deformation of the energy landscape</strong>.</p>
+<p><strong>White dashed line</strong> represents the state at high temperature <span class="arithmatex">\(T &gt; T_c\)</span> (<span class="arithmatex">\(r &gt; 0\)</span>). At this time, the free energy <span class="arithmatex">\(f\)</span> is a single-well potential, with its only energy minimum (stable state) at <span class="arithmatex">\(\phi=0\)</span>, corresponding to the system's <strong>disordered phase</strong> (e.g., paramagnetic phase).</p>
+<p><strong>Yellow solid line</strong> represents the state at low temperature <span class="arithmatex">\(T &lt; T_c\)</span> (<span class="arithmatex">\(r &lt; 0\)</span>). When the temperature drops below the critical point, the energy landscape undergoes a qualitative change: the stable point that was originally at <span class="arithmatex">\(\phi=0\)</span> "bulges" into an unstable local maximum, while two new, lower-energy (<span class="arithmatex">\(f &lt; 0\)</span>) minima <span class="arithmatex">\(\phi_-\)</span> and <span class="arithmatex">\(\phi_+\)</span> "depress" symmetrically on both sides. These two new well bottoms represent the two equivalent <strong>ordered phases</strong> (e.g., magnetization direction "up" or "down") formed after "spontaneous symmetry breaking" of the system; the system must choose one of them.</p>
+<p>The entire phase transition process is visualized as the energy potential smoothly transforming from the white curve to the yellow curve, driven by the control parameter <span class="arithmatex">\(r\)</span> crossing the critical point <span class="arithmatex">\(r=0\)</span> (i.e., the bifurcation point).</p>
+<h1 id="2-relaxation-dynamics-the-path-to-equilibrium">2. Relaxation Dynamics - The Path to Equilibrium<a class="headerlink" href="#2-relaxation-dynamics-the-path-to-equilibrium" title="Permanent link">&para;</a></h1>
+<p>Through Ginzburg–Landau theory, we have successfully reduced the phase transition problem to an analysis of an "energy landscape"—the free energy <span class="arithmatex">\(f(\phi)\)</span>. This static landscape tells us all possible <strong>equilibrium states</strong> (i.e., extrema of <span class="arithmatex">\(f(\phi)\)</span>) and their <strong>relative stability</strong> (i.e., minima of <span class="arithmatex">\(f(\phi)\)</span>). However, this model does not answer a key question: if the system is not initially at the lowest point, <strong>how</strong> will it evolve over time? <strong>How long</strong> will it take to evolve to the lowest point?</p>
+<p>The purpose of this section is to introduce <strong>dynamics</strong>, transforming the static energy landscape into a dynamic evolution process. We will derive an <strong>equation of motion</strong> for the order parameter <span class="arithmatex">\(\phi(t)\)</span> changing over time and prove that this equation indeed guides the system to "roll toward" the minimum of the free energy.</p>
+<h2 id="21-minimum-free-energy-principle-and-onsagers-hypothesis">2.1 Minimum Free Energy Principle and Onsager's Hypothesis<a class="headerlink" href="#21-minimum-free-energy-principle-and-onsagers-hypothesis" title="Permanent link">&para;</a></h2>
+<p>For a <strong>dissipative system</strong> that exchanges energy with the environment (heat bath), a corollary of the second law of thermodynamics is that the system will spontaneously evolve toward states with lower free energy, eventually reaching the equilibrium state with minimum free energy.</p>
+<p>So how do we transform this thermodynamic tendency into a specific mathematical equation? Onsager's theory provides a key phenomenological hypothesis. This hypothesis states that the rate of change of the system state ("flux") is proportional to the "thermodynamic force" pushing it toward equilibrium.</p>
+<ul>
+<li>
+<p><strong>Thermodynamic Force:</strong> In the Ginzburg–Landau energy landscape, the "force" driving the change of the order parameter <span class="arithmatex">\(\phi\)</span> can be defined as the <strong>negative gradient</strong> of the free energy landscape (i.e., the steepest downhill direction): <span class="arithmatex">\(F_{thermo} = - \frac{\partial f}{\partial \phi}\)</span>.</p>
+</li>
+<li>
+<p><strong>Linear Response:</strong> Onsager hypothesized that the rate of change <span class="arithmatex">\(\partial_t \phi\)</span> is proportional to this force: <span class="arithmatex">\(\partial_t \phi \propto F_{thermo}\)</span>.</p>
+</li>
+</ul>
+<p>This hypothesis is the bridge connecting thermodynamics (static <span class="arithmatex">\(f\)</span>) and dynamics (dynamic <span class="arithmatex">\(\partial_t \phi\)</span>).</p>
+<h2 id="22-dynamical-equation-partial_t-phi-gamma-fracpartial-fpartial-phi">2.2 Dynamical Equation - <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span><a class="headerlink" href="#22-dynamical-equation-partial_t-phi-gamma-fracpartial-fpartial-phi" title="Permanent link">&para;</a></h2>
+<p>Based on Onsager's linear response hypothesis, we can write the simplest dynamical equation describing the evolution of the order parameter <span class="arithmatex">\(\phi\)</span> over time, known as <strong>Model A</strong> in critical dynamics, or pure relaxation dynamics:</p>
+<div class="arithmatex">\[
+\partial_t \phi(t) = -\Gamma \frac{\partial f}{\partial \phi}
+\]</div>
+<p>Each term in this equation has a clear physical meaning:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\partial_t \phi(t)\)</span>: The rate of change of the order parameter over time.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\frac{\partial f}{\partial \phi}\)</span>: The <strong>gradient</strong> or slope of the free energy landscape. When the slope is zero (at the lowest or highest points of the landscape), the thermodynamic force is zero, <span class="arithmatex">\(\partial_t \phi = 0\)</span>, and the dynamics stops. These points are therefore called <strong>fixed points</strong>.</p>
+</li>
+<li>
+<p>Negative sign "<span class="arithmatex">\(-\)</span>": Ensures the direction of system evolution. If <span class="arithmatex">\(\phi\)</span> is located to the right of the energy minimum, then the slope <span class="arithmatex">\(\frac{\partial f}{\partial \phi} &gt; 0\)</span>, leading to <span class="arithmatex">\(\partial_t \phi &lt; 0\)</span>, and <span class="arithmatex">\(\phi\)</span> will decrease (move left); and vice versa. This ensures that the system always evolves along the <strong>downhill direction</strong> of the energy landscape.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\Gamma\)</span>: A positive <strong>kinetic coefficient</strong>, also called <strong>mobility</strong>. It describes the response speed of the system to thermodynamic forces and determines the <strong>time scale</strong> of the relaxation process. The larger <span class="arithmatex">\(\Gamma\)</span>, the faster the system "rolls" toward equilibrium.</p>
+</li>
+</ul>
+<p>Substituting the free energy constructed in Section 1, <span class="arithmatex">\(f(\phi) = \frac{1}{2} r \, \phi^2 + \frac{1}{4} u \, \phi^4 + \frac{1}{6} v \, \phi^6\)</span>, into the above equation and taking the derivative yields a specific <strong>ordinary differential equation (ODE)</strong>:</p>
+<div class="arithmatex">\[
+\partial_t \phi = -\Gamma \left(r\phi + u\phi^3 + v\phi^5 \right)
+\]</div>
+<p>Here, the <span class="arithmatex">\(\phi^5\)</span> term comes from differentiating the <span class="arithmatex">\(\frac{1}{6} v \phi^6\)</span> term. Thus, the complex phase transition problem has been successfully reduced to a dynamical problem of solving this nonlinear ordinary differential equation.</p>
+<h2 id="23-free-energy-as-a-lyapunov-function">2.3 Free Energy as a Lyapunov Function<a class="headerlink" href="#23-free-energy-as-a-lyapunov-function" title="Permanent link">&para;</a></h2>
+<p>We have constructed a dynamical equation that "appears" to always drive the system toward the energy minimum. But can we rigorously prove this mathematically? This is achieved by identifying the free energy <span class="arithmatex">\(f\)</span> as a <strong>Lyapunov function</strong>.</p>
+<p>A Lyapunov function <span class="arithmatex">\(V(x)\)</span> is a powerful tool in dynamical systems theory for proving the stability of equilibrium points without directly solving the differential equation. For a function to be a Lyapunov function, it must satisfy two core conditions:</p>
+<p>1.<strong>Positive definiteness:</strong> The function has a minimum at the equilibrium point (like the shape of a bowl).</p>
+<p>2.<strong>Negative definiteness of derivative:</strong> Along the system's evolution trajectory, the time derivative of the function <strong>never increases</strong> (<span class="arithmatex">\(\frac{dV}{dt} \le 0\)</span>).</p>
+<p>Now let's check whether the Ginzburg–Landau free energy <span class="arithmatex">\(f(\phi)\)</span> satisfies the second condition. Its rate of change over time can be calculated using the chain rule:</p>
+<div class="arithmatex">\[
+\frac{df}{dt} = \frac{\partial f}{\partial \phi} \frac{d\phi}{dt}
+\]</div>
+<p>Next, substituting the dynamical equation we derived <span class="arithmatex">\(\frac{d\phi}{dt} = -\Gamma \frac{\partial f}{\partial \phi}\)</span> into the above:</p>
+<div class="arithmatex">\[
+\frac{df}{dt} = \frac{\partial f}{\partial \phi} \left( -\Gamma \frac{\partial f}{\partial \phi} \right) = -\Gamma \left( \frac{\partial f}{\partial \phi} \right)^2
+\]</div>
+<ul>
+<li>
+<p>The kinetic coefficient <span class="arithmatex">\(\Gamma\)</span> is a positive number (<span class="arithmatex">\(\Gamma &gt; 0\)</span>).</p>
+</li>
+<li>
+<p>The squared term <span class="arithmatex">\(\left( \frac{\partial f}{\partial \phi} \right)^2\)</span> is always <strong>non-negative</strong> (<span class="arithmatex">\(\ge 0\)</span>).</p>
+</li>
+</ul>
+<p>Therefore, we can conclude:</p>
+<div class="arithmatex">\[
+\frac{df}{dt} = - (\text{positive}) \times (\text{non-negative}) \le 0
+\]</div>
+<p>This rigorously proves that the free energy <span class="arithmatex">\(f\)</span> <strong>never increases</strong> during the relaxation dynamics. The system state point never "climbs uphill"—it only stays in place or moves to lower energy levels, i.e., "<strong>downhill on the free energy landscape</strong>."</p>
+<p><strong>When</strong> does the dynamical process stop? If and only if <span class="arithmatex">\(\frac{df}{dt} = 0\)</span>. This requires <span class="arithmatex">\(\frac{\partial f}{\partial \phi} = 0\)</span>, which is precisely the static equilibrium point (fixed point) defined in Section 1. This proof rigorously connects the static analysis of Section 1 (finding minima of <span class="arithmatex">\(f\)</span>) with the dynamical analysis of Section 2 (time evolution of <span class="arithmatex">\(\phi\)</span>).</p>
+<h1 id="3-phase-transition-as-bifurcation">3. Phase Transition as Bifurcation<a class="headerlink" href="#3-phase-transition-as-bifurcation" title="Permanent link">&para;</a></h1>
+<p>In the first two sections, we established the static and dynamic pictures of Ginzburg–Landau theory. Section 1 showed that the system's <strong>static equilibrium states</strong> are determined by the <strong>energy landscape</strong> of the free energy <span class="arithmatex">\(f(\phi)\)</span>. Section 2 added <strong>dynamics</strong>, i.e., <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span>, showing <strong>how</strong> the system evolves to reach these equilibrium states.</p>
+<p>This section connects these two concepts, revealing a profound equivalence: the <strong>phase transition</strong> in physics is mathematically exactly a phenomenon called <strong>bifurcation</strong>. We will see that the topological deformation of the energy landscape (Section 1) and the qualitative change of dynamical fixed points (Section 2) are two expressions of the same story.</p>
+<h2 id="31-bifurcation-in-dynamical-systems">3.1 Bifurcation in Dynamical Systems<a class="headerlink" href="#31-bifurcation-in-dynamical-systems" title="Permanent link">&para;</a></h2>
+<p>In dynamical systems theory, <strong>bifurcation</strong> refers to the phenomenon where the system behavior undergoes <strong>qualitative change</strong> when a <strong>control parameter</strong> of the system (such as <span class="arithmatex">\(r\)</span> in Ginzburg–Landau theory) varies smoothly and passes through a critical value. Here, "qualitative change" does not refer to small numerical changes, but rather fundamental changes in the <strong>number</strong> or <strong>stability</strong> of the system's <strong>fixed points</strong> (or equilibrium points).</p>
+<h2 id="32-pitchfork-bifurcation-in-ginzburglandau-theory">3.2 Pitchfork Bifurcation in Ginzburg–Landau Theory<a class="headerlink" href="#32-pitchfork-bifurcation-in-ginzburglandau-theory" title="Permanent link">&para;</a></h2>
+<p>The Ginzburg–Landau dynamics (second-order phase transition model) is a classical example of a <strong>supercritical pitchfork bifurcation</strong>.</p>
+<p>First, find the system's fixed points <span class="arithmatex">\(\phi^*\)</span>. A fixed point is a point where the system state no longer changes over time, i.e., <span class="arithmatex">\(\frac{d\phi}{dt} = 0\)</span>. According to the dynamical equation in Section 2 (for simplicity, set <span class="arithmatex">\(v=0\)</span>):</p>
+<div class="arithmatex">\[
+\partial_t \phi = -\Gamma \left(r\phi + u\phi^3 \right)
+\]</div>
+<p>Setting <span class="arithmatex">\(\partial_t \phi = 0\)</span>, since <span class="arithmatex">\(\Gamma &gt; 0\)</span>, we only need to solve:</p>
+<div class="arithmatex">\[
+r\phi + u\phi^3 = 0 \quad \implies \quad \phi(r + u\phi^2) = 0
+\]</div>
+<p>Now, let's analyze how the fixed points <span class="arithmatex">\(\phi^*\)</span> change with the control parameter <span class="arithmatex">\(r\)</span> (assuming <span class="arithmatex">\(u&gt;0\)</span>):</p>
+<p><strong>When <span class="arithmatex">\(r &gt; 0\)</span> (<span class="arithmatex">\(T &gt; T_c\)</span>):</strong>
+  * Since <span class="arithmatex">\(u &gt; 0\)</span> and <span class="arithmatex">\(\phi^2 \ge 0\)</span>, the term <span class="arithmatex">\(r + u\phi^2\)</span> is always positive.</p>
+<ul>
+<li>
+<p>Therefore, the only real solution to the equation <span class="arithmatex">\(\phi(r + u\phi^2) = 0\)</span> is <span class="arithmatex">\(\phi^* = 0\)</span>.</p>
+</li>
+<li>
+<p><strong>Stability:</strong> This fixed point is <strong>stable</strong>. From the energy landscape perspective, it is the only minimum of the free energy (single well). This corresponds to the physical <strong>disordered phase</strong>.</p>
+</li>
+</ul>
+<p><strong>When <span class="arithmatex">\(r &lt; 0\)</span> (<span class="arithmatex">\(T &lt; T_c\)</span>):</strong>
+  * Now the equation becomes <span class="arithmatex">\(\phi(r + u\phi^2) = 0\)</span>, which has <strong>three</strong> real solutions:</p>
+<div class="highlight"><pre><span></span><code>  1. $\phi_0^* = 0$
+
+  2. $r + u\phi^2 = 0 \implies \phi^2 = -r/u \implies \phi_\pm^* = \pm\sqrt{-r/u}$
+</code></pre></div>
+<p><strong>Stability:</strong>
+  * The original fixed point <span class="arithmatex">\(\phi_0^* = 0\)</span> now becomes <strong>unstable</strong> (it becomes a local maximum in the energy landscape).</p>
+<ul>
+<li>
+<p>The two newly appearing fixed points <span class="arithmatex">\(\phi_\pm^*\)</span> are <strong>stable</strong> (they are the two new minima in the energy landscape).</p>
+</li>
+<li>
+<p>This corresponds to the physical <strong>ordered phase</strong>, where the system undergoes "spontaneous symmetry breaking" and must choose one of the two equivalent stable states <span class="arithmatex">\(\phi_+\)</span> or <span class="arithmatex">\(\phi_-\)</span>.</p>
+</li>
+</ul>
+<p><strong>Correspondence between Physics and Mathematics:</strong>
+This process clearly shows that the physical <strong>second-order phase transition</strong>—the system transitioning from a unique stable state (disordered phase) to two new stable states (ordered phase)—is mathematically exactly a <strong>pitchfork bifurcation</strong>: a stable fixed point becomes unstable at <span class="arithmatex">\(r=0\)</span> while "forking" into two new stable fixed points and one unstable fixed point.</p>
+<h2 id="33-python-simulation-drawing-the-bifurcation-diagram">3.3 Python Simulation - Drawing the Bifurcation Diagram<a class="headerlink" href="#33-python-simulation-drawing-the-bifurcation-diagram" title="Permanent link">&para;</a></h2>
+<p>The behavior of the pitchfork bifurcation can be intuitively displayed through a bifurcation diagram. This diagram depicts how the position of the system's fixed points <span class="arithmatex">\(\phi^*\)</span> (vertical axis) changes with the control parameter <span class="arithmatex">\(r\)</span> (horizontal axis).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define parameters</span>
+<span class="n">r_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># --- Calculate fixed points ---</span>
+
+<span class="c1"># 1. For r &lt; 0 (Ordered Phase)</span>
+<span class="n">r_neg</span> <span class="o">=</span> <span class="n">r_range</span><span class="p">[</span><span class="n">r_range</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># The two new stable branches</span>
+<span class="n">phi_stable_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">r_neg</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span>
+<span class="n">phi_stable_neg</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">r_neg</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span>
+<span class="c1"># The phi=0 branch becomes unstable</span>
+<span class="n">phi_unstable_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_neg</span><span class="p">)</span>
+
+<span class="c1"># 2. For r &gt;= 0 (Disordered Phase)</span>
+<span class="n">r_pos</span> <span class="o">=</span> <span class="n">r_range</span><span class="p">[</span><span class="n">r_range</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># The phi=0 branch is stable</span>
+<span class="n">phi_stable_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_pos</span><span class="p">)</span>
+
+
+<span class="c1"># --- Create the plot ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># --- Plot the branches with visible colors ---</span>
+
+<span class="c1"># Plot stable fixed points (solid bright lines)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_neg</span><span class="p">,</span> <span class="n">phi_stable_pos</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Points ($\phi^* = \pm\sqrt{-r/u}$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_neg</span><span class="p">,</span> <span class="n">phi_stable_neg</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_pos</span><span class="p">,</span> <span class="n">phi_stable_zero</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+<span class="c1"># Plot unstable fixed point (dashed bright line)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_neg</span><span class="p">,</span> <span class="n">phi_unstable_zero</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point ($\phi^* = 0$)&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Style the plot ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Supercritical Pitchfork Bifurcation in Ginzburg-Landau Model&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $r \propto (T - T_c)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Points $\phi^*$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Add reference lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bifurcation Point (r=0)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/02_004_89cf16e7-61e4-4535-836a-4314cd5c8b69.png" /></p>
+<p>Pitchfork bifurcation diagram of the Ginzburg–Landau model. The horizontal axis is the control parameter <span class="arithmatex">\(r\)</span>, and the vertical axis is the position of the fixed points <span class="arithmatex">\(\phi^*\)</span>. <strong>Cyan solid lines</strong> represent stable fixed points, and the <strong>magenta dashed line</strong> represents the unstable fixed point. When <span class="arithmatex">\(r\)</span> changes from positive to negative, the system undergoes bifurcation at <span class="arithmatex">\(r=0\)</span>: the originally unique stable point <span class="arithmatex">\(\phi^*=0\)</span> becomes unstable, and two new stable branches emerge.</p>
+<h1 id="4-evolutionary-game-theory-a-biology-of-strategies">4. Evolutionary Game Theory - A Biology of Strategies<a class="headerlink" href="#4-evolutionary-game-theory-a-biology-of-strategies" title="Permanent link">&para;</a></h1>
+<p>After introducing Ginzburg–Landau theory from physics, the course turns to a completely new field from biology and economics—<strong>evolutionary game theory</strong>. This move aims to demonstrate the <strong>universality</strong> of dynamical systems ideas.</p>
+<p>This analogy is profound:
+* In <strong>Ginzburg–Landau theory</strong>, there is a "potential function"—the <strong>free energy <span class="arithmatex">\(f(\phi)\)</span></strong>. The system's dynamics <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span> drives the order parameter <span class="arithmatex">\(\phi\)</span> to evolve to the <strong>minimum</strong> of <span class="arithmatex">\(f(\phi)\)</span>.</p>
+<ul>
+<li>In <strong>evolutionary game theory</strong>, there is also a key function—the <strong>fitness <span class="arithmatex">\(f(x)\)</span></strong>. The system's dynamics (the "replicator equation" to be introduced in the next section) will drive the strategy proportion <span class="arithmatex">\(x\)</span> to evolve to the <strong>maximum</strong> of <span class="arithmatex">\(f(x)\)</span>.</li>
+</ul>
+<p>Both are nonlinear dynamical problems determined by a "potential function," and both are centrally concerned with how the state variable (<span class="arithmatex">\(\phi\)</span> or <span class="arithmatex">\(x\)</span>) evolves over time and reaches stable fixed points.</p>
+<h2 id="41-from-classical-games-to-evolutionary-games-nash-vs-maynard-smith">4.1 From Classical Games to Evolutionary Games - Nash vs. Maynard Smith<a class="headerlink" href="#41-from-classical-games-to-evolutionary-games-nash-vs-maynard-smith" title="Permanent link">&para;</a></h2>
+<p>The course first distinguishes between two paradigms of game theory, which are based on fundamentally different assumptions:</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/02_005_48d41b69-dba0-4c5e-9fee-4da34a237179.png" /></p>
+<ul>
+<li>
+<p><strong>Classical Game Theory:</strong> Represented by the work of John von Neumann, Oskar Morgenstern, and John Nash. Its core assumption is that participants are <strong>fully rational</strong>. They understand all the rules of the game and all possible payoffs for all participants, and on this basis, they engage in logical reasoning to make optimal decisions that maximize their own interests. Its core concept is the <strong>Nash equilibrium</strong>, as Nash defined: "Equilibrium is reached when no party can increase its payoff by unilaterally changing its strategy." This is a <strong>static, rationality-based</strong> equilibrium concept.</p>
+</li>
+<li>
+<p><strong>Evolutionary Game Theory:</strong> Represented by the work of John Maynard Smith and George R. Price. It abandons the assumption of full rationality and instead considers a <strong>population</strong> composed of a large number of individuals. Individuals do not engage in logical reasoning but simply follow a preset behavioral strategy (like genetic encoding). Individuals randomly encounter each other and play "games," and their payoffs directly translate into <strong>fitness</strong>, i.e., their reproductive success rate. Successful strategies (high fitness) will spread through "replication" in the population, while unsuccessful strategies are eliminated.</p>
+</li>
+</ul>
+<p>Its core concept is the <strong>Evolutionarily Stable Strategy (ESS)</strong>, i.e., "A strategy is called evolutionarily stable if, when the population's individuals uniformly adopt this strategy, it has the ability to defeat and eliminate any small amount of mutant strategies introduced into the population." ESS is a <strong>dynamic, selection-and-replication-based</strong> stability concept. For this course, evolutionary game theory's perspective based on populations and dynamics makes it an ideal framework for studying self-organization phenomena.</p>
+<h2 id="42-defining-the-game-cooperators-vs-defectors">4.2 Defining the Game - Cooperators vs. Defectors<a class="headerlink" href="#42-defining-the-game-cooperators-vs-defectors" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/02_006_7d278ee3-91af-4053-b381-ecc9cb25b238.png" /></p>
+<p>To concretely illustrate evolutionary game theory, the course adopts a classic model: the <strong>Prisoner's Dilemma</strong>. In this model, the population consists of individuals with two strategies: <strong>Cooperators (C)</strong> and <strong>Defectors (D)</strong>.</p>
+<p>The game rules are defined by two parameters:</p>
+<p><strong>Benefit <span class="arithmatex">\(b\)</span>:</strong> The value created for the opponent by cooperative behavior.</p>
+<p><strong>Cost <span class="arithmatex">\(c\)</span>:</strong> The cost paid by the cooperator to create value.</p>
+<p>Assume the population is very large (theoretically infinite), and individuals encounter each other randomly. Let the proportion of cooperators (C) in the population be <span class="arithmatex">\(x\)</span> (<span class="arithmatex">\(0 \le x \le 1\)</span>), then the proportion of defectors (D) is <span class="arithmatex">\((1-x)\)</span>.</p>
+<p>At this time, any individual (whether C or D) has probability <span class="arithmatex">\(x\)</span> of encountering a cooperator (C) and probability <span class="arithmatex">\((1-x)\)</span> of encountering a defector (D) in the next game. Based on this, we can calculate the <strong>expected fitness</strong> <span class="arithmatex">\(f\)</span> of both strategies:</p>
+<p><strong>Expected fitness of cooperators <span class="arithmatex">\(f_{coop}\)</span>:</strong></p>
+<p>The expected payoff of a cooperator (C) is:</p>
+<p><span class="arithmatex">\(f_{coop} = (\text{probability of meeting C}) \times (\text{payoff against C}) + (\text{probability of meeting D}) \times (\text{payoff against D})\)</span></p>
+<p>According to the rules, C's payoff against C is <span class="arithmatex">\(b-c\)</span> (receives benefit, pays cost), and C's payoff against D is <span class="arithmatex">\(-c\)</span> (pays cost, no benefit).</p>
+<div class="arithmatex">\[
+f_{coop} = x \cdot (b-c) + (1-x) \cdot (-c)
+\]</div>
+<p>Simplifying:</p>
+<div class="arithmatex">\[
+f_{coop} = (b-c)x - c(1-x)
+\]</div>
+<p><strong>Expected fitness of defectors <span class="arithmatex">\(f_{def}\)</span>:</strong></p>
+<p>The expected payoff of a defector (D) is:</p>
+<p><span class="arithmatex">\(f_{def} = (\text{probability of meeting C}) \times (\text{payoff against C}) + (\text{probability of meeting D}) \times (\text{payoff against D})\)</span></p>
+<p>According to the rules, D's payoff against C is <span class="arithmatex">\(b\)</span> (receives benefit, no cost), and D's payoff against D is <span class="arithmatex">\(0\)</span> (no benefit, no cost).</p>
+<div class="arithmatex">\[
+f_{def} = x \cdot (b) + (1-x) \cdot (0)
+\]</div>
+<p>Simplifying:</p>
+<div class="arithmatex">\[
+f_{def} = bx
+\]</div>
+<p><strong>Physical/Biological Interpretation:</strong></p>
+<p>The key here is that <span class="arithmatex">\(f_{coop}\)</span> and <span class="arithmatex">\(f_{def}\)</span> are <strong>not</strong> fixed constants; they both depend on the <strong>current population state <span class="arithmatex">\(x\)</span></strong>. This means the system's "energy landscape" (fitness landscape) is itself <strong>dynamically changing</strong>. When cooperators increase in the population (<span class="arithmatex">\(x\)</span> increases), the fitness of both strategies changes accordingly. This is a <strong>nonlinear feedback</strong> and the source of dynamical complexity.</p>
+<p>For clearer presentation, this game can be organized into the standard <strong>payoff matrix</strong> form, as shown in the slide. The table below shows the payoff received by the "row" player (focal player) when facing the "column" player (opponent).</p>
+<p><strong>Table 1: Payoff Matrix of the Prisoner's Dilemma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Opponent is Cooperator (C)</th>
+<th style="text-align: center;">Opponent is Defector (D)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Player is Cooperator (C)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(b - c\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-c\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Player is Defector (D)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(b\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Connection to Classical Game Theory:</strong></p>
+<p>In classical game theory, the four payoff values in this matrix are usually denoted by symbols:</p>
+<p><span class="arithmatex">\(R = b-c\)</span> (Reward: mutual cooperation reward)</p>
+<p><span class="arithmatex">\(S = -c\)</span> (Sucker: the "sucker" payoff when a cooperator is betrayed)</p>
+<p><span class="arithmatex">\(T = b\)</span> (Temptation: temptation to betray a cooperator)</p>
+<p><span class="arithmatex">\(P = 0\)</span> (Punishment: mutual defection punishment)</p>
+<p>A game constitutes a true <strong>Prisoner's Dilemma</strong> when the payoff ordering satisfies <span class="arithmatex">\(T &gt; R &gt; P &gt; S\)</span>. In our model, if we assume benefit <span class="arithmatex">\(b\)</span> is greater than cost <span class="arithmatex">\(c\)</span> (<span class="arithmatex">\(b&gt;c&gt;0\)</span>), then <span class="arithmatex">\(b &gt; b-c &gt; 0 &gt; -c\)</span>, and this condition is <strong>satisfied</strong>. This shows that for a single, rational player, regardless of what the opponent does, choosing "defection" is always the optimal strategy (<span class="arithmatex">\(T&gt;R\)</span> and <span class="arithmatex">\(P&gt;S\)</span>), leading both parties to ultimately fall into the Nash equilibrium of <span class="arithmatex">\(P=0\)</span>, rather than the collectively optimal solution of <span class="arithmatex">\(R=b-c\)</span>.</p>
+<h1 id="5-replicator-equation-the-dynamics-of-selection">5. Replicator Equation - The Dynamics of Selection<a class="headerlink" href="#5-replicator-equation-the-dynamics-of-selection" title="Permanent link">&para;</a></h1>
+<p>In Section 4, we established the "static" description for evolutionary game theory, i.e., defined the <strong>expected fitness <span class="arithmatex">\(f_{coop}(x)\)</span> and <span class="arithmatex">\(f_{def}(x)\)</span></strong> of different strategies (cooperators C vs. defectors D) for a given population state <span class="arithmatex">\(x\)</span>. This is similar to the free energy <span class="arithmatex">\(f(\phi)\)</span> in Ginzburg–Landau theory, which defines a "landscape" for the system.</p>
+<p>Now we need to introduce <strong>dynamics</strong>, i.e., an equation of motion describing how the strategy frequency <span class="arithmatex">\(x(t)\)</span> evolves over time. This equation is called the <strong>replicator equation</strong> in evolutionary game theory, and it plays exactly the same role as <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span> in physics: it provides the "force" and "rules" for the system's evolution.</p>
+<h2 id="51-derivation-of-the-replicator-equation">5.1 Derivation of the Replicator Equation<a class="headerlink" href="#51-derivation-of-the-replicator-equation" title="Permanent link">&para;</a></h2>
+<p>The basic idea of the replicator equation is very intuitive: <strong>The growth rate of a strategy's proportion in the population is proportional to the difference between that strategy's fitness and the average fitness of the entire population.</strong> In other words, strategies that are more "fit" than average will expand, and vice versa.</p>
+<p>Below is the detailed derivation of this equation:</p>
+<p>1.<strong>Basic Principle:</strong> Assume that the growth rate of any subpopulation (e.g., cooperators) is proportional to its fitness. Let the number of cooperators be <span class="arithmatex">\(N_c(t)\)</span> and the total population be <span class="arithmatex">\(N(t)\)</span>, then:</p>
+<p><span class="arithmatex">\(\frac{dN_c}{dt} = f_{coop} \cdot N_c\)</span></p>
+<p>Similarly, the growth rate of defector number <span class="arithmatex">\(N_d\)</span> is <span class="arithmatex">\(\frac{dN_d}{dt} = f_{def} \cdot N_d\)</span>.</p>
+<p>2.<strong>Define Average Fitness <span class="arithmatex">\(\bar{f}\)</span>:</strong> The average fitness of the entire population is the weighted average of the fitness of each strategy, weighted by its proportion in the population.</p>
+<div class="arithmatex">\[
+\bar{f} = x \cdot f_{coop} + (1-x) \cdot f_{def}
+\]</div>
+<p>Therefore, the growth rate of the total population is <span class="arithmatex">\(\frac{dN}{dt} = \bar{f} \cdot N\)</span>.</p>
+<p>3.<strong>Calculate the Rate of Change of Proportion:</strong> The core variable we care about is how the <strong>proportion</strong> <span class="arithmatex">\(x = \frac{N_c}{N}\)</span> of cooperators changes over time. Using the quotient rule for derivatives:</p>
+<div class="arithmatex">\[
+\frac{dx}{dt} = \frac{d}{dt}\left(\frac{N_c}{N}\right) = \frac{\frac{dN_c}{dt}N - N_c\frac{dN}{dt}}{N^2}
+\]</div>
+<p>4.<strong>Substitute Growth Rates:</strong> Substitute the growth rate expressions from steps 1 and 2 into the above:</p>
+<div class="arithmatex">\[
+\frac{dx}{dt} = \frac{(f_{coop} N_c)N - N_c(\bar{f} N)}{N^2} = \frac{f_{coop} N_c}{N} - \frac{N_c \bar{f}}{N}
+\]</div>
+<p>5.<strong>Simplify to Basic Form:</strong> Since <span class="arithmatex">\(x = \frac{N_c}{N}\)</span>, the above simplifies to the <strong>basic form</strong> of the replicator equation:</p>
+<div class="arithmatex">\[
+\dot{x} = x(f_{coop} - \bar{f})
+\]</div>
+<p><strong>Physical/Biological Interpretation:</strong> This form best captures the essence of "selection." <span class="arithmatex">\(f_{coop} - \bar{f}\)</span> is the "relative fitness advantage" of the cooperation strategy. Only when a strategy is better than average (<span class="arithmatex">\(f_{coop} &gt; \bar{f}\)</span>) will its proportion <span class="arithmatex">\(x\)</span> increase (<span class="arithmatex">\(\dot{x} &gt; 0\)</span>).</p>
+<p>6.<strong>Derive the Practical Form:</strong> In two-strategy games, we can derive further. Substituting average fitness <span class="arithmatex">\(\bar{f} = x \cdot f_{coop} + (1-x) \cdot f_{def}\)</span> into the basic form:</p>
+<div class="arithmatex">\[
+\dot{x} = x(f_{coop} - [x \cdot f_{coop} + (1-x) \cdot f_{def}])
+\]</div>
+<div class="arithmatex">\[
+\dot{x} = x(f_{coop}(1-x) - f_{def}(1-x))
+\]</div>
+<p>Finally, we obtain the <strong>practical form</strong> more commonly used in two-strategy games:</p>
+<div class="arithmatex">\[
+\dot{x} = x(1-x)(f_{coop} - f_{def})
+\]</div>
+<p>This form is equally intuitive: the change in cooperator proportion <span class="arithmatex">\(x\)</span> depends on the direct competition between the two strategies' fitness, <span class="arithmatex">\(f_{coop} - f_{def}\)</span>.</p>
+<h2 id="52-dynamical-analysis-fixed-points-and-stability">5.2 Dynamical Analysis - Fixed Points and Stability<a class="headerlink" href="#52-dynamical-analysis-fixed-points-and-stability" title="Permanent link">&para;</a></h2>
+<p>The replicator equation is a nonlinear ordinary differential equation, and its long-term behavior is determined by its fixed points and their stability. Fixed points are points where <span class="arithmatex">\(\dot{x}=0\)</span>, meaning the strategy frequency no longer changes.</p>
+<p>From the practical form <span class="arithmatex">\(\dot{x} = x(1-x)(f_{coop} - f_{def})\)</span>, we can see that fixed points exist in three situations:</p>
+<p>1.<strong><span class="arithmatex">\(x^*=0\)</span></strong>: No cooperators in the population, all are defectors. This is a <strong>boundary fixed point</strong>.</p>
+<p>2.<strong><span class="arithmatex">\(x^*=1\)</span></strong>: No defectors in the population, all are cooperators. This is another <strong>boundary fixed point</strong>.</p>
+<p>3.<strong><span class="arithmatex">\(f_{coop} = f_{def}\)</span></strong>: Cooperators and defectors have equal fitness, and there may exist an <strong>interior fixed point</strong> with <span class="arithmatex">\(0 &lt; x^* &lt; 1\)</span>.</p>
+<p>Now let's analyze the specific case of the <strong>Prisoner's Dilemma</strong> (<span class="arithmatex">\(b&gt;c&gt;0\)</span>). In the previous section, we calculated the fitness of both strategies:</p>
+<div class="arithmatex">\[
+f_{coop} = (b-c)x - c(1-x)
+\]</div>
+<div class="arithmatex">\[
+f_{def} = bx
+\]</div>
+<p>Calculate their difference:</p>
+<div class="arithmatex">\[
+f_{coop} - f_{def} = [(b-c)x - c(1-x)] - [bx] = bx - cx - c + cx - bx = -c
+\]</div>
+<p>Since cost <span class="arithmatex">\(c&gt;0\)</span>, we obtain a very strong conclusion: <span class="arithmatex">\(f_{coop} - f_{def} = -c &lt; 0\)</span>.</p>
+<p><strong>Physical/Biological Interpretation:</strong> This means that in the Prisoner's Dilemma, <strong>regardless of the current population state <span class="arithmatex">\(x\)</span>, the defector's fitness is always strictly higher than the cooperator's</strong>.</p>
+<p>Substituting this result into the replicator equation:</p>
+<div class="arithmatex">\[
+\dot{x} = x(1-x)(-c) = -c \cdot x(1-x)
+\]</div>
+<p>For any mixed population (i.e., <span class="arithmatex">\(x \in (0, 1)\)</span>), both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\((1-x)\)</span> are positive, so <span class="arithmatex">\(\dot{x}\)</span> is <strong>always negative</strong>.</p>
+<p>This means the proportion of cooperators will <strong>continuously decrease</strong>, and the evolutionary "flow" always points from <span class="arithmatex">\(x=1\)</span> toward <span class="arithmatex">\(x=0\)</span>.</p>
+<p>Therefore, the fixed point <span class="arithmatex">\(x^*=1\)</span> (all cooperation) is <strong>unstable</strong>; any small invasion of defectors will cause cooperation to collapse.</p>
+<p>The fixed point <span class="arithmatex">\(x^*=0\)</span> (all defection) is <strong>the only stable</strong> one, and the system will eventually evolve to this state.</p>
+<p>The ultimate result of evolution is the <strong>extinction of cooperation</strong>, which is the mathematical embodiment of the "tragedy of the commons."</p>
+<h2 id="53-python-simulation-the-fate-of-cooperation">5.3 Python Simulation - The Fate of Cooperation<a class="headerlink" href="#53-python-simulation-the-fate-of-cooperation" title="Permanent link">&para;</a></h2>
+<p>The following Python code dynamically demonstrates the extinction of the cooperation strategy in the Prisoner's Dilemma by numerically solving the replicator equation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">replicator_equation</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replicator equation for the Prisoner&#39;s Dilemma.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    t (float): Time (required by scipy.integrate).</span>
+<span class="sd">    x (list): A list containing the fraction of cooperators, e.g., [0.5].</span>
+<span class="sd">    b (float): Benefit from cooperation.</span>
+<span class="sd">    c (float): Cost of cooperation.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    list: A list containing the rate of change of the cooperator fraction, [dx/dt].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x_val</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x_val</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Calculate fitnesses as derived in the notes</span>
+    <span class="n">f_coop</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">x_val</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_val</span><span class="p">)</span>
+    <span class="n">f_def</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x_val</span>
+
+    <span class="c1"># Replicator equation in the form: dx/dt = x * (1 - x) * (f_coop - f_def)</span>
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">x_val</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_val</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f_coop</span> <span class="o">-</span> <span class="n">f_def</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">dxdt</span><span class="p">]</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set game parameters (Prisoner&#39;s Dilemma condition: b &gt; c &gt; 0)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.0</span>  <span class="c1"># Benefit</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Cost</span>
+
+<span class="c1"># Set simulation parameters</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Solve and plot for each initial condition</span>
+<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">initial_conditions</span><span class="p">:</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">replicator_equation</span><span class="p">,</span> 
+        <span class="n">t_span</span><span class="p">,</span> 
+        <span class="p">[</span><span class="n">x0</span><span class="p">],</span> 
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> 
+        <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_span</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_span</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;$x(0) = </span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Style the plot for dark theme ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolution of Cooperation in Prisoner&#39;s Dilemma&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time $t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of Cooperators $x(t)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Highlight the fixed points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Point (All Defectors)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point (All Cooperators)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png" /></p>
+<p>Time evolution of the cooperator proportion <span class="arithmatex">\(x(t)\)</span> in the Prisoner's Dilemma. Regardless of how high the initial proportion of cooperators is, the ultimate result of evolution is the complete elimination of cooperators, with the population trending toward the only stable fixed point <span class="arithmatex">\(x=0\)</span> (all defection).</p>
+<h1 id="6-a-unified-language-phase-space-and-flow">6. A Unified Language - Phase Space and Flow<a class="headerlink" href="#6-a-unified-language-phase-space-and-flow" title="Permanent link">&para;</a></h1>
+<p>In the preceding sections, we explored in depth two seemingly very different models:</p>
+<p>1.<strong>Physics (Ginzburg–Landau):</strong> The evolution of the order parameter <span class="arithmatex">\(\phi\)</span> is determined by a potential function (free energy <span class="arithmatex">\(f\)</span>), with dynamics <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span>.</p>
+<p>2.<strong>Biology (Evolutionary Games):</strong> The evolution of the strategy proportion <span class="arithmatex">\(x\)</span> is determined by a potential function (fitness <span class="arithmatex">\(\bar{f}\)</span>), with dynamics <span class="arithmatex">\(\dot{x} = x(f_{coop} - \bar{f})\)</span>.</p>
+<p>Although they differ in origin and physical meaning, mathematically they are <strong>completely equivalent</strong>: both are <strong>nonlinear ordinary differential equations (ODEs)</strong> defined by a few <strong>dynamical variables</strong> (<span class="arithmatex">\(\phi\)</span> or <span class="arithmatex">\(x\)</span>) and several <strong>control parameters</strong> (<span class="arithmatex">\(r\)</span> or <span class="arithmatex">\(b, c\)</span>).</p>
+<p>The purpose of this section is to abstract this common mathematical structure and return to the universal language of dynamical systems theory. This language not only unifies the two models of this lecture but also provides the necessary foundation for more complex phenomena (such as oscillations, chaos, and spatiotemporal patterns) in subsequent lectures.</p>
+<h2 id="61-universal-form-of-dynamics-partial_t-u_i-f_iu_j-mu_ell">6.1 Universal Form of Dynamics - <span class="arithmatex">\(\partial_t u_i = f_i(\{u_j\}, \{\mu_\ell\})\)</span><a class="headerlink" href="#61-universal-form-of-dynamics-partial_t-u_i-f_iu_j-mu_ell" title="Permanent link">&para;</a></h2>
+<p>Whether it is the Ginzburg–Landau equation or the replicator equation, they can both be written in a universal mathematical form:</p>
+<div class="arithmatex">\[
+\partial_t u_i = f_i(\{u_j\}, \{\mu_\ell\})
+\]</div>
+<p>This system of equations is the universal language for describing deterministic dynamical systems:</p>
+<p><strong><span class="arithmatex">\(u_i\)</span> (<span class="arithmatex">\(i=1, \dots, S\)</span>)</strong>: The <strong>state variables</strong> describing the system state. <span class="arithmatex">\(S\)</span> is the degrees of freedom (or dimension) of the system.</p>
+<ul>
+<li>
+<p>In the Ginzburg–Landau model: <span class="arithmatex">\(S=1\)</span>, the dynamical variable is <span class="arithmatex">\(u_1 = \phi\)</span>.</p>
+</li>
+<li>
+<p>In the Prisoner's Dilemma model: <span class="arithmatex">\(S=1\)</span>, the dynamical variable is <span class="arithmatex">\(u_1 = x\)</span>.</p>
+</li>
+<li>
+<p>In the predator-prey model (mentioned in the course): <span class="arithmatex">\(S=2\)</span>, the dynamical variables are <span class="arithmatex">\(u_1 = \text{prey population}, u_2 = \text{predator population}\)</span>.</p>
+</li>
+</ul>
+<p><strong><span class="arithmatex">\(f_i\)</span></strong>: A set of (usually <strong>nonlinear</strong>) functions that define the "rules" or "force field" of system evolution.</p>
+<ul>
+<li>
+<p>In the Ginzburg–Landau model: <span class="arithmatex">\(f_1(u_1; \{\mu\}) = -\Gamma (r u_1 + u u_1^3 + v u_1^5)\)</span>.</p>
+</li>
+<li>
+<p>In the Prisoner's Dilemma model: <span class="arithmatex">\(f_1(u_1; \{\mu\}) = u_1(1-u_1)(f_{coop}(u_1) - f_{def}(u_1))\)</span>.</p>
+</li>
+</ul>
+<p><strong><span class="arithmatex">\(\mu_\ell\)</span> (<span class="arithmatex">\(\ell=1, \dots, P\)</span>)</strong>: The <strong>control parameters</strong> of the system. These are "knobs" we can adjust from outside; changing them changes the system's behavior.</p>
+<ul>
+<li>
+<p>In the Ginzburg–Landau model: <span class="arithmatex">\(\{\mu_\ell\} = \{r, u, v, \Gamma\}\)</span>.</p>
+</li>
+<li>
+<p>In the Prisoner's Dilemma model: <span class="arithmatex">\(\{\mu_\ell\} = \{b, c\}\)</span>.</p>
+</li>
+</ul>
+<h2 id="62-geometric-perspective-phase-space-trajectories-and-vector-fields">6.2 Geometric Perspective - Phase Space, Trajectories, and Vector Fields<a class="headerlink" href="#62-geometric-perspective-phase-space-trajectories-and-vector-fields" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/02_008_b01998ff-25d5-4f40-8d90-f9a8143a8cdb.png" /></p>
+<p>Dynamical systems theory provides a powerful <strong>geometric perspective</strong> for understanding such equations, transforming a (possibly difficult to solve) calculus problem into a (possibly more intuitive) geometric problem.</p>
+<p><strong>Phase Space:</strong> This is an <span class="arithmatex">\(S\)</span>-dimensional abstract space, where each coordinate axis corresponds to a dynamical variable <span class="arithmatex">\(u_i\)</span>. A <strong>point</strong> in phase space represents the <strong>complete state</strong> of the system at a given moment.</p>
+<ul>
+<li>
+<p>Our two models: Since <span class="arithmatex">\(S=1\)</span>, the phase space is just a <strong>one-dimensional line</strong> (the <span class="arithmatex">\(\phi\)</span> axis or <span class="arithmatex">\(x\)</span> axis).</p>
+</li>
+<li>
+<p>Predator-prey model: Since <span class="arithmatex">\(S=2\)</span>, the phase space is a <strong>two-dimensional plane</strong>.</p>
+</li>
+</ul>
+<p><strong>Trajectory:</strong> As time passes, the system state point <span class="arithmatex">\(u(t)\)</span> moves through phase space, tracing out a curve called the system's trajectory. For a deterministic system, given an initial point, its future trajectory is <strong>unique</strong> (trajectories cannot cross each other).</p>
+<p><strong>Flow / Vector Field:</strong> The functions <span class="arithmatex">\(f_i\)</span> define a vector <span class="arithmatex">\(\mathbf{f} = (f_1, f_2, \dots, f_S)\)</span> at every point in phase space. This vector indicates the instantaneous direction and speed of motion of the state point at that location. The entire phase space is filled with such vectors, forming a vector field or "flow."</p>
+<p><strong>Physical meaning:</strong> The system's trajectory is the integral curve that is everywhere tangent to this vector field. The evolution process is "floating in the direction of the flow." In our G-L model, the "flow" defined by <span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span> is precisely the "force" driving the system to "roll down" the energy landscape.</p>
+<h2 id="63-attractors-in-dissipative-systems-the-systems-final-destination">6.3 Attractors in Dissipative Systems - The System's Final Destination<a class="headerlink" href="#63-attractors-in-dissipative-systems-the-systems-final-destination" title="Permanent link">&para;</a></h2>
+<p>For the <strong>dissipative systems</strong> that this course focuses on (such as physical systems in contact with a heat bath or biological systems with selection pressure), volume elements in phase space <strong>shrink</strong> over time.</p>
+<p>This means the system will "forget" its precise initial conditions. Regardless of how large a range of initial states the system starts from, their trajectories will eventually converge to a lower-dimensional subset in phase space. This subset is called an <strong>attractor</strong>.</p>
+<p>An attractor is the geometric embodiment of the system's long-term behavior, determining the system's <strong>final fate</strong> and <strong>observable steady-state behavior</strong>. There are many types of attractors:</p>
+<p><strong>Fixed Point:</strong> A zero-dimensional attractor. The system eventually rests at an equilibrium state.</p>
+<ul>
+<li>
+<p>In the Ginzburg–Landau model (<span class="arithmatex">\(r&lt;0\)</span>): The attractors are the two stable fixed points <span class="arithmatex">\(\phi_\pm^*\)</span>.</p>
+</li>
+<li>
+<p>In the Prisoner's Dilemma model: The attractor is the single stable fixed point <span class="arithmatex">\(x^*=0\)</span>.</p>
+</li>
+</ul>
+<p><strong>Limit Cycle:</strong> A one-dimensional attractor. The system eventually enters a stable periodic oscillation (to be explored in subsequent lectures).</p>
+<p><strong>Strange Attractor:</strong> An attractor with fractal structure. The system exhibits chaotic behavior; trajectories never repeat but are confined to a finite region.</p>
+<p>The core goal of dynamical systems theory is to geometrically classify the "flows" in different systems, understand the structure of their <strong>attractors</strong> (fixed points, limit cycles, etc.), and study how these structures change with <strong>control parameters</strong> (<span class="arithmatex">\(\mu_\ell\)</span>). Such qualitative changes in attractor structure are precisely the <strong>bifurcations</strong> we encountered earlier. This paves the way for the next lecture's topic—how to systematically analyze the stability of fixed points and classify phenomena such as pitchfork bifurcations.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture introduced the core tools of dynamical systems for understanding self-organization phenomena through two seemingly unrelated examples—the <strong>Ginzburg–Landau theory</strong> from physics and <strong>evolutionary game theory</strong> from biology. The lecture revealed a common thread: complex macroscopic collective behavior can be described by low-dimensional nonlinear ordinary differential equations (ODEs) involving only a few key variables.</p>
+<p>Whether describing the <strong>free energy</strong> of phase transitions or the <strong>fitness</strong> of strategy evolution, they both play the role of some form of "potential function." The system's dynamics, whether physical <strong>relaxation</strong> (<span class="arithmatex">\(\partial_t \phi = -\Gamma \frac{\partial f}{\partial \phi}\)</span>) or biological <strong>selection</strong> (<span class="arithmatex">\(\dot{x} = x(f - \bar{f})\)</span>), drives the system toward the "extrema" of these potential functions. When external conditions (control parameters <span class="arithmatex">\(r\)</span> or <span class="arithmatex">\(b, c\)</span>) change, the structure of these stable states undergoes fundamental changes, i.e., <strong>bifurcations</strong>.</p>
+<p>Ultimately, all these specific dynamical processes can be abstracted as <strong>geometric flows</strong> in <strong>phase space</strong>. The system's long-term behavior is determined by the structure of <strong>attractors</strong>.</p>
+<p>This lecture started from the geometric intuition of "potential functions" and "saw" how the fixed point (<span class="arithmatex">\(\phi^*=0\)</span>) becomes unstable. But this is not rigorous enough. A key question remains: <strong>Are there universal mathematical tools that can analyze the stability of any fixed point without relying on "potential functions"?</strong></p>
+<p>The next lecture will learn how to systematically determine whether a fixed point is stable or unstable through <strong>linear stability analysis</strong>. More importantly, we will learn how to classify the phenomenon of <strong>bifurcation</strong> itself, revealing its universal mathematical structure, such as the <strong>pitchfork bifurcation</strong> seen in this lecture and the <strong>saddle-node bifurcation</strong> to be learned. Mastering these tools for analyzing fixed points and bifurcations is the cornerstone for understanding more complex dynamics (such as oscillations and chaos).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1533 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/">
+      
+      
+        <link rel="prev" href="../12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/">
+      
+      
+        <link rel="next" href="../14.%20Phase%20Separation%20Dynamics/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>13. Lattice Gas Model and Free Energy - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-from-macroscopic-thermodynamics-to-microscopic-statistical-physics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13. Lattice Gas Model and Free Energy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-from-macroscopic-thermodynamics-to-microscopic-statistical-physics">Introduction - From Macroscopic Thermodynamics to Microscopic Statistical Physics<a class="headerlink" href="#introduction-from-macroscopic-thermodynamics-to-microscopic-statistical-physics" title="Permanent link">&para;</a></h1>
+<p><strong>Lecture 12</strong> focused on the macroscopic thermodynamic properties of liquid mixtures, delving into concepts such as osmotic pressure and exchange chemical potential, and established the Cahn-Hilliard equation (Model B) describing conserved dynamics based on the phenomenologically introduced free energy density function <span class="arithmatex">\(f(\phi)\)</span>. However, although <strong>the previous lecture</strong> revealed that the thermodynamic driving force for phase separation originates from the non-convexity of free energy (<span class="arithmatex">\(f''(\phi) &lt; 0\)</span>), it did not explain from <strong>first principles</strong> the microscopic origin of this non-convexity—namely, how molecular interactions actually lead to macroscopic "mixing" or "demixing."</p>
+<p>From the results of <strong>Lecture 12</strong>, we can see that the non-convexity of free energy density <span class="arithmatex">\(f(\phi)\)</span> is the fundamental cause of phase separation. However, this free energy function remained an <strong>"assumed" object</strong> in previous discussions. This naturally raises a series of more fundamental questions:</p>
+<ul>
+<li>
+<p>Does the mixing entropy term <span class="arithmatex">\(\phi\ln\phi+(1-\phi)\ln(1-\phi)\)</span> in the free energy necessarily exist? Can it be derived from more fundamental statistical counting?</p>
+</li>
+<li>
+<p>Where does the specific form of the interaction term <span class="arithmatex">\(\chi\phi(1-\phi)\)</span> come from? What exactly is the relationship between parameter <span class="arithmatex">\(\chi\)</span> and microscopic interaction strength?</p>
+</li>
+<li>
+<p>Why is only nearest-neighbor interaction sufficient to induce the collective phenomenon of phase separation at the macroscopic level?</p>
+</li>
+</ul>
+<p>The core goal of this lecture is precisely to fill this theoretical gap and thereby establish a complete logical chain from microscopic particle interactions to macroscopic free energy landscapes. The professor first introduces the most parsimonious yet physically clear <strong>Lattice Gas Model</strong>, a simplified model that discretizes continuous fluid space, which is highly isomorphic to the Ising model in magnetism in mathematical structure. Based on this model, the analysis will start from the most fundamental particle occupation numbers and nearest-neighbor interactions, using the core tool of statistical mechanics—the <strong>Partition Function</strong>—to derive the core theory describing phase transition behavior of binary mixtures: the <strong>Flory-Huggins Free Energy Theory</strong>.</p>
+<p>The derivation process of this lecture demonstrates the classical physics paradigm for handling <strong>many-body problems</strong>: first construct the microscopic Hamiltonian, then simplify the complex coupled many-body problem into a solvable single-body problem through <strong>Mean-Field Approximation</strong>, thereby obtaining analytical expressions for the system's free energy. Furthermore, the course will achieve the transition from discrete lattice models to continuous field theory through Taylor Expansion, deriving the <strong>Ginzburg-Landau Free Energy Functional</strong> containing spatial gradient terms. The establishment of this functional directly lays the formal mathematical foundation for deeper exploration of phase separation dynamics, derivation of the microscopic form of the Cahn-Hilliard equation, calculation of dispersion relations, and determination of the Fastest Growing Mode in <strong>Lecture 14</strong>.</p>
+<h1 id="1-the-lattice-gas-model">1. The Lattice Gas Model<a class="headerlink" href="#1-the-lattice-gas-model" title="Permanent link">&para;</a></h1>
+<p>To establish a microscopic statistical theory describing binary mixtures of solute and solvent, this lecture first introduces the classical "Lattice Gas Model" from statistical physics. As a simplified model transitioning from continuous to discrete space, it not only captures the core characteristics of particle occupation and excluded volume, but also provides an energy-driven mechanism for phase separation through nearest-neighbor interactions. This model is highly isomorphic in mathematical structure to the Ising model in magnetism and serves as the microscopic cornerstone for deriving Flory-Huggins free energy theory.</p>
+<h2 id="11-physical-assumptions-and-spatial-discretization">1.1 Physical Assumptions and Spatial Discretization<a class="headerlink" href="#11-physical-assumptions-and-spatial-discretization" title="Permanent link">&para;</a></h2>
+<p>When dealing with liquid mixtures, directly tracking the positions and momenta of massive particles in continuous space is mathematically extremely complex and often unnecessary. To focus on the core mechanisms of phase transitions, the course introduces the following three key physical assumptions:</p>
+<ul>
+<li>
+<p><strong>Spatial Discretization</strong>: Continuous physical space is divided into regular grids (Lattice). Although classroom demonstrations typically use two-dimensional Square Lattice as an intuitive example, this theoretical framework has universality and is equally applicable to three-dimensional Cubic Lattice or regular structures of other dimensions.</p>
+</li>
+<li>
+<p><strong>Incompressibility Assumption</strong>: This is a core constraint in soft matter physics. The model assumes that each lattice site must be and can only be occupied by one particle. This means there are no vacancies in the system, and the system's total volume (determined by total number of sites <span class="arithmatex">\(N_{\text{tot}}\)</span>) is fixed and does not change with fluctuations in pressure or temperature. This assumption simulates the incompressible characteristics of dense liquids.</p>
+</li>
+<li>
+<p><strong>Equal Volume Approximation</strong>: The system contains two components—particle P (solute) and particle S (solvent). To accommodate the rigid lattice structure, the model assumes these two types of molecules have equal molecular volumes, i.e., each molecule occupies exactly one lattice site.</p>
+</li>
+</ul>
+<h2 id="12-description-of-microscopic-states-occupation-number-variables">1.2 Description of Microscopic States: Occupation Number Variables<a class="headerlink" href="#12-description-of-microscopic-states-occupation-number-variables" title="Permanent link">&para;</a></h2>
+<p>To mathematize the system's microscopic Configuration, Boolean-type occupation number variables <span class="arithmatex">\(\sigma_i\)</span> are introduced to mark the state of the <span class="arithmatex">\(i\)</span>-th lattice site. This is similar to spin variables in the Ising model, but in lattice gas, it represents the type of substance.</p>
+<p><img alt="Lecture Slide Screenshot, Lattice Gas Model schematic diagram, showing the microscopic discretized model of binary fluid mixture (solute and solvent). Left side shows two pure substances (blue particles represent solute, green particles represent solvent) existing independently without mixing (phase-separated state). Right side shows the configuration after two types of particles randomly mix on the lattice (mixed state). The model is based on the Incompressibility assumption, i.e., each lattice site must be and can only be occupied by one particle (no vacancies), and assumes equal volumes for both types of molecules. This is the foundation for subsequent statistical physics calculations of mixing entropy and interaction energy." src="../../cn/assets/images/13_001_c10b81d3-154d-452f-b3c7-46929311cfba.png" /></p>
+<p>Defined as follows:</p>
+<div class="arithmatex">\[
+\sigma_i = 
+\begin{cases} 
+1, &amp; \text{if site } i \text{ is occupied by solute particle (Solute, P)} \\
+0, &amp; \text{if site } i \text{ is occupied by solvent particle (Solvent, S)}
+\end{cases}
+\]</div>
+<p>Thus, any instantaneous microscopic state of the system can be uniquely determined by the sequence <span class="arithmatex">\(\{\sigma_i\} = (\sigma_1, \sigma_2, \dots, \sigma_{N_{\text{tot}}})\)</span>. For a system containing <span class="arithmatex">\(N_{\text{tot}}\)</span> lattice sites, all possible configurations constitute the sample space of the statistical ensemble.</p>
+<h2 id="13-the-hamiltonian">1.3 The Hamiltonian<a class="headerlink" href="#13-the-hamiltonian" title="Permanent link">&para;</a></h2>
+<p>The thermodynamic behavior of the system is determined by its energy functional, the Hamiltonian <span class="arithmatex">\(\mathcal{H}\)</span>. In the lattice gas model, interactions are assumed to be short-range, existing only between <strong>nearest-neighbor</strong> lattice sites.</p>
+<p>For any two adjacent sites <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> in the lattice (denoted as pair <span class="arithmatex">\(\langle i,j \rangle\)</span>), there are three possible interaction energies depending on the combination of occupying particle types. Mathematically, these energy terms can be precisely expressed by constructing "screening operators" composed of <span class="arithmatex">\(\sigma_i\)</span>:</p>
+<p>1.<strong>Solute-Solute Interaction (P-P)</strong>:</p>
+<ul>
+<li>
+<p>Occurrence condition: <span class="arithmatex">\(\sigma_i=1\)</span> and <span class="arithmatex">\(\sigma_j=1\)</span></p>
+</li>
+<li>
+<p>Energy contribution: <span class="arithmatex">\(\varepsilon_{pp}\)</span></p>
+</li>
+<li>
+<p>Screening operator: <span class="arithmatex">\(\sigma_i \sigma_j\)</span>. Only when both are 1 does this term equal 1, otherwise 0</p>
+</li>
+</ul>
+<p>2.<strong>Solvent-Solvent Interaction (S-S)</strong>:</p>
+<ul>
+<li>
+<p>Occurrence condition: <span class="arithmatex">\(\sigma_i=0\)</span> and <span class="arithmatex">\(\sigma_j=0\)</span></p>
+</li>
+<li>
+<p>Energy contribution: <span class="arithmatex">\(\varepsilon_{ss}\)</span></p>
+</li>
+<li>
+<p>Screening operator: <span class="arithmatex">\((1-\sigma_i)(1-\sigma_j)\)</span>. Using Boolean logic, only when both are 0 does this term equal 1</p>
+</li>
+</ul>
+<p>3.<strong>Solute-Solvent Interaction (P-S)</strong>:</p>
+<ul>
+<li>
+<p>Occurrence condition: one site is solute (<span class="arithmatex">\(\sigma=1\)</span>) while the other is solvent (<span class="arithmatex">\(\sigma=0\)</span>)</p>
+</li>
+<li>
+<p>Energy contribution: <span class="arithmatex">\(\varepsilon_{ps}\)</span></p>
+</li>
+<li>
+<p>Screening operator: <span class="arithmatex">\(\sigma_i (1-\sigma_j) + \sigma_j (1-\sigma_i)\)</span>. This term covers both asymmetric cases <span class="arithmatex">\((\sigma_i=1, \sigma_j=0)\)</span> and <span class="arithmatex">\((\sigma_i=0, \sigma_j=1)\)</span></p>
+</li>
+</ul>
+<p>Summing contributions from all nearest-neighbor pairs yields the microscopic Hamiltonian describing total system energy:</p>
+<div class="arithmatex">\[
+\mathcal{H}(\{\sigma_i\}) = \sum_{\langle i j \rangle} \left[ \varepsilon_{pp} \, \sigma_i \sigma_j + \varepsilon_{ss} \, (1-\sigma_i)(1-\sigma_j) + \varepsilon_{ps} \left(\sigma_i (1-\sigma_j) + \sigma_j (1-\sigma_i) \right) \right]
+\]</div>
+<p>This formula is central to this lecture and key to understanding the transition from microscopic interactions to macroscopic phase separation. It shows that whether phase separation occurs depends not on the absolute magnitudes of <span class="arithmatex">\(\varepsilon_{pp}\)</span> or <span class="arithmatex">\(\varepsilon_{ss}\)</span>, but on the energy competition between <strong>like-particle aggregation</strong> (<span class="arithmatex">\(\varepsilon_{pp}, \varepsilon_{ss}\)</span> terms) and <strong>unlike-particle mixing</strong> (<span class="arithmatex">\(\varepsilon_{ps}\)</span> term).</p>
+<p>It is worth emphasizing that although the above Hamiltonian appears cumbersome, its physical structure is <strong>strictly isomorphic</strong> to the <strong>Ising model</strong>. If we define new spin variables</p>
+<div class="arithmatex">\[
+s_i = 2\sigma_i - 1 \in \{+1, -1\},
+\]</div>
+<p>then the lattice gas model can be mapped one-to-one to an Ising model with nearest-neighbor interactions. The difference between them lies not in mathematical structure but in <strong>physical interpretation</strong>: in the Ising model, <span class="arithmatex">\(s_i\)</span> represents magnetic moment direction; in the lattice gas model, <span class="arithmatex">\(\sigma_i\)</span> represents occupation state of different chemical components.</p>
+<p>It is precisely this isomorphic relationship that allows magnetic phase transitions, alloy demixing, and liquid mixture problems to be treated uniformly in statistical physics.</p>
+<h2 id="14-challenges-and-approaches-to-the-partition-function">1.4 Challenges and Approaches to the Partition Function<a class="headerlink" href="#14-challenges-and-approaches-to-the-partition-function" title="Permanent link">&para;</a></h2>
+<p>The core task of statistical mechanics is to calculate the Partition Function (<span class="arithmatex">\(\mathcal{Z}\)</span>), which bridges microscopic states with macroscopic thermodynamic quantities (such as free energy). For the canonical ensemble (fixed temperature <span class="arithmatex">\(T\)</span> and particle number), the partition function is the sum of Boltzmann factors over all possible microscopic configurations <span class="arithmatex">\(\{\sigma_i\}\)</span>:</p>
+<div class="arithmatex">\[
+\mathcal{Z} = \sum_{\{\sigma_i\}} \exp\left[ -\beta \, \mathcal{H}(\{\sigma_i\}) \right]
+\]</div>
+<p>where <span class="arithmatex">\(\beta = \frac{1}{k_B T}\)</span> is the inverse thermodynamic temperature.</p>
+<p>Directly calculating this partition function is mathematically extremely challenging. The difficulty lies in the <strong>cross terms</strong> in the Hamiltonian (such as <span class="arithmatex">\(\sigma_i \sigma_j\)</span>). These terms make the states of neighboring sites no longer probabilistically independent, causing the entire system's <span class="arithmatex">\(N_{\text{tot}}\)</span> variables to be tightly coupled together. Except in one dimension and certain two-dimensional cases (such as the Onsager solution), there is no general analytical solution to this problem.</p>
+<p>To overcome this difficulty, the course adopts a physically intuitive approximation strategy: decompose the free energy <span class="arithmatex">\(F = U - TS\)</span> into two parts for separate treatment:</p>
+<p>1.<strong>Entropy (S)</strong>: Assuming no interactions, only consider the geometric combinatorics of particle arrangements.</p>
+<p>2.<strong>Internal Energy (U)</strong>: Use <strong>Mean-Field Approximation</strong> to ignore local fluctuations and calculate average interaction energy.</p>
+<p>The next two sections will derive these two parts respectively, ultimately reconstructing the Flory-Huggins free energy expression.</p>
+<h1 id="2-mixing-entropy">2. Mixing Entropy<a class="headerlink" href="#2-mixing-entropy" title="Permanent link">&para;</a></h1>
+<p>In the process of constructing Helmholtz free energy <span class="arithmatex">\(F = E - TS\)</span>, to isolate the entropic contribution, the professor first constructs an idealized reference system: the <strong>non-interacting system</strong>. This corresponds to the limit case of interaction energy <span class="arithmatex">\(\varepsilon = 0\)</span>, or equivalently the high-temperature limit (<span class="arithmatex">\(T \to \infty\)</span>), where particles' thermal kinetic energy far exceeds potential energy, and the system's physical behavior is completely dominated by Configurational Entropy. In this framework, the driving force for mixing originates purely from statistical geometric arrangement possibilities.</p>
+<h2 id="21-combinatorial-counting-of-states">2.1 Combinatorial Counting of States<a class="headerlink" href="#21-combinatorial-counting-of-states" title="Permanent link">&para;</a></h2>
+<p>Based on the lattice gas model, the system is defined as a rigid grid containing <span class="arithmatex">\(N_{\text{tot}}\)</span> lattice sites. According to the <strong>Incompressibility Assumption</strong>, each lattice site must be and can only be occupied by one particle. If the number of solute particles (P) is <span class="arithmatex">\(N_p\)</span> and solvent particles (S) is <span class="arithmatex">\(N_s\)</span>, then the particle number conservation constraint must be satisfied:</p>
+<div class="arithmatex">\[
+N_{\text{tot}} = N_p + N_s
+\]</div>
+<p>Under the Microcanonical Ensemble assumption, system energy is degenerate, and every possible microscopic configuration occurs with equal probability. Therefore, the total number of microscopic states <span class="arithmatex">\(\Omega\)</span> equals the number of ways to arrange <span class="arithmatex">\(N_p\)</span> indistinguishable solute particles and <span class="arithmatex">\(N_s\)</span> indistinguishable solvent particles on <span class="arithmatex">\(N_{\text{tot}}\)</span> lattice sites. According to combinatorics:</p>
+<div class="arithmatex">\[
+\Omega(N_p, N_{\text{tot}}) = \binom{N_{\text{tot}}}{N_p} = \frac{N_{\text{tot}}!}{N_p! N_s!} = \frac{N_{\text{tot}}!}{N_p! (N_{\text{tot}} - N_p)!}
+\]</div>
+<p>This formula intuitively reflects the statistical nature of mixing: as the quantities of both particle types approach equality, the number of possible arrangements <span class="arithmatex">\(\Omega\)</span> grows exponentially.</p>
+<h2 id="22-stirlings-approximation-and-analytical-expression-for-entropy">2.2 Stirling's Approximation and Analytical Expression for Entropy<a class="headerlink" href="#22-stirlings-approximation-and-analytical-expression-for-entropy" title="Permanent link">&para;</a></h2>
+<p>According to Boltzmann's entropy formula <span class="arithmatex">\(S = k_B \ln \Omega\)</span>, we need to calculate the logarithm of large combinatorial numbers. In the thermodynamic limit (<span class="arithmatex">\(N \sim 10^{23}\)</span>), <strong>Stirling's Approximation</strong> can be used:</p>
+<div class="arithmatex">\[
+\ln N! \approx N \ln N - N
+\]</div>
+<p>Substituting the combinatorial formula into the entropy expression and expanding:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{S}{k_B} &amp;= \ln (N_{\text{tot}}!) - \ln (N_p!) - \ln (N_s!) \\
+&amp;\approx (N_{\text{tot}} \ln N_{\text{tot}} - N_{\text{tot}}) - (N_p \ln N_p - N_p) - (N_s \ln N_s - N_s)
+\end{aligned}
+\]</div>
+<p>Note that the linear terms in the expansion cancel each other:</p>
+<div class="arithmatex">\[
+-N_{\text{tot}} - (-N_p - N_s) = -N_{\text{tot}} + (N_p + N_s) = 0
+\]</div>
+<p>Therefore, the entropy expression simplifies to:</p>
+<div class="arithmatex">\[
+\frac{S}{k_B} \approx N_{\text{tot}} \ln N_{\text{tot}} - N_p \ln N_p - N_s \ln N_s
+\]</div>
+<p>To obtain an <strong>Intensive Quantity</strong> independent of system size, convenient for describing continuous fields, introduce the dimensionless order parameter—the solute's <strong>Volume Fraction</strong> <span class="arithmatex">\(\phi\)</span>:</p>
+<div class="arithmatex">\[
+\phi \equiv \frac{N_p}{N_{\text{tot}}} \quad \Rightarrow \quad N_p = \phi N_{\text{tot}}
+\]</div>
+<p>According to the normalization condition, the solvent's volume fraction is:</p>
+<div class="arithmatex">\[
+1-\phi = \frac{N_s}{N_{\text{tot}}} \quad \Rightarrow \quad N_s = (1-\phi) N_{\text{tot}}
+\]</div>
+<p>Substituting <span class="arithmatex">\(\phi\)</span> back into the entropy expression and using logarithm properties <span class="arithmatex">\(\ln(AB) = \ln A + \ln B\)</span> for rearrangement:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{S}{k_B} &amp;= N_{\text{tot}} \ln N_{\text{tot}} - [\phi N_{\text{tot}} \ln (\phi N_{\text{tot}}) + (1-\phi) N_{\text{tot}} \ln ((1-\phi) N_{\text{tot}})] \\
+&amp;= N_{\text{tot}} \ln N_{\text{tot}} - N_{\text{tot}} [\phi (\ln \phi + \ln N_{\text{tot}}) + (1-\phi) (\ln (1-\phi) + \ln N_{\text{tot}})] \\
+&amp;= N_{\text{tot}} \ln N_{\text{tot}} - N_{\text{tot}} [\phi \ln \phi + (1-\phi) \ln (1 - \phi) + (\phi + 1 - \phi) \ln N_{\text{tot}}]
+\end{aligned}
+\]</div>
+<p>We can see that terms containing <span class="arithmatex">\(\ln N_{\text{tot}}\)</span> ultimately cancel. This yields the classical <strong>Mixing Entropy</strong> formula:</p>
+<div class="arithmatex">\[
+S_{\text{mix}} = - k_B N_{\text{tot}} \left[ \phi \ln \phi + (1-\phi) \ln (1 - \phi) \right]
+\]</div>
+<h2 id="23-physical-picture-of-mixing-entropy">2.3 Physical Picture of Mixing Entropy<a class="headerlink" href="#23-physical-picture-of-mixing-entropy" title="Permanent link">&para;</a></h2>
+<p>To intuitively understand entropy's effect on system stability, the professor displayed the geometric features of entropy function <span class="arithmatex">\(S(\phi)\)</span> and its contribution to free energy <span class="arithmatex">\(-TS(\phi)\)</span>.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/13_002_f7a69925-6709-4b2f-90a9-fc5be05c585c.png" /></p>
+<p>Decomposition and Evolution of Free Energy of Mixing. This figure shows the two components of Flory-Huggins free energy density <span class="arithmatex">\(f(\phi)\)</span> and their variation with <span class="arithmatex">\(\chi\)</span> parameter.</p>
+<p><strong>Left Figure:</strong> Entropy of Mixing. Shows the variation of dimensionless entropy contribution <span class="arithmatex">\(-S/k_B\)</span> with volume fraction <span class="arithmatex">\(\phi\)</span>. This curve exhibits upward-opening "U-shape" characteristics (convex function), with minimum at <span class="arithmatex">\(\phi=0.5\)</span>, indicating that entropy always tends to drive the system toward a uniform mixing state.</p>
+<p><strong>Right Figure:</strong> Total Free Energy Density. Shows the evolution of free energy curves at different Flory-Huggins parameters <span class="arithmatex">\(\chi\)</span>.</p>
+<ul>
+<li>
+<p>Curve <strong>1 (<span class="arithmatex">\(\chi &lt; 2\)</span>):</strong> High temperature state, free energy is single-well (convex function), system is in uniform mixed phase.</p>
+</li>
+<li>
+<p>Curve <strong>2 (<span class="arithmatex">\(\chi = 2\)</span>):</strong> Critical state, curve bottom becomes flat.</p>
+</li>
+<li>
+<p>Curve <strong>3 (<span class="arithmatex">\(\chi &gt; 2\)</span>):</strong> Low temperature state, free energy splits into double-well (non-convex function), system undergoes spontaneous symmetry breaking, tending to separate into two coexisting phases.</p>
+</li>
+</ul>
+<p>This mathematical result contains profound physical meaning:</p>
+<p>1.<strong>Convexity of Free Energy</strong>: Although entropy <span class="arithmatex">\(S(\phi)\)</span> itself is a downward-opening concave function (Hill shape), its contribution to Helmholtz free energy is <span class="arithmatex">\(-TS\)</span>. The function <span class="arithmatex">\(g(\phi) = \phi \ln \phi + (1-\phi) \ln (1-\phi)\)</span> has a positive second derivative throughout the domain <span class="arithmatex">\((0, 1)\)</span>:</p>
+<div class="arithmatex">\[
+g''(\phi) = \frac{1}{\phi} + \frac{1}{1-\phi} &gt; 0
+\]</div>
+<p>This means the <span class="arithmatex">\(-TS\)</span> term is a <strong>Convex Function</strong>. In thermodynamics, convexity of free energy guarantees system stability. The entropy term acts like a "spring," always tending to pull the system's concentration toward the free energy minimum.</p>
+<p>2.<strong>Maximum Disorder and Mixing Driving Force</strong>:</p>
+<p>The entropy term in free energy reaches its global minimum at <span class="arithmatex">\(\phi = 0.5\)</span>. This indicates that without any energy preference, the most stable macroscopic state is the uniformly mixed state with equal parts solute and solvent, because this corresponds to the maximum number of microscopic states and maximum disorder.</p>
+<p>3.<strong>Boundary Singularity and Instability of Pure Substances</strong>:</p>
+<p>Observing the function's behavior at boundaries <span class="arithmatex">\(\phi \to 0\)</span> or <span class="arithmatex">\(\phi \to 1\)</span>, its first derivative (part of chemical potential) tends to infinity:</p>
+<div class="arithmatex">\[
+\lim_{\phi \to 0} \frac{d}{d\phi}(\phi \ln \phi) = -\infty
+\]</div>
+<p>This mathematical singularity has important physical implications: <strong>Adding extremely small amounts of impurity to a pure substance always causes a sharp decrease in system free energy (infinite slope).</strong> This explains why <strong>absolutely pure substances</strong> are difficult to obtain in nature—entropy always drives substances toward "contamination" or mixing, which is a manifestation of the third law of thermodynamics in mixing problems.</p>
+<p>From the free energy perspective, mixing entropy's effect can be understood as a kind of "statistical elasticity." Any concentration fluctuation deviating from uniform mixing state significantly reduces the number of achievable microscopic configurations, thereby causing entropy decrease and free energy increase. This effect is mathematically manifested as the entropy term's contribution to free energy always being a strictly convex function.</p>
+<p>Therefore, in the absence of interaction energy, only one unique minimum exists in the free energy landscape, corresponding to the completely uniform mixed state. This conclusion is not a result of a specific model but originates from the universal properties of combinatorial entropy in incompressible systems.</p>
+<h1 id="3-mean-field-theory-and-interaction-energy">3. Mean-Field Theory and Interaction Energy<a class="headerlink" href="#3-mean-field-theory-and-interaction-energy" title="Permanent link">&para;</a></h1>
+<p>After handling the entropy contribution, the next step in theory construction is to address the complex interaction terms in the Hamiltonian. Since the two-body interaction operator <span class="arithmatex">\(\sigma_i \sigma_j\)</span> in the partition function causes high coupling between lattice site states, direct solution is mathematically almost impossible. To overcome this difficulty, the course introduces <strong>Mean-Field Theory</strong>. This method is not only the standard paradigm for statistical physics handling many-body problems but also a key step in understanding the transition from microscopic particle interactions to macroscopic continuous field theory (such as Ginzburg-Landau theory).</p>
+<h2 id="31-coarse-graining-and-mean-field-assumption">3.1 Coarse-Graining and Mean-Field Assumption<a class="headerlink" href="#31-coarse-graining-and-mean-field-assumption" title="Permanent link">&para;</a></h2>
+<p>The core physical idea of mean-field theory is <strong>Neglecting Local Fluctuations</strong>. In real lattice systems, the state <span class="arithmatex">\(\sigma_i\)</span> of a particular site <span class="arithmatex">\(i\)</span> is strongly influenced by the instantaneous states of its specific neighbors (<span class="arithmatex">\(\sigma_j\)</span>), exhibiting short-range correlations. Mean-field approximation instead "smooths out" this difference by assuming each particle experiences not the specific states of surrounding neighbors, but a uniform background field (the "mean field") determined by the system's average density.</p>
+<p><img alt="Schematic diagram of coarse-graining process from microscopic lattice model to macroscopic continuous field theory. Macroscopic continuous medium no longer distinguishes individual particles but uses a uniform color (gray/mixed) to represent local volume fraction \(\phi\). Arrow indicates coarse-graining and averaging operation \(\langle \sigma_i \rangle \to \phi\). Source: Author's illustration" src="../../cn/assets/images/13_003_2e3fad34-6173-48d9-9e59-d1a50b0e87af.png" /></p>
+<p>In mathematical treatment, this means performing the following operator replacements:</p>
+<p>1.<strong>Single-body Operator Replacement</strong>: Replace microscopic occupation number variable <span class="arithmatex">\(\sigma_i\)</span> with its ensemble average, i.e., local volume fraction <span class="arithmatex">\(\phi\)</span>:</p>
+<div class="arithmatex">\[
+\sigma_i \approx \langle \sigma_i \rangle = \phi
+\]</div>
+<p>2.<strong>Correlation Decoupling</strong>: This is the most critical approximation step, assuming states of different sites are statistically independent, thereby decomposing coupled two-body terms into products of single-body terms:</p>
+<div class="arithmatex">\[
+\langle \sigma_i \sigma_j \rangle \approx \langle \sigma_i \rangle \langle \sigma_j \rangle = \phi^2
+\]</div>
+<p>This treatment is essentially a <strong>Coarse-graining</strong> process. The perspective of analysis rises from individual lattice points to a mesoscopic volume element containing many particles, at which scale density is considered uniform.</p>
+<p>It should be noted that the cost of mean-field approximation is that it systematically ignores short-range correlations and fluctuation effects. In other words, the model assumes that the environment "seen" by each lattice site is statistically completely identical. This approximation is reasonable in high dimensions or far from critical points, but underestimates the importance of fluctuations near critical points. This deficiency will reappear when introducing the Ginzburg criterion later.</p>
+<h2 id="32-derivation-of-mean-field-energy-e_textmf">3.2 Derivation of Mean-Field Energy <span class="arithmatex">\(E_{\text{mf}}\)</span><a class="headerlink" href="#32-derivation-of-mean-field-energy-e_textmf" title="Permanent link">&para;</a></h2>
+<p>Based on the above assumptions, the system's average interaction energy <span class="arithmatex">\(E_{\text{mf}}(\phi)\)</span> can be calculated. This requires counting the average expected number of occurrences of various types of nearest-neighbor particle Pairs throughout the lattice.</p>
+<p>Let <span class="arithmatex">\(z\)</span> be the lattice's <strong>Coordination number</strong>, i.e., the number of nearest-neighbor sites each site has (e.g., two-dimensional square lattice <span class="arithmatex">\(z=4\)</span>, three-dimensional cubic lattice <span class="arithmatex">\(z=6\)</span>). The total number of nearest-neighbor connections in the system is <span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}}\)</span>, where the factor <span class="arithmatex">\(\frac{1}{2}\)</span> comes from deduplicating counts of each pair <span class="arithmatex">\(\langle i, j \rangle\)</span>.</p>
+<p>Contributions of each term to total energy are as follows:</p>
+<p>1.<strong>Solute-Solute Pair (P-P)</strong>:</p>
+<ul>
+<li>
+<p>Probability of occurrence: <span class="arithmatex">\(\phi \cdot \phi = \phi^2\)</span></p>
+</li>
+<li>
+<p>Energy contribution: <span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}} \cdot \varepsilon_{pp} \cdot \phi^2\)</span></p>
+</li>
+</ul>
+<p>2.<strong>Solvent-Solvent Pair (S-S)</strong>:</p>
+<ul>
+<li>
+<p>Probability of occurrence: <span class="arithmatex">\((1-\phi) \cdot (1-\phi) = (1-\phi)^2\)</span></p>
+</li>
+<li>
+<p>Energy contribution: <span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}} \cdot \varepsilon_{ss} \cdot (1-\phi)^2\)</span></p>
+</li>
+</ul>
+<p>3.<strong>Solute-Solvent Pair (P-S)</strong>:</p>
+<ul>
+<li>
+<p>Probability of occurrence: <span class="arithmatex">\(\phi(1-\phi)\)</span>. Since the Hamiltonian contains both <span class="arithmatex">\(\sigma_i(1-\sigma_j)\)</span> and <span class="arithmatex">\(\sigma_j(1-\sigma_i)\)</span> terms (i.e., <span class="arithmatex">\(i\)</span> is solute and <span class="arithmatex">\(j\)</span> is solvent, and vice versa), multiply by coefficient 2.</p>
+</li>
+<li>
+<p>Energy contribution: <span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}} \cdot \varepsilon_{ps} \cdot 2\phi(1-\phi)\)</span></p>
+</li>
+</ul>
+<p>Summing the three parts yields the expression for mean-field energy density:</p>
+<div class="arithmatex">\[
+E_{\text{mf}}(\phi) = \frac{1}{2} z N_{\text{tot}} \left[ \varepsilon_{pp} \phi^2 + \varepsilon_{ss} (1-\phi)^2 + 2 \varepsilon_{ps} \phi (1-\phi) \right]
+\]</div>
+<h2 id="33-mixing-energy-and-flory-huggins-parameter-chi">3.3 Mixing Energy and Flory-Huggins Parameter <span class="arithmatex">\(\chi\)</span><a class="headerlink" href="#33-mixing-energy-and-flory-huggins-parameter-chi" title="Permanent link">&para;</a></h2>
+<p>To reveal the physical essence of phase transition, the above energy expression needs to be reorganized. In thermodynamics, what truly drives phase transition is not the system's absolute energy, but the <strong>Energy of Mixing</strong>, i.e., the difference between energy after mixing and pure component energies before mixing.</p>
+<p>The energy of pure solute state (<span class="arithmatex">\(\phi=1\)</span>) is <span class="arithmatex">\(E_{\text{pure P}} = \frac{1}{2} z N_{\text{tot}} \varepsilon_{pp}\)</span>, and pure solvent state (<span class="arithmatex">\(\phi=0\)</span>) is <span class="arithmatex">\(E_{\text{pure S}} = \frac{1}{2} z N_{\text{tot}} \varepsilon_{ss}\)</span>.</p>
+<p>Define mixing interaction energy <span class="arithmatex">\(\Delta E_{\text{int}}\)</span>:</p>
+<div class="arithmatex">\[
+\Delta E_{\text{int}}(\phi) = E_{\text{mf}}(\phi) - \left[ \phi E_{\text{pure P}} + (1-\phi) E_{\text{pure S}} \right]
+\]</div>
+<p>Substituting <span class="arithmatex">\(E_{\text{mf}}\)</span> expression and using identities <span class="arithmatex">\(\phi^2 - \phi = -\phi(1-\phi)\)</span> and <span class="arithmatex">\((1-\phi)^2 - (1-\phi) = -\phi(1-\phi)\)</span> for simplification, one can surprisingly find that all linear and constant terms cancel, leaving only terms proportional to <span class="arithmatex">\(\phi(1-\phi)\)</span>:</p>
+<div class="arithmatex">\[
+\Delta E_{\text{int}}(\phi) = \frac{1}{2} z N_{\text{tot}} \phi(1-\phi) \left[ 2\varepsilon_{ps} - (\varepsilon_{pp} + \varepsilon_{ss}) \right]
+\]</div>
+<p>Here a core physical quantity is defined—the <strong>Exchange Interaction Energy</strong> <span class="arithmatex">\(\Delta \varepsilon\)</span>:</p>
+<div class="arithmatex">\[
+\Delta \varepsilon = \varepsilon_{pp} + \varepsilon_{ss} - 2\varepsilon_{ps}
+\]</div>
+<p><strong>Physical Meaning:</strong></p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\Delta \varepsilon\)</span> measures the net energy change required to break one P-P pair and one S-S pair and form two P-S pairs.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(\Delta \varepsilon &lt; 0\)</span>: means <span class="arithmatex">\(\varepsilon_{pp} + \varepsilon_{ss} &lt; 2\varepsilon_{ps}\)</span>. Like-particle aggregation has lower energy (more stable), and unlike-particle contact increases system energy. This corresponds to <strong>attractive interaction</strong>, tending to drive the system toward <strong>Demixing</strong>.</p>
+</li>
+</ul>
+<p>For convenience in subsequent discussion, introduce the dimensionless <strong>Flory-Huggins parameter <span class="arithmatex">\(\chi\)</span></strong>:</p>
+<div class="arithmatex">\[
+\chi \equiv -\frac{z}{2} \frac{\Delta \varepsilon}{k_B T}
+\]</div>
+<p>When there is a demixing tendency, i.e., <span class="arithmatex">\(\Delta \varepsilon &lt; 0\)</span>, parameter <span class="arithmatex">\(\chi\)</span> is positive.</p>
+<p>The <span class="arithmatex">\(\chi\)</span> parameter profoundly reflects <strong>competition between enthalpy (interaction) and temperature</strong>: <span class="arithmatex">\(\chi \propto 1/T\)</span>. The lower the temperature, the larger <span class="arithmatex">\(\chi\)</span>, and the greater the proportion of interaction energy relative to thermal motion (<span class="arithmatex">\(k_B T\)</span>).</p>
+<p>Finally, the system's interaction energy density can be concisely expressed as:</p>
+<div class="arithmatex">\[
+\frac{E_{\text{int}}}{N_{\text{tot}} k_B T} = \chi \phi (1 - \phi)
+\]</div>
+<p>This concise parabolic form (<span class="arithmatex">\(\chi \phi - \chi \phi^2\)</span>) constitutes the energy part of Flory-Huggins free energy, which together with the entropy term will determine the system's phase diagram structure.</p>
+<h1 id="4-flory-huggins-free-energy-and-its-physical-picture">4. Flory-Huggins Free Energy and Its Physical Picture<a class="headerlink" href="#4-flory-huggins-free-energy-and-its-physical-picture" title="Permanent link">&para;</a></h1>
+<p>In the derivations of the previous two sections, the professor obtained <strong>mixing entropy</strong> (favoring disordered mixing) from purely statistical counting, and <strong>interaction energy</strong> (favoring ordered demixing) from mean-field approximation respectively. The core task of this section is to integrate these two competing mechanisms into the same thermodynamic potential function—Helmholtz Free Energy. The resulting <strong>Flory-Huggins Free Energy Theory</strong> is not only the cornerstone of polymer physics but also provides the most fundamental mathematical framework for understanding phase separation behavior in soft matter systems.</p>
+<h2 id="41-construction-of-free-energy-density">4.1 Construction of Free Energy Density<a class="headerlink" href="#41-construction-of-free-energy-density" title="Permanent link">&para;</a></h2>
+<p>According to thermodynamic definition, Helmholtz free energy <span class="arithmatex">\(F\)</span> is jointly determined by internal energy <span class="arithmatex">\(E\)</span> and entropy <span class="arithmatex">\(S\)</span>:</p>
+<div class="arithmatex">\[
+F = E - TS
+\]</div>
+<p>To obtain an intensive quantity independent of macroscopic system size, total free energy is usually normalized to <strong>free energy density</strong> <span class="arithmatex">\(f(\phi)\)</span> per lattice site (or per molecule). Substituting the mixing entropy <span class="arithmatex">\(S_{\text{mix}}\)</span> derived in Section 2 and mean-field energy <span class="arithmatex">\(E_{\text{mf}}\)</span> derived in Section 3, and nondimensionalizing with thermal energy <span class="arithmatex">\(k_B T\)</span> as energy unit:</p>
+<div class="arithmatex">\[
+\frac{f(\phi)}{k_B T} = \frac{E_{\text{mf}} - T S_{\text{mix}}}{N_{\text{tot}} k_B T}
+\]</div>
+<p>Substituting specific expressions yields the classical <strong>Flory-Huggins Free Energy Equation</strong>:</p>
+<div class="arithmatex">\[
+\frac{f(\phi)}{k_B T} = \underbrace{\phi \ln \phi + (1-\phi) \ln (1-\phi)}_{\text{Entropic Term}} + \underbrace{\chi \phi (1 - \phi)}_{\text{Interaction Term}}
+\]</div>
+<p>This equation is extremely concise and elegant in form. Although Flory and Huggins originally derived it to describe polymer chain solutions (considering entropy reduction due to chain connectivity, typically the first term has a <span class="arithmatex">\(1/N\)</span> factor), for the simple lattice gas model discussed in this course (corresponding to solute-solvent mixing with chain length <span class="arithmatex">\(N=1\)</span>), this form is a rigorous mean-field result.</p>
+<h2 id="42-competition-mechanism-between-entropy-and-energy">4.2 Competition Mechanism Between Entropy and Energy<a class="headerlink" href="#42-competition-mechanism-between-entropy-and-energy" title="Permanent link">&para;</a></h2>
+<p>This equation profoundly reveals the physical essence behind phase transitions—<strong>eternal competition between order (energy-dominated) and disorder (entropy-dominated)</strong>. The final shape of free energy curve <span class="arithmatex">\(f(\phi)\)</span> depends entirely on the superposition of geometric features of these two terms.</p>
+<p><img alt="Free energy decomposition diagram. Upward-opening U-shaped curve represents entropy term (-TS), downward-opening inverted U-shaped curve represents energy term (E), and the total free energy curve after superposition of both. When \(\chi &gt; 2\), the middle part bulges upward, forming the characteristic double-well structure, signifying phase separation occurrence. Source: Author's illustration" src="../../cn/assets/images/13_004_84477c25-3a46-4d96-91f6-01acf987cfd5.png" /></p>
+<p>1.<strong>Entropic Contribution</strong>:</p>
+<ul>
+<li>
+<p><strong>Mathematical form</strong>: <span class="arithmatex">\(x \ln x\)</span> type convex function.</p>
+</li>
+<li>
+<p><strong>Geometric feature</strong>: Second derivative is always positive, curve always <strong>opens upward (Convex)</strong>.</p>
+</li>
+<li>
+<p><strong>Physical effect</strong>: Entropy always tends to maximize disorder. It drives free energy curve to maintain convexity, placing minimum at <span class="arithmatex">\(\phi=0.5\)</span>. This is a <strong>mixing force</strong> trying to eliminate any concentration difference and make the system uniform.</p>
+</li>
+</ul>
+<p>2.<strong>Interaction Contribution</strong>:</p>
+<ul>
+<li>
+<p><strong>Mathematical form</strong>: When <span class="arithmatex">\(\chi &gt; 0\)</span> (effective attraction exists), it is <span class="arithmatex">\(-\phi^2\)</span> type concave function.</p>
+</li>
+<li>
+<p><strong>Geometric feature</strong>: Second derivative is negative, curve <strong>opens downward (Concave)</strong>.</p>
+</li>
+<li>
+<p><strong>Physical effect</strong>: Energy term tends to let like particles aggregate to reduce potential energy. It tries to bulge the middle of free energy curve, forming a potential barrier. This is a <strong>demixing force</strong> driving the system away from uniform state toward pure phases (<span class="arithmatex">\(\phi=0\)</span> or <span class="arithmatex">\(1\)</span>).</p>
+</li>
+</ul>
+<h2 id="43-temperature-control-and-double-well-formation">4.3 Temperature Control and Double-Well Formation<a class="headerlink" href="#43-temperature-control-and-double-well-formation" title="Permanent link">&para;</a></h2>
+<p>In Flory-Huggins theory, the key control parameter determining who wins is <span class="arithmatex">\(\chi\)</span>. Since <span class="arithmatex">\(\chi\)</span> definition contains inverse temperature factor:</p>
+<div class="arithmatex">\[
+\chi \propto \frac{\Delta \varepsilon}{k_B T} \propto \frac{1}{T}
+\]</div>
+<p>Therefore, adjusting temperature is equivalent to adjusting the relative weights of entropy and energy, thereby changing the topological structure of the free energy Landscape.</p>
+<p><img alt="Lecture Slide Screenshot, Free energy density \(f(\phi)\) variation with Flory-Huggins parameter \(\chi\)" src="../../cn/assets/images/13_005_4c738ba6-632a-4848-970b-94009e669640.png" /></p>
+<ul>
+<li><strong>High Temperature Limit (<span class="arithmatex">\(\chi \to 0\)</span>)</strong>:</li>
+</ul>
+<p>Thermal motion is violent, entropy term absolutely dominates. Free energy curve presents perfect U-shape (convex function), with system having unique global minimum at <span class="arithmatex">\(\phi=0.5\)</span>. At this point, regardless of initial concentration, solute and solvent can infinitely mix (Miscible).</p>
+<ul>
+<li><strong>Low Temperature Limit (<span class="arithmatex">\(\chi\)</span> increases)</strong>:</li>
+</ul>
+<p>As temperature decreases, <span class="arithmatex">\(\chi\)</span> increases, and energy term weight increases. When <span class="arithmatex">\(\chi\)</span> exceeds a certain <strong>critical value</strong>, the "bulging" effect of energy term near <span class="arithmatex">\(\phi=0.5\)</span> overcomes the "concave" effect of entropy term. The central part of free energy curve is "pushed up," splitting from single-well into <strong>Double-Well Potential</strong>.</p>
+<p>This topological transition from single-well to double-well marks a <strong>phase transition</strong> in the system. The originally stable uniform mixed state becomes unstable, and the system tends to split into two coexisting phases of different concentrations to occupy the two deeper wells respectively. Section 5 will precisely locate the critical condition for this phase transition through mathematical analysis.</p>
+<h1 id="5-phase-diagram-analysis">5. Phase Diagram Analysis<a class="headerlink" href="#5-phase-diagram-analysis" title="Permanent link">&para;</a></h1>
+<p>Through derivation in the previous section, the analytical form of free energy density function <span class="arithmatex">\(f(\phi)\)</span> has been completely established. The next core task is to explore the evolution law of this function's geometric shape with parameter <span class="arithmatex">\(\chi\)</span> (i.e., temperature <span class="arithmatex">\(T\)</span>), thereby plotting the phase diagram describing the system's thermodynamic states. This process mainly involves differential calculus analysis of <span class="arithmatex">\(f(\phi)\)</span> to determine critical conditions for convexity-concavity transitions.</p>
+<h2 id="51-derivation-of-critical-point">5.1 Derivation of Critical Point<a class="headerlink" href="#51-derivation-of-critical-point" title="Permanent link">&para;</a></h2>
+<p>The critical point where phase transition occurs corresponds to the moment when the free energy curve undergoes geometric property mutation at symmetry center <span class="arithmatex">\(\phi=0.5\)</span>: curve transitions from single-well (convex) to double-well (concave). Mathematically, this corresponds to points where second derivative (curvature) and third derivative are simultaneously zero. For this model's symmetric potential, the third derivative is naturally zero at <span class="arithmatex">\(\phi=0.5\)</span>, so only the second derivative needs to be examined.</p>
+<p>First, calculate the first derivative of dimensionless free energy density <span class="arithmatex">\(f(\phi)\)</span> with respect to <span class="arithmatex">\(\phi\)</span>, which corresponds to <strong>exchange chemical potential difference</strong> (up to a constant):</p>
+<div class="arithmatex">\[
+\frac{1}{k_B T} \frac{\partial f}{\partial \phi} = \ln \phi + 1 - \ln(1-\phi) - 1 + \chi(1 - 2\phi) = \ln\left(\frac{\phi}{1-\phi}\right) + \chi(1-2\phi)
+\]</div>
+<p>Next, calculate the second derivative, which corresponds to <strong>thermodynamic stability</strong> (inverse susceptibility):</p>
+<div class="arithmatex">\[
+\frac{1}{k_B T} \frac{\partial^2 f}{\partial \phi^2} = \frac{1}{\phi} - \frac{1}{1-\phi}(-1) - 2\chi = \frac{1}{\phi} + \frac{1}{1-\phi} - 2\chi = \frac{1}{\phi(1-\phi)} - 2\chi
+\]</div>
+<p>At the critical point, the system is in marginal stable state, requiring second derivative to be zero. Considering the particle-hole symmetry of lattice gas model, critical concentration must be at <span class="arithmatex">\(\phi_c = 0.5\)</span>. Substituting this value into second derivative formula to solve for critical <span class="arithmatex">\(\chi_c\)</span>:</p>
+<div class="arithmatex">\[
+\frac{1}{0.5(1-0.5)} - 2\chi_c = 0 \quad \Rightarrow \quad \frac{1}{0.25} - 2\chi_c = 0 \quad \Rightarrow \quad 4 - 2\chi_c = 0
+\]</div>
+<p>Solving yields the universal critical value of Flory-Huggins theory:</p>
+<div class="arithmatex">\[
+\chi_c = 2
+\]</div>
+<p>Therefore, critical point coordinates are <span class="arithmatex">\((\phi_c=0.5, \chi_c=2)\)</span>. This constitutes the apex of the phase diagram:</p>
+<ul>
+<li>
+<p>When <span class="arithmatex">\(\chi &lt; 2\)</span> (high temperature), second derivative is always positive, system is always Miscible.</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(\chi &gt; 2\)</span> (low temperature), second derivative becomes negative in middle region, system may undergo phase separation.</p>
+</li>
+</ul>
+<h2 id="52-spinodal-line-and-spinodal-decomposition">5.2 Spinodal Line and Spinodal Decomposition<a class="headerlink" href="#52-spinodal-line-and-spinodal-decomposition" title="Permanent link">&para;</a></h2>
+<p>The boundary curve delimiting the <strong>thermodynamically unstable region</strong> in the phase diagram is called the Spinodal line. Within this region, the second derivative of free energy function is less than zero (<span class="arithmatex">\(f''(\phi) &lt; 0\)</span>), meaning free energy curve is locally "convex upward."</p>
+<p><strong>Physical Meaning</strong>: When system is in this region, diffusion coefficient <span class="arithmatex">\(D \propto f''(\phi)\)</span> becomes negative. This means any small concentration fluctuation <span class="arithmatex">\(\delta \phi\)</span> is not smoothed by diffusion but instead causes total free energy to decrease and is rapidly amplified. This spontaneous phase separation mechanism driven by "negative diffusion" without barrier crossing is called <strong>Spinodal Decomposition</strong>.</p>
+<p>Mathematical definition of Spinodal line is the zero locus of second derivative <span class="arithmatex">\(f''(\phi) = 0\)</span>. Using the second derivative formula from Section 5.1:</p>
+<div class="arithmatex">\[
+\frac{1}{\phi(1-\phi)} - 2\chi_s = 0
+\]</div>
+<p>Solving for <span class="arithmatex">\(\chi_s\)</span> as a function of <span class="arithmatex">\(\phi\)</span> yields the Spinodal line equation:</p>
+<div class="arithmatex">\[
+\chi_s(\phi) = \frac{1}{2\phi(1-\phi)}
+\]</div>
+<p>On the <span class="arithmatex">\(\chi - \phi\)</span> phase diagram, this is a parabola-type curve with apex at <span class="arithmatex">\((0.5, 2)\)</span> opening upward (in <span class="arithmatex">\(\chi\)</span> axis direction).</p>
+<h2 id="53-binodal-line-and-nucleation-and-growth">5.3 Binodal Line and Nucleation and Growth<a class="headerlink" href="#53-binodal-line-and-nucleation-and-growth" title="Permanent link">&para;</a></h2>
+<p>The Binodal line (also called coexistence curve) delimits the <strong>thermodynamic equilibrium coexistence region</strong>. Even if system is outside Spinodal line (<span class="arithmatex">\(f'' &gt; 0\)</span>), as long as <span class="arithmatex">\(\chi &gt; 2\)</span>, system may still be in a <strong>Metastable</strong> state. In this case, although small fluctuations are stable, if a sufficiently large "Nucleus" appears, system will evolve toward lower-energy phase-separated state. This mechanism is called <strong>Nucleation and Growth</strong>.</p>
+<p>Position of Binodal line is determined by thermodynamic equilibrium conditions: equal chemical potential and equal osmotic pressure of two phases. Geometrically, this corresponds to Maxwell <strong>Common Tangent Construction</strong>.</p>
+<p>In this symmetric model, free energy function is completely symmetric about <span class="arithmatex">\(\phi=0.5\)</span>, so the common tangent when two phases coexist must be a horizontal line (slope 0). This means chemical potential is zero in both phases, making Maxwell construction mathematically degenerate to "finding two minima of free energy." This simplification is a special advantage of symmetric lattice gas model. Therefore, finding tangent points simplifies to finding two minimum points of free energy density <span class="arithmatex">\(f(\phi)\)</span>, i.e., points where first derivative is zero:</p>
+<div class="arithmatex">\[
+\frac{\partial f}{\partial \phi} = 0 \quad \Rightarrow \quad \ln\left(\frac{\phi_b}{1-\phi_b}\right) + \chi_b(1-2\phi_b) = 0
+\]</div>
+<p>Rearranging yields the implicit equation for Binodal line (usually written as <span class="arithmatex">\(\chi\)</span> as function of <span class="arithmatex">\(\phi\)</span> for plotting):</p>
+<div class="arithmatex">\[
+\chi_b(\phi) = \frac{1}{2\phi - 1} \ln\left(\frac{\phi}{1-\phi}\right)
+\]</div>
+<p>(Note: Using logarithm property <span class="arithmatex">\(\ln(x) = -\ln(1/x)\)</span>, this can also be written as <span class="arithmatex">\(\frac{1}{1-2\phi} \ln(\frac{1-\phi}{\phi})\)</span>, which is completely equivalent.)</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/13_006_bdac039e-48af-40e5-ba3b-77c2ee3430de.png" /></p>
+<p>Phase Diagram &amp; Stability of Binary Mixture</p>
+<p><strong>Left Figure: Free Energy Density Curve</strong>. Shows variation of dimensionless free energy density <span class="arithmatex">\(f \cdot v / k_B T\)</span> with volume fraction <span class="arithmatex">\(\phi\)</span> at different interaction parameters <span class="arithmatex">\(\chi\)</span>.</p>
+<ul>
+<li><span class="arithmatex">\(\chi=1.6\)</span> (high temperature): Curve is convex function, corresponding to uniform single-phase region.</li>
+<li><span class="arithmatex">\(\chi=2.0\)</span> (critical point): Curve bottom is flat.</li>
+<li><span class="arithmatex">\(\chi=2.5\)</span> (low temperature): Curve exhibits double-well characteristics (Concave region), system is in unstable or metastable state.</li>
+</ul>
+<p><strong>Right Figure: Phase Diagram</strong>.
+* <strong>Vertical axis</strong>: Flory-Huggins parameter <span class="arithmatex">\(\chi\)</span> (inversely proportional to temperature <span class="arithmatex">\(T\)</span>).
+* <strong>Horizontal axis</strong>: Volume fraction <span class="arithmatex">\(\phi\)</span>.
+* <strong>Binodal line (solid line)</strong>: Coexistence curve, separating single-phase region and two-phase coexistence region.
+* <strong>Spinodal line (dashed line)</strong>: Instability curve, separating Metastable region and Unstable region. Within unstable region, system undergoes Spinodal decomposition.</p>
+<h1 id="6-spatial-heterogeneity-and-ginzburg-landau-functional">6. Spatial Heterogeneity and Ginzburg-Landau Functional<a class="headerlink" href="#6-spatial-heterogeneity-and-ginzburg-landau-functional" title="Permanent link">&para;</a></h1>
+<p>The Flory-Huggins theory derived previously is essentially a <strong>mean-field theory</strong>. It implies a key assumption: the system is uniform at macroscopic scale, or only focuses on thermodynamic equilibrium of two Bulk Phases, while completely ignoring the <strong>Interface</strong> that inevitably exists between phases. However, in real phase separation dynamics, spatial heterogeneity is unavoidable. To describe continuous spatial variation of concentration field <span class="arithmatex">\(\phi(\vec{r})\)</span> and resulting interfacial tension, free energy must be modified with spatial gradient terms. This step marks the leap from local thermodynamics to non-local field theory.</p>
+<h2 id="61-microscopic-physical-origin-of-gradient-term">6.1 Microscopic Physical Origin of Gradient Term<a class="headerlink" href="#61-microscopic-physical-origin-of-gradient-term" title="Permanent link">&para;</a></h2>
+<p>If concentration field is non-uniform at spatial position <span class="arithmatex">\(\vec{r}\)</span>, i.e., <span class="arithmatex">\(\nabla \phi \neq 0\)</span>, this means there are composition differences in neighboring regions. From microscopic lattice model perspective, such differences cause changes in nearest-neighbor particle pair interaction energies.</p>
+<p>In the continuum limit, concentration field at neighboring site <span class="arithmatex">\(\vec{r}_j\)</span> can be Taylor expanded about reference point <span class="arithmatex">\(\vec{r}_i\)</span>:</p>
+<div class="arithmatex">\[
+\phi(\vec{r}_j) \approx \phi(\vec{r}_i) + (\vec{r}_j - \vec{r}_i) \cdot \nabla \phi + \frac{1}{2} [(\vec{r}_j - \vec{r}_i) \cdot \nabla]^2 \phi
+\]</div>
+<p>Substituting this expansion back into microscopic Hamiltonian <span class="arithmatex">\(\mathcal{H} \sim \sum \sigma_i \sigma_j\)</span> and converting to continuous integration. Derivation shows that zeroth-order term <span class="arithmatex">\(\phi^2\)</span> contributes local interaction energy (already contained in <span class="arithmatex">\(\chi\)</span> term), first-order term cancels in summation due to lattice centrosymmetry, and leading non-uniform correction comes from second-order term, i.e., gradient squared <span class="arithmatex">\((\nabla \phi)^2\)</span>.</p>
+<p>From macroscopic symmetry perspective, existence of this term is also inevitable:</p>
+<p>1.<strong>Scalar Nature</strong>: Free energy must be a scalar.</p>
+<p>2.<strong>Rotational Invariance</strong>: Gradient term must be in scalar product form.</p>
+<p>3.<strong>Energy Penalty</strong>: For isotropic fluids, interfaces always carry positive excess energy (interfacial tension), so gradient term coefficient must be positive to penalize sharp concentration changes.</p>
+<h2 id="62-ginzburg-landau-free-energy-functional">6.2 Ginzburg-Landau Free Energy Functional<a class="headerlink" href="#62-ginzburg-landau-free-energy-functional" title="Permanent link">&para;</a></h2>
+<p>Combining local Flory-Huggins free energy density <span class="arithmatex">\(f(\phi)\)</span> with non-local gradient correction term, system's total free energy is no longer a simple function but a <strong>Functional</strong> depending on field distribution <span class="arithmatex">\(\phi(\vec{r})\)</span>:</p>
+<div class="arithmatex">\[
+F[\phi(\vec{r})] = \int d^3r \left[ f(\phi(\vec{r})) + \frac{\kappa}{2} (\nabla \phi)^2 \right]
+\]</div>
+<p>Physical meanings of formula terms:
+-   <span class="arithmatex">\(f(\phi)\)</span>: <strong>Local free energy density</strong>, i.e., double-well function derived in Section 4. It drives local concentration to separate toward two equilibrium concentrations.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\frac{\kappa}{2} (\nabla \phi)^2\)</span>: <strong>Gradient Energy Term</strong>. It penalizes spatial non-uniformity, tending to make concentration field smooth.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\kappa\)</span>: <strong>Stiffness Coefficient</strong>, a positive constant. It is directly related to interaction range and strength, dimensional analysis shows <span class="arithmatex">\(\kappa \sim k_B T \chi a^2\)</span> (where <span class="arithmatex">\(a\)</span> is lattice constant).</p>
+</li>
+</ul>
+<p>This form is the famous <strong>Ginzburg-Landau Free Energy Functional</strong>. It is the standard mathematical framework in modern theoretical physics for handling continuous phase transitions, superconductivity, superfluidity, and soft matter phase separation.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/13_007_6d049e53-b8a2-4219-ae01-90763d3938d0.png" /></p>
+<p>Above shows the Ginzburg–Landau free energy functional:</p>
+<div class="arithmatex">\[
+F[\phi] = \int d^d r \left[ f(\phi) + \frac{\kappa}{2} (\nabla \phi)^2 \right],
+\]</div>
+<p>where <span class="arithmatex">\(f(\phi)\)</span> determines local phase behavior, and gradient term characterizes energy cost of spatial non-uniformity (interface). Lower left figure shows symmetric <span class="arithmatex">\(\phi^4\)</span> type local free energy density:</p>
+<div class="arithmatex">\[
+f(\phi) = -\frac{r}{2} (\phi - \phi_c)^2 + \frac{u}{4} (\phi - \phi_c)^4,
+\]</div>
+<p>As parameter <span class="arithmatex">\(r\)</span> changes sign, transition from single-well to double-well occurs, corresponding to continuous (second-order) phase transition and spontaneous symmetry breaking; right figure introduces cubic term making potential asymmetric, reflecting unequal well depths, metastable states and transition behavior in first-order phase transitions. This figure provides intuitive foundation for subsequent <span class="arithmatex">\(\phi^4\)</span> expansion and dynamical equation derivation near critical point.</p>
+<h2 id="63-phi4-expansion-near-critical-point">6.3 <span class="arithmatex">\(\phi^4\)</span> Expansion Near Critical Point<a class="headerlink" href="#63-phi4-expansion-near-critical-point" title="Permanent link">&para;</a></h2>
+<p>From the potential landscape shown above, key features of system near critical point are completely determined by topological structure of local free energy in low-order polynomial approximation, which is precisely the starting point of Landau theory. Although Flory-Huggins form of <span class="arithmatex">\(f(\phi)\)</span> precisely describes polymer mixtures, its logarithmic terms are somewhat cumbersome in analytical treatment. Near critical point (<span class="arithmatex">\(\chi \approx \chi_c, \phi \approx \phi_c\)</span>), order parameter <span class="arithmatex">\(\delta \phi = \phi - \phi_c\)</span> is small, and <span class="arithmatex">\(f(\phi)\)</span> can be expanded into polynomial form using Taylor series—this is the core of Landau phase transition theory.</p>
+<p>Define order parameter deviation <span class="arithmatex">\(\psi(\vec{r}) = \phi(\vec{r}) - 0.5\)</span>. Using expansion <span class="arithmatex">\(\ln(1+x) \approx x - x^2/2 + x^3/3 - x^4/4\)</span>, Flory-Huggins density <span class="arithmatex">\(f(\psi)\)</span> can be expanded to fourth order:</p>
+<div class="arithmatex">\[
+\frac{f(\psi)}{k_B T} \approx f_0 + \frac{1}{2} (2 - \chi) \psi^2 + \frac{1}{12} \psi^4
+\]</div>
+<p>Ignoring constant term <span class="arithmatex">\(f_0\)</span>, obtain general Landau polynomial form:</p>
+<div class="arithmatex">\[
+f(\psi) \approx \frac{r}{2} \psi^2 + \frac{u}{4} \psi^4
+\]</div>
+<p>Physical meanings of coefficients are crucial:
+-   <strong><span class="arithmatex">\(r \propto (2 - \chi) \propto (T - T_c)\)</span></strong>: Linear parameter controlling phase transition.
+    * When <span class="arithmatex">\(\chi &lt; 2\)</span> (high temperature), <span class="arithmatex">\(r &gt; 0\)</span>, potential is single-well, <span class="arithmatex">\(\psi=0\)</span> is stable point.
+    * When <span class="arithmatex">\(\chi &gt; 2\)</span> (low temperature), <span class="arithmatex">\(r &lt; 0\)</span>, potential origin becomes unstable (bulges), system undergoes spontaneous symmetry breaking.</p>
+<ul>
+<li><strong><span class="arithmatex">\(u &gt; 0\)</span></strong>: Fourth-order term coefficient, ensures thermodynamic stability (potential has lower bound), making system re-stabilize at large <span class="arithmatex">\(\psi\)</span>, thus forming double-well structure.</li>
+</ul>
+<p>This simplified <span class="arithmatex">\(\phi^4\)</span> theory model not only preserves core topological features of phase transition (symmetry breaking) but is also the direct mathematical starting point for deriving the <strong>Cahn-Hilliard dynamical equation</strong> in the next lecture.</p>
+<h2 id="64-code-practice-dynamic-visualization-of-lattice-gas-model">6.4 Code Practice: Dynamic Visualization of Lattice Gas Model<a class="headerlink" href="#64-code-practice-dynamic-visualization-of-lattice-gas-model" title="Permanent link">&para;</a></h2>
+<p>Code practice will simulate lattice gas system evolution under different interaction strengths (controlled by Flory-Huggins parameter <span class="arithmatex">\(\chi\)</span>), and simultaneously display system's free energy landscape. Verify Flory-Huggins theory's core prediction of entropy and energy competition, and dynamically show self-organization process from uniform mixing to phase separation.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># =========================</span>
+<span class="c1"># Model: lattice gas (Ising-like) with Kawasaki dynamics (particle-conserving)</span>
+<span class="c1"># sigma=1: solute (P), sigma=0: solvent (S)</span>
+<span class="c1"># Energy: H = -J * sum_&lt;ij&gt; s_i s_j with s_i = 2*sigma_i-1 in {+1,-1}</span>
+<span class="c1"># Mapping to chi: chi ~ 2 z J / (k_B T)  (up to conventions); here we use a monotone proxy J(T)=J0*chi/chi_c</span>
+<span class="c1"># =========================</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;dark_background&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">flory_huggins_f</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">chi</span><span class="p">):</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">phi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">chi</span><span class="o">*</span><span class="n">phi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_spin</span><span class="p">(</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">sigma</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">neighbor_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="c1"># periodic boundary conditions</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">kawasaki_sweep</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+    <span class="c1"># One Monte Carlo sweep: attempt N^2 swaps of unlike neighbors</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="c1"># pick a random neighbor</span>
+        <span class="n">di</span><span class="p">,</span> <span class="n">dj</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)][</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+        <span class="n">i2</span><span class="p">,</span> <span class="n">j2</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">di</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">dj</span><span class="p">)</span><span class="o">%</span><span class="n">n</span>
+        <span class="k">if</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="c1"># compute ΔE for swapping sigma(i,j) and sigma(i2,j2) using spin form</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">to_spin</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+        <span class="n">si</span><span class="p">,</span> <span class="n">sj</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">]</span>
+        <span class="c1"># local fields excluding the pair bond double-count issues handled by exact local diff</span>
+        <span class="n">hi</span> <span class="o">=</span> <span class="n">neighbor_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="n">sj</span>
+        <span class="n">hj</span> <span class="o">=</span> <span class="n">neighbor_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">j2</span><span class="p">)</span> <span class="o">-</span> <span class="n">si</span>
+        <span class="c1"># Energy contribution for site i (excluding bond to j2): -J si hi ; after swap si&#39; = sj -&gt; -J sj hi</span>
+        <span class="c1"># similarly for site j2: -J sj hj ; after swap sj&#39; = si -&gt; -J si hj</span>
+        <span class="c1"># Bond between i and j2: -J si sj ; after swap -J sj si (same) -&gt; cancels</span>
+        <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">sj</span><span class="o">*</span><span class="n">hi</span> <span class="o">+</span> <span class="n">si</span><span class="o">*</span><span class="n">hj</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">si</span><span class="o">*</span><span class="n">hi</span> <span class="o">+</span> <span class="n">sj</span><span class="o">*</span><span class="n">hj</span><span class="p">)</span>  <span class="c1"># multiplied by J later via betaJ</span>
+        <span class="c1"># Metropolis accept</span>
+        <span class="k">if</span> <span class="n">dE</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">betaJ</span> <span class="o">*</span> <span class="n">dE</span><span class="p">):</span>
+            <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">],</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">sigma</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">64</span>                 <span class="c1"># lattice size N x N</span>
+<span class="n">phi0</span> <span class="o">=</span> <span class="mf">0.45</span>             <span class="c1"># overall solute fraction (conserved)</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="c1"># initialize sigma with fixed composition</span>
+<span class="n">phi_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">phi_flat</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">phi0</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">phi_flat</span><span class="p">)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">phi_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># chi schedule for animation (controls free-energy landscape + interaction strength)</span>
+<span class="n">chi_c</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">chi_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># link chi -&gt; betaJ (monotone) : choose a scale so that around chi_c we see coarsening</span>
+<span class="n">J0</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="n">betaJ_values</span> <span class="o">=</span> <span class="n">J0</span> <span class="o">*</span> <span class="p">(</span><span class="n">chi_values</span> <span class="o">/</span> <span class="n">chi_c</span><span class="p">)</span>
+
+<span class="c1"># per-frame MC sweeps (increase for smoother coarsening, but slower)</span>
+<span class="n">mc_sweeps_per_frame</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axL</span><span class="p">,</span> <span class="n">axR</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">axL</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lattice Gas: Kawasaki Dynamics (Conserved)&quot;</span><span class="p">)</span>
+<span class="n">axL</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="n">solvent_color</span> <span class="o">=</span> <span class="s1">&#39;#ADD8E6&#39;</span>  <span class="c1"># Light blue</span>
+<span class="n">solute_color</span> <span class="o">=</span> <span class="s1">&#39;#90EE90&#39;</span>   <span class="c1"># Light green</span>
+
+<span class="c1"># Function to draw lattice points (replaces draw_lattice with circles)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_lattice</span><span class="p">(</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="n">grid_size</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">spacing</span> <span class="o">=</span> <span class="mf">0.6</span>
+    <span class="n">start_x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">start_y</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+    <span class="c1"># Clear previous artists</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lattice Gas: Kawasaki Dynamics (Conserved)&quot;</span><span class="p">)</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Plot points for each site</span>
+    <span class="n">x_coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y_coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid_size</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">start_x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">start_y</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">spacing</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">solute_color</span> <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">solvent_color</span>
+            <span class="n">x_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="c1"># Use scatter plot for efficiency and simplicity</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="n">y_coords</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">draw_lattice</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+
+<span class="n">phi_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="mi">700</span><span class="p">)</span>
+<span class="n">lineR</span><span class="p">,</span> <span class="o">=</span> <span class="n">axR</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dotR</span><span class="p">,</span> <span class="o">=</span> <span class="n">axR</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Volume Fraction $</span><span class="se">\\</span><span class="s2">phi$&quot;</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Dimensionless Free Energy $f(</span><span class="se">\\</span><span class="s2">phi)/k_BT$&quot;</span><span class="p">)</span>
+<span class="n">titleR</span> <span class="o">=</span> <span class="n">axR</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">sigma</span>
+    <span class="n">chi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">chi_values</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="n">betaJ</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">betaJ_values</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="c1"># evolve lattice configuration at current interaction strength</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mc_sweeps_per_frame</span><span class="p">):</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">kawasaki_sweep</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+
+    <span class="n">axL</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lattice Gas: Kawasaki Dynamics (Conserved)&quot;</span><span class="p">)</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">draw_lattice</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+
+    <span class="c1"># free energy curve (shifted) at current chi</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">flory_huggins_f</span><span class="p">(</span><span class="n">phi_grid</span><span class="p">,</span> <span class="n">chi</span><span class="p">)</span>
+    <span class="n">lineR</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">phi_grid</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="c1"># mark the conserved average composition on the free-energy curve</span>
+    <span class="n">f0</span> <span class="o">=</span> <span class="n">flory_huggins_f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">phi0</span><span class="p">]),</span> <span class="n">chi</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> 
+    <span class="n">dotR</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">phi0</span><span class="p">],</span> <span class="p">[</span><span class="n">f0</span><span class="p">])</span>
+    <span class="n">titleR</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Free Energy Landscape: $</span><span class="se">\\</span><span class="s2">chi = </span><span class="si">{</span><span class="n">chi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">$ (right dot is system average $</span><span class="se">\\</span><span class="s2">phi$)&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">lineR</span><span class="p">,</span> <span class="n">dotR</span><span class="p">,</span> <span class="n">titleR</span>  
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">chi_values</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;lattice_gas_vs_free_energy.gif&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s2">&quot;pillow&quot;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saved: lattice_gas_vs_free_energy.gif&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../cn/assets/images/lattice_gas_vs_free_energy.gif" /></p>
+<p><strong>Lattice Configuration (Left Figure):</strong>
+As interaction parameter <span class="arithmatex">\(\chi\)</span> gradually increases from small to large, lattice gas evolves from high-temperature uniform mixed state to low-temperature phase-separated state. At small <span class="arithmatex">\(\chi\)</span>, solute and solvent are randomly distributed on lattice, system is highly disordered; when <span class="arithmatex">\(\chi\)</span> increases approaching critical value, small concentration fluctuations begin to appear and are amplified, local clusters rapidly grow and merge, exhibiting typical Spinodal decomposition characteristics; at larger <span class="arithmatex">\(\chi\)</span>, system finally forms two macroscopic coexisting phases separated by clear interface. Throughout process, total composition <span class="arithmatex">\(\phi_0\)</span> remains conserved, but spatial structure undergoes qualitative change from "random mixing" to "macroscopic demixing."</p>
+<p><strong>Free Energy Landscape (Right Figure):</strong>
+Correspondingly, Flory–Huggins free energy density <span class="arithmatex">\(f(\phi)\)</span> undergoes topological structure evolution with increasing <span class="arithmatex">\(\chi\)</span>: at small <span class="arithmatex">\(\chi\)</span> (high temperature), free energy is single convex potential well with unique minimum at <span class="arithmatex">\(\phi=0.5\)</span>, entropy effect dominates and stabilizes uniform mixed state; as <span class="arithmatex">\(\chi\)</span> increases, free energy curve bottom gradually flattens, appearing curvature-zero region near critical point; when <span class="arithmatex">\(\chi\)</span> exceeds critical value, free energy center bulges and splits into double-well structure, corresponding to two stable coexisting phases. At this point, non-convexity of free energy (<span class="arithmatex">\(f''(\phi)&lt;0\)</span>) provides thermodynamic driving force for phase separation, while system's average composition is achieved through phase coexistence rather than uniform state to minimize free energy.</p>
+<p>Core idea of Flory-Huggins theory—<strong>competition between entropy and energy</strong>. When temperature is high (<span class="arithmatex">\(\chi\)</span> is small), entropy dominates, system maintains uniform mixing; when temperature decreases (<span class="arithmatex">\(\chi\)</span> increases), advantage of energy term (like-particle aggregation) gradually manifests, ultimately overcoming entropy, causing system phase separation.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>From theoretical structure perspective, this lecture completes a key "<strong>mesoscale closure</strong>": starting from microscopic particle occupation and nearest-neighbor interactions, through statistical counting and mean-field approximation, constructed a free energy function containing both entropy driving and energy competition. This function not only explains phase diagram geometric structure but also provides rigorous thermodynamic starting point for subsequent dynamical equations.</p>
+<ul>
+<li>
+<p><strong>Microscopic Statistical Foundation</strong>: Starting from lattice gas model, through statistical counting of microscopic states, derived analytical expression for mixing entropy, clarifying entropy's physical essence as "disorder measure" tending to drive system mixing.</p>
+</li>
+<li>
+<p><strong>Mean-Field Approximation</strong>: Using Mean-Field Theory, successfully handled complex many-body particle interactions, introducing key Flory-Huggins parameter <span class="arithmatex">\(\chi\)</span>, simplifying interaction energy to form depending on <span class="arithmatex">\(\chi \phi (1-\phi)\)</span>.</p>
+</li>
+<li>
+<p><strong>Mathematical Reconstruction of Phase Diagram</strong>: Free energy density function <span class="arithmatex">\(f(\phi)\)</span> combining entropy and energy perfectly explains topological structure of binary mixture phase diagram, giving rigorous mathematical definitions of critical point, <strong>Spinodal</strong> and <strong>Binodal</strong>.</p>
+</li>
+<li>
+<p><strong>From Local to Non-local</strong>: Finally, by introducing spatial gradient term, constructed Ginzburg-Landau free energy functional, and performed <span class="arithmatex">\(\phi^4\)</span> expansion near critical point, completing transition to continuous field theory.</p>
+</li>
+</ul>
+<p>The Ginzburg-Landau functional <span class="arithmatex">\(F[\phi]\)</span> obtained so far describes system's <strong>static energy landscape</strong>. It tells the system "where to go" (lowest energy state), but not "how to get there" (evolution path and rate). If system is placed in Spinodal unstable region, how exactly does phase separation occur over time? How do labyrinth-like Patterns grow?</p>
+<p>In <strong>Lecture 14</strong>, the course will introduce <strong>dynamical conservation law</strong> (continuity equation), combined with free energy functional derived in this lecture, establishing the famous <strong>Cahn-Hilliard Equation (Model B)</strong> describing conserved phase separation dynamics. Linear Stability Analysis will be used to calculate <strong>"Fastest Growing Mode"</strong> and <strong>dispersion relation</strong> in early phase separation, thereby truly revealing dynamical mechanism of self-organized pattern formation.</p>
+<p>Importantly, Flory-Huggins free energy is not an empirical assumption but an inevitable result of lattice gas model in mean-field limit. This point makes subsequently introduced Cahn-Hilliard equation no longer a "phenomenological model" but dynamical theory with clear statistical physics foundation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

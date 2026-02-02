@@ -1,0 +1,1703 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 6</strong>, the course built a standard "toolbox" for analyzing two-dimensional dynamical systems. Through calculating two key invariants of the Jacobian Matrix—Trace (<span class="arithmatex">\(\tau\)</span>) and Determinant (<span class="arithmatex">\(\Delta\)</span>)—Linear Stability Analysis (LSA) near fixed points was established. This analytical framework successfully classified fixed points as stable/unstable nodes, saddles, or spirals, and preliminarily explored how nonlinear damping leads to the generation of Limit Cycles through Hopf bifurcation or relaxation oscillation mechanisms.</p>
+<p>However, Linear Stability Analysis is inherently <strong>local</strong>. It can only precisely describe system behavior in an infinitesimally small neighborhood of fixed points. For a state far from fixed points, or when a fixed point appears as an unstable spiral, linear theory cannot predict the ultimate fate of orbits: <strong>Will the system diverge to infinity, or will it converge to a stable, self-sustained periodic orbit?</strong> To answer this core question about the system's <strong>Global Dynamics</strong>, more powerful topological tools must be introduced.</p>
+<p>This lecture will first introduce the <strong>Poincaré-Bendixson Theorem</strong>. As a cornerstone of two-dimensional dynamical systems theory, this theorem provides a non-constructive but highly discriminating criterion: in bounded regions of the two-dimensional phase plane, if no stable fixed points exist and orbits do not diverge, then Chaos is strictly excluded, and the system must evolve into a limit cycle. This provides a rigorous mathematical foundation for proving the existence of periodic oscillations.</p>
+<p>Subsequently, the course will apply this theoretical framework to two specific complex systems, demonstrating the interdisciplinary universality of dynamical systems theory:</p>
+<p>1.<strong>Biophysics domain</strong>: Analyzing the <strong>RhoGTPase cycle</strong>, a key biochemical network regulating cell polarity. The analysis will show how to use the physical constraint of <strong>Mass Conservation</strong> to rigorously reduce the original three-dimensional biochemical reaction network to a two-dimensional system, and then combine the Poincaré-Bendixson theorem with Hopf bifurcation theory to reveal the mechanism of spontaneous oscillation in intracellular protein concentrations.</p>
+<p>2.<strong>Evolutionary game theory domain</strong>: Exploring the <strong>Rock-Paper-Scissors (RPS)</strong> model. By introducing <strong>Replicator Dynamics</strong>, the competitive evolution of strategies is modeled as a system of nonlinear ordinary differential equations. This echoes game theory concepts from <strong>Lecture 2</strong> while demonstrating the mathematical isomorphism between ecological cycles and biochemical oscillations.</p>
+<p>This lecture's derivation of replicator equations lays the foundation for subsequent courses. In the following <strong>Lecture 8</strong>, we will introduce <strong>Lyapunov Functions</strong> to deeply analyze global stability and condensation phenomena in such systems, and finally break the "spatially well-mixed" assumption by introducing the <strong>Diffusion Equation</strong>, formally beginning the exploration of spatially extended systems and Turing Patterns.</p>
+<h1 id="1-the-poincare-bendixson-theorem">1. The Poincaré-Bendixson Theorem<a class="headerlink" href="#1-the-poincare-bendixson-theorem" title="Permanent link">&para;</a></h1>
+<p>To bridge the gap from local analysis to global dynamics, this lecture first introduces the Poincaré-Bendixson theorem. In the previous lecture, through Linear Stability Analysis (LSA), although we could precisely determine flow field characteristics near fixed points (such as spiral points, saddle points), this analysis fails far from fixed points. For a two-dimensional continuous dynamical system <span class="arithmatex">\(\frac{d\vec{x}}{dt} = \vec{F}(\vec{x})\)</span> (where <span class="arithmatex">\(\vec{x} = (x, y)\)</span>), to answer the global question "where will the system ultimately go," the Jacobian matrix alone is insufficient. The Poincaré-Bendixson theorem is precisely the key topological tool that fills this gap, providing rigorous mathematical criteria for determining the existence of nonlinear oscillations (limit cycles).</p>
+<h2 id="11-physical-statement-of-the-theorem">1.1 Physical Statement of the Theorem<a class="headerlink" href="#11-physical-statement-of-the-theorem" title="Permanent link">&para;</a></h2>
+<p>The theorem describes the long-term asymptotic behavior of constrained systems on the two-dimensional plane. Compared to complex mathematical formulations, the lecture provided a more intuitive statement from a physicist's perspective:</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/07_001_1a7c8dd9-9ee1-4b5a-b28f-23e571e11147.png" /></p>
+<p>Statement of the Poincaré-Bendixson theorem. It specifies the two possibilities for bounded orbits under long-term evolution in two dimensions.</p>
+<p>If for time <span class="arithmatex">\(t \geq t_0\)</span>, an orbit of the system satisfies the following two geometric conditions:</p>
+<p>1.<strong>Boundedness</strong>: The orbit always remains within a finite, closed phase space region <span class="arithmatex">\(R\)</span> and does not diverge to infinity (i.e., the system's energy or substance concentration does not increase infinitely).</p>
+<p>2.<strong>No Singular Points</strong>: The orbit does not approach any singular points during evolution. "Singular points" here specifically refers to Fixed Points or Steady States of the system, i.e., points where <span class="arithmatex">\(\vec{F}(\vec{x}) = 0\)</span>.</p>
+<p>Then, the long-term behavior of this orbit as <span class="arithmatex">\(t \to \infty\)</span> has only two possibilities:</p>
+<p>1.<strong>Periodic orbit</strong>: It closes upon itself to become a periodic cycle.</p>
+<p>2.<strong>Approaches a limit cycle</strong>: It asymptotically approaches a limit cycle.</p>
+<p>This means that in two-dimensional systems satisfying the above conditions, the system's final state is either perfect circulation or asymptotic approach to such circulation.</p>
+<h2 id="12-profound-implications-of-the-theorem-exclusion-of-chaos">1.2 Profound Implications of the Theorem - Exclusion of Chaos<a class="headerlink" href="#12-profound-implications-of-the-theorem-exclusion-of-chaos" title="Permanent link">&para;</a></h2>
+<p>The importance of the Poincaré-Bendixson theorem lies not only in what it affirms (the existence of limit cycles) but also in what it denies. It uses rigorous topological language to point out: <strong>Chaos does not exist in two-dimensional autonomous dynamical systems.</strong></p>
+<p>The typical characteristics of chaotic phenomena (such as the three-dimensional Lorenz attractor) are that orbits are bounded and do not converge to fixed points, yet never repeat (aperiodic), exhibiting extremely complex "entangled" structures. However, in the two-dimensional planar phase space, since <strong>orbits cannot self-intersect</strong> (this is determined by the uniqueness of differential equation solutions), an orbit confined to a finite region, with no fixed points to go to, does not have enough spatial dimensions to exhibit the complex folding structures required by chaos. Its only choice is to "bite its own tail" to form a closed loop, or infinitely approach a closed loop.</p>
+<p>Therefore, for two-dimensional systems, as long as divergence is excluded (i.e., the orbit is bounded) and stasis (fixed points) is excluded, the only remaining fate is <strong>oscillation</strong>.</p>
+<h2 id="13-practical-strategy-for-the-theorem-the-trapping-region-method">1.3 Practical Strategy for the Theorem - The "Trapping Region" Method<a class="headerlink" href="#13-practical-strategy-for-the-theorem-the-trapping-region-method" title="Permanent link">&para;</a></h2>
+<p>In practical biophysical modeling, directly solving for analytical limit cycle solutions of nonlinear equations is usually impossible. The Poincaré-Bendixson theorem provides a powerful <strong>non-constructive proof strategy</strong>—through geometric construction alone, one can prove the existence of oscillations.</p>
+<p>This strategy contains two core steps:</p>
+<p>1.<strong>Step One: Construct a "Trapping Region"</strong></p>
+<p>First, a closed region <span class="arithmatex">\(R\)</span> needs to be demarcated in phase space. This is usually based on physical constraints, such as non-negative substance concentrations (<span class="arithmatex">\(x, y \ge 0\)</span>) and upper limits due to mass conservation or maximum carrying capacity. The key is to prove that on the boundary of region <span class="arithmatex">\(R\)</span>, the vector field <span class="arithmatex">\(\vec{F}(\vec{x})\)</span> points inward or tangent to the boundary. This ensures that any trajectory entering this region cannot escape, thus satisfying the theorem's "boundedness" condition.</p>
+<p>2.<strong>Step Two: Exclude Stable Fixed Points</strong></p>
+<p>Next, all fixed points contained within this "trapping region" <span class="arithmatex">\(R\)</span> must be examined. Using the Linear Stability Analysis tools established in the previous lecture (trace <span class="arithmatex">\(\tau\)</span> and determinant <span class="arithmatex">\(\Delta\)</span> of the Jacobian matrix), analyze the stability of these fixed points.</p>
+<p>If within trapping region <span class="arithmatex">\(R\)</span> there exists a unique fixed point, and it is verified through calculation that this fixed point is <strong>unstable</strong> (for example, an unstable spiral with <span class="arithmatex">\(\Delta &gt; 0, \tau &gt; 0\)</span>), then according to the Poincaré-Bendixson theorem:</p>
+<ul>
+<li>
+<p>The orbit is confined within <span class="arithmatex">\(R\)</span> (cannot escape to infinity).</p>
+</li>
+<li>
+<p>The orbit is "repelled" by the unstable fixed point (cannot remain stationary).</p>
+</li>
+<li>
+<p><strong>Conclusion</strong>: The orbit must converge to a limit cycle within <span class="arithmatex">\(R\)</span>.</p>
+</li>
+</ul>
+<p>This method transforms the complex global problem of "proving the existence of nonlinear oscillations" into two relatively simple steps: verifying physical boundaries (boundedness) and calculating local derivatives (instability). This is precisely the core logic for analyzing the RhoGTPase oscillator later.</p>
+<h1 id="2-biophysical-oscillator-the-rhogtpase-cycle">2. Biophysical Oscillator - The RhoGTPase Cycle<a class="headerlink" href="#2-biophysical-oscillator-the-rhogtpase-cycle" title="Permanent link">&para;</a></h1>
+<p>To demonstrate the practical application of the Poincaré-Bendixson theorem, this section introduces a specific biophysical system—the <strong>RhoGTPase cycle</strong>. This is an extremely central biochemical reaction network in cell biology that, through nonlinear positive and negative feedback mechanisms, can generate spontaneous spatiotemporal oscillations on cell membranes. This section will start from the biological background, progressively build the reaction dynamics model, and transform it into a three-component system of nonlinear ordinary differential equations, laying the foundation for subsequent dimensionality reduction and phase plane analysis.</p>
+<h2 id="21-biological-background-molecular-switches-inside-cells">2.1 Biological Background - Molecular Switches Inside Cells<a class="headerlink" href="#21-biological-background-molecular-switches-inside-cells" title="Permanent link">&para;</a></h2>
+<p>RhoGTPases (such as Rho, Rac, Cdc42) are a class of G proteins belonging to the Ras superfamily that act as key "molecular switches" inside cells, regulating basic life activities such as cell polarity, cytoskeleton reorganization, and cell movement.</p>
+<p>The dynamical behavior of this system is mainly determined by the following two core characteristics:</p>
+<p>1.<strong>Conformational state switching</strong>: RhoGTPases can cyclically switch between two conformations:</p>
+<ul>
+<li>
+<p><strong>Inactive State</strong>: Bound to GDP (RhoGDP).</p>
+</li>
+<li>
+<p><strong>Active State</strong>: Bound to GTP (RhoGTP).</p>
+</li>
+</ul>
+<p>2.<strong>Spatial localization cycle</strong>: These proteins have different distribution preferences in different spatial regions of the cell:</p>
+<ul>
+<li>
+<p><strong>Cytosol</strong>: RhoGTPases mainly exist in inactive form (RhoGDP) and remain soluble by binding to GDI (Guanine nucleotide dissociation inhibitors).</p>
+</li>
+<li>
+<p><strong>Membrane</strong>: The active form (RhoGTP) must anchor to the cell membrane to function.</p>
+</li>
+</ul>
+<p>This cycling process of shuttling between membrane and cytosol while switching between active and inactive states constitutes the spatiotemporal foundation of intracellular signal transduction. In particular, local aggregation and oscillation of active RhoGTP on the membrane (such as actin waves) is the driving force for establishing cell polarity and cell migration.</p>
+<h2 id="22-establishing-the-reaction-model-and-nonlinear-feedback">2.2 Establishing the Reaction Model and Nonlinear Feedback<a class="headerlink" href="#22-establishing-the-reaction-model-and-nonlinear-feedback" title="Permanent link">&para;</a></h2>
+<p>To capture the core dynamics of this system, the course constructed a minimal model containing three key components:</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/07_002_95c93b8a-0c1c-49a1-b1b0-68583751e8f0.png" /></p>
+<p>Schematic diagram of the RhoGTPase cycle reaction network. Shows shuttling between Cytosol and Membrane, as well as conversion between GDP and GTP states. The key nonlinear positive feedback is reflected in the <span class="arithmatex">\(K_{GEP}\)</span> rate.</p>
+<p>The three core variables defined by the model are:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(M_T\)</span>: <strong>Membrane</strong> active form (RhoGTP) concentration.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(M_D\)</span>: <strong>Membrane</strong> inactive form (RhoGDP) concentration.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(C_D\)</span>: <strong>Cytosol</strong> inactive form (RhoGDP) concentration.</p>
+</li>
+</ul>
+<p>The dynamics of this biochemical network is driven by two competing feedback loops, which are the "engine" for oscillation formation:</p>
+<p>1.<strong>Non-linear Positive Feedback</strong>:</p>
+<p>The active form <span class="arithmatex">\(M_T\)</span> on the membrane can recruit and activate <strong>GEF</strong> (Guanine nucleotide exchange factors). The function of GEF is to catalyze the conversion of <span class="arithmatex">\(M_D\)</span> to <span class="arithmatex">\(M_T\)</span>. This forms an autocatalytic process: the presence of <span class="arithmatex">\(M_T\)</span> promotes the production of more <span class="arithmatex">\(M_T\)</span>.</p>
+<p>Mathematically, this nonlinear activation rate <span class="arithmatex">\(K_{GEP}\)</span> is modeled as a function of <span class="arithmatex">\(M_T\)</span>:</p>
+<div class="arithmatex">\[
+K_{GEP}(M_T) = K_{basal} + K_{auto} M_T^2
+\]</div>
+<ul>
+<li>
+<p><span class="arithmatex">\(K_{basal}\)</span>: Basal activation rate, representing spontaneous background activation.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(K_{auto} M_T^2\)</span>: <strong>Autocatalytic term</strong>. This is a second-order Hill function form, indicating that <span class="arithmatex">\(M_T\)</span> amplifies its own production rate in a highly nonlinear cooperative manner. It is precisely this squared term (<span class="arithmatex">\(M_T^2\)</span>) that introduces the nonlinearity required by the system and is key to generating instability and oscillations.</p>
+</li>
+</ul>
+<p>2.<strong>Negative Feedback</strong>:</p>
+<p>The active form <span class="arithmatex">\(M_T\)</span> on the membrane is also recognized by <strong>GAP</strong> (GTPase-activating proteins). GAP promotes GTP hydrolysis, inactivating <span class="arithmatex">\(M_T\)</span> and, in the model, is assumed to subsequently dissociate from the membrane, returning to the cytosol as <span class="arithmatex">\(C_D\)</span>. This process is described by rate constant <span class="arithmatex">\(K_{GAP}\)</span>, constituting a negative feedback loop that limits unlimited growth of <span class="arithmatex">\(M_T\)</span>.</p>
+<h2 id="23-deriving-the-three-component-dynamical-equations">2.3 Deriving the Three-Component Dynamical Equations<a class="headerlink" href="#23-deriving-the-three-component-dynamical-equations" title="Permanent link">&para;</a></h2>
+<p>Based on the above reaction network diagram, using the <strong>Law of Mass Action</strong>, we can write the system of ordinary differential equations (ODEs) describing how the concentrations of the three components change over time.</p>
+<p>The system of equations is:</p>
+<div class="arithmatex">\[
+\begin{cases}
+\displaystyle \frac{d}{dt} M_T = -K_{GAP} M_T + K_{GEP}(M_T) M_D \\
+\displaystyle \frac{d}{dt} M_D = k_{on} C_D - k_{off} M_D - K_{GEP}(M_T) M_D \\
+\displaystyle \frac{d}{dt} C_D = -k_{on} C_D + k_{off} M_D + K_{GAP} M_T
+\end{cases}
+\]</div>
+<p><strong>Detailed physical meaning of equations</strong>:</p>
+<p>1.<strong>Evolution of active membrane protein <span class="arithmatex">\(M_T\)</span></strong>:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} M_T = \underbrace{K_{GEP}(M_T) M_D}_{\text{Activation}} - \underbrace{K_{GAP} M_T}_{\text{Inactivation \&amp; Extraction}}
+\]</div>
+<ul>
+<li>
+<p><strong>Activation term</strong>: From conversion of membrane inactive form <span class="arithmatex">\(M_D\)</span>. Since <span class="arithmatex">\(K_{GEP}\)</span> contains <span class="arithmatex">\(M_T^2\)</span>, this term represents autocatalytic positive feedback growth.</p>
+</li>
+<li>
+<p><strong>Consumption term</strong>: Inactivated by GAP and removed from membrane.</p>
+</li>
+</ul>
+<p>2.<strong>Evolution of inactive membrane protein <span class="arithmatex">\(M_D\)</span></strong>:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} M_D = \underbrace{k_{on} C_D}_{\text{Attachment}} - \underbrace{k_{off} M_D}_{\text{Detachment}} - \underbrace{K_{GEP}(M_T) M_D}_{\text{Consumed to become } M_T}
+\]</div>
+<p>This is the change in the "substrate" pool on the membrane. It is replenished from cytosol (<span class="arithmatex">\(C_D\)</span>), lost due to spontaneous detachment, and consumed by conversion to active form (<span class="arithmatex">\(M_T\)</span>).</p>
+<p>3.<strong>Evolution of cytosolic protein <span class="arithmatex">\(C_D\)</span></strong>:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} C_D = - \underbrace{k_{on} C_D}_{\text{Attachment to membrane}} + \underbrace{k_{off} M_D}_{\text{Detachment from } M_D} + \underbrace{K_{GAP} M_T}_{\text{Inactivation from } M_T}
+\]</div>
+<p>The cytosol acts as a "reserve pool" and "recycling station" for proteins. It decreases due to attachment to membrane while receiving proteins dissociating back from both membrane states (<span class="arithmatex">\(M_T, M_D\)</span>).</p>
+<p>This set of equations completely describes the system's dynamics. At first glance, this is a three-dimensional system, but this will create difficulties for subsequent phase plane analysis. The next section will show how to reduce dimensions using physical conservation laws.</p>
+<h1 id="3-model-simplification-and-nullcline-analysis">3. Model Simplification and Nullcline Analysis<a class="headerlink" href="#3-model-simplification-and-nullcline-analysis" title="Permanent link">&para;</a></h1>
+<p>The RhoGTPase cycle is originally a complex dynamical system involving three variables (<span class="arithmatex">\(M_T, M_D, C_D\)</span>). However, the application of the Poincaré-Bendixson theorem is strictly limited to the two-dimensional plane. Therefore, to utilize this powerful topological tool, we must first find a physically reasonable method to reduce the system's dimension. This section shows how to use conservation laws as physical constraints to precisely map the three-dimensional biochemical network to a two-dimensional dynamical plane, and reveal the geometric structure of its fixed points through nullcline analysis.</p>
+<h2 id="31-key-step-dimensionality-reduction-based-on-mass-conservation">3.1 Key Step - Dimensionality Reduction Based on Mass Conservation<a class="headerlink" href="#31-key-step-dimensionality-reduction-based-on-mass-conservation" title="Permanent link">&para;</a></h2>
+<p>Observing the three dynamical equations derived in the previous section, a hidden conservation property can be found. Adding the three equations together, all terms describing state transitions (such as activation, inactivation, attachment, detachment) cancel in pairs:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} (M_T + M_D + C_D) = 0
+\]</div>
+<p>This mathematical result corresponds to profound physical meaning: <strong>Mass Conservation</strong>. In the closed cellular system, although proteins constantly flow between different states (active/inactive) and locations (membrane/cytosol), their total number of molecules (or total concentration) <span class="arithmatex">\(n\)</span> always remains constant:</p>
+<div class="arithmatex">\[
+n = M_T + M_D + C_D = \text{const}
+\]</div>
+<p>This conservation law constitutes a linear algebraic constraint, compressing the system's original three-dimensional state space to a two-dimensional plane. Once the two membrane states <span class="arithmatex">\(M_T\)</span> and <span class="arithmatex">\(M_D\)</span> are determined, the cytosol concentration <span class="arithmatex">\(C_D\)</span> is uniquely determined as:</p>
+<div class="arithmatex">\[
+C_D = n - M_T - M_D
+\]</div>
+<p>Using this relationship, <span class="arithmatex">\(C_D\)</span> can be eliminated from the equation system, thus rigorously reducing the problem to a two-dimensional system in <span class="arithmatex">\((M_T, M_D)\)</span>.</p>
+<h2 id="32-simplified-two-dimensional-dynamical-system">3.2 Simplified Two-Dimensional Dynamical System<a class="headerlink" href="#32-simplified-two-dimensional-dynamical-system" title="Permanent link">&para;</a></h2>
+<p>Substituting the expression for <span class="arithmatex">\(C_D\)</span> into the original equations and performing parameter simplification (nondimensionalization, setting <span class="arithmatex">\(K_{basal}=1, K_{auto}=1, k_{on}=1, k_{off}=0\)</span> to focus on core mechanisms), we finally obtain the following two-dimensional dynamical system:</p>
+<div class="arithmatex">\[
+\begin{cases}
+\displaystyle \frac{d}{dt} M_T = -\mu M_T + (1+M_T^2) M_D \\
+\displaystyle \frac{d}{dt} M_D = (n - M_T - M_D) - (1+M_T^2) M_D
+\end{cases}
+\]</div>
+<p>System behavior is now completely determined by two dimensionless control parameters:</p>
+<ul>
+<li>
+<p><strong><span class="arithmatex">\(\mu = K_{GAP} / k_{on}\)</span></strong>: Represents the <strong>relative inactivation rate</strong>. It is the ratio of membrane protein inactivation/dissociation rate to cytosolic protein attachment rate, measuring the strength of negative feedback.</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(n\)</span></strong>: Represents the <strong>total protein mass</strong>. It determines the "total resource" of the system, i.e., how much protein is available for circulation.</p>
+</li>
+</ul>
+<h2 id="33-nullcline-analysis">3.3 Nullcline Analysis<a class="headerlink" href="#33-nullcline-analysis" title="Permanent link">&para;</a></h2>
+<p>To understand the phase portrait structure of this two-dimensional system, we first need to find the <strong>Nullclines</strong>. Nullclines are defined as curves in the phase plane where the rate of change of a particular variable is zero, and fixed points are the intersections of these curves.</p>
+<p>Setting <span class="arithmatex">\(\frac{d}{dt} M_T = 0\)</span> and <span class="arithmatex">\(\frac{d}{dt} M_D = 0\)</span>, we obtain two nullcline equations respectively:</p>
+<p>1.<strong><span class="arithmatex">\(M_T\)</span>-Nullcline (<span class="arithmatex">\(\dot{M}_T = 0\)</span>)</strong>:</p>
+<div class="arithmatex">\[
+M_D = \frac{\mu M_T}{1 + M_T^2}
+\]</div>
+<p><strong>Physical meaning</strong>: This curve describes the dynamic equilibrium of active membrane form <span class="arithmatex">\(M_T\)</span>.</p>
+<ul>
+<li>
+<p>The numerator <span class="arithmatex">\(\mu M_T\)</span> represents linear inactivation outflow.</p>
+</li>
+<li>
+<p>The denominator <span class="arithmatex">\((1+M_T^2)\)</span> represents nonlinear autocatalytic activation inflow.</p>
+</li>
+<li>
+<p>This curve exhibits a typical <strong>N-shape (or S-shape)</strong> characteristic: linear growth at low <span class="arithmatex">\(M_T\)</span>, suppressed in the middle due to autocatalysis (<span class="arithmatex">\(M_T^2\)</span>), approaching zero at high <span class="arithmatex">\(M_T\)</span>. This nonlinear shape is the geometric origin of the system's multistability or oscillation.</p>
+</li>
+</ul>
+<p>2.<strong><span class="arithmatex">\(M_D\)</span>-Nullcline (<span class="arithmatex">\(\dot{M}_D = 0\)</span>)</strong>:</p>
+<div class="arithmatex">\[
+M_D = \frac{n - M_T}{2 + M_T^2}
+\]</div>
+<p><strong>Physical meaning</strong>: This curve describes the dynamic equilibrium of inactive membrane form <span class="arithmatex">\(M_D\)</span>.
+  * The numerator <span class="arithmatex">\((n - M_T)\)</span> originates from attachment replenishment from cytosol <span class="arithmatex">\(C_D\)</span>, reflecting resource limitation.</p>
+<ul>
+<li>The denominator <span class="arithmatex">\((2 + M_T^2)\)</span> represents <span class="arithmatex">\(M_D\)</span> consumption by conversion to <span class="arithmatex">\(M_T\)</span> or dissociation.</li>
+</ul>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/07_003_c6109d6a-9453-4ccb-bd37-74fee4bc76d3.png" /></p>
+<p>Schematic diagram of phase plane analysis for the RhoGTPase system. Horizontal axis is <span class="arithmatex">\(M_T\)</span>, vertical axis is <span class="arithmatex">\(M_D\)</span>. The figure shows two nullclines: the bell-shaped hump is the <span class="arithmatex">\(\dot{M}_T=0\)</span> nullcline, and the monotonically decreasing one is the <span class="arithmatex">\(\dot{M}_D=0\)</span> nullcline. The intersection of the two curves (white dot) is the system's fixed point. Arrows indicate flow field directions in different regions, suggesting rotational tendency around the fixed point.</p>
+<h2 id="34-python-code-practice-plotting-nullclines">3.4 Python Code Practice - Plotting Nullclines<a class="headerlink" href="#34-python-code-practice-plotting-nullclines" title="Permanent link">&para;</a></h2>
+<p>The following code uses Python to plot the nullcline image from the board. By adjusting parameters <span class="arithmatex">\(\mu\)</span> and <span class="arithmatex">\(n\)</span>, one can observe how these two curves intersect, thus determining the position of fixed points.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Set dark background style to match lecture board</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_rho_nullclines</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mt_max</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots the nullclines for the 2D RhoGTPase model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mu (float): Control parameter (relative inactivation rate).</span>
+<span class="sd">        n (float): Control parameter (total protein mass).</span>
+<span class="sd">        mt_max (float): Maximum M_T value for plotting range.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Create an array for M_T values</span>
+    <span class="n">M_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mt_max</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="c1"># 1. Calculate M_D for the M_T-nullcline (dM_T/dt = 0)</span>
+    <span class="c1"># Equation: -mu*M_T + (1+M_T^2)*M_D = 0  =&gt;  M_D = mu*M_T / (1+M_T^2)</span>
+    <span class="n">M_D_nullcline_T</span> <span class="o">=</span> <span class="p">(</span><span class="n">mu</span> <span class="o">*</span> <span class="n">M_T</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">M_T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># 2. Calculate M_D for the M_D-nullcline (dM_D/dt = 0)</span>
+    <span class="c1"># Equation: (n - M_T - M_D) - (1+M_T^2)*M_D = 0 </span>
+    <span class="c1"># Derived: M_D = (n - M_T) / (2 + M_T^2)</span>
+    <span class="n">M_D_nullcline_D</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">M_T</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M_T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Filter out non-physical negative values (concentration cannot be negative)</span>
+    <span class="n">M_D_nullcline_D</span><span class="p">[</span><span class="n">M_D_nullcline_D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># Plotting</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="c1"># Plot M_T-nullcline (Red solid line)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M_T</span><span class="p">,</span> <span class="n">M_D_nullcline_T</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\dot</span><span class="si">{M}</span><span class="s1">_T = 0$ nullcline&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot M_D-nullcline (Cyan dashed line)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">M_T</span><span class="p">,</span> <span class="n">M_D_nullcline_D</span><span class="p">,</span> <span class="s1">&#39;c--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\dot</span><span class="si">{M}</span><span class="s1">_D = 0$ nullcline&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Labeling</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Active (Membrane) $M_T$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Inactive (Membrane) $M_D$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;RhoGTPase Nullclines ($\mu=</span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s1">, n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+    <span class="c1"># Styling</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">get_texts</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set axes limits to focus on the relevant interaction area</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mt_max</span><span class="p">)</span>
+
+    <span class="c1"># Ensure spines are visible in dark mode</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">spine</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;rho_nullclines.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Example Usage ---</span>
+<span class="c1"># Parameters chosen to replicate the crossing shown in the lecture board.</span>
+<span class="c1"># mu=4.0 creates a pronounced &quot;bell&quot; shape.</span>
+<span class="c1"># n=10.0 provides enough mass for the intersection to occur on the falling slope.</span>
+<span class="n">plot_rho_nullclines</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">mt_max</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/07_004_059881e5-e0fc-4efb-90b8-f1aa7cf5d15b.png" /></p>
+<p><strong>Red solid line (<span class="arithmatex">\(\dot{M}_T=0\)</span>)</strong>: Shows a characteristic bell-shaped hump. This is caused by the nonlinear positive feedback of <span class="arithmatex">\(M_T^2\)</span>: at low concentrations the autocatalytic effect is significant, elevating the <span class="arithmatex">\(M_D\)</span> required for equilibrium; but at high concentrations, <span class="arithmatex">\(M_T^2\)</span> is in the denominator (saturation effect), causing the curve to fall back.</p>
+<p><strong>Cyan dashed line (<span class="arithmatex">\(\dot{M}_D=0\)</span>)</strong>: Shows a monotonically decreasing trend, reflecting that after total resource <span class="arithmatex">\(n\)</span> is occupied by <span class="arithmatex">\(M_T\)</span>, less space remains for <span class="arithmatex">\(M_D\)</span>.</p>
+<p><strong>Intersection</strong>: The intersection of the two curves is the system's fixed point. With parameter settings <span class="arithmatex">\(\mu=4.0, n=10.0\)</span>, the intersection lies on the <strong>descending segment</strong> (negative slope region) of the red curve. Subsequent analysis will prove that when the intersection lies in this specific region, the fixed point often becomes unstable due to instability (Hopf bifurcation), generating limit cycle oscillations around this point in the phase plane.</p>
+<h1 id="4-generation-of-limit-cycles-hopf-bifurcation">4. Generation of Limit Cycles - Hopf Bifurcation<a class="headerlink" href="#4-generation-of-limit-cycles-hopf-bifurcation" title="Permanent link">&para;</a></h1>
+<p>Now, through dimensionality reduction we have obtained a two-dimensional system, and using nullclines we have found the fixed point. This section will formally apply the strategy of the Poincaré-Bendixson theorem to prove the existence of oscillations. This is divided into two steps: first establishing the system's boundedness, then proving that the fixed point within the trapping region is unstable.</p>
+<h2 id="41-constructing-the-trapping-region-and-boundedness">4.1 Constructing the "Trapping Region" and Boundedness<a class="headerlink" href="#41-constructing-the-trapping-region-and-boundedness" title="Permanent link">&para;</a></h2>
+<p>The primary prerequisite for applying the Poincaré-Bendixson theorem is the boundedness of orbits. In this biophysical model, this condition is naturally satisfied by physical constraints:</p>
+<p>1.<strong>Non-negativity</strong>: Substance concentrations cannot be negative, i.e., <span class="arithmatex">\(M_T \ge 0\)</span> and <span class="arithmatex">\(M_D \ge 0\)</span>.</p>
+<p>2.<strong>Mass conservation upper limit</strong>: Since <span class="arithmatex">\(M_T + M_D + C_D = n\)</span> and <span class="arithmatex">\(C_D \ge 0\)</span>, the sum of the two membrane states must be less than or equal to total mass, i.e., <span class="arithmatex">\(M_T + M_D \le n\)</span>.</p>
+<p>This means all dynamical behavior of the system is strictly confined to a right triangular region in the first quadrant of the phase plane:</p>
+<div class="arithmatex">\[
+\{(M_T, M_D) \mid M_T \ge 0, M_D \ge 0, M_T + M_D \le n\}
+\]</div>
+<p>This is a closed bounded region, the "trapping region" required by the theorem. Any trajectory starting from physically reasonable initial conditions cannot escape from this triangle.</p>
+<h2 id="42-linear-stability-analysis">4.2 Linear Stability Analysis<a class="headerlink" href="#42-linear-stability-analysis" title="Permanent link">&para;</a></h2>
+<p>Since orbits cannot escape, to prove the existence of a limit cycle, according to the Poincaré-Bendixson theorem, we only need to prove that the unique <strong>fixed point <span class="arithmatex">\((M_T^*, M_D^*)\)</span></strong> within this trapping region <strong>is unstable</strong>.</p>
+<p>For this purpose, we calculate the Jacobian Matrix <span class="arithmatex">\(\mathcal{J}\)</span> near the fixed point and analyze its trace <span class="arithmatex">\(\tau\)</span> and determinant <span class="arithmatex">\(\Delta\)</span>.</p>
+<p>By taking partial derivatives of the dynamical equations <span class="arithmatex">\(\dot{M}_T\)</span> and <span class="arithmatex">\(\dot{M}_D\)</span>, we obtain the analytical form of the Jacobian matrix:</p>
+<div class="arithmatex">\[
+\mathcal{J} = \begin{pmatrix}
+\frac{\partial \dot{M}_T}{\partial M_T} &amp; \frac{\partial \dot{M}_T}{\partial M_D} \\
+\frac{\partial \dot{M}_D}{\partial M_T} &amp; \frac{\partial \dot{M}_D}{\partial M_D}
+\end{pmatrix}
+= \begin{pmatrix}
+-\mu + 2M_T^* M_D^* &amp; 1 + (M_T^*)^2 \\
+-1 - 2M_T^* M_D^* &amp; -(2 + (M_T^*)^2)
+\end{pmatrix}
+\]</div>
+<p>Based on this matrix, we can obtain two key invariants that determine stability:</p>
+<p><strong>1. Trace (<span class="arithmatex">\(\tau\)</span>): Instability Criterion</strong></p>
+<div class="arithmatex">\[
+\tau = \text{tr}(\mathcal{J}) = \underbrace{2 M_T^* M_D^*}_{\text{Nonlinear positive feedback}} - \underbrace{\left( \mu + 2 + (M_T^*)^2 \right)}_{\text{Linear dissipation and damping}}
+\]</div>
+<ul>
+<li>
+<p><strong>Physical meaning</strong>: The trace <span class="arithmatex">\(\tau\)</span> reflects the volume expansion rate (or amplitude growth rate) of the system near the fixed point.</p>
+<ul>
+<li>
+<p><strong>Positive term (<span class="arithmatex">\(+2 M_T^* M_D^*\)</span>)</strong>: Originates from the <span class="arithmatex">\(M_T^2\)</span> term in <span class="arithmatex">\(K_{GEP}\)</span>. It represents the <strong>Autocatalysis</strong> mechanism, i.e., the positive feedback effect where active protein promotes its own production. This is the driving force for system instability.</p>
+</li>
+<li>
+<p><strong>Negative terms (<span class="arithmatex">\(-\dots\)</span>)</strong>: Originate from inactivation rate <span class="arithmatex">\(\mu\)</span> and dissociation processes. These terms represent the system's <strong>Dissipation</strong> or damping, tending to suppress perturbations and return the system to stability.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>When positive feedback is strong enough (i.e., <span class="arithmatex">\(M_T^*\)</span> and <span class="arithmatex">\(M_D^*\)</span> are large enough) to overcome all dissipation terms, <span class="arithmatex">\(\tau\)</span> becomes positive (<span class="arithmatex">\(\tau &gt; 0\)</span>). At this point, the fixed point loses stability, and small perturbations will grow exponentially over time.</p>
+<p><strong>2. Determinant (<span class="arithmatex">\(\Delta\)</span>): Fixed Point Type Criterion</strong></p>
+<p>Directly calculating the determinant of the Jacobian matrix:</p>
+<div class="arithmatex">\[
+\Delta = \det(\mathcal{J}) = (-\mu + 2M_T^* M_D^*)(-(2 + (M_T^*)^2)) - (1 + (M_T^*)^2)(-1 - 2M_T^* M_D^*)
+\]</div>
+<p>Simplifying the above expression, we obtain an explicit polynomial in terms of <span class="arithmatex">\(M_T^*\)</span> and parameters:</p>
+<div class="arithmatex">\[
+\Delta = -2 M_T^* M_D^* + (M_T^*)^2\mu + (M_T^*)^2 + 2\mu + 1
+\]</div>
+<p><strong>Physical meaning and sign determination</strong>: Although this expression contains negative terms, in the biophysically relevant parameter range discussed in the lecture, especially when the necessary geometric condition <strong><span class="arithmatex">\(M_T^* &gt; 1\)</span></strong> for oscillation is satisfied, it can be proven that <span class="arithmatex">\(\Delta\)</span> always remains positive.</p>
+<p><strong><span class="arithmatex">\(\Delta &gt; 0\)</span></strong> means the product of eigenvalues is positive, indicating that the two eigenvalues are either same-sign real numbers (nodes) or complex conjugates (spirals). This property strictly excludes the possibility of <strong>Saddle Points (<span class="arithmatex">\(\Delta &lt; 0\)</span>)</strong>, ensuring that the topological structure of the flow field around the fixed point is rotational or convergent/divergent, rather than hyperbolic escape.</p>
+<p>In summary, when system parameters are adjusted such that <strong><span class="arithmatex">\(\tau &gt; 0\)</span></strong> and <strong><span class="arithmatex">\(\Delta &gt; 0\)</span></strong>, the fixed point becomes an <strong>Unstable Spiral</strong>. Orbits will not only be repelled from the fixed point but will also exhibit rotational characteristics—this is a necessary geometric condition for forming closed limit cycles.</p>
+<p><strong>2. Determinant (<span class="arithmatex">\(\Delta\)</span>): Fixed Point Type Criterion</strong></p>
+<div class="arithmatex">\[
+\Delta = \det(\mathcal{J}) = \frac{(M_T^*)^2 - 1}{\dots} \quad (\text{Simplified qualitative form})
+\]</div>
+<p><strong>Physical meaning</strong>: Although the complete algebraic expression for the determinant is cumbersome, the key lies in its sign. The lecture pointed out that in parameter regions where oscillations occur (i.e., when <span class="arithmatex">\(\tau &gt; 0\)</span> is satisfied), this is usually accompanied by a geometric constraint <strong><span class="arithmatex">\(M_T^* &gt; 1\)</span></strong>.</p>
+<p>When <span class="arithmatex">\(M_T^* &gt; 1\)</span>, it can be proven that <strong><span class="arithmatex">\(\Delta &gt; 0\)</span></strong>. This means eigenvalues are either same-sign real numbers (nodes) or complex conjugates (spirals), thus strictly excluding the possibility of saddle points (Saddle Point, <span class="arithmatex">\(\Delta &lt; 0\)</span>).</p>
+<p>In summary, when system parameters are adjusted such that <strong><span class="arithmatex">\(\tau &gt; 0\)</span></strong> and <strong><span class="arithmatex">\(\Delta &gt; 0\)</span></strong>, the fixed point becomes an <strong>Unstable Spiral</strong>. Orbits will not only be repelled from the fixed point but will also exhibit rotational characteristics—this is a necessary geometric condition for forming closed limit cycles.</p>
+<h2 id="43-finding-oscillation-conditions-unstable-spiral">4.3 Finding Oscillation Conditions - Unstable Spiral<a class="headerlink" href="#43-finding-oscillation-conditions-unstable-spiral" title="Permanent link">&para;</a></h2>
+<p>According to the classification established in the previous lecture, to obtain an <strong>Unstable Spiral</strong>, the system must simultaneously satisfy the following three mathematical conditions:</p>
+<p>1.<span class="arithmatex">\(\Delta &gt; 0\)</span>: Determinant is positive (excludes saddle points).</p>
+<p>2.<span class="arithmatex">\(\tau &gt; 0\)</span>: Trace is positive (system is unstable, amplitude grows).</p>
+<p>3.<span class="arithmatex">\(\tau^2 - 4\Delta &lt; 0\)</span>: Discriminant is negative (eigenvalues are complex, producing rotation).</p>
+<p>To find regions in parameter space <span class="arithmatex">\((\mu, n)\)</span> that satisfy the above conditions, we need to connect the geometric position of fixed point <span class="arithmatex">\((M_T^*, M_D^*)\)</span> with its algebraic properties.</p>
+<h3 id="1-geometric-constraint-why-must-m_t-1">1. Geometric Constraint: Why Must <span class="arithmatex">\(M_T^* &gt; 1\)</span>?<a class="headerlink" href="#1-geometric-constraint-why-must-m_t-1" title="Permanent link">&para;</a></h3>
+<p>First observe the functional form of the <span class="arithmatex">\(M_T\)</span>-nullcline <span class="arithmatex">\(M_D = f(M_T) = \frac{\mu M_T}{1+M_T^2}\)</span>. Taking the derivative of this function to analyze its slope:</p>
+<div class="arithmatex">\[
+f'(M_T) = \mu \frac{(1+M_T^2) - M_T(2M_T)}{(1+M_T^2)^2} = \mu \frac{1 - M_T^2}{(1+M_T^2)^2}
+\]</div>
+<p>From this we can see:</p>
+<ul>
+<li>
+<p>When <span class="arithmatex">\(M_T &lt; 1\)</span>, slope is positive (nullcline is on ascending segment).</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(M_T = 1\)</span>, slope is zero (peak).</p>
+</li>
+<li>
+<p>When <strong><span class="arithmatex">\(M_T &gt; 1\)</span></strong>, slope is negative (nullcline is on <strong>descending segment</strong>).</p>
+</li>
+</ul>
+<p>Physically, only on the descending segment (<span class="arithmatex">\(M_T &gt; 1\)</span>) can the growth rate of the autocatalytic term <span class="arithmatex">\(M_T^2\)</span> locally exceed the linear inactivation term, thus having the potential to produce instability. Therefore, <strong>the fixed point being on the descending segment of the nullcline (i.e., <span class="arithmatex">\(M_T^* &gt; 1\)</span>) is a necessary geometric prerequisite for oscillation.</strong></p>
+<h3 id="2-algebraic-proof-sign-analysis-of-tau-and-delta">2. Algebraic Proof - Sign Analysis of <span class="arithmatex">\(\tau\)</span> and <span class="arithmatex">\(\Delta\)</span><a class="headerlink" href="#2-algebraic-proof-sign-analysis-of-tau-and-delta" title="Permanent link">&para;</a></h3>
+<p>Using the fixed point condition <span class="arithmatex">\(M_D^* = \frac{\mu M_T^*}{1+(M_T^*)^2}\)</span>, we can eliminate <span class="arithmatex">\(M_D^*\)</span> from the Jacobian matrix, obtaining expressions that depend only on <span class="arithmatex">\(M_T^*\)</span>.</p>
+<p><strong>Regarding trace <span class="arithmatex">\(\tau\)</span> (determining instability):</strong></p>
+<p>Substituting <span class="arithmatex">\(M_D^*\)</span> into Jacobian matrix element <span class="arithmatex">\(J_{11} = -\mu + 2M_T^* M_D^*\)</span>:</p>
+<div class="arithmatex">\[
+J_{11} = -\mu + 2M_T^* \left( \frac{\mu M_T^*}{1+(M_T^*)^2} \right) = \mu \left( \frac{2(M_T^*)^2}{1+(M_T^*)^2} - 1 \right) = \mu \frac{(M_T^*)^2 - 1}{1+(M_T^*)^2}
+\]</div>
+<p>From this it is clearly visible that the sign of <span class="arithmatex">\(J_{11}\)</span> is directly determined by <span class="arithmatex">\((M_T^*)^2 - 1\)</span>.</p>
+<ul>
+<li>
+<p>If <span class="arithmatex">\(M_T^* &lt; 1\)</span>, then <span class="arithmatex">\(J_{11} &lt; 0\)</span>, and combined with the always-negative <span class="arithmatex">\(J_{22}\)</span>, total trace <span class="arithmatex">\(\tau = J_{11} + J_{22}\)</span> must be negative (system is stable).</p>
+</li>
+<li>
+<p>Only when <strong><span class="arithmatex">\(M_T^* &gt; 1\)</span></strong> does <span class="arithmatex">\(J_{11}\)</span> become positive (positive feedback dominates), making it <strong>possible</strong> for total trace <span class="arithmatex">\(\tau\)</span> to become positive (provided positive feedback is strong enough to overcome the damping of <span class="arithmatex">\(J_{22}\)</span>).</p>
+</li>
+</ul>
+<p><strong>Regarding determinant <span class="arithmatex">\(\Delta\)</span> (determining fixed point type):</strong></p>
+<p>Similarly substituting <span class="arithmatex">\(M_D^*\)</span> into the <span class="arithmatex">\(\Delta\)</span> polynomial derived in the previous section, after simplification:</p>
+<div class="arithmatex">\[
+\Delta = \frac{\mu (M_T^{*4} + M_T^{*2} + 2)}{1 + (M_T^*)^2} + (1 + (M_T^*)^2)
+\]</div>
+<p>Observing the above expression, since <span class="arithmatex">\(\mu &gt; 0\)</span> and <span class="arithmatex">\(M_T^*\)</span> is real, each term in the expression is positive. Within physically meaningful parameter ranges, <span class="arithmatex">\(\Delta\)</span> is always greater than 0. This means the system will never exhibit saddle points.</p>
+<p>The physical picture of oscillation production now becomes very clear—we need to adjust parameters <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(\mu\)</span> to force the fixed point to move to the <strong>descending segment (<span class="arithmatex">\(M_T^* &gt; 1\)</span>)</strong> of the nullcline. In this region, <span class="arithmatex">\(\Delta &gt; 0\)</span> is guaranteed, and as long as <span class="arithmatex">\(M_T^*\)</span> is large enough, the positive feedback term will lead to <span class="arithmatex">\(\tau &gt; 0\)</span>, thus triggering Hopf bifurcation and producing a limit cycle.</p>
+<h2 id="44-hopf-bifurcation-and-phase-diagram">4.4 Hopf Bifurcation and Phase Diagram<a class="headerlink" href="#44-hopf-bifurcation-and-phase-diagram" title="Permanent link">&para;</a></h2>
+<p>To precisely delineate the oscillation region in parameter space <span class="arithmatex">\((\mu, n)\)</span>, we need to find the critical boundary satisfying the <strong>Hopf bifurcation condition</strong>. Strictly speaking, this boundary is defined by the following system of equations:</p>
+<div class="arithmatex">\[
+\begin{cases}
+\dot{M}_T = 0 \\
+\dot{M}_D = 0 \\
+\tau(\mu, n) = 0 \\
+\Delta(\mu, n) &gt; 0
+\end{cases}
+\]</div>
+<p>The first two equations define the fixed point <span class="arithmatex">\((M_T^*, M_D^*)\)</span>, and the third equation defines the critical point of stability switching. To solve for this boundary, we need to establish the algebraic connection between control parameters and fixed points.</p>
+<p><strong>1. Algebraic Equation for Fixed Points</strong></p>
+<p>Recalling the nullcline equations, the fixed point is the intersection of two curves:</p>
+<div class="arithmatex">\[
+M_D^* = \frac{\mu M_T^*}{1 + (M_T^*)^2} = \frac{n - M_T^*}{2 + (M_T^*)^2}
+\]</div>
+<p>By combining the above equalities, we can eliminate <span class="arithmatex">\(M_D^*\)</span>, obtaining a <strong>cubic equation</strong> involving only active concentration <span class="arithmatex">\(M_T^*\)</span>:</p>
+<div class="arithmatex">\[
+(\mu + 1)(M_T^*)^3 - n(M_T^*)^2 + (2\mu + 1)M_T^* - n = 0
+\]</div>
+<p><strong>2. Logic Chain for Drawing Phase Diagram</strong></p>
+<p>With this algebraic equation, we complete the logical chain from parameters to dynamical behavior:
+1.<strong>Solve</strong>: For given parameters <span class="arithmatex">\((\mu, n)\)</span>, solve the above cubic equation to obtain fixed point <span class="arithmatex">\(M_T^*\)</span>.</p>
+<p>2.<strong>Substitute</strong>: Substitute <span class="arithmatex">\(M_T^*\)</span> back into expressions for <span class="arithmatex">\(\tau\)</span> and <span class="arithmatex">\(\Delta\)</span>.</p>
+<p>3.<strong>Determine</strong>:
+  * If <span class="arithmatex">\(\tau &lt; 0\)</span>, system is in stable region (fixed point attracts).</p>
+<ul>
+<li>
+<p>If <span class="arithmatex">\(\tau &gt; 0\)</span> and <span class="arithmatex">\(\Delta &gt; 0\)</span>, system is in oscillation region (limit cycle).</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(\tau = 0\)</span> and <span class="arithmatex">\(\Delta &gt; 0\)</span>, system is on the <strong>Hopf bifurcation boundary</strong>.</p>
+</li>
+</ul>
+<p><strong>3. Bifurcation Phenomenon: Birth of Limit Cycle</strong></p>
+<p>When parameter changes cross this <span class="arithmatex">\(\tau=0\)</span> boundary, the system undergoes qualitative change:</p>
+<ul>
+<li>
+<p><strong>Before bifurcation (<span class="arithmatex">\(\tau &lt; 0\)</span>)</strong>: Fixed point is a <strong>stable spiral</strong>, trajectories eventually come to rest.</p>
+</li>
+<li>
+<p><strong>After bifurcation (<span class="arithmatex">\(\tau &gt; 0\)</span>)</strong>: Fixed point becomes an <strong>unstable spiral</strong>. Since the Poincaré-Bendixson theorem limits orbits from diverging (boundedness), repelled orbits are forced to curl into a closed ring—<strong>Limit Cycle</strong> is born.</p>
+</li>
+</ul>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/07_005_569fba08-8128-4a83-99c5-eca42fc88d23.png" /></p>
+<p><span class="arithmatex">\((\mu, n)\)</span> phase diagram of the RhoGTPase system. The curve delineates the Hopf bifurcation boundary determined by the cubic equation and <span class="arithmatex">\(\tau=0\)</span>. The enclosed "U-shaped" region is the Oscillations region.</p>
+<p><strong>4. Physical Intuition of Phase Diagram</strong></p>
+<p>From the phase diagram, it can be clearly seen that oscillations mainly occur in regions of large <span class="arithmatex">\(\mu\)</span> and large <span class="arithmatex">\(n\)</span>. This reveals two core physical conditions for producing intracellular biochemical oscillations:</p>
+<p>1.<strong>Fast negative feedback (Large <span class="arithmatex">\(\mu\)</span>)</strong>: Large <span class="arithmatex">\(\mu\)</span> means once <span class="arithmatex">\(M_T\)</span> is produced, it will be rapidly inactivated and kicked back to cytosol. This "fast clearance" mechanism prevents the system from stagnating at some high-concentration steady state and is the driving force for instability.</p>
+<p>2.<strong>Sufficient substrate reserve (Large <span class="arithmatex">\(n\)</span>)</strong>: Large <span class="arithmatex">\(n\)</span> means there is a large <span class="arithmatex">\(C_D\)</span> reserve pool in cytosol. Even if membrane <span class="arithmatex">\(M_T\)</span> is rapidly cleared, the large reserve pool can quickly replenish <span class="arithmatex">\(M_D\)</span> to the membrane, providing raw materials for the next round of <span class="arithmatex">\(M_T\)</span> burst.</p>
+<p><strong>Strong driving (high reserve) plus fast braking (high inactivation) leads to sustained oscillation of the system.</strong></p>
+<h2 id="45-python-code-practice-simulating-the-rho-oscillator">4.5 Python Code Practice - Simulating the Rho Oscillator<a class="headerlink" href="#45-python-code-practice-simulating-the-rho-oscillator" title="Permanent link">&para;</a></h2>
+<p>In this code practice section, we directly verify the Hopf bifurcation analysis from the previous section through numerical integration.</p>
+<p>The core approach is as follows:</p>
+<p>1.Fix relative inactivation rate <span class="arithmatex">\(\mu = 10.5\)</span>, only changing total mass <span class="arithmatex">\(n\)</span>.</p>
+<p>2.Select two representative parameters:</p>
+<ul>
+<li>
+<p><strong>Stable region</strong>: <span class="arithmatex">\(n = 15\)</span>, at this point trace <span class="arithmatex">\(\tau &lt; 0\)</span>, determinant <span class="arithmatex">\(\Delta &gt; 0\)</span>, fixed point is a stable spiral, all orbits eventually converge to steady state;</p>
+</li>
+<li>
+<p><strong>Oscillatory region</strong>: <span class="arithmatex">\(n = 25\)</span>, at this point trace <span class="arithmatex">\(\tau &gt; 0\)</span>, determinant <span class="arithmatex">\(\Delta &gt; 0\)</span>, fixed point is an unstable spiral, orbits are repelled from steady state and trapped in the triangular trapping region, according to Poincaré-Bendixson theorem, system will converge to a stable limit cycle.</p>
+</li>
+<li>
+<p>Phase portrait: Shows orbits starting from same initial condition converging to point or limit cycle under two parameter sets;</p>
+</li>
+<li>
+<p>Time series: Shows evolution of <span class="arithmatex">\(M_T(t)\)</span> and <span class="arithmatex">\(M_D(t)\)</span> over time, contrasting "exponential decay to steady state" vs "long-period oscillation" differences.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rho_2d_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Right-hand side of the 2D reduced RhoGTPase model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t : float</span>
+<span class="sd">        Time (not used explicitly, system is autonomous).</span>
+<span class="sd">    y : array_like, shape (2,)</span>
+<span class="sd">        State vector y = [M_T, M_D].</span>
+<span class="sd">        M_T : active Rho on the membrane.</span>
+<span class="sd">        M_D : inactive Rho on the membrane.</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        Relative inactivation rate (strength of negative feedback).</span>
+<span class="sd">    n : float</span>
+<span class="sd">        Total protein mass (conservation: M_T + M_D + C_D = n).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dydt : list of float</span>
+<span class="sd">        Time derivatives [dM_T/dt, dM_D/dt].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">M_T</span><span class="p">,</span> <span class="n">M_D</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="c1"># 2D ODE system (after eliminating C_D = n - M_T - M_D)</span>
+    <span class="n">dM_T</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">*</span> <span class="n">M_T</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">M_T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">M_D</span>
+    <span class="n">dM_D</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">M_T</span> <span class="o">-</span> <span class="n">M_D</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">M_T</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">M_D</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">dM_T</span><span class="p">,</span> <span class="n">dM_D</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_rho</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Integrate the Rho 2D ODE system for given parameters.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        Relative inactivation rate.</span>
+<span class="sd">    n : float</span>
+<span class="sd">        Total protein mass.</span>
+<span class="sd">    y0 : array_like, shape (2,)</span>
+<span class="sd">        Initial condition [M_T(0), M_D(0)].</span>
+<span class="sd">    t_max : float</span>
+<span class="sd">        Final integration time.</span>
+<span class="sd">    n_points : int, optional</span>
+<span class="sd">        Number of time points for sampling the solution.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    t : 1D ndarray</span>
+<span class="sd">        Time points.</span>
+<span class="sd">    sol : 2D ndarray</span>
+<span class="sd">        Solution array with shape (2, len(t)).</span>
+<span class="sd">        sol[0, :] : M_T(t)</span>
+<span class="sd">        sol[1, :] : M_D(t)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">)</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_span</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_span</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n_points</span><span class="p">)</span>
+
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">rho_2d_ode</span><span class="p">,</span>
+        <span class="n">t_span</span><span class="p">,</span>
+        <span class="n">y0</span><span class="p">,</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+        <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_phase_limits</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">M_T</span><span class="p">,</span> <span class="n">M_D</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set aesthetically pleasing limits and aspect ratio</span>
+<span class="sd">    for a phase portrait panel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mt_min</span><span class="p">,</span> <span class="n">mt_max</span> <span class="o">=</span> <span class="n">M_T</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">M_T</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">md_min</span><span class="p">,</span> <span class="n">md_max</span> <span class="o">=</span> <span class="n">M_D</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">M_D</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="c1"># Add a small margin around the data range</span>
+    <span class="n">pad_x</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">mt_max</span> <span class="o">-</span> <span class="n">mt_min</span><span class="p">)</span> <span class="k">if</span> <span class="n">mt_max</span> <span class="o">&gt;</span> <span class="n">mt_min</span> <span class="k">else</span> <span class="mf">0.1</span>
+    <span class="n">pad_y</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">md_max</span> <span class="o">-</span> <span class="n">md_min</span><span class="p">)</span> <span class="k">if</span> <span class="n">md_max</span> <span class="o">&gt;</span> <span class="n">md_min</span> <span class="k">else</span> <span class="mf">0.1</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">mt_min</span> <span class="o">-</span> <span class="n">pad_x</span><span class="p">,</span> <span class="n">mt_max</span> <span class="o">+</span> <span class="n">pad_x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">md_min</span> <span class="o">-</span> <span class="n">pad_y</span><span class="p">,</span> <span class="n">md_max</span> <span class="o">+</span> <span class="n">pad_y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Parameter choices and simulation</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">10.5</span>              <span class="c1"># fixed relative inactivation rate</span>
+<span class="n">n_stable</span> <span class="o">=</span> <span class="mf">15.0</span>        <span class="c1"># parameter in the stable-focus regime (tau &lt; 0)</span>
+<span class="n">n_oscillatory</span> <span class="o">=</span> <span class="mf">25.0</span>   <span class="c1"># parameter in the oscillatory regime (tau &gt; 0)</span>
+
+<span class="c1"># Same initial condition for both parameter sets (inside the physical triangle)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+
+<span class="c1"># Integrate the system in both regimes</span>
+<span class="n">t_stable</span><span class="p">,</span> <span class="n">y_stable</span> <span class="o">=</span> <span class="n">simulate_rho</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">n_stable</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="mf">200.0</span><span class="p">)</span>
+<span class="n">t_osc</span><span class="p">,</span>    <span class="n">y_osc</span>    <span class="o">=</span> <span class="n">simulate_rho</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">n_oscillatory</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="mf">400.0</span><span class="p">)</span>
+
+<span class="n">M_T_stable</span><span class="p">,</span> <span class="n">M_D_stable</span> <span class="o">=</span> <span class="n">y_stable</span>
+<span class="n">M_T_osc</span><span class="p">,</span>    <span class="n">M_D_osc</span>    <span class="o">=</span> <span class="n">y_osc</span>
+
+<span class="c1"># For the oscillatory case, remove the initial transient and keep only</span>
+<span class="c1"># the late-time motion on the limit cycle for the phase portrait</span>
+<span class="n">idx_transient</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_osc</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">M_T_osc_cycle</span> <span class="o">=</span> <span class="n">M_T_osc</span><span class="p">[</span><span class="n">idx_transient</span><span class="p">:]</span>
+<span class="n">M_D_osc_cycle</span> <span class="o">=</span> <span class="n">M_D_osc</span><span class="p">[</span><span class="n">idx_transient</span><span class="p">:]</span>
+
+<span class="c1"># For the time series in the oscillatory regime, show only the last window_T</span>
+<span class="n">window_T</span> <span class="o">=</span> <span class="mf">100.0</span>
+<span class="n">t_max_osc</span> <span class="o">=</span> <span class="n">t_osc</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">mask_osc_window</span> <span class="o">=</span> <span class="n">t_osc</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">t_max_osc</span> <span class="o">-</span> <span class="n">window_T</span><span class="p">)</span>
+
+<span class="c1"># -----------------------------</span>
+<span class="c1"># Create a figure with phase portraits and time traces</span>
+<span class="c1"># -----------------------------</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  <span class="c1"># no shared x-axis</span>
+
+<span class="n">ax_phase_stable</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">ax_phase_osc</span>    <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">ax_time_stable</span>  <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">ax_time_osc</span>     <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># --- (A) Phase portrait: stable focus ---</span>
+<span class="n">ax_phase_stable</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">M_T_stable</span><span class="p">,</span> <span class="n">M_D_stable</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;trajectory&#39;</span>
+<span class="p">)</span>
+<span class="n">ax_phase_stable</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_T$ (active membrane)&#39;</span><span class="p">)</span>
+<span class="n">ax_phase_stable</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_D$ (inactive membrane)&#39;</span><span class="p">)</span>
+<span class="n">ax_phase_stable</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;Stable focus: $\mu = 10.5,\ n = 15$&#39;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span>
+<span class="p">)</span>
+<span class="n">ax_phase_stable</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">set_phase_limits</span><span class="p">(</span><span class="n">ax_phase_stable</span><span class="p">,</span> <span class="n">M_T_stable</span><span class="p">,</span> <span class="n">M_D_stable</span><span class="p">)</span>
+
+<span class="c1"># --- (B) Phase portrait: limit cycle (only late-time motion) ---</span>
+<span class="n">ax_phase_osc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">M_T_osc_cycle</span><span class="p">,</span> <span class="n">M_D_osc_cycle</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;trajectory&#39;</span>
+<span class="p">)</span>
+<span class="n">ax_phase_osc</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_T$ (active membrane)&#39;</span><span class="p">)</span>
+<span class="n">ax_phase_osc</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_D$ (inactive membrane)&#39;</span><span class="p">)</span>
+<span class="n">ax_phase_osc</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;Limit cycle: $\mu = 10.5,\ n = 25$&#39;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span>
+<span class="p">)</span>
+<span class="n">ax_phase_osc</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">set_phase_limits</span><span class="p">(</span><span class="n">ax_phase_osc</span><span class="p">,</span> <span class="n">M_T_osc_cycle</span><span class="p">,</span> <span class="n">M_D_osc_cycle</span><span class="p">)</span>
+
+<span class="c1"># --- (C) Time traces in the stable regime ---</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">t_stable</span><span class="p">,</span> <span class="n">M_T_stable</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$M_T(t)$&#39;</span>
+<span class="p">)</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">t_stable</span><span class="p">,</span> <span class="n">M_D_stable</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$M_D(t)$&#39;</span>
+<span class="p">)</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;concentration&#39;</span><span class="p">)</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;Time series (stable focus)&#39;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span>
+<span class="p">)</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax_time_stable</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- (D) Time traces in the oscillatory regime (last window_T only) ---</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">t_osc</span><span class="p">[</span><span class="n">mask_osc_window</span><span class="p">],</span> <span class="n">M_T_osc</span><span class="p">[</span><span class="n">mask_osc_window</span><span class="p">],</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$M_T(t)$&#39;</span>
+<span class="p">)</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">t_osc</span><span class="p">[</span><span class="n">mask_osc_window</span><span class="p">],</span> <span class="n">M_D_osc</span><span class="p">[</span><span class="n">mask_osc_window</span><span class="p">],</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$M_D(t)$&#39;</span>
+<span class="p">)</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;concentration&#39;</span><span class="p">)</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="sa">rf</span><span class="s1">&#39;Time series (limit cycle, last </span><span class="si">{</span><span class="n">window_T</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> time units)&#39;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span>
+<span class="p">)</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax_time_osc</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="c1"># Global figure title (English caption)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
+    <span class="s2">&quot;Figure 4.5  Numerical simulation of the 2D Rho oscillator</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;Top: phase portraits. Bottom: time traces in stable vs. oscillatory regimes.&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span>
+<span class="p">)</span>
+
+<span class="c1"># Make sure layout works well on a dark background</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">])</span>
+
+<span class="c1"># Save the figure with a dark-friendly background</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
+    <span class="s2">&quot;rho_oscillator_phase_time.png&quot;</span><span class="p">,</span>
+    <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/07_006_aea062d8-475b-4948-82f3-0ba967f1ce27.png" /></p>
+<p>The figure shows two typical dynamical behaviors of the RhoGTPase two-dimensional model under different parameter conditions, consistent with the Hopf bifurcation conclusions obtained from trace-determinant analysis.</p>
+<p>In the <strong>stable region</strong> (<span class="arithmatex">\(μ = 10.5, n = 15\)</span>), the trajectory in the phase portrait spirally converges to the unique fixed point, and the time series shows rapid decay followed by entering a stable steady state. This indicates that under these parameter conditions, the system's negative feedback action dominates, trace <span class="arithmatex">\(τ &lt; 0\)</span>, eigenvalues have negative real parts, so all perturbations eventually get damped out.</p>
+<p>In contrast, in the <strong>oscillatory region</strong> (<span class="arithmatex">\(μ = 10.5, n = 25\)</span>), the trajectory in the phase portrait no longer falls into the fixed point but is repelled onto a closed orbit; the time series shows sustained periodic oscillation with stable amplitude that no longer decays. This corresponds to an unstable spiral with <span class="arithmatex">\(τ &gt; 0, Δ &gt; 0\)</span>: positive feedback (autocatalysis) is sufficient to overcome dissipation, forcing the system to run along closed trajectories in the bounded region. According to the Poincaré-Bendixson theorem, this is precisely the sufficient condition for a limit cycle to appear.</p>
+<p>Overall, this set of numerical results verifies the key logical chain in the theoretical part: mass conservation → reduction to two-dimensional system → fixed point destabilization (Hopf) → appearance of stable limit cycle in bounded region. This indicates that the model has the ability to produce spontaneous oscillations and provides intuitive dynamical evidence for understanding the periodic dynamics of active Rho on cell membranes.</p>
+<h1 id="5-evolutionary-game-theory-rock-paper-scissors">5. Evolutionary Game Theory - Rock-Paper-Scissors<a class="headerlink" href="#5-evolutionary-game-theory-rock-paper-scissors" title="Permanent link">&para;</a></h1>
+<p>The final part of the course shifts from intracellular biochemical networks to strategy competition in ecological and social systems. Using the classic <strong>Rock-Paper-Scissors (RPS)</strong> game as an example, this section demonstrates the universality of the dynamical systems framework: whether it's chemical reactions between molecules or interplay between species, their evolutionary laws can be described using the same mathematical language—nonlinear ordinary differential equations. Additionally, through examples from popular culture, such as the extended version game from "The Big Bang Theory," we see how this mathematical framework can easily generalize to complex systems with arbitrary numbers of strategies, revealing rich dynamical behavior from simple cyclic competition to the edge of chaos.</p>
+<h2 id="51-zero-sum-games-and-replicator-dynamics">5.1 Zero-Sum Games and Replicator Dynamics<a class="headerlink" href="#51-zero-sum-games-and-replicator-dynamics" title="Permanent link">&para;</a></h2>
+<p><strong>Zero-Sum Games</strong> refer to a strict competitive relationship: one party's gain necessarily equals another party's loss, with total system gain being zero. The most famous example is the RPS game known to all children.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/07_007_c7faeecd-9b9a-45d3-b2d6-47b3b9808ce0.png" /></p>
+<p>Strategy network topology for zero-sum games. Left (S=3): Classic RPS cyclic dominance relationship. Middle (S=5): "Rock-Paper-Scissors-Lizard-Spock" extended version from "The Big Bang Theory." Right (S&gt;&gt;1): When the number of strategies is very large, the system exhibits complex network connection structures.</p>
+<p>To add interest, the course cited a clip from the TV series "The Big Bang Theory," showing that when strategy space is extended (e.g., introducing "Lizard" and "Spock"), the game rules still maintain some anti-symmetric cyclic structure.</p>
+<p><img alt="Lecture Video Clip Screenshot" src="../../../cn/assets/images/07_008_2f1e1538-98e0-4d16-9314-43b662767195.jpg" /></p>
+<p>Scene from "The Big Bang Theory" where Sheldon explains the "Rock-Paper-Scissors-Lizard-Spock" game.</p>
+<p>In evolutionary game theory, the focus is no longer on individual rational player decisions, but on the evolution of distribution of different strategies (such as playing Rock R, Paper P, Scissors S) in the entire population. Here the core idea of <strong>Replicator Dynamics</strong> is introduced:</p>
+<p><strong>Strategy as species</strong>: View different strategies as different species in an ecosystem.</p>
+<p><strong>Winning = Replicating</strong>: An individual's "payoff" corresponds to their "fitness" or reproduction rate. When individuals holding a certain strategy win in a game, they gain resources and reproduce more offspring (or induce losers to imitate their strategy).</p>
+<h2 id="52-establishing-dynamical-equations-from-game-to-reaction-dynamics">5.2 Establishing Dynamical Equations - From Game to Reaction Dynamics<a class="headerlink" href="#52-establishing-dynamical-equations-from-game-to-reaction-dynamics" title="Permanent link">&para;</a></h2>
+<p>To establish a mathematical model, the course cleverly analogizes the game process to <strong>Reaction Kinetics</strong>. Each game can be seen as a collision reaction between two individuals (molecules):</p>
+<p>1.<strong>R + S <span class="arithmatex">\(\to\)</span> R + R</strong>: Rock (R) meets Scissors (S), Rock wins. This is equivalent to an S individual being converted (or replaced) into an R individual.</p>
+<p>2.<strong>S + P <span class="arithmatex">\(\to\)</span> S + S</strong>: Scissors (S) meets Paper (P), Scissors wins. P individual converts to S individual.</p>
+<p>3.<strong>P + R <span class="arithmatex">\(\to\)</span> P + P</strong>: Paper (P) meets Rock (R), Paper wins. R individual converts to P individual.</p>
+<p>Using the <strong>Law of Mass Action</strong>, we can immediately write rate equations describing how the proportions (concentrations) of these three strategies in the population change.</p>
+<p>Let <span class="arithmatex">\([R], [P], [S]\)</span> be the population proportions of the three strategies respectively (satisfying <span class="arithmatex">\([R]+[P]+[S]=1\)</span>). Taking the evolution of <span class="arithmatex">\([R]\)</span> as an example:</p>
+<p><strong>Growth term</strong>: Originates from <span class="arithmatex">\(R\)</span> defeating <span class="arithmatex">\(S\)</span>. Its rate is proportional to the probability of them meeting, i.e., <span class="arithmatex">\(+a_{RS}[R][S]\)</span>.</p>
+<p><strong>Decay term</strong>: Originates from <span class="arithmatex">\(R\)</span> losing to <span class="arithmatex">\(P\)</span>. Its rate is proportional to the probability of them meeting, i.e., <span class="arithmatex">\(-a_{PR}[R][P]\)</span>.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/07_009_d9380f5a-1a43-4175-8e1c-03bb2cd71b08.png" /></p>
+<p>Derivation of reaction dynamics equations for the RPS model. Shows the mapping from pairwise collision reactions to rate equations.</p>
+<p>Combining the equations for the three strategies, we obtain the following system of nonlinear differential equations:</p>
+<div class="arithmatex">\[
+\begin{cases}
+\displaystyle \frac{d[R]}{dt} = a_{RS}[R][S] - a_{PR}[R][P] \\
+\displaystyle \frac{d[P]}{dt} = a_{PR}[P][R] - a_{SP}[P][S] \\
+\displaystyle \frac{d[S]}{dt} = a_{SP}[S][P] - a_{RS}[S][R]
+\end{cases}
+\]</div>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/07_010_772f27bb-5e7e-4679-bf1b-17fa295bc474.jpg" /></p>
+<p>This system of equations is called the "Anti-symmetric Lotka-Volterra equations" in mathematical physics, connecting game theory, Bose-Einstein condensation, and topological phase transitions among other fields.</p>
+<p>The core characteristic of this equation system lies in the <strong>Anti-symmetry</strong> of the interaction matrix (payoff matrix):</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix} 0 &amp; -a_{PR} &amp; a_{RS} \\ a_{PR} &amp; 0 &amp; -a_{SP} \\ -a_{RS} &amp; a_{SP} &amp; 0 \end{pmatrix}
+\]</div>
+<p>This means <span class="arithmatex">\(A_{ji} = -A_{ij}\)</span>, profoundly embodying the conservation essence of "zero-sum game." This cyclic dominance (<span class="arithmatex">\(R \to S \to P \to R\)</span>) topological structure causes the system to have no single stable strategy, but instead tends to produce <strong>Neutral Oscillations</strong> or Heteroclinic Cycles, which is strikingly similar to oscillations in biomolecular networks.</p>
+<h2 id="53-python-simulation-code-3-simulating-rps-dynamics">5.3 Python Simulation Code 3 - Simulating RPS Dynamics<a class="headerlink" href="#53-python-simulation-code-3-simulating-rps-dynamics" title="Permanent link">&para;</a></h2>
+<p>The following code numerically solves this three-dimensional dynamical system. Since total proportion is conserved (<span class="arithmatex">\([R]+[P]+[S]=1\)</span>), system trajectories are actually confined to a two-dimensional simplex (triangular) surface. Simulation results show how strategy proportions exhibit periodic waxing and waning over time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># Set dark background style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rps_system_deriv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">a_RS</span><span class="p">,</span> <span class="n">a_SP</span><span class="p">,</span> <span class="n">a_PR</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Defines the 3D ODE system for the Rock-Paper-Scissors replicator dynamics.</span>
+<span class="sd">    y = [R, P, S]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">R</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="c1"># Growth driven by winning - Decay driven by losing</span>
+    <span class="c1"># d[R]/dt = a_RS * R * S - a_PR * R * P</span>
+    <span class="n">dR_dt</span> <span class="o">=</span> <span class="n">a_RS</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="n">S</span> <span class="o">-</span> <span class="n">a_PR</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="n">P</span>
+
+    <span class="c1"># d[P]/dt = a_PR * P * R - a_SP * P * S</span>
+    <span class="n">dP_dt</span> <span class="o">=</span> <span class="n">a_PR</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">R</span> <span class="o">-</span> <span class="n">a_SP</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">S</span>
+
+    <span class="c1"># d[S]/dt = a_SP * S * P - a_RS * S * R</span>
+    <span class="n">dS_dt</span> <span class="o">=</span> <span class="n">a_SP</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">P</span> <span class="o">-</span> <span class="n">a_RS</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">R</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">dR_dt</span><span class="p">,</span> <span class="n">dP_dt</span><span class="p">,</span> <span class="n">dS_dt</span><span class="p">]</span>
+
+<span class="c1"># --- Simulation Parameters ---</span>
+<span class="c1"># Interaction rates (Set to 1.0 for a symmetric cycle)</span>
+<span class="n">a_RS</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">a_SP</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">a_PR</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_RS</span><span class="p">,</span> <span class="n">a_SP</span><span class="p">,</span> <span class="n">a_PR</span><span class="p">)</span>
+
+<span class="c1"># Initial conditions (Must sum to 1.0 for population fractions)</span>
+<span class="c1"># Starting slightly off-center to induce oscillations</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span> 
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+
+<span class="c1"># Solve the ODE</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">rps_system_deriv</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> 
+                <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+
+<span class="n">R_traj</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_traj</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">S_traj</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># --- Plotting ---</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot 1: Time Series</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">R_traj</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rock [R]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">P_traj</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Paper [P]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">S_traj</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Scissors [S]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Population Fraction&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;RPS Dynamics: Time Series&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="c1"># Plot 2: Phase Space Trajectory (3D)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the trajectory</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_traj</span><span class="p">,</span> <span class="n">P_traj</span><span class="p">,</span> <span class="n">S_traj</span><span class="p">,</span> <span class="s1">&#39;w-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="c1"># Mark Start and End</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">R_traj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">P_traj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">S_traj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Start&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">R_traj</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">P_traj</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">S_traj</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;End&#39;</span><span class="p">)</span>
+
+<span class="c1"># Labels and Style</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Rock&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Paper&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Scissors&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;RPS Dynamics: Phase Portrait (Simplex)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Adjust 3D axis pane colors for dark theme visibility</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">w_xaxis</span><span class="o">.</span><span class="n">set_pane_color</span><span class="p">((</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">w_yaxis</span><span class="o">.</span><span class="n">set_pane_color</span><span class="p">((</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">w_zaxis</span><span class="o">.</span><span class="n">set_pane_color</span><span class="p">((</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Clean look</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Evolutionary Game Theory: RPS Cycle ($a_</span><span class="se">{{</span><span class="s1">ij</span><span class="se">}}</span><span class="s1">=1.0$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/07_011_6315e0dc-d8d7-4c2b-ae2e-cab04a874edf.png" /></p>
+<p><strong>Left panel (Time Series)</strong>: The proportions of the three strategies show wave-like fluctuations with constant phase differences over time. When "Rock" increases, "Paper" follows because it has more prey, which in turn suppresses "Rock," then "Scissors" recovers as its natural enemy decreases. This is precisely the classic <strong>Lotka-Volterra</strong> predator-prey cycle extended to three-dimensional systems.</p>
+<p><strong>Right panel (Phase Portrait)</strong>: In three-dimensional phase space, since total proportion is conserved (<span class="arithmatex">\(R+P+S=1\)</span>), trajectories are confined within a planar triangle. The closed ring-shaped orbit indicates the system is in a neutrally stable state (similar to harmonic oscillators in conservative systems), neither converging to any single strategy nor diverging, but maintaining dynamic equilibrium of biological diversity.</p>
+<h1 id="summary-conclusion">Summary (Conclusion)<a class="headerlink" href="#summary-conclusion" title="Permanent link">&para;</a></h1>
+<p>This lecture plays an important bridging role in the overall course system. By breaking through the "local" limitations of Linear Stability Analysis from <strong>Lecture 6</strong>, the course introduced the core topological tool for solving "global" dynamical problems in two-dimensional systems—the <strong>Poincaré-Bendixson Theorem</strong>. This theorem provides a clear and practical non-constructive strategy (i.e., constructing a "trapping region" and proving the existence of an "unstable fixed point" inside), laying the mathematical foundation for rigorously proving the existence of nonlinear oscillations (limit cycles).</p>
+<p>The core content of the course was developed through in-depth analysis of the <strong>RhoGTPase oscillator</strong> biophysical example. The analysis completely demonstrated building a nonlinear ordinary differential equation (ODE) model from biochemical reaction networks, using <strong>Mass Conservation</strong> as a physical constraint to rigorously reduce the three-dimensional system to two dimensions, and combining nullcline geometric analysis with Jacobian matrix algebraic derivation to finally determine the physical conditions for <strong>Hopf bifurcation</strong> and self-sustained oscillations—namely fast negative feedback mechanisms (large <span class="arithmatex">\(\mu\)</span>) and sufficient substrate supply (large <span class="arithmatex">\(n\)</span>).</p>
+<p>Additionally, the introduction of the <strong>Rock-Paper-Scissors (RPS)</strong> model demonstrated the broad universality of the dynamical systems framework (especially replicator dynamics) beyond biophysics (such as evolutionary game theory), revealing the cyclic evolutionary laws in strategy competition.</p>
+<p>Although this lecture derived the replicator dynamics equations, deeper exploration of their global stability is left for later. In the following <strong>Lecture 8</strong>, we will introduce <strong>Lyapunov Functions</strong> as a powerful analytical tool for rigorously determining global stability of evolutionary systems and reveal how they lead to <strong>Condensation</strong> phenomena (i.e., only some strategies can survive in competition).</p>
+<p>More critically, all models so far have been based on "0-dimensional" assumptions (i.e., spatially well-mixed). This is far from sufficient for understanding true "self-organization" and "pattern formation." Lecture 8 will take a decisive step by formally introducing the <strong>Space</strong> dimension, deriving the <strong>Diffusion Equation</strong> to describe spatial transport of particles (or strategies). This will open the path from ordinary differential equations (ODEs) to partial differential equations (PDEs), i.e., <strong>Reaction-Diffusion Systems</strong>, laying the foundation for subsequent exploration of complex spatiotemporal self-organization phenomena such as Turing patterns.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1333 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/">
+      
+      
+      
+        <link rel="next" href="en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/">
+      
+      
+        
+          <link rel="alternate" href="/Self-Organization-and-Pattern-Formation/" hreflang="en">
+        
+          <link rel="alternate" href="/Self-Organization-and-Pattern-Formation/zh/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#self-organization-and-pattern-formation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/Self-Organization-and-Pattern-Formation/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/Self-Organization-and-Pattern-Formation/zh/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#course-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Course Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamical-systems-bifurcations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamical systems &amp; bifurcations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern formation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-field-theories-broken-detailed-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active field theories &amp; broken detailed balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instability-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instability mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometry-confinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometry &amp; confinement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coarsening-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coarsening dynamics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="self-organization-and-pattern-formation">Self-Organization and Pattern Formation<a class="headerlink" href="#self-organization-and-pattern-formation" title="Permanent link">&para;</a></h1>
+<p>These are self-study notes for the course <a href="https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html"><strong>Self-Organization and Pattern Formation, Prof. Erwin Frey, LMU Munich, Winter Semester 2025/2026</strong></a>. Prof. Frey prefers chalkboard lectures. To document my learning process, I've structured my notes into articles and written <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation/tree/main/code">Python code</a> to deepen my understanding.</p>
+<p><img alt="Course Overview" src="cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png" /></p>
+<p><strong>Course Playlist:</strong> <a href="https://www.youtube.com/watch?v=apMmakW_090&amp;list=PL2IEUF-u3gRfIw2cHFPqNHjNfQL5BxG5m">YouTube Playlist</a></p>
+<p><strong>Official Course Link:</strong> <a href="https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html">LMU Munich - Self-Organization and Pattern Formation</a></p>
+<h2 id="course-overview">Course Overview<a class="headerlink" href="#course-overview" title="Permanent link">&para;</a></h2>
+<p>Can we build predictive theories for self-organizing systems—spanning fluids, reaction–diffusion systems, soft/active matter, and living systems—without tracking every microscopic detail? The answer is yes: by using universality, symmetry, and conservation laws, and by adopting coarse-graining methods, we can reveal instability mechanisms, mesoscale physical laws, and scaling behavior.</p>
+<p>The course covers spatially extended nonequilibrium systems that spontaneously generate order. It focuses on the onset of instabilities, pattern selection, dynamical processes, and the emergence of mesoscale physical laws. Methods include dynamical systems, continuum field theory, statistical physics, weakly nonlinear analysis, and differential geometry.</p>
+<h2 id="course-topics">Course Topics<a class="headerlink" href="#course-topics" title="Permanent link">&para;</a></h2>
+<h3 id="dynamical-systems-bifurcations">Dynamical systems &amp; bifurcations<a class="headerlink" href="#dynamical-systems-bifurcations" title="Permanent link">&para;</a></h3>
+<p>Linear/nonlinear stability, fixed points/attractors, excitability, synchronization, chaos; normal forms and amplitude equations.</p>
+<ul>
+<li>1. Self-Organization: From Bird Flocks to Living Cells</li>
+<li>2. Dynamical Systems: Phase Space, Stability, Ginzburg-Landau, Evolutionary Game Theory</li>
+<li>3. Dynamical Systems: Fixed Points, Saddle-Node &amp; Pitchfork Bifurcations</li>
+<li>4. Dynamical Systems: Cusp Bifurcation, Hysteresis, Infection Model &amp; Transcritical Bifurcation</li>
+<li>5. Dynamical Systems: Mass Conserving 2D, Turing Patterns, Stability Analysis, Jacobian Matrix</li>
+<li>6. Dynamical Systems: 2D Non-Conservative Systems &amp; Oscillators</li>
+<li>7. Dynamical Systems: Poincaré-Bendixson Theorem, RhoGTPase Oscillator &amp; Rock-Paper-Scissors</li>
+<li>8. Dynamical Systems: Replicator Dynamics &amp; Spatial Extension, Lyapunov Function, Diffusion Equation</li>
+</ul>
+<h3 id="pattern-formation">Pattern formation<a class="headerlink" href="#pattern-formation" title="Permanent link">&para;</a></h3>
+<p>Phase separation and coarsening; interface dynamics; reaction–diffusion patterns and waves; excitable media; fronts, pulses, dendrites; thin-film dewetting and flow.</p>
+<ul>
+<li>9. Relaxational Dynamics: Ginzburg-Landau Model, Model A, Interface Dynamics &amp; Surface Tension</li>
+<li>10. Relaxational Dynamics: Interface Dynamics &amp; Curvature-Driven Flow</li>
+<li>11. Thermodynamics and Phase Separation in Liquid Mixtures, Maxwell Construction, Phase Diagrams</li>
+<li>12. Dynamics of Liquid Mixtures, Osmotic Pressure, Cahn-Hilliard Equation</li>
+<li>13. The Lattice Gas Model &amp; Mean-Field Theory, Mixing Entropy, Flory-Huggins Theory</li>
+<li>14. Cahn-Hilliard Equation &amp; Phase Separation Dynamics, Dispersion Relation, Fastest Growing Mode</li>
+<li>15. Nucleation Theory &amp; Interface Dynamics, Gibbs-Thomson, Growth and Shrinkage of a Single Droplet</li>
+<li>16. Ostwald Ripening &amp; Coarsening Dynamics, Lifshitz-Slyozov-Wagner (LSW) Theory</li>
+</ul>
+<h3 id="active-field-theories-broken-detailed-balance">Active field theories &amp; broken detailed balance<a class="headerlink" href="#active-field-theories-broken-detailed-balance" title="Permanent link">&para;</a></h3>
+<p>Non-variational couplings and stresses; absence of free energy/Lyapunov functional; deterministic currents; universality and scaling near nonequilibrium phase transitions.</p>
+<ul>
+<li>17. Chemotaxis &amp; Active Motion of Bacteria, Run-and-Tumble Model</li>
+<li>18. Keller-Segel Model, Chemotactic Instability, Finite-Time Blowup</li>
+<li>19. Scalar Active Matter, Motility-Induced Phase Separation, Active Model B</li>
+<li>20. Active Brownian Particles, Active Model B+, Bubbling Phase</li>
+</ul>
+<h3 id="instability-mechanisms">Instability mechanisms<a class="headerlink" href="#instability-mechanisms" title="Permanent link">&para;</a></h3>
+<p>Turing and Hopf instabilities; interface instabilities (Mullins–Sekerka); hydrodynamic instabilities (Rayleigh–Bénard, shear/viscous, Marangoni); morphoelastic buckling and wrinkling; Saffman–Taylor fingering.</p>
+<ul>
+<li>21. Turing Patterns, Swift-Hohenberg Equation, Amplitude Equation</li>
+<li>22. From Perturbation to Amplitude Equation, NWS Equation, Multiple Scale Analysis</li>
+<li>23. Newell-Whitehead-Segel Equation, Secondary Instabilities</li>
+<li>24. Eckhaus &amp; Zigzag Instabilities, Phase Winding Solution</li>
+<li>25. The Complex Ginzburg-Landau Equation</li>
+<li>26. Stability of the Complex Ginzburg-Landau Equation</li>
+<li>27. Phase Diagram of Complex Ginzburg-Landau Equation</li>
+<li>28. Application of CGLE, May-Leonard Model, Evolutionary Games</li>
+<li>29. Reaction-Diffusion Waves, Front Spreading Velocity</li>
+<li>30. The Kuramoto Model &amp; Synchronization Transition</li>
+</ul>
+<h3 id="geometry-confinement">Geometry &amp; confinement<a class="headerlink" href="#geometry-confinement" title="Permanent link">&para;</a></h3>
+<p>Curvature and weakly non-flat geometry; boundary conditions; selection by confinement and heterogeneity.</p>
+<ul>
+<li>31. Mass-Conserving Reaction-Diffusion Systems, E. coli Min Oscillations</li>
+<li>32. Mass-Redistribution Instability, Adiabatic Elimination</li>
+<li>33. Geometric Construction of Stationary Patterns</li>
+<li>34. Steady-State Phase Diagram &amp; Bulk Gradient Effects</li>
+<li>35. Bulk-Boundary Coupling &amp; Nucleotide Exchange</li>
+<li>36. Stationary Solutions &amp; Emergent Saturation Effect</li>
+<li>37. Linear Stability Analysis in Box Geometry</li>
+<li>38. Modeling the E. coli Min System: The Skeleton Model</li>
+<li>39. Linear Stability Analysis for Min Skeleton Model</li>
+<li>40. The Min Switch Model &amp; Robustness</li>
+</ul>
+<h3 id="coarsening-dynamics">Coarsening dynamics<a class="headerlink" href="#coarsening-dynamics" title="Permanent link">&para;</a></h3>
+<p>Advanced topics on coarsening, phase field models, and interfacial dynamics.</p>
+<ul>
+<li>41. Model A/B/C, Solidification Dynamics &amp; Phase Field Model</li>
+<li>42. Coarsening Dynamics in Mass-Conserving Systems</li>
+<li>43. Universal Growth Laws &amp; Logarithmic Coarsening</li>
+<li>44. Scaling Analysis of the Coarsening Law</li>
+<li>45. From Peaks to Mesas: Interaction via Exponential Tails</li>
+<li>46. Arrested Coarsening via Weakly Broken Mass Conservation</li>
+<li>47. Linear Stability Analysis of Weakly Broken Mass Conservation</li>
+<li>48. The Mechanism of Mesa Splitting: Source-Driven Lateral Instability</li>
+<li>49. Interrupted Coarsening of Mesas &amp; The Gibbs-Thomson Relation</li>
+<li>50. Surface Tension in Multicomponent Reaction-Diffusion Systems</li>
+<li>51. The Gibbs-Thomson Relation in Reaction-Diffusion Systems</li>
+</ul>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>Each Python file corresponds to specific topics covered in the lecture series. The code serves as practical implementations of the theoretical concepts presented in the YouTube videos, developed as part of self-study and learning notes.</p>
+<p>Here are some code output demonstrations:</p>
+<p><strong><a href="en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/">Lecture 2: Dynamical Systems - Phase Transitions to Evolutionary Game Theory</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Landau Free Energy &amp; Phase Transition</th>
+<th style="text-align: center;">Evolutionary Game Dynamics</th>
+<th style="text-align: center;">Replicator Equation Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Landau" src="cn/assets/images/02_003_621bc300-3817-4cf6-bb3a-baaced59b8f5.png" /></td>
+<td style="text-align: center;"><img alt="Game" src="cn/assets/images/02_004_89cf16e7-61e4-4535-836a-4314cd5c8b69.png" /></td>
+<td style="text-align: center;"><img alt="Replicator" src="cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/">Lecture 3: Fixed Points, Saddle-Node &amp; Pitchfork Bifurcations</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Bifurcation Diagram</th>
+<th style="text-align: center;">Phase Portrait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Bifurcation" src="cn/assets/images/03_006_d0be1090-a825-48c8-af21-2cf9cfa4f7cc.png" /></td>
+<td style="text-align: center;"><img alt="Phase" src="cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/">Lecture 4: Cusp Bifurcation, Infection Model &amp; Transcritical Bifurcation</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Cusp Bifurcation Surface</th>
+<th style="text-align: center;">Infection Dynamics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Cusp" src="cn/assets/images/04_008_2b441799-2822-4439-bcaa-67292e672b48.png" /></td>
+<td style="text-align: center;"><img alt="Infection" src="cn/assets/images/04_011_6e149644-d36a-456c-97a5-43c30d64b8c3.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/">Lecture 5: Two-Dimensional Mass-Conserving Systems</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Jacobian Analysis &amp; Phase Space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Jacobian" src="cn/assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/">Lecture 6: Two-Dimensional Non-Conserving Systems &amp; Oscillators</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Hopf Bifurcation</th>
+<th style="text-align: center;">Limit Cycle</th>
+<th style="text-align: center;">Van der Pol Oscillator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Hopf" src="cn/assets/images/06_004_e376e171-e6ec-4ed1-8659-5b8579388051.png" /></td>
+<td style="text-align: center;"><img alt="Limit" src="cn/assets/images/06_007_0e3242d5-a770-411b-bffd-c151adb26aad.png" /></td>
+<td style="text-align: center;"><img alt="VdP" src="cn/assets/images/06_009_6a812e94-584f-4e92-90ee-70d202be59dc.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/">Lecture 7: Poincaré-Bendixson Theorem, RhoGTPase &amp; Rock-Paper-Scissors</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">RhoGTPase Oscillator</th>
+<th style="text-align: center;">Rock-Paper-Scissors Dynamics</th>
+<th style="text-align: center;">Heteroclinic Orbit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Rho" src="cn/assets/images/07_004_059881e5-e0fc-4efb-90b8-f1aa7cf5d15b.png" /></td>
+<td style="text-align: center;"><img alt="RPS" src="cn/assets/images/07_006_aea062d8-475b-4948-82f3-0ba967f1ce27.png" /></td>
+<td style="text-align: center;"><img alt="Hetero" src="cn/assets/images/07_011_6315e0dc-d8d7-4c2b-ae2e-cab04a874edf.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/">Lecture 8: Replicator Dynamics &amp; Lyapunov Functions</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Lyapunov Function</th>
+<th style="text-align: center;">Diffusion Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Lyapunov" src="cn/assets/images/08_008_6fc576fa-0149-454b-93f4-9dfe7af2de8f.png" /></td>
+<td style="text-align: center;"><img alt="Diffusion" src="cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/">Lecture 9: Ginzburg-Landau Theory &amp; Allen-Cahn Equation (Model A)</a></strong></p>
+<video controls width="100%">
+  <source src="cn/assets/images/model_a_dynamics.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p><em>Model A (Allen-Cahn) dynamics: Spinodal decomposition, domain formation, and coarsening</em></p>
+<p><strong><a href="en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/">Lecture 10: Interface Dynamics &amp; Curvature-Driven Flow</a></strong></p>
+<video controls width="100%">
+  <source src="cn/assets/images/droplet_shrinkage.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p><em>Curvature-driven shrinkage of a circular droplet following Allen-Cahn dynamics</em></p>
+<p><strong><a href="en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/">Lecture 11: Thermodynamics &amp; Phase Separation in Liquid Mixtures</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Binary Phase Diagram</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Phase Diagram" src="cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/">Lecture 12: Cahn-Hilliard Equation &amp; Osmotic Pressure</a></strong></p>
+<video controls width="100%">
+  <source src="cn/assets/images/CahnHilliard_vs_McRD.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p><em>Comparison: Cahn-Hilliard (Model B) vs Mass-Conserving Reaction-Diffusion dynamics</em></p>
+<p><strong><a href="en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/">Lecture 13: Lattice Gas Model &amp; Free Energy</a></strong></p>
+<p><img alt="Lattice Gas Simulation" src="cn/assets/images/lattice_gas_vs_free_energy.gif" /></p>
+<p><em>Monte Carlo simulation of lattice gas model showing phase separation and free energy evolution</em></p>
+<p><strong><a href="en/14.%20Phase%20Separation%20Dynamics/">Lecture 14: Phase Separation Dynamics &amp; Dispersion Relation</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Crowd Oscillation Dynamics</th>
+<th style="text-align: center;">Spectral Heatmap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Crowd" src="cn/assets/images/crowd_oscillation.gif" /></td>
+<td style="text-align: center;"><img alt="Spectrum" src="cn/assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong><a href="en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/">Lecture 15: Nucleation Theory &amp; Interface Dynamics</a></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">3D Cahn-Hilliard Droplets</th>
+<th style="text-align: center;">Evolution Slices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="3D Droplet" src="cn/assets/images/ch3d_droplet_rotate.gif" /></td>
+<td style="text-align: center;"><img alt="Slices" src="cn/assets/images/ch3d_slices.gif" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Concentration Profile</th>
+<th style="text-align: center;">Nucleation Barrier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Profile" src="cn/assets/images/15_008_24e1273d-2e11-44fa-bcd3-cc2fa30e08fe.png" /></td>
+<td style="text-align: center;"><img alt="Barrier" src="cn/assets/images/15_009_9639068f-e1d9-4bf2-80d5-5f5abf4f50fa.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Statistical mechanics and thermodynamics</li>
+<li>Dynamical systems theory</li>
+<li>Differential equations</li>
+<li>Basic knowledge of field theory (helpful but not required)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="assets/javascripts/mathjax.js"></script>
+      
+        <script src="assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

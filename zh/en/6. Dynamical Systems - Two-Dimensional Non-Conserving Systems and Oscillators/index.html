@@ -1,0 +1,1581 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 5</strong>, the analysis of two-dimensional dynamical systems (<span class="arithmatex">\(\dot{m} = f(m,c), \dot{c} = g(m,c)\)</span>) was subject to a key physical constraint: <strong>mass conservation</strong>. This constraint manifests mathematically as <span class="arithmatex">\(g = -f\)</span>, leading to the conservation law <span class="arithmatex">\(m(t) + c(t) = n = \text{const}\)</span>. The dynamical consequences of this constraint are profound:</p>
+<p>1.It forces the system's Jacobian matrix <span class="arithmatex">\(\mathcal{J} = \begin{pmatrix} f_m &amp; f_c \\ -f_m &amp; -f_c \end{pmatrix}\)</span> to be necessarily <strong>singular</strong> (i.e., <span class="arithmatex">\(\det(\mathcal{J}) = 0\)</span>).</p>
+<p>2.This leads to the system necessarily having a <strong>zero eigenvalue</strong> (<span class="arithmatex">\(\sigma_1 = 0\)</span>), making the system neutrally stable along the nullcline (i.e., the family of equilibrium points) direction.</p>
+<p>3.All the system's dynamics is "compressed" onto the direction corresponding to the other eigenvalue <span class="arithmatex">\(\sigma_2 = f_m - f_c\)</span>, which is exactly parallel to the conservation line <span class="arithmatex">\(m+c=n\)</span>.</p>
+<p>Therefore, although the system in <strong>Lecture 5</strong> is formally two-dimensional, its <strong>dynamical essence is one-dimensional</strong>. Its evolution is strictly confined to a one-dimensional manifold (the conservation line). As a result, this system can only exhibit one-dimensional dynamical behavior (such as the saddle-node or transcritical bifurcations discussed in <strong>Lecture 3</strong> and <strong>Lecture 4</strong>), and <strong>cannot produce any oscillatory behavior</strong>.</p>
+<p>This lecture, by <strong>removing the mass conservation</strong> constraint, achieves the key transition from one-dimensional dynamics to "genuine" two-dimensional dynamics. The system's dynamics will be described by general equations <span class="arithmatex">\(\dot{u} = f(u, v)\)</span> and <span class="arithmatex">\(\dot{v} = g(u, v)\)</span>, where the special relationship <span class="arithmatex">\(g=-f\)</span> no longer exists between <span class="arithmatex">\(f\)</span> and <span class="arithmatex">\(g\)</span>. The consequence is that the system is no longer bound to a single line but can evolve throughout the entire two-dimensional <span class="arithmatex">\((u, v)\)</span> phase space.</p>
+<p>The transition from conserving to non-conserving is a <strong>necessary step</strong> from simple dynamics (containing only fixed points and monotonic behavior) to complex dynamics (such as spirals, oscillations, and limit cycles). Two-dimensional space is the lowest dimension that allows trajectories to rotate and return to themselves—this is the geometric foundation of oscillatory phenomena. However, linear analysis will reveal that purely linear oscillation (center point) is a critically "fine-tuned" state (<span class="arithmatex">\(T=0\)</span>) that is physically non-robust. Therefore, <strong>Non-linearity</strong> is crucial for producing stable, self-sustained oscillations.</p>
+<p>This lecture will build a "toolbox" for analyzing and classifying two-dimensional system behavior. First, through <strong>Linear Stability Analysis (LSA)</strong>, using the Jacobian matrix's <strong>Trace (T)</strong> and <strong>Determinant (<span class="arithmatex">\(\Delta\)</span>)</strong>, we will completely classify local behavior near fixed points (such as nodes, saddles, spirals). Second, we introduce <strong>Nullclines</strong> and <strong>Invariant Manifolds</strong> to construct the system's global phase portrait. Finally, we apply these tools to understand two of the most important and representative nonlinear oscillators: <strong>Hopf Bifurcation</strong> (the "birth" of oscillations) and the <strong>Van der Pol Oscillator</strong> (relaxation oscillations).</p>
+<p>This lecture will intuitively demonstrate through examples the existence of <strong>Limit Cycles</strong>, which are isolated, stable periodic orbits—the mathematical embodiment of self-sustained oscillations. In the following <strong>Lecture 7</strong>, we will introduce the <strong>Poincaré-Bendixson Theorem</strong>, which provides a rigorous mathematical foundation for determining the existence of limit cycles in the two-dimensional plane.</p>
+<h1 id="1-two-dimensional-non-conserving-systems-and-linear-stability-analysis">1. Two-Dimensional Non-Conserving Systems and Linear Stability Analysis<a class="headerlink" href="#1-two-dimensional-non-conserving-systems-and-linear-stability-analysis" title="Permanent link">&para;</a></h1>
+<p>The goal of this lecture is to establish a "toolbox" for analyzing and classifying "genuine" two-dimensional non-conserving systems. In <strong>Lecture 5</strong>, the constraint of mass conservation (<span class="arithmatex">\(g = -f\)</span>) caused the system dynamics to be essentially one-dimensional. Now, by lifting this constraint, the system can evolve throughout the entire two-dimensional phase space, allowing more complex behaviors such as rotation and oscillation.</p>
+<p>The first and most critical step in analysis is to find all equilibrium states (fixed points) of the system and establish a rigorous mathematical method to determine their local stability. This method is <strong>Linear Stability Analysis (LSA)</strong>, which is a direct extension of the one-dimensional <span class="arithmatex">\(f'(u^*)\)</span> criterion from <strong>Lecture 3</strong> to two dimensions.</p>
+<h2 id="11-fixed-points-and-linearization">1.1 Fixed Points and Linearization<a class="headerlink" href="#11-fixed-points-and-linearization" title="Permanent link">&para;</a></h2>
+<p>The dynamics of a general two-dimensional non-conserving system is described by a system of ordinary differential equations (ODEs):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\dot{u} &amp;= f(u, v) \\
+\dot{v} &amp;= g(u, v)
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(f\)</span> and <span class="arithmatex">\(g\)</span> are two independent (nonlinear) functions.</p>
+<h3 id="fixed-points">Fixed Points<a class="headerlink" href="#fixed-points" title="Permanent link">&para;</a></h3>
+<p>The key features of a dynamical system are its <strong>fixed points</strong> <span class="arithmatex">\(\vec{u}^* = (u^*, v^*)\)</span>, at which the system stops evolving. By definition, fixed points are the intersections of two <strong>Nullclines</strong> (detailed in Section 2) and must simultaneously satisfy <span class="arithmatex">\(\dot{u} = 0\)</span> and <span class="arithmatex">\(\dot{v} = 0\)</span>:</p>
+<div class="arithmatex">\[
+f(u^*, v^*) = 0 \quad \text{and} \quad g(u^*, v^*) = 0
+\]</div>
+<p>This is the same concept as <span class="arithmatex">\(f(u^*)=0\)</span> for one-dimensional systems, but solving changes from finding roots of a one-dimensional equation to finding solutions of a two-dimensional algebraic system.</p>
+<h3 id="linearization">Linearization<a class="headerlink" href="#linearization" title="Permanent link">&para;</a></h3>
+<p>To understand the stability of a fixed point <span class="arithmatex">\(\vec{u}^*\)</span>—whether the system returns to or moves away from the fixed point when slightly perturbed—we need to linearize around <span class="arithmatex">\(\vec{u}^*\)</span>.</p>
+<p>First, introduce vector notation for more compact symbols:</p>
+<div class="arithmatex">\[
+\vec{u} = \begin{pmatrix} u \\ v \end{pmatrix} \quad \text{and} \quad \vec{F}(\vec{u}) = \begin{pmatrix} f(u, v) \\ g(u, v) \end{pmatrix}
+\]</div>
+<p>The system's dynamical equation is thus compactly written as <span class="arithmatex">\(\partial_t \vec{u} = \vec{F}(\vec{u})\)</span>.</p>
+<p>Assume the current state <span class="arithmatex">\(\vec{u}(t)\)</span> of the system is the fixed point <span class="arithmatex">\(\vec{u}^*\)</span> plus a small time-varying perturbation <span class="arithmatex">\(\delta\vec{u}(t)\)</span>:</p>
+<div class="arithmatex">\[
+\vec{u}(t) = \vec{u}^* + \delta\vec{u}(t)
+\]</div>
+<p>Substituting this into the dynamical equation <span class="arithmatex">\(\partial_t \vec{u} = \vec{F}(\vec{u})\)</span>:</p>
+<div class="arithmatex">\[
+\partial_t (\vec{u}^* + \delta\vec{u}) = \vec{F}(\vec{u}^* + \delta\vec{u})
+\]</div>
+<p>On the left side of the equation, since <span class="arithmatex">\(\vec{u}^*\)</span> is a constant, its time derivative is zero, leaving only <span class="arithmatex">\(\partial_t \delta\vec{u}\)</span>.</p>
+<p>On the right side, Taylor expand <span class="arithmatex">\(\vec{F}\)</span> around <span class="arithmatex">\(\vec{u}^*\)</span> and keep only linear terms:</p>
+<div class="arithmatex">\[
+\vec{F}(\vec{u}^* + \delta\vec{u}) = \underbrace{\vec{F}(\vec{u}^*)}_{=0} + \left. J_F \right|_{\vec{u}^*} \delta\vec{u} + \mathcal{O}(\delta\vec{u}^2)
+\]</div>
+<p>By the definition of a fixed point, <span class="arithmatex">\(\vec{F}(\vec{u}^*) = 0\)</span>. After ignoring higher-order terms <span class="arithmatex">\(\mathcal{O}(\delta\vec{u}^2)\)</span>, we obtain the linear dynamics equation for the perturbation:</p>
+<div class="arithmatex">\[
+\partial_t \delta\vec{u} = J_F \delta\vec{u}
+\]</div>
+<p><span class="arithmatex">\(J_F\)</span> is the <strong>Jacobian Matrix</strong> evaluated at the fixed point <span class="arithmatex">\(\vec{u}^*\)</span>. It consists of all partial derivatives of <span class="arithmatex">\(\vec{F}\)</span> with respect to <span class="arithmatex">\(\vec{u}\)</span>:</p>
+<div class="arithmatex">\[
+J_F = \begin{pmatrix} 
+\partial_u f &amp; \partial_v f \\
+\partial_u g &amp; \partial_v g 
+\end{pmatrix}_{\vec{u}=\vec{u}^*}
+\]</div>
+<p><strong>Physical meaning</strong>: The Jacobian matrix <span class="arithmatex">\(J_F\)</span> is the two-dimensional generalization of the one-dimensional derivative <span class="arithmatex">\(f'(u^*)\)</span> from <strong>Lecture 3</strong>. In 1D, stability is determined by a single number (the slope); in 2D, stability is jointly determined by the local "flow field" (stretching, compression, or rotation) described by this <span class="arithmatex">\(2 \times 2\)</span> matrix.</p>
+<h2 id="12-the-eigenvalue-problem">1.2 The Eigenvalue Problem<a class="headerlink" href="#12-the-eigenvalue-problem" title="Permanent link">&para;</a></h2>
+<p>The previous step reduced a nonlinear problem to a constant-coefficient linear differential equation system: <span class="arithmatex">\(\partial_t \delta\vec{u} = J_F \delta\vec{u}\)</span>.</p>
+<p>To solve it, we use an <strong>exponential Ansatz</strong>, because for linear systems, exponential functions are "eigenfunctions" of derivatives:</p>
+<div class="arithmatex">\[
+\delta\vec{u}(t) \sim e^{\sigma t} \vec{v}
+\]</div>
+<p>Here, <span class="arithmatex">\(\vec{v}\)</span> is a constant vector (the direction of perturbation), and <span class="arithmatex">\(\sigma\)</span> is a (possibly complex) scalar (the growth rate of perturbation).</p>
+<p>Substituting this trial solution into the linearized equation:</p>
+<div class="arithmatex">\[
+\partial_t (e^{\sigma t} \vec{v}) = J_F (e^{\sigma t} \vec{v})
+\]</div>
+<div class="arithmatex">\[
+\sigma e^{\sigma t} \vec{v} = e^{\sigma t} (J_F \vec{v})
+\]</div>
+<p>After canceling <span class="arithmatex">\(e^{\sigma t}\)</span>, the differential equation problem is transformed into an algebraic <strong>Eigenvalue Problem</strong>:</p>
+<div class="arithmatex">\[
+J_F \vec{v} = \sigma \vec{v}
+\]</div>
+<p><span class="arithmatex">\(\sigma\)</span> is the <strong>Eigenvalue</strong> of the Jacobian matrix <span class="arithmatex">\(J_F\)</span>, and <span class="arithmatex">\(\vec{v}\)</span> is the corresponding <strong>Eigenvector</strong>.</p>
+<p><strong>Physical meaning</strong>:</p>
+<p><strong>Eigenvector <span class="arithmatex">\(\vec{v}\)</span></strong>: Represents the "principal axis" directions of the system near the fixed point. Perturbations can be decomposed into components along these principal axis directions.</p>
+<p><strong>Eigenvalue <span class="arithmatex">\(\sigma\)</span></strong>: Represents the temporal evolution behavior of perturbation components <span class="arithmatex">\(e^{\sigma t} \vec{v}\)</span>. The sign and real/imaginary nature of <span class="arithmatex">\(\sigma\)</span> determine the fate of the fixed point.</p>
+<p>The stability criterion now becomes:</p>
+<p><strong><span class="arithmatex">\(\text{Re}(\sigma) &lt; 0\)</span> (for all eigenvalues)</strong>: Perturbations in all directions decay exponentially over time (<span class="arithmatex">\(\delta\vec{u}(t) \to 0\)</span>). The fixed point is <strong>stable</strong>.</p>
+<p><strong><span class="arithmatex">\(\text{Re}(\sigma) &gt; 0\)</span> (for at least one eigenvalue)</strong>: At least one direction's perturbation grows exponentially over time. The fixed point is <strong>unstable</strong>.</p>
+<p><strong><span class="arithmatex">\(\text{Re}(\sigma) = 0\)</span> (for some eigenvalue)</strong>: Linear stability analysis fails. The system is in a state of <strong>neutral stability</strong> or <strong>criticality</strong>, and stability is determined by nonlinear terms. This is precisely the point where <strong>bifurcation</strong> occurs.</p>
+<h2 id="13-classifying-fixed-points-via-t-delta">1.3 Classifying Fixed Points via <span class="arithmatex">\((T, \Delta)\)</span><a class="headerlink" href="#13-classifying-fixed-points-via-t-delta" title="Permanent link">&para;</a></h2>
+<p>For a <span class="arithmatex">\(2 \times 2\)</span> matrix <span class="arithmatex">\(J_F\)</span>, its eigenvalues <span class="arithmatex">\(\sigma\)</span> are given by the characteristic equation <span class="arithmatex">\(\det(J_F - \sigma I) = 0\)</span>. This is always a quadratic equation in <span class="arithmatex">\(\sigma\)</span>:</p>
+<div class="arithmatex">\[
+\sigma^2 - (\text{tr}(J_F))\sigma + \det(J_F) = 0
+\]</div>
+<p>The solutions (i.e., the two eigenvalues <span class="arithmatex">\(\sigma_1, \sigma_2\)</span>) can be completely expressed in terms of two matrix invariants of <span class="arithmatex">\(J_F\)</span>:</p>
+<p><strong>Trace (T)</strong>:</p>
+<div class="arithmatex">\[
+T = \text{tr}(J_F) = \partial_u f + \partial_v g = \sigma_1 + \sigma_2
+\]</div>
+<p><strong>Determinant (<span class="arithmatex">\(\Delta\)</span>)</strong>:</p>
+<div class="arithmatex">\[
+\Delta = \det(J_F) = (\partial_u f)(\partial_v g) - (\partial_v f)(\partial_u g) = \sigma_1 \sigma_2
+\]</div>
+<p>The two eigenvalues <span class="arithmatex">\(\sigma_{\pm}\)</span> can be expressed using only these two invariants, i.e., as solutions to the quadratic equation:</p>
+<div class="arithmatex">\[
+\sigma_{\pm} = \frac{1}{2} \left(T \pm \sqrt{T^2 - 4\Delta} \right)
+\]</div>
+<p>The significance of this formula is that by computing only the two numerical values <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(\Delta\)</span> evaluated at the fixed point, one can completely classify all possible types of fixed points in two-dimensional systems.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/06_001_ee70a3aa-74ad-4855-b4c6-8f164a8fef35.jpg" /></p>
+<p>The <span class="arithmatex">\((T, \Delta)\)</span> phase diagram above is used to classify fixed points of two-dimensional systems. This diagram shows the T (trace) and <span class="arithmatex">\(\Delta\)</span> (determinant) plane, as well as regions separated by the parabola <span class="arithmatex">\(T^2=4\Delta\)</span>. Corresponding phase portraits (saddle points, nodes, spirals, centers) are drawn in different regions.</p>
+<p>Below is the detailed classification based on the signs of <span class="arithmatex">\(T\)</span>, <span class="arithmatex">\(\Delta\)</span>, and the discriminant <span class="arithmatex">\(T^2 - 4\Delta\)</span>:</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/06_002_2fcd6b2e-4d38-4686-8798-23eb12bc59e8.jpg" /></p>
+<h3 id="1-delta-0-saddle-point">1. <span class="arithmatex">\(\Delta &lt; 0\)</span>: Saddle Point<a class="headerlink" href="#1-delta-0-saddle-point" title="Permanent link">&para;</a></h3>
+<p><strong>Mathematics</strong>: Since <span class="arithmatex">\(\Delta = \sigma_1 \sigma_2 &lt; 0\)</span>, the two eigenvalues must be <strong>real</strong> and have <strong>opposite signs</strong> (<span class="arithmatex">\(\sigma_+ &gt; 0, \sigma_- &lt; 0\)</span>).</p>
+<p><strong>Physical meaning</strong>: The system is unstable in one direction (corresponding to the eigenvector <span class="arithmatex">\(\vec{v}_+\)</span> of <span class="arithmatex">\(\sigma_+\)</span>, called the <strong>unstable manifold</strong>, with flow out) and stable in another direction (corresponding to the eigenvector <span class="arithmatex">\(\vec{v}_-\)</span> of <span class="arithmatex">\(\sigma_-\)</span>, called the <strong>stable manifold</strong>, with flow in). This is the classic "saddle point" or "mountain pass."</p>
+<h3 id="2-delta-0-nodes-or-spirals">2. <span class="arithmatex">\(\Delta &gt; 0\)</span>: Nodes or Spirals<a class="headerlink" href="#2-delta-0-nodes-or-spirals" title="Permanent link">&para;</a></h3>
+<p><strong>Mathematics</strong>: <span class="arithmatex">\(\Delta = \sigma_1 \sigma_2 &gt; 0\)</span>, so both eigenvalues have the <strong>same sign</strong> for their real parts. Stability is completely determined by the sign of <span class="arithmatex">\(T = \sigma_1 + \sigma_2\)</span>:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(T &lt; 0 \implies\)</span> <strong>Stable</strong></p>
+</li>
+<li>
+<p><span class="arithmatex">\(T &gt; 0 \implies\)</span> <strong>Unstable</strong></p>
+</li>
+</ul>
+<p><strong>2a. <span class="arithmatex">\(T^2 &gt; 4\Delta\)</span> (Real Eigenvalues): Nodes</strong></p>
+<p><strong>Mathematics</strong>: The discriminant is positive, so <span class="arithmatex">\(\sigma_{\pm}\)</span> are two <strong>real numbers</strong>.</p>
+<p><strong>Physical meaning</strong>: Trajectories flow <strong>directly</strong> into or out of the fixed point without rotation.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(T &lt; 0\)</span>: <strong>Stable Node</strong>. All trajectories flow inward.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T &gt; 0\)</span>: <strong>Unstable Node</strong>. All trajectories flow outward.</p>
+</li>
+</ul>
+<p><strong>2b. <span class="arithmatex">\(T^2 &lt; 4\Delta\)</span> (Complex Eigenvalues): Spirals / Foci</strong></p>
+<p><strong>Mathematics</strong>: The discriminant is negative, so <span class="arithmatex">\(\sigma_{\pm}\)</span> are a pair of <strong>complex conjugates</strong>: <span class="arithmatex">\(\sigma_{\pm} = \frac{T}{2} \pm i\omega\)</span>, where <span class="arithmatex">\(\omega = \frac{1}{2}\sqrt{4\Delta - T^2}\)</span>.</p>
+<p><strong>Physical meaning</strong>:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\text{Im}(\sigma) = \pm i\omega\)</span> (imaginary part) causes <strong>Oscillation</strong> or rotation.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\text{Re}(\sigma) = T/2\)</span> (real part) determines whether the amplitude grows or decays.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T &lt; 0\)</span>: <strong>Stable Spiral</strong>. Trajectories spiral <strong>inward</strong> converging to the fixed point.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(T &gt; 0\)</span>: <strong>Unstable Spiral</strong>. Trajectories spiral <strong>outward</strong> away from the fixed point.</p>
+</li>
+</ul>
+<h3 id="3-boundary-cases-delta-0-or-t-0">3. Boundary Cases: <span class="arithmatex">\(\Delta = 0\)</span> or <span class="arithmatex">\(T = 0\)</span><a class="headerlink" href="#3-boundary-cases-delta-0-or-t-0" title="Permanent link">&para;</a></h3>
+<p><strong><span class="arithmatex">\(\Delta &gt; 0\)</span> and <span class="arithmatex">\(T = 0\)</span>: Center</strong></p>
+<p><strong>Mathematics</strong>: <span class="arithmatex">\(\sigma_{\pm} = \pm i\omega\)</span>. Pure imaginary eigenvalues.</p>
+<p><strong>Physical meaning</strong>: This is the case of the <strong>Harmonic Oscillator</strong>. The system neither flows in nor out, but oscillates permanently along closed orbits (ellipses).</p>
+<p><strong>Importance</strong>: This is a "fine-tuned" system. In the <span class="arithmatex">\((T, \Delta)\)</span> phase diagram, it is only a line (<span class="arithmatex">\(T=0\)</span>), not a region. In nature, any tiny perturbation (such as friction) would make <span class="arithmatex">\(T \neq 0\)</span>, causing the system to become a stable or unstable spiral, and oscillations would either disappear or explode. This provides motivation for the <strong>nonlinear oscillators</strong> in Section 3.</p>
+<p><strong><span class="arithmatex">\(\Delta = 0\)</span>: Degenerate Case</strong></p>
+<p><strong>Mathematics</strong>: At least one eigenvalue is zero. This corresponds to the boundary of the parabola <span class="arithmatex">\(T^2 = 4\Delta\)</span> (degenerate node) or the <span class="arithmatex">\(\Delta=0\)</span> axis (saddle-node bifurcation, etc.). This is the situation encountered in <strong>Lecture 3</strong> and <strong>Lecture 5</strong>, signaling that <strong>Bifurcation</strong> is about to occur.</p>
+<h1 id="2-global-phase-portrait-analysis-nullclines-and-invariant-manifolds">2. Global Phase Portrait Analysis - Nullclines and Invariant Manifolds<a class="headerlink" href="#2-global-phase-portrait-analysis-nullclines-and-invariant-manifolds" title="Permanent link">&para;</a></h1>
+<p>In Section 1, Linear Stability Analysis (LSA) provided a powerful "mathematical microscope" for determining the <strong>local</strong> stability of fixed points (e.g., whether it is a saddle or a spiral). However, LSA has fundamental limitations: it is only valid in an infinitesimally small region near the fixed point. It cannot tell us what happens when trajectories move far from fixed points, nor can it describe the system's global structure (e.g., whether multiple fixed points exist, how trajectories flow from one fixed point to another).</p>
+<p>To reconstruct the complete <strong>Global Phase Portrait</strong>, this section will introduce two key geometric tools: <strong>Nullclines</strong> and <strong>Invariant Manifolds</strong>.</p>
+<h2 id="21-nullclines">2.1 Nullclines<a class="headerlink" href="#21-nullclines" title="Permanent link">&para;</a></h2>
+<p>Nullclines are the most fundamental and useful tools when drawing phase portraits.</p>
+<h3 id="definition">Definition:<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h3>
+<p>Nullclines (or "Nulllines") are defined as curves in phase space where <strong>one branch</strong> of the dynamical equations has zero rate of change.</p>
+<ul>
+<li>
+<p><strong>u-Nullcline (u-NC)</strong>: Defined by <span class="arithmatex">\(\dot{u} = f(u, v) = 0\)</span>.</p>
+</li>
+<li>
+<p><strong>v-Nullcline (v-NC)</strong>: Defined by <span class="arithmatex">\(\dot{v} = g(u, v) = 0\)</span>.</p>
+</li>
+</ul>
+<h3 id="significance-of-nullclines">Significance of Nullclines:<a class="headerlink" href="#significance-of-nullclines" title="Permanent link">&para;</a></h3>
+<p>Nullclines are not just a few lines—they are the "skeleton" of phase space, revealing the fundamental structure of the flow field:</p>
+<p><strong>Fixed points</strong>: Fixed points are where the system completely stops evolving, so they must <strong>simultaneously</strong> satisfy <span class="arithmatex">\(\dot{u} = 0\)</span> <strong>and</strong> <span class="arithmatex">\(\dot{v} = 0\)</span>. Geometrically, <strong>fixed points must be located at the intersections of all nullclines</strong>.</p>
+<p><strong>Flow field direction</strong>: Nullclines provide strict constraints on the direction of the vector field <span class="arithmatex">\(\vec{F} = (\dot{u}, \dot{v})\)</span>:</p>
+<ul>
+<li>
+<p>On the <strong>u-NC</strong> (<span class="arithmatex">\(\dot{u} = 0\)</span>), the vector field becomes <span class="arithmatex">\((0, \dot{v})\)</span>. This means the flow field (i.e., the tangent to trajectories) must be <strong>purely vertical</strong> (up or down).</p>
+</li>
+<li>
+<p>On the <strong>v-NC</strong> (<span class="arithmatex">\(\dot{v} = 0\)</span>), the vector field becomes <span class="arithmatex">\((\dot{u}, 0)\)</span>. This means the flow field must be <strong>purely horizontal</strong> (left or right).</p>
+</li>
+</ul>
+<p><strong>Region division</strong>: Nullclines divide the entire <span class="arithmatex">\((u, v)\)</span> phase space into different regions. Inside each region, the signs (positive or negative) of <span class="arithmatex">\(\dot{u}\)</span> and <span class="arithmatex">\(\dot{v}\)</span> are constant. By determining a <span class="arithmatex">\((+, -)\)</span> sign combination in each region (e.g., <span class="arithmatex">\(\dot{u} &gt; 0, \dot{v} &lt; 0\)</span> means flow to the "lower right"), one can sketch the flow direction throughout the entire phase space.</p>
+<h2 id="22-example-analysis">2.2 Example Analysis<a class="headerlink" href="#22-example-analysis" title="Permanent link">&para;</a></h2>
+<p>The lecture used an example system to demonstrate how to use nullclines.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t u &amp;= u - u^2 v \\
+\partial_t v &amp;= u - v
+\end{aligned}
+\]</div>
+<p><strong>u-NCs (<span class="arithmatex">\(\dot{u} = 0\)</span>):</strong></p>
+<div class="arithmatex">\[
+u(1 - uv) = 0 \Rightarrow \mathbf{u = 0} \text{ (v-axis)} \quad \text{or} \quad \mathbf{v = \frac{1}{u}} \text{ (hyperbola)}
+\]</div>
+<p><strong>v-NC (<span class="arithmatex">\(\dot{v} = 0\)</span>):</strong></p>
+<div class="arithmatex">\[
+u - v = 0 \Rightarrow \mathbf{v = u} \text{ (diagonal)}
+\]</div>
+<p><strong>Drawing the phase portrait:</strong></p>
+<p>Draw these three nullclines (<span class="arithmatex">\(v = u\)</span>, <span class="arithmatex">\(u = 0\)</span>, <span class="arithmatex">\(v = \frac{1}{u}\)</span>) on the <span class="arithmatex">\((u, v)\)</span> plane.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/06_003_eed95036-2a37-4e2c-81c4-bea7e592e270.jpg" /></p>
+<p>Nullcline analysis example. The red line is the v-nullcline (<span class="arithmatex">\(\dot{v}=0\)</span>), and the white curves are u-nullclines (<span class="arithmatex">\(\dot{u}=0\)</span>). Their intersections <span class="arithmatex">\((-1, -1)\)</span>, <span class="arithmatex">\((0, 0)\)</span>, and <span class="arithmatex">\((1, 1)\)</span> are the system's fixed points. White arrows outline the global flow field direction in phase space.</p>
+<p><strong>Analyzing flow field direction:</strong></p>
+<p>1.<strong>v-NC (red line, <span class="arithmatex">\(v=u\)</span>)</strong>:</p>
+<ul>
+<li>
+<p>On the <strong>right side</strong> of this line (e.g., point (2,1)), <span class="arithmatex">\(u &gt; v\)</span>, so <span class="arithmatex">\(\dot{v} = u - v &gt; 0\)</span>. This means in all regions to the right of v-NC, the flow field must have an <strong>upward</strong> component.</p>
+</li>
+<li>
+<p>Similarly, on the <strong>left side</strong> of v-NC, <span class="arithmatex">\(u &lt; v\)</span>, <span class="arithmatex">\(\dot{v} &lt; 0\)</span>, the flow field points <strong>down</strong>.</p>
+</li>
+</ul>
+<p>2.<strong>u-NCs (white lines, <span class="arithmatex">\(u=0\)</span> and <span class="arithmatex">\(v=1/u\)</span>)</strong>:</p>
+<ul>
+<li>
+<p>In the region <strong>between the two lines</strong> (e.g., first quadrant <span class="arithmatex">\(v &lt; 1/u\)</span>), <span class="arithmatex">\(1 - uv &gt; 0\)</span>. Therefore <span class="arithmatex">\(\dot{u} = u(1 - uv) &gt; 0\)</span>, and the flow field points <strong>right</strong>.</p>
+</li>
+<li>
+<p>In regions <strong>outside the two lines</strong> (e.g., first quadrant <span class="arithmatex">\(v &gt; 1/u\)</span>), <span class="arithmatex">\(1 - uv &lt; 0\)</span>. Therefore <span class="arithmatex">\(\dot{u} &lt; 0\)</span>, and the flow field points <strong>left</strong>.</p>
+</li>
+</ul>
+<p>3.<strong>Combined analysis</strong>: By combining these basic directions, one can sketch the flow lines throughout the entire phase space. For example, in the first quadrant, in the region between <span class="arithmatex">\(v=u\)</span> and <span class="arithmatex">\(v=1/u\)</span>, satisfying <span class="arithmatex">\(u &lt; v\)</span> (downward) and <span class="arithmatex">\(v &gt; 1/u\)</span> (leftward), so the net flow direction in this region is "<strong>lower left</strong>."</p>
+<h2 id="23-invariant-manifolds">2.3 Invariant Manifolds<a class="headerlink" href="#23-invariant-manifolds" title="Permanent link">&para;</a></h2>
+<p>Nullclines tell us the direction of the flow field, while invariant manifolds are the actual "highways" or "watersheds" in phase space.</p>
+<p><strong>Definition:</strong> An <strong>Invariant Manifold</strong> <span class="arithmatex">\(\mathcal{M}\)</span> is a subset of phase space (e.g., a curve) with the property that any trajectory starting from any point on <span class="arithmatex">\(\mathcal{M}\)</span> will <strong>remain on <span class="arithmatex">\(\mathcal{M}\)</span> forever</strong> for all future (and past) times.</p>
+<p><strong>Physical meaning:</strong> They are special "orbits" or "skeletons" in the flow field—once a trajectory enters, it never leaves. While technically <strong>any trajectory line</strong> is an invariant manifold, the term is usually reserved for those special manifolds that organize global dynamics, particularly those associated with <strong>saddle points</strong>.</p>
+<p><strong>Importance of saddle points:</strong> As analyzed in Section 1, a saddle point has a <strong>Stable Manifold</strong> (the direction where trajectories flow in, corresponding to <span class="arithmatex">\(\sigma &lt; 0\)</span>) and an <strong>Unstable Manifold</strong> (the direction where trajectories flow out, corresponding to <span class="arithmatex">\(\sigma &gt; 0\)</span>).</p>
+<p><strong>Separatrix:</strong> In the global phase portrait, the unstable manifold of a saddle point (such as the (0,0) point in this example) usually plays the role of a <strong>Separatrix</strong>. The separatrix divides phase space into regions with different fates, i.e., <strong>Basins of Attraction</strong>. Trajectories on one side of the separatrix may flow toward fixed point A, while trajectories on the other side may flow toward fixed point B (or infinity). Therefore, to understand a system's global behavior, the key is to find all fixed points (via nullclines), determine their stability (via LSA), and draw the (un)stable manifolds of saddle points to partition the entire phase space.</p>
+<h2 id="24-python-code-practice">2.4 Python Code Practice<a class="headerlink" href="#24-python-code-practice" title="Permanent link">&para;</a></h2>
+<p>The following Python code practice reproduces the phase portrait from the lecture example, including nullclines, vector field (streamlines), and example trajectories. The code has been modified to use a black background theme.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># File: plot_nullclines_and_phase_portrait.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the system of ODEs from the lecture </span>
+<span class="c1"># Using the equation u_dot = u - u^2*v (consistent with board drawing)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">system</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dynamical system for the nullcline example.&quot;&quot;&quot;</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Z</span>
+    <span class="c1"># Ensure u is not exactly zero for v=1/u calculation</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-9</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+        <span class="n">u_dot</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># On the u=0 nullcline</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">u_dot</span> <span class="o">=</span> <span class="n">u</span> <span class="o">-</span> <span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span>
+    <span class="n">v_dot</span> <span class="o">=</span> <span class="n">u</span> <span class="o">-</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">u_dot</span><span class="p">,</span> <span class="n">v_dot</span><span class="p">]</span>
+
+<span class="c1"># Create a grid for the phase portrait</span>
+<span class="n">u_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">v_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">u_range</span><span class="p">,</span> <span class="n">v_range</span><span class="p">)</span>
+
+<span class="c1"># Calculate the vector field (dU, dV) at each grid point</span>
+<span class="n">dU</span><span class="p">,</span> <span class="n">dV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">U</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">ni</span><span class="p">,</span> <span class="n">nj</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">shape</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ni</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nj</span><span class="p">):</span>
+        <span class="n">dU</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">dV</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">system</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]])</span>
+
+<span class="c1"># --- Create the plot ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Phase Portrait with Nullclines (Lecture Example)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># 1. Plot the vector field using streamplot</span>
+<span class="c1"># Streamplot shows the flow direction</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">streamplot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">dU</span><span class="p">,</span> <span class="n">dV</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">broken_streamlines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># 2. Plot the Nullclines</span>
+<span class="c1"># v-NC (v_dot = 0): v = u</span>
+<span class="n">v_nc1</span> <span class="o">=</span> <span class="n">u_range</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range</span><span class="p">,</span> <span class="n">v_nc1</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;v-NC: $\dot</span><span class="si">{v}</span><span class="s1">=0$ ($v=u$)&#39;</span><span class="p">)</span>
+
+<span class="c1"># u-NCs (u_dot = 0): u = 0 and v = 1/u</span>
+<span class="c1"># u=0 (the y-axis)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;u-NC: $\dot</span><span class="si">{u}</span><span class="s1">=0$ ($u=0$)&#39;</span><span class="p">)</span>
+
+<span class="c1"># v = 1/u (plot in two parts)</span>
+<span class="n">u_nc2_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># Avoid u=0</span>
+<span class="n">v_nc2_pos</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">u_nc2_pos</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_nc2_pos</span><span class="p">,</span> <span class="n">v_nc2_pos</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;u-NC: $\dot</span><span class="si">{u}</span><span class="s1">=0$ ($v=1/u$)&#39;</span><span class="p">)</span>
+
+<span class="n">u_nc2_neg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># Avoid u=0</span>
+<span class="n">v_nc2_neg</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">u_nc2_neg</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_nc2_neg</span><span class="p">,</span> <span class="n">v_nc2_neg</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 3. Find and plot fixed points (intersections of NCs)</span>
+<span class="c1"># (0,0) is an intersection</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fixed Point (0, 0)&#39;</span><span class="p">)</span>
+<span class="c1"># (1,1) is an intersection (v=u and v=1/u)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fixed Point (1, 1)&#39;</span><span class="p">)</span>
+<span class="c1"># (-1,-1) is an intersection</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fixed Point (-1, -1)&#39;</span><span class="p">)</span>
+
+<span class="c1"># 4. Plot example trajectories using solve_ivp</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">sol1</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trajectory 1&#39;</span><span class="p">)</span>
+
+<span class="n">sol2</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trajectory 2&#39;</span><span class="p">)</span>
+
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">leg</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+    <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">spine</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<img alt="Code Output" src="../../../cn/assets/images/06_004_e376e171-e6ec-4ed1-8659-5b8579388051.png" /></p>
+<p><strong>Nullclines</strong>: The magenta curves (<span class="arithmatex">\(\dot{u}=0\)</span>) and cyan curve (<span class="arithmatex">\(\dot{v}=0\)</span>) form the skeleton of the phase portrait.</p>
+<p><strong>Fixed points</strong>: Their intersections (white dots) are the system's three fixed points: <span class="arithmatex">\((-1, -1)\)</span>, <span class="arithmatex">\((0, 0)\)</span>, and <span class="arithmatex">\((1, 1)\)</span>.</p>
+<p><strong>Vector field</strong>: The gray streamlines (streamplot) show the evolution direction at each point in phase space. One can clearly see that streamlines are <strong>purely horizontal</strong> when crossing the cyan line <span class="arithmatex">\(v=u\)</span> and <strong>purely vertical</strong> when crossing the magenta lines <span class="arithmatex">\(v=1/u\)</span> or <span class="arithmatex">\(u=0\)</span>.</p>
+<p><strong>Trajectories</strong>: The lime and yellow curves are two example trajectories. They start from different initial points but both evolve along the gray streamlines.</p>
+<p><strong>Stability</strong>: From streamlines and trajectories, we can see that <span class="arithmatex">\((1, 1)\)</span> is a <strong>stable fixed point</strong> (stable node or spiral), with all nearby trajectories converging to it. <span class="arithmatex">\((0, 0)\)</span> is a <strong>saddle point</strong>, with trajectories approaching it in one direction but moving away in another. <span class="arithmatex">\((-1, -1)\)</span> appears to be an <strong>unstable fixed point</strong> (unstable node or spiral).</p>
+<h1 id="3-nonlinear-oscillators-and-hopf-bifurcation">3. Nonlinear Oscillators and Hopf Bifurcation<a class="headerlink" href="#3-nonlinear-oscillators-and-hopf-bifurcation" title="Permanent link">&para;</a></h1>
+<p>In the <span class="arithmatex">\((T, \Delta)\)</span> phase diagram of Section 1, we found that pure oscillation (<strong>center</strong>) is an extremely special case requiring the system to be precisely on the "knife edge" of <span class="arithmatex">\(T=0\)</span>. This is a "fine-tuned" system. In any real physical or biological system, tiny perturbations (such as friction, noise) would cause <span class="arithmatex">\(T \neq 0\)</span>, causing the system to "drift" into the region of <span class="arithmatex">\(T&lt;0\)</span> (<strong>stable spiral</strong>, oscillations decay to death) or <span class="arithmatex">\(T&gt;0\)</span> (<strong>unstable spiral</strong>, oscillations diverge infinitely).</p>
+<p>So how does nature (such as biological clocks, cardiac pacemakers) produce stable, self-sustained oscillations?</p>
+<p>The answer is: through <strong>Non-linearity</strong>. Nonlinear terms can provide a self-regulating mechanism: when amplitude is too small, the system "injects energy" to make it grow (like <span class="arithmatex">\(T&gt;0\)</span>); when amplitude is too large, the system "applies damping" to make it decay (like <span class="arithmatex">\(T&lt;0\)</span>).</p>
+<p>This section will study the mathematical model of how stable oscillations are "born," namely the <strong>Hopf Bifurcation</strong>.</p>
+<h2 id="31-hopf-bifurcation-the-birth-of-oscillations">3.1 Hopf Bifurcation - The Birth of Oscillations<a class="headerlink" href="#31-hopf-bifurcation-the-birth-of-oscillations" title="Permanent link">&para;</a></h2>
+<p>Hopf bifurcation describes how system dynamics, as a control parameter (denoted <span class="arithmatex">\(\mu\)</span>) varies, transitions from a <strong>stable fixed point</strong> (e.g., a stable spiral) to an <strong>unstable fixed point</strong>, while simultaneously "giving birth to" a <strong>stable Limit Cycle</strong>.</p>
+<p>The simplest nonlinear system describing this transition, its <strong>Normal Form</strong>, can be written in Cartesian coordinates <span class="arithmatex">\((u,v)\)</span> as:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t u &amp;= \mu u - \omega v + (\rho u - \lambda v)(u^2 + v^2) \\
+\partial_t v &amp;= \mu v + \omega u + (\rho v + \lambda u)(u^2 + v^2)
+\end{aligned}
+\]</div>
+<p>This equation looks complex, but each part has a clear meaning:</p>
+<p><strong>Linear terms: <span class="arithmatex">\(\mu u - \omega v\)</span> and <span class="arithmatex">\(\mu v + \omega u\)</span></strong></p>
+<ul>
+<li>
+<p>These terms determine the <strong>linear</strong> stability near the fixed point <span class="arithmatex">\((0,0)\)</span>.</p>
+</li>
+<li>
+<p>Performing LSA on this linear part, the Jacobian matrix is <span class="arithmatex">\(J = \begin{pmatrix} \mu &amp; -\omega \\ \omega &amp; \mu \end{pmatrix}\)</span>.</p>
+</li>
+<li>
+<p>The eigenvalues are <span class="arithmatex">\(\sigma_{\pm} = \mu \pm i\omega\)</span>.</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(\mu = \text{Re}(\sigma)\)</span></strong>: <strong>This is the key control parameter</strong>. It represents the <strong>real part</strong> of the eigenvalues. When <span class="arithmatex">\(\mu &lt; 0\)</span>, the fixed point is a <strong>stable spiral</strong>. When <span class="arithmatex">\(\mu &gt; 0\)</span>, the fixed point becomes an <strong>unstable spiral</strong>. Hopf bifurcation occurs at the moment <span class="arithmatex">\(\mu\)</span> crosses 0.</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(\omega = \text{Im}(\sigma)\)</span></strong>: This is the <strong>frequency</strong> of linear oscillation.</p>
+</li>
+</ul>
+<p><strong>Nonlinear terms: <span class="arithmatex">\((\dots)(u^2 + v^2)\)</span></strong></p>
+<p>These are the simplest (cubic) nonlinear terms, carefully constructed to respect the system's rotational symmetry and used to "capture" the exponential divergence caused by <span class="arithmatex">\(\mu &gt; 0\)</span>, thereby forming a stable ring.</p>
+<h2 id="32-coordinate-transformation-from-uv-to-c-theta">3.2 Coordinate Transformation - From <span class="arithmatex">\((u,v)\)</span> to <span class="arithmatex">\((c, \theta)\)</span><a class="headerlink" href="#32-coordinate-transformation-from-uv-to-c-theta" title="Permanent link">&para;</a></h2>
+<p>The repeatedly appearing <span class="arithmatex">\(u^2 + v^2\)</span> term in the equations strongly suggests the system has rotational symmetry. Therefore, using <strong>polar coordinates</strong> (<span class="arithmatex">\(c\)</span> for amplitude, <span class="arithmatex">\(\theta\)</span> for phase) is the natural analytical approach:</p>
+<div class="arithmatex">\[
+u = c \cos\theta \quad v = c \sin\theta
+\]</div>
+<p>(where <span class="arithmatex">\(c = \sqrt{u^2 + v^2}\)</span> is the amplitude and <span class="arithmatex">\(\theta = \operatorname{atan2}(v, u)\)</span> is the phase).</p>
+<p>Substituting this transformation into the original equations, after (tedious but straightforward) algebraic operations, the system (miraculously) decouples into independent dynamics for amplitude and phase:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t c &amp;= \mu c + \rho c^3 \\
+\partial_t \theta &amp;= \omega + \lambda c^2
+\end{aligned}
+\]</div>
+<p><strong>Physical meaning</strong>:</p>
+<p><strong>Amplitude equation (<span class="arithmatex">\(\dot{c}\)</span>)</strong>: <span class="arithmatex">\(\partial_t c = \mu c + \rho c^3\)</span>. This <strong>one-dimensional</strong> equation completely determines how the oscillation <strong>amplitude</strong> <span class="arithmatex">\(c\)</span> grows or decays over time.</p>
+<p><strong>Phase equation (<span class="arithmatex">\(\dot{\theta}\)</span>)</strong>: <span class="arithmatex">\(\partial_t \theta = \omega + \lambda c^2\)</span>. This equation describes the system's <strong>speed</strong> of rotation (angular velocity) in phase space.</p>
+<h2 id="33-amplitude-dynamics-dotc-mu-c-rho-c3">3.3 Amplitude Dynamics: <span class="arithmatex">\(\dot{c} = \mu c + \rho c^3\)</span><a class="headerlink" href="#33-amplitude-dynamics-dotc-mu-c-rho-c3" title="Permanent link">&para;</a></h2>
+<p>The stability and existence of oscillations is now reduced to a <strong>one-dimensional</strong> dynamics problem, namely analyzing the amplitude equation <span class="arithmatex">\(\dot{c}\)</span>. This equation <span class="arithmatex">\(\dot{c} = \mu c + \rho c^3\)</span> (or written as <span class="arithmatex">\(\dot{c} = c(\mu + \rho c^2)\)</span>) is the standard normal form of the <strong>Pitchfork Bifurcation</strong> from <strong>Lecture 3</strong>.</p>
+<p>This connection is extremely profound: <strong>The amplitude dynamics of Hopf bifurcation (birth of oscillations in 2D) is mathematically equivalent to a pitchfork bifurcation (state bifurcation in 1D)</strong>.</p>
+<p>This one-dimensional system can be derived from a <strong>potential function <span class="arithmatex">\(V(c)\)</span></strong>: <span class="arithmatex">\(\dot{c} = -\partial_c V(c)\)</span>. The potential function is:</p>
+<div class="arithmatex">\[
+V(c) = -\frac{1}{2}\mu c^2 - \frac{\rho}{4}c^4
+\]</div>
+<p>This is precisely the famous <strong>Landau Potential</strong> or "<strong>Mexican Hat</strong>" Potential. The amplitude <span class="arithmatex">\(c\)</span> will spontaneously evolve to seek the minimum of this potential <span class="arithmatex">\(V(c)\)</span>.</p>
+<h2 id="34-classification-supercritical-and-subcritical">3.4 Classification - Supercritical and Subcritical<a class="headerlink" href="#34-classification-supercritical-and-subcritical" title="Permanent link">&para;</a></h2>
+<p>The type of Hopf bifurcation (i.e., whether the limit cycle is stable or unstable) depends on the sign of the nonlinear term <span class="arithmatex">\(\rho\)</span>.</p>
+<h3 id="1-supercritical-hopf-bifurcation-rho-0">1. Supercritical Hopf Bifurcation (<span class="arithmatex">\(\rho &lt; 0\)</span>)<a class="headerlink" href="#1-supercritical-hopf-bifurcation-rho-0" title="Permanent link">&para;</a></h3>
+<p>This is the most common and "smoothest" way for oscillations to be born.</p>
+<p><strong><span class="arithmatex">\(\mu &lt; 0\)</span> (before bifurcation)</strong>: <span class="arithmatex">\(\dot{c} = \mu c - |\rho| c^3\)</span>. The potential <span class="arithmatex">\(V(c)\)</span> has only one minimum (stable fixed point) at <span class="arithmatex">\(c = 0\)</span>.</p>
+<p><strong>Physical meaning</strong>: Any small perturbation (<span class="arithmatex">\(c&gt;0\)</span>) will decay back to <span class="arithmatex">\(c=0\)</span>. In <span class="arithmatex">\((u,v)\)</span> phase space, this means <span class="arithmatex">\((0,0)\)</span> is a <strong>stable spiral</strong>.</p>
+<p><strong><span class="arithmatex">\(\mu &gt; 0\)</span> (after bifurcation)</strong>: <span class="arithmatex">\(\dot{c} = \mu c - |\rho| c^3\)</span>. The minimum at <span class="arithmatex">\(c = 0\)</span> becomes a local maximum (unstable fixed point). The potential <span class="arithmatex">\(V(c)\)</span> develops new symmetric minima at <span class="arithmatex">\(c^2 = -\mu/\rho\)</span>, namely:</p>
+<div class="arithmatex">\[
+c^* = \sqrt{-\mu/\rho}
+\]</div>
+<p><strong>Physical meaning</strong>: The <span class="arithmatex">\(c=0\)</span> (stationary) state becomes unstable. Any small perturbation causes the amplitude <span class="arithmatex">\(c\)</span> to spontaneously grow until it "saturates" and stabilizes at the new nonzero amplitude <span class="arithmatex">\(c^*\)</span>. Since <span class="arithmatex">\(\dot{\theta} = \omega + \lambda (c^*)^2 \neq 0\)</span>, the system rotates with radius <span class="arithmatex">\(c = c^*\)</span> at constant angular velocity <span class="arithmatex">\(\dot{\theta}\)</span>. This is exactly a <strong>stable Limit Cycle</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/06_005_c48a4a65-1dbd-4a5d-8841-80770320e616.png" /></p>
+<p>Amplitude bifurcation diagram for supercritical Hopf bifurcation. The vertical axis is amplitude <span class="arithmatex">\(c\)</span>, the horizontal axis is control parameter <span class="arithmatex">\(\mu\)</span>. When <span class="arithmatex">\(\mu &lt; 0\)</span>, the only stable fixed point is <span class="arithmatex">\(c=0\)</span> (stationary). When <span class="arithmatex">\(\mu &gt; 0\)</span>, <span class="arithmatex">\(c=0\)</span> becomes unstable (dashed line), and a new stable branch <span class="arithmatex">\(c^* = \sqrt{-\mu/\rho}\)</span> (solid line) is born, representing a stable limit cycle.</p>
+<h3 id="2-subcritical-hopf-bifurcation-rho-0">2. Subcritical Hopf Bifurcation (<span class="arithmatex">\(\rho &gt; 0\)</span>)<a class="headerlink" href="#2-subcritical-hopf-bifurcation-rho-0" title="Permanent link">&para;</a></h3>
+<p>This bifurcation is more "explosive" and discontinuous.</p>
+<p><strong><span class="arithmatex">\(\mu &gt; 0\)</span></strong>: <span class="arithmatex">\(\dot{c} = \mu c + \rho c^3\)</span>. <span class="arithmatex">\(c = 0\)</span> is unstable, and <span class="arithmatex">\(\dot{c}\)</span> is positive for all <span class="arithmatex">\(c&gt;0\)</span>, so amplitude grows without bound ("explosion").</p>
+<p><strong>Stabilization</strong>: To make the model physically reasonable (as in the cusp bifurcation of <strong>Lecture 4</strong>), higher-order stabilizing terms must be added (e.g., a <span class="arithmatex">\(\nu c^5\)</span> term where <span class="arithmatex">\(\nu &lt; 0\)</span>) to "take over" the dynamics. A stabilized potential function is:</p>
+<div class="arithmatex">\[
+V(c) = -\frac{1}{2}\mu c^2 - \frac{\rho}{4}c^4 + \frac{|\nu|}{6}c^6 \quad (\text{here } \rho &gt; 0, |\nu| &gt; 0)
+\]</div>
+<p><strong>Bistability</strong>: In certain parameter ranges (e.g., <span class="arithmatex">\(\mu\)</span> slightly less than 0), this potential function can simultaneously have two stable minima: one at <span class="arithmatex">\(c = 0\)</span> (<strong>non-oscillating state</strong>) and another at <span class="arithmatex">\(c = c^* &gt; 0\)</span> (<strong>oscillating state</strong>).</p>
+<p><strong>Hysteresis</strong>:</p>
+<p><strong>Path 1 (increasing <span class="arithmatex">\(\mu\)</span>)</strong>: When slowly increasing <span class="arithmatex">\(\mu\)</span>, the system stays at <span class="arithmatex">\(c = 0\)</span> (stable stationary). When <span class="arithmatex">\(\mu\)</span> increases to where the potential barrier at <span class="arithmatex">\(c = 0\)</span> disappears (<span class="arithmatex">\(\mu = 0\)</span>), the system suddenly <strong>jumps</strong> to the large-amplitude oscillating state at <span class="arithmatex">\(c = c^*\)</span>.</p>
+<p><strong>Path 2 (decreasing <span class="arithmatex">\(\mu\)</span>)</strong>: When slowly decreasing <span class="arithmatex">\(\mu\)</span>, the system stays at <span class="arithmatex">\(c = c^*\)</span> (oscillating). It does not jump back at <span class="arithmatex">\(\mu = 0\)</span>, but remains "stuck" in the <span class="arithmatex">\(c = c^*\)</span> potential well until this well itself disappears (at some <span class="arithmatex">\(\mu &lt; 0\)</span> value, saddle-node bifurcation occurs).</p>
+<p><strong>Result</strong>: The <span class="arithmatex">\(\mu\)</span> value at which the system "turns on" oscillations differs from the <span class="arithmatex">\(\mu\)</span> value at which it "turns off." This history-dependence is <strong>hysteresis</strong>, which is completely consistent with the cusp bifurcation behavior in <strong>Lecture 4</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/06_006_a0ffa2ef-892c-4e52-8259-56c0bafc0023.png" /></p>
+<p>Amplitude bifurcation diagram for subcritical Hopf bifurcation (after stabilization). The S-shaped curve shows the bistable region. The system follows different paths when <span class="arithmatex">\(\mu\)</span> increases (along lower branch) and decreases (along upper branch), forming a hysteresis loop.</p>
+<h2 id="35-python-code-practice">3.5 Python Code Practice<a class="headerlink" href="#35-python-code-practice" title="Permanent link">&para;</a></h2>
+<p>The following code practice simulates <strong>supercritical Hopf bifurcation</strong>. It shows how the system transitions from a stable fixed point (<span class="arithmatex">\(\mu &lt; 0\)</span>) to a stable limit cycle (<span class="arithmatex">\(\mu &gt; 0\)</span>) when the control parameter <span class="arithmatex">\(\mu\)</span> crosses 0.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the Hopf bifurcation normal form equations </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hopf_system</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hopf bifurcation normal form in Cartesian coordinates.&quot;&quot;&quot;</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Z</span>
+    <span class="n">c_sq</span> <span class="o">=</span> <span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">u_dot</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u</span> <span class="o">-</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">u</span> <span class="o">-</span> <span class="n">lambda_</span> <span class="o">*</span> <span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">c_sq</span>
+    <span class="n">v_dot</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">u</span> <span class="o">+</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">lambda_</span> <span class="o">*</span> <span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="n">c_sq</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">u_dot</span><span class="p">,</span> <span class="n">v_dot</span><span class="p">]</span>
+
+<span class="c1"># --- Parameters for Simulation ---</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># Linear frequency</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>      <span class="c1"># Coefficient for supercritical (rho &lt; 0)</span>
+<span class="n">lambda_</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># Non-linear frequency correction (set to 0 for simplicity)</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>  <span class="c1"># Simulation time (increased for better viz)</span>
+<span class="n">y0_in</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># Initial condition inside the limit cycle</span>
+<span class="n">y0_out</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Initial condition outside the limit cycle</span>
+
+<span class="c1"># --- Case 1: mu = -0.1 (Stable Spiral) ---</span>
+<span class="n">mu_neg</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span>
+<span class="n">sol_neg</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">hopf_system</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">y0_out</span><span class="p">,</span> 
+                    <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mu_neg</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">),</span> 
+                    <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Case 2: mu = +0.1 (Limit Cycle) ---</span>
+<span class="n">mu_pos</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="c1"># Analytical limit cycle radius: c = sqrt(-mu/rho)</span>
+<span class="n">c_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">mu_pos</span> <span class="o">/</span> <span class="n">rho</span><span class="p">)</span>
+<span class="c1"># Simulate trajectory starting inside</span>
+<span class="n">sol_pos_in</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">hopf_system</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">y0_in</span><span class="p">,</span> 
+                       <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mu_pos</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">),</span> 
+                       <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+<span class="c1"># Simulate trajectory starting outside</span>
+<span class="n">sol_pos_out</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">hopf_system</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">y0_out</span><span class="p">,</span> 
+                        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">mu_pos</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">),</span> 
+                        <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Plotting ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;aspect&#39;</span><span class="p">:</span> <span class="s1">&#39;equal&#39;</span><span class="p">})</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Supercritical Hopf Bifurcation ($\rho = -1$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot 1: mu = -0.1 (Stable Spiral)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;Case 1: $\mu = </span><span class="si">{</span><span class="n">mu_neg</span><span class="si">}</span><span class="s1">$ (Stable Spiral)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_neg</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol_neg</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_neg</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol_neg</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;co&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Start (y0=[2,0])&#39;</span><span class="p">)</span> <span class="c1"># Start point</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Point&#39;</span><span class="p">)</span> <span class="c1"># End point</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+<span class="n">leg1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">leg1</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax1</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span> <span class="n">spine</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot 2: mu = +0.1 (Stable Limit Cycle)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;Case 2: $\mu = </span><span class="si">{</span><span class="n">mu_pos</span><span class="si">}</span><span class="s1">$ (Stable Limit Cycle)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the trajectories</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_pos_in</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol_pos_in</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Start inside ($y_0=[0.1, 0]$)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_pos_out</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol_pos_out</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Start outside ($y_0=[2.0, 0]$)&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the analytical limit cycle</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_star</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">c_star</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">rf</span><span class="s1">&#39;Limit Cycle (c=</span><span class="si">{</span><span class="n">c_star</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+<span class="n">leg2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">leg2</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span> <span class="n">spine</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/06_007_0e3242d5-a770-411b-bffd-c151adb26aad.png" /></p>
+<p><strong>Left panel (<span class="arithmatex">\(\mu = -0.1 &lt; 0\)</span>)</strong>: This is before bifurcation. The <span class="arithmatex">\((0,0)\)</span> fixed point is a <strong>stable spiral</strong>. The cyan trajectory starts from the external point <span class="arithmatex">\([2,0]\)</span> and spirals <strong>inward</strong> to the red stable fixed point.</p>
+<p><strong>Right panel (<span class="arithmatex">\(\mu = +0.1 &gt; 0\)</span>)</strong>: This is after bifurcation. The <span class="arithmatex">\((0,0)\)</span> fixed point (red cross) is now an <strong>unstable spiral</strong>. The system has given birth to a stable <strong>limit cycle</strong> (red dashed circle, radius <span class="arithmatex">\(c^* \approx 0.316\)</span>).</p>
+<ul>
+<li>
+<p>The cyan trajectory starts from <strong>inside</strong> the ring at <span class="arithmatex">\([0.1, 0]\)</span>, spiraling <strong>outward</strong>, and converges to the limit cycle.</p>
+</li>
+<li>
+<p>The lime trajectory starts from <strong>outside</strong> the ring at <span class="arithmatex">\([2.0, 0]\)</span>, spiraling <strong>inward</strong>, and also converges to the same limit cycle.</p>
+</li>
+<li>
+<p>This limit cycle is an <strong>attractor</strong>—it represents a robust, self-sustained oscillation whose amplitude and phase are independent of initial conditions.</p>
+</li>
+</ul>
+<h1 id="4-van-der-pol-oscillator-and-relaxation-oscillations">4. Van der Pol Oscillator and Relaxation Oscillations<a class="headerlink" href="#4-van-der-pol-oscillator-and-relaxation-oscillations" title="Permanent link">&para;</a></h1>
+<p>In Section 3, Hopf bifurcation showed how oscillations "smoothly" emerge from an unstable fixed point through supercritical pitchfork bifurcation amplitude dynamics. This is a general mathematical paradigm (Normal Form). This section will explore a classical model with important physical significance in engineering and biology—the <strong>Van der Pol Oscillator</strong>.</p>
+<p>Its mechanism differs from Hopf bifurcation: instead of stabilizing amplitude through a potential function (like the Landau potential), it achieves energy self-regulation through a clever <strong>nonlinear damping</strong> term, thereby producing a robust limit cycle. More importantly, in the strong nonlinearity limit, it will introduce a completely new analytical method: <strong>Time Scale Separation</strong>.</p>
+<p>Its (standardized) second-order differential equation form is:</p>
+<div class="arithmatex">\[
+\ddot{x} + \gamma (x^2 - 1) \dot{x} + x = 0
+\]</div>
+<p>(Note: Here <span class="arithmatex">\(x\)</span> is a variable, such as voltage in a circuit or membrane potential in a neuron. The lecture mentioned that this is equivalent to an oscillator with mass <span class="arithmatex">\(m=1\)</span>, spring constant <span class="arithmatex">\(k=1\)</span>, but with a very special damping term.)</p>
+<h2 id="41-physical-meaning-nonlinear-damping">4.1 Physical Meaning - Nonlinear Damping<a class="headerlink" href="#41-physical-meaning-nonlinear-damping" title="Permanent link">&para;</a></h2>
+<p>The key to the system lies in the middle term <span class="arithmatex">\(\gamma(x^2 - 1)\dot{x}\)</span>—this is a <strong>nonlinear damping term</strong>.</p>
+<p>It is proportional to velocity <span class="arithmatex">\(\dot{x}\)</span>, so it is a <strong>damping force</strong>.</p>
+<p>Its damping coefficient <span class="arithmatex">\(C(x) = \gamma(x^2 - 1)\)</span> <strong>depends on position <span class="arithmatex">\(x\)</span></strong> (i.e., amplitude).</p>
+<p>This dependence leads to a self-regulating mechanism:</p>
+<p><strong>When <span class="arithmatex">\(|x| &lt; 1\)</span> (small amplitude)</strong>: <span class="arithmatex">\(x^2 - 1\)</span> is negative. The damping coefficient <span class="arithmatex">\(C(x)\)</span> is <strong>negative</strong>. The system exhibits <strong>negative damping (anti-damping)</strong>. It does not dissipate energy but instead <strong>injects energy</strong> from outside (like a power source), causing amplitude to grow.</p>
+<p><strong>When <span class="arithmatex">\(|x| &gt; 1\)</span> (large amplitude)</strong>: <span class="arithmatex">\(x^2 - 1\)</span> is positive. The damping coefficient <span class="arithmatex">\(C(x)\)</span> is <strong>positive</strong>. The system exhibits <strong>normal damping</strong> (like friction). It <strong>dissipates energy</strong>, causing amplitude to decay.</p>
+<p><strong>Physical meaning</strong>:
+This mechanism guarantees <strong>self-sustained oscillation</strong>. If amplitude is too small, the system "self-excites" to increase it; if amplitude is too large, the system "self-suppresses" to reduce it. Eventually, the system stabilizes on a <strong>limit cycle</strong>, where energy injected over one period exactly equals energy dissipated.</p>
+<h2 id="42-time-scale-separation-gamma-gg-1">4.2 Time Scale Separation (<span class="arithmatex">\(\gamma \gg 1\)</span>)<a class="headerlink" href="#42-time-scale-separation-gamma-gg-1" title="Permanent link">&para;</a></h2>
+<p>When <span class="arithmatex">\(\gamma\)</span> is large (strong nonlinearity), the system's behavior becomes very special. To analyze this case, the <strong>Liénard transformation</strong> is used. The original equation can be rewritten as:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} \left[ \dot{x} + \gamma \left(\frac{1}{3} x^3 - x \right) \right] = -x
+\]</div>
+<p>Define a new variable <span class="arithmatex">\(y = \dot{x} + \gamma (\frac{x^3}{3} - x)\)</span>, and let <span class="arithmatex">\(F(x) = \frac{x^3}{3} - x\)</span>, the system becomes:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\dot{y} &amp;= -x \\
+\dot{x} &amp;= y - \gamma F(x)
+\end{aligned}
+\]</div>
+<p>To analyze the <span class="arithmatex">\(\gamma \gg 1\)</span> limit, rescale <span class="arithmatex">\(y\)</span> as <span class="arithmatex">\(y \to \gamma y\)</span> (Note: this is a common rescaling used to explicitly separate time scales), and the system becomes:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\dot{x} &amp;= \gamma (y - F(x)) \quad &amp;(\text{FAST}) \\
+\dot{y} &amp;= -x / \gamma \quad &amp;(\text{SLOW})
+\end{aligned}
+\]</div>
+<p><strong>Physical meaning</strong>:</p>
+<ul>
+<li>
+<p><strong>Fast dynamics</strong>: <span class="arithmatex">\(\dot{x}\)</span> is proportional to <span class="arithmatex">\(\gamma\)</span> (very large). This means <span class="arithmatex">\(x\)</span> evolves <strong>very fast</strong>, unless <span class="arithmatex">\(y \approx F(x)\)</span>.</p>
+</li>
+<li>
+<p><strong>Slow dynamics</strong>: <span class="arithmatex">\(\dot{y}\)</span> is proportional to <span class="arithmatex">\(1/\gamma\)</span> (very small). This means <span class="arithmatex">\(y\)</span> evolves <strong>very slowly</strong>.</p>
+</li>
+</ul>
+<p>The system thus has two distinctly different time scales.</p>
+<h2 id="43-relaxation-oscillations">4.3 Relaxation Oscillations<a class="headerlink" href="#43-relaxation-oscillations" title="Permanent link">&para;</a></h2>
+<p>This fast-slow separation leads to a special, non-sinusoidal oscillation called <strong>Relaxation Oscillations</strong>.</p>
+<ul>
+<li>
+<p><strong>x-Nullcline (slow manifold)</strong>: The nullcline for the fast variable <span class="arithmatex">\(\dot{x}\)</span> is given by <span class="arithmatex">\(\dot{x} = 0 \Rightarrow \gamma(y - F(x)) = 0\)</span>, namely:</p>
+<div class="arithmatex">\[
+y = F(x) = \frac{x^3}{3} - x
+\]</div>
+<p>This is an S-shaped cubic curve, called the <strong>slow manifold</strong>.</p>
+</li>
+</ul>
+<p>The system's dynamics can now be intuitively understood as a cycle of "Crawl" and "Snap":</p>
+<ul>
+<li>
+<p><strong>"Snap" (fast)</strong>: Suppose the system's initial state is not on the slow manifold <span class="arithmatex">\(y = F(x)\)</span>. Since <span class="arithmatex">\(\dot{x}\)</span> is extremely large while <span class="arithmatex">\(\dot{y} \approx 0\)</span>, the system will almost <strong>horizontally</strong>, "instantaneously" <strong>Snap</strong> onto the slow manifold.</p>
+</li>
+<li>
+<p><strong>"Crawl" (slow)</strong>: Once the system reaches near the slow manifold <span class="arithmatex">\(y = F(x)\)</span>, the fast dynamics <span class="arithmatex">\(\dot{x}\)</span> becomes <span class="arithmatex">\(\approx 0\)</span>. The system is "stuck" on the slow manifold, and its evolution is dominated by the <strong>slow dynamics</strong> <span class="arithmatex">\(\dot{y} = -x/\gamma\)</span>—the system begins to slowly <strong>Crawl</strong>.</p>
+</li>
+</ul>
+<h3 id="the-cycle">The Cycle:<a class="headerlink" href="#the-cycle" title="Permanent link">&para;</a></h3>
+<p>1.The system is on the right branch of <span class="arithmatex">\(y = F(x)\)</span> (e.g., <span class="arithmatex">\(x \approx 2\)</span>). At this point <span class="arithmatex">\(x &gt; 0\)</span>, so <span class="arithmatex">\(\dot{y} &lt; 0\)</span>. The system <strong>slowly crawls downward</strong> along the S-shaped curve.</p>
+<p>2.The system crawls to the local minimum ("knee") of the S-shaped curve (<span class="arithmatex">\(x = 1\)</span>).</p>
+<p>3.<strong>Snap!</strong> At this point <span class="arithmatex">\(y\)</span> tries to continue decreasing (<span class="arithmatex">\(\dot{y}&lt;0\)</span>), causing the system to leave the slow manifold. The fast dynamics <span class="arithmatex">\(\dot{x} = \gamma(y - F(x))\)</span> immediately takes over. Since <span class="arithmatex">\(y &lt; F(x)\)</span>, <span class="arithmatex">\(\dot{x}\)</span> becomes a very large negative value, and the system snaps <strong>horizontally to the left</strong> until it "hits" the left branch of the S-shaped curve (at <span class="arithmatex">\(x \approx -2\)</span>).</p>
+<p>4.The system is on the left branch. At this point <span class="arithmatex">\(x &lt; 0\)</span>, so <span class="arithmatex">\(\dot{y} &gt; 0\)</span>. The system <strong>slowly crawls upward</strong> along the S-shaped curve.</p>
+<p>5.The system crawls to the local maximum ("knee") of the S-shaped curve (<span class="arithmatex">\(x = -1\)</span>).</p>
+<p>6.<strong>Snap!</strong> <span class="arithmatex">\(y\)</span> tries to continue increasing, <span class="arithmatex">\(\dot{x}\)</span> becomes a very large positive value, and the system snaps <strong>horizontally to the right</strong>, returning to the right branch. The cycle repeats.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/06_008_8f9dd09f-22a8-409c-af7f-e1b4f3b39fd9.png" /></p>
+<p>Phase portrait of the Van der Pol oscillator in the strong nonlinearity limit (<span class="arithmatex">\(\gamma \gg 1\)</span>). The S-shaped curve <span class="arithmatex">\(y=F(x)\)</span> is the system's slow manifold (x-nullcline). Trajectories (arrows) manifest as slow "Crawl" on the slow manifold and instantaneous "Snap" between manifold branches, forming a relaxation oscillation cycle.</p>
+<h2 id="44-period-calculation">4.4 Period Calculation<a class="headerlink" href="#44-period-calculation" title="Permanent link">&para;</a></h2>
+<p>The period <span class="arithmatex">\(T\)</span> of this oscillation is mainly determined by the <strong>slow "crawl"</strong> process; the time of the "snap" process (<span class="arithmatex">\(\sim 1/\gamma\)</span>) is negligible.
+The total period <span class="arithmatex">\(T \approx 2 T_{\text{crawl}}\)</span> (using symmetry, calculate the crawl time for half a period).</p>
+<p><span class="arithmatex">\(T_{\text{crawl}}\)</span> is the time the system crawls on the slow manifold, e.g., from the "landing point" <span class="arithmatex">\(x_0 \approx 2\)</span> to the "takeoff point" <span class="arithmatex">\(x_1 = 1\)</span> (the minimum point of the S-shaped curve).</p>
+<p>1.During the crawl phase, system dynamics is dominated by the slow equation <span class="arithmatex">\(\dot{y} = -x / \gamma\)</span>.</p>
+<p>2.Therefore, the time element <span class="arithmatex">\(dt = \frac{dy}{\dot{y}} = \frac{dy}{-x/\gamma} = -\frac{\gamma}{x} dy\)</span>.</p>
+<p>3.Meanwhile, the system is on the slow manifold <span class="arithmatex">\(y = F(x)\)</span>, so <span class="arithmatex">\(dy = F'(x) dx\)</span>.</p>
+<p>4.<span class="arithmatex">\(F(x) = \frac{x^3}{3} - x\)</span>, so <span class="arithmatex">\(dy = (x^2 - 1) dx\)</span>.</p>
+<p>5.Substitute <span class="arithmatex">\(dy\)</span> into the expression for <span class="arithmatex">\(dt\)</span>:</p>
+<div class="arithmatex">\[
+dt = -\frac{\gamma}{x} (x^2 - 1) dx = -\frac{\gamma(x^2 - 1)}{x} dx
+\]</div>
+<p>6.Integrate <span class="arithmatex">\(T_{\text{crawl}}\)</span> (from <span class="arithmatex">\(x_0=2\)</span> to <span class="arithmatex">\(x_1=1\)</span>):</p>
+<div class="arithmatex">\[
+T_{\text{crawl}} = \int_{t_0}^{t_1} dt = \int_{x_0=2}^{x_1=1} -\frac{\gamma(x^2 - 1)}{x} dx = \gamma \int_{1}^{2} \left(x - \frac{1}{x}\right) dx
+\]</div>
+<p>7.Solve the integral:</p>
+<div class="arithmatex">\[
+T_{\text{crawl}} = \gamma \left[ \frac{1}{2}x^2 - \ln(x) \right]_1^2 = \gamma \left( (\frac{1}{2} \cdot 4 - \ln 2) - (\frac{1}{2} \cdot 1 - \ln 1) \right)
+\]</div>
+<div class="arithmatex">\[
+T_{\text{crawl}} = \gamma \left( (2 - \ln 2) - (\frac{1}{2} - 0) \right) = \gamma \left(\frac{3}{2} - \ln 2 \right)
+\]</div>
+<p>8.Total period <span class="arithmatex">\(T = 2 T_{\text{crawl}} = 2\gamma \left(\frac{3}{2} - \ln 2 \right) \approx 1.614 \gamma\)</span>.</p>
+<p><strong>Physical meaning</strong>: The oscillation period <span class="arithmatex">\(T\)</span> is <strong>proportional to</strong> the nonlinearity parameter <span class="arithmatex">\(\gamma\)</span>. The larger <span class="arithmatex">\(\gamma\)</span>, the stronger the nonlinearity, the slower the system "crawls" on the slow manifold (because <span class="arithmatex">\(\dot{y} \sim 1/\gamma\)</span>), and thus the longer the period.</p>
+<h2 id="45-python-code-practice">4.5 Python Code Practice<a class="headerlink" href="#45-python-code-practice" title="Permanent link">&para;</a></h2>
+<p>The following code practice simulates the Van der Pol oscillator. It converts the standard second-order equation into a <strong>standard</strong> first-order system (<span class="arithmatex">\(u=x, v=\dot{x}\)</span>), and shows phase portraits for small <span class="arithmatex">\(\gamma\)</span> (near-harmonic) and large <span class="arithmatex">\(\gamma\)</span> (relaxation oscillation).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="c1"># --- Set dark background style ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Van der Pol equation as a 1st order system</span>
+<span class="c1"># Let u = x, v = x_dot</span>
+<span class="c1"># Then u_dot = v</span>
+<span class="c1"># And v_dot = -u - gamma * (u^2 - 1) * v = gamma * (1 - u^2) * v - u</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">van_der_pol</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Van der Pol oscillator 1st order system.&quot;&quot;&quot;</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Z</span>
+    <span class="n">u_dot</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">v_dot</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">u</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span> <span class="o">-</span> <span class="n">u</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">u_dot</span><span class="p">,</span> <span class="n">v_dot</span><span class="p">]</span>
+
+<span class="c1"># Time span</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="c1"># Initial condition</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="c1"># Start at x=2, x_dot=0</span>
+
+<span class="c1"># --- Case 1: gamma = 0.5 (Weakly non-linear, near-harmonic) ---</span>
+<span class="n">gamma_weak</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">sol_weak</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">van_der_pol</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">gamma_weak</span><span class="p">,),</span> 
+                     <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Case 2: gamma = 10 (Strongly non-linear, relaxation oscillation) ---</span>
+<span class="n">gamma_strong</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">sol_strong</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">van_der_pol</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">gamma_strong</span><span class="p">,),</span> 
+                       <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
+
+<span class="c1"># --- Plotting Phase Portraits ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Van der Pol Oscillator Phase Portraits ($x$ vs $\dot</span><span class="si">{x}</span><span class="s1">$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot 1: gamma = 0.5</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;$\gamma = </span><span class="si">{</span><span class="n">gamma_weak</span><span class="si">}</span><span class="s1">$ (Near-harmonic oscillation)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_weak</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol_weak</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (Position)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\dot</span><span class="si">{x}</span><span class="s1">$ (Velocity)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax1</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span> <span class="n">spine</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot 2: gamma = 10.0</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;$\gamma = </span><span class="si">{</span><span class="n">gamma_strong</span><span class="si">}</span><span class="s1">$ (Relaxation Oscillation)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_strong</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol_strong</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;lime&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (Position)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\dot</span><span class="si">{x}</span><span class="s1">$ (Velocity)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span> <span class="n">spine</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Plotting Time Series for gamma = 10 ---</span>
+<span class="n">fig_ts</span><span class="p">,</span> <span class="n">ax_ts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax_ts</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;$\gamma = </span><span class="si">{</span><span class="n">gamma_strong</span><span class="si">}</span><span class="s1">$ Time Series (Relaxation)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="c1"># Use the solution from t=50 onwards to show the stable cycle</span>
+<span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">sol_strong_cycle</span> <span class="o">=</span> <span class="n">sol_strong</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">t_eval</span><span class="p">)</span>
+<span class="n">ax_ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_eval</span><span class="p">,</span> <span class="n">sol_strong_cycle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x(t) (Position)&#39;</span><span class="p">)</span>
+<span class="n">ax_ts</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax_ts</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax_ts</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">leg</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax_ts</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax_ts</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax_ts</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span> <span class="n">spine</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/06_009_6a812e94-584f-4e92-90ee-70d202be59dc.png" /></p>
+<p><strong>Left panel (phase portrait, <span class="arithmatex">\(\gamma = 0.5\)</span>)</strong>: In the weakly nonlinear case, the limit cycle (cyan orbit) shape is close to circular, very similar to Hopf bifurcation with <span class="arithmatex">\(\mu &gt; 0\)</span> (near-harmonic oscillation).</p>
+<p><strong>Right panel (phase portrait, <span class="arithmatex">\(\gamma = 10\)</span>)</strong>: In the strongly nonlinear case, the limit cycle (lime orbit) shape in the phase portrait changes dramatically, reproducing "relaxation oscillations." The trajectory shows <strong>fast vertical "snaps"</strong> (rapid <span class="arithmatex">\(\dot{x}\)</span> changes) near <span class="arithmatex">\(x \approx \pm 2\)</span> and <strong>slow "crawls"</strong> (<span class="arithmatex">\(\dot{x} \approx 0\)</span>) at the top/bottom. (Note: This <span class="arithmatex">\((x, \dot{x})\)</span> phase portrait differs from the Liénard <span class="arithmatex">\((x, y)\)</span> phase portrait in the <span class="arithmatex">\(y\)</span>-axis, but the qualitative behavior is consistent.)</p>
+<p><img alt="Code Output" src="../../../cn/assets/images/06_010_d7b4d492-c9c8-429a-a2fd-6c9f3ecc16dc.png" /></p>
+<p><strong>(Time series, <span class="arithmatex">\(\gamma = 10\)</span>)</strong>: This figure shows the waveform of <span class="arithmatex">\(x(t)\)</span> over time. It is <strong>completely not</strong> a sine wave, but consists of a slow "charging" phase (<span class="arithmatex">\(x\)</span> slowly rises) and a fast "discharge" phase (<span class="arithmatex">\(x\)</span> rapidly falls)—this is the typical characteristic of a relaxation oscillator.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p><strong>Lecture 6</strong> extended the analytical framework for dynamical systems. It transitioned from systems constrained by <strong>mass conservation</strong> (<span class="arithmatex">\(g=-f\)</span>) in <strong>Lecture 5</strong>—whose dynamics is essentially <strong>one-dimensional</strong> due to <span class="arithmatex">\(\det(J)=0\)</span>—to "genuine" <strong>non-conserving two-dimensional systems</strong> (<span class="arithmatex">\(g \neq -f\)</span>). This transition makes <span class="arithmatex">\(\det(J) \neq 0\)</span> possible, thereby allowing entirely new dynamical behaviors such as spirals (complex eigenvalues) and oscillations. The analytical tool chain established in this lecture, from local analysis (LSA) to global structure (nullclines), to specific nonlinear oscillations (Hopf and Van der Pol), constitutes the foundation of nonlinear dynamics.</p>
+<p>The core of this lecture lies in revealing the necessity of <strong>nonlinearity</strong> for producing <strong>robust oscillations</strong>. Linear Stability Analysis (LSA) shows that purely linear oscillation (center, <span class="arithmatex">\(T=0\)</span>) is a "fine-tuned," physically unstable critical state. Hopf bifurcation shows how nonlinear terms (like <span class="arithmatex">\(\rho c^3\)</span>) can stably "give birth" to limit cycles through bifurcation (supercritical), or (subcritical) lead to bistability and hysteresis. The Van der Pol oscillator shows how nonlinear damping (<span class="arithmatex">\(\gamma(x^2 - 1)\dot{x}\)</span>) can "design" a robust stable limit cycle through energy self-regulation (injection and dissipation). When nonlinearity (<span class="arithmatex">\(\gamma\)</span>) is strong, this manifests as <strong>relaxation oscillations</strong>, characterized by fast ("snap") and slow ("crawl") <strong>time scale separation</strong>.</p>
+<p>In this lecture, we "saw" the existence of limit cycles through analysis and simulation. But in non-conserving systems (without potential functions), how do we rigorously <strong>prove</strong> the existence, uniqueness, and stability of a limit cycle? <strong>Lecture 7</strong> will directly address this question, introducing the powerful <strong>Poincaré-Bendixson Theorem</strong>. This theorem provides a rigorous mathematical criterion for determining the existence of limit cycles in the <strong>two-dimensional plane</strong>. After mastering this theorem, Lecture 7 will apply it to more complex biological and ecological models, including analysis of the <strong>RhoGTPase Oscillator</strong> (a key cell polarity model) and the classic <strong>Rock-Paper-Scissors</strong> game, revealing how periodic behavior emerges in these systems.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

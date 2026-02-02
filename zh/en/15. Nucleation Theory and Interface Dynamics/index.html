@@ -1,0 +1,1722 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - From Spinodal Decomposition to Nucleation Theory - A Dynamical Turn - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-from-spinodal-decomposition-to-nucleation-theory-a-dynamical-turn" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction - From Spinodal Decomposition to Nucleation Theory - A Dynamical Turn
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-from-spinodal-decomposition-to-nucleation-theory-a-dynamical-turn">Introduction - From Spinodal Decomposition to Nucleation Theory - A Dynamical Turn<a class="headerlink" href="#introduction-from-spinodal-decomposition-to-nucleation-theory-a-dynamical-turn" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 14</strong>, phase separation dynamics of liquid mixtures was systematically characterized within the continuous field theory framework of conserved order parameters through the Cahn–Hilliard equation (Model B). This equation takes the continuity equation as starting point, combining particle number conservation with Onsager transport relations in non-equilibrium thermodynamics, so that concentration field temporal evolution is driven by generalized chemical potential gradients. Within this framework, uniform states in thermodynamically unstable regions (spinodal region, <span class="arithmatex">\(f''(c)&lt;0\)</span>) are unstable to arbitrarily small fluctuations. Linear stability analysis reveals characteristic mode selection mechanism: <strong>perturbations within a finite wavenumber interval are exponentially amplified, with the fastest growing mode <span class="arithmatex">\(q_{\max}\)</span> determining the characteristic scale of early-stage patterns. This mechanism corresponds to spinodal decomposition, whose core dynamical characteristic is "uphill diffusion," meaning matter spontaneously aggregates against concentration gradients.</strong>
+<img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/15_001_d00ca90a-e739-4e02-be04-8f5f2c9b20f5.png" /></p>
+<p><img alt="Lecture Slide Screenshot, Cahn–Hilliard dynamics and spinodal decomposition schematic. This mechanism applies to thermodynamically unstable regions, where any arbitrarily small fluctuation will be amplified." src="../../../cn/assets/images/15_002_8ea04663-5d1f-4ea6-a7e2-c4b9edc6049a.png" /></p>
+<p>However, what the Cahn–Hilliard equation can describe in the linearized sense is limited to early stages of phase separation. <strong>As concentration fluctuation amplitudes increase, nonlinear effects inevitably dominate, and the system gradually evolves into enriched and depleted phase regions separated by interfaces.</strong> At this stage, relying solely on dispersion relations is insufficient to characterize dynamical processes; more importantly, the spinodal decomposition mechanism itself only applies to thermodynamically unstable regions. For metastable regions located between binodal and spinodal lines (<span class="arithmatex">\(f''(c)&gt;0\)</span>), uniform states are locally linearly stable, small perturbations are quickly suppressed, and Cahn–Hilliard's linear instability mechanism no longer applies. <strong>Phase separation in this region must be initiated through fundamentally different pathways.</strong></p>
+<p><img alt="Lecture Slide Screenshot, Linear stability analysis of Cahn–Hilliard equation. Through linearization and Fourier analysis of small perturbations to uniform state, dispersion relation \(\sigma(q)=-\Lambda(\bar c)q^2[f''(\bar c)+\kappa q^2]\) is obtained. When \(f''(\bar c)&lt;0\), unstable wavenumber interval exists with early structural scale selected by \(q_{\max}\); when \(f''(\bar c)&gt;0\), uniform state is linearly stable and all small perturbations decay." src="https://files.mdnice.com/user/129153/7c10e96b-2598-4b14-b4fd-87ce0b2ad68b.png" /></p>
+<p><strong>Lecture 15</strong> focuses precisely on this metastable region. Within this region, although the system has lower free energy phase-separated states, transitioning from initial uniform state to that state requires crossing a finite free energy barrier. Phase separation is no longer spontaneously triggered by infinitesimal fluctuations, but depends on finite-amplitude thermal fluctuations locally forming a high-concentration new phase embryo in the parent phase, i.e., droplet or nucleus. Only when the droplet size exceeds a certain critical value can volume free energy gain overcome interfacial energy cost, enabling spontaneous growth stage. This physical picture constitutes the starting point of <strong>Classical Nucleation Theory</strong>, also marking the paradigm shift in phase separation dynamics from <strong>linear instability</strong> to <strong>barrier control</strong>.</p>
+<p>Unlike diffuse concentration waves in spinodal decomposition, nucleation process involves clear phase interfaces from the beginning. Therefore, interface is no longer merely a regulatory mechanism implicitly introduced through gradient terms in Cahn–Hilliard functional, but becomes a physical object with definite thermodynamic and mechanical meaning. Interfacial tension, curvature, and resulting pressure differences and chemical potential corrections become key factors determining droplet stability and evolution direction. This lecture will start from competition between free energy volume and surface terms, derive critical droplet radius and nucleation barrier; then introduce Laplace pressure, establishing mechanical equilibrium conditions for curved interfaces; on this basis, combining chemical potential continuity with osmotic pressure relations, obtain the famous Gibbs–Thomson relation, revealing how interface curvature systematically raises equilibrium concentration of small droplets.</p>
+<p>After completing interface thermodynamics characterization, analysis will further turn to dynamics of individual droplets. Under sharp interface limit and time scale separation assumptions, concentration field outside droplet satisfies Laplace equation, whose analytical solution exhibits <span class="arithmatex">\(1/r\)</span> type long-range diffusion tail. Boundary conditions given by Gibbs–Thomson relation at interface determine material flux direction, thereby deriving criteria for droplet growth or shrinkage, and reintroducing critical radius concept at dynamical level. This single-droplet theory lays foundation for understanding material redistribution in multi-droplet systems.</p>
+<p>It should be emphasized that single-droplet dynamics established in this lecture is not the endpoint. When large numbers of droplets exist in the system, due to systematic tendency for small droplet dissolution and large droplet growth caused by Gibbs–Thomson relation, system enters coarsening stage with diffusion as limiting mechanism. Statistical description and scaling behavior of this stage, especially the law that characteristic scale follows <span class="arithmatex">\(L(t)\sim t^{1/3}\)</span>, will be systematically elaborated through Lifshitz–Slyozov–Wagner theory in next lecture (<strong>Lecture 16</strong>), thereby completing the full dynamical picture from nucleation to ripening.</p>
+<h1 id="1-classical-nucleation-theory">1. Classical Nucleation Theory<a class="headerlink" href="#1-classical-nucleation-theory" title="Permanent link">&para;</a></h1>
+<p>This lecture continues from <strong>Lecture 14</strong>'s "spinodal decomposition": when system is no longer in linear instability region of <span class="arithmatex">\(f''(c)&lt;0\)</span>, but enters metastable region between binodal and spinodal lines, uniform state is stable to small perturbations, and linear stability analysis no longer yields "spontaneously growing" modes. For phase separation to occur, it must rely on finite-amplitude thermal fluctuations generating a finite-sized high-concentration embryo (droplet) in the parent phase.   </p>
+<p><strong>Classical nucleation theory's task is to provide quantitative criteria for whether droplet will continue to grow or shrink and dissolve, within the competition between "bulk free energy decrease" and "interfacial energy increase," thereby introducing critical radius <span class="arithmatex">\(R_c\)</span> and nucleation barrier <span class="arithmatex">\(\Delta F(R_c)\)</span>.</strong></p>
+<h2 id="11-free-energy-landscape-and-physical-picture-of-metastable-state">1.1 Free Energy Landscape and Physical Picture of Metastable State<a class="headerlink" href="#11-free-energy-landscape-and-physical-picture-of-metastable-state" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Blackboard Screenshot, right figure shows double-well free energy structure, yellow vertical line indicates system average concentration \(\bar{c}\) located at locally stable but non-global minimum position, corresponding to metastable state; left figure schematically shows finite-sized droplet formed in this background, whose formation requires overcoming free energy barrier introduced by interfacial tension \(\gamma\)." src="../../../cn/assets/images/15_003_c7b5cac1-313a-48ed-b49a-b8a207254231.png" /></p>
+<p>Professor first returns to free energy landscape describing binary mixtures. In symmetric case, local free energy density is often represented by double-well potential, e.g.:</p>
+<div class="arithmatex">\[
+f(c)= -\frac{r}{2}c^2+\frac{u}{4}c^4
+\]</div>
+<p>where <span class="arithmatex">\(u&gt;0\)</span> ensures thermodynamic stability, and taking <span class="arithmatex">\(r&gt;0\)</span> in phase separation state (below critical point), <span class="arithmatex">\(c=0\)</span> becomes unstable point with two equivalent minima appearing. From <span class="arithmatex">\(f'(c)=-rc+uc^3=0\)</span>, equilibrium concentrations are obtained:</p>
+<div class="arithmatex">\[
+c_\pm=\pm\sqrt{\frac{r}{u}}
+\]</div>
+<p>These minima correspond to bulk concentrations of two phases (depleted/enriched phases).</p>
+<p>Metastable state means: system's average concentration <span class="arithmatex">\(\bar c\)</span> is between binodal and spinodal lines, so that local curvature <span class="arithmatex">\(f''(\bar c)&gt;0\)</span>, thus small perturbations are not amplified. For any small local fluctuation <span class="arithmatex">\(\delta c\)</span>, local free energy change can be approximated by Taylor expansion's second-order term:</p>
+<div class="arithmatex">\[
+\Delta f \approx \frac{1}{2}f''(\bar c)(\delta c)^2
+\]</div>
+<p>When <span class="arithmatex">\(f''(\bar c)&gt;0\)</span>, <span class="arithmatex">\(\Delta f&gt;0\)</span>, indicating small fluctuations are "smoothed out," uniform state is linearly stable to small perturbations. This explains: phase separation in metastable region is not "any arbitrarily small fluctuation will grow," but requires "sufficiently large perturbation."</p>
+<p>When a sufficiently large fluctuation occurs, making concentration in some finite region approach <span class="arithmatex">\(c_+\)</span> and forming clear interface with external parent phase (close to <span class="arithmatex">\(c_-\)</span> or approximately <span class="arithmatex">\(\bar c\)</span>), the system may overall reduce free energy. <strong>At this point, free energy change is no longer dominated by local second-order term, but jointly determined by "bulk gain" and "surface cost."</strong></p>
+<h2 id="12-free-energy-competition-mechanism-volume-gain-vs-surface-cost">1.2 Free Energy Competition Mechanism: Volume Gain vs. Surface Cost<a class="headerlink" href="#12-free-energy-competition-mechanism-volume-gain-vs-surface-cost" title="Permanent link">&para;</a></h2>
+<p>For tractable calculations, this lecture adopts idealized setup of classical nucleation theory: in metastable parent phase with average concentration <span class="arithmatex">\(\bar c\)</span>, a spherical droplet with radius <span class="arithmatex">\(R\)</span> forms, with droplet interior approximately at enriched phase concentration <span class="arithmatex">\(c_+\)</span>, exterior at parent phase concentration (approximately <span class="arithmatex">\(\bar c\)</span> or close to <span class="arithmatex">\(c_-\)</span>). Key approximation here is <strong>sharp interface</strong>: treating interface width as much smaller than <span class="arithmatex">\(R\)</span>, so interfacial energy can be characterized by surface tension <span class="arithmatex">\(\gamma\)</span> on geometric surface.</p>
+<p>To avoid notation confusion, <strong>unit volume free energy difference</strong> is explicitly written as:</p>
+<div class="arithmatex">\[
+\Delta f \equiv f(c_+) - f(\bar c)
+\]</div>
+<p>Under metastable setting <span class="arithmatex">\(f(c_+)&lt;f(\bar c)\)</span>, thus:</p>
+<div class="arithmatex">\[
+\Delta f &lt;0
+\]</div>
+<p>This means: if a volume element transforms from <span class="arithmatex">\(\bar c\)</span> to <span class="arithmatex">\(c_+\)</span>, its bulk free energy decreases (releases free energy).</p>
+<h3 id="121-volume-free-energy-volume-term">1.2.1 Volume Free Energy (Volume term)<a class="headerlink" href="#121-volume-free-energy-volume-term" title="Permanent link">&para;</a></h3>
+<p>Spherical droplet volume in 3D space is:</p>
+<div class="arithmatex">\[
+V_d=\frac{4\pi}{3}R^3
+\]</div>
+<p>Thus volume term contribution is:</p>
+<div class="arithmatex">\[
+\Delta F_{\mathrm{vol}}(R)=V_d\,\Delta f=\frac{4\pi}{3}R^3\Delta f
+\]</div>
+<p>Since <span class="arithmatex">\(\Delta f&lt;0\)</span>, this term is negative and grows as <span class="arithmatex">\(R^3\)</span>, representing <strong>larger droplets gain more bulk free energy benefit</strong>.</p>
+<p><strong>Physical meaning</strong>: Volume term corresponds to <strong>benefit of occupying deeper free energy valley bottom</strong>, the driving force pushing phase transition to occur; it only relates to bulk phase, independent of interface details.</p>
+<h3 id="122-surface-free-energy-surface-term">1.2.2 Surface Free Energy (Surface term)<a class="headerlink" href="#122-surface-free-energy-surface-term" title="Permanent link">&para;</a></h3>
+<p>Droplet appearance inevitably produces interface. Interface in Cahn–Hilliard free energy functional comes from gradient penalty term <span class="arithmatex">\(\frac{\kappa}{2}(\nabla c)^2\)</span>; under sharp interface approximation, energy of this entire transition layer is "condensed" into surface tension <span class="arithmatex">\(\gamma\)</span> (excess free energy per unit area). Spherical droplet surface area is:</p>
+<div class="arithmatex">\[
+A=4\pi R^2
+\]</div>
+<p>Thus surface term contribution is:</p>
+<div class="arithmatex">\[
+\Delta F_{\mathrm{surf}}(R)=\gamma A=4\pi\gamma R^2
+\]</div>
+<p>where <span class="arithmatex">\(\gamma&gt;0\)</span>. This term grows as <span class="arithmatex">\(R^2\)</span>, representing <strong>cost that must be paid to create interface</strong>.</p>
+<p><strong>Physical meaning</strong>: Surface term is the root cause hindering nucleation. Small droplets have larger surface area relative to volume, so surface cost dominates in small <span class="arithmatex">\(R\)</span> interval, droplets tend to disappear.</p>
+<h2 id="13-total-free-energy-change-and-critical-radius">1.3 Total Free Energy Change and Critical Radius<a class="headerlink" href="#13-total-free-energy-change-and-critical-radius" title="Permanent link">&para;</a></h2>
+<p>Adding volume and surface terms yields classical nucleation free energy curve:</p>
+<div class="arithmatex">\[
+\Delta F(R)=\Delta F_{\mathrm{surf}}+\Delta F_{\mathrm{vol}}
+=4\pi\gamma R^2+\frac{4\pi}{3}R^3\Delta f
+\]</div>
+<p>Since <span class="arithmatex">\(\Delta f&lt;0\)</span>, often written in form emphasizing <strong>gain/cost</strong> signs:</p>
+<div class="arithmatex">\[
+\Delta F(R)=4\pi\gamma R^2-\frac{4\pi}{3}R^3|\Delta f|
+\]</div>
+<p><span class="arithmatex">\(R^2\)</span> term is interface cost, <span class="arithmatex">\(R^3\)</span> term is volume gain.</p>
+<p><strong>Curve shape and physical interpretation:</strong></p>
+<p><img alt="Lecture Blackboard Screenshot, nucleation free energy change with droplet radius and physical meaning of critical radius.
+Schematic showing typical shape of total free energy change \(\Delta F(R)\) when spherical droplet with radius \(R\) forms in metastable parent phase. As \(R\) increases, surface free energy term grows as \(R^2\), representing energy cost from interfacial tension; volume free energy term grows as \(-R^3\), representing bulk free energy gain from droplet interior transitioning to stable phase. Competition between both causes \(\Delta F(R)\) to reach maximum at certain radius \(R_c\), corresponding to nucleation barrier: when \(R&lt;R_c\) droplet tends to shrink and disappear, while when \(R&gt;R_c\) volume gain dominates and droplet spontaneously grows, triggering phase separation process." src="../../../cn/assets/images/15_004_ebfbc92b-04f5-4752-bb4b-0328e09dbdb6.png" /></p>
+<ul>
+<li>
+<p>When <span class="arithmatex">\(R\to 0\)</span>, <span class="arithmatex">\(R^2\)</span> term dominates, <span class="arithmatex">\(\Delta F(R)\approx 4\pi\gamma R^2&gt;0\)</span>, tiny droplets shrink and disappear due to "pure cost."</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(R\)</span> is sufficiently large, <span class="arithmatex">\(R^3\)</span> term dominates, <span class="arithmatex">\(\Delta F(R)\)</span> becomes negative and decreases with <span class="arithmatex">\(R\)</span>, once droplet is large enough it spontaneously grows to continuously reduce free energy.  </p>
+</li>
+<li>
+<p>Because the two terms have different power dependence on <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(\Delta F(R)\)</span> must have a maximum point; this point corresponds to critical radius <span class="arithmatex">\(R_c\)</span>, the boundary between "shrinking" and "growing."</p>
+</li>
+</ul>
+<p><strong>Critical radius derivation:</strong></p>
+<p>Differentiating <span class="arithmatex">\(\Delta F(R)=4\pi\gamma R^2-\frac{4\pi}{3}R^3|\Delta f|\)</span>:</p>
+<div class="arithmatex">\[
+\frac{d\Delta F}{dR}=8\pi\gamma R-4\pi R^2|\Delta f|
+\]</div>
+<p>Setting it to zero and excluding trivial solution <span class="arithmatex">\(R=0\)</span>:</p>
+<div class="arithmatex">\[
+8\pi\gamma R-4\pi R^2|\Delta f|=0
+\quad\Rightarrow\quad
+R_c=\frac{2\gamma}{|\Delta f|}
+\]</div>
+<p>Note <span class="arithmatex">\(|\Delta f|\)</span> appears in denominator, meaning larger driving force leads to smaller critical radius.</p>
+<p>Substituting <span class="arithmatex">\(R_c\)</span> back into <span class="arithmatex">\(\Delta F(R)\)</span> yields barrier height:</p>
+<div class="arithmatex">\[
+\Delta F(R_c)
+=4\pi\gamma R_c^2-\frac{4\pi}{3}|\Delta f|R_c^3
+=\frac{16\pi\gamma^3}{3|\Delta f|^2}
+\]</div>
+<p><strong>Physical meaning:</strong></p>
+<ul>
+<li>
+<p><span class="arithmatex">\(R_c\propto \gamma\)</span>: larger interfacial tension means higher cost to create interface, must generate larger embryo to "earn back" interface cost.  </p>
+</li>
+<li>
+<p><span class="arithmatex">\(R_c\propto 1/|\Delta f|\)</span>: larger <span class="arithmatex">\(|\Delta f|\)</span> means stronger bulk gain, easier to form growable droplet; when system is closer to spinodal line, effective driving force increases, <span class="arithmatex">\(R_c\)</span> significantly decreases, nucleation occurs more easily.  </p>
+</li>
+<li>
+<p><span class="arithmatex">\(\Delta F(R_c)\propto \gamma^3/|\Delta f|^2\)</span>: barrier is extremely sensitive to <span class="arithmatex">\(\gamma\)</span> (cubic), explaining why small changes in surface tension cause orders of magnitude differences in nucleation rate. If viewing nucleation as thermally activated process, typical form is <span class="arithmatex">\(J\sim \exp[-\Delta F(R_c)/(k_B T)]\)</span>, higher barrier means rarer nucleation.</p>
+</li>
+</ul>
+<p>This completes the thermodynamic part of <strong>nucleation barrier</strong>: <strong>metastable region requires finite perturbation because interface cost must first be paid, then repaid through bulk gain.</strong> Next section elevates interface from <strong>energy cost <span class="arithmatex">\(\gamma\)</span></strong> to <strong>mechanical entity</strong>, introducing Laplace pressure and curved interface equilibrium conditions, thereby paving way for Gibbs–Thomson relation.  </p>
+<h1 id="2-interface-thermodynamics-and-laplace-pressure">2. Interface Thermodynamics and Laplace Pressure<a class="headerlink" href="#2-interface-thermodynamics-and-laplace-pressure" title="Permanent link">&para;</a></h1>
+<p>In Section 1, nucleation process was characterized as competition between bulk free energy gain and interfacial energy cost, with interfacial tension <span class="arithmatex">\(\gamma\)</span> entering free energy expression as parameter. This section understands physical properties of "interface" itself from perspective of mechanical and thermodynamic equilibrium. Key transformation is: once interface becomes curved, it is no longer just a passive energy term in free energy functional, but becomes an entity capable of exerting mechanical action on fluids on both sides. <strong>Laplace Pressure</strong> is precisely the concentrated manifestation of this interface mechanical effect, also the starting point for subsequent Gibbs–Thomson relation.</p>
+<h2 id="21-flat-interface-reference-frame">2.1 Flat Interface Reference Frame<a class="headerlink" href="#21-flat-interface-reference-frame" title="Permanent link">&para;</a></h2>
+<p>First use flat interface as baseline case. Assume two phases contact through a flat interface, corresponding to curvature limit <span class="arithmatex">\(R \to \infty\)</span>. Under thermodynamic equilibrium, both sides of interface must simultaneously satisfy following three conditions:</p>
+<ul>
+<li><strong>Thermal Equilibrium</strong>: Temperature on both sides of interface is equal:</li>
+</ul>
+<p>$$
+  T_{\mathrm{in}} = T_{\mathrm{out}}
+  $$</p>
+<ul>
+<li><strong>Chemical Equilibrium</strong>: Chemical potential on both sides of interface is equal:</li>
+</ul>
+<p>$$
+  \mu_{\mathrm{in}} = \mu_{\mathrm{out}}
+  $$</p>
+<p>This condition ensures no net particle diffusion flux at interface, otherwise matter would continuously migrate across interface.</p>
+<ul>
+<li><strong>Mechanical Equilibrium</strong>: Thermodynamic pressure (or osmotic pressure) on both sides of interface is equal:</li>
+</ul>
+<p>$$
+  \Pi_{\mathrm{in}} = \Pi_{\mathrm{out}}
+  $$</p>
+<p>For flat interface, if pressures are unequal, interface translates until mechanical equilibrium is restored.</p>
+<p>Significance of flat interface is that it provides "no curvature correction" reference state. All subsequent corrections due to interface curvature can be understood as deviations from this baseline state.</p>
+<h2 id="22-mechanical-equilibrium-of-curved-interface-and-laplace-pressure">2.2 Mechanical Equilibrium of Curved Interface and Laplace Pressure<a class="headerlink" href="#22-mechanical-equilibrium-of-curved-interface-and-laplace-pressure" title="Permanent link">&para;</a></h2>
+<p>When interface curves and forms spherical droplet with radius <span class="arithmatex">\(R\)</span>, interfacial tension <span class="arithmatex">\(\gamma\)</span> tends to contract interface to reduce surface area. If droplet can stably exist, interface contraction tendency must be balanced by pressure difference inside and outside droplet. This lecture uses principle of virtual work to derive this mechanical equilibrium condition.</p>
+<p>Consider a spherical droplet in equilibrium state, with radius undergoing infinitesimal change <span class="arithmatex">\(dR\)</span> from <span class="arithmatex">\(R\)</span>. During this virtual process, total work on system must be zero. Work comes from two parts: change in interfacial energy and mechanical work from pressure.</p>
+<p>First examine change in interfacial energy. Spherical droplet surface area is:</p>
+<div class="arithmatex">\[
+A = 4\pi R^2
+\]</div>
+<p>When radius increases by <span class="arithmatex">\(dR\)</span>, area change is:</p>
+<div class="arithmatex">\[
+dA = \frac{dA}{dR} dR = 8\pi R\, dR
+\]</div>
+<p>Corresponding interfacial energy increment is:</p>
+<div class="arithmatex">\[
+dW_{\mathrm{surf}} = \gamma\, dA = 8\pi \gamma R\, dR
+\]</div>
+<p>This term is always positive, representing energy cost required to expand interface.</p>
+<p>Next examine mechanical work corresponding to volume expansion. Droplet volume is:</p>
+<div class="arithmatex">\[
+V = \frac{4\pi}{3} R^3
+\]</div>
+<p>Volume change is:</p>
+<div class="arithmatex">\[
+dV = \frac{dV}{dR} dR = 4\pi R^2\, dR
+\]</div>
+<p>Let droplet interior pressure be <span class="arithmatex">\(P_{\mathrm{in}}\)</span>, exterior pressure <span class="arithmatex">\(P_{\mathrm{out}}\)</span>, then pressure difference <span class="arithmatex">\(\Delta P = P_{\mathrm{in}} - P_{\mathrm{out}}\)</span> does mechanical work during expansion:</p>
+<div class="arithmatex">\[
+dW_{\mathrm{mech}} = \Delta P\, dV = \Delta P\, 4\pi R^2\, dR
+\]</div>
+<p>Under mechanical equilibrium condition, interfacial energy increase must be completely compensated by pressure work, thus:</p>
+<div class="arithmatex">\[
+dW_{\mathrm{surf}} = dW_{\mathrm{mech}}
+\]</div>
+<p>i.e.,</p>
+<div class="arithmatex">\[
+8\pi \gamma R\, dR = (P_{\mathrm{in}} - P_{\mathrm{out}})\, 4\pi R^2\, dR
+\]</div>
+<p>Canceling common factor <span class="arithmatex">\(4\pi R\, dR\)</span>, obtain Laplace pressure formula in 3D space:</p>
+<div class="arithmatex">\[
+P_{\mathrm{in}} - P_{\mathrm{out}} = \frac{2\gamma}{R}
+\]</div>
+<p>From physical perspective, this result shows: curved interface necessarily introduces additional pressure difference, and larger interface curvature (smaller <span class="arithmatex">\(R\)</span>) requires higher internal supporting pressure.</p>
+<p>In this lecture's context of incompressible liquid mixtures, both <span class="arithmatex">\(P\)</span> and <span class="arithmatex">\(\Pi\)</span> can serve as expressions of "thermodynamic pressure." Section 2 deriving Laplace pressure uses <span class="arithmatex">\(P_{\mathrm{in}}-P_{\mathrm{out}}\)</span> which is closer to mechanical intuition; Section 3 and subsequent derivations use <span class="arithmatex">\(\Pi=\mu c-f\)</span> for easier connection with free energy density function. Both refer to same type of pressure jump here, subsequent text will mainly use <span class="arithmatex">\(\Pi\)</span> notation.</p>
+<h2 id="23-generalization-to-arbitrary-dimensions-and-physical-meaning">2.3 Generalization to Arbitrary Dimensions and Physical Meaning<a class="headerlink" href="#23-generalization-to-arbitrary-dimensions-and-physical-meaning" title="Permanent link">&para;</a></h2>
+<p>Above derivation targets 3D spherical droplets. More generally, in <span class="arithmatex">\(d\)</span>-dimensional space, hypersphere surface area and volume with radius <span class="arithmatex">\(R\)</span> satisfy respectively:</p>
+<div class="arithmatex">\[
+A \propto R^{d-1}, \qquad V \propto R^{d}
+\]</div>
+<p>Thus:</p>
+<div class="arithmatex">\[
+\frac{dA}{dR} \propto (d-1)R^{d-2}, \qquad \frac{dV}{dR} \propto d\,R^{d-1}
+\]</div>
+<p>Substituting this scaling relation into virtual work equilibrium condition yields Laplace pressure form in arbitrary dimensions:</p>
+<div class="arithmatex">\[
+\Pi_{\mathrm{in}} - \Pi_{\mathrm{out}} = \frac{(d-1)\gamma}{R}
+\]</div>
+<p>where <span class="arithmatex">\(\Pi\)</span> emphasizes that pressure can also be viewed as osmotic pressure in thermodynamic sense.</p>
+<p>This result reveals several key physical facts:</p>
+<p><strong>Pressure Discontinuity</strong><br />
+Pressure at curved interface necessarily has discontinuity, interior pressure is always higher than exterior pressure. Interface thus becomes "source term" in mechanical sense, not merely separation surface.</p>
+<p><strong>Curvature-Driven Effect</strong><br />
+Pressure difference is proportional to interface curvature <span class="arithmatex">\(1/R\)</span>. In flat interface limit <span class="arithmatex">\(R \to \infty\)</span>, Laplace pressure vanishes, naturally returning to flat interface equilibrium conditions discussed in Section 2.1.</p>
+<p><strong>Amplification of Small-Scale Effects</strong><br />
+When <span class="arithmatex">\(R\)</span> enters microscopic scale, <span class="arithmatex">\(\gamma/R\)</span> can reach extremely large values, making local pressure significantly deviate from bulk conditions. This effect directly changes chemical potential and equilibrium concentration near interface, being the fundamental cause of Gibbs–Thomson relation.</p>
+<p>Deriving concentration shift law under curved interface, thereby establishing Gibbs–Thomson relation.</p>
+<h1 id="3-gibbs-thomson-relation">3. Gibbs-Thomson Relation<a class="headerlink" href="#3-gibbs-thomson-relation" title="Permanent link">&para;</a></h1>
+<p>Section 2 has shown that curved interface introduces Laplace pressure, making thermodynamic pressure (or osmotic pressure) on both sides of interface no longer equal. More critically, this mechanical effect must "feedback" to thermodynamic equilibrium conditions: if droplet interior pressure increases while interface still needs to satisfy chemical equilibrium, then equilibrium concentration near interface must systematically shift. This section will combine <strong>chemical potential continuity with osmotic pressure jump</strong> to obtain concentration shift scaling law <span class="arithmatex">\(\delta c \propto 1/R\)</span> under curved interface, this is the Gibbs–Thomson relation. This relation will subsequently become core starting point for explaining material redistribution and Ostwald Ripening in multi-droplet systems.</p>
+<p>Note that complete chemical potential for Model B is <span class="arithmatex">\(\mu=\delta\mathcal F/\delta c=f'(c)-\kappa\nabla^2 c\)</span>. This lecture uses <span class="arithmatex">\(\mu\approx f'(c)\)</span> when deriving Gibbs–Thomson relation, corresponding to bulk approximation on both sides of interface: in regions far from interface thickness <span class="arithmatex">\(\xi\)</span>, concentration is approximately uniform, <span class="arithmatex">\(\nabla^2 c\approx 0\)</span>. Effects of curvature and gradient energy have been "packaged" into boundary conditions through interfacial tension <span class="arithmatex">\(\gamma\)</span> and Laplace pressure condition.</p>
+<h2 id="31-taylor-expansion-of-free-energy-density-near-two-phase-equilibrium-points">3.1 Taylor Expansion of Free Energy Density Near Two-Phase Equilibrium Points<a class="headerlink" href="#31-taylor-expansion-of-free-energy-density-near-two-phase-equilibrium-points" title="Permanent link">&para;</a></h2>
+<p>Consider a class of symmetric binary mixtures whose local free energy density <span class="arithmatex">\(f(c)\)</span> has double-well structure, with two-phase equilibrium concentrations denoted <span class="arithmatex">\(c_-\)</span> and <span class="arithmatex">\(c_+\)</span> respectively. Under flat interface reference state (<span class="arithmatex">\(R\to\infty\)</span>), these two points are minima of free energy density, thus satisfying:</p>
+<div class="arithmatex">\[
+f'(c_-) = 0
+\]</div>
+<div class="arithmatex">\[
+f'(c_+) = 0
+\]</div>
+<p>and curvature <span class="arithmatex">\(f''(c_\pm)&gt;0\)</span>.</p>
+<p>When interface is curved with finite radius, concentrations inside and outside droplet are no longer strictly equal to <span class="arithmatex">\(c_\pm\)</span>, but undergo small shifts. Define:</p>
+<div class="arithmatex">\[
+c_{\mathrm{in}} = c_+ + \delta c_{\mathrm{in}}
+\]</div>
+<div class="arithmatex">\[
+c_{\mathrm{out}} = c_- + \delta c_{\mathrm{out}}
+\]</div>
+<p>where <span class="arithmatex">\(\delta c_{\mathrm{in}}\)</span> and <span class="arithmatex">\(\delta c_{\mathrm{out}}\)</span> are treated as small quantities. Taylor expand free energy density around <span class="arithmatex">\(c_\pm\)</span> to second order:</p>
+<div class="arithmatex">\[
+f(c_{\mathrm{in}}) \approx f(c_+) + f'(c_+)\,\delta c_{\mathrm{in}} + \frac{1}{2} f''(c_+)\,(\delta c_{\mathrm{in}})^2
+\]</div>
+<div class="arithmatex">\[
+f(c_{\mathrm{out}}) \approx f(c_-) + f'(c_-)\,\delta c_{\mathrm{out}} + \frac{1}{2} f''(c_-)\,(\delta c_{\mathrm{out}})^2
+\]</div>
+<p>Using <span class="arithmatex">\(f'(c_\pm)=0\)</span>, obtain more concise form:</p>
+<div class="arithmatex">\[
+f(c_{\mathrm{in}}) \approx f(c_+) + \frac{1}{2} f''(c_+)\,(\delta c_{\mathrm{in}})^2
+\]</div>
+<div class="arithmatex">\[
+f(c_{\mathrm{out}}) \approx f(c_-) + \frac{1}{2} f''(c_-)\,(\delta c_{\mathrm{out}})^2
+\]</div>
+<p><strong>Physical meaning:</strong> Near two-phase equilibrium points, cost of concentration shift on free energy is controlled by curvature <span class="arithmatex">\(f''(c_\pm)\)</span>, larger shift leads to faster bulk free energy increase.</p>
+<h2 id="32-first-constraint-from-chemical-potential-continuity">3.2 First Constraint from Chemical Potential Continuity<a class="headerlink" href="#32-first-constraint-from-chemical-potential-continuity" title="Permanent link">&para;</a></h2>
+<p>Curved interface can cause pressure jump, but chemical equilibrium condition does not disappear because of this. If <span class="arithmatex">\(\mu_{\mathrm{in}}\neq \mu_{\mathrm{out}}\)</span> at interface, net diffusion flux across interface will be generated until chemical potentials become equal again. Thus first equilibrium condition adopted is:</p>
+<div class="arithmatex">\[
+\mu_{\mathrm{in}} = \mu_{\mathrm{out}}
+\]</div>
+<p>Chemical potential is taken as derivative of local free energy density with respect to concentration:</p>
+<div class="arithmatex">\[
+\mu = \partial_c f
+\]</div>
+<p>From Taylor expansion in previous subsection:</p>
+<div class="arithmatex">\[
+\mu_{\mathrm{in}} \approx f''(c_+)\,\delta c_{\mathrm{in}}
+\]</div>
+<div class="arithmatex">\[
+\mu_{\mathrm{out}} \approx f''(c_-)\,\delta c_{\mathrm{out}}
+\]</div>
+<p>Setting <span class="arithmatex">\(\mu_{\mathrm{in}}=\mu_{\mathrm{out}}\)</span> yields first constraint:</p>
+<div class="arithmatex">\[
+f''(c_+)\,\delta c_{\mathrm{in}} = f''(c_-)\,\delta c_{\mathrm{out}}
+\]</div>
+<p>For symmetric binary mixtures, curvatures of both potential wells are equal:</p>
+<div class="arithmatex">\[
+f''(c_+) = f''(c_-)
+\]</div>
+<p>Thus obtain more concise conclusion:</p>
+<div class="arithmatex">\[
+\delta c_{\mathrm{in}} = \delta c_{\mathrm{out}} \equiv \delta c
+\]</div>
+<p><strong>Physical meaning:</strong> In symmetric case, "thermodynamic correction" caused by interface curvature has same amplitude shift on both sides, remaining task is determining magnitude and sign of shift from mechanical conditions</p>
+<h2 id="33-quantitative-solution-of-osmotic-pressure-jump-and-concentration-shift">3.3 Quantitative Solution of Osmotic Pressure Jump and Concentration Shift<a class="headerlink" href="#33-quantitative-solution-of-osmotic-pressure-jump-and-concentration-shift" title="Permanent link">&para;</a></h2>
+<p>Section 2 has given mechanical equilibrium condition under curved interface: osmotic pressure difference across interface is given by Laplace pressure:</p>
+<div class="arithmatex">\[
+\Pi_{\mathrm{in}} - \Pi_{\mathrm{out}} = \frac{(d-1)\gamma}{R}
+\]</div>
+<p>where <span class="arithmatex">\(d\)</span> is spatial dimension, 3D spherical droplet corresponds to <span class="arithmatex">\(d=3\)</span>.</p>
+<p>Write osmotic pressure in Legendre transformation form of free energy:</p>
+<div class="arithmatex">\[
+\Pi = \mu c - f
+\]</div>
+<p>Thus,</p>
+<div class="arithmatex">\[
+\Pi_{\mathrm{in}} = \mu_{\mathrm{in}} c_{\mathrm{in}} - f(c_{\mathrm{in}})
+\]</div>
+<div class="arithmatex">\[
+\Pi_{\mathrm{out}} = \mu_{\mathrm{out}} c_{\mathrm{out}} - f(c_{\mathrm{out}})
+\]</div>
+<p>Since chemical potential continuity gives <span class="arithmatex">\(\mu_{\mathrm{in}}=\mu_{\mathrm{out}}\equiv \mu\)</span>, osmotic pressure difference can be written as:</p>
+<div class="arithmatex">\[
+\Pi_{\mathrm{in}} - \Pi_{\mathrm{out}} = \mu(c_{\mathrm{in}}-c_{\mathrm{out}}) - \big[f(c_{\mathrm{in}})-f(c_{\mathrm{out}})\big]
+\]</div>
+<p>Under small shift approximation, keep terms to <span class="arithmatex">\(\delta c\)</span>. To avoid lengthy algebra in derivation, linearization of pressure difference keeps only one key chain: under bulk approximation <span class="arithmatex">\(\mu \approx f''(c_+)\delta c\)</span>, and <span class="arithmatex">\(f(c_\pm+\delta c)\approx f(c_\pm)+\frac12 f''(c_\pm)\delta c^2\)</span>. Substituting these into <span class="arithmatex">\(\Pi=\mu c-f\)</span> and taking difference, leading term comes from <span class="arithmatex">\(\mu(c_{\mathrm{in}}-c_{\mathrm{out}})\)</span>, while second-order correction of <span class="arithmatex">\(f\)</span> only provides higher-order small quantities, thus:</p>
+<div class="arithmatex">\[
+\Pi_{\mathrm{in}}-\Pi_{\mathrm{out}}\approx \mu(c_+-c_-)\approx f''(c_+)(c_+-c_-)\delta c
+\]</div>
+<p>This relation directly connects <strong>curvature-induced concentration shift</strong> with <strong>Laplace pressure</strong>.</p>
+<p><strong>Physical meaning:</strong> Concentration shift <span class="arithmatex">\(\delta c\)</span> transforms into observable pressure difference through competition between chemical potential term <span class="arithmatex">\(\mu c\)</span> and free energy term <span class="arithmatex">\(f\)</span>.</p>
+<p>Combining with Laplace pressure condition:</p>
+<div class="arithmatex">\[
+f''(c_+)\,(c_+ - c_-)\,\delta c = \frac{(d-1)\gamma}{R}
+\]</div>
+<p>Solving yields concentration form of Gibbs–Thomson relation:</p>
+<div class="arithmatex">\[
+\delta c = \frac{(d-1)\gamma}{R\,(c_+ - c_-)\,f''(c_+)}
+\]</div>
+<h2 id="34-capillary-length-and-physical-interpretation">3.4 Capillary Length and Physical Interpretation<a class="headerlink" href="#34-capillary-length-and-physical-interpretation" title="Permanent link">&para;</a></h2>
+<p>Core scaling of Gibbs–Thomson relation is <span class="arithmatex">\(\delta c \propto 1/R\)</span>. To extract length scale, this lecture defines coefficient part as capillary length combination. Since <span class="arithmatex">\(c_{\mathrm{in}}=c_+ + \delta c\)</span> and <span class="arithmatex">\(c_{\mathrm{out}}=c_- + \delta c\)</span> are both concentrations, common dimensionless notation writes shift as relative shift:</p>
+<div class="arithmatex">\[
+c_\pm(R) = c_\pm\left(1 + \frac{\ell_\gamma^\pm}{R}\right)
+\]</div>
+<p>where capillary length <span class="arithmatex">\(\ell_\gamma^\pm\)</span> is defined as:</p>
+<div class="arithmatex">\[
+\ell_\gamma^\pm = \frac{(d-1)\gamma}{(c_+ - c_-)\,c_\pm\,f''(c_+)}
+\]</div>
+<p>This directly returns to absolute shift form:</p>
+<div class="arithmatex">\[
+\delta c = c_\pm \frac{\ell_\gamma^\pm}{R}
+\]</div>
+<p>consistent with <span class="arithmatex">\(\delta c\)</span> expression from previous subsection.</p>
+<p>Physical meaning of this set of expressions is very clear:</p>
+<p><strong>Curvature Raises Solubility</strong><br />
+In metastable region discussed in this lecture, <span class="arithmatex">\(f''(c_+)&gt;0\)</span>, and <span class="arithmatex">\(\gamma&gt;0\)</span>, <span class="arithmatex">\(R&gt;0\)</span>, <span class="arithmatex">\(c_+ - c_-&gt;0\)</span>, thus <span class="arithmatex">\(\delta c&gt;0\)</span>, meaning curved interface raises equilibrium concentration near interface overall, small droplets are more "soluble" due to larger <span class="arithmatex">\(1/R\)</span>.</p>
+<p><strong>Small Droplets More Easily Destabilize</strong><br />
+Smaller <span class="arithmatex">\(R\)</span> means larger <span class="arithmatex">\(\delta c\)</span>, higher equilibrium concentration near interface, easier to release matter to outside. Conversely, large droplets have smaller curvature, equilibrium concentration near interface closer to flat interface value, easier to absorb matter from outside.</p>
+<p><strong>Thermodynamic Origin of Ostwald Ripening</strong><br />
+In multi-droplet systems, different radii lead to different interface equilibrium concentrations, thereby establishing systematic concentration gradients in diffusion field. Matter migration from small to large droplets is not "accidental," but directional tendency forcibly generated by curvature effect <span class="arithmatex">\(\delta c \sim 1/R\)</span>.</p>
+<h1 id="4-growth-and-shrinkage-dynamics-of-single-droplet">4. Growth and Shrinkage Dynamics of Single Droplet<a class="headerlink" href="#4-growth-and-shrinkage-dynamics-of-single-droplet" title="Permanent link">&para;</a></h1>
+<p>Previous section gave thermodynamic boundary conditions at curved interface: due to Gibbs–Thomson effect, equilibrium concentration outside interface shifts with curvature, exhibiting <span class="arithmatex">\(1/R\)</span> scaling. This section introduces time dimension on this basis, answering a more specific question: <strong>given droplet with radius <span class="arithmatex">\(R\)</span> in environment with far-field concentration <span class="arithmatex">\(c_\infty\)</span>, will droplet grow or shrink, and what physical quantities control evolution rate of <span class="arithmatex">\(R(t)\)</span>. Key idea is converting "interface thermodynamics" into "diffusion boundary value problem", then using diffusion flux at interface and mass conservation to compress concentration field solution into a dynamical equation for <span class="arithmatex">\(R(t)\)</span>.</strong></p>
+<h2 id="41-sharp-interface-limit">4.1 Sharp Interface Limit<a class="headerlink" href="#41-sharp-interface-limit" title="Permanent link">&para;</a></h2>
+<p>For analytical results, adopt sharp interface approximation. Assume interface width <span class="arithmatex">\(\xi\)</span> is much smaller than droplet radius <span class="arithmatex">\(R\)</span>, so scale separation exists: <span class="arithmatex">\(\xi \ll R\)</span>. This approximation is more reliable under deep quench conditions far from critical point, because near critical point <span class="arithmatex">\(\xi\)</span> significantly increases and weakens concept of "geometric interface."</p>
+<p>Sharp interface approximation meaning can be divided into three levels:</p>
+<ul>
+<li>
+<p><strong>Geometrization</strong>: Interface is treated as zero-thickness spherical surface, with position at <span class="arithmatex">\(r=R\)</span>.</p>
+</li>
+<li>
+<p><strong>Zonal Solution</strong>: Space is divided into droplet interior <span class="arithmatex">\(r&lt;R\)</span> and droplet exterior <span class="arithmatex">\(r&gt;R\)</span> regions, with approximately constant concentration in bulk phases.</p>
+</li>
+<li>
+<p><strong>Boundary Conditions</strong>: Concentration value <span class="arithmatex">\(c_R\)</span> at interface <span class="arithmatex">\(r=R\)</span> is given by Gibbs–Thomson relation, thereby determining diffusion flux direction.</p>
+</li>
+</ul>
+<p>Goal of this section is first solving quasi-steady concentration field <span class="arithmatex">\(c(r)\)</span> in exterior region <span class="arithmatex">\(r&gt;R\)</span>, then calculating interface flux and <span class="arithmatex">\(\dot R\)</span> from it.</p>
+<h2 id="42-quasi-static-approximation">4.2 Quasi-static Approximation<a class="headerlink" href="#42-quasi-static-approximation" title="Permanent link">&para;</a></h2>
+<p>Sharp interface only solves spatial scale separation; temporal scale separation is also needed to approximate diffusion field as "instantaneous steady state." This lecture compares two time scales:</p>
+<ul>
+<li>
+<p>Diffusion time scale: <span class="arithmatex">\(\tau_{\mathrm{diff}} \sim R^2/D\)</span></p>
+</li>
+<li>
+<p>Radius evolution time scale: <span class="arithmatex">\(\tau_{\mathrm{grow}} \sim R/\dot R\)</span></p>
+</li>
+</ul>
+<p>When <span class="arithmatex">\(\tau_{\mathrm{diff}} \ll \tau_{\mathrm{grow}}\)</span>, concentration field responds quickly to changes in <span class="arithmatex">\(R(t)\)</span>, can assume that at any instant of slowly evolving radius, external concentration distribution has already adjusted to steady-state shape for current <span class="arithmatex">\(R\)</span>. Thus time derivative in diffusion equation can be neglected.</p>
+<p>In exterior region <span class="arithmatex">\(r&gt;R\)</span>, if diffusion coefficient <span class="arithmatex">\(D\)</span> is approximately constant, quasi-static condition is written as:</p>
+<div class="arithmatex">\[
+\partial_t c \approx 0
+\]</div>
+<p>Thus obtaining:</p>
+<div class="arithmatex">\[
+\nabla \cdot (D\nabla c)=0
+\]</div>
+<p>Further simplifying to Laplace equation:</p>
+<div class="arithmatex">\[
+\nabla^2 c(\mathbf r)=0
+\]</div>
+<p>This equation is a pure geometric boundary value problem, all dynamical information will be injected through boundary condition <span class="arithmatex">\(c(R)=c_R\)</span> and far-field condition <span class="arithmatex">\(c(\infty)=c_\infty\)</span>.</p>
+<h2 id="43-analytical-solution-of-concentration-field-and-electrostatics-analogy">4.3 Analytical Solution of Concentration Field and Electrostatics Analogy<a class="headerlink" href="#43-analytical-solution-of-concentration-field-and-electrostatics-analogy" title="Permanent link">&para;</a></h2>
+<p>Under sharp interface and quasi-static approximations, concentration field in droplet exterior region <span class="arithmatex">\(r&gt;R\)</span> satisfies Laplace equation. Due to spherical symmetry, concentration <span class="arithmatex">\(c(\mathbf r)\)</span> depends only on radial coordinate <span class="arithmatex">\(r\)</span>, equation can be reduced to:</p>
+<div class="arithmatex">\[
+\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial c}{\partial r}\right)=0
+\]</div>
+<p>This equation is one of most basic harmonic equations in 3D space, its general solution can be obtained through two integrations:</p>
+<div class="arithmatex">\[
+c(r)=A+\frac{B}{r}
+\]</div>
+<p>This <span class="arithmatex">\(1/r\)</span> form is completely isomorphic to potential function of isolated point charge in electrostatics, with physical meaning that: in 3D space, diffusion field excited by localized "source" or "sink" has long-range tail, not decaying rapidly within finite distance.</p>
+<p>Integration constants <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are uniquely determined by boundary conditions. First, region far from droplet should recover to uniform background concentration, so far-field condition is:</p>
+<div class="arithmatex">\[
+\lim_{r\to\infty} c(r)=c_\infty
+\]</div>
+<p>This directly gives:</p>
+<div class="arithmatex">\[
+A=c_\infty
+\]</div>
+<p>Second, at interface position <span class="arithmatex">\(r=R\)</span>, concentration must be continuous and take equilibrium value <span class="arithmatex">\(c_R\)</span> on interface exterior, this value is already given by Gibbs–Thomson relation in previous section. Thus interface condition is:</p>
+<div class="arithmatex">\[
+c(R)=c_R
+\]</div>
+<p>Substituting general solution into interface condition:</p>
+<div class="arithmatex">\[
+c_R=c_\infty+\frac{B}{R}
+\]</div>
+<p>Thus determining second integration constant:</p>
+<div class="arithmatex">\[
+B=R(c_R-c_\infty)
+\]</div>
+<p>In summary, concentration distribution for droplet exterior <span class="arithmatex">\(r&gt;R\)</span> can be written as:</p>
+<div class="arithmatex">\[
+c(r)=c_\infty+(c_R-c_\infty)\frac{R}{r}
+\]</div>
+<p>Or equivalently:</p>
+<div class="arithmatex">\[
+c(r)=c_\infty-(c_\infty-c_R)\frac{R}{r}
+\]</div>
+<p>Here <span class="arithmatex">\(c_R\)</span> is concentration value on interface exterior, its magnitude is determined by interface curvature through Gibbs–Thomson relation.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/15_005_8771fab2-ff56-4651-802f-f1e3e11a561d.png" /></p>
+<p>This analytical result brings two direct and important physical implications.</p>
+<p>First, diffusion field is long-range. Since <span class="arithmatex">\(c(r)-c_\infty\sim 1/r\)</span>, single droplet's influence on surrounding environment is not limited to local area, but propagates to considerable distance through slowly decaying diffusion tail. This means in multi-droplet systems, different droplets must be coupled through diffusion field and cannot evolve independently of each other.</p>
+<p>Second, droplet can be viewed as "source" or "sink" in diffusion field. When <span class="arithmatex">\(c_R&gt;c_\infty\)</span>, interface concentration is higher than far-field, radial gradient points outward, diffusion flux flows from droplet to outside, droplet tends to dissolve; when <span class="arithmatex">\(c_R&lt;c_\infty\)</span>, interface concentration is lower than far-field, diffusion flux points toward droplet interior, droplet tends to grow. This criterion directly connects interface thermodynamic conditions with subsequent radius evolution dynamics.</p>
+<h2 id="44-interface-flux-and-radius-evolution-equation">4.4 Interface Flux and Radius Evolution Equation<a class="headerlink" href="#44-interface-flux-and-radius-evolution-equation" title="Permanent link">&para;</a></h2>
+<p>Although quasi-static concentration field is solved, radial flux at interface determines temporal evolution of droplet radius. According to Fick's first law, radial flux density at interface is defined as:</p>
+<div class="arithmatex">\[
+J=-D\left.\frac{\partial c}{\partial r}\right|_{r=R}
+\]</div>
+<p>Differentiating <span class="arithmatex">\(c(r)=c_\infty+(c_R-c_\infty)R/r\)</span>:</p>
+<div class="arithmatex">\[
+\frac{\partial c}{\partial r}=-(c_R-c_\infty)\frac{R}{r^2}
+\]</div>
+<p>Substituting <span class="arithmatex">\(r=R\)</span>:</p>
+<div class="arithmatex">\[
+\left.\frac{\partial c}{\partial r}\right|_{r=R}=-\frac{c_R-c_\infty}{R}
+\]</div>
+<p>Thus interface flux is:</p>
+<div class="arithmatex">\[
+J=D\frac{c_\infty-c_R}{R}
+\]</div>
+<p>This expression directly gives criterion for flux direction: if <span class="arithmatex">\(c_\infty&gt;c_R\)</span> then <span class="arithmatex">\(J&gt;0\)</span> indicates net material inflow to droplet, if <span class="arithmatex">\(c_\infty&lt;c_R\)</span> then <span class="arithmatex">\(J&lt;0\)</span> indicates net material outflow from droplet.</p>
+<p>Interface conservation relation comes from geometric meaning of bulk phase displacement: interface advances <span class="arithmatex">\(dR=\dot R dt\)</span> in time <span class="arithmatex">\(dt\)</span>, corresponding new high-concentration phase volume per unit area is <span class="arithmatex">\((c_{\mathrm{in}}-c_{\mathrm{out}})dR\)</span>, must be provided by diffusion flux <span class="arithmatex">\(Jdt\)</span> at interface, thus:</p>
+<div class="arithmatex">\[
+(c_{\mathrm{in}}-c_{\mathrm{out}})\dot R=J
+\]</div>
+<p>Thus obtain dynamical equation for single droplet radius:</p>
+<div class="arithmatex">\[
+\dot R=\frac{D}{c_{\mathrm{in}}-c_{\mathrm{out}}}\frac{c_\infty-c_R}{R}
+\]</div>
+<p>where <span class="arithmatex">\(c_{\mathrm{in}}\)</span> and <span class="arithmatex">\(c_{\mathrm{out}}\)</span> are bulk phase concentrations inside and outside interface, under sharp interface approximation can be taken as constants close to <span class="arithmatex">\(c_+\)</span> and <span class="arithmatex">\(c_-\)</span>.</p>
+<p>To write dynamical criterion in form of <strong>geometric size competition</strong>, this lecture writes interface concentration in Gibbs–Thomson form. If flat interface exterior equilibrium concentration is denoted <span class="arithmatex">\(c_{\mathrm{eq}}\)</span>, then on curved interface:</p>
+<div class="arithmatex">\[
+c_R=c_{\mathrm{eq}}\left(1+\frac{\ell_\gamma}{R}\right)
+\]</div>
+<p>where <span class="arithmatex">\(\ell_\gamma\)</span> is capillary length. Substituting into <span class="arithmatex">\(\dot R\)</span> equation:</p>
+<div class="arithmatex">\[
+\dot R=\frac{D}{c_{\mathrm{in}}-c_{\mathrm{out}}}\frac{1}{R}\left(c_\infty-c_{\mathrm{eq}}-\frac{c_{\mathrm{eq}}\ell_\gamma}{R}\right)
+\]</div>
+<p>Define far-field supersaturation as:</p>
+<div class="arithmatex">\[
+\Delta c_0 \equiv c_\infty-c_{\mathrm{eq}}
+\]</div>
+<p>Equation can be written in more intuitive structure:</p>
+<div class="arithmatex">\[
+\dot R=\frac{D}{c_{\mathrm{in}}-c_{\mathrm{out}}}\left(\frac{\Delta c_0}{R}-\frac{c_{\mathrm{eq}}\ell_\gamma}{R^2}\right)
+\]</div>
+<p>This form clearly shows two competing mechanisms:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\Delta c_0/R\)</span> term is driven by far-field supersaturation, tending to make droplet grow.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(c_{\mathrm{eq}}\ell_\gamma/R^2\)</span> term is driven by curvature raising interface concentration, tending to make small droplets dissolve.</p>
+</li>
+</ul>
+<p>From <span class="arithmatex">\(\dot R=0\)</span> obtain dynamical critical radius:</p>
+<div class="arithmatex">\[
+R_c=\frac{c_{\mathrm{eq}}\ell_\gamma}{\Delta c_0}
+\]</div>
+<p>Thus droplet fate is determined by relationship between <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(R_c\)</span>:</p>
+<ul>
+<li>
+<p>When <span class="arithmatex">\(R&gt;R_c\)</span>, <span class="arithmatex">\(c_\infty&gt;c_R\)</span>, flux points toward droplet, droplet grows.</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(R&lt;R_c\)</span>, <span class="arithmatex">\(c_\infty&lt;c_R\)</span>, flux points away from droplet, droplet shrinks.</p>
+</li>
+</ul>
+<p>This conclusion reintroduces <strong>critical size</strong> concept at dynamical level, but here <span class="arithmatex">\(R_c\)</span> no longer comes from free energy extremum condition in Section 1, but from balance between <strong>far-field supersaturation driving</strong> and <strong>curvature-induced solubility increase</strong>. In multi-droplet systems, different <span class="arithmatex">\(R\)</span> correspond to different <span class="arithmatex">\(c_R\)</span>, diffusion coupling arising from this systematically transports matter from small to large droplets, this is precisely direct dynamical starting point for Ostwald ripening in next lecture.</p>
+<h1 id="5-code-practice-droplet-formation-and-growth-in-3d-phase-field">5. Code Practice: Droplet Formation and Growth in 3D Phase Field<a class="headerlink" href="#5-code-practice-droplet-formation-and-growth-in-3d-phase-field" title="Permanent link">&para;</a></h1>
+<p>Code practice will first reproduce free energy picture in classical nucleation theory. By directly plotting analytical expression of <span class="arithmatex">\(\Delta F(R)\)</span> versus droplet radius, demonstrate competition between volume free energy gain and surface energy cost, and resulting critical radius and nucleation barrier. This result corresponds to thermodynamic analysis in Section 1, answering <strong>why finite perturbation is needed to trigger phase separation in metastable region</strong>. Then, using spherically symmetric analytical solution of Laplace equation, construct diffusion field <span class="arithmatex">\(c(r)\sim 1/r\)</span> outside interface, and apply Gibbs–Thomson boundary condition at interface. This calculation directly corresponds to derivations in Sections 3 and 4, demonstrating how interface curvature raises local equilibrium concentration, and how this elevation determines diffusion flux direction and droplet growth or shrinkage tendency.</p>
+<p>Finally, through introducing 3D dynamical simulation, numerically solve phase field evolution of 3D Cahn–Hilliard equation (Model B). System starts from initial state with small random perturbations on non-zero average concentration, spontaneously forming spatial structures separating enriched and depleted phases under conserved dynamics constraint. By choosing non-critical average concentration, evolution results present droplet-like rather than bicontinuous morphology.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Set black background style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.edgecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_nucleation_barrier</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function 1: Visualization of Classical Nucleation Theory (CNT)</span>
+<span class="sd">    Plotting the Gibbs Free Energy change (Delta F) vs Droplet Radius (R).</span>
+<span class="sd">    Demonstrates the competition between Surface Cost (R^2) and Volume Gain (R^3).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 1. Define Physical Parameters (Arbitrary Simulation Units)</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.0</span>       <span class="c1"># Surface Tension (Cost per unit area)</span>
+    <span class="n">delta_f</span> <span class="o">=</span> <span class="mf">0.5</span>     <span class="c1"># Bulk Free Energy Difference per unit volume (|f_new - f_old|)</span>
+
+    <span class="c1"># 2. Define Radius Domain</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+
+    <span class="c1"># 3. Calculate Energy Components</span>
+    <span class="c1"># Surface Term (Positive Cost): proportional to Area ~ R^2</span>
+    <span class="n">F_surf</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">gamma</span>
+
+    <span class="c1"># Volume Term (Negative Gain): proportional to Volume ~ R^3</span>
+    <span class="c1"># Note: The gain reduces the free energy, hence the negative sign.</span>
+    <span class="n">F_vol</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">delta_f</span>
+
+    <span class="c1"># Total Free Energy Change</span>
+    <span class="n">F_total</span> <span class="o">=</span> <span class="n">F_surf</span> <span class="o">+</span> <span class="n">F_vol</span>
+
+    <span class="c1"># 4. Determine Critical Radius (Rc) Analytical Solution</span>
+    <span class="c1"># dF/dR = 8*pi*R*gamma - 4*pi*R^2*delta_f = 0  =&gt; Rc = 2*gamma/delta_f</span>
+    <span class="n">Rc</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">gamma</span> <span class="o">/</span> <span class="n">delta_f</span>
+    <span class="c1"># Calculate the Barrier Height (Activation Energy)</span>
+    <span class="n">F_max</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">Rc</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">gamma</span> <span class="o">-</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">Rc</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">delta_f</span>
+
+    <span class="c1"># 5. Plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="c1"># Plot components</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">F_surf</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#e74c3c&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Surface Cost ($+4\pi R^2 \gamma$)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">F_vol</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#3498db&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Volume Gain ($-4/3\pi R^3 |\Delta f|$)&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot Total Energy</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">F_total</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#2c3e50&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Total Free Energy $\Delta F(R)$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Annotate Critical Radius (Nucleation Barrier)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">Rc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#27ae60&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">Rc</span><span class="p">],</span> <span class="p">[</span><span class="n">F_max</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#27ae60&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add descriptive text and arrows</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Critical Radius $R_c=</span><span class="si">{</span><span class="n">Rc</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">Rc</span><span class="p">,</span> <span class="n">F_max</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">Rc</span><span class="o">+</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">F_max</span><span class="o">+</span><span class="mi">20</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#27ae60&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#27ae60&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Calculate appropriate y-values from the F_total array for annotation</span>
+    <span class="c1"># Find the index in the R array closest to the desired radius</span>
+    <span class="n">stable_radius_idx</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="p">(</span><span class="n">Rc</span><span class="o">+</span><span class="mi">2</span><span class="p">))),</span> <span class="nb">len</span><span class="p">(</span><span class="n">F_total</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">unstable_radius_idx</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="p">(</span><span class="n">Rc</span><span class="o">/</span><span class="mi">2</span><span class="p">))),</span> <span class="nb">len</span><span class="p">(</span><span class="n">F_total</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Stable Growth Region</span><span class="se">\n</span><span class="s1">(Spontaneous)&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">Rc</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">F_total</span><span class="p">[</span><span class="n">stable_radius_idx</span><span class="p">]),</span> 
+                <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">Rc</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Unstable Region</span><span class="se">\n</span><span class="s1">(Dissolution)&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">Rc</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">F_total</span><span class="p">[</span><span class="n">unstable_radius_idx</span><span class="p">]),</span> 
+                <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># Axis labels and Title</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Classical Nucleation Theory: The Free Energy Barrier&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Droplet Radius $R$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Free Energy Change $\Delta F$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Set limits for better visibility</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="n">F_max</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;nucleation_barrier.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_concentration_profile</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function 2: Concentration Profile around a Single Droplet</span>
+<span class="sd">    Visualizes the Gibbs-Thomson effect and the quasi-static diffusion field (1/r decay).</span>
+<span class="sd">    Corresponds to the solution of Laplace equation: c(r) = c_inf + (c_R - c_inf) * (R/r)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 1. Define Parameters</span>
+    <span class="n">R_droplet</span> <span class="o">=</span> <span class="mf">2.0</span>         <span class="c1"># Radius of the droplet</span>
+    <span class="n">c_inf</span> <span class="o">=</span> <span class="mf">0.4</span>             <span class="c1"># Far-field concentration (Supersaturated background)</span>
+
+    <span class="c1"># Gibbs-Thomson Shift:</span>
+    <span class="c1"># Small droplets have higher surface concentration. </span>
+    <span class="c1"># Let&#39;s assume the shift raises c_surface ABOVE c_inf for a dissolving droplet,</span>
+    <span class="c1"># or BELOW c_inf for a growing droplet.</span>
+    <span class="c1"># Scenario: Growing Droplet (Flux goes inward) -&gt; c_inf &gt; c_surface &gt; c_eq</span>
+    <span class="c1"># Scenario: Gibbs-Thomson Effect simply sets c_surface. </span>
+    <span class="c1"># Let&#39;s visualize a case where c_surface is elevated due to curvature.</span>
+    <span class="n">c_eq_flat</span> <span class="o">=</span> <span class="mf">0.3</span>         <span class="c1"># Equilibrium concentration for flat interface</span>
+    <span class="n">capillary_length</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># l_gamma</span>
+
+    <span class="c1"># c_surface (Gibbs-Thomson) = c_eq_flat * (1 + l_gamma / R)</span>
+    <span class="n">c_surface</span> <span class="o">=</span> <span class="n">c_eq_flat</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">capillary_length</span> <span class="o">/</span> <span class="n">R_droplet</span><span class="p">)</span>
+    <span class="n">c_in</span> <span class="o">=</span> <span class="mf">0.9</span>              <span class="c1"># Concentration inside the droplet (high density phase)</span>
+
+    <span class="c1"># 2. Define Spatial Domain</span>
+    <span class="c1"># Inside the droplet: 0 to R</span>
+    <span class="n">r_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">R_droplet</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="c1"># Outside the droplet: R to Far field</span>
+    <span class="n">r_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">R_droplet</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+    <span class="c1"># 3. Calculate Profiles</span>
+    <span class="c1"># Inside: Constant profile (solution to Laplace eq regular at origin)</span>
+    <span class="n">c_profile_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">r_in</span><span class="p">,</span> <span class="n">c_in</span><span class="p">)</span>
+
+    <span class="c1"># Outside: 1/r decay behavior</span>
+    <span class="c1"># c(r) = c_inf + (c_surface - c_inf) * (R / r)</span>
+    <span class="n">c_profile_out</span> <span class="o">=</span> <span class="n">c_inf</span> <span class="o">+</span> <span class="p">(</span><span class="n">c_surface</span> <span class="o">-</span> <span class="n">c_inf</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_droplet</span> <span class="o">/</span> <span class="n">r_out</span><span class="p">)</span>
+
+    <span class="c1"># 4. Plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="c1"># Plot Inside</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_in</span><span class="p">,</span> <span class="n">c_profile_in</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#f39c12&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Droplet Interior (High Density)&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot Outside</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_out</span><span class="p">,</span> <span class="n">c_profile_out</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#8e44ad&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Matrix (Diffusion Field ~ $1/r$)&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot Interface Boundary</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">R_droplet</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Interface Position $R$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Annotations for key concentration levels</span>
+    <span class="c1"># c_in</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c_in</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;$c_</span><span class="si">{in}</span><span class="s1">$ (Droplet Phase)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#f39c12&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+    <span class="c1"># c_surface (Gibbs-Thomson)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">R_droplet</span><span class="p">],</span> <span class="p">[</span><span class="n">c_surface</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$c(R) = c_</span><span class="se">{{</span><span class="s1">out</span><span class="se">}}</span><span class="s1"> + \delta c$</span><span class="se">\n</span><span class="s1">(Gibbs-Thomson)&#39;</span><span class="p">,</span> 
+                <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">R_droplet</span><span class="p">,</span> <span class="n">c_surface</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">R_droplet</span><span class="o">+</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">c_surface</span><span class="o">+</span><span class="mf">0.1</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+    <span class="c1"># c_inf</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">c_inf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Far Field $c_{\infty}$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">c_inf</span> <span class="o">-</span> <span class="mf">0.04</span><span class="p">,</span> <span class="s1">&#39;$c_{\infty}$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="c1"># Visualizing the Gradient (Flux)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Flux $J$ (Growth)&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">R_droplet</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">c_surface</span><span class="o">+</span><span class="n">c_inf</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">R_droplet</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="n">c_surface</span><span class="o">+</span><span class="n">c_inf</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Titles and Labels</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Concentration Profile: Gibbs-Thomson Effect &amp; Diffusion Field&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Radial Distance $r$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration $c(r)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center right&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;concentration_profile.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span><span class="p">,</span> <span class="n">PillowWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>  <span class="c1"># noqa: F401</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ch3d_simulate</span><span class="p">(</span>
+    <span class="n">N</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">L</span><span class="o">=</span><span class="mf">64.0</span><span class="p">,</span>
+    <span class="n">M</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">u</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">kappa</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">dt</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span>
+    <span class="n">sample_steps</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1800</span><span class="p">),</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">mean_c</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span>
+    <span class="n">noise_amp</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    3D Cahn–Hilliard (semi-implicit spectral), periodic boundary conditions</span>
+
+<span class="sd">      ∂t c = M ∇² ( -r c + u c^3 - κ ∇² c )</span>
+
+<span class="sd">    mean_c != 0 makes domains droplet-like (off-critical quench)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">N</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="n">mean_c</span> <span class="o">+</span> <span class="n">noise_amp</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="n">kz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">kx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">ky</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">kz</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">k2</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">denom</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">k2</span> <span class="o">-</span> <span class="n">M</span> <span class="o">*</span> <span class="n">kappa</span> <span class="o">*</span> <span class="n">k4</span><span class="p">)</span>
+    <span class="n">denom</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="n">snapshots</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">snapshots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_steps</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">c_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">c3_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="n">numer</span> <span class="o">=</span> <span class="n">c_hat</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">*</span> <span class="n">u</span> <span class="o">*</span> <span class="n">k2</span><span class="p">)</span> <span class="o">*</span> <span class="n">c3_hat</span>
+        <span class="n">c_hat_new</span> <span class="o">=</span> <span class="n">numer</span> <span class="o">/</span> <span class="n">denom</span>
+        <span class="n">c_hat_new</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># exact mass conservation</span>
+
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftn</span><span class="p">(</span><span class="n">c_hat_new</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">sample_steps</span><span class="p">:</span>
+            <span class="n">snapshots</span><span class="p">[</span><span class="n">step</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">snapshots</span><span class="p">,</span> <span class="n">dx</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_ch3d_slices_gif</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">out_gif</span><span class="o">=</span><span class="s2">&quot;ch3d_slices.gif&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a GIF of central z-slices over time (pastel colormap on black)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">snapshots</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">snapshots</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">]</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">z0</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="n">slices</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">z0</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">]</span>  <span class="c1"># transpose for nicer orientation</span>
+
+    <span class="n">vlim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">slices</span><span class="p">)),</span> <span class="mi">99</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+    <span class="c1"># pastel, publication-like on dark background</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vlim</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vlim</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;3D CH: central slice (step=</span><span class="si">{</span><span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">getp</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="s2">&quot;yticklabels&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">slices</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;3D CH: central slice (step=</span><span class="si">{</span><span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">im</span><span class="p">,)</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">steps</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_gif</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_ch3d_droplet_rotate_gif</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">out_gif</span><span class="o">=</span><span class="s2">&quot;ch3d_droplet_rotate.gif&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a 3D rotating scatter GIF of the final field (droplet-like domains)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">last_step</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">snapshots</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">snapshots</span><span class="p">[</span><span class="n">last_step</span><span class="p">]</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="n">dx</span>
+
+    <span class="c1"># threshold for one phase; choose above mean to show droplets</span>
+    <span class="n">thr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">)</span>
+
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">max_pts</span> <span class="o">=</span> <span class="mi">70000</span>
+    <span class="k">if</span> <span class="n">idx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_pts</span><span class="p">:</span>
+        <span class="n">sel</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">idx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">max_pts</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="n">sel</span><span class="p">]</span>
+
+    <span class="n">xs</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+    <span class="n">zs</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">dx</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">idx</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">idx</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]]</span>
+
+    <span class="c1"># pastel colormap on black</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.2</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+    <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">vals</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;3D Cahn–Hilliard droplet-like domains (step=</span><span class="si">{</span><span class="n">last_step</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="c1"># tick colors</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.035</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.08</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">getp</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="s2">&quot;yticklabels&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+    <span class="c1"># rotate animation (top-journal style: clean, minimal)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+        <span class="n">azim</span> <span class="o">=</span> <span class="n">frame</span>
+        <span class="n">elev</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="n">elev</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="n">azim</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">sc</span><span class="p">,)</span>
+
+    <span class="n">frames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">frames</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">out_gif</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="n">PillowWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">18</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generating original two figures (unchanged)...&quot;</span><span class="p">)</span>
+    <span class="n">plot_nucleation_barrier</span><span class="p">()</span>
+    <span class="n">plot_concentration_profile</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running 3D Cahn–Hilliard simulation and exporting GIFs...&quot;</span><span class="p">)</span>
+    <span class="n">snapshots</span><span class="p">,</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">ch3d_simulate</span><span class="p">(</span>
+        <span class="n">N</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">L</span><span class="o">=</span><span class="mf">64.0</span><span class="p">,</span>
+        <span class="n">M</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">r</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">u</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">kappa</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">dt</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">n_steps</span><span class="o">=</span><span class="mi">1800</span><span class="p">,</span>
+        <span class="n">sample_steps</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1800</span><span class="p">),</span>
+        <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+        <span class="n">mean_c</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span>     <span class="c1"># off-critical to encourage droplet morphology</span>
+        <span class="n">noise_amp</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">save_ch3d_slices_gif</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">out_gif</span><span class="o">=</span><span class="s2">&quot;ch3d_slices.gif&quot;</span><span class="p">)</span>
+    <span class="n">save_ch3d_droplet_rotate_gif</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">out_gif</span><span class="o">=</span><span class="s2">&quot;ch3d_droplet_rotate.gif&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done. Saved:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - nucleation_barrier.png&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - concentration_profile.png&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - ch3d_slices.gif&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - ch3d_droplet_rotate.gif&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/ch3d_droplet_rotate.gif" /></p>
+<p>3D visualization of 3D Cahn–Hilliard droplet-like structures shows spatial structure of 3D Cahn–Hilliard (Model B) phase field model after long-time evolution. System starts from initial state with weak noise on non-zero average concentration, gradually forming spatial patterns separating enriched and depleted phases under conserved dynamics constraint. Figure visualizes spatial distribution of high-concentration phase as 3D scatter plot, showing multiple approximately spherical enriched phase clusters, i.e., "droplet-like" structures. These structures are not imposed by external geometric constraints, but spontaneously formed by bulk free energy driving and interfacial tension minimization, embodying energy advantage of spherical interface under surface tension dominance. This figure intuitively corresponds to sharp interface limit + 3D spherical droplet physical picture in tutorial, serving as spatial background for subsequent single-droplet and multi-droplet dynamics analysis.</p>
+<p><img alt="Code Output" src="../../../cn/assets/images/ch3d_slices.gif" /></p>
+<p>Central slice of 3D Cahn–Hilliard evolution process. Initially, concentration field in space only contains small-amplitude, approximately uniform random fluctuations, without any obvious spatial structure or interface. Subsequent droplets or interface structures form from these tiny fluctuations through non-equilibrium dynamics gradually amplifying.</p>
+<p><img alt="Code Output" src="../../../cn/assets/images/15_008_24e1273d-2e11-44fa-bcd3-cc2fa30e08fe.png" /></p>
+<p>Concentration distribution around single droplet with Gibbs–Thomson boundary condition. Droplet interior concentration is approximately constant, corresponding to high-density phase; droplet exterior concentration decays as typical <span class="arithmatex">\(1/r\)</span> with radial distance, which is analytical solution of Laplace equation under 3D spherically symmetric conditions. Interface concentration <span class="arithmatex">\(c(R)\)</span> is clearly higher than equilibrium concentration for flat interface, reflecting Gibbs–Thomson effect: interface curvature raises local equilibrium concentration. Figure also marks far-field concentration <span class="arithmatex">\(c_\infty\)</span> and flux direction, showing when <span class="arithmatex">\(c_\infty &gt; c(R)\)</span>, diffusion flux points toward droplet interior, thereby driving droplet growth. This picture directly connects interface thermodynamic conditions with subsequent radius evolution dynamics.</p>
+<p><img alt="Code Output" src="../../../cn/assets/images/15_009_9639068f-e1d9-4bf2-80d5-5f5abf4f50fa.png" /></p>
+<p>Typical shape of total free energy change <span class="arithmatex">\(\Delta F(R)\)</span> with droplet radius <span class="arithmatex">\(R\)</span> in classical nucleation theory. Surface free energy term grows as <span class="arithmatex">\(R^2\)</span>, representing energy cost of interface formation; volume free energy term grows as <span class="arithmatex">\(-R^3\)</span>, representing bulk energy gain from droplet interior transitioning to stable phase. Competition leads total free energy curve to reach maximum at certain critical radius <span class="arithmatex">\(R_c\)</span>, corresponding to nucleation barrier. Figure distinguishes unstable region smaller than <span class="arithmatex">\(R_c\)</span> (droplet tends to dissolve) and stable growth region larger than <span class="arithmatex">\(R_c\)</span> (droplet spontaneously grows). Explains from thermodynamic perspective why finite-amplitude fluctuations are needed to trigger phase separation in metastable systems, laying foundation for reappearance of <strong>critical size</strong> in subsequent dynamics.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture systematically organized how phase separation initiates and proceeds through nucleation and interface dynamics in metastable region after spinodal decomposition mechanism fails. Core transformation is: <strong>phase separation is no longer automatically triggered by linear instability, but must cross free energy barrier introduced by interfacial tension. Classical nucleation theory quantitatively gives critical radius and nucleation barrier through competition between volume free energy gain and surface energy cost, explaining necessity of "finite perturbation" from thermodynamic level.</strong></p>
+<p>On this basis, this lecture elevated interface from parameter term in free energy functional to physical entity with definite mechanical meaning. Through derivation of Laplace pressure, curved interface is proved to necessarily introduce pressure jump on both sides, and this mechanical effect feeds back to thermodynamic equilibrium conditions through chemical potential continuity. Resulting Gibbs–Thomson relation reveals a key fact: <strong>interface curvature systematically raises equilibrium concentration near small droplets, with scaling form <span class="arithmatex">\(\delta c \sim 1/R\)</span>.</strong></p>
+<p>After further introducing sharp interface limit and quasi-static approximation, single droplet dynamics problem is converted to diffusion boundary value problem. Concentration field outside droplet satisfies Laplace equation, its <span class="arithmatex">\(1/r\)</span> type analytical solution not only determines diffusion flux direction at interface, but also reintroduces critical size concept at dynamical level. It should be emphasized that critical radius appearing here does not originate from free energy extremum, but from balance between far-field supersaturation driving and curvature-induced solubility elevation.</p>
+<p>However, real systems often contain large numbers of droplets simultaneously. Due to small droplet high solubility and large droplet low solubility caused by Gibbs–Thomson relation, multi-droplet systems will inevitably enter diffusion-controlled coarsening stage, with matter systematically migrating from small to large droplets. Statistical description, scaling laws, and universality of this collective phenomenon—next lecture will start from single-droplet dynamics, transition to mean-field description of multi-droplet systems, explain why characteristic scale exhibits <span class="arithmatex">\(L(t)\sim t^{1/3}\)</span> growth law over time, thereby completing full panorama of phase separation dynamics from nucleation to ripening.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

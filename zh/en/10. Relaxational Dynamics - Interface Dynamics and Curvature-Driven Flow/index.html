@@ -1,0 +1,1269 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - From Field Theory to Geometric Dynamics - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-from-field-theory-to-geometric-dynamics" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction - From Field Theory to Geometric Dynamics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-from-field-theory-to-geometric-dynamics">Introduction - From Field Theory to Geometric Dynamics<a class="headerlink" href="#introduction-from-field-theory-to-geometric-dynamics" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 9</strong>, the course constructed the Ginzburg-Landau free energy functional describing non-equilibrium phase transitions based on Landau mean-field theory and symmetry principles, and derived the <strong>Allen-Cahn Equation (Model A)</strong> describing the evolution of non-conserved order parameters. Through Linear Stability Analysis (LSA), Lecture 9 successfully explained how systems spontaneously break symmetry from uniform high-temperature disordered states through <strong>Spinodal Decomposition</strong>, forming locally ordered structures. However, linear theory is only valid for the very early stages of phase transitions, i.e., the period when order parameter <span class="arithmatex">\(\phi\)</span> is small and spatial fluctuations are gentle. When system evolution enters the late stage, the order parameter has saturated to the potential well minima (<span class="arithmatex">\(\pm \phi_0\)</span>) in most spatial regions, and the system is clearly divided into different "Domains"—the physical picture undergoes a qualitative transformation.</p>
+<p>At this point, the system's dynamics is no longer dominated by small fluctuations in the Bulk, but is controlled by the <strong>Interfaces</strong> or <strong>Domain Walls</strong> separating different ordered phases. These interfaces are not abstract mathematical boundaries, but physical entities carrying Gradient Energy Density. At this stage, understanding system evolution requires a critical perspective shift: from focusing on the scalar field <span class="arithmatex">\(\phi(\vec{x}, t)\)</span> distribution throughout space, to focusing on the dynamical behavior of interface geometric shapes. This <strong>Coarse-graining</strong> process from microscopic field theory to macroscopic geometric dynamics is the core methodology for handling complex spatially extended systems.</p>
+<p>To intuitively illustrate the physical connection between interface tension and geometric shape, the professor first displayed the tensile membrane structure of the 1972 Munich Olympic Stadium.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/10_001_ebc5acb2-7167-4b8e-b473-29a8079d74b6.jpg" /></p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/10_002_93ba7791-2eda-40d1-a404-58664c23cca6.png" /></p>
+<p>Geometric Models - Minimal Surfaces as Soap Films. The person in the upper left corner is <strong>Professor Alexander Brill</strong>. In the 1880s at the Technical University of Munich, he supervised students to design a series of wire frame models. These models were dipped into soapy water to generate interesting surface shapes, helping physicists and mathematicians of that era study minimal surfaces. <span class="arithmatex">\(E = \sigma \int \text{d}S\)</span> reveals the physical mechanism by which soap films form minimal surfaces. <span class="arithmatex">\(E\)</span> represents surface energy. <span class="arithmatex">\(\sigma\)</span> (sigma) represents the surface tension coefficient. <span class="arithmatex">\(\int \text{d}S\)</span> represents total surface area. For the system to reach the lowest energy stable state (minimize <span class="arithmatex">\(E\)</span>), with constant surface tension, it must minimize the surface area (<span class="arithmatex">\(\int \text{d}S\)</span>). The four photographs below show thin films formed when wire frame models of different geometric shapes are dipped in soap solution. The shapes these films automatically form are the minimal area surfaces under given boundaries (wire frames), i.e., minimal surfaces.</p>
+<p>The design inspiration for this building originated from the principle of Minimal Surfaces, whose history can be traced back to the soap film models made by Professor Alexander Brill and his students at the Technical University of Munich in the 19th century. Soap films automatically adjust their shape under the drive of surface tension to minimize surface area, ultimately forming steady-state structures with zero mean curvature. This macroscopic phenomenon has profound mathematical isomorphism with microscopic Allen-Cahn dynamics. The goal of this lecture is precisely to start from the microscopic Allen-Cahn equation and, through Singular Perturbation Theory and multiscale expansion, rigorously derive effective equations for interface motion. The analysis will prove that in non-conserved systems, the normal velocity <span class="arithmatex">\(V\)</span> of interfaces is proportional to their local mean curvature <span class="arithmatex">\(H\)</span> (<span class="arithmatex">\(V \propto -H\)</span>), i.e., <strong>Curvature-Driven Flow</strong>.</p>
+<p>This conclusion not only explains the <strong>Coarsening</strong> phenomenon in phase separation processes but also provides a theoretical foundation for understanding crystal growth, biological membrane dynamics, and more. At the same time, the discussion of interface dynamics also lays the foundation for <strong>the next lecture (Lecture 11)</strong>. In the next lecture, the physical constraint will change from "non-conserved" to "conserved" (i.e., Model B / Cahn-Hilliard equation), introducing thermodynamics of mixed liquids and Maxwell Construction, whereupon interface dynamics will exhibit Ostwald ripening behavior completely different from this lecture.</p>
+<h1 id="1-static-interface-solutions-and-surface-tension">1. Static Interface Solutions and Surface Tension<a class="headerlink" href="#1-static-interface-solutions-and-surface-tension" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 9</strong>, the course used Linear Stability Analysis (LSA) to reveal how uniform systems spontaneously generate small density fluctuations through Spinodal decomposition. However, the validity of linear theory is limited to the early phase transition period. As evolution continues, the order parameter <span class="arithmatex">\(\phi\)</span> rapidly saturates to thermodynamic steady-state values <span class="arithmatex">\(\pm \phi_0\)</span> in most spatial regions, and the system enters a late stage dominated by nonlinearity. At this point, the physical picture undergoes a fundamental transformation: the system is no longer small perturbations in a uniform medium, but is clearly divided into different "Domains."</p>
+<p>In this state, the system's energy and dynamical characteristics are mainly concentrated at the <strong>Interfaces</strong> separating different ordered phases. To understand the laws of interface motion (i.e., interface dynamics), the primary task is to analyze their <strong>static structure</strong>. In non-conserved systems described by the Allen-Cahn equation (Model A), what spatial profile does a stationary interface have? How much energy cost is required to maintain such a non-uniform structure? This lecture will derive analytical solutions for static domain walls starting from the microscopic field equation, and thereby introduce the microscopic definition of <strong>Surface Tension</strong>. This is not only a bridge connecting microscopic field theory and macroscopic geometric dynamics, but also lays the foundation for the next lecture (Lecture 11) in handling more complex conserved systems (Model B) and Maxwell construction.</p>
+<h2 id="11-steady-state-conditions-and-one-dimensional-mechanical-analogy">1.1 Steady-State Conditions and One-Dimensional Mechanical Analogy<a class="headerlink" href="#11-steady-state-conditions-and-one-dimensional-mechanical-analogy" title="Permanent link">&para;</a></h2>
+<p>The starting point of analysis is the standard non-conserved scalar field equation—<strong>Model A (Allen-Cahn Equation)</strong>:</p>
+<div class="arithmatex">\[
+\partial_t \phi(\mathbf{x}, t) = - \frac{\delta \mathcal{F}}{\delta \phi} = \kappa \nabla^2 \phi - f'(\phi)
+\]</div>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\phi(\mathbf{x}, t)\)</span> is the real scalar order parameter (such as magnetization or concentration difference in binary mixtures).</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\kappa\)</span> is the <strong>Stiffness coefficient</strong>, originating from the gradient penalty term <span class="arithmatex">\(\frac{\kappa}{2}(\nabla \phi)^2\)</span> in the free energy functional. It characterizes the strength of spatial coupling, physically tending to smooth out spatial gradients and suppress interface formation.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f(\phi)\)</span> is the local free energy density, usually taking the Landau double-well form, driving the system to undergo symmetry breaking and tending to produce separated phases.</p>
+</li>
+</ul>
+<p>To find <strong>static interface solutions</strong>, impose the steady-state condition <span class="arithmatex">\(\partial_t \phi = 0\)</span>. Consider the simplest geometric configuration: an infinite system with a Flat Interface perpendicular to the <span class="arithmatex">\(x\)</span>-axis, separating the <span class="arithmatex">\(\phi_-\)</span> phase on the left from the <span class="arithmatex">\(\phi_+\)</span> phase on the right. Due to translational symmetry, <span class="arithmatex">\(\phi\)</span> depends only on spatial coordinate <span class="arithmatex">\(x\)</span>, and the partial differential equation simplifies to a second-order ordinary differential equation:</p>
+<div class="arithmatex">\[
+\kappa \frac{d^2 \phi}{dx^2} - f'(\phi) = 0 \quad \Rightarrow \quad \kappa \partial_x^2 \phi = f'(\phi)
+\]</div>
+<p><strong>Physical Analogy</strong>:</p>
+<p>This equation is mathematically equivalent to Newton's equation of motion for a particle of mass <span class="arithmatex">\(\kappa\)</span> in an <strong>inverted potential</strong> <span class="arithmatex">\(-f(\phi)\)</span> (here spatial coordinate <span class="arithmatex">\(x\)</span> plays the role of "time," and field variable <span class="arithmatex">\(\phi\)</span> plays the role of "position"). This means interface profile formation can be viewed as the system seeking an "optimal trajectory" in space connecting two potential energy extrema.</p>
+<h2 id="12-nondimensionalization-and-correlation-length-derivation-of-the-kink-solution">1.2 Nondimensionalization and Correlation Length - Derivation of the Kink Solution<a class="headerlink" href="#12-nondimensionalization-and-correlation-length-derivation-of-the-kink-solution" title="Permanent link">&para;</a></h2>
+<p>To solve analytically and extract the system's characteristic scales, physical quantities need to be <strong>Nondimensionalized</strong>.</p>
+<p>For the standard <span class="arithmatex">\(\phi^4\)</span> double-well <span class="arithmatex">\(V(\phi) = -\frac{r}{2}\phi^2 + \frac{u}{4}\phi^4\)</span> (where <span class="arithmatex">\(r, u &gt; 0\)</span>), its two steady-state minima are located at <span class="arithmatex">\(\phi_{\pm} = \pm \sqrt{r/u}\)</span>. First introduce dimensionless field variable <span class="arithmatex">\(\tilde{\phi}\)</span>, normalizing the order parameter:</p>
+<div class="arithmatex">\[
+\phi(x) = \phi_+ \cdot \tilde{\phi}(x) = \sqrt{\frac{r}{u}} \tilde{\phi}(x)
+\]</div>
+<p>At this point, steady-state values correspond to <span class="arithmatex">\(\tilde{\phi} = \pm 1\)</span>. For computational convenience, shift the free energy density's zero point to the steady state, i.e., require <span class="arithmatex">\(f(\phi_{\pm}) = 0\)</span>. The adjusted potential function is written as:</p>
+<div class="arithmatex">\[
+f(\phi) = \frac{r^2}{4u} (\tilde{\phi}^2 - 1)^2
+\]</div>
+<p>Substituting the transformed variables into the steady-state equation <span class="arithmatex">\(\kappa \partial_x^2 \phi = f'(\phi)\)</span> and organizing dimensional relationships, a characteristic length scale <span class="arithmatex">\(\xi\)</span> naturally emerges. Professor Frey defines it as the <strong>Correlation Length</strong>:</p>
+<div class="arithmatex">\[
+\xi = \sqrt{\frac{2\kappa}{r}}
+\]</div>
+<p><strong>Physical Meaning of <span class="arithmatex">\(\xi\)</span></strong>:</p>
+<p>1.<strong>Interface "Thickness"</strong>: It determines the spatial range required for the order parameter to transition from <span class="arithmatex">\(\phi_-\)</span> (-1) to <span class="arithmatex">\(\phi_+\)</span> (+1). The interface is not a mathematical geometric surface, but a physical layer with finite width <span class="arithmatex">\(\sim \xi\)</span>.</p>
+<p>2.<strong>Critical Divergence</strong>: When control parameter <span class="arithmatex">\(r \to 0\)</span> (i.e., temperature approaches critical point <span class="arithmatex">\(T_c\)</span>), <span class="arithmatex">\(\xi \propto r^{-1/2} \to \infty\)</span>. This indicates that near the critical point, fluctuations become long-range correlated, the concept of interface becomes blurred, until interface width diverges and the system enters the critical opalescence state.</p>
+<p>3.<strong>Scale Separation Assumption</strong>: When deriving interface dynamics later in this lecture, a key assumption is implicit: the system is far from the critical point, so that interface width is much smaller than the system's macroscopic scale (such as droplet radius <span class="arithmatex">\(R\)</span>), i.e., <span class="arithmatex">\(\xi \ll R\)</span>.</p>
+<p>Introducing dimensionless spatial coordinate <span class="arithmatex">\(\tilde{x} = x / \xi\)</span>, the equation simplifies to minimal form:</p>
+<div class="arithmatex">\[
+\frac{d^2 \tilde{\phi}}{d\tilde{x}^2} = \tilde{\phi} (\tilde{\phi}^2 - 1)
+\]</div>
+<p>Using the integrating factor method (analogous to energy conservation integrals in classical mechanics), reduce the second-order equation:</p>
+<div class="arithmatex">\[
+\frac{1}{2} \left( \frac{d\tilde{\phi}}{d\tilde{x}} \right)^2 = \frac{1}{4} (\tilde{\phi}^2 - 1)^2 \quad \Rightarrow \quad \frac{d\tilde{\phi}}{d\tilde{x}} = \pm \frac{1}{\sqrt{2}} (1 - \tilde{\phi}^2)
+\]</div>
+<p>(Note: coefficient differences depend on specific prefactors in potential energy definition; qualitative behavior is consistent here).</p>
+<p>Through separation of variables and integration, we obtain the famous <strong>Kink Solution</strong>:</p>
+<div class="arithmatex">\[
+\tilde{\phi}(\tilde{x}) = \tanh(\tilde{x} - \tilde{x}_0)
+\]</div>
+<p>Returning to original physical variables, the analytical expression for the static interface is:</p>
+<div class="arithmatex">\[
+\phi(x) = \phi_+ \tanh\left( \frac{x - x_0}{\xi} \right) = \sqrt{\frac{r}{u}} \tanh\left( \sqrt{\frac{r}{2\kappa}} (x - x_0) \right)
+\]</div>
+<p>This solution describes a domain wall centered at <span class="arithmatex">\(x_0\)</span> with width approximately <span class="arithmatex">\(\xi\)</span>. Field variable <span class="arithmatex">\(\phi\)</span> smoothly and continuously connects the two thermodynamic steady states in this region.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/10_003_95abe9f8-605c-4460-9c4b-e30782cfd6b5.png" /></p>
+<p>Structure and characteristic scale of the static interface Kink solution. The figure shows the dimensionless order parameter <span class="arithmatex">\(\tilde{\phi}\)</span> as a function of spatial coordinate <span class="arithmatex">\(x\)</span>. The order parameter switches between <span class="arithmatex">\(\tilde{\phi}=-1\)</span> (<span class="arithmatex">\(\phi_-\)</span>) and <span class="arithmatex">\(\tilde{\phi}=+1\)</span> (<span class="arithmatex">\(\phi_+\)</span>) steady states. The <span class="arithmatex">\(\tanh(x)\)</span> function describes the smooth transition profile of the interface. The "width" marked in the figure corresponds to correlation length <span class="arithmatex">\(\xi\)</span>, which defines the region where gradients are concentrated. In this region, gradient energy <span class="arithmatex">\(\kappa(\partial_x \phi)^2\)</span> is significantly non-zero.</p>
+<h2 id="13-microscopic-origin-of-surface-tension">1.3 Microscopic Origin of Surface Tension<a class="headerlink" href="#13-microscopic-origin-of-surface-tension" title="Permanent link">&para;</a></h2>
+<p>Although the Kink solution is a local dynamical steady state, relative to the ground state uniform throughout space (all <span class="arithmatex">\(\phi_+\)</span> or all <span class="arithmatex">\(\phi_-\)</span>), the existence of the interface introduces additional energy. This <strong>excess free energy</strong> per unit area is precisely the microscopic definition of <strong>Surface Tension (<span class="arithmatex">\(\gamma\)</span>)</strong>:</p>
+<div class="arithmatex">\[
+\gamma = \frac{F[\phi_{\text{kink}}] - F[\phi_{\text{uniform}}]}{A} = \int_{-\infty}^{+\infty} dx \left[ \underbrace{\frac{\kappa}{2} (\partial_x \phi)^2}_{\text{Gradient energy}} + \underbrace{f(\phi)}_{\text{Potential energy penalty}} \right]
+\]</div>
+<p>This integral reveals that surface tension originates from the balance of two competing energies:</p>
+<p>1.<strong>Gradient Energy (Stiffness Term)</strong>: Originates from spatial variation of the field. The steeper the interface (smaller <span class="arithmatex">\(\xi\)</span>), the larger the gradient, the higher the energy. This tends to make the interface <strong>wider</strong> to slow down changes.</p>
+<p>2.<strong>Potential Energy (Potential Term)</strong>: Originates from the field deviating from minima <span class="arithmatex">\(\phi_{\pm}\)</span>. Inside the interface, <span class="arithmatex">\(\phi\)</span> must climb over the potential barrier. The wider the interface, the larger the volume in high potential energy regions, the higher the energy. This tends to make the interface <strong>narrower</strong>.</p>
+<p>According to the first integral of the steady-state equation (analogous to the Virial theorem in mechanics), these two energy terms are everywhere equal in the steady-state solution: <span class="arithmatex">\(\frac{\kappa}{2}(\partial_x \phi)^2 = f(\phi)\)</span>. Using this relation, the integral can be converted to a form depending only on potential energy:</p>
+<div class="arithmatex">\[
+\gamma = \int_{-\infty}^{+\infty} 2 f(\phi(x)) dx
+\]</div>
+<p>Furthermore, through variable substitution <span class="arithmatex">\(dx = \frac{d\phi}{\phi'} = \frac{d\phi}{\sqrt{2f/\kappa}}\)</span>, the spatial integral can be converted to an integral in field variable space. This step is crucial because it gives a general expression for surface tension <strong>independent of specific interface shape</strong>:</p>
+<div class="arithmatex">\[
+\gamma = \int_{\phi_-}^{\phi_+} d\phi \sqrt{2\kappa f(\phi)}
+\]</div>
+<p>Substituting the double-well function <span class="arithmatex">\(f(\phi) \approx \frac{u}{4}(\phi^2 - \phi_0^2)^2\)</span> for calculation. We need to carefully analyze <span class="arithmatex">\(\gamma\)</span>'s dependence on microscopic parameters <span class="arithmatex">\(r, u, \kappa\)</span> (scaling law):</p>
+<ul>
+<li>
+<p>Integration limits <span class="arithmatex">\(\phi_{\pm} \propto \sqrt{r/u}\)</span>.</p>
+</li>
+<li>
+<p>Integrand <span class="arithmatex">\(\sqrt{f(\phi)} \propto \sqrt{u} \phi^2 \sim \sqrt{u} (r/u) = r/\sqrt{u}\)</span>.</p>
+</li>
+<li>
+<p>Plus coefficient <span class="arithmatex">\(\sqrt{\kappa}\)</span>.</p>
+</li>
+</ul>
+<p>Combining dimensional analysis, the scaling of surface tension is:</p>
+<div class="arithmatex">\[
+\gamma \propto \sqrt{\kappa} \cdot \left(\sqrt{\frac{r}{u}}\right) \cdot \left( \frac{r}{\sqrt{u}} \right) = \frac{r^{3/2} \sqrt{\kappa}}{u}
+\]</div>
+<p>(Note: This corrects the <span class="arithmatex">\(r^2\)</span> typo common in some literature; rigorous integration results show it is proportional to the product of barrier height <span class="arithmatex">\(\sim r^2/u\)</span> and width <span class="arithmatex">\(\xi \sim \sqrt{\kappa/r}\)</span>, i.e., <span class="arithmatex">\(\gamma \sim (r^2/u) \cdot (\sqrt{\kappa/r}) = r^{3/2}\sqrt{\kappa}/u\)</span>).</p>
+<p><strong>Physical Meaning</strong>:</p>
+<p><strong><span class="arithmatex">\(\gamma\)</span> is a material constant</strong>: Surface tension is completely determined by the system's microscopic parameters (interaction strength <span class="arithmatex">\(\kappa\)</span>, temperature distance <span class="arithmatex">\(r\)</span>, nonlinear coefficient <span class="arithmatex">\(u\)</span>), independent of interface position or macroscopic shape.</p>
+<p><strong>Energy minimization driving force</strong>: Since interface existence is accompanied by energy cost <span class="arithmatex">\(\gamma\)</span>, to reduce total free energy, the system necessarily tends to <strong>minimize total interface area</strong>. This conclusion derived from microscopic statistical physics is precisely the fundamental reason for macroscopically observed "curvature-driven flow" (such as soap bubble contraction).</p>
+<h1 id="2-shrinking-dynamics-of-spherical-droplets">2. Shrinking Dynamics of Spherical Droplets<a class="headerlink" href="#2-shrinking-dynamics-of-spherical-droplets" title="Permanent link">&para;</a></h1>
+<p>In Section 1, by analyzing static interface solutions, the concept of interfaces as physical entities carrying energy (surface tension <span class="arithmatex">\(\gamma\)</span>) was established. However, static solutions only describe the equilibrium state of flat interfaces. When interfaces become curved, the system's symmetry is broken, interface tension will no longer balance, generating driving forces that cause interface motion. To quantitatively describe this dynamical behavior, this section selects the most symmetric geometric object—<strong>Spherical Droplets</strong>—as the research model.</p>
+<p>Assume that in an infinite steady-state background phase <span class="arithmatex">\(\phi_+\)</span>, there exists a spherical region of radius <span class="arithmatex">\(R(t)\)</span>, whose interior is in another steady-state phase <span class="arithmatex">\(\phi_-\)</span>. Physical intuition tells us that since the system always tends to minimize total free energy (i.e., minimize interface area), this droplet should spontaneously shrink. The goal of this section is to start from the microscopic Allen-Cahn equation and, through rigorous mathematical derivation, obtain dynamical equations describing the evolution of macroscopic radius <span class="arithmatex">\(R(t)\)</span>.</p>
+<h2 id="21-dynamical-equation-in-spherical-coordinates-and-curvature-term">2.1 Dynamical Equation in Spherical Coordinates and Curvature Term<a class="headerlink" href="#21-dynamical-equation-in-spherical-coordinates-and-curvature-term" title="Permanent link">&para;</a></h2>
+<p>Utilizing spherical symmetry, the order parameter field <span class="arithmatex">\(\phi\)</span> can be simplified to a function depending only on radial coordinate <span class="arithmatex">\(r\)</span> and time <span class="arithmatex">\(t\)</span>, i.e., <span class="arithmatex">\(\phi = \phi(r, t)\)</span>. In <span class="arithmatex">\(d\)</span>-dimensional space, the radial part of the Laplacian operator expands as:</p>
+<div class="arithmatex">\[
+\nabla^2 \phi = \frac{1}{r^{d-1}} \partial_r (r^{d-1} \partial_r \phi) = \partial_r^2 \phi + \frac{d-1}{r} \partial_r \phi
+\]</div>
+<p>where <span class="arithmatex">\(d=3\)</span> corresponds to spherical droplets, <span class="arithmatex">\(d=2\)</span> corresponds to disk-shaped droplets. Substituting this into the Allen-Cahn equation (Model A) yields the radial evolution equation:</p>
+<div class="arithmatex">\[
+\partial_t \phi = \kappa \left( \partial_r^2 \phi + \frac{d-1}{r} \partial_r \phi \right) - f'(\phi)
+\]</div>
+<p><strong>Physical Meaning</strong>:
+* <strong><span class="arithmatex">\(\partial_r^2 \phi\)</span></strong>: Corresponds to the diffusion term of a one-dimensional flat interface, responsible for maintaining local interface profile stability.</p>
+<ul>
+<li><strong><span class="arithmatex">\(\frac{d-1}{r} \partial_r \phi\)</span></strong>: This is an additional term introduced by geometric curvature. For flat interfaces, radius <span class="arithmatex">\(r \to \infty\)</span>, this term vanishes; at finite radius, this term precisely represents the influence of <strong>Mean Curvature</strong>, breaking translational symmetry and constituting the core "force" driving interface motion.</li>
+</ul>
+<h2 id="22-scale-separation-and-collective-coordinate-ansatz">2.2 Scale Separation and Collective Coordinate Ansatz<a class="headerlink" href="#22-scale-separation-and-collective-coordinate-ansatz" title="Permanent link">&para;</a></h2>
+<p>Directly solving the above nonlinear partial differential equation is extremely difficult. To simplify the problem, Professor Frey introduces classical methods from non-equilibrium statistical physics for handling pattern formation—<strong>Collective Coordinates</strong> and <strong>Scale Separation</strong>.</p>
+<p>The analysis is based on two key assumptions:
+1.<strong>Extremely thin interface</strong>: The characteristic width of the interface (correlation length <span class="arithmatex">\(\xi\)</span>) is much smaller than the macroscopic droplet radius <span class="arithmatex">\(R(t)\)</span>, i.e., <span class="arithmatex">\(\xi \ll R(t)\)</span>.</p>
+<p>2.<strong>Time scale separation</strong>: The relaxation speed of interface internal profile is extremely fast (Fast Dynamics), rapidly adjusting to local steady state; while changes in droplet radius are relatively slow (Slow Dynamics).</p>
+<p>Based on this, the following <strong>Ansatz</strong> can be proposed:</p>
+<div class="arithmatex">\[
+\phi(r, t) \approx \rho\left( r - R(t) \right)
+\]</div>
+<p>Here, <span class="arithmatex">\(\rho(z)\)</span> is the <strong>one-dimensional static Kink solution</strong> (i.e., <span class="arithmatex">\(\tanh\)</span> function) derived in Section 1, and <span class="arithmatex">\(z = r - R(t)\)</span> represents local coordinates relative to the moving interface. The physical meaning of this ansatz is: the interface maintains its "profile" unchanged during motion, and the only degree of freedom changing with time is the interface position <span class="arithmatex">\(R(t)\)</span>. Through this step, the problem is successfully <strong>reduced in dimension</strong> from solving infinite-dimensional field evolution <span class="arithmatex">\(\phi(r,t)\)</span> to solving dynamics of a single variable <span class="arithmatex">\(R(t)\)</span>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/10_004_8069d94b-8046-4be2-9aef-0cdea365d134.png" /></p>
+<p>Schematic diagram of spherical droplet model showing a spherical droplet of radius <span class="arithmatex">\(R(t)\)</span>. The interior of the droplet is <span class="arithmatex">\(\phi_-\)</span> phase, exterior is <span class="arithmatex">\(\phi_+\)</span> phase. At <span class="arithmatex">\(r=R(t)\)</span> there exists a transition layer (Interface) of width <span class="arithmatex">\(\xi\)</span>. Arrows indicate droplet radius shrinking with time.</p>
+<h2 id="23-projection-method-and-derivation-of-equation-of-motion">2.3 Projection Method and Derivation of Equation of Motion<a class="headerlink" href="#23-projection-method-and-derivation-of-equation-of-motion" title="Permanent link">&para;</a></h2>
+<p>Substitute the ansatz into the original equation, using chain rule to calculate derivatives:</p>
+<ul>
+<li>
+<p>Time term: <span class="arithmatex">\(\partial_t \phi = \rho'(z) \cdot \frac{d}{dt}(r - R(t)) = -\dot{R} \rho'(z)\)</span></p>
+</li>
+<li>
+<p>Spatial terms: <span class="arithmatex">\(\partial_r \phi = \rho'(z)\)</span>, <span class="arithmatex">\(\partial_r^2 \phi = \rho''(z)\)</span></p>
+</li>
+</ul>
+<p>Substituting into the original equation yields:</p>
+<div class="arithmatex">\[
+-\dot{R} \rho'(z) = \kappa \left( \rho''(z) + \frac{d-1}{r} \rho'(z) \right) - f'(\rho)
+\]</div>
+<p>Noting that <span class="arithmatex">\(\rho(z)\)</span> satisfies the one-dimensional steady-state equation <span class="arithmatex">\(\kappa \rho'' - f'(\rho) = 0\)</span>, the first and third terms on the right side of the equation approximately cancel each other. The remaining part is:</p>
+<div class="arithmatex">\[
+-\dot{R} \rho'(z) \approx \kappa \frac{d-1}{r} \rho'(z)
+\]</div>
+<p>Although both sides of the equation appear to allow direct cancellation of <span class="arithmatex">\(\rho'\)</span>, considering approximation errors and mathematical rigor, the standard approach is to use the <strong>Projection Method</strong>: project the equation onto the translational mode <span class="arithmatex">\(\rho'(z)\)</span>. That is, multiply both sides of the equation by <span class="arithmatex">\(\rho'(z)\)</span> and integrate over all space (radially from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(\infty\)</span>):</p>
+<div class="arithmatex">\[
+\int_0^{\infty} dr \left[ -\dot{R} (\rho')^2 \right] \approx \int_0^{\infty} dr \left[ \kappa \frac{d-1}{r} (\rho')^2 \right]
+\]</div>
+<p><strong>Integral Approximation Treatment</strong>:</p>
+<ul>
+<li>
+<p><strong>Left side</strong>: <span class="arithmatex">\(\dot{R}\)</span> is a time derivative independent of space, moved outside the integral.</p>
+</li>
+<li>
+<p><strong>Right side</strong>: Since <span class="arithmatex">\(\rho'(z)\)</span> is a function significantly non-zero only near the interface (<span class="arithmatex">\(r \approx R\)</span>) (similar to a <span class="arithmatex">\(\delta\)</span> function), in the integration kernel the slowly varying function <span class="arithmatex">\(1/r\)</span> can be approximated as <span class="arithmatex">\(1/R(t)\)</span> and moved outside the integral.</p>
+</li>
+</ul>
+<p>The equation simplifies to:</p>
+<div class="arithmatex">\[
+-\dot{R} \underbrace{\int_0^{\infty} (\rho')^2 dr}_{\text{constant } \mathcal{A}} \approx \kappa \frac{d-1}{R(t)} \underbrace{\int_0^{\infty} (\rho')^2 dr}_{\text{constant } \mathcal{A}}
+\]</div>
+<p>The integral term <span class="arithmatex">\(\mathcal{A}\)</span> is proportional to surface tension <span class="arithmatex">\(\gamma\)</span> (recall <span class="arithmatex">\(\gamma \propto \int (\partial_x \phi)^2 dx\)</span>), clearly not zero, so it can be cancelled. Finally we obtain the concise ODE describing droplet radius evolution:</p>
+<div class="arithmatex">\[
+\dot{R}(t) = - \kappa \frac{d-1}{R(t)}
+\]</div>
+<h2 id="24-physical-meaning-curvature-driven-flow-and-finite-time-singularity">2.4 Physical Meaning - Curvature-Driven Flow and Finite-Time Singularity<a class="headerlink" href="#24-physical-meaning-curvature-driven-flow-and-finite-time-singularity" title="Permanent link">&para;</a></h2>
+<p>The derived equation <span class="arithmatex">\(\dot{R} \propto -1/R\)</span> reveals several core characteristics of interface dynamics in non-conserved systems:</p>
+<p>1.<strong>Shrinkage is Inevitable</strong>: Since stiffness coefficient <span class="arithmatex">\(\kappa &gt; 0\)</span> and radius <span class="arithmatex">\(R &gt; 0\)</span>, velocity <span class="arithmatex">\(\dot{R}\)</span> is always negative. This means in Model A dynamics, any isolated spherical domain is unstable and must shrink with time until disappearance. This is a direct consequence of the system reducing interface energy.</p>
+<p>2.<strong>Curvature Driven</strong>: Shrinkage velocity is inversely proportional to radius. For spherical surfaces, mean curvature <span class="arithmatex">\(H \sim 1/R\)</span>. Therefore, this equation essentially states that <strong>the normal velocity of interfaces is proportional to their local mean curvature</strong>. The smaller the droplet, the larger the curvature, the faster the shrinkage.</p>
+<p>3.<strong>Finite-Time Singularity</strong>:</p>
+<p>Performing separation of variables integration on the differential equation:</p>
+<div class="arithmatex">\[
+R \, dR = -\kappa(d-1) \, dt \quad \Rightarrow \quad \frac{1}{2} R(t)^2 - \frac{1}{2} R_0^2 = -\kappa(d-1)t
+\]</div>
+<p>Solving:</p>
+<div class="arithmatex">\[
+R(t) = \sqrt{R_0^2 - 2\kappa(d-1)t}
+\]</div>
+<p>This shows the droplet will not exist indefinitely, but at a finite critical time <span class="arithmatex">\(t_c = \frac{R_0^2}{2\kappa(d-1)}\)</span>, the radius reduces to zero.</p>
+<p>4.<strong>Applicability Boundaries of the Theory</strong>: When <span class="arithmatex">\(t \to t_c\)</span>, radius <span class="arithmatex">\(R(t)\)</span> becomes extremely small, even comparable to interface width <span class="arithmatex">\(\xi\)</span> (<span class="arithmatex">\(R \sim \xi\)</span>). At this point, the "sharp interface" scale separation assumption fails, macroscopic geometric description is no longer applicable, and microscopic field theory details will again dominate the dynamical process, ultimately leading to topological structure changes (droplet annihilation).</p>
+<h1 id="3-equation-of-motion-for-general-curved-interfaces">3. Equation of Motion for General Curved Interfaces<a class="headerlink" href="#3-equation-of-motion-for-general-curved-interfaces" title="Permanent link">&para;</a></h1>
+<p>Although the analysis of spherical droplets in Section 2 is intuitive, it only applies to highly symmetric special cases. To construct general theories describing the evolution of labyrinthine patterns, sponge structures, and other complex morphologies, the analysis must be generalized to interfaces of arbitrary shape. This section will prove that Model A interface dynamics is essentially a type of <strong>Curvature-Driven Flow</strong> by introducing <strong>Normal Coordinates</strong>. This conclusion is not only a brilliant chapter connecting microscopic field theory with macroscopic differential geometry, but also provides a unified mathematical language for understanding a wide range of physical phenomena from soap film contraction to grain growth.</p>
+<h2 id="31-local-geometry-and-normal-coordinate-system">3.1 Local Geometry and Normal Coordinate System<a class="headerlink" href="#31-local-geometry-and-normal-coordinate-system" title="Permanent link">&para;</a></h2>
+<p>Consider a general smooth curved interface <span class="arithmatex">\(\Sigma(t)\)</span>, which divides space into <span class="arithmatex">\(\phi_+\)</span> and <span class="arithmatex">\(\phi_-\)</span> two phases. To describe field distribution near the interface, establishing a local curvilinear coordinate system closely following the interface is necessary. For any point <span class="arithmatex">\(\mathbf{x}\)</span> in the interface neighborhood, it can be uniquely decomposed as:</p>
+<div class="arithmatex">\[
+\mathbf{x} = \mathbf{s} + z \mathbf{n}(\mathbf{s})
+\]</div>
+<p>where:</p>
+<p><strong><span class="arithmatex">\(\mathbf{s}\)</span></strong>: The orthogonal projection point of point <span class="arithmatex">\(\mathbf{x}\)</span> onto interface <span class="arithmatex">\(\Sigma(t)\)</span>.</p>
+<p><strong><span class="arithmatex">\(\mathbf{n}(\mathbf{s})\)</span></strong>: The unit normal vector of the interface at <span class="arithmatex">\(\mathbf{s}\)</span>, conventionally pointing toward the <span class="arithmatex">\(\phi_+\)</span> region (i.e., <span class="arithmatex">\(\mathbf{n}^2=1\)</span>).</p>
+<p><strong><span class="arithmatex">\(z\)</span></strong>: <strong>Signed Distance</strong> along the normal. When <span class="arithmatex">\(\mathbf{x}\)</span> is on the <span class="arithmatex">\(\phi_+\)</span> side, <span class="arithmatex">\(z&gt;0\)</span>; when on the <span class="arithmatex">\(\phi_-\)</span> side, <span class="arithmatex">\(z&lt;0\)</span>.</p>
+<p>In this curvilinear coordinate system, the Laplacian operator <span class="arithmatex">\(\nabla^2\)</span> can be decomposed into combinations of normal and tangential derivatives. For "thin interfaces," field variable variation along the normal is extremely sharp (scale <span class="arithmatex">\(\xi\)</span>), while tangential variation is determined by macroscopic curvature (scale <span class="arithmatex">\(R \gg \xi\)</span>). Therefore, the dominant term of the Laplacian operator is:</p>
+<div class="arithmatex">\[
+\nabla^2 \phi = \partial_z^2 \phi + (\nabla \cdot \mathbf{n}) \partial_z \phi + \Delta_{\Sigma} \phi
+\]</div>
+<p><strong><span class="arithmatex">\(\partial_z^2 \phi\)</span></strong>: Second-order normal derivative, describing profile changes when crossing the interface.</p>
+<p><strong><span class="arithmatex">\((\nabla \cdot \mathbf{n}) \partial_z \phi\)</span></strong>: This is a geometric correction term. Divergence <span class="arithmatex">\(\nabla \cdot \mathbf{n}\)</span> describes the degree of divergence of normal vectors; in differential geometry, it strictly equals the <strong>sum of principal curvatures</strong> of the interface (i.e., <span class="arithmatex">\(C_1 + C_2\)</span> or <span class="arithmatex">\((d-1)H\)</span>).</p>
+<p><strong><span class="arithmatex">\(\Delta_{\Sigma} \phi\)</span></strong>: The Laplace-Beltrami Operator on the interface, describing tangential variations. In the thin interface limit, this term is of higher order compared to normal variations and is usually neglected.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/10_005_8b6547eb-2e72-49c9-92c5-fe459132ec2a.png" /></p>
+<p>Local geometry of curved interface. The figure shows a curved interface (white curve) dividing space into <span class="arithmatex">\(\phi_+\)</span> and <span class="arithmatex">\(\phi_-\)</span> two regions.</p>
+<p><strong><span class="arithmatex">\(\mathbf{n}\)</span></strong>: Unit normal vector, perpendicular to interface pointing outward.</p>
+<p><strong><span class="arithmatex">\(z\)</span></strong>: Local coordinate along normal.</p>
+<p><strong>Geometric meaning</strong>: Divergence of normal vector <span class="arithmatex">\(\nabla \cdot \mathbf{n}\)</span> encodes the local bending degree of the interface, which is the geometric source driving interface evolution.</p>
+<h2 id="32-derivation-of-the-allen-cahn-interface-equation">3.2 Derivation of the Allen-Cahn Interface Equation<a class="headerlink" href="#32-derivation-of-the-allen-cahn-interface-equation" title="Permanent link">&para;</a></h2>
+<p>Again applying the idea of <strong>Multiscale Analysis</strong>. Assume that at microscopic scales, the interface always maintains a locally equilibrated Kink profile, while its macroscopic position <span class="arithmatex">\(\zeta(t)\)</span> evolves with time. This means field variable <span class="arithmatex">\(\phi\)</span> can be written in traveling wave solution form:</p>
+<div class="arithmatex">\[
+\phi(\mathbf{x}, t) \approx \rho(z - \zeta(\mathbf{s}, t))
+\]</div>
+<p>where <span class="arithmatex">\(\rho\)</span> is the static solution profile, <span class="arithmatex">\(\zeta\)</span> is interface position. The normal velocity of the interface is defined as <span class="arithmatex">\(v_n = \partial_t \zeta\)</span>.</p>
+<p>Substitute this ansatz into the Allen-Cahn equation:</p>
+<p>1.<strong>Time term</strong>: <span class="arithmatex">\(\partial_t \phi = \rho' \cdot \partial_t(z - \zeta) = -v_n \rho'(z)\)</span>.</p>
+<p>2.<strong>Spatial term</strong>: <span class="arithmatex">\(\nabla^2 \phi \approx \rho''(z) + (\nabla \cdot \mathbf{n}) \rho'(z)\)</span>.</p>
+<p>Thus, the dynamical equation transforms to:</p>
+<div class="arithmatex">\[
+-v_n \rho' = \kappa \left[ \rho'' + (\nabla \cdot \mathbf{n}) \rho' \right] - f'(\rho)
+\]</div>
+<p>Using the governing equation for one-dimensional static solution <span class="arithmatex">\(\kappa \rho'' - f'(\rho) = 0\)</span>, the first term (diffusion main term) and third term (reaction term) on the right side of the equation exactly cancel. The remaining term reveals the driving force of non-equilibrium evolution:</p>
+<div class="arithmatex">\[
+-v_n \rho'(z) = \kappa (\nabla \cdot \mathbf{n}) \rho'(z)
+\]</div>
+<p>Since <span class="arithmatex">\(\rho'(z)\)</span> is only non-zero near the interface (localized), we can cancel <span class="arithmatex">\(\rho'\)</span>, obtaining the closed equation describing geometric motion of interfaces—the <strong>Allen-Cahn Law</strong>:</p>
+<div class="arithmatex">\[
+v_n = - \kappa (\nabla \cdot \mathbf{n})
+\]</div>
+<p>Introducing principal curvatures <span class="arithmatex">\(C_1, C_2\)</span> (in three-dimensional space), according to differential geometry relation <span class="arithmatex">\(\nabla \cdot \mathbf{n} = C_1 + C_2\)</span> (i.e., twice the mean curvature <span class="arithmatex">\(2H\)</span>), we finally obtain:</p>
+<div class="arithmatex">\[
+v_n = - \kappa (C_1 + C_2)
+\]</div>
+<h2 id="33-physical-implications-of-geometric-flow">3.3 Physical Implications of Geometric Flow<a class="headerlink" href="#33-physical-implications-of-geometric-flow" title="Permanent link">&para;</a></h2>
+<p>The derived equation <span class="arithmatex">\(v_n \propto -(C_1 + C_2)\)</span> is extremely concise yet contains profound physical and geometric significance:</p>
+<p>1.<strong>Geometry as Destiny</strong>:</p>
+<p>The instantaneous velocity of interface motion is completely determined by its current <strong>local geometric shape</strong> (curvature), independent of historical path. This is a memoryless geometric flow.</p>
+<p>2.<strong>Curve Shortening Flow</strong>:</p>
+<p>The negative sign in the equation means the interface always moves toward <strong>the opposite direction of the curvature center</strong> (i.e., the concave side).</p>
+<ul>
+<li>
+<p><strong>Convex regions</strong> (<span class="arithmatex">\(C &gt; 0\)</span>): Velocity inward, leading to contraction (like spherical droplets).</p>
+</li>
+<li>
+<p><strong>Concave regions</strong> (<span class="arithmatex">\(C &lt; 0\)</span>): Velocity outward, leading to expansion.
+    This motion tendency continuously smooths out small wrinkles on the interface, making the interface smooth, and tending to reduce total interface area (total length in two dimensions).</p>
+</li>
+</ul>
+<p>3.<strong>Dynamical Pathway to Minimal Surfaces</strong>:</p>
+<p>When interfaces reach steady state, they must satisfy <span class="arithmatex">\(v_n = 0\)</span>, i.e., <span class="arithmatex">\(C_1 + C_2 = 0\)</span>. This is precisely the definition of <strong>Minimal Surfaces</strong> (mean curvature equals zero). This perfectly echoes the Munich Olympic Stadium and soap film experiments mentioned in the introduction: the reason soap films form minimal surfaces is precisely because surface tension drives them to evolve following the dynamical law <span class="arithmatex">\(v_n \propto -H\)</span>, until energy is minimized.</p>
+<p>4.<strong>Microscopic Mechanism of Coarsening</strong>:</p>
+<p>In late-stage phase separation, this mechanism leads to system coarsening. Small droplets shrink and disappear rapidly due to large curvature, while large droplets are relatively stable. Although Model A itself is non-conserved (droplets directly disappear rather than transferring mass through diffusion), this "curvature-driven annihilation" is a geometric feature common to all phase separation dynamics.</p>
+<h1 id="4-code-practice">4. Code Practice<a class="headerlink" href="#4-code-practice" title="Permanent link">&para;</a></h1>
+<p>The code practice section will intuitively verify the <strong>Curvature-Driven Shrinkage</strong> phenomenon derived in Section 2 by simulating an isolated <strong>Spherical Droplet</strong>.</p>
+<p>The core solver still uses <strong>Finite Difference Method</strong> and <strong>Explicit Euler Integration</strong>. But to verify the "scale separation" assumption in the theoretical derivation (i.e., interface width <span class="arithmatex">\(\xi\)</span> much smaller than droplet radius <span class="arithmatex">\(R\)</span>), we need to carefully set geometric parameters during initialization.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 1. Physics &amp; Simulation Parameters</span>
+<span class="c1"># ==========================================</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">200</span>           <span class="c1"># Grid size</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># Spatial resolution</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="mf">2.0</span>       <span class="c1"># Stiffness (Increased slightly to make interface smoother)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.05</span>         <span class="c1"># Time step (Satisfies CFL: 0.05 &lt; 1^2 / (4*2) = 0.125)</span>
+
+<span class="c1"># Potential parameters</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="c1"># Theoretical Interface Width: xi = sqrt(2*kappa/r) = sqrt(4) = 2.0</span>
+<span class="c1"># Theoretical Critical Radius: R should be &gt;&gt; xi (e.g., R=40)</span>
+
+<span class="n">total_steps</span> <span class="o">=</span> <span class="mi">4000</span>
+<span class="n">steps_per_frame</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 2. Initialization: Spherical Droplet</span>
+<span class="c1"># ==========================================</span>
+<span class="c1"># We explicitly set up the &quot;Droplet Scenario&quot; from Section 2</span>
+<span class="c1"># Background is phi = -1, Droplet is phi = +1</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+<span class="c1"># Create coordinate grid</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[:</span><span class="n">N</span><span class="p">,</span> <span class="p">:</span><span class="n">N</span><span class="p">]</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">R_initial</span> <span class="o">=</span> <span class="mf">60.0</span>
+
+<span class="c1"># Create a sharp circular interface</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">R_initial</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">phi</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Note: The simulation will naturally &quot;smooth&quot; this sharp edge </span>
+<span class="c1"># into a tanh profile within the first few steps.</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 3. Solver Functions</span>
+<span class="c1"># ==========================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">laplacian</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Discrete Laplacian with Periodic Boundary Conditions.&quot;&quot;&quot;</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">up</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">down</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span> <span class="o">+</span> <span class="n">up</span> <span class="o">+</span> <span class="n">down</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">field</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">free_energy_derivative</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Derivative of the double-well potential.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">phi</span> <span class="o">+</span> <span class="n">u</span> <span class="o">*</span> <span class="n">phi</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># 4. Visualization Setup</span>
+<span class="c1"># ==========================================</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Use a diverging colormap to clearly see the interface (white/green region)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">animated</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add a contour line to visualize the exact interface position (phi=0)</span>
+<span class="n">contour</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">time_text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Curvature-Driven Flow: Shrinking Droplet&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">phi</span>
+    <span class="c1"># Physics update loop</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps_per_frame</span><span class="p">):</span>
+        <span class="n">lap</span> <span class="o">=</span> <span class="n">laplacian</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+        <span class="n">reaction</span> <span class="o">=</span> <span class="o">-</span><span class="n">free_energy_derivative</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+        <span class="c1"># Allen-Cahn Equation</span>
+        <span class="n">phi</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">kappa</span> <span class="o">*</span> <span class="n">lap</span> <span class="o">+</span> <span class="n">reaction</span><span class="p">)</span>
+
+    <span class="c1"># Visualization update</span>
+    <span class="n">im</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+
+    <span class="c1"># Update contour lines (remove old ones and draw new)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">collections</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="n">im</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+    <span class="n">current_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">steps_per_frame</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">time_text</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time: </span><span class="si">{</span><span class="n">current_time</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">im</span><span class="p">,</span> <span class="n">time_text</span>
+
+<span class="c1"># Run animation and save as video</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;droplet_shrinkage.mp4&#39;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;ffmpeg&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<video controls width="100%">
+  <source src="../cn/assets/images/droplet_shrinkage.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p><strong>Profile Relaxation</strong>:</p>
+<ul>
+<li>At the initial moment, the artificially set boundary is a jagged "step."</li>
+<li>In the first few time steps, the boundary rapidly becomes smooth, forming a transition layer with fixed width <span class="arithmatex">\(\xi\)</span>. This verifies the "interface profile relaxation faster than macroscopic geometric evolution" mentioned in the <strong>scale separation assumption</strong>.</li>
+</ul>
+<p><strong>Shape Preservation</strong>:</p>
+<ul>
+<li>During the shrinking process, the droplet always maintains a perfect <strong>circle</strong>. This verifies the isotropic nature of curvature flow—every point on a circle has the same curvature, thus having the same normal inward shrinking velocity.</li>
+</ul>
+<p><strong>Accelerated Shrinkage</strong>:</p>
+<ul>
+<li>This is the most critical observation point. Note the speed at which the droplet becomes smaller.</li>
+<li>At large radius, shrinkage is slow (<span class="arithmatex">\(R\)</span> large, <span class="arithmatex">\(1/R\)</span> curvature small).</li>
+<li>As radius decreases, shrinkage becomes visibly faster.</li>
+<li>At the final moment, the droplet suddenly disappears. This demonstrates the <strong>Finite-time Singularity</strong> predicted by the equation <span class="arithmatex">\(\dot{R} \propto -1/R\)</span>.</li>
+</ul>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture achieved the transformation from microscopic field theory to macroscopic geometric dynamics. Starting from the Allen-Cahn equation (Model A) describing order parameter relaxation, using coarse-graining techniques of scale separation and collective coordinates, effective dynamical equations describing interface motion were successfully derived.</p>
+<p><strong>Interfaces as Dynamical Entities</strong>: Although microscopically interfaces are continuous transition regions of field <span class="arithmatex">\(\phi\)</span>, at macroscopic scales, they are viewed as geometric surfaces with surface tension <span class="arithmatex">\(\gamma\)</span>.</p>
+<p><strong>Curvature-Driven Flow</strong>: The normal velocity of interfaces is determined by their local mean curvature: <span class="arithmatex">\(v_n = - \kappa H\)</span>. This concise geometric law explains a wide range of natural phenomena from soap bubble contraction to material grain growth, indicating that one of the main driving forces for non-equilibrium system evolution is minimization of surface energy.</p>
+<p>The Projection Method and Asymptotic Matching powerfully support the process of extracting low-dimensional effective dynamics from complex nonlinear partial differential equations.</p>
+<p>The Model A discussed in this lecture has a key characteristic: the order parameter is non-conserved (e.g., magnetization, spins can flip), causing droplets to directly shrink and disappear. However, in many important physical systems—especially fluid mixtures and biological phase separation—the order parameter (such as concentration) is constrained by local conservation laws (matter cannot disappear out of thin air, only diffuse).</p>
+<p>In <strong>the next lecture</strong>, the course will introduce conserved dynamics (Model B / Cahn-Hilliard equation). We will then see that when conservation constraints are imposed, single droplets cannot simply disappear, but compete through long-range diffusion fields (Ostwald Ripening). Additionally, the next lecture will delve into the thermodynamic foundations of mixed liquids, analyzing how to determine coexisting phases through <strong>Maxwell Construction</strong> and draw Phase Diagrams, providing a complete theoretical picture for understanding liquid-liquid phase separation (LLPS) inside cells.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

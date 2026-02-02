@@ -1,0 +1,1525 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>引言：从宏观热力学迈向微观统计物理 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              引言：从宏观热力学迈向微观统计物理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言：从宏观热力学迈向微观统计物理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>第12讲</strong>聚焦于液态混合物的宏观热力学性质，深入探讨了渗透压、交换化学势等概念，并基于唯象引入的自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span>，建立了描述守恒型动力学的 Cahn-Hilliard 方程（Model B）。然而，<strong>上一讲</strong>的讨论虽然揭示了相分离的热力学驱动力源于自由能的非凸性（<span class="arithmatex">\(f''(\phi) &lt; 0\)</span>），但并未从<strong>第一性原理</strong>出发解释这种非凸性的微观起源，即分子间的相互作用究竟如何导致了宏观上的“混合”或“分相”。</p>
+<p>从<strong>第12讲</strong>的结果可以看到，自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 的非凸性是相分离发生的根本原因。然而，这一自由能函数在此前的讨论中仍然是<strong>被“假定”的对象</strong>。这自然引出一系列更为根本的问题：</p>
+<ul>
+<li>
+<p>自由能中的混合熵项 <span class="arithmatex">\(\phi\ln\phi+(1-\phi)\ln(1-\phi)\)</span> 是否必然存在？它是否可以从更底层的统计计数中推导出来？</p>
+</li>
+<li>
+<p>相互作用项 <span class="arithmatex">\(\chi\phi(1-\phi)\)</span> 的具体形式从何而来？参数 <span class="arithmatex">\(\chi\)</span> 与微观相互作用强度之间究竟是什么关系？</p>
+</li>
+<li>
+<p>为什么只需要最近邻相互作用，就足以在宏观上诱导出相分离这一集体现象？</p>
+</li>
+</ul>
+<p>这节课的核心目标正是填补这一理论空白，并由此建立从微观粒子相互作用到宏观自由能景观的完整逻辑链条。教授首先引入最简约、但物理内涵清晰的<strong>晶格气体模型</strong>，这是一种将连续流体空间离散化的简化模型，在数学结构上与磁学中的 Ising 模型高度同构。基于此模型，分析将从最底层的粒子占据数和最近邻相互作用出发，利用统计力学的核心工具——<strong>配分函数 (Partition Function)</strong>，推导描述二元混合物相变行为的核心理论：<strong>Flory-Huggins 自由能理论</strong>。</p>
+<p>本讲的推导过程展示了处理<strong>多体问题</strong>的经典物理范式：首先构建微观哈密顿量，随后通过<strong>平均场近似 (Mean-Field Approximation)</strong> 将复杂的耦合多体问题简化为可解的单体问题，从而获得系统的自由能解析表达式。进一步地，课程将通过泰勒展开 (Taylor Expansion)，实现从离散晶格模型向连续场论的过渡，推导出包含空间梯度项的 <strong>Ginzburg-Landau 自由能泛函</strong>。这一泛函的建立直接为<strong>第14讲</strong>中深入探讨相分离动力学、推导 Cahn-Hilliard 方程的微观形式、计算色散关系以及确定最快生长模式 (Fastest Growing Mode) 奠定了形式上的数学基础。</p>
+<h1 id="1-the-lattice-gas-model">1. 晶格气体模型 (The Lattice Gas Model)<a class="headerlink" href="#1-the-lattice-gas-model" title="Permanent link">&para;</a></h1>
+<p>为了建立描述溶质（Solute）和溶剂（Solvent）二元混合物的微观统计理论，这节课首先引入了统计物理中经典的“晶格气体模型”。作为一种从连续空间向离散空间过渡的简化模型，它不仅抓住了粒子占据与排斥体积的核心特征，还通过最近邻相互作用为相分离提供了能量驱动机制。该模型在数学结构上与磁学中的 Ising 模型高度同构，是推导 Flory-Huggins 自由能理论的微观基石。</p>
+<h2 id="11">1.1 模型的物理假设与空间离散化<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>在处理液体混合物时，直接追踪连续空间中海量粒子的位置和动量在数学上极其复杂且往往是不必要的。为了聚焦相变的核心机制，课程引入了以下三个关键的物理假设：</p>
+<ul>
+<li>
+<p><strong>空间离散化 (Spatial Discretization)</strong> ：连续的物理空间被划分为规则的网格（Lattice）。尽管课堂演示通常采用二维正方晶格（Square Lattice）作为直观示例，但该理论框架具有普适性，同样适用于三维立方晶格（Cubic Lattice）或其他维度的规则结构。</p>
+</li>
+<li>
+<p><strong>不可压缩性假设 (Incompressibility)</strong> ：这是软物质物理中的一个核心约束。模型假设每一个晶格格点（Lattice Site）必须被且仅被一个粒子占据。这意味着系统中不存在空穴（Vacancies），系统的总体积（由总格点数 <span class="arithmatex">\(N_{\text{tot}}\)</span> 决定）是固定的，不随压强或温度的波动而改变。这一假设模拟了致密液体的不可压缩特性。</p>
+</li>
+<li>
+<p><strong>等体积近似</strong> ：系统包含两种组分——粒子 P（溶质，Solute）和粒子 S（溶剂，Solvent）。为了适配刚性的晶格结构，模型假设这两类分子的分子体积相等，即每个分子恰好占据一个格点空间。</p>
+</li>
+</ul>
+<h2 id="12">1.2 微观状态的描述：占据数变量<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>为了将系统的微观构型（Configuration）数学化，引入布尔类型的占据数变量 <span class="arithmatex">\(\sigma_i\)</span> 来标记第 <span class="arithmatex">\(i\)</span> 个格点的状态。这类似于 Ising 模型中的自旋变量，但在晶格气体中，它代表的是物质的种类。</p>
+<p><img alt="课堂PPT截图，晶格气体模型 (Lattice Gas Model) 示意图，展示了二元流体混合物（溶质与溶剂）的微观离散化模型，左侧两种纯物质（蓝色粒子代表溶质，绿色粒子代表溶剂）各自独立存在、互不混合的状态（相分离态）。右侧显示了两种粒子在晶格上随机混合后的构型（混合态）。模型基于不可压缩性假设（Incompressible system），即每一个晶格格点都必须被且仅被一个粒子占据（无空穴），且假设两种分子的体积相等。这是后续利用统计物理方法计算混合熵和相互作用能的基础。" src="../assets/images/13_001_c10b81d3-154d-452f-b3c7-46929311cfba.png" /></p>
+<p>定义如下：</p>
+<div class="arithmatex">\[
+\sigma_i = 
+\begin{cases} 
+1, &amp; \text{如果格点 } i \text{ 被溶质粒子 (Solute, P) 占据} \\
+0, &amp; \text{如果格点 } i \text{ 被溶剂粒子 (Solvent, S) 占据}
+\end{cases}
+\]</div>
+<p>由此，系统的任意一个瞬时微观状态可以由序列 <span class="arithmatex">\(\{\sigma_i\} = (\sigma_1, \sigma_2, \dots, \sigma_{N_{\text{tot}}})\)</span> 唯一确定。对于一个包含 <span class="arithmatex">\(N_{\text{tot}}\)</span> 个格点的系统，所有可能的构型构成了统计系综的样本空间。</p>
+<h2 id="13-the-hamiltonian">1.3 微观哈密顿量 (The Hamiltonian)<a class="headerlink" href="#13-the-hamiltonian" title="Permanent link">&para;</a></h2>
+<p>系统的热力学行为由其能量泛函，即哈密顿量 <span class="arithmatex">\(\mathcal{H}\)</span> 决定。在晶格气体模型中，假设相互作用是短程的，仅存在于<strong>最近邻</strong>（Nearest-Neighbor）格点之间。</p>
+<p>对于晶格中任意两个相邻的格点 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span>（记作配对 <span class="arithmatex">\(\langle i,j \rangle\)</span>），根据占据粒子的种类组合，存在三种可能的相互作用能。数学上可以通过构造由 <span class="arithmatex">\(\sigma_i\)</span> 组成的“筛选算符”来精确表达这些能量项：</p>
+<p>1.<strong>溶质-溶质相互作用 (P-P)</strong> ：</p>
+<ul>
+<li>
+<p>发生条件：<span class="arithmatex">\(\sigma_i=1\)</span> 且 <span class="arithmatex">\(\sigma_j=1\)</span></p>
+</li>
+<li>
+<p>能量贡献：<span class="arithmatex">\(\varepsilon_{pp}\)</span></p>
+</li>
+<li>
+<p>筛选算符：<span class="arithmatex">\(\sigma_i \sigma_j\)</span>。只有当两者均为 1 时，该项才为 1，否则为 0</p>
+</li>
+</ul>
+<p>2.<strong>溶剂-溶剂相互作用 (S-S)</strong> ：</p>
+<ul>
+<li>
+<p>发生条件：<span class="arithmatex">\(\sigma_i=0\)</span> 且 <span class="arithmatex">\(\sigma_j=0\)</span></p>
+</li>
+<li>
+<p>能量贡献：<span class="arithmatex">\(\varepsilon_{ss}\)</span></p>
+</li>
+<li>
+<p>筛选算符：<span class="arithmatex">\((1-\sigma_i)(1-\sigma_j)\)</span>。利用布尔逻辑，只有当两者均为 0 时，该项才为 1</p>
+</li>
+</ul>
+<p>3.<strong>溶质-溶剂相互作用 (P-S)</strong> ：</p>
+<ul>
+<li>
+<p>发生条件：一个格点是溶质 (<span class="arithmatex">\(\sigma=1\)</span>) 而另一个是溶剂 (<span class="arithmatex">\(\sigma=0\)</span>)</p>
+</li>
+<li>
+<p>能量贡献：<span class="arithmatex">\(\varepsilon_{ps}\)</span></p>
+</li>
+<li>
+<p>筛选算符：<span class="arithmatex">\(\sigma_i (1-\sigma_j) + \sigma_j (1-\sigma_i)\)</span>。这一项涵盖了 <span class="arithmatex">\((\sigma_i=1, \sigma_j=0)\)</span> 和 <span class="arithmatex">\((\sigma_i=0, \sigma_j=1)\)</span> 两种非对称情况</p>
+</li>
+</ul>
+<p>将所有最近邻对的贡献进行求和，即得到描述系统总能量的微观哈密顿量：</p>
+<div class="arithmatex">\[
+\mathcal{H}(\{\sigma_i\}) = \sum_{\langle i j \rangle} \left[ \varepsilon_{pp} \, \sigma_i \sigma_j + \varepsilon_{ss} \, (1-\sigma_i)(1-\sigma_j) + \varepsilon_{ps} \left(\sigma_i (1-\sigma_j) + \sigma_j (1-\sigma_i) \right) \right]
+\]</div>
+<p>这一公式是本节课的核心，也是理解从微观相互作用过渡到宏观相分离的关键。它表明，系统是否发生相分离，并不取决于 <span class="arithmatex">\(\varepsilon_{pp}\)</span> 或 <span class="arithmatex">\(\varepsilon_{ss}\)</span> 的绝对大小，而是取决于<strong>同类粒子聚集</strong>（<span class="arithmatex">\(\varepsilon_{pp}, \varepsilon_{ss}\)</span>项）与<strong>异类粒子混合</strong>（<span class="arithmatex">\(\varepsilon_{ps}\)</span>项）之间的能量竞争。</p>
+<p>值得强调的是，尽管上述哈密顿量的写法看似繁琐，但它的物理结构与<strong>Ising模型</strong>是<strong>严格同构的</strong>。如果定义新的自旋变量</p>
+<div class="arithmatex">\[
+s_i = 2\sigma_i - 1 \in \{+1, -1\},
+\]</div>
+<p>则可以将晶格气体模型一一映射为具有最近邻相互作用的 Ising 模型。两者的区别不在于数学结构，而在于<strong>物理解释</strong>：在 Ising 模型中，<span class="arithmatex">\(s_i\)</span> 表示磁矩方向；而在晶格气体模型中，<span class="arithmatex">\(\sigma_i\)</span> 表示不同化学组分的占据状态。</p>
+<p>正是这种同构关系，使得磁性相变、合金分相与液态混合物问题在统计物理中可以被统一对待。</p>
+<h2 id="14">1.4 配分函数的挑战与应对<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p>统计力学的核心任务是计算配分函数（Partition Function, <span class="arithmatex">\(\mathcal{Z}\)</span>），它是连接微观状态与宏观热力学量（如自由能）的桥梁。对于正则系综（固定温度 <span class="arithmatex">\(T\)</span> 和粒子数），配分函数是对所有可能的微观构型 <span class="arithmatex">\(\{\sigma_i\}\)</span> 的玻尔兹曼因子进行求和：</p>
+<div class="arithmatex">\[
+\mathcal{Z} = \sum_{\{\sigma_i\}} \exp\left[ -\beta \, \mathcal{H}(\{\sigma_i\}) \right]
+\]</div>
+<p>其中 <span class="arithmatex">\(\beta = \frac{1}{k_B T}\)</span> 是逆热力学温度。</p>
+<p>直接计算这个配分函数在数学上极具挑战性。困难在于哈密顿量中存在的<strong>交叉项</strong>（如 <span class="arithmatex">\(\sigma_i \sigma_j\)</span>）。这些项使得相邻格点的状态在概率上不再独立，导致整个系统的 <span class="arithmatex">\(N_{\text{tot}}\)</span> 个变量紧密耦合在一起。除了在一维和特定二维情况下（如 Onsager 解），该问题没有通用的解析解。</p>
+<p>为了克服这一困难，课程采用了一种物理上直观的近似策略：将自由能 <span class="arithmatex">\(F = U - TS\)</span> 分解为两部分分别处理：</p>
+<p>1.<strong>熵 (Entropy, <span class="arithmatex">\(S\)</span>)</strong> ：假设无相互作用，仅考虑粒子排列的几何组合数。</p>
+<p>2.<strong>内能 (Energy, <span class="arithmatex">\(U\)</span>)</strong> ：利用<strong>平均场近似 (Mean-Field Approximation)</strong> ，忽略局域涨落，计算平均相互作用能。</p>
+<p>接下来的两节将分别推导这两部分，最终重构出 Flory-Huggins 自由能表达式。</p>
+<h1 id="2-mixing-entropy">2. 混合熵 (Mixing Entropy)<a class="headerlink" href="#2-mixing-entropy" title="Permanent link">&para;</a></h1>
+<p>在构建亥姆霍兹自由能 <span class="arithmatex">\(F = E - TS\)</span> 的过程中，为了分离出熵的贡献，教授首先构建了一个理想化的参考系：<strong>无相互作用系统</strong>。这对应于相互作用能 <span class="arithmatex">\(\varepsilon = 0\)</span> 的极限情况，或者等效于高温极限（<span class="arithmatex">\(T \to \infty\)</span>），此时粒子的热运动能量远大于势能，系统的物理行为完全由构型熵（Configurational Entropy）主导。在这一框架下，混合的驱动力纯粹源于统计学上的几何排列可能性。</p>
+<h2 id="21">2.1 状态数的组合计数<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>基于晶格气体模型，系统被定义为包含 <span class="arithmatex">\(N_{\text{tot}}\)</span> 个格点的刚性网格。根据<strong>不可压缩性假设</strong>，每一个格点必须且只能被一个粒子占据。若系统中溶质粒子（P）的数量为 <span class="arithmatex">\(N_p\)</span>，溶剂粒子（S）的数量为 <span class="arithmatex">\(N_s\)</span>，则必须满足粒子数守恒约束：</p>
+<div class="arithmatex">\[
+N_{\text{tot}} = N_p + N_s
+\]</div>
+<p>在微正则系综（Microcanonical Ensemble）的假设下，系统能量简并，每一个可能的微观构型出现的概率是均等的。因此，系统的总微观状态数 <span class="arithmatex">\(\Omega\)</span> 等价于将 <span class="arithmatex">\(N_p\)</span> 个不可区分的溶质粒子和 <span class="arithmatex">\(N_s\)</span> 个不可区分的溶剂粒子排列在 <span class="arithmatex">\(N_{\text{tot}}\)</span> 个格点上的组合数。根据组合数学原理：</p>
+<div class="arithmatex">\[
+\Omega(N_p, N_{\text{tot}}) = \binom{N_{\text{tot}}}{N_p} = \frac{N_{\text{tot}}!}{N_p! N_s!} = \frac{N_{\text{tot}}!}{N_p! (N_{\text{tot}} - N_p)!}
+\]</div>
+<p>这一公式直观地反映了混合的统计本质：随着两种粒子数量趋于相等，可排列的组合数 <span class="arithmatex">\(\Omega\)</span> 将呈指数级增长。</p>
+<h2 id="22">2.2 斯特林近似与熵的解析式<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<p>根据玻尔兹曼熵公式 <span class="arithmatex">\(S = k_B \ln \Omega\)</span>，我们需要计算大数组合数的对数。在热力学极限下（<span class="arithmatex">\(N \sim 10^{23}\)</span>），可以使用<strong>斯特林近似 (Stirling's Approximation)</strong> ：</p>
+<div class="arithmatex">\[
+\ln N! \approx N \ln N - N
+\]</div>
+<p>将组合数公式代入熵的表达式并展开：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{S}{k_B} &amp;= \ln (N_{\text{tot}}!) - \ln (N_p!) - \ln (N_s!) \\
+&amp;\approx (N_{\text{tot}} \ln N_{\text{tot}} - N_{\text{tot}}) - (N_p \ln N_p - N_p) - (N_s \ln N_s - N_s)
+\end{aligned}
+\]</div>
+<p>注意到展开式中的线性项相互抵消：</p>
+<div class="arithmatex">\[-N_{\text{tot}} - (-N_p - N_s) = -N_{\text{tot}} + (N_p + N_s) = 0\]</div>
+<p>因此，熵的表达式简化为：</p>
+<div class="arithmatex">\[
+\frac{S}{k_B} \approx N_{\text{tot}} \ln N_{\text{tot}} - N_p \ln N_p - N_s \ln N_s
+\]</div>
+<p>为了得到与系统尺寸无关的<strong>强度量 (Intensive Quantity)</strong> ，便于描述连续场，引入无量纲的序参量——溶质的<strong>体积分数 (Volume Fraction)</strong> <span class="arithmatex">\(\phi\)</span>：</p>
+<div class="arithmatex">\[
+\phi \equiv \frac{N_p}{N_{\text{tot}}} \quad \Rightarrow \quad N_p = \phi N_{\text{tot}}
+\]</div>
+<p>根据归一化条件，溶剂的体积分数为：</p>
+<div class="arithmatex">\[
+1-\phi = \frac{N_s}{N_{\text{tot}}} \quad \Rightarrow \quad N_s = (1-\phi) N_{\text{tot}}
+\]</div>
+<p>将 <span class="arithmatex">\(\phi\)</span> 代回熵的表达式，利用对数性质 <span class="arithmatex">\(\ln(AB) = \ln A + \ln B\)</span> 进行整理：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{S}{k_B} &amp;= N_{\text{tot}} \ln N_{\text{tot}} - [\phi N_{\text{tot}} \ln (\phi N_{\text{tot}}) + (1-\phi) N_{\text{tot}} \ln ((1-\phi) N_{\text{tot}})] \\
+&amp;= N_{\text{tot}} \ln N_{\text{tot}} - N_{\text{tot}} [\phi (\ln \phi + \ln N_{\text{tot}}) + (1-\phi) (\ln (1-\phi) + \ln N_{\text{tot}})] \\
+&amp;= N_{\text{tot}} \ln N_{\text{tot}} - N_{\text{tot}} [\phi \ln \phi + (1-\phi) \ln (1 - \phi) + (\phi + 1 - \phi) \ln N_{\text{tot}}]
+\end{aligned}
+\]</div>
+<p>可以看到，包含 <span class="arithmatex">\(\ln N_{\text{tot}}\)</span> 的项最终相互抵消。由此得到经典的<strong>混合熵 (Mixing Entropy)</strong> 公式：</p>
+<div class="arithmatex">\[
+S_{\text{mix}} = - k_B N_{\text{tot}} \left[ \phi \ln \phi + (1-\phi) \ln (1 - \phi) \right]
+\]</div>
+<h2 id="23">2.3 混合熵的物理图景<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>为了直观理解熵对系统稳定性的影响，教授展示了熵函数 <span class="arithmatex">\(S(\phi)\)</span> 以及其对自由能贡献项 <span class="arithmatex">\(-TS(\phi)\)</span> 的几何特征。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/13_002_f7a69925-6709-4b2f-90a9-fc5be05c585c.png" /></p>
+<p>混合自由能的分解与演化 (Free Energy of Mixing)，该图展示了 Flory-Huggins 自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 的两个组成部分及其随 <span class="arithmatex">\(\chi\)</span> 参数的变化。</p>
+<p><strong>左图：</strong>混合熵 (Entropy of Mixing)。展示了无量纲化的熵贡献 <span class="arithmatex">\(-S/k_B\)</span> 随体积分数 <span class="arithmatex">\(\phi\)</span> 的变化。该曲线呈现开口向上的“U型”特征（凸函数），极小值位于 <span class="arithmatex">\(\phi=0.5\)</span>，表明熵总是倾向于驱动系统达到均匀混合状态。</p>
+<p><strong>右图：</strong>总自由能密度 (Total Free Energy Density)。展示了在不同 Flory-Huggins 参数 <span class="arithmatex">\(\chi\)</span> 下自由能曲线的演化。</p>
+<ul>
+<li>
+<p>曲线 <strong>1 (<span class="arithmatex">\(\chi &lt; 2\)</span>)：</strong>高温状态，自由能为单势阱（凸函数），系统处于均匀混合相。</p>
+</li>
+<li>
+<p>曲线 <strong>2 (<span class="arithmatex">\(\chi = 2\)</span>)：</strong>临界状态，曲线底部变得平坦。</p>
+</li>
+<li>
+<p>曲线 <strong>3 (<span class="arithmatex">\(\chi &gt; 2\)</span>)：</strong>低温状态，自由能分裂为双势阱（非凸函数），系统发生自发对称性破缺，倾向于分离为两个共存相。</p>
+</li>
+</ul>
+<p>这一数学结果蕴含了深刻的物理意义：</p>
+<p>1.<strong>自由能的凸性 (Convexity)</strong> ：虽然熵 <span class="arithmatex">\(S(\phi)\)</span> 本身是一个开口向下的凹函数（Hill shape），但它对亥姆霍兹自由能的贡献是 <span class="arithmatex">\(-TS\)</span>。函数 <span class="arithmatex">\(g(\phi) = \phi \ln \phi + (1-\phi) \ln (1-\phi)\)</span> 在定义域 <span class="arithmatex">\((0, 1)\)</span> 内二阶导数恒为正：</p>
+<div class="arithmatex">\[
+g''(\phi) = \frac{1}{\phi} + \frac{1}{1-\phi} &gt; 0
+\]</div>
+<p>这意味着 <span class="arithmatex">\(-TS\)</span> 项是一个<strong>凸函数 (Convex Function)</strong> 。在热力学中，自由能的凸性保证了系统的稳定性。熵项的作用就像一个“弹簧”，总是倾向于将系统的浓度拉向自由能最低点。</p>
+<p>2.<strong>最大无序度与混合驱动力</strong>：</p>
+<p>自由能中的熵项在 <span class="arithmatex">\(\phi = 0.5\)</span> 处达到全局极小值。这表明，在没有任何能量偏好的情况下，系统最稳定的宏观状态是溶质和溶剂各占一半的均匀混合态，因为此时对应的微观状态数最多，混乱度最大。</p>
+<p>3.<strong>边界奇异性与纯物质的不稳定性</strong>：</p>
+<p>观察函数在边界 <span class="arithmatex">\(\phi \to 0\)</span> 或 <span class="arithmatex">\(\phi \to 1\)</span> 处的行为，其一阶导数（即化学势的一部分）趋于无穷大：</p>
+<div class="arithmatex">\[
+\lim_{\phi \to 0} \frac{d}{d\phi}(\phi \ln \phi) = -\infty
+\]</div>
+<p>这一数学奇异性具有重要的物理推论：<strong>向纯物质中加入极其微量的杂质，总是能引起系统自由能的急剧下降（斜率无穷大）。</strong>这解释了为什么在自然界中很难获得<strong>绝对纯净的物质</strong>——熵总是驱动物质去“被污染”或发生混合，这是热力学第三定律在混合问题上的体现。</p>
+<p>从自由能的角度看，混合熵的作用可以被理解为一种“统计弹性”。任何偏离均匀混合状态的浓度涨落，都会显著减少系统可实现的微观构型数，从而导致熵下降、自由能上升。这种效应在数学上体现为熵项对自由能的贡献始终是一个严格凸函数。</p>
+<p>因此，在没有相互作用能的情况下，自由能景观中只存在一个唯一的极小值，对应于完全均匀的混合态。这一结论并非特定模型的结果，而是源于不可压缩系统中组合熵的普适性质。</p>
+<h1 id="3-mean-field-theory">3. 平均场理论与相互作用能 (Mean-Field Theory)<a class="headerlink" href="#3-mean-field-theory" title="Permanent link">&para;</a></h1>
+<p>在处理完熵的贡献后，理论构建的下一步是解决哈密顿量中复杂的相互作用项。由于配分函数中的双体相互作用算符 <span class="arithmatex">\(\sigma_i \sigma_j\)</span> 导致了格点间的状态高度耦合，直接求解在数学上几乎是不可能的。为了克服这一困难，课程引入了<strong>平均场理论 (Mean-Field Theory)</strong> 。这一方法不仅是统计物理处理多体问题的标准范式，也是理解从微观粒子相互作用过渡到宏观连续场论（如 Ginzburg-Landau 理论）的关键步骤。</p>
+<h2 id="31">3.1 粗粒化与平均场假设<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p>平均场理论的核心物理思想是<strong>忽略局域涨落 (Neglecting Local Fluctuations)</strong> 。在真实的晶格系统中，某个特定格点 <span class="arithmatex">\(i\)</span> 的状态 <span class="arithmatex">\(\sigma_i\)</span> 会受到其具体邻居（<span class="arithmatex">\(\sigma_j\)</span>）瞬时状态的强烈影响，表现出短程关联。平均场近似则通过“抹平”这种差异，假设每个粒子感受到的不再是周围邻居的具体状态，而是一个由整个系统的平均密度决定的均匀背景场（即“平均场”）。</p>
+<p><img alt="从微观晶格模型到宏观连续场论的粗粒化过程示意图。宏观连续介质，不再区分单个粒子，而是用一个均匀的颜色（灰色/混合色）代表局域体积分数 \(\phi\)。箭头表示粗粒化（Coarse-graining）和平均操作 \(\langle \sigma_i \rangle \to \phi\)。图源：作者自绘" src="../assets/images/13_003_2e3fad34-6173-48d9-9e59-d1a50b0e87af.png" /></p>
+<p>在数学处理上，这意味着进行如下算符替换：</p>
+<p>1.<strong>单体算符替换</strong>：将微观占据数变量 <span class="arithmatex">\(\sigma_i\)</span> 替换为其系综平均值，即局域体积分数 <span class="arithmatex">\(\phi\)</span>：</p>
+<div class="arithmatex">\[
+\sigma_i \approx \langle \sigma_i \rangle = \phi
+\]</div>
+<p>2.<strong>关联解耦</strong>：这是最关键的一步近似，假设不同格点的状态是统计独立的，从而将耦合的双体项拆解为单体项的乘积：</p>
+<div class="arithmatex">\[
+\langle \sigma_i \sigma_j \rangle \approx \langle \sigma_i \rangle \langle \sigma_j \rangle = \phi^2
+\]</div>
+<p>这种处理方法本质上是一种<strong>粗粒化 (Coarse-graining)</strong> 过程。分析的视角从单个晶格点上升到了一个包含大量粒子的介观体积元，在这个尺度上，密度被认为是均匀的。</p>
+<p>需要指出的是，平均场近似的代价在于它系统性地忽略了短程关联和涨落效应。换言之，模型假设每个格点所“看到”的环境都是统计意义上完全相同的。这一近似在高维或远离临界点时是合理的，但在临界点附近会低估涨落的重要性。这一缺陷将在后续引入 Ginzburg 判据时再次出现。</p>
+<h2 id="32-e_textmf">3.2 平均场能量 <span class="arithmatex">\(E_{\text{mf}}\)</span> 的推导<a class="headerlink" href="#32-e_textmf" title="Permanent link">&para;</a></h2>
+<p>基于上述假设，可以计算系统的平均相互作用能 <span class="arithmatex">\(E_{\text{mf}}(\phi)\)</span>。这需要统计在整个晶格中，各类最近邻粒子对（Pair）出现的平均期望次数。</p>
+<p>设 <span class="arithmatex">\(z\)</span> 为晶格的<strong>配位数 (Coordination number)</strong> ，即每个格点拥有的最近邻格点数（如二维正方晶格 <span class="arithmatex">\(z=4\)</span>，三维立方晶格 <span class="arithmatex">\(z=6\)</span>）。系统中总的最近邻连接数为 <span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}}\)</span>，系数 <span class="arithmatex">\(\frac{1}{2}\)</span> 源于对每一对连接 <span class="arithmatex">\(\langle i, j \rangle\)</span> 的去重计数。</p>
+<p>各项对总能量的贡献如下：</p>
+<p>1.<strong>溶质-溶质对 (P-P)</strong> ：</p>
+<ul>
+<li>
+<p>出现概率：<span class="arithmatex">\(\phi \cdot \phi = \phi^2\)</span></p>
+</li>
+<li>
+<p>能量贡献：<span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}} \cdot \varepsilon_{pp} \cdot \phi^2\)</span></p>
+</li>
+</ul>
+<p>2.<strong>溶剂-溶剂对 (S-S)</strong> ：</p>
+<ul>
+<li>
+<p>出现概率：<span class="arithmatex">\((1-\phi) \cdot (1-\phi) = (1-\phi)^2\)</span></p>
+</li>
+<li>
+<p>能量贡献：<span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}} \cdot \varepsilon_{ss} \cdot (1-\phi)^2\)</span></p>
+</li>
+</ul>
+<p>3.<strong>溶质-溶剂对 (P-S)</strong> ：</p>
+<ul>
+<li>
+<p>出现概率：<span class="arithmatex">\(\phi(1-\phi)\)</span>。由于哈密顿量中包含 <span class="arithmatex">\(\sigma_i(1-\sigma_j)\)</span> 和 <span class="arithmatex">\(\sigma_j(1-\sigma_i)\)</span> 两项（即 <span class="arithmatex">\(i\)</span> 是溶质 <span class="arithmatex">\(j\)</span> 是溶剂，反之亦然），需要乘以系数 2。</p>
+</li>
+<li>
+<p>能量贡献：<span class="arithmatex">\(\frac{1}{2} z N_{\text{tot}} \cdot \varepsilon_{ps} \cdot 2\phi(1-\phi)\)</span></p>
+</li>
+</ul>
+<p>将三部分加和，得到平均场能量密度的表达式：</p>
+<div class="arithmatex">\[
+E_{\text{mf}}(\phi) = \frac{1}{2} z N_{\text{tot}} \left[ \varepsilon_{pp} \phi^2 + \varepsilon_{ss} (1-\phi)^2 + 2 \varepsilon_{ps} \phi (1-\phi) \right]
+\]</div>
+<h2 id="33-flory-huggins-chi">3.3 混合能与 Flory-Huggins 参数 <span class="arithmatex">\(\chi\)</span><a class="headerlink" href="#33-flory-huggins-chi" title="Permanent link">&para;</a></h2>
+<p>为了揭示相变的物理本质，需要将上述能量表达式重组。在热力学中，真正驱动相变的不是系统的绝对能量，而是<strong>混合能 (Energy of Mixing)</strong> ，即混合后的能量相对于混合前纯组分能量的差值。</p>
+<p>纯溶质状态（<span class="arithmatex">\(\phi=1\)</span>）的能量为 <span class="arithmatex">\(E_{\text{pure P}} = \frac{1}{2} z N_{\text{tot}} \varepsilon_{pp}\)</span>，纯溶剂状态（<span class="arithmatex">\(\phi=0\)</span>）的能量为 <span class="arithmatex">\(E_{\text{pure S}} = \frac{1}{2} z N_{\text{tot}} \varepsilon_{ss}\)</span>。</p>
+<p>定义混合相互作用能 <span class="arithmatex">\(\Delta E_{\text{int}}\)</span>：</p>
+<div class="arithmatex">\[
+\Delta E_{\text{int}}(\phi) = E_{\text{mf}}(\phi) - \left[ \phi E_{\text{pure P}} + (1-\phi) E_{\text{pure S}} \right]
+\]</div>
+<p>将 <span class="arithmatex">\(E_{\text{mf}}\)</span> 的表达式代入并利用恒等式 <span class="arithmatex">\(\phi^2 - \phi = -\phi(1-\phi)\)</span> 和 <span class="arithmatex">\((1-\phi)^2 - (1-\phi) = -\phi(1-\phi)\)</span> 进行化简，可以惊奇地发现，所有的线性项和常数项都被消去，只留下了与 <span class="arithmatex">\(\phi(1-\phi)\)</span> 成正比的项：</p>
+<div class="arithmatex">\[
+\Delta E_{\text{int}}(\phi) = \frac{1}{2} z N_{\text{tot}} \phi(1-\phi) \left[ 2\varepsilon_{ps} - (\varepsilon_{pp} + \varepsilon_{ss}) \right]
+\]</div>
+<p>这里定义了一个核心物理量——<strong>交换相互作用能 (Exchange Interaction Energy)</strong> <span class="arithmatex">\(\Delta \varepsilon\)</span>：</p>
+<div class="arithmatex">\[
+\Delta \varepsilon = \varepsilon_{pp} + \varepsilon_{ss} - 2\varepsilon_{ps}
+\]</div>
+<p><strong>物理意义</strong>：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\Delta \varepsilon\)</span> 衡量了断开一个 P-P 对和一个 S-S 对，并形成两个 P-S 对所需的净能量变化。</p>
+</li>
+<li>
+<p>若 <span class="arithmatex">\(\Delta \varepsilon &lt; 0\)</span>：意味着 <span class="arithmatex">\(\varepsilon_{pp} + \varepsilon_{ss} &lt; 2\varepsilon_{ps}\)</span>。同类粒子聚集的能量更低（更稳定），异类接触会增加系统能量。这对应于<strong>吸引相互作用</strong> ，倾向于驱动系统发生<strong>分相 (Demixing)</strong> 。</p>
+</li>
+</ul>
+<p>为了方便后续讨论，引入无量纲的 <strong>Flory-Huggins 参数 <span class="arithmatex">\(\chi\)</span></strong> ：</p>
+<div class="arithmatex">\[
+\chi \equiv -\frac{z}{2} \frac{\Delta \varepsilon}{k_B T}
+\]</div>
+<p>当存在分相倾向时，即 <span class="arithmatex">\(\Delta \varepsilon &lt; 0\)</span>，参数 <span class="arithmatex">\(\chi\)</span> 为正值。</p>
+<p><span class="arithmatex">\(\chi\)</span> 参数深刻地反映了<strong>焓（相互作用）与温度的竞争</strong>：<span class="arithmatex">\(\chi \propto 1/T\)</span>。温度越低，<span class="arithmatex">\(\chi\)</span> 越大，相互作用能相对于热运动（<span class="arithmatex">\(k_B T\)</span>）的比重就越大。</p>
+<p>最终，系统的相互作用能密度可以简洁地表示为：</p>
+<div class="arithmatex">\[
+\frac{E_{\text{int}}}{N_{\text{tot}} k_B T} = \chi \phi (1 - \phi)
+\]</div>
+<p>这个简洁的抛物线形式（<span class="arithmatex">\(\chi \phi - \chi \phi^2\)</span>）构成了 Flory-Huggins 自由能中的能量部分，它将与熵项共同决定系统的相图结构。</p>
+<h1 id="4-flory-huggins">4. Flory-Huggins 自由能及其物理图景<a class="headerlink" href="#4-flory-huggins" title="Permanent link">&para;</a></h1>
+<p>在前两节的推导中，教授分别从纯粹的统计计数角度获得了<strong>混合熵</strong>（倾向于无序混合），以及从平均场近似角度获得了<strong>相互作用能</strong>（倾向于有序分相）。这小节的核心任务是将这两部分竞争机制整合到同一个热力学势函数中——亥姆霍兹自由能（Helmholtz Free Energy）。由此得到的 <strong>Flory-Huggins 自由能理论</strong>，不仅是高分子物理的基石，更为理解软物质系统中的相分离行为提供了最基础的数学框架。</p>
+<h2 id="41">4.1 自由能密度的构建<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p>根据热力学定义，亥姆霍兹自由能 <span class="arithmatex">\(F\)</span> 由内能 <span class="arithmatex">\(E\)</span> 和熵 <span class="arithmatex">\(S\)</span> 共同决定：</p>
+<div class="arithmatex">\[
+F = E - TS
+\]</div>
+<p>为了得到与系统宏观尺寸无关的强度量，通常将总自由能归一化为单格点（或单分子）的<strong>自由能密度</strong> <span class="arithmatex">\(f(\phi)\)</span>。将第 2 小节推导的混合熵 <span class="arithmatex">\(S_{\text{mix}}\)</span> 和第 3 小节推导的平均场能量 <span class="arithmatex">\(E_{\text{mf}}\)</span> 代入，并以热能 <span class="arithmatex">\(k_B T\)</span> 作为能量单位进行无量纲化：</p>
+<div class="arithmatex">\[
+\frac{f(\phi)}{k_B T} = \frac{E_{\text{mf}} - T S_{\text{mix}}}{N_{\text{tot}} k_B T}
+\]</div>
+<p>将具体的表达式代入上式，即可得到经典的 <strong>Flory-Huggins 自由能方程</strong>：</p>
+<div class="arithmatex">\[
+\frac{f(\phi)}{k_B T} = \underbrace{\phi \ln \phi + (1-\phi) \ln (1-\phi)}_{\text{熵项 (Entropic Term)}} + \underbrace{\chi \phi (1 - \phi)}_{\text{相互作用项 (Interaction Term)}}
+\]</div>
+<p>这一方程形式极其简洁优美。虽然 Flory 和 Huggins 最初是为了描述高分子链溶液（考虑链连接性导致的熵减，通常第一项会有 <span class="arithmatex">\(1/N\)</span> 因子）而推导的，但对于本课程讨论的简单晶格气体模型（对应链长 <span class="arithmatex">\(N=1\)</span> 的溶质与溶剂混合），该形式是严格成立的平均场结果。</p>
+<h2 id="42">4.2 熵与能量的竞争机制<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>该方程深刻揭示了相变背后的物理本质——<strong>有序（能量主导）与无序（熵主导）之间的永恒竞争</strong>。自由能曲线 <span class="arithmatex">\(f(\phi)\)</span> 的最终形状，完全取决于这两项几何特征的叠加。</p>
+<p><img alt="自由能的分解图。开口向上的U型曲线代表熵项（-TS），开口向下的倒U型曲线代表能量项（E），以及两者叠加后的总自由能曲线，当 \(\chi &gt; 2\) 时，中间部分会隆起，形成标志性的双势阱（Double Well）结构，意味着相分离的发生。图源，作者自绘" src="../assets/images/13_004_84477c25-3a46-4d96-91f6-01acf987cfd5.png" /></p>
+<p>1.<strong>熵项 (Entropic Contribution)</strong> ：</p>
+<ul>
+<li>
+<p><strong>数学形式</strong>：<span class="arithmatex">\(x \ln x\)</span> 型凸函数。</p>
+</li>
+<li>
+<p><strong>几何特征</strong>：二阶导数恒为正，曲线始终<strong>开口向上（Convex）</strong>。</p>
+</li>
+<li>
+<p><strong>物理作用</strong>：熵总是倾向于最大化混乱度。它驱动自由能曲线保持凸性，使得极小值位于 <span class="arithmatex">\(\phi=0.5\)</span>。这是一种<strong>混合力</strong>，试图消除任何浓度差异，使系统均一化。</p>
+</li>
+</ul>
+<p>2.<strong>相互作用项 (Interaction Contribution)</strong> ：</p>
+<ul>
+<li>
+<p><strong>数学形式</strong>：当 <span class="arithmatex">\(\chi &gt; 0\)</span>（存在有效吸引）时，为 <span class="arithmatex">\(-\phi^2\)</span> 型凹函数。</p>
+</li>
+<li>
+<p><strong>几何特征</strong>：二阶导数为负，曲线<strong>开口向下（Concave）</strong>。</p>
+</li>
+<li>
+<p><strong>物理作用</strong>：能量项倾向于让同类粒子聚集以降低势能。它试图使自由能曲线中间隆起，形成势垒。这是一种<strong>分相力</strong>，驱动系统偏离均匀态，向纯相（<span class="arithmatex">\(\phi=0\)</span> 或 <span class="arithmatex">\(1\)</span>）演化。</p>
+</li>
+</ul>
+<h2 id="43">4.3 温度调控与双势阱的形成<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p>在 Flory-Huggins 理论中，决定谁胜谁负的关键控制参数是 <span class="arithmatex">\(\chi\)</span>。由于 <span class="arithmatex">\(\chi\)</span> 定义中包含逆温度因子：</p>
+<div class="arithmatex">\[
+\chi \propto \frac{\Delta \varepsilon}{k_B T} \propto \frac{1}{T}
+\]</div>
+<p>因此，调节温度等效于调节熵与能量的相对权重，从而改变自由能景观（Landscape）的拓扑结构。</p>
+<p><img alt="课堂PPT截图，自由能密度 \(f(\phi)\) 随 Flory-Huggins 参数 \(\chi\) 的变化" src="../assets/images/13_005_4c738ba6-632a-4848-970b-94009e669640.png" /></p>
+<ul>
+<li><strong>高温极限 (<span class="arithmatex">\(\chi \to 0\)</span>)</strong> ：</li>
+</ul>
+<p>热运动剧烈，熵项绝对主导。自由能曲线呈现完美的 U 型（凸函数），系统在 <span class="arithmatex">\(\phi=0.5\)</span> 处拥有唯一的全局极小值。此时，无论初始浓度如何，溶质与溶剂都能无限互溶（Miscible）。</p>
+<ul>
+<li><strong>低温极限 (<span class="arithmatex">\(\chi\)</span> 增大)</strong> ：</li>
+</ul>
+<p>随着温度降低，<span class="arithmatex">\(\chi\)</span> 值增大，能量项的权重增加。当 <span class="arithmatex">\(\chi\)</span> 超过某一<strong>临界值</strong>时，能量项在 <span class="arithmatex">\(\phi=0.5\)</span> 附近的“隆起”效应战胜了熵项的“下凹”效应。自由能曲线的中心部分被“顶起”，从单势阱分裂为<strong>双势阱 (Double-Well Potential)</strong> 。</p>
+<p>这种从单势阱到双势阱的拓扑转变，标志着系统发生了<strong>相变</strong>。原本稳定的均匀混合态变得不再稳定，系统倾向于分裂成两个不同浓度的共存相，以分别占据两个更深的势阱。接下来的第 5 小节将通过数学分析，精确定位这一相变发生的临界条件。</p>
+<h1 id="5-phase-diagram-analysis">5. 相图分析 (Phase Diagram Analysis)<a class="headerlink" href="#5-phase-diagram-analysis" title="Permanent link">&para;</a></h1>
+<p>通过前一节的推导，自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span> 的解析形式已完全确立。接下来的核心任务是探究该函数几何形状随参数 <span class="arithmatex">\(\chi\)</span>（即温度 <span class="arithmatex">\(T\)</span>）的演化规律，从而绘制出描述系统热力学状态的相图。这一过程主要涉及对 <span class="arithmatex">\(f(\phi)\)</span> 进行微积分分析，以确定其凸凹性转变的临界条件。</p>
+<h2 id="51-critical-point">5.1 临界点 (Critical Point) 的推导<a class="headerlink" href="#51-critical-point" title="Permanent link">&para;</a></h2>
+<p>相变发生的临界点对应于自由能曲线在对称中心 <span class="arithmatex">\(\phi=0.5\)</span> 处发生几何性质突变的时刻：曲线由单势阱（凸）转变为双势阱（凹）。在数学上，这对应于二阶导数（曲率）和三阶导数同时为零的点。对于本模型的对称势能，三阶导数在 <span class="arithmatex">\(\phi=0.5\)</span> 处天然为零，因此只需考察二阶导数。</p>
+<p>首先，计算无量纲自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 关于 <span class="arithmatex">\(\phi\)</span> 的一阶导数，这对应于<strong>交换化学势差</strong>（相差一个常数）：</p>
+<div class="arithmatex">\[
+\frac{1}{k_B T} \frac{\partial f}{\partial \phi} = \ln \phi + 1 - \ln(1-\phi) - 1 + \chi(1 - 2\phi) = \ln\left(\frac{\phi}{1-\phi}\right) + \chi(1-2\phi)
+\]</div>
+<p>接着，计算二阶导数，这对应于<strong>热力学稳定性</strong>（逆极化率）：</p>
+<div class="arithmatex">\[
+\frac{1}{k_B T} \frac{\partial^2 f}{\partial \phi^2} = \frac{1}{\phi} - \frac{1}{1-\phi}(-1) - 2\chi = \frac{1}{\phi} + \frac{1}{1-\phi} - 2\chi = \frac{1}{\phi(1-\phi)} - 2\chi
+\]</div>
+<p>在临界点，系统处于边缘稳定状态，要求二阶导数为零。考虑到晶格气体模型的粒子空穴对称性，临界浓度必然位于 <span class="arithmatex">\(\phi_c = 0.5\)</span>。将此值代入二阶导数公式求解临界 <span class="arithmatex">\(\chi_c\)</span>：</p>
+<div class="arithmatex">\[
+\frac{1}{0.5(1-0.5)} - 2\chi_c = 0 \quad \Rightarrow \quad \frac{1}{0.25} - 2\chi_c = 0 \quad \Rightarrow \quad 4 - 2\chi_c = 0
+\]</div>
+<p>解得 Flory-Huggins 理论的普适临界值：</p>
+<div class="arithmatex">\[
+\chi_c = 2
+\]</div>
+<p>因此，临界点坐标为 <span class="arithmatex">\((\phi_c=0.5, \chi_c=2)\)</span>。这构成了相图的顶点：</p>
+<ul>
+<li>
+<p>当 <span class="arithmatex">\(\chi &lt; 2\)</span>（高温）时，二阶导数恒正，系统总是互溶的（Miscible）。</p>
+</li>
+<li>
+<p>当 <span class="arithmatex">\(\chi &gt; 2\)</span>（低温）时，中间区域二阶导数变负，系统可能发生相分离。</p>
+</li>
+</ul>
+<h2 id="52-spinodal-line">5.2 旋节线 (Spinodal Line) 与失稳分解<a class="headerlink" href="#52-spinodal-line" title="Permanent link">&para;</a></h2>
+<p>相图中界定<strong>热力学不稳定区域 (Unstable Region)</strong> 的边界曲线被称为旋节线。在该区域内，自由能函数的二阶导数小于零（<span class="arithmatex">\(f''(\phi) &lt; 0\)</span>），这意味着自由能曲线局部呈现“上凸”形状。</p>
+<p><strong>物理意义</strong>：当系统处于此区域时，扩散系数 <span class="arithmatex">\(D \propto f''(\phi)\)</span> 变为负值。这意味着任何微小的浓度涨落 <span class="arithmatex">\(\delta \phi\)</span> 不会被扩散抹平，反而会导致总自由能降低并被迅速放大。这种无需克服势垒、由“负扩散”驱动的自发相分离机制被称为<strong>旋节线分解 (Spinodal Decomposition)</strong> 。</p>
+<p>旋节线的数学定义为二阶导数的零点轨迹 <span class="arithmatex">\(f''(\phi) = 0\)</span>。利用 5.1 节中的二阶导数公式：</p>
+<div class="arithmatex">\[
+\frac{1}{\phi(1-\phi)} - 2\chi_s = 0
+\]</div>
+<p>反解出 <span class="arithmatex">\(\chi_s\)</span> 作为 <span class="arithmatex">\(\phi\)</span> 的函数，即得到旋节线方程：</p>
+<div class="arithmatex">\[
+\chi_s(\phi) = \frac{1}{2\phi(1-\phi)}
+\]</div>
+<p>在 <span class="arithmatex">\(\chi - \phi\)</span> 相图上，这是一条顶点位于 <span class="arithmatex">\((0.5, 2)\)</span> 并开口向上的抛物线型曲线（在 <span class="arithmatex">\(\chi\)</span> 轴方向）。</p>
+<h2 id="53-binodal-line">5.3 双节线 (Binodal Line) 与成核生长<a class="headerlink" href="#53-binodal-line" title="Permanent link">&para;</a></h2>
+<p>双节线（又称共存曲线）界定了<strong>热力学平衡共存区域</strong>。即使系统处于旋节线之外（<span class="arithmatex">\(f'' &gt; 0\)</span>），只要 <span class="arithmatex">\(\chi &gt; 2\)</span>，系统仍可能处于<strong>亚稳态 (Metastable)</strong> 。此时，虽然微小涨落是稳定的，但如果出现足够大的“核”（Nucleus），系统仍会演化至能量更低的分相状态。这种机制被称为<strong>成核-生长 (Nucleation and Growth)</strong> 。</p>
+<p>双节线的位置由热力学平衡条件决定：两相的化学势相等，且渗透压相等。在几何上，这对应于 Maxwell <strong>公切线构造 (Common Tangent Construction)</strong> 。</p>
+<p>在这一对称模型中，自由能函数关于 <span class="arithmatex">\(\phi=0.5\)</span> 完全对称，因此两相共存时的公切线必然是水平线（斜率为 0）。这意味着化学势在两相中均为零，从而使 Maxwell 构造在数学上退化为“寻找自由能的两个极小值点”。这一简化是对称晶格气体模型的一个特殊优势。因此，寻找切点简化为寻找自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 的两个极小值点，即一阶导数为零的点：</p>
+<div class="arithmatex">\[
+\frac{\partial f}{\partial \phi} = 0 \quad \Rightarrow \quad \ln\left(\frac{\phi_b}{1-\phi_b}\right) + \chi_b(1-2\phi_b) = 0
+\]</div>
+<p>整理得到双节线的隐式方程（通常写成 <span class="arithmatex">\(\chi\)</span> 关于 <span class="arithmatex">\(\phi\)</span> 的函数以便绘图）：</p>
+<div class="arithmatex">\[
+\chi_b(\phi) = \frac{1}{2\phi - 1} \ln\left(\frac{\phi}{1-\phi}\right)
+\]</div>
+<p>（注：利用对数性质 <span class="arithmatex">\(\ln(x) = -\ln(1/x)\)</span>，该式也可写作 <span class="arithmatex">\(\frac{1}{1-2\phi} \ln(\frac{1-\phi}{\phi})\)</span>，两者完全等价。）</p>
+<p><img alt="课堂PPT截图" src="../assets/images/13_006_bdac039e-48af-40e5-ba3b-77c2ee3430de.png" /></p>
+<p>二元混合物的相图与稳定性 (Phase Diagram &amp; Stability)</p>
+<p><strong>左图：自由能密度曲线 (Free Energy Density)</strong> 。展示了在不同相互作用参数 <span class="arithmatex">\(\chi\)</span> 下，无量纲自由能密度 <span class="arithmatex">\(f \cdot v / k_B T\)</span> 随体积分数 <span class="arithmatex">\(\phi\)</span> 的变化。</p>
+<ul>
+<li><span class="arithmatex">\(\chi=1.6\)</span> (高温)：曲线为凸函数（Convex），对应均匀单相区。</li>
+<li><span class="arithmatex">\(\chi=2.0\)</span> (临界点)：曲线底部平坦。</li>
+<li><span class="arithmatex">\(\chi=2.5\)</span> (低温)：曲线呈现双势阱特征（Concave区域），系统处于不稳定或亚稳态。</li>
+</ul>
+<p><strong>右图：相图 (Phase Diagram)</strong> 。
+* <strong>纵轴</strong>：Flory-Huggins 参数 <span class="arithmatex">\(\chi\)</span>（与温度 <span class="arithmatex">\(T\)</span> 成反比）。
+* <strong>横轴</strong>：体积分数 <span class="arithmatex">\(\phi\)</span>。
+* <strong>Binodal 线（实线）</strong>：共存曲线，区分了单相区（Single Phase）与两相共存区。
+* <strong>Spinodal 线（虚线）</strong>：失稳曲线，区分了亚稳区（Metastable）与不稳定区（Unstable）。在不稳定区内，系统发生 Spinodal 分解。</p>
+<h1 id="6-ginzburg-landau">6. 空间异质性与 Ginzburg-Landau 泛函<a class="headerlink" href="#6-ginzburg-landau" title="Permanent link">&para;</a></h1>
+<p>此前推导的 Flory-Huggins 理论本质上是一个<strong>平均场理论</strong>。它隐含了一个关键假设：系统在宏观尺度上是均匀的，或者仅仅关注两个体相（Bulk Phases）的热力学平衡，而完全忽略了相与相之间必然存在的<strong>界面 (Interface)</strong> 。然而，在真实的相分离动力学过程中，空间异质性是不可避免的。为了描述浓度场 <span class="arithmatex">\(\phi(\vec{r})\)</span> 在空间上的连续变化，以及由此产生的界面张力，必须对自由能进行修正，引入空间梯度项。这一步标志着从局域热力学向非局域场论的跨越。</p>
+<h2 id="61">6.1 梯度项的微观物理起源<a class="headerlink" href="#61" title="Permanent link">&para;</a></h2>
+<p>如果在空间位置 <span class="arithmatex">\(\vec{r}\)</span> 处浓度场不均匀，即 <span class="arithmatex">\(\nabla \phi \neq 0\)</span>，这意味着相邻区域的成分存在差异。从微观晶格模型来看，这种差异会导致最近邻粒子对的相互作用能发生改变。</p>
+<p>在连续极限下，可以将相邻格点 <span class="arithmatex">\(\vec{r}_j\)</span> 处的浓度场在参考点 <span class="arithmatex">\(\vec{r}_i\)</span> 处进行泰勒展开：</p>
+<div class="arithmatex">\[
+\phi(\vec{r}_j) \approx \phi(\vec{r}_i) + (\vec{r}_j - \vec{r}_i) \cdot \nabla \phi + \frac{1}{2} [(\vec{r}_j - \vec{r}_i) \cdot \nabla]^2 \phi
+\]</div>
+<p>将此展开式代回微观哈密顿量 <span class="arithmatex">\(\mathcal{H} \sim \sum \sigma_i \sigma_j\)</span> 并转化为连续积分。推导显示，零阶项 <span class="arithmatex">\(\phi^2\)</span> 贡献了局域相互作用能（已包含在 <span class="arithmatex">\(\chi\)</span> 项中），一阶项由于晶格中心对称性而在求和中抵消，而主导的非均匀修正来自二阶项，即梯度的平方 <span class="arithmatex">\((\nabla \phi)^2\)</span>。</p>
+<p>从宏观对称性角度审视，这一项的存在也是必然的：</p>
+<ol>
+<li>
+<p><strong>标量性</strong>：自由能必须是标量。</p>
+</li>
+<li>
+<p><strong>旋转不变性</strong>：梯度项必须是标量积形式。</p>
+</li>
+<li>
+<p><strong>能量罚分</strong>：对于各向同性流体，界面总是携带正的过剩能量（界面张力），因此梯度项系数必须为正，以惩罚剧烈的浓度变化。</p>
+</li>
+</ol>
+<h2 id="62-ginzburg-landau">6.2 Ginzburg-Landau 自由能泛函<a class="headerlink" href="#62-ginzburg-landau" title="Permanent link">&para;</a></h2>
+<p>将局域的 Flory-Huggins 自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 与非局域的梯度修正项结合，系统的总自由能不再是一个简单的函数，而是一个依赖于场分布 <span class="arithmatex">\(\phi(\vec{r})\)</span> 的<strong>泛函 (Functional)</strong> ：</p>
+<div class="arithmatex">\[
+F[\phi(\vec{r})] = \int d^3r \left[ f(\phi(\vec{r})) + \frac{\kappa}{2} (\nabla \phi)^2 \right]
+\]</div>
+<p>公式各项物理意义如下：
+-   <span class="arithmatex">\(f(\phi)\)</span>：<strong>局域自由能密度</strong>，即第 4 节推导出的双势阱函数。它驱动系统局部分离为两个平衡浓度。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\frac{\kappa}{2} (\nabla \phi)^2\)</span>：<strong>梯度能量项 (Gradient Energy Term)</strong> 。它惩罚空间不均匀性，倾向于使浓度场平滑。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\kappa\)</span>：<strong>刚度系数 (Stiffness Coefficient)</strong> ，是一个正的常数。它与相互作用范围和强度直接相关，量纲分析表明 <span class="arithmatex">\(\kappa \sim k_B T \chi a^2\)</span>（其中 <span class="arithmatex">\(a\)</span> 为晶格常数）。</p>
+</li>
+</ul>
+<p>这一形式即为著名的 <strong>Ginzburg-Landau 自由能泛函</strong>。它是现代理论物理处理连续相变、超导、超流及软物质相分离的标准数学框架。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/13_007_6d049e53-b8a2-4219-ae01-90763d3938d0.png" /></p>
+<p>上方给出了 Ginzburg–Landau 自由能泛函：</p>
+<div class="arithmatex">\[
+F[\phi] = \int d^d r \left[ f(\phi) + \frac{\kappa}{2} (\nabla \phi)^2 \right],
+\]</div>
+<p>其中 <span class="arithmatex">\(f(\phi)\)</span> 决定体系的局域相行为，而梯度项刻画空间非均匀性（界面）的能量代价。下方左图展示了对称的 <span class="arithmatex">\(\phi^4\)</span> 型局域自由能密度：</p>
+<div class="arithmatex">\[
+f(\phi) = -\frac{r}{2} (\phi - \phi_c)^2 + \frac{u}{4} (\phi - \phi_c)^4,
+\]</div>
+<p>随着参数 <span class="arithmatex">\(r\)</span> 变号，由单势阱向双势阱转变，对应连续（第二类）相变及自发对称性破缺；右图在此基础上引入三次项后势能不再对称，体现了一阶相变中势阱不等深、亚稳态与跃迁行为。该图为后续临界点附近的 <span class="arithmatex">\(\phi^4\)</span> 展开与动力学方程推导提供直观基础。</p>
+<h2 id="63-phi4">6.3 临界点附近的 <span class="arithmatex">\(\phi^4\)</span> 展开<a class="headerlink" href="#63-phi4" title="Permanent link">&para;</a></h2>
+<p>从上图所示的势能地形可以看出，临界点附近体系的关键特征已完全由局域自由能在低阶多项式近似下的拓扑结构所决定，这正是 Landau 理论的出发点。虽然 Flory-Huggins 形式的 <span class="arithmatex">\(f(\phi)\)</span> 精确描述了高分子混合物，但其对数项在解析处理上较为繁琐。在临界点附近（<span class="arithmatex">\(\chi \approx \chi_c, \phi \approx \phi_c\)</span>），序参量 <span class="arithmatex">\(\delta \phi = \phi - \phi_c\)</span> 很小，可以利用泰勒级数将 <span class="arithmatex">\(f(\phi)\)</span> 展开为多项式形式，这就是 Landau 相变理论的核心。</p>
+<p>定义序参量偏差 <span class="arithmatex">\(\psi(\vec{r}) = \phi(\vec{r}) - 0.5\)</span>。利用展开式 <span class="arithmatex">\(\ln(1+x) \approx x - x^2/2 + x^3/3 - x^4/4\)</span>，Flory-Huggins 密度 <span class="arithmatex">\(f(\psi)\)</span> 可展开至四阶：</p>
+<div class="arithmatex">\[
+\frac{f(\psi)}{k_B T} \approx f_0 + \frac{1}{2} (2 - \chi) \psi^2 + \frac{1}{12} \psi^4
+\]</div>
+<p>忽略常数项 <span class="arithmatex">\(f_0\)</span>，可得到通用的 Landau 多项式形式：</p>
+<div class="arithmatex">\[
+f(\psi) \approx \frac{r}{2} \psi^2 + \frac{u}{4} \psi^4
+\]</div>
+<p>其中系数的物理意义至关重要：
+-   <strong><span class="arithmatex">\(r \propto (2 - \chi) \propto (T - T_c)\)</span></strong> ：控制相变的线性参数。
+    * 当 <span class="arithmatex">\(\chi &lt; 2\)</span>（高温）时，<span class="arithmatex">\(r &gt; 0\)</span>，势能为单势阱，<span class="arithmatex">\(\psi=0\)</span> 是稳定点。
+    * 当 <span class="arithmatex">\(\chi &gt; 2\)</span>（低温）时，<span class="arithmatex">\(r &lt; 0\)</span>，势能原点失稳（凸起），系统发生自发对称性破缺。</p>
+<ul>
+<li><strong><span class="arithmatex">\(u &gt; 0\)</span></strong> ：四阶项系数，保证了热力学稳定性（势能有下界），使系统在大 <span class="arithmatex">\(\psi\)</span> 处重新稳定，从而形成双势阱结构。</li>
+</ul>
+<p>这一简化后的 <span class="arithmatex">\(\phi^4\)</span> 理论模型，不仅保留了相变的核心拓扑特征（对称性破缺），而且是下一节课推导 <strong>Cahn-Hilliard 动力学方程</strong> 的直接数学起点。</p>
+<h2 id="64">6.4 代码实践：晶格气体模型的动态可视化<a class="headerlink" href="#64" title="Permanent link">&para;</a></h2>
+<p>代码实践将模拟晶格气体系统在不同相互作用强度（由Flory-Huggins参数 <span class="arithmatex">\(\chi\)</span> 控制）下的演化过程，并同步展示系统的自由能景观。验证Flory-Huggins理论中熵与能量竞争的预测，并动态展示从均匀混合到相分离的自组织过程。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># =========================</span>
+<span class="c1"># Model: lattice gas (Ising-like) with Kawasaki dynamics (particle-conserving)</span>
+<span class="c1"># sigma=1: solute (P), sigma=0: solvent (S)</span>
+<span class="c1"># Energy: H = -J * sum_&lt;ij&gt; s_i s_j with s_i = 2*sigma_i-1 in {+1,-1}</span>
+<span class="c1"># Mapping to chi: chi ~ 2 z J / (k_B T)  (up to conventions); here we use a monotone proxy J(T)=J0*chi/chi_c</span>
+<span class="c1"># =========================</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;dark_background&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">flory_huggins_f</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">chi</span><span class="p">):</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">phi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">phi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">chi</span><span class="o">*</span><span class="n">phi</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_spin</span><span class="p">(</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">sigma</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">neighbor_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="c1"># periodic boundary conditions</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">kawasaki_sweep</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+    <span class="c1"># One Monte Carlo sweep: attempt N^2 swaps of unlike neighbors</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="c1"># pick a random neighbor</span>
+        <span class="n">di</span><span class="p">,</span> <span class="n">dj</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)][</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+        <span class="n">i2</span><span class="p">,</span> <span class="n">j2</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">di</span><span class="p">)</span><span class="o">%</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">dj</span><span class="p">)</span><span class="o">%</span><span class="n">n</span>
+        <span class="k">if</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="c1"># compute ΔE for swapping sigma(i,j) and sigma(i2,j2) using spin form</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">to_spin</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+        <span class="n">si</span><span class="p">,</span> <span class="n">sj</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">]</span>
+        <span class="c1"># local fields excluding the pair bond double-count issues handled by exact local diff</span>
+        <span class="n">hi</span> <span class="o">=</span> <span class="n">neighbor_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="n">sj</span>
+        <span class="n">hj</span> <span class="o">=</span> <span class="n">neighbor_sum</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">j2</span><span class="p">)</span> <span class="o">-</span> <span class="n">si</span>
+        <span class="c1"># Energy contribution for site i (excluding bond to j2): -J si hi ; after swap si&#39; = sj -&gt; -J sj hi</span>
+        <span class="c1"># similarly for site j2: -J sj hj ; after swap sj&#39; = si -&gt; -J si hj</span>
+        <span class="c1"># Bond between i and j2: -J si sj ; after swap -J sj si (same) -&gt; cancels</span>
+        <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">sj</span><span class="o">*</span><span class="n">hi</span> <span class="o">+</span> <span class="n">si</span><span class="o">*</span><span class="n">hj</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">si</span><span class="o">*</span><span class="n">hi</span> <span class="o">+</span> <span class="n">sj</span><span class="o">*</span><span class="n">hj</span><span class="p">)</span>  <span class="c1"># multiplied by J later via betaJ</span>
+        <span class="c1"># Metropolis accept</span>
+        <span class="k">if</span> <span class="n">dE</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">betaJ</span> <span class="o">*</span> <span class="n">dE</span><span class="p">):</span>
+            <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i2</span><span class="p">,</span><span class="n">j2</span><span class="p">],</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">sigma</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">64</span>                 <span class="c1"># lattice size N x N</span>
+<span class="n">phi0</span> <span class="o">=</span> <span class="mf">0.45</span>             <span class="c1"># overall solute fraction (conserved)</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="c1"># initialize sigma with fixed composition</span>
+<span class="n">phi_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">phi_flat</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">phi0</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">phi_flat</span><span class="p">)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">phi_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># chi schedule for animation (controls free-energy landscape + interaction strength)</span>
+<span class="n">chi_c</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">chi_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># link chi -&gt; betaJ (monotone) : choose a scale so that around chi_c we see coarsening</span>
+<span class="n">J0</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="n">betaJ_values</span> <span class="o">=</span> <span class="n">J0</span> <span class="o">*</span> <span class="p">(</span><span class="n">chi_values</span> <span class="o">/</span> <span class="n">chi_c</span><span class="p">)</span>
+
+<span class="c1"># per-frame MC sweeps (increase for smoother coarsening, but slower)</span>
+<span class="n">mc_sweeps_per_frame</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">axL</span><span class="p">,</span> <span class="n">axR</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">axL</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lattice Gas: Kawasaki Dynamics (Conserved)&quot;</span><span class="p">)</span>
+<span class="n">axL</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="n">solvent_color</span> <span class="o">=</span> <span class="s1">&#39;#ADD8E6&#39;</span>  <span class="c1"># Light blue</span>
+<span class="n">solute_color</span> <span class="o">=</span> <span class="s1">&#39;#90EE90&#39;</span>   <span class="c1"># Light green</span>
+
+<span class="c1"># Function to draw lattice points (replaces draw_lattice with circles)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_lattice</span><span class="p">(</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="n">grid_size</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">spacing</span> <span class="o">=</span> <span class="mf">0.6</span>
+    <span class="n">start_x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">start_y</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+    <span class="c1"># Clear previous artists</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lattice Gas: Kawasaki Dynamics (Conserved)&quot;</span><span class="p">)</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Plot points for each site</span>
+    <span class="n">x_coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y_coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid_size</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">start_x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">spacing</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">start_y</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">spacing</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">solute_color</span> <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">solvent_color</span>
+            <span class="n">x_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="c1"># Use scatter plot for efficiency and simplicity</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_coords</span><span class="p">,</span> <span class="n">y_coords</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">draw_lattice</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+
+<span class="n">phi_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="mi">700</span><span class="p">)</span>
+<span class="n">lineR</span><span class="p">,</span> <span class="o">=</span> <span class="n">axR</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dotR</span><span class="p">,</span> <span class="o">=</span> <span class="n">axR</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Volume Fraction $</span><span class="se">\\</span><span class="s2">phi$&quot;</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Dimensionless Free Energy $f(</span><span class="se">\\</span><span class="s2">phi)/k_BT$&quot;</span><span class="p">)</span>
+<span class="n">titleR</span> <span class="o">=</span> <span class="n">axR</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">axR</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">sigma</span>
+    <span class="n">chi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">chi_values</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="n">betaJ</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">betaJ_values</span><span class="p">[</span><span class="n">frame</span><span class="p">])</span>
+    <span class="c1"># evolve lattice configuration at current interaction strength</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mc_sweeps_per_frame</span><span class="p">):</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">kawasaki_sweep</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">betaJ</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+
+    <span class="n">axL</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lattice Gas: Kawasaki Dynamics (Conserved)&quot;</span><span class="p">)</span>
+    <span class="n">axL</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">draw_lattice</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+
+    <span class="c1"># free energy curve (shifted) at current chi</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">flory_huggins_f</span><span class="p">(</span><span class="n">phi_grid</span><span class="p">,</span> <span class="n">chi</span><span class="p">)</span>
+    <span class="n">lineR</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">phi_grid</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="c1"># mark the conserved average composition on the free-energy curve</span>
+    <span class="n">f0</span> <span class="o">=</span> <span class="n">flory_huggins_f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">phi0</span><span class="p">]),</span> <span class="n">chi</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> 
+    <span class="n">dotR</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">phi0</span><span class="p">],</span> <span class="p">[</span><span class="n">f0</span><span class="p">])</span>
+    <span class="n">titleR</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Free Energy Landscape: $</span><span class="se">\\</span><span class="s2">chi = </span><span class="si">{</span><span class="n">chi</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">$ (right dot is system average $</span><span class="se">\\</span><span class="s2">phi$)&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">lineR</span><span class="p">,</span> <span class="n">dotR</span><span class="p">,</span> <span class="n">titleR</span>  
+
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">chi_values</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;lattice_gas_vs_free_energy.gif&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s2">&quot;pillow&quot;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saved: lattice_gas_vs_free_energy.gif&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="运行代码输出" src="../assets/images/lattice_gas_vs_free_energy.gif" /></p>
+<p><strong>晶格构型（左图）：</strong>
+随着相互作用参数 <span class="arithmatex">\(\chi\)</span> 从小到大逐步增加，晶格气体从高温下的均匀混合态演化为低温下的相分离态。在小 <span class="arithmatex">\(\chi\)</span> 时，溶质与溶剂在晶格上随机分布，体系高度无序；当 <span class="arithmatex">\(\chi\)</span> 增大接近临界值时，微小的浓度涨落开始出现并被放大，局域团簇迅速生长并相互并合，呈现出典型的旋节线分解特征；在更大的 <span class="arithmatex">\(\chi\)</span> 下，系统最终形成两个宏观共存相，中间由清晰的界面分隔。整个过程中，总体组成 <span class="arithmatex">\(\phi_0\)</span> 保持守恒，但空间结构发生了从“随机混合”到“宏观分相”的质变。</p>
+<p><strong>自由能景观（右图）：</strong>
+对应地，Flory–Huggins 自由能密度 <span class="arithmatex">\(f(\phi)\)</span> 随 <span class="arithmatex">\(\chi\)</span> 的增加经历了拓扑结构的演化：在小 <span class="arithmatex">\(\chi\)</span>（高温）下，自由能为单一的凸形势阱，其唯一极小值位于 <span class="arithmatex">\(\phi=0.5\)</span>，熵效应主导并稳定均匀混合态；随着 <span class="arithmatex">\(\chi\)</span> 增大，自由能曲线底部逐渐变平，在临界点附近出现曲率为零的区域；当 <span class="arithmatex">\(\chi\)</span> 超过临界值后，自由能中心隆起并分裂为双势阱结构，对应两种稳定的共存相。此时，自由能的非凸性（<span class="arithmatex">\(f''(\phi)&lt;0\)</span>）为相分离提供了热力学驱动力，而系统的平均组成则通过相共存而非均匀态来实现自由能最小化。</p>
+<p>Flory-Huggins理论的核心思想——<strong>熵与能量的竞争</strong>。当温度较高（<span class="arithmatex">\(\chi\)</span> 较小）时，熵占主导，系统保持均匀混合；当温度降低（<span class="arithmatex">\(\chi\)</span> 增大）时，能量项（同类粒子聚集）的优势逐渐显现，最终战胜熵，导致系统发生相分离。</p>
+<h1 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>从理论结构上看，本讲完成的是一次关键的“<strong>中尺度闭环</strong>”：从微观粒子占据与最近邻相互作用出发，通过统计计数与平均场近似，构建了一个既包含熵驱动、又包含能量竞争的自由能函数。这一函数不仅解释了相图的几何结构，也为后续动力学方程提供了严格的热力学起点。</p>
+<ul>
+<li>
+<p><strong>微观统计基础</strong>：从晶格气体模型出发，通过对微观状态的统计计数，推导出了混合熵的解析式，阐明了熵作为“混乱度量”倾向于驱动系统混合的物理本质。</p>
+</li>
+<li>
+<p><strong>平均场近似</strong>：利用平均场理论（Mean-Field Theory），成功处理了复杂的粒子间多体相互作用，引入了关键的 Flory-Huggins 参数 <span class="arithmatex">\(\chi\)</span>，将相互作用能简化为依赖于 <span class="arithmatex">\(\chi \phi (1-\phi)\)</span> 的形式。</p>
+</li>
+<li>
+<p><strong>相图的数学重构</strong>：结合熵与能量得到的自由能密度函数 <span class="arithmatex">\(f(\phi)\)</span>，完美解释了二元混合物相图的拓扑结构，给出了临界点、<strong>旋节线</strong>（Spinodal）和<strong>双节线</strong>（Binodal）的严格数学定义。</p>
+</li>
+<li>
+<p><strong>从局域到非局域</strong>：最后，通过引入空间梯度项，构建了 Ginzburg-Landau 自由能泛函，并对其在临界点附近进行了 <span class="arithmatex">\(\phi^4\)</span> 展开，完成了向连续场论的过渡。</p>
+</li>
+</ul>
+<p>目前得到的 Ginzburg-Landau 泛函 <span class="arithmatex">\(F[\phi]\)</span> 描述的是系统的<strong>静态能量景观</strong>。它告诉了系统“想去哪里”（能量最低态），但没有告诉系统“如何去”（演化路径和速率）。如果系统被置于 Spinodal 不稳定区域，相分离究竟是如何随时间发生的？迷宫般的斑图（Pattern）是如何生长的？</p>
+<p>在<strong>第14讲</strong>中，课程将引入<strong>动力学守恒定律</strong>（连续性方程），结合本节课推导的自由能泛函，建立描述守恒型相分离动力学的著名的 <strong>Cahn-Hilliard 方程 (Model B)</strong>。届时将利用线性稳定性分析（Linear Stability Analysis），计算出相分离早期的<strong>“最快生长模式”</strong>（Fastest Growing Mode）和<strong>色散关系</strong>，从而真正揭示自组织斑图形成的动力学机制。</p>
+<p>重要的是，Flory-Huggins 自由能并非一个经验假设，而是晶格气体模型在平均场极限下的必然结果。这一点使得后续引入的 Cahn-Hilliard 方程不再是“唯象模型”，而是具有明确统计物理根基的动力学理论。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

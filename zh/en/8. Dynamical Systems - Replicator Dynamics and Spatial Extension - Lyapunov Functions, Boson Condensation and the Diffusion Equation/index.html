@@ -1,0 +1,1426 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 7</strong>, the course built a standard "toolbox" for analyzing two-dimensional dynamical systems. Through the introduction of the <strong>Poincaré-Bendixson Theorem</strong>, the analysis broke through the local limitations of Linear Stability Analysis (the trace <span class="arithmatex">\(\tau\)</span> and determinant <span class="arithmatex">\(\Delta\)</span> of the Jacobian matrix), providing rigorous topological criteria for the existence of <strong>Limit Cycles</strong> in the two-dimensional phase plane. This theoretical framework successfully explained the spontaneous oscillations in the <strong>RhoGTPase</strong> biochemical cycle and preliminarily explored the dynamical characteristics of the three-strategy cyclic game <strong>Rock-Paper-Scissors (RPS)</strong>.</p>
+<p>However, complex systems in reality often contain far more than two or three components. When the number of strategies <span class="arithmatex">\(S\)</span> in evolutionary games increases (e.g., <span class="arithmatex">\(S \gg 3\)</span>), the system is no longer constrained by the topological restrictions of the two-dimensional plane, and the Poincaré-Bendixson theorem no longer applies. This lecture will achieve two key dimensional leaps on this foundation: from low-dimensional to high-dimensional strategy space, and from temporal evolution to spatiotemporal evolution.</p>
+<p>This lecture will first focus on the high-dimensional generalization of <strong>Replicator Dynamics</strong>. For zero-sum games containing <span class="arithmatex">\(S\)</span> strategies, their evolution follows the <strong>Anti-symmetric Lotka-Volterra Equation (ALVE)</strong>. This content will reveal a profound interdisciplinary connection: the ALVE equation describing biological strategy competition is mathematically equivalent in structure to <strong>Boson Condensation</strong> in driven-dissipative systems. To solve global stability problems in high-dimensional phase space, the course will no longer rely on geometric intuition but instead introduce the powerful algebraic tool of <strong>Lyapunov Functions</strong>. In particular, using <strong>Relative Entropy</strong> (i.e., Kullback-Leibler divergence) as a Lyapunov function, we rigorously prove the thermodynamic direction of system evolution: under anti-symmetric interactions, the system must evolve to specific <strong>Condensates</strong>, causing some strategies to survive while others go extinct (depletion).</p>
+<p>The perspective then shifts from "well-mixed" to "spatially extended." All previous dynamical models (such as Ginzburg-Landau, evolutionary games) assumed the system was spatially uniform (0-dimensional). To describe pattern formation, spatial dimensions must be introduced. Therefore, we trace the physical origins of <strong>Brownian Motion</strong>, starting from the microscopic <strong>Random Walk</strong> model, deriving the macroscopic <strong>Diffusion Equation</strong> through the continuum limit.</p>
+<p>This derivation of the diffusion process is crucial—it not only connects microscopic randomness with macroscopic determinism but also lays the foundation for exploring <strong>Relaxational Dynamics</strong> in the <strong>next lecture (Lecture 9)</strong>. In Lecture 9, the diffusion equation will be combined with reaction dynamics to construct the complete <strong>Ginzburg-Landau Model</strong> and <strong>Model A</strong>, formally beginning the exploration of interface dynamics, surface tension, and complex spatiotemporal pattern formation.</p>
+<h1 id="1-evolutionary-game-theory-and-the-anti-symmetric-lotka-volterra-equation">1. Evolutionary Game Theory and the Anti-symmetric Lotka-Volterra Equation<a class="headerlink" href="#1-evolutionary-game-theory-and-the-anti-symmetric-lotka-volterra-equation" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 7</strong>, the course demonstrated the cyclic dynamics of three-strategy systems through the Rock-Paper-Scissors (RPS) model. However, real-world biological communities or quantum systems often contain a large number of interacting components (<span class="arithmatex">\(S \gg 3\)</span>). To describe the self-organization behavior of such high-dimensional systems, this lecture first establishes a universal mathematical framework—<strong>Replicator Dynamics</strong>. This framework not only applies to describing strategy competition in biological populations, but its mathematical structure is also proven to have profound isomorphism with boson condensation phenomena in non-equilibrium quantum systems.</p>
+<h2 id="11-theoretical-framework-strategies-populations-and-microscopic-interaction-mechanisms">1.1 Theoretical Framework - Strategies, Populations and Microscopic Interaction Mechanisms<a class="headerlink" href="#11-theoretical-framework-strategies-populations-and-microscopic-interaction-mechanisms" title="Permanent link">&para;</a></h2>
+<p>Consider a population composed of a large number of individuals, where <span class="arithmatex">\(S\)</span> possible strategies (or species) exist, denoted as <span class="arithmatex">\(E_1, E_2, \dots, E_S\)</span>. The macroscopic state of the system is defined by the number of individuals <span class="arithmatex">\(N_i(t)\)</span> adopting each strategy, where <span class="arithmatex">\(i = 1, \dots, S\)</span>.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/08_001_9057a45a-a823-4190-809e-da016a7e907d.png" /></p>
+<p>Evolution of strategy space: from simple Rock-Paper-Scissors (<span class="arithmatex">\(S=3\)</span>) to The Big Bang Theory version (<span class="arithmatex">\(S=5\)</span>) to high-dimensional complex networks</p>
+<p>The model is based on a core physical constraint: <strong>Population Conservation</strong>. Within the time scale under consideration, it is assumed that there is no birth or death of individuals (or births and deaths are in dynamic equilibrium), so that the total number of individuals <span class="arithmatex">\(N\)</span> in the system remains constant:</p>
+<div class="arithmatex">\[
+N = \sum_{i=1}^{S} N_i, \quad N_i(t) \geq 0
+\]</div>
+<p>This constraint means that the system's dynamics is entirely driven by <strong>Transitions</strong> of individuals between different strategies. Such transitions typically arise from Pairwise Interactions between individuals. When an individual adopting strategy <span class="arithmatex">\(E_j\)</span> (Player <span class="arithmatex">\(j\)</span>) encounters an individual adopting strategy <span class="arithmatex">\(E_i\)</span> (Player <span class="arithmatex">\(i\)</span>), if strategy <span class="arithmatex">\(E_i\)</span> has an advantage in the current game payoff matrix, individual <span class="arithmatex">\(j\)</span> may "imitate" individual <span class="arithmatex">\(i\)</span>, thereby abandoning original strategy <span class="arithmatex">\(E_j\)</span> and adopting strategy <span class="arithmatex">\(E_i\)</span>.</p>
+<p>This microscopic process can be analogized to autocatalytic processes in chemical reaction kinetics:</p>
+<div class="arithmatex">\[
+E_j + E_i \xrightarrow{r_{ij}} E_i + E_i
+\]</div>
+<p>This formula describes the process of <strong>Replication</strong> or <strong>Imitation</strong>.</p>
+<p><strong>Reactants (<span class="arithmatex">\(E_j + E_i\)</span>)</strong>: Represents an individual adopting strategy <span class="arithmatex">\(j\)</span> (<span class="arithmatex">\(E_j\)</span>) encountering an individual adopting strategy <span class="arithmatex">\(i\)</span> (<span class="arithmatex">\(E_i\)</span>).</p>
+<p><strong>Products (<span class="arithmatex">\(E_i + E_i\)</span>)</strong>: Represents that after the game or interaction occurs, since strategy <span class="arithmatex">\(i\)</span> has an advantage (determined by rate <span class="arithmatex">\(r_{ij}\)</span>), the individual adopting strategy <span class="arithmatex">\(j\)</span> is "converted" to strategy <span class="arithmatex">\(i\)</span> (i.e., imitated <span class="arithmatex">\(i\)</span>). The original individual <span class="arithmatex">\(i\)</span> remains unchanged. The result is that the system has 1 less <span class="arithmatex">\(E_j\)</span> and 1 more <span class="arithmatex">\(E_i\)</span>.</p>
+<p><strong>Autocatalytic</strong>: It is called autocatalytic because <span class="arithmatex">\(E_i\)</span> is both a product and a reactant (catalyst) in the reaction. The presence of <span class="arithmatex">\(E_i\)</span> promotes the production of more <span class="arithmatex">\(E_i\)</span> (through converting <span class="arithmatex">\(E_j\)</span>), which is precisely the positive feedback mechanism for population growth.</p>
+<p>This process mathematically corresponds to the population change jump:</p>
+<div class="arithmatex">\[
+E_j \to E_i, \quad \text{resulting in population change:} \quad N_j \to N_j - 1, \quad N_i \to N_i + 1
+\]</div>
+<p>The rate <span class="arithmatex">\(G_{i \leftarrow j}\)</span> at which this transition occurs depends on two factors:</p>
+<p>1.<strong>Encounter probability</strong>: According to the Law of Mass Action, in a well-mixed system, the frequency of encounter between two types of individuals is proportional to the product of their population numbers <span class="arithmatex">\(N_i N_j\)</span>.</p>
+<p>2.<strong>Transition probability</strong>: Determined by the intrinsic advantage of strategy <span class="arithmatex">\(i\)</span> over strategy <span class="arithmatex">\(j\)</span> or the reaction rate constant <span class="arithmatex">\(r_{ij}\)</span>.</p>
+<p>Therefore, the total rate of transition from strategy <span class="arithmatex">\(j\)</span> to strategy <span class="arithmatex">\(i\)</span> can be written as:</p>
+<div class="arithmatex">\[
+G_{i \leftarrow j} (N_i, N_j) = r_{ij} N_i N_j
+\]</div>
+<p>It is worth noting that in more general stochastic dynamics descriptions (such as master equations), there is usually also a spontaneous <strong>Mutation</strong> term, where the rate form is modified to <span class="arithmatex">\(r_{ij}(N_i + S_{ij})N_j\)</span>. However, in the deterministic replicator dynamics limit discussed in this lecture, the focus is on evolution driven purely by "selection pressure," so the spontaneous mutation term is set to <span class="arithmatex">\(S_{ij} = 0\)</span>.</p>
+<h2 id="12-derivation-of-the-anti-symmetric-lotka-volterra-equation-alve">1.2 Derivation of the Anti-symmetric Lotka-Volterra Equation (ALVE)<a class="headerlink" href="#12-derivation-of-the-anti-symmetric-lotka-volterra-equation-alve" title="Permanent link">&para;</a></h2>
+<p>Based on the above microscopic mechanism, we can construct the macroscopic differential equation describing the temporal evolution of the <span class="arithmatex">\(i\)</span>-th strategy population <span class="arithmatex">\(N_i\)</span>. The net rate of change of <span class="arithmatex">\(N_i\)</span> is determined by all possible "inflows" (other strategies converting to <span class="arithmatex">\(i\)</span>) minus all possible "outflows" (<span class="arithmatex">\(i\)</span> converting to other strategies):</p>
+<div class="arithmatex">\[
+\dot{N}_i = \underbrace{\sum_{j \ne i} r_{ij} N_i N_j}_{\text{Gain from } j \to i} - \underbrace{\sum_{j \ne i} r_{ji} N_j N_i}_{\text{Loss from } i \to j}
+\]</div>
+<p>By factoring out the common factor <span class="arithmatex">\(N_i N_j\)</span>, the equation can be simplified to the following form:</p>
+<div class="arithmatex">\[
+\dot{N}_i = \sum_{j \ne i} (r_{ij} - r_{ji}) N_i N_j
+\]</div>
+<p>At this point, a core physical quantity is introduced: the <strong>Interaction Matrix</strong> <span class="arithmatex">\(A\)</span>, whose elements <span class="arithmatex">\(a_{ij}\)</span> are defined as the difference between two unidirectional transition rates:</p>
+<div class="arithmatex">\[
+a_{ij} = r_{ij} - r_{ji}
+\]</div>
+<p>The physical meaning of this definition is extremely profound. <span class="arithmatex">\(a_{ij}\)</span> represents the <strong>Net Advantage</strong> of strategy <span class="arithmatex">\(i\)</span> over strategy <span class="arithmatex">\(j\)</span>. This definition directly endows matrix <span class="arithmatex">\(A\)</span> with <strong>Anti-symmetry (or Skew-symmetry)</strong>:</p>
+<p><strong><span class="arithmatex">\(a_{ij} = -a_{ji}\)</span></strong>: If <span class="arithmatex">\(i\)</span> defeats <span class="arithmatex">\(j\)</span> and gains benefit (<span class="arithmatex">\(a_{ij} &gt; 0\)</span>), then <span class="arithmatex">\(j\)</span> necessarily suffers an equal degree of loss (<span class="arithmatex">\(a_{ji} &lt; 0\)</span>). This is precisely the strict mathematical characteristic of <strong>Zero-sum Games</strong>—one party's gain strictly equals another party's loss.</p>
+<p><strong><span class="arithmatex">\(a_{ii} = 0\)</span></strong>: The net benefit of any strategy playing against itself is zero.</p>
+<p>To make the equation scale-invariant and simplify analysis, the Relative Abundance or <strong>strategy frequency</strong> <span class="arithmatex">\(x_i\)</span> is introduced:</p>
+<div class="arithmatex">\[
+x_i = \frac{N_i(t)}{N}, \quad \text{satisfying constraint} \quad \sum_{i=1}^S x_i = 1
+\]</div>
+<p>Substituting <span class="arithmatex">\(N_i = N x_i\)</span> into the rate equation and canceling the constant <span class="arithmatex">\(N\)</span> (or absorbing it into a redefinition of time scale), we finally obtain the standard <strong>Anti-symmetric Lotka-Volterra Equation (ALVE)</strong>:</p>
+<div class="arithmatex">\[
+\dot{x}_i = x_i \sum_{j=1}^S a_{ij} x_j = x_i (A\mathbf{x})_i
+\]</div>
+<p>Here, the vector term <span class="arithmatex">\((A\mathbf{x})_i\)</span> has a clear biological meaning: it represents the <strong>Fitness</strong> of strategy <span class="arithmatex">\(i\)</span> in the current population environment <span class="arithmatex">\(\mathbf{x}\)</span>.</p>
+<p>If <span class="arithmatex">\((A\mathbf{x})_i &gt; 0\)</span>, it means strategy <span class="arithmatex">\(i\)</span> dominates in the average confrontation with the current mixed population, and its frequency <span class="arithmatex">\(x_i\)</span> will grow exponentially.</p>
+<p>If <span class="arithmatex">\((A\mathbf{x})_i &lt; 0\)</span>, strategy <span class="arithmatex">\(i\)</span> is at a disadvantage, and its frequency will decay.</p>
+<p>This is precisely the mathematical expression of <strong>Frequency-dependent Selection</strong>: a strategy's advantage or disadvantage is not absolute but depends on the environment it is in (i.e., the distribution of other strategies).</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/08_002_aef94652-af38-4044-9330-24d207d88b27.png" /></p>
+<p>Schematic of complex strategy network (<span class="arithmatex">\(S=50\)</span>). Nodes represent strategies, arrows represent non-zero net advantages <span class="arithmatex">\(a_{ij}\)</span>. The core question is: which strategies will ultimately win (condense)?</p>
+<h2 id="13-physical-equivalence-boson-condensation-and-quantum-state-selection">1.3 Physical Equivalence - Boson Condensation and Quantum State Selection<a class="headerlink" href="#13-physical-equivalence-boson-condensation-and-quantum-state-selection" title="Permanent link">&para;</a></h2>
+<p>This section reveals a profound insight connecting biology and physics: the ALVE equation describing evolutionary games above is completely equivalent in mathematical structure to <strong>Bose-Einstein Condensation in Driven-Dissipative Systems</strong>.</p>
+<p>In non-equilibrium quantum statistical physics:</p>
+<ul>
+<li>
+<p><strong>Strategy <span class="arithmatex">\(E_i\)</span></strong> corresponds to the system's <strong>quantum states</strong> (such as Floquet States).</p>
+</li>
+<li>
+<p><strong>Individuals</strong> correspond to <strong>non-interacting Bosons</strong> occupying these energy levels.</p>
+</li>
+<li>
+<p><strong>Transitions <span class="arithmatex">\(G_{i \leftarrow j}\)</span></strong> correspond to <strong>transitions</strong> of bosons between different energy levels, induced jointly by external driving fields (Pump) and environmental Dissipation.</p>
+</li>
+</ul>
+<p>This equivalence originates from the statistical properties of bosons. The transition rate for bosons contains a statistical factor <span class="arithmatex">\((1+N_i)\)</span>, the <strong>Bosonic Enhancement</strong> effect: the more particles already occupying the target state, the higher the probability of transitioning into it. In the macroscopic limit (<span class="arithmatex">\(N \gg 1\)</span>), <span class="arithmatex">\((1+N_i) \approx N_i\)</span>, which is mathematically consistent with the <span class="arithmatex">\(N_i\)</span> factor arising from "imitating the successful" in evolutionary games.</p>
+<p>The following table summarizes the rigorous mapping between these two domains:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature Dimension</th>
+<th style="text-align: left;">Evolutionary Game Theory</th>
+<th style="text-align: left;">Driven-Dissipative Bosonic Systems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Basic units</strong></td>
+<td style="text-align: left;">Strategies (<span class="arithmatex">\(E_i\)</span>)</td>
+<td style="text-align: left;">Quantum States (Floquet States)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamical subjects</strong></td>
+<td style="text-align: left;">Interacting Agents</td>
+<td style="text-align: left;">Non-interacting Bosons</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Evolution mechanism</strong></td>
+<td style="text-align: left;">Strategy imitation and switching (Reactions/Switches)</td>
+<td style="text-align: left;">Transitions between energy levels</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Core equation</strong></td>
+<td style="text-align: left;">Anti-symmetric Lotka-Volterra Equation (ALVE)</td>
+<td style="text-align: left;">Mean-field Limit of Master Eq.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Core question</strong></td>
+<td style="text-align: left;">Selection of Strategies</td>
+<td style="text-align: left;">Selection of Condensates</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transition rate</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(T_{i\to j} \propto N_j N_i\)</span> (Imitation mechanism)</td>
+<td style="text-align: left;"><span class="arithmatex">\(T_{i\to j} \propto N_j(1 + N_i) \approx N_j N_i\)</span> (Bosonic enhancement)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/08_003_87e8ab1e-5978-4ada-8f72-db7b4ef003e0.png" /></p>
+<p>This figure summarizes the physical isomorphism comparison between evolutionary game theory and driven-dissipative bosonic systems.</p>
+<p>This isomorphism suggests a universal <strong>selection mechanism</strong> in nature: whether it's the survival of the fittest in biological strategies or the condensation of quantum states, they essentially use nonlinear positive feedback (<span class="arithmatex">\(\dot{x}_i \propto x_i\)</span>) to spontaneously "screen" a few macroscopically ordered states from a large number of possible microscopic states.</p>
+<h2 id="14-phase-space-of-the-system-and-conservation-law-verification">1.4 Phase Space of the System and Conservation Law Verification<a class="headerlink" href="#14-phase-space-of-the-system-and-conservation-law-verification" title="Permanent link">&para;</a></h2>
+<p>Before deeply analyzing the dynamics, we must confirm that the solutions of the ALVE equation are physically legitimate. Since the sum of strategy frequencies must be 1 and non-negative, the system's state space is confined to a <strong>Simplex</strong> <span class="arithmatex">\(\Delta^{S-1}\)</span>:</p>
+<div class="arithmatex">\[
+\Delta^{S-1} = \left\{ \mathbf{x} \in \mathbb{R}_{\geq 0}^S : \sum_{i=1}^S x_i = 1 \right\}
+\]</div>
+<p>We need to verify whether ALVE dynamics automatically guarantees conservation of total probability, i.e., verify whether <span class="arithmatex">\(\sum_{i=1}^S \dot{x}_i\)</span> is always zero.</p>
+<p>Calculate the total rate of change:</p>
+<div class="arithmatex">\[
+\sum_{i=1}^S \dot{x}_i = \sum_{i=1}^S x_i (A\mathbf{x})_i = \sum_{i=1}^S \sum_{j=1}^S x_i a_{ij} x_j = \mathbf{x}^T A \mathbf{x}
+\]</div>
+<p>This is a Quadratic Form with respect to vector <span class="arithmatex">\(\mathbf{x}\)</span>. For any anti-symmetric matrix <span class="arithmatex">\(A\)</span> (satisfying <span class="arithmatex">\(A^T = -A\)</span>), this quadratic form is identically zero. The proof is as follows:</p>
+<p>Swap the summation indices <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> (which does not change the summation result):</p>
+<div class="arithmatex">\[
+\sum_{i,j} x_i a_{ij} x_j = \sum_{j,i} x_j a_{ji} x_i
+\]</div>
+<p>Using the anti-symmetry condition <span class="arithmatex">\(a_{ji} = -a_{ij}\)</span>:</p>
+<div class="arithmatex">\[
+\sum_{j,i} x_j (-a_{ij}) x_i = - \sum_{i,j} x_i a_{ij} x_j
+\]</div>
+<p>Since a number equals its negative, that number must be zero. Therefore:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} \left( \sum_{i=1}^S x_i \right) = 0
+\]</div>
+<p>This rigorously proves that the system's total mass (or total probability) is conserved. Furthermore, since the equation has the form <span class="arithmatex">\(\dot{x}_i = x_i (\dots)\)</span>, when <span class="arithmatex">\(x_i \to 0\)</span>, <span class="arithmatex">\(\dot{x}_i \to 0\)</span>, meaning any trajectory starting with positive values can never cross the boundary <span class="arithmatex">\(x_i = 0\)</span> into negative values. Therefore, the simplex <span class="arithmatex">\(\Delta^{S-1}\)</span> is a <strong>Forward Invariant Set</strong> for this dynamical system, laying the geometric foundation for subsequent global stability analysis using Lyapunov functions.</p>
+<h1 id="2-condensation-phenomena-and-global-stability-analysis-the-lyapunov-function-method">2. Condensation Phenomena and Global Stability Analysis - The Lyapunov Function Method<a class="headerlink" href="#2-condensation-phenomena-and-global-stability-analysis-the-lyapunov-function-method" title="Permanent link">&para;</a></h1>
+<p>After establishing the high-dimensional replicator dynamics equation (ALVE), the next core task is to predict the system's long-term evolutionary behavior. In complex ecological competition or quantum state evolution, not all strategies (or quantum states) can survive. As time progresses, the system undergoes spontaneous "selection": the frequency <span class="arithmatex">\(x_i(t)\)</span> of some strategies will decay exponentially to zero (<strong>Depletion/Extinction</strong>), while other strategies will survive and occupy macroscopic proportions (<strong>Condensation/Survival</strong>). The goal of this section is to find an algebraic criterion that depends only on the interaction matrix <span class="arithmatex">\(A\)</span> to precisely predict the final set of survivors.</p>
+<h2 id="21-mathematical-formulation-of-the-condensation-problem">2.1 Mathematical Formulation of the Condensation Problem<a class="headerlink" href="#21-mathematical-formulation-of-the-condensation-problem" title="Permanent link">&para;</a></h2>
+<p>Suppose the system eventually tends toward some steady state or dynamically balanced region. The strategy set <span class="arithmatex">\(S\)</span> can be partitioned into two complementary subsets:</p>
+<ul>
+<li>
+<p><strong>Condensates (<span class="arithmatex">\(I\)</span>)</strong>: The set of strategies that ultimately survive, satisfying <span class="arithmatex">\(x_i^* &gt; 0\)</span>.</p>
+</li>
+<li>
+<p><strong>Depleted (<span class="arithmatex">\(E\)</span> or <span class="arithmatex">\(I^c\)</span>)</strong>: The set of strategies that ultimately go extinct, satisfying <span class="arithmatex">\(x_k^* \to 0\)</span>.</p>
+</li>
+</ul>
+<p>According to the ALVE equation <span class="arithmatex">\(\dot{x}_i = x_i (A\mathbf{x})_i\)</span>, a fixed point <span class="arithmatex">\(\mathbf{x}^*\)</span> must satisfy <span class="arithmatex">\(\dot{x}_i^* = 0\)</span>. This leads to different constraints for the two types of strategies:</p>
+<ul>
+<li>
+<p>For survivors <span class="arithmatex">\(i \in I\)</span> (<span class="arithmatex">\(x_i^* &gt; 0\)</span>), <strong>fitness must be zero</strong>: <span class="arithmatex">\((A\mathbf{x}^*)_i = 0\)</span>. This means survivors achieve some kind of force balance among themselves, where no one can gain net benefit from other survivors (Nash equilibrium characteristic).</p>
+</li>
+<li>
+<p>For losers <span class="arithmatex">\(k \in E\)</span> (<span class="arithmatex">\(x_k^* = 0\)</span>), their fitness <span class="arithmatex">\((A\mathbf{x}^*)_k\)</span> has no direct zero constraint, but typically needs to be negative to ensure stability of extinction.</p>
+</li>
+</ul>
+<h2 id="22-condensate-vector-and-kkt-conditions">2.2 Condensate Vector and KKT Conditions<a class="headerlink" href="#22-condensate-vector-and-kkt-conditions" title="Permanent link">&para;</a></h2>
+<p>To mathematically determine the set <span class="arithmatex">\(I\)</span>, we introduce a theoretical auxiliary vector—the <strong>Condensate Vector <span class="arithmatex">\(\mathbf{c}\)</span></strong>. <span class="arithmatex">\(\mathbf{c}\)</span> is not only a fixed point of the system but also satisfies specific global stability conditions, which are highly similar to the Karush-Kuhn-Tucker (KKT) conditions in optimization theory.</p>
+<p>A vector <span class="arithmatex">\(\mathbf{c} \in \Delta^{S-1}\)</span> is defined as a condensate vector if and only if it satisfies the following two conditions:</p>
+<p>1.<strong>Support Condition</strong>: For all non-zero components of <span class="arithmatex">\(\mathbf{c}\)</span> (i.e., <span class="arithmatex">\(i \in I\)</span>), their fitness is strictly zero.</p>
+<div class="arithmatex">\[
+(A\mathbf{c})_i = 0, \quad \forall i \in I \quad (\text{where } c_i &gt; 0)
+\]</div>
+<p>2.<strong>Stability/Exclusion Condition</strong>: For all zero components of <span class="arithmatex">\(\mathbf{c}\)</span> (i.e., <span class="arithmatex">\(k \notin I\)</span>), their fitness must be strictly negative.</p>
+<div class="arithmatex">\[
+(A\mathbf{c})_k &lt; 0, \quad \forall k \notin I \quad (\text{where } c_k = 0)
+\]</div>
+<p><strong>Physical interpretation</strong>:
+-   The first condition means that within survivors, the game reaches a "draw" or dynamic equilibrium with zero net benefit.</p>
+<ul>
+<li>The second condition means that any external strategy (<span class="arithmatex">\(k\)</span>) attempting to invade this stable population will encounter negative returns (be suppressed) when interacting with the current population <span class="arithmatex">\(\mathbf{c}\)</span>. This is the mathematical guarantee that the system rejects external invaders.</li>
+</ul>
+<p>Research by Knebel et al. (as shown in the figure below) proves that for a given anti-symmetric matrix <span class="arithmatex">\(A\)</span>, the index set <span class="arithmatex">\(I\)</span> satisfying the above conditions <strong>uniquely exists</strong>. This uniqueness theorem is the cornerstone of the entire condensation theory, guaranteeing the determinism of evolutionary outcomes, i.e., regardless of initial conditions (as long as all <span class="arithmatex">\(x_i(0) &gt; 0\)</span>), the survivor set is predestined.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/08_004_38c044f4-5b12-4f6d-9d9b-3b76bf4370cf.png" /></p>
+<p>The upper part of the figure shows the definition and properties of the condensate vector. The left side shows a schematic of condensation and depletion; the right side lists the KKT conditions that condensate vector <span class="arithmatex">\(\mathbf{c}\)</span> must satisfy, and the mathematical framework using relative entropy (KL divergence) as a Lyapunov function.</p>
+<h2 id="23-lyapunov-function-relative-entropy-and-information-geometry">2.3 Lyapunov Function - Relative Entropy and Information Geometry<a class="headerlink" href="#23-lyapunov-function-relative-entropy-and-information-geometry" title="Permanent link">&para;</a></h2>
+<p>To rigorously prove that the system <span class="arithmatex">\(\mathbf{x}(t)\)</span> must converge to the subspace <span class="arithmatex">\(I\)</span> defined by <span class="arithmatex">\(\mathbf{c}\)</span>, we need to construct a <strong>Lyapunov Function</strong>. For this type of population dynamics equation, the most natural candidate is <strong>Relative Entropy</strong> from information theory, also known as Kullback-Leibler divergence.</p>
+<p>Define the Lyapunov function <span class="arithmatex">\(D(\mathbf{c} \| \mathbf{x})\)</span> as the relative entropy between condensate vector <span class="arithmatex">\(\mathbf{c}\)</span> and the system's current state <span class="arithmatex">\(\mathbf{x}(t)\)</span>:</p>
+<div class="arithmatex">\[
+D(\mathbf{c} \| \mathbf{x}) = \sum_{i \in I} c_i \ln \left( \frac{c_i}{x_i(t)} \right)
+\]</div>
+<p><strong>Note</strong>:
+-   The summation is only over <span class="arithmatex">\(i \in I\)</span>, i.e., non-zero elements of the condensate vector.</p>
+<ul>
+<li>Since <span class="arithmatex">\(x \ln x\)</span> is a convex function, by Gibbs' inequality, <span class="arithmatex">\(D \geq 0\)</span>, and takes the minimum value only when <span class="arithmatex">\(\mathbf{x}\)</span>'s distribution on <span class="arithmatex">\(I\)</span> is consistent with <span class="arithmatex">\(\mathbf{c}\)</span>. This qualifies <span class="arithmatex">\(D\)</span> as a "generalized distance" or "potential energy" function in phase space.</li>
+</ul>
+<p><strong>Derivation of time derivative (core proof)</strong>:</p>
+<p>Calculate the rate of change <span class="arithmatex">\(\dot{D}\)</span> of <span class="arithmatex">\(D\)</span> with respect to time:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} D(\mathbf{c} \| \mathbf{x}) = \sum_{i \in I} c_i \frac{d}{dt} [\ln c_i - \ln x_i] = - \sum_{i \in I} c_i \frac{\dot{x}_i}{x_i}
+\]</div>
+<p>Substituting the ALVE equation <span class="arithmatex">\(\frac{\dot{x}_i}{x_i} = (A\mathbf{x})_i = \sum_{j=1}^S a_{ij} x_j\)</span>:</p>
+<div class="arithmatex">\[
+\dot{D} = - \sum_{i \in I} c_i \left( \sum_{j=1}^S a_{ij} x_j \right) = - \sum_{j=1}^S x_j \left( \sum_{i \in I} c_i a_{ij} \right)
+\]</div>
+<p>Using the anti-symmetry of the matrix <span class="arithmatex">\(a_{ij} = -a_{ji}\)</span>, the inner summation becomes:</p>
+<div class="arithmatex">\[
+\sum_{i \in I} c_i a_{ij} = - \sum_{i \in I} a_{ji} c_i = - (A\mathbf{c})_j
+\]</div>
+<p>Therefore, <span class="arithmatex">\(\dot{D}\)</span> simplifies to:</p>
+<div class="arithmatex">\[
+\dot{D} = \sum_{j=1}^S x_j (A\mathbf{c})_j
+\]</div>
+<p>Decompose the summation index <span class="arithmatex">\(j\)</span> into two parts: the part belonging to condensate set <span class="arithmatex">\(I\)</span> and the part belonging to depleted set <span class="arithmatex">\(E\)</span>:</p>
+<div class="arithmatex">\[
+\dot{D} = \sum_{j \in I} x_j \underbrace{(A\mathbf{c})_j}_{=0} + \sum_{k \in E} x_k \underbrace{(A\mathbf{c})_k}_{&lt;0}
+\]</div>
+<p>According to the definition of condensate vector <span class="arithmatex">\(\mathbf{c}\)</span> (support condition and exclusion condition):
+-   For <span class="arithmatex">\(j \in I\)</span>, <span class="arithmatex">\((A\mathbf{c})_j = 0\)</span>, the first term vanishes.
+-   For <span class="arithmatex">\(k \in E\)</span>, <span class="arithmatex">\((A\mathbf{c})_k &lt; 0\)</span>, and since <span class="arithmatex">\(x_k \geq 0\)</span>, each term is non-positive.</p>
+<p><strong>Conclusion</strong>:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} D(\mathbf{c} \| \mathbf{x}) = \sum_{k \in E} x_k (A\mathbf{c})_k \leq 0
+\]</div>
+<p>This result (as shown in the numerical simulation below) has profound physical significance and global dynamical implications:</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/08_004_38c044f4-5b12-4f6d-9d9b-3b76bf4370cf.png" /></p>
+<p>The lower part of the figure shows numerical simulation results of ALVE dynamics. The left shows a specific anti-symmetric interaction matrix <span class="arithmatex">\(A\)</span>. The right shows the evolution of strategy frequencies <span class="arithmatex">\(x_i(t)\)</span> over time. It can be seen that despite oscillations in the system, unselected strategies (dashed lines) decay exponentially to zero (depletion), while surviving strategies (solid lines) continue to evolve in the subspace.</p>
+<p>1.<strong>Generalization of H-theorem</strong>: This result is similar to Boltzmann's H-theorem, indicating that during system evolution, the information divergence relative to the "optimal strategy combination" <span class="arithmatex">\(\mathbf{c}\)</span> monotonically decreases. The system is constantly "learning" and approaching the optimal solution.</p>
+<p>2.<strong>Vanishing of entropy production</strong>: Knebel and Frey point out that condensation selection is determined by the <strong>Vanishing of relative entropy production</strong>. The system tends toward a state where entropy production is zero.</p>
+<p>3.<strong>Rigorous proof of depletion</strong>: Since <span class="arithmatex">\((A\mathbf{c})_k\)</span> is a strictly negative constant for all <span class="arithmatex">\(k \in E\)</span>, for <span class="arithmatex">\(\dot{D}\)</span> to tend to zero (system stops evolving toward lower potential energy), the only possibility is that all depleted set strategy frequencies <span class="arithmatex">\(x_k\)</span> tend to zero. This mathematically rigorously proves that non-condensed states must go extinct exponentially.</p>
+<p>4.<strong>Oscillations within subspace</strong>: After all <span class="arithmatex">\(x_k \to 0\)</span>, the system is confined to subspace <span class="arithmatex">\(I\)</span>. Note that within <span class="arithmatex">\(I\)</span>, the derivative of the Lyapunov function is zero. This means that within the condensate subspace, the system no longer has a dissipative tendency and can maintain motion on iso-energy surfaces. For anti-symmetric systems, this typically means the continued existence of <strong>Periodic Orbits or Limit Cycles</strong> (like Rock-Paper-Scissors cycles). Although the system has "condensed," it never "rests," but engages in eternal dynamic gaming among survivors.</p>
+<h1 id="3-topological-phase-transitions-and-strategy-selection-in-complex-networks">3. Topological Phase Transitions and Strategy Selection in Complex Networks<a class="headerlink" href="#3-topological-phase-transitions-and-strategy-selection-in-complex-networks" title="Permanent link">&para;</a></h1>
+<p>In the first two sections, we established a general framework based on the Anti-symmetric Lotka-Volterra Equation (ALVE) and used Lyapunov functions to prove that the system must evolve to specific condensate states. Although the existence of condensate vector <span class="arithmatex">\(\mathbf{c}\)</span> is universal, its specific structure (i.e., which strategies survive) strongly depends on the topological properties of interaction matrix <span class="arithmatex">\(A\)</span>. When the interaction network between strategies has specific spatial structure (such as lattices or chains), ALVE dynamics will exhibit phenomena strikingly similar to <strong>Topological Insulators</strong> in condensed matter physics. This content demonstrates how dynamical systems theory crosses disciplinary boundaries, using the same mathematical language to describe biological evolution and quantum phase transitions.</p>
+<h2 id="31-rock-paper-scissors-chains-and-edge-states">3.1 Rock-Paper-Scissors Chains and Edge States<a class="headerlink" href="#31-rock-paper-scissors-chains-and-edge-states" title="Permanent link">&para;</a></h2>
+<p>As a concrete physical model, consider arranging <span class="arithmatex">\(S\)</span> strategies in a one-dimensional chain structure (RPS Chain). In this network, strategy <span class="arithmatex">\(i\)</span> only has non-zero interactions with its spatial neighbors (such as <span class="arithmatex">\(i-1\)</span> and <span class="arithmatex">\(i+1\)</span>), forming local cyclic dominance relationships similar to Rock-Paper-Scissors. Research by Knebel, Geiger, and Frey (2020) shows that the evolution of such systems is not chaotic but exhibits highly ordered <strong>Spatial Localization</strong>.</p>
+<p><img alt="Reference: Knebel, J., Geiger, P. M., &amp; Frey, E. (2020). Topological phase transition in coupled rock-paper-scissors cycles. Physical Review Letters, 125(25), 258301." src="../../../cn/assets/images/08_006_011e3110-d739-452c-85c5-576a4da98972.png" /></p>
+<p>When adjusting system control parameters (e.g., the relative strength ratio of left-dominance vs. right-dominance), the support set of condensate vector <span class="arithmatex">\(\mathbf{c}\)</span> (i.e., the set of surviving strategies <span class="arithmatex">\(I\)</span>) undergoes abrupt changes. These changes have two notable characteristics:</p>
+<p>1.<strong>Polarization and Edge States</strong>:</p>
+<p>In certain parameter ranges, the system's total mass (population fraction) is not uniformly distributed on the chain but completely concentrated at one end (left boundary or right boundary). This physically corresponds to <strong>Edge States</strong>: only strategies at the network's "edge" can survive, while strategies inside the "Bulk" all go extinct (deplete). This forms a perfect analogy with the "bulk insulating, surface conducting" property of topological insulators.</p>
+<p>2.<strong>Robustness</strong>:</p>
+<p>This edge condensation phenomenon has extremely strong resistance to parameter perturbations. As long as parameter changes do not cross a certain <strong>Critical Point</strong>, the system's condensation pattern (i.e., whether survivors are at the left or right end) remains strictly unchanged. This indicates the system is in a phase with <strong>Topological Protection</strong>, whose macroscopic properties are not determined by minor parameter details but by the system's global topological properties.</p>
+<h2 id="32-winding-number-and-topological-phase-transition">3.2 Winding Number and Topological Phase Transition<a class="headerlink" href="#32-winding-number-and-topological-phase-transition" title="Permanent link">&para;</a></h2>
+<p>To quantitatively describe this phase transition, the <strong>Winding Number (<span class="arithmatex">\(\nu\)</span>)</strong> is introduced as the system's topological invariant. Mathematically, this typically involves some kind of integral over the interaction matrix (or its Fourier-transformed Hamiltonian) in the Brillouin zone, similar to the Chern Number in the quantum Hall effect.</p>
+<p>As control parameters vary continuously, the system's energy spectrum (in this context, the eigenvalue spectrum of the linearized operator) may undergo band gap closing and reopening. Accompanying this process, the winding number <span class="arithmatex">\(\nu\)</span> undergoes discrete jumps (e.g., from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(1\)</span>), marking the occurrence of <strong>Topological Phase Transition</strong>:</p>
+<ul>
+<li>
+<p><strong>Trivial Phase (<span class="arithmatex">\(\nu=0\)</span>)</strong>: Corresponds to mass distribution in bulk states or disordered distribution, with the system being sensitive to perturbations.</p>
+</li>
+<li>
+<p><strong>Non-trivial Topological Phase (<span class="arithmatex">\(\nu \neq 0\)</span>)</strong>: Corresponds to mass precisely locked at boundaries, forming protected edge states.</p>
+</li>
+</ul>
+<p><strong>Physical significance and biological implications</strong>:
+This discovery reveals that evolutionary systems may exploit topological properties to achieve functional stability. In noisy biological environments, if some critical functional gene or species is in a "topologically non-trivial" state, it can stably exist immune to environmental fluctuations. This provides a new physical perspective for understanding biological complexity: <strong>Natural selection not only screens for individuals with highest fitness but may also screen for the most topologically robust network structures.</strong></p>
+<h1 id="4-from-microscopic-random-walk-to-macroscopic-diffusion-equation">4. From Microscopic Random Walk to Macroscopic Diffusion Equation<a class="headerlink" href="#4-from-microscopic-random-walk-to-macroscopic-diffusion-equation" title="Permanent link">&para;</a></h1>
+<p>In previous lectures (such as replicator dynamics, RPS model), all analyses were built on the assumption of <strong>"Well-mixed"</strong>. This means the system was treated as a zero-dimensional point, ignoring spatial distribution differences of matter. However, real-world biophysical processes—from intracellular protein transport to population migration in ecosystems—all occur in space with extent.</p>
+<p>To describe <strong>Turing Patterns</strong> and other complex spatial self-organization structures, this lecture must break the limitation of "spatial uniformity" and introduce <strong>Spatial Extension</strong>. The most fundamental physical process connecting microscopic particle motion with macroscopic material transport is <strong>Diffusion</strong>. This section will show how to start from microscopic particles' random thermal motion and, through rigorous mathematical derivation, obtain the diffusion equation describing macroscopic concentration field evolution.</p>
+<h2 id="41-historical-background-and-physical-essence-brownian-motion">4.1 Historical Background and Physical Essence - Brownian Motion<a class="headerlink" href="#41-historical-background-and-physical-essence-brownian-motion" title="Permanent link">&para;</a></h2>
+<p>The microscopic physical basis of diffusion phenomena is <strong>Brownian Motion</strong>. In 1827, botanist Robert Brown observed pollen particles suspended in water under a microscope and discovered they underwent ceaseless, irregular motion.</p>
+<p>This phenomenon puzzled the scientific community for a long time, even triggering philosophical discussions about "vital force." Charles Darwin also mentioned this anecdote in his memoirs, describing Brown's "little secret" about this discovery. It wasn't until 1905 that Einstein, in his miracle year papers, completely revealed the physical nature of this puzzle. He pointed out that the random motion of suspended particles did not originate from vital force but was caused by countless <strong>imbalanced fluctuations of thermal collisions</strong> from surrounding solvent molecules (such as water molecules).</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/08_007_c3b5cb81-9c50-45f9-af75-244d7f0f91ec.jpg" /></p>
+<p>Historical background of Brownian motion. The left side quotes Darwin's description of Brown's discovery; the right side shows Brownian motion trajectories of micron-scale particles filmed by Harvard University's Weitz Laboratory.</p>
+<p>Einstein not only qualitatively explained the phenomenon but also established quantitative relationships between macroscopic diffusion coefficient <span class="arithmatex">\(D\)</span> and microscopic physical quantities, the famous <strong>Einstein Relation</strong>:</p>
+<div class="arithmatex">\[
+D = \frac{k_B T}{\gamma}
+\]</div>
+<p>This formula reveals the physical origin of diffusion:
+-   <strong>Driving force (molecular thermal motion)</strong>: <span class="arithmatex">\(k_B T\)</span> represents thermal energy, the energy source driving diffusion. At the cell biology scale (micrometer level), <span class="arithmatex">\(k_B T \approx 4 \text{ pN} \cdot \text{nm}\)</span>, which is the core energy scale governing all random molecular motion inside cells.</p>
+<ul>
+<li><strong>Resistance (dissipation)</strong>: <span class="arithmatex">\(\gamma\)</span> is the Stokes Friction Coefficient, representing the hindrance of the fluid environment to particle motion.</li>
+</ul>
+<p>This theory not only laid the foundation for non-equilibrium statistical physics but was also one of the key pieces of evidence in human history confirming the existence of atoms.</p>
+<h2 id="42-random-walk-derivation-from-discrete-to-continuous">4.2 Random Walk - Derivation from Discrete to Continuous<a class="headerlink" href="#42-random-walk-derivation-from-discrete-to-continuous" title="Permanent link">&para;</a></h2>
+<p>To rigorously connect microscopic randomness with macroscopic determinism mathematically, this lecture uses the <strong>1D Random Walk</strong> model for derivation.</p>
+<h3 id="421-discrete-master-equation">4.2.1 Discrete Master Equation<a class="headerlink" href="#421-discrete-master-equation" title="Permanent link">&para;</a></h3>
+<p>Consider a particle on a one-dimensional lattice, with physical parameters defined as:
+-   <span class="arithmatex">\(\delta\)</span>: Lattice spacing (spatial step).</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\tau\)</span>: Time step.</p>
+</li>
+<li>
+<p>Jump rules: At each time step, the particle jumps left (<span class="arithmatex">\(x-\delta\)</span>) with probability <span class="arithmatex">\(1/2\)</span> and right (<span class="arithmatex">\(x+\delta\)</span>) with probability <span class="arithmatex">\(1/2\)</span>. This is an unbiased isotropic random walk.</p>
+</li>
+</ul>
+<p>Let <span class="arithmatex">\(P(x, t)\)</span> be the probability of the particle being at position <span class="arithmatex">\(x\)</span> at time <span class="arithmatex">\(t\)</span>. According to probability conservation, a particle at position <span class="arithmatex">\(x\)</span> at time <span class="arithmatex">\(t + \tau\)</span> must have come from left neighbor <span class="arithmatex">\(x-\delta\)</span> (jumped right) or right neighbor <span class="arithmatex">\(x+\delta\)</span> (jumped left) at the previous time <span class="arithmatex">\(t\)</span>. Therefore, we can write the discrete <strong>Master Equation</strong>:</p>
+<div class="arithmatex">\[
+P(x, t+\tau) = \underbrace{\frac{1}{2} P(x-\delta, t)}_{\text{From left}} + \underbrace{\frac{1}{2} P(x+\delta, t)}_{\text{From right}}
+\]</div>
+<h3 id="422-continuum-limit-and-taylor-expansion">4.2.2 Continuum Limit and Taylor Expansion<a class="headerlink" href="#422-continuum-limit-and-taylor-expansion" title="Permanent link">&para;</a></h3>
+<p>To obtain the macroscopic equation, we need to take the Continuum Limit, i.e., let step size <span class="arithmatex">\(\delta \to 0\)</span> and <span class="arithmatex">\(\tau \to 0\)</span>. At this point, the probability distribution <span class="arithmatex">\(P(x, t)\)</span> becomes a smooth function, and we can perform <strong>Taylor Expansion</strong> on it.</p>
+<p><strong>Time term expansion (keeping to first order):</strong></p>
+<div class="arithmatex">\[
+P(x, t+\tau) \approx P(x, t) + \tau \frac{\partial P}{\partial t}
+\]</div>
+<p><strong>Spatial term expansion (keeping to second order):</strong>
+For left and right neighbor terms, expand around <span class="arithmatex">\(x\)</span> respectively:</p>
+<div class="arithmatex">\[
+P(x-\delta, t) \approx P(x, t) - \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<div class="arithmatex">\[
+P(x+\delta, t) \approx P(x, t) + \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<p>Substituting the above expansions into the discrete master equation:</p>
+<div class="arithmatex">\[
+P + \tau \frac{\partial P}{\partial t} = \frac{1}{2} \left[ \left( P - \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2} \right) + \left( P + \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2} \right) \right]
+\]</div>
+<p>Simplify the right side of the equation:</p>
+<p>1.Zeroth-order term: <span class="arithmatex">\(\frac{1}{2}(P + P) = P\)</span>, cancels with left side.</p>
+<p>2.First-order term: <span class="arithmatex">\(\frac{1}{2}(-\delta \partial_x P + \delta \partial_x P) = 0\)</span>. <strong>Physical meaning</strong>: The cancellation of first-order derivative terms reflects the <strong>Isotropy</strong> of the random walk, i.e., there is no directional Drift.</p>
+<p>3.Second-order term: <span class="arithmatex">\(\frac{1}{2}(\frac{\delta^2}{2} \partial_{xx} P + \frac{\delta^2}{2} \partial_{xx} P) = \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}\)</span>.</p>
+<p>Finally we obtain:</p>
+<div class="arithmatex">\[
+\tau \frac{\partial P}{\partial t} = \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<h3 id="423-macroscopic-diffusion-equation">4.2.3 Macroscopic Diffusion Equation<a class="headerlink" href="#423-macroscopic-diffusion-equation" title="Permanent link">&para;</a></h3>
+<p>Rearranging the above equation, separating coefficients:</p>
+<div class="arithmatex">\[
+\frac{\partial P}{\partial t} = \left( \lim_{\delta,\tau \to 0} \frac{\delta^2}{2\tau} \right) \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<p>At this point, define the macroscopic <strong>Diffusion Coefficient</strong> <span class="arithmatex">\(D\)</span>:</p>
+<div class="arithmatex">\[
+D \equiv \frac{\delta^2}{2\tau}
+\]</div>
+<p>And replace the microscopic probability density <span class="arithmatex">\(P(x, t)\)</span> with the macroscopic material concentration <span class="arithmatex">\(C(x, t)\)</span>, we obtain the classical <strong>Diffusion Equation</strong>:</p>
+<div class="arithmatex">\[
+\frac{\partial C}{\partial t} = D \nabla^2 C
+\]</div>
+<p><strong>Physical meaning</strong>: This derivation process is essentially the physical manifestation of the <strong>Central Limit Theorem</strong>. Although individual particle motion is random and unpredictable (variance grows linearly with time, <span class="arithmatex">\(\langle x^2 \rangle \sim 2Dt\)</span>), the statistical average behavior of large numbers of particles (concentration field) follows precise deterministic laws. This lays a solid mathematical foundation for using partial differential equations (PDEs) to study Turing patterns and other macroscopic self-organization phenomena in subsequent chapters.</p>
+<h1 id="5-analytical-solutions-boundary-conditions-and-numerical-simulation-of-the-diffusion-equation">5. Analytical Solutions, Boundary Conditions and Numerical Simulation of the Diffusion Equation<a class="headerlink" href="#5-analytical-solutions-boundary-conditions-and-numerical-simulation-of-the-diffusion-equation" title="Permanent link">&para;</a></h1>
+<p>In the previous section, this lecture derived the macroscopic diffusion equation through the continuum limit of microscopic random walks. To deeply understand the physical characteristics of the diffusion process, this section will explore its analytical solution methods mathematically, particularly the application of Fourier transforms. Additionally, considering that biophysical systems are usually bounded, this section will also analyze the decisive influence of different boundary conditions on system steady-state behavior, and demonstrate through Python code practice the two core dynamics covered in this lecture: condensation phenomena in evolutionary games and diffusion processes in space.</p>
+<h2 id="51-fourier-transform-method-for-solution">5.1 Fourier Transform Method for Solution<a class="headerlink" href="#51-fourier-transform-method-for-solution" title="Permanent link">&para;</a></h2>
+<p>For the diffusion equation defined on the unbounded region <span class="arithmatex">\(x \in (-\infty, \infty)\)</span>, the most effective analytical solution tool is the <strong>Fourier Transform</strong>. This method transforms partial differential equations (PDEs) into easily solvable ordinary differential equations (ODEs).</p>
+<p>First, define the transform from real-space concentration <span class="arithmatex">\(C(x, t)\)</span> to reciprocal space (k-space) and its inverse:</p>
+<div class="arithmatex">\[
+\tilde{C}(k, t) = \int_{-\infty}^{\infty} C(x, t) e^{ikx} \, dx \quad (\text{Forward transform})
+\]</div>
+<div class="arithmatex">\[
+C(x, t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \tilde{C}(k, t) e^{-ikx} \, dk \quad (\text{Inverse transform})
+\]</div>
+<p>Apply Fourier transform to both sides of the equation <span class="arithmatex">\(\partial_t C = D \partial_x^2 C\)</span>. Using the Fourier transform property of derivatives <span class="arithmatex">\(\mathcal{F}[\partial_x^2 C] = -k^2 \tilde{C}\)</span>, the original equation is decoupled into independent ODEs for each wavenumber <span class="arithmatex">\(k\)</span>:</p>
+<div class="arithmatex">\[
+\frac{\partial \tilde{C}(k, t)}{\partial t} = -D k^2 \tilde{C}(k, t)
+\]</div>
+<p>The solution of this ODE exhibits simple exponential decay:</p>
+<div class="arithmatex">\[
+\tilde{C}(k, t) = \tilde{C}(k, 0) e^{-D k^2 t}
+\]</div>
+<p><strong>Physical meaning</strong>: The exponential term <span class="arithmatex">\(e^{-D k^2 t}\)</span> indicates that modes with high wavenumber <span class="arithmatex">\(k\)</span> (i.e., high spatial frequency, fine structures) decay at a rate proportional to the square of their frequency. This means diffusion preferentially smooths sharp gradients and small details in the concentration field, causing spatial distributions to become increasingly <strong>Smoothed</strong> over time.</p>
+<p>Through inverse Fourier transform and using the convolution theorem, we obtain the general solution in real space. This solution is the convolution of the initial distribution <span class="arithmatex">\(C(x, 0)\)</span> with the <strong>Heat Kernel</strong> (i.e., the Green's function of the diffusion equation):</p>
+<div class="arithmatex">\[
+C(x, t) = \int_{-\infty}^{\infty} C(x', 0) \frac{1}{\sqrt{4\pi D t}} \exp\left( -\frac{(x-x')^2}{4Dt} \right) \, dx'
+\]</div>
+<p>For point source initial condition <span class="arithmatex">\(C(x, 0) = \delta(x)\)</span>, the solution simplifies to a time-evolving Gaussian distribution. Its variance <span class="arithmatex">\(\sigma^2 = 2Dt\)</span> grows linearly with time, meaning the average displacement distance of diffusing particles grows as <span class="arithmatex">\(\sqrt{t}\)</span>—this is the signature characteristic of Brownian motion.</p>
+<h2 id="52-effect-of-boundary-conditions">5.2 Effect of Boundary Conditions<a class="headerlink" href="#52-effect-of-boundary-conditions" title="Permanent link">&para;</a></h2>
+<p>Real biophysical experiments often occur in finite containers or cells. <strong>Boundary Conditions (BCs)</strong> profoundly constrain the system's evolutionary trajectory and final steady state.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Boundary Condition Type</th>
+<th style="text-align: left;">Mathematical Expression</th>
+<th style="text-align: left;">Physical Meaning</th>
+<th style="text-align: left;">Steady State Solution (<span class="arithmatex">\(t \to \infty\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>No Flux (Neumann)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\partial_x C\|_{x=0,L}=0\)</span></td>
+<td style="text-align: left;">Closed system, particles reflect at walls. System total mass conserved.</td>
+<td style="text-align: left;"><strong>Uniform distribution</strong>: <span class="arithmatex">\(C(x) = \text{const}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dirichlet</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(C(0)=C_L, C(L)=C_R\)</span></td>
+<td style="text-align: left;">Open system, boundaries connected to reservoirs with constant concentration (sources/sinks).</td>
+<td style="text-align: left;"><strong>Linear distribution</strong>: <span class="arithmatex">\(C(x) = Ax + B\)</span> (constant net flux exists)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Periodic</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(C(0)=C(L), C'(0)=C'(L)\)</span></td>
+<td style="text-align: left;">Circular geometry (such as bacterial circular DNA or ring reactors).</td>
+<td style="text-align: left;">Similar to unbounded case with discrete spectrum expansion</td>
+</tr>
+</tbody>
+</table>
+<h2 id="53-code-practice">5.3 Code Practice<a class="headerlink" href="#53-code-practice" title="Permanent link">&para;</a></h2>
+<p>To demonstrate the two core dynamical processes covered in this chapter, the following Python code practice simulates two scenarios:</p>
+<p>1.<strong>Replicator Dynamics</strong>: Simulates ALVE dynamics with 5 strategies, reproducing condensation and depletion phenomena.</p>
+<p>2.<strong>Diffusion</strong>: Simulates diffusion of a one-dimensional Gaussian wave packet under no-flux boundary conditions.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="c1"># Set dark background theme</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># ================= PART 1: Replicator Dynamics (ALVE) =================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_replicator_simulation</span><span class="p">():</span>
+    <span class="c1"># Antisymmetric interaction matrix (from lecture Slide 5)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]])</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">alve_dynamics</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># ALVE equation: dx_i/dt = x_i * (Ax)_i</span>
+        <span class="c1"># Note: In numerical computation, x may slightly deviate from the simplex due to errors, but this does not affect short-term demonstration</span>
+        <span class="n">fitness</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fitness</span>
+
+    <span class="c1"># Initial condition: random distribution</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+
+    <span class="c1"># Solve ODE</span>
+    <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">alve_dynamics</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+
+    <span class="c1"># Plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Add a small epsilon to avoid log(0) error</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-10</span>
+
+    <span class="c1"># Color cycle to distinguish different strategies</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+        <span class="c1"># Differentiate line styles based on final survival: solid for survivors, dashed for extinct</span>
+        <span class="n">is_survivor</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1e-3</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="k">if</span> <span class="n">is_survivor</span> <span class="k">else</span> <span class="s1">&#39;--&#39;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Condensate&#39;</span> <span class="k">if</span> <span class="n">is_survivor</span> <span class="k">else</span> <span class="s1">&#39;Depleted&#39;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Strategy </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">)&#39;</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">),</span> 
+                <span class="n">linestyle</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Replicator Dynamics: Condensation &amp; Depletion&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\ln(x_i)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set legend text color</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">get_texts</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;replicator_dynamics.png&#39;</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+
+<span class="c1"># ================= PART 2: 1D Diffusion Equation =================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_diffusion_simulation</span><span class="p">():</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="n">Nx</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">20.0</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">Nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Explicit difference stability condition: dt &lt;= dx^2 / (2D)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">D</span> 
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+
+    <span class="c1"># Initial condition: narrow Gaussian distribution at center</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span>
+
+    <span class="c1"># Store snapshots for plotting</span>
+    <span class="n">u_history</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+    <span class="n">t_snapshots</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+
+    <span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">plot_interval</span> <span class="o">=</span> <span class="n">steps</span> <span class="o">//</span> <span class="mi">10</span>  <span class="c1"># Record 10 time point snapshots</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="n">u_new</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># Explicit finite difference scheme: u_new = u + alpha * (u_left - 2u + u_right)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># No flux boundary conditions (Neumann BCs): u[-1] = u[-2], u[0] = u[1]</span>
+        <span class="c1"># This simulates particles bouncing off walls</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_new</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="n">u_new</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">plot_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">u_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+            <span class="n">t_snapshots</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="c1"># Plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Use gradient colors to show temporal evolution: purple (early) to yellow (late)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_history</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u_snapshot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">u_history</span><span class="p">):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;t=</span><span class="si">{</span><span class="n">t_snapshots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_history</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u_snapshot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1D Diffusion (No Flux BC, D=</span><span class="si">{</span><span class="n">D</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Position x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration C(x)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add colorbar to indicate time progression</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">T</span><span class="p">))</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">getp</span><span class="p">(</span><span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="s1">&#39;yticklabels&#39;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">get_texts</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;diffusion_equation.png&#39;</span><span class="p">)</span> 
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run_replicator_simulation</span><span class="p">()</span>
+    <span class="n">run_diffusion_simulation</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/08_008_6fc576fa-0149-454b-93f4-9dfe7af2de8f.png" /></p>
+<p>This figure shows the logarithmic frequency of 5 strategies changing over time. <strong>Bifurcation behavior</strong> is visible: strategies represented by solid lines (such as strategies 1, 3, 5) oscillate but overall maintain higher levels, constituting the <strong>Condensate</strong>; while strategies represented by dashed lines (such as strategies 2, 4) show linearly decreasing logarithmic frequencies (i.e., exponentially decaying values), quickly tending toward <strong>Depletion</strong>. This perfectly validates the predictions from Lyapunov analysis.</p>
+<p><img alt="Code Output" src="../../../cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png" /></p>
+<p>This figure shows the evolution of an initial Gaussian wave packet (dark purple curve) over time. As time progresses (color changes from purple to yellow), the wave packet's peak decreases and width increases, reflecting the <strong>Smoothing effect</strong> of diffusion. Note that at the boundaries <span class="arithmatex">\(x=0\)</span> and <span class="arithmatex">\(x=100\)</span>, the curves always maintain horizontal tangent lines (<span class="arithmatex">\(\partial_x C = 0\)</span>), verifying correct implementation of <strong>No-flux boundary conditions</strong> and ensuring total mass conservation within the system.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture completed two key theoretical leaps: from "local" to "global," and from "time" to "space."</p>
+<p>First, the course solved the global stability problem of high-dimensional replicator dynamics by introducing Lyapunov functions (especially relative entropy), and profoundly revealed the mathematical isomorphism between strategy selection in evolutionary games and boson condensation in non-equilibrium physics.</p>
+<p>Second, based on analysis of microscopic Brownian motion, the course rigorously derived the macroscopic diffusion equation using the random walk model, thereby laying a solid physical foundation for describing material transport in spatially extended systems.</p>
+<p>These two theoretical pillars—nonlinear reaction dynamics (ALVE/Replicator) and spatial diffusion (Diffusion)—will formally converge in the <strong>next lecture (Lecture 9)</strong>. Then, the course will deeply explore <strong>Relaxational Dynamics</strong> and introduce the famous <strong>Ginzburg-Landau Model</strong> and <strong>Model A</strong>. The analysis will focus on how, when "reaction" and "diffusion" mechanisms compete in space, the system breaks spatial symmetry, thereby emerging complex <strong>Interface Dynamics</strong>, <strong>Surface Tension</strong>, and fascinating spatiotemporal pattern structures. This marks the exploration of self-organization theory entering its most core chapter.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

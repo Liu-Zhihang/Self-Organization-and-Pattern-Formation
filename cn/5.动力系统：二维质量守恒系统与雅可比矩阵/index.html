@@ -1,0 +1,1465 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>引言 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              引言
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>前几节课程系统地探索了一维动力系统的世界。从<strong>第2讲</strong>中源于物理学的金茨堡-朗道理论和生物学的演化博弈论开始，揭示了复杂现象可被简化为低维非线性动力学问题。随后的<strong>第3讲</strong>和<strong>第4讲</strong>深入分析了这些一维系统的不动点、稳定性（线性稳定性分析），以及系统在控制参数变化时如何通过基本的分岔（如鞍点分岔、叉形分岔、尖点分岔与跨临界分岔）发生质变。这些一维模型为理解状态转换提供了坚实的基础。</p>
+<p>然而，自然界中的自组织现象，尤其是在生物学中，其复杂性远超一维模型所能描述的范畴。这些系统通常涉及多种相互作用的组分，并且其动态行为受到基本物理定律的严格约束。这节课将从一维系统扩展到二维系统，并引入一个至关重要的物理约束——<strong>质量守恒定律</strong>。这个约束条件不仅使模型更贴近生物现实，也从根本上改变了系统的动力学特性和分析方法。</p>
+<p>这节课将以<strong>细胞极性</strong>的建立这一核心生物学问题为切入点。细胞极性是指细胞内部物质分布不均，从而形成特定功能轴向的过程（如酵母出芽）。这背后是蛋白质在细胞质（三维体）和细胞膜（二维表面）之间的动态穿梭与相互作用。将构建一个描述此过程的二维动力学模型，并首先分析其在“充分混合”（即忽略空间分布）假设下的稳态行为。通过对该系统的深入分析，将掌握二维系统中的零斜线分析、分岔图构建，以及如何利用<strong>雅可比矩阵（Jacobian Matrix）</strong> 进行严格的线性稳定性分析。这不仅是前四节课一维稳定性分析的直接推广，也将揭示质量守恒约束（<span class="arithmatex">\(m+c=n\)</span>）如何从根本上（例如通过引入一个零特征值）简化系统动力学。</p>
+<p><img alt="课堂板书截图" src="../assets/images/05_001_693263ab-5e80-458c-ae68-cebebc75dad3.png" /></p>
+<p>对本节质量守恒系统的理解，是为后续课程中引入空间维度、探讨<strong>图灵斑图（Turing Patterns）</strong> 等时空自组织模式奠定理论基础。同时，这节课对守恒系统的分析，也将为<strong>下一讲</strong> 中研究不满足质量守恒的开放系统（如生物钟）及其产生的<strong>振荡（Oscillations）</strong> 行为（如霍普夫分岔，Hopf Bifurcation）形成鲜明对比。</p>
+<h1 id="1">1. 概念模型：从细胞极性到质量守恒系统<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<p>在<strong>第4讲</strong>中，通过分析“接触过程”（一个流行病模型），探讨了跨临界分岔。这节课将展示这个看似抽象的感染模型，如何对应于一个核心的生物物理问题：<strong>细胞极性</strong>的建立。这个类比将自然地引导出一个二维动力系统，并引入一个至关重要的物理约束——<strong>质量守恒</strong>。</p>
+<h2 id="11">1.1 生物学背景：从“感染”到“蛋白质招募”<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>首先，构建一个概念模型。本讲的出发点是一个具体的生物学问题：<strong>细胞极性（Cell Polarity）</strong>。一个典型的例子是酵母菌（Yeast）的出芽生殖（Budding）。细胞如何“知道”在哪个特定位置形成“芽”？这需要细胞打破自身的对称性，将特定蛋白质（如Cdc42）高度集中到膜的某个点上，这个点随后会组织肌动蛋白（Actin cables），推动细胞膜向外生长，形成新的子代细胞。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/05_002_0c230d70-c7cc-40c9-b6ec-4c0fbf1d96dc.png" /></p>
+<p>然而，实现这一功能的真实生化网络极其复杂。它涉及多种蛋白质（如Cdc42, Bem1, GEFs, GAPs等）在激活态和失活态之间的循环，以及它们在细胞质和细胞膜之间的穿梭。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/05_003_bfed46f7-3c27-47d3-a2ee-3fbac4cd5e55.png" /></p>
+<p>面对如此复杂的网络，理论物理学家的任务不是复现每一个细节，而是建立一个<strong>概念模型（Conceptual Model）</strong>，抓住主导系统行为的核心原理。因此，我们将这个复杂系统简化为只含一个“主角”：一种可以在两种状态间转换的蛋白质。</p>
+<p><img alt="课堂PPT截图" src="../assets/images/05_004_7c257b04-e735-4bf8-8913-180b7a0fda1d.png" /></p>
+<p>这两种状态即是：</p>
+<p><strong><span class="arithmatex">\(c(t)\)</span>：</strong>在细胞质（Cytosol）中自由扩散的蛋白质浓度。</p>
+<p><strong><span class="arithmatex">\(m(t)\)</span>：</strong>附着在细胞膜（Membrane）上的蛋白质浓度（或密度）。</p>
+<p>这两个量构成了二维动力系统的状态变量。它们之间的转换过程，与<strong>第4讲</strong>的感染模型形成了对映：</p>
+<p>1.<strong>脱离（Detachment）</strong>: 膜上的蛋白质 <span class="arithmatex">\(m\)</span> 会自发地脱落，返回细胞质 <span class="arithmatex">\(c\)</span>。这在数学上等同于感染者的“<strong>康复</strong>”（<span class="arithmatex">\(M \xrightarrow{\delta} C\)</span>）。</p>
+<p>2.<strong>附着（Attachment）</strong>: 细胞质中的蛋白质 <span class="arithmatex">\(c\)</span> 会附着到膜上。</p>
+<p>3.<strong>招募（Recruitment）</strong>: 关键在于，这种附着过程受到<strong>正反馈</strong>调控。已经“定居”在膜上的蛋白质 <span class="arithmatex">\(m\)</span> 会“招募”更多的 <span class="arithmatex">\(c\)</span> 到它身边。这个“<strong>招募</strong>”过程（<span class="arithmatex">\(m + c \rightarrow m + m\)</span>）在动力学上与病毒的“<strong>感染</strong>”过程（<span class="arithmatex">\(M + C \xrightarrow{\lambda} M + M\)</span>）完全一致。</p>
+<p><img alt="课堂板书截图" src="../assets/images/05_005_d7785f36-8119-4174-ba32-94b6c1da7fc2.png" /></p>
+<p>这种由正反馈驱动的蛋白质聚集，是细胞建立极性的物理基础。</p>
+<h2 id="12">1.2 质量守恒定律：一个关键的物理约束<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>在上述模型中，蛋白质只是在细胞质和细胞膜这两个“隔间”之间来回穿梭，它既不会被凭空创造，也不会被销毁。这意味着，在任何时刻，系统中该蛋白质的总量 <span class="arithmatex">\(n\)</span> 是恒定的。</p>
+<p>这个基本物理约束被称为<strong>质量守恒定律（Mass Conservation Law）</strong>。在数学上，它表现为一个代数约束：</p>
+<div class="arithmatex">\[
+m(t) + c(t) = n
+\]</div>
+<p>这个守恒律具有两个层面的深刻意义：</p>
+<p>1.<strong>动力学约束</strong>：它将一个二维系统（<span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(c\)</span>）的自由度降为一维。一旦知道了 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(n\)</span>， <span class="arithmatex">\(c\)</span> 的值就立刻被确定为 <span class="arithmatex">\(c = n - m\)</span>。</p>
+<p>2.<strong>控制参数</strong>：在生物学上，细胞可以通过调控基因表达（即蛋白质的生产速率）来改变总蛋白量 <span class="arithmatex">\(n\)</span>。因此，<span class="arithmatex">\(n\)</span> 不仅仅是一个常数，它是一个关键的<strong>控制参数</strong>。通过改变 <span class="arithmatex">\(n\)</span>，细胞可以驱使系统跨越<strong>分岔点</strong>，实现（例如）从均匀分布到极化状态的“开关”切换。这正是连接动力系统理论与生物功能的关键。</p>
+<h2 id="13-reaction-diffusion">1.3 反应-扩散（Reaction-Diffusion）框架<a class="headerlink" href="#13-reaction-diffusion" title="Permanent link">&para;</a></h2>
+<p><img alt="课堂PPT截图" src="../assets/images/05_006_6ead1d41-e7f7-48a1-97c5-a20183faae99.png" /></p>
+<p>为了更全面地描述这个系统，需要考虑两种物理过程：局部的生化反应（附着/脱离）和空间上的扩散。1952年，艾伦·图灵（Alan Turing）在他的开创性论文中提出了描述这类系统的通用框架，即<strong>反应-扩散方程</strong>。</p>
+<p>对于一个双组分系统，其最一般的形式为：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t m &amp;= f(m,c) + D_m \nabla^2 m \\
+\partial_t c &amp;= g(m,c) + D_c \nabla^2 c
+\end{aligned}
+\]</div>
+<p>各部分的含义如下：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\partial_t m\)</span> 和 <span class="arithmatex">\(\partial_t c\)</span>：膜蛋白和胞质蛋白浓度的时间变化率。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f(m,c)\)</span> 和 <span class="arithmatex">\(g(m,c)\)</span>：<strong>反应项</strong>。在图灵的原始模型中（<span class="arithmatex">\(f\)</span> 和 <span class="arithmatex">\(g\)</span> 相互独立），这通常代表物质的生产和降解。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(D_m \nabla^2 m\)</span> 和 <span class="arithmatex">\(D_c \nabla^2 c\)</span>：<strong>扩散项</strong>。<span class="arithmatex">\(D\)</span> 是扩散系数，<span class="arithmatex">\(\nabla^2\)</span>（拉普拉斯算子）描述了物质从高浓度区域向低浓度区域的净流动。</p>
+</li>
+</ul>
+<p>现在，将1.2节的<strong>质量守恒约束</strong>应用到这个框架上。由于蛋白质只是在 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(c\)</span> 两种状态间转换（<span class="arithmatex">\(c \leftrightarrow m\)</span>），任何导致 <span class="arithmatex">\(m\)</span> 增加一个单位的局部“反应”（附着），必然同时导致 <span class="arithmatex">\(c\)</span> 减少一个单位。因此，反应项 <span class="arithmatex">\(f\)</span> 和 <span class="arithmatex">\(g\)</span> 必须严格满足：</p>
+<div class="arithmatex">\[
+g(m,c) = -f(m,c)
+\]</div>
+<p>这个负号是质量守恒系统的核心特征。它使方程组变为：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t m &amp;= f(m,c) + D_m \nabla^2 m \\
+\partial_t c &amp;= -f(m,c) + D_c \nabla^2 c
+\end{aligned}
+\]</div>
+<p>这与非守恒的图灵系统（<span class="arithmatex">\(f, g\)</span> 相互独立）有着本质的不同，并将导致截然不同的动力学行为。</p>
+<p><strong>这节课的分析路径：</strong>
+在引入空间（扩散项）并探究复杂的<strong>图灵斑图</strong>之前，必须首先理解系统的基本反应动力学。因此，这节课将暂时忽略空间维度，即假设系统是“<strong>充分混合</strong>”（well-mixed）的。这相当于设置扩散系数为零（<span class="arithmatex">\(D_m = D_c = 0\)</span>），从而将复杂的偏微分方程组（PDEs）简化为常微分方程组（ODEs）。对这个零维系统的分析（不动点、稳定性、分岔），是理解后续时空模式形成的必要前提。</p>
+<h1 id="2">2. 反应动力学与模型的无量纲化<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>在第1节中，已经将复杂的细胞极性问题，简化为一个双组分（<span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(c\)</span>）概念模型，其核心是质量守恒定律 <span class="arithmatex">\(g(m,c) = -f(m,c)\)</span>。现在，任务是为这个“反应项” <span class="arithmatex">\(f(m,c)\)</span> 构建一个具体的、能够反映生物学机制（特别是第1节中提到的“招募”/正反馈）的数学形式。</p>
+<h2 id="21-fmc">2.1 构建反应项 <span class="arithmatex">\(f(m,c)\)</span><a class="headerlink" href="#21-fmc" title="Permanent link">&para;</a></h2>
+<p>反应项 <span class="arithmatex">\(f(m,c)\)</span> 代表了膜上蛋白质 <span class="arithmatex">\(m\)</span> 的净增长速率。它可以被分解为两个相互竞争的过程：附着（<span class="arithmatex">\(c \to m\)</span>）和脱离（<span class="arithmatex">\(m \to c\)</span>）。</p>
+<div class="arithmatex">\[
+f(m, c) = \text{附着速率} - \text{脱离速率}
+\]</div>
+<p>这两个速率可以被建模为：</p>
+<p><strong>附着速率 <span class="arithmatex">\(a(m)c\)</span></strong> ：蛋白质从细胞质附着到膜上的速率，理应正比于细胞质中可用的蛋白质浓度 <span class="arithmatex">\(c\)</span>。附着速率系数 <span class="arithmatex">\(a(m)\)</span> 本身可以依赖于膜上的蛋白质浓度 <span class="arithmatex">\(m\)</span>（即正反馈）。</p>
+<p><strong>脱离速率 <span class="arithmatex">\(d(m)m\)</span></strong> ：蛋白质从膜上脱离回到细胞质的速率，理应正比于膜上已有的蛋白质浓度 <span class="arithmatex">\(m\)</span>。</p>
+<p>因此，动力学方程的一般形式为：</p>
+<div class="arithmatex">\[
+f(m, c) = a(m)c - d(m)m
+\]</div>
+<p>细胞极性形成的关键在于一个<strong>正反馈</strong>机制：已经附着在膜上的蛋白质 <span class="arithmatex">\(m\)</span> 能够促进（“招募”）更多 <span class="arithmatex">\(c\)</span> 附着到膜上。为了在模型中体现这一点，为附着速率系数 <span class="arithmatex">\(a(m)\)</span> 引入一个非线性形式：</p>
+<div class="arithmatex">\[
+a(m) = k_{\text{on}} + k_{\text{fb}} \frac{m^2}{K_d^2 + m^2}
+\]</div>
+<p><img alt="课堂板书截图" src="../assets/images/05_007_ab6fe5b6-e2b5-433a-a4ac-8672322673c4.jpg" /></p>
+<p>这里的各项具有明确的物理意义：</p>
+<p><strong><span class="arithmatex">\(k_{\text{on}}\)</span></strong>：<strong>基础附着速率</strong>常数。这代表了即使膜上没有蛋白质（<span class="arithmatex">\(m=0\)</span>）时，蛋白质也会发生的自发附着过程。</p>
+<p><strong><span class="arithmatex">\(k_{\text{fb}} \frac{m^2}{K_d^2 + m^2}\)</span></strong>：<strong>正反馈（招募）项</strong>。这是一个<strong>二阶希尔函数（Hill function）</strong>，描述了一种协同效应：</p>
+<ul>
+<li>
+<p><strong><span class="arithmatex">\(m^2\)</span>（二阶）</strong>：暗示至少需要两个膜蛋白分子协同作用，才能有效地招募新的蛋白质。这导致该项在 <span class="arithmatex">\(m\)</span> 很小时增长缓慢（二次方增长）。</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(K_d\)</span>（半最大效应浓度）</strong>：定义了反馈开始“饱和”的浓度尺度。</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(k_{\text{fb}}\)</span>（最大反馈速率）</strong>：当膜蛋白浓度很高时（<span class="arithmatex">\(m \gg K_d\)</span>），该项趋于一个最大值 <span class="arithmatex">\(k_{\text{fb}}\)</span>。这反映了化学反应的物理极限。</p>
+</li>
+</ul>
+<p>为简化模型，假设脱离速率是恒定的，即 <span class="arithmatex">\(d(m) = k_{\text{off}}\)</span>。综合以上各项，得到完整的、具有物理维度的反应动力学方程：</p>
+<div class="arithmatex">\[
+f(m, c) = \left(k_{\text{on}} + k_{\text{fb}} \frac{m^2}{K_d^2 + m^2} \right) c - k_{\text{off}} m
+\]</div>
+<p><img alt="课堂PPT截图" src="../assets/images/05_008_3b4a9b87-bd53-4f93-9260-f845cb2ce5c0.png" /></p>
+<h2 id="22-nondimensionalization">2.2 无量纲化（Nondimensionalization）<a class="headerlink" href="#22-nondimensionalization" title="Permanent link">&para;</a></h2>
+<p>这个方程包含了四个速率参数（<span class="arithmatex">\(k_{\text{on}}, k_{\text{fb}}, K_d, k_{\text{off}}\)</span>），外加一个总浓度 <span class="arithmatex">\(n\)</span>，使得分析变得复杂。在理论物理中，一个强大的技术是<strong>无量纲化</strong>，通过重新定义时间、浓度等变量的单位，来减少模型中的独立参数数量，从而揭示系统最本质的控制参数。</p>
+<p>采取以下步骤进行无量纲化：</p>
+<p>1.<strong>重塑时间尺度</strong>：将时间单位选为蛋白质的平均脱离时间 <span class="arithmatex">\(k_{\text{off}}^{-1}\)</span>。定义新的无量纲时间 <span class="arithmatex">\(\tau = t \cdot k_{\text{off}}\)</span>。这相当于将整个动力学方程 <span class="arithmatex">\(\partial_t m = f(m,c)\)</span> 两边同除以 <span class="arithmatex">\(k_{\text{off}}\)</span>。原方程变为：</p>
+<div class="arithmatex">\[
+\partial_{\tau} m = \left(\frac{k_{\text{on}}}{k_{\text{off}}} + \frac{k_{\text{fb}}}{k_{\text{off}}} \frac{m^2}{K_d^2 + m^2} \right) c - m
+\]</div>
+<p>2.<strong>重塑浓度尺度</strong>：将浓度单位选为半最大效应浓度 <span class="arithmatex">\(K_d\)</span>。定义新的无量纲浓度 <span class="arithmatex">\(\tilde{m} = m/K_d\)</span> 和 <span class="arithmatex">\(\tilde{c} = c/K_d\)</span>（因此 <span class="arithmatex">\(m = K_d \tilde{m}, c = K_d \tilde{c}\)</span>）。代入上式：</p>
+<div class="arithmatex">\[
+\partial_{\tau} (K_d \tilde{m}) = \left(\frac{k_{\text{on}}}{k_{\text{off}}} + \frac{k_{\text{fb}}}{k_{\text{off}}} \frac{(K_d \tilde{m})^2}{K_d^2 + (K_d \tilde{m})^2} \right) (K_d \tilde{c}) - (K_d \tilde{m})
+\]</div>
+<p>将 <span class="arithmatex">\(K_d^2\)</span> 从分母中提出并约掉公因子 <span class="arithmatex">\(K_d\)</span>：</p>
+<div class="arithmatex">\[
+\partial_{\tau} \tilde{m} = \left(\frac{k_{\text{on}}}{k_{\text{off}}} + \frac{k_{\text{fb}}}{k_{\text{off}}} \frac{\tilde{m}^2}{1 + \tilde{m}^2} \right) \tilde{c} - \tilde{m}
+\]</div>
+<p>3.<strong>定义无量纲参数与简化</strong>：
+为简洁起见，后续仍用 <span class="arithmatex">\(m, c, t\)</span> 表示无量纲化的量。</p>
+<p>上述变换产生了两个无量纲参数组合：</p>
+<p><span class="arithmatex">\(\kappa = \frac{k_{\text{on}}}{k_{\text{off}}}\)</span>：基础附着速率与脱离速率的比值。</p>
+<p><span class="arithmatex">\(\kappa_{\text{fb}} = \frac{k_{\text{fb}}}{k_{\text{off}}}\)</span>：最大反馈速率与脱离速率的比值。</p>
+<p>为了进一步简化，这节课将做一个<strong>选择</strong>：只研究 <span class="arithmatex">\(\kappa_{\text{fb}} = 1\)</span> 的情况。这相当于固定了反馈强度，专门研究基础附着率 <span class="arithmatex">\(\kappa\)</span> 的影响。</p>
+<p>经过无量纲化和简化后，反应项最终变为一个仅含单个参数 <span class="arithmatex">\(\kappa\)</span> 的简洁形式：</p>
+<div class="arithmatex">\[
+f(m, c) = \left(\kappa + \frac{m^2}{1 + m^2}\right) c - m
+\]</div>
+<p>无量纲化不仅是数学上的简化，它揭示了一个深刻的物理事实：这个复杂系统的定性行为（例如，是只有一个稳态还是存在多个稳态）本质上仅由<strong>两个</strong>控制参数共同决定：</p>
+<p><strong><span class="arithmatex">\(\kappa\)</span></strong> （基础附着与脱离的速率之比）。</p>
+<p><strong><span class="arithmatex">\(n\)</span></strong> （无量纲化的总蛋白浓度）。</p>
+<p>这极大地简化了对系统行为的探索，即下一节的分岔分析。</p>
+<h1 id="3">3. 零维系统分析：不动点与分岔<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>第2节通过构建反应项并进行无量纲化，最终将复杂的生物模型简化为一组动力学方程。这节课将开始分析这个零维（即“充分混合”）系统的稳态行为。其动力学由以下方程组描述：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{d}{dt}m &amp;= f(m, c) \\
+\frac{d}{dt}c &amp;= -f(m, c)
+\end{aligned}
+\]</div>
+<p>同时满足约束条件 <span class="arithmatex">\(m + c = n\)</span>。</p>
+<h2 id="31-nullcline-analysis">3.1 零斜线分析（Nullcline Analysis）<a class="headerlink" href="#31-nullcline-analysis" title="Permanent link">&para;</a></h2>
+<p>系统达到平衡状态（即<strong>不动点</strong>）的条件是所有变量的时间导数都为零。对于本系统，这意味着 <span class="arithmatex">\(\frac{d}{dt}m = 0\)</span> 且 <span class="arithmatex">\(\frac{d}{dt}c = 0\)</span>，这两个条件简化为同一个要求：<span class="arithmatex">\(f(m,c) = 0\)</span>。</p>
+<p>在 <span class="arithmatex">\((m,c)\)</span> 相空间中，所有满足 <span class="arithmatex">\(f(m,c) = 0\)</span> 的点的集合被称为<strong>零斜线（Nullcline）</strong>。这条线代表了系统所有<strong>可能</strong>的平衡点（即在没有质量守恒约束时，反应动力学本身达到平衡的点）。</p>
+<p>根据第2节的推导（但保留 <span class="arithmatex">\(\kappa_{fb}\)</span> 作为独立参数），<span class="arithmatex">\(f(m,c)=0\)</span> 对应的零斜线方程为：</p>
+<div class="arithmatex">\[
+c^{*}(m) = \frac{m}{\kappa + \kappa_{fb} \frac{m^2}{1 + m^2}}
+\]</div>
+<p>这个函数 <span class="arithmatex">\(c^*(m)\)</span> 的非线性特性是理解系统行为的关键。</p>
+<ul>
+<li>
+<p>在 <span class="arithmatex">\(m \to 0\)</span> 时，分母 <span class="arithmatex">\(\approx \kappa\)</span>，所以 <span class="arithmatex">\(c^* \approx m/\kappa\)</span>（线性增长）。</p>
+</li>
+<li>
+<p>在 <span class="arithmatex">\(m \to \infty\)</span> 时，<span class="arithmatex">\(\frac{m^2}{1 + m^2} \to 1\)</span>，分母 <span class="arithmatex">\(\approx \kappa + \kappa_{fb}\)</span>，所以 <span class="arithmatex">\(c^* \approx m/(\kappa + \kappa_{fb})\)</span>（也是线性增长，但斜率更小）。</p>
+</li>
+<li>
+<p><strong>关键在于</strong>：参数 <span class="arithmatex">\(\kappa_{fb}\)</span> 控制着正反馈的强度。只有当正反馈足够强（即 <span class="arithmatex">\(\kappa_{fb}\)</span> 足够大，数学上 <span class="arithmatex">\(\kappa_{fb} &gt; 8\kappa\)</span>）时，中间区域的协同效应才会导致曲线隆起，形成一个“驼峰”，从而使整条曲线呈现出特征性的“S”形（或教授所说的“N”形）。</p>
+</li>
+</ul>
+<h2 id="32">3.2 图形法寻找不动点与分岔<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>零斜线 <span class="arithmatex">\(c = c^*(m)\)</span> 提供了系统所有可能的平衡点。然而，在一个具有质量守恒的特定系统中，并非所有这些点都可以被访问。系统还必须满足在第1.2节中引入的<strong>质量守恒约束</strong>：</p>
+<div class="arithmatex">\[
+c = n - m
+\]</div>
+<p>因此，系统在给定总浓度 <span class="arithmatex">\(n\)</span> 下的<strong>真实不动点</strong>，必须<strong>同时满足</strong>这两个条件。</p>
+<p>在 <span class="arithmatex">\((m,c)\)</span> 相空间中，这在几何上被解释为两条曲线的<strong>交点</strong>：</p>
+<p>1.<strong>S形零斜线</strong>：<span class="arithmatex">\(c = c^{*}(m)\)</span>（反应的平衡）</p>
+<p>2.<strong>守恒直线</strong>：<span class="arithmatex">\(c = n - m\)</span>（质量的约束）</p>
+<p><img alt="课堂PPT截图" src="../assets/images/05_009_77f56c87-7552-4e60-95bc-b55d4e79eabb.png" /></p>
+<p>这种图形法提供了一种极其直观的方式来理解系统的行为。守恒直线 <span class="arithmatex">\(c = n - m\)</span> 具有固定的斜率 -1，其在 <span class="arithmatex">\(c\)</span> 轴上的截距恰好是控制参数 <span class="arithmatex">\(n\)</span>。因此，改变总蛋白浓度 <span class="arithmatex">\(n\)</span>（例如，通过改变基因表达），在相空间中就等同于将这条斜率为 -1 的直线<strong>平行上下平移</strong>。</p>
+<p>通过观察交点的变化，可以清晰地看到分岔的发生：</p>
+<ul>
+<li>
+<p>当 <span class="arithmatex">\(n\)</span> 很小（如 <span class="arithmatex">\(n_1\)</span>）或很大（如 <span class="arithmatex">\(n_3\)</span>）时，直线与S形曲线<strong>只有一个交点</strong>。这意味着系统只有一个唯一的稳态，是<strong>单稳态（monostable）</strong>的。</p>
+</li>
+<li>
+<p>当 <span class="arithmatex">\(n\)</span> 处于某个中间范围（如 <span class="arithmatex">\(n_2\)</span>）时，直线与S形曲线<strong>有三个交点</strong>。这意味着系统存在三个可能的稳态，是<strong>双稳态（bistable）</strong>的（第4节将证明，中间的点是不稳定的）。</p>
+</li>
+<li>
+<p>随着 <span class="arithmatex">\(n\)</span> 的连续变化，不动点的数量从1个变为3个，然后再变回1个。这种不动点数量和性质的质变就是<strong>分岔</strong>。</p>
+</li>
+<li>
+<p>具体来说，在从单稳态“进入”双稳态区域（以及“离开”时），守恒直线会与零斜线的“膝盖”部分<strong>相切</strong>。在这一点，两个不动点（一个稳定，一个不稳定）会碰撞并湮灭。这种分岔类型正是<strong>第3讲</strong>中详细讨论过的<strong>鞍点分岔（Saddle-Node Bifurcation）</strong>。</p>
+</li>
+</ul>
+<p>通过系统地改变 <span class="arithmatex">\(n\)</span> 并记录下所有交点对应的稳态浓度值（<span class="arithmatex">\(m^*\)</span> 或 <span class="arithmatex">\(c^*\)</span>），就可以构建出系统的<strong>分岔图（Bifurcation Diagram）</strong>。该图以控制参数 <span class="arithmatex">\(n\)</span> 为横轴，以稳态浓度（如 <span class="arithmatex">\(c^*\)</span>）为纵轴，它清晰地展示了经典的S形双稳态曲线，是理解系统如何“开关”的核心工具。</p>
+<h2 id="33-python">3.3 Python 模拟<a class="headerlink" href="#33-python" title="Permanent link">&para;</a></h2>
+<p>下面的 Python 代码实践部分使用 kappa = 0.02 和 k_fb = 1.6 这一组参数复现了上述理论分析。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">k_fb</span>  <span class="o">=</span> <span class="mf">1.6</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">kappa</span> <span class="o">+</span> <span class="n">k_fb</span> <span class="o">*</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ap</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">k_fb</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">-</span> <span class="n">m</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">c_nullcline</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">/</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ap</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sn_m_values</span><span class="p">(</span><span class="n">m_min</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">m_min</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">H</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">f_lo</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">-</span> <span class="n">lo</span>
+        <span class="n">f_hi</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="o">-</span> <span class="n">hi</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+            <span class="n">f_mid</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">-</span> <span class="n">mid</span>
+            <span class="k">if</span> <span class="n">f_lo</span> <span class="o">*</span> <span class="n">f_mid</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">hi</span><span class="p">,</span> <span class="n">f_hi</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lo</span><span class="p">,</span> <span class="n">f_lo</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+        <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+<span class="n">sn_ms</span> <span class="o">=</span> <span class="n">sn_m_values</span><span class="p">()</span>
+<span class="c1"># Get the two saddle-node m values</span>
+<span class="n">sn_m1</span><span class="p">,</span> <span class="n">sn_m2</span> <span class="o">=</span> <span class="n">sn_ms</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sn_ms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sn_ns</span> <span class="o">=</span> <span class="n">sn_ms</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">sn_ms</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">sn_ms</span><span class="p">)</span>
+<span class="n">sn_cs</span> <span class="o">=</span> <span class="n">sn_ns</span> <span class="o">-</span> <span class="n">sn_ms</span>
+<span class="n">n_low</span>  <span class="o">=</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sn_ns</span><span class="p">))</span>
+<span class="n">n_mid</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sn_ns</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
+<span class="n">n_high</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sn_ns</span><span class="p">))</span>
+<span class="n">n_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">n_low</span><span class="p">,</span> <span class="n">n_mid</span><span class="p">,</span> <span class="n">n_high</span><span class="p">]</span>
+<span class="n">n_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;$n_1$&quot;</span><span class="p">,</span> <span class="s2">&quot;$n_2$&quot;</span><span class="p">,</span> <span class="s2">&quot;$n_3$&quot;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">equilibria_on_n</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m_grid</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">m_grid</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">m_grid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m_grid</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">f_lo</span><span class="p">,</span> <span class="n">f_hi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">m_star</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+            <span class="n">f_mid</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">f_lo</span> <span class="o">*</span> <span class="n">f_mid</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">hi</span><span class="p">,</span> <span class="n">f_hi</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lo</span><span class="p">,</span> <span class="n">f_lo</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+        <span class="n">m_star</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="n">c_star</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_star</span>
+        <span class="n">stab</span> <span class="o">=</span> <span class="n">gm</span><span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+        <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">stab</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">roots</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_flow_arrows</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">eqs</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">m_max_plot</span><span class="p">):</span>
+    <span class="n">m_stars_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="n">eqs</span><span class="p">])</span>
+    <span class="n">arrow_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">m_stars_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">m_stable</span> <span class="o">=</span> <span class="n">m_stars_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">m_start_1</span> <span class="o">=</span> <span class="n">m_stable</span> <span class="o">-</span> <span class="mf">0.4</span>
+        <span class="n">m_end_1</span>   <span class="o">=</span> <span class="n">m_stable</span> <span class="o">-</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">m_start_1</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_1</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_2</span> <span class="o">=</span> <span class="n">m_stable</span> <span class="o">+</span> <span class="mf">0.4</span>
+        <span class="n">m_end_2</span>   <span class="o">=</span> <span class="n">m_stable</span> <span class="o">+</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">m_start_2</span> <span class="o">&lt;</span> <span class="n">m_max_plot</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_2</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">m_stars_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">m_low_stable</span><span class="p">,</span> <span class="n">m_unstable</span><span class="p">,</span> <span class="n">m_high_stable</span> <span class="o">=</span> <span class="n">m_stars_sorted</span>
+        <span class="n">m_start_1</span> <span class="o">=</span> <span class="n">m_unstable</span> <span class="o">-</span> <span class="mf">0.05</span>
+        <span class="n">m_end_1</span>   <span class="o">=</span> <span class="n">m_low_stable</span> <span class="o">+</span> <span class="mf">0.05</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_1</span><span class="p">),</span>
+                     <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_2</span> <span class="o">=</span> <span class="n">m_unstable</span> <span class="o">+</span> <span class="mf">0.05</span>
+        <span class="n">m_end_2</span>   <span class="o">=</span> <span class="n">m_high_stable</span> <span class="o">-</span> <span class="mf">0.05</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_2</span><span class="p">),</span>
+                     <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_3</span> <span class="o">=</span> <span class="n">m_low_stable</span> <span class="o">-</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">m_start_3</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_low_stable</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m_low_stable</span><span class="o">-</span><span class="mf">0.02</span><span class="p">)),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_3</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_3</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_4</span> <span class="o">=</span> <span class="n">m_high_stable</span> <span class="o">+</span> <span class="mf">0.2</span>
+        <span class="k">if</span> <span class="n">m_start_4</span> <span class="o">&lt;</span> <span class="n">m_max_plot</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_high_stable</span><span class="o">+</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m_high_stable</span><span class="o">+</span><span class="mf">0.02</span><span class="p">)),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_4</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_4</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Phase space with segmented f=0 nullcline</span>
+<span class="n">m_max</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="n">c_nc</span> <span class="o">=</span> <span class="n">c_nullcline</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Draw f=0 as solid for m&lt;=sn_m1 and m&gt;=sn_m2, dashed for sn_m1&lt;m&lt;sn_m2</span>
+<span class="n">mask_left</span>  <span class="o">=</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">sn_m1</span>
+<span class="n">mask_mid</span>   <span class="o">=</span> <span class="p">(</span><span class="n">m</span> <span class="o">&gt;</span> <span class="n">sn_m1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">sn_m2</span><span class="p">)</span>
+<span class="n">mask_right</span> <span class="o">=</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">sn_m2</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">mask_left</span><span class="p">],</span>  <span class="n">c_nc</span><span class="p">[</span><span class="n">mask_left</span><span class="p">],</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f(m,c)=0$&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">mask_mid</span><span class="p">],</span>   <span class="n">c_nc</span><span class="p">[</span><span class="n">mask_mid</span><span class="p">],</span>   <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">mask_right</span><span class="p">],</span> <span class="n">c_nc</span><span class="p">[</span><span class="n">mask_right</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot n lines and equilibria</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_list</span><span class="p">):</span>
+    <span class="n">m_line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">m_max</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="mi">600</span><span class="p">)</span>
+    <span class="n">c_line</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_line</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_line</span><span class="p">,</span> <span class="n">c_line</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="c1"># equilibria markers</span>
+    <span class="n">eqs</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span> <span class="ow">in</span> <span class="n">eqs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">stable</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                     <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1"># arrows along flow (skip vicinity of roots)</span>
+    <span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">m_max</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">mi</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">:</span>
+        <span class="n">ci</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">mi</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">2e-3</span><span class="p">:</span>  <span class="c1"># avoid near equilibria</span>
+            <span class="k">continue</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">m_max</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># step</span>
+        <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">g</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">mi</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">ci</span><span class="o">+</span><span class="n">dy</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">ci</span><span class="p">),</span>
+                     <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.2</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;$n_1$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;$n_2$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;$n_3$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;$f(m,c) = 0$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="s2">&quot;reactive flow&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m_max</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">c_nc</span><span class="p">))</span><span class="o">*</span><span class="mf">1.05</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;(m,c)-phase space (only unstable segment dashed)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Bifurcation diagram</span>
+<span class="n">m_branch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">c_branch</span> <span class="o">=</span> <span class="n">c_nullcline</span><span class="p">(</span><span class="n">m_branch</span><span class="p">)</span>
+<span class="n">n_branch</span> <span class="o">=</span> <span class="n">m_branch</span> <span class="o">+</span> <span class="n">c_branch</span>
+<span class="n">stab_branch</span> <span class="o">=</span> <span class="n">gm</span><span class="p">(</span><span class="n">m_branch</span><span class="p">,</span> <span class="n">n_branch</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">stab_branch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">change_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">mask</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_branch</span><span class="p">)),</span> <span class="n">change_idx</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">stab_branch</span><span class="p">[</span><span class="n">seg</span><span class="p">[</span><span class="mi">0</span><span class="p">]]:</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_branch</span><span class="p">[</span><span class="n">seg</span><span class="p">],</span> <span class="n">c_branch</span><span class="p">[</span><span class="n">seg</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ylim_top</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ylim_top</span><span class="p">)</span> 
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_list</span><span class="p">):</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">eqs</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">eqs_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eqs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c_star</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_star</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">c_low_stable</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">c_unstable</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">c_high_stable</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_low_stable</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_low_stable</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_unstable</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> 
+            <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ylim_top</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_high_stable</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span>
+                        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_high_stable</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_unstable</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_low_stable</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n_low</span><span class="p">,</span> <span class="n">n_mid</span><span class="p">,</span> <span class="n">n_high</span><span class="p">]:</span>
+    <span class="n">eqs_n1</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">eqs_n1_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eqs_n1</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_n1_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c_star_n1</span> <span class="o">=</span> <span class="n">eqs_n1_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c_star_n1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim_top</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n_low</span><span class="p">,</span> <span class="n">n_mid</span><span class="p">,</span> <span class="n">n_high</span><span class="p">]:</span>
+    <span class="n">eqs_n3</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">eqs_n3_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eqs_n3</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_n3_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c_star_n3</span> <span class="o">=</span> <span class="n">eqs_n3_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">c_star_n3</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">ylim_top</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;$c^*(n)$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$c^*$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Bifurcation diagram&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;combined_diagram.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="运行代码输出" src="../assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png" /></p>
+<p><strong>左图（(m,c)-phase space）</strong>：展示了 <span class="arithmatex">\((m,c)\)</span> 相空间。白色曲线是N形的<strong>零斜线</strong> <span class="arithmatex">\(f(m,c)=0\)</span>。代码通过稳定性分析，已将不稳定的平衡区域绘制为<strong>虚线</strong>。三条灰色斜线是不同总浓度 <span class="arithmatex">\(n_1, n_2, n_3\)</span> 下的<strong>守恒直线</strong> <span class="arithmatex">\(c=n-m\)</span>。</p>
+<p><strong>不动点（白点）</strong>：是零斜线和守恒直线的交点。在 <span class="arithmatex">\(n_1\)</span> 和 <span class="arithmatex">\(n_3\)</span> 处，系统只有一个<strong>稳定</strong>不动点（实心圆）；在 <span class="arithmatex">\(n_2\)</span> 处，系统处于<strong>双稳态</strong>区域，存在两个稳定不动点（实心圆）和一个不稳定不动点（空心圆）。红色的“reactive flow”箭头展示了系统将如何演化到稳定的不动点。</p>
+<p><strong>右图（Bifurcation diagram）</strong>：此图是系统的分岔图，绘制了稳态浓度 <strong><span class="arithmatex">\(c^*\)</span></strong> （纵轴）随控制参数 <strong><span class="arithmatex">\(n\)</span></strong> （横轴）的变化。这条S形（或Z形）曲线 展示了由两次<strong>鞍点分岔（SN）</strong> 所界定的双稳态区域。红色箭头再次标示了在 <span class="arithmatex">\(n_1, n_2, n_3\)</span> 处，系统从任何初始状态出发的最终归宿。</p>
+<h1 id="4">4. 线性稳定性分析：从一维简化到雅可比矩阵<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>第3小节的图形法和Python模拟展示了不动点的<strong>位置</strong>和<strong>数量</strong>（例如，在 <span class="arithmatex">\(n_2\)</span> 处存在三个不动点）。然而，这个分析并没有在数学上严格证明哪个不动点是稳定的（吸引子），哪个是不稳定的（排斥子）。</p>
+<p>为了回答这个问题，需要进行<strong>线性稳定性分析（Linear Stability Analysis, LSA）</strong>。这与<strong>第3讲</strong>中使用的方法相同：在不动点 <span class="arithmatex">\(u^*\)</span> 附近施加一个微小的扰动 <span class="arithmatex">\(\delta u(t)\)</span>，然后考察这个扰动是随时间指数增长（不稳定）还是衰减（稳定）。</p>
+<p>对于这个二维系统，存在两种等价但视角不同的分析方法。</p>
+<h2 id="41">4.1 方法一：降维到一维系统<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p><img alt="课堂板书截图" src="../assets/images/05_011_ef424873-98ef-478e-8233-9d1d3ebcb542.jpg" /></p>
+<p>由于质量守恒定律 <span class="arithmatex">\(c = n - m\)</span> 的存在，可以将二维系统精确地简化为一个只关于变量 <span class="arithmatex">\(m\)</span> 的一维系统：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}m = f(m, c) \quad \xrightarrow{\text{代入} c=n-m} \quad \frac{d}{dt}m = f(m, n-m)
+\]</div>
+<p>现在问题就转化为了在<strong>第3讲</strong>中已经解决的一维系统稳定性分析。考察不动点 <span class="arithmatex">\(m^*\)</span> 附近的一个小扰动 <span class="arithmatex">\(\delta m = m - m^*\)</span>。扰动的线性化动力学方程为：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\delta m \approx \left. \frac{d}{dm}f(m, n-m) \right|_{m=m^*} \cdot \delta m
+\]</div>
+<p><img alt="课堂PPT截图" src="../assets/images/05_012_84a74dae-dafd-4e79-bcdb-297ac5e80964.png" /></p>
+<p>使用链式法则计算导数：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{d}{dm}f(m, n-m) &amp;= \left. \frac{\partial f}{\partial m} \right|_{(m^*, c^*)} \cdot \frac{dm}{dm} + \left. \frac{\partial f}{\partial c} \right|_{(m^*, c^*)} \cdot \frac{d(n-m)}{dm} \\
+&amp;= \left. \frac{\partial f}{\partial m} \right|_{(m^*, c^*)} + \left. \frac{\partial f}{\partial c} \right|_{(m^*, c^*)} \cdot (-1) \\
+&amp;= f_m - f_c
+\end{aligned}
+\]</div>
+<p>其中，<span class="arithmatex">\(f_m \equiv \left. \frac{\partial f}{\partial m} \right|_{(m^*, c^*)}\)</span> 和 <span class="arithmatex">\(f_c \equiv \left. \frac{\partial f}{\partial c} \right|_{(m^*, c^*)}\)</span> 是 <span class="arithmatex">\(f\)</span> 对 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(c\)</span> 的偏导数，并在不动点 <span class="arithmatex">\((m^*, c^*)\)</span> 处取值。</p>
+<p>因此，扰动的动力学方程为：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\delta m \approx (f_m - f_c) \cdot \delta m
+\]</div>
+<p>这个扰动的指数增长率（即一维系统中的特征值）为 <span class="arithmatex">\(\sigma_{\text{loc}}(n) = f_m - f_c\)</span>。稳定性判据非常直观：</p>
+<ul>
+<li>
+<p>如果 <span class="arithmatex">\(\sigma_{\text{loc}}(n) &lt; 0\)</span>，扰动会随时间指数衰减，不动点是<strong>稳定的</strong>。</p>
+</li>
+<li>
+<p>如果 <span class="arithmatex">\(\sigma_{\text{loc}}(n) &gt; 0\)</span>，扰动会随时间指数增长，不动点是<strong>不稳定的</strong>。</p>
+</li>
+</ul>
+<p>这是第3小节Python代码中 <span class="arithmatex">\(gm(m, n)\)</span> 函数所计算的量。</p>
+<h3 id="_2">几何意义：斜率判据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>这个分析结果有一个优美且强大的几何解释。回顾3.1节的零斜线方程 <span class="arithmatex">\(c^*(m)\)</span>，其斜率 <span class="arithmatex">\(s_{\text{nc}}\)</span> 可以通过对 <span class="arithmatex">\(f(m, c^*(m)) = 0\)</span> 使用隐函数定理求导得到：</p>
+<div class="arithmatex">\[
+\frac{d}{dm}f(m, c^*(m)) = 0 \implies \frac{\partial f}{\partial m} + \frac{\partial f}{\partial c} \cdot \frac{dc^*}{dm} = 0 \implies f_m + f_c \cdot s_{\text{nc}} = 0
+\]</div>
+<p>解得零斜线的斜率为 <span class="arithmatex">\(s_{\text{nc}} = -\frac{f_m}{f_c}\)</span>。</p>
+<p>在当前的生物模型中，附着速率 <span class="arithmatex">\(a(m)\)</span> 必定为正，因此 <span class="arithmatex">\(f_c = \frac{\partial f}{\partial c} = a(m) &gt; 0\)</span>。有了这个条件，就可以将稳定性判据 <span class="arithmatex">\(\sigma_{\text{loc}} &lt; 0\)</span>（即 <span class="arithmatex">\(f_m - f_c &lt; 0\)</span>）改写为：</p>
+<div class="arithmatex">\[
+f_m &lt; f_c \implies \frac{f_m}{f_c} &lt; 1 \implies -\frac{f_m}{f_c} &gt; -1
+\]</div>
+<p>代入 <span class="arithmatex">\(s_{\text{nc}}\)</span>，得到最终的<strong>几何稳定性判据</strong>：</p>
+<div class="arithmatex">\[
+s_{\text{nc}} &gt; -1
+\]</div>
+<p><strong>物理意义</strong>：这个结果的几何意义是：一个不动点是<strong>稳定</strong>的，当且仅当在该点处，<strong>零斜线（S形曲线）的斜率 <span class="arithmatex">\(s_{\text{nc}}\)</span></strong> 大于 <strong>守恒直线（斜率为-1）的斜率</strong>。</p>
+<ul>
+<li>
+<p>在S形曲线的上、下两个分支，曲线斜率 <span class="arithmatex">\(s_{\text{nc}} &gt; -1\)</span>（曲线比-1更“平坦”），因此它们是<strong>稳定</strong>的。</p>
+</li>
+<li>
+<p>在S形曲线的中间分支，曲线斜率 <span class="arithmatex">\(s_{\text{nc}} &lt; -1\)</span>（曲线比-1更“陡峭”），因此它是<strong>不稳定</strong>的。</p>
+</li>
+</ul>
+<h2 id="42">4.2 方法二：完整的二维系统雅可比矩阵分析<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p>第二种方法更为通用，它直接分析原始的二维系统，而无需预先利用守恒律进行降维。这种方法对于下一讲中<strong>不满足质量守恒</strong>的系统至关重要。</p>
+<p><img alt="课堂板书截图" src="../assets/images/05_013_67cf656b-56a9-47be-a3b5-92bc7f7d0d6d.jpg" /></p>
+<p><img alt="课堂板书截图" src="../assets/images/05_014_784967de-9960-4ff9-af35-fdbd3369139b.png" /></p>
+<p>考虑对不动点 <span class="arithmatex">\((m^*, c^*)\)</span> 的一个微小扰动向量 <span class="arithmatex">\(\delta \vec{u} = \begin{pmatrix} \delta m \\ \delta c \end{pmatrix}\)</span>。其线性化的动力学由<strong>雅可比矩阵（Jacobian Matrix）</strong> <span class="arithmatex">\(\mathcal{J}\)</span> 决定：</p>
+<div class="arithmatex">\[
+\frac{d}{dt} \delta \vec{u} = \mathcal{J} \cdot \delta \vec{u}
+\]</div>
+<p>其中，雅可比矩阵 <span class="arithmatex">\(\mathcal{J}\)</span> 由反应项 <span class="arithmatex">\(\begin{pmatrix} f \\ -f \end{pmatrix}\)</span> 的各个偏导数构成：</p>
+<div class="arithmatex">\[
+\mathcal{J} = 
+\begin{pmatrix}
+\frac{\partial f}{\partial m} &amp; \frac{\partial f}{\partial c} \\
+\frac{\partial (-f)}{\partial m} &amp; \frac{\partial (-f)}{\partial c}
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+f_m &amp; f_c \\
+-f_m &amp; -f_c
+\end{pmatrix}
+\]</div>
+<p>系统的稳定性由 <span class="arithmatex">\(\mathcal{J}\)</span> 的<strong>特征值（eigenvalues）</strong> <span class="arithmatex">\(\sigma\)</span> 决定。特征值是特征方程 <span class="arithmatex">\(\det(\mathcal{J} - \sigma I) = 0\)</span> 的解：</p>
+<div class="arithmatex">\[
+\begin{vmatrix}
+f_m - \sigma &amp; f_c \\
+-f_m &amp; -f_c - \sigma
+\end{vmatrix} = (f_m - \sigma)(-f_c - \sigma) - (f_c)(-f_m) = 0
+\]</div>
+<p>展开得：</p>
+<div class="arithmatex">\[
+-f_m f_c - f_m \sigma + f_c \sigma + \sigma^2 + f_m f_c = 0
+\]</div>
+<div class="arithmatex">\[
+\sigma^2 + (f_c - f_m) \sigma = 0 \implies \sigma \left( \sigma - (f_m - f_c) \right) = 0
+\]</div>
+<p>解这个方程，得到两个特征值：</p>
+<div class="arithmatex">\[
+\sigma^{(1)} = 0
+\]</div>
+<div class="arithmatex">\[
+\sigma^{(2)} = f_m - f_c
+\]</div>
+<p>这个结果非常深刻，它完美地揭示了质量守恒系统的动力学结构：</p>
+<p><strong>特征值 <span class="arithmatex">\(\sigma^{(2)} = f_m - f_c\)</span></strong> ：</p>
+<p>这与方法一（1D降维）得到的增长率 <span class="arithmatex">\(\sigma_{\text{loc}}\)</span> <strong>完全相同</strong>。它对应的特征向量是 <span class="arithmatex">\(\vec{e}^{(2)} = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span>。一个沿着 <span class="arithmatex">\(\begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span> 方向的扰动（即 <span class="arithmatex">\(\delta m = 1, \delta c = -1\)</span>）满足 <span class="arithmatex">\(\delta m + \delta c = 0\)</span>，这意味着这个扰动<strong>保持了总质量守恒</strong>。因此，<span class="arithmatex">\(\sigma^{(2)}\)</span> 决定了系统在<strong>守恒直线 <span class="arithmatex">\(m+c=n\)</span> 上</strong>的稳定性。</p>
+<p><strong>特征值 <span class="arithmatex">\(\sigma^{(1)} = 0\)</span></strong> ：</p>
+<p>这是一个全新的发现，它是<strong>所有具有守恒律的系统的普遍特征</strong>。它对应的特征向量是 <span class="arithmatex">\(\vec{e}^{(1)} = \begin{pmatrix} f_c \\ -f_m \end{pmatrix}\)</span>，这正是零斜线在该点的<strong>切线方向</strong>。</p>
+<p><strong>物理意义</strong>：零特征值意味着系统在 <span class="arithmatex">\(\vec{e}^{(1)}\)</span> 方向上是<strong>中性稳定（neutrally stable）</strong>的。如果一个扰动（例如，外部注入了少量蛋白质）将系统从守恒线 <span class="arithmatex">\(m+c=n\)</span> 推到了邻近的 <span class="arithmatex">\(m+c=n+\epsilon\)</span> 上，系统既不会主动回到原来的线上，也不会进一步偏离。系统“不在乎”自己在哪条守恒线上，它只会在新的守恒线上寻找新的平衡点。整个<strong>零斜线</strong>（Nullcline）实际上是一个<strong>连续的平衡点家族</strong>（Line of Equilibria），而具体的守恒律 <span class="arithmatex">\(m+c=n\)</span> 只是从中挑选出了一个或几个特定的点作为系统的不动点。</p>
+<h2 id="43">4.3 两种分析方法的对比<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p>第3小节的Python代码已经通过计算 <span class="arithmatex">\(gm(m, n)\)</span>（即 <span class="arithmatex">\(\sigma_{\text{loc}} = f_m - f_c\)</span>）的符号，并用实线（稳定）和虚线（不稳定）在分岔图上标示了稳定性。因此，这里不再需要重复的代码，而是用一个总结性表格来对比这两种分析方法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特征</th>
+<th style="text-align: left;">方法一：降维到一维系统</th>
+<th style="text-align: left;">方法二：完整的二维雅可比矩阵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>核心概念</strong></td>
+<td style="text-align: left;">利用 <span class="arithmatex">\(c = n - m\)</span> 将系统降维</td>
+<td style="text-align: left;">在完整的二维相空间中进行线性化</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>数学工具</strong></td>
+<td style="text-align: left;">一维泰勒展开（链式法则）</td>
+<td style="text-align: left;"><span class="arithmatex">\(2 \times 2\)</span> 雅可比矩阵 <span class="arithmatex">\(\mathcal{J}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>得到的特征值</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sigma_{\text{loc}} = f_m - f_c\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sigma^{(1)} = 0\)</span> <strong>和</strong> <span class="arithmatex">\(\sigma^{(2)} = f_m - f_c\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>物理诠释</strong></td>
+<td style="text-align: left;">揭示了系统<strong>沿着</strong>守恒直线（即在物理约束内）的稳定性。</td>
+<td style="text-align: left;">揭示了完整的动力学结构：<br> • <span class="arithmatex">\(\sigma^{(2)}\)</span>: 沿守恒线的稳定性（同左）。 <br> • <span class="arithmatex">\(\sigma^{(1)}\)</span>: <strong>质量守恒</strong>导致的沿零斜线的中性稳定性。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>几何判据</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(s_{\text{nc}} &gt; -1\)</span> （稳定）</td>
+<td style="text-align: left;">(同左)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="_3">总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>这节课通过对一个受质量守恒约束的二维动力学系统的详尽分析，实现了从一维系统到更高维、更具现实意义的生物物理模型的关键过渡。课程的核心脉络可以总结如下：</p>
+<p>1.以细胞极性为背景，将<strong>第4讲</strong>中“感染”模型的动力学类比为蛋白质的“招募”过程，从而抽象出一个双组分（<span class="arithmatex">\(m, c\)</span>）动力学模型。其核心是<strong>质量守恒定律</strong> <span class="arithmatex">\(m+c=n\)</span>。</p>
+<p>2.模型中引入的<strong>非线性正反馈</strong>（即<span class="arithmatex">\(m^2\)</span>协同项），被证明是产生S形（或N形）零斜线的根源，这是实现双稳态等复杂行为的必要条件。</p>
+<p>3.通过图形法，发现系统的不动点是<strong>零斜线</strong> <span class="arithmatex">\(f(m,c)=0\)</span> 与<strong>守恒直线</strong> <span class="arithmatex">\(c=n-m\)</span> 的交点。改变总蛋白浓度 <span class="arithmatex">\(n\)</span> 这一控制参数，在几何上等同于平行移动守恒直线，导致不动点对在切点处产生或湮灭，这正是<strong>第3讲</strong>中学习过的<strong>鞍点分岔（Saddle-Node Bifurcation）</strong>。</p>
+<p>4.线性稳定性分析（LSA）被用于判断不动点的稳定性。这可以通过两种等价的方法完成：一是通过守恒律<strong>降维到一维系统</strong>，得到增长率 <span class="arithmatex">\(\sigma_{\text{loc}} = f_m - f_c\)</span>；二是采用更通用的<strong>二维雅可比矩阵</strong>分析。</p>
+<p>5.<strong>雅可比矩阵</strong>分析 <span class="arithmatex">\(\mathcal{J} = \begin{pmatrix} f_m &amp; f_c \\ -f_m &amp; -f_c \end{pmatrix}\)</span> 揭示了质量守恒系统的普遍特征：存在一个<strong>零特征值</strong>（<span class="arithmatex">\(\sigma^{(1)} = 0\)</span>）。这个特征值对应于沿着零斜线（即平衡点家族）方向的中性稳定性，是守恒律 <span class="arithmatex">\(g=-f\)</span> 的直接数学后果。</p>
+<p>至此，该系统在空间均匀（充分混合）下的行为已经分析完毕。然而，细胞极性本身是一个空间现象。这节课的分析是理解空间斑图形成的必要铺垫。在后续课程中，当重新引入扩散项后，在某些条件下，空间均匀的稳态会变得不稳定，从而自发地涌现出不均匀的蛋白质分布，形成<strong>图灵斑图（Turing Patterns）</strong>。</p>
+<p>这节课的分析也为<strong>下一讲（6.动力系统：二维非守恒系统与振荡器）</strong> 建立对比。下一讲将探讨一个截然不同的情景：如果系统<strong>不满足质量守恒</strong>（例如，在蛋白质被持续合成和降解的开放系统中），会发生什么？在这种情况下，约束 <span class="arithmatex">\(g=-f\)</span> 被打破，雅可比矩阵变为更一般的形式 <span class="arithmatex">\(\mathcal{J} = \begin{pmatrix} f_m &amp; f_c \\ g_m &amp; g_c \end{pmatrix}\)</span>。零特征值不再是必然存在的，取而代之的是，特征值可以成为<strong>复数</strong>。复数特征值是<strong>振荡（Oscillations）</strong> 行为的数学标志。当一对共轭复特征值的实部从负变为正时，系统会经历<strong>霍普夫分岔（Hopf Bifurcation）</strong>，稳定的不动点会失稳，并诞生一个稳定的<strong>极限环（Limit Cycle）</strong>，即持续的振荡。这将为理解生物钟、捕食者-被捕食者循环等节律性现象打开大门。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

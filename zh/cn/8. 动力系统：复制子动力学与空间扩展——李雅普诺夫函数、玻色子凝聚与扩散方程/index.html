@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/">
+      
+      
+        <link rel="prev" href="../7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/">
+      
+      
+        <link rel="next" href="../9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/">
+      
+      
+        
+          <link rel="alternate" href="../../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>8. 动力系统：复制子动力学与空间扩展 - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. 动力系统：复制子动力学与空间扩展
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>在<strong>第7讲</strong>中，课程构建了一套用于分析二维动力系统的标准“工具箱”。通过引入<strong>庞加莱-本迪克松定理 (Poincaré-Bendixson Theorem)</strong> ，分析突破了线性稳定性分析（雅可比矩阵的迹 <span class="arithmatex">\(\tau\)</span> 与行列式 <span class="arithmatex">\(\Delta\)</span>）的局域限制，为二维相平面上<strong>极限环 (Limit Cycles)</strong> 的存在性提供了严格的拓扑判据。这一理论框架成功解释了 <strong>RhoGTPase</strong> 生化循环中的自发振荡，并初步探讨了<strong>石头-剪刀-布 (RPS)</strong> 这种三策略循环博弈的动力学特征。</p>
+<p>然而，现实中的复杂系统往往包含远超两个或三个的组分。当演化博弈的策略数量 <span class="arithmatex">\(S\)</span> 增加时（如 <span class="arithmatex">\(S \gg 3\)</span>），系统不再受限于二维平面的拓扑约束，庞加莱-本迪克松定理不再适用。这节课将在此基础上实现两个维度的关键跨越：从低维到高维的策略空间，以及从时间演化到时空演化。</p>
+<p>这节课首先将聚焦于<strong>复制子动力学 (Replicator Dynamics)</strong> 的高维推广。对于包含 <span class="arithmatex">\(S\)</span> 种策略的零和博弈，其演化遵循<strong>反称洛特卡-沃尔泰拉方程 (Anti-symmetric Lotka-Volterra Equation, ALVE)</strong> 。这部分内容将揭示一个深刻的跨学科联系：描述生物策略竞争的 ALVE 方程，在数学结构上与驱动耗散系统中的<strong>玻色子凝聚 (Boson Condensation)</strong> 完全等价。为了解决高维相空间中的全局稳定性问题，课程将不再依赖几何直观，而是引入<strong>李雅普诺夫函数 (Lyapunov Function)</strong> 这一强大的代数工具。特别是利用<strong>相对熵(Relative Entropy)</strong>  （即 Kullback-Leibler 散度）作为李雅普诺夫函数，严格证明系统演化的热力学方向：在反称相互作用下，系统必然演化至特定的<strong>凝聚态(Condensates)</strong>  ，导致部分策略生存而其他策略灭绝（耗尽）。</p>
+<p>接着视角从“均匀混合”向“空间广延”的转折。此前所有的动力学模型（如金茨堡-朗道、演化博弈）均假设系统是空间均匀的（0维）。为了描述斑图形成，必须引入空间维度。因此将追溯<strong>布朗运动 (Brownian Motion)</strong> 的物理本源，从微观的<strong>随机游走 (Random Walk)</strong> 模型出发，通过连续性极限推导出宏观的<strong>扩散方程 (Diffusion Equation)</strong> 。</p>
+<p>这一对扩散过程的推导至关重要，它不仅连接了微观随机性与宏观确定性，更为<strong>下一讲（第9讲）</strong> 中探讨<strong>弛豫动力学 (Relaxational Dynamics)</strong> 奠定了基础。在第9讲中，扩散方程将与反应动力学结合，构建出完整的<strong>金兹堡-朗道模型 (Ginzburg-Landau Model)</strong> 与 <strong>Model A</strong>，从而正式开启对界面动力学、表面张力以及复杂时空斑图形成的探索。</p>
+<h1 id="1-">1. 演化博弈论与反称洛特卡-沃尔泰拉方程<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h1>
+<p>在<strong>第7讲</strong>中，课程通过石头-剪刀-布（RPS）模型展示了三策略系统的循环动力学。然而，现实世界的生物群落或量子系统往往包含大量相互作用的组分（<span class="arithmatex">\(S \gg 3\)</span>）。为了描述这种高维系统的自组织行为，这节课首先建立一个通用的数学框架——<strong>复制子动力学（Replicator Dynamics）</strong>。该框架不仅适用于描述生物种群中的策略竞争，其数学结构更被证明与非平衡态量子系统中的玻色子凝聚现象存在深刻的同构性。</p>
+<h2 id="11">1.1 理论框架：策略、种群与微观交互机制<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>考虑一个由大量个体组成的群体，系统中存在 <span class="arithmatex">\(S\)</span> 种可能的策略（或物种），记为 <span class="arithmatex">\(E_1, E_2, \dots, E_S\)</span>。系统的宏观状态由采取每种策略的个体数量 <span class="arithmatex">\(N_i(t)\)</span> 定义，其中 <span class="arithmatex">\(i = 1, \dots, S\)</span>。</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/08_001_9057a45a-a823-4190-809e-da016a7e907d.png" /></p>
+<p>策略空间的演变：从简单的石头-剪刀-布 (<span class="arithmatex">\(S=3\)</span>) 到生活大爆炸版 (<span class="arithmatex">\(S=5\)</span>) 再到高维复杂网络 </p>
+<p>模型基于一个核心物理约束：<strong>种群守恒（Population Conservation）</strong>。在所考察的时间尺度内，假设没有个体的生灭（或者出生与死亡达到动态平衡），使得系统内的总个体数 <span class="arithmatex">\(N\)</span> 保持恒定：</p>
+<div class="arithmatex">\[
+N = \sum_{i=1}^{S} N_i, \quad N_i(t) \geq 0
+\]</div>
+<p>这一约束意味着系统的动力学完全由个体在不同策略间的<strong>转换（Transition）</strong>所驱动。这种转换通常源于个体间的成对相互作用（Pairwise Interaction）。当一个采取策略 <span class="arithmatex">\(E_j\)</span> 的个体（Player <span class="arithmatex">\(j\)</span>）遇到一个采取策略 <span class="arithmatex">\(E_i\)</span> 的个体（Player <span class="arithmatex">\(i\)</span>）时，如果策略 <span class="arithmatex">\(E_i\)</span> 在当前的博弈收益矩阵中具有优势，个体 <span class="arithmatex">\(j\)</span> 便可能“模仿”个体 <span class="arithmatex">\(i\)</span>，从而放弃原有策略 <span class="arithmatex">\(E_j\)</span> 转而采纳策略 <span class="arithmatex">\(E_i\)</span>。</p>
+<p>这一微观过程可以类比为化学反应动力学中的自催化过程：</p>
+<div class="arithmatex">\[
+E_j + E_i \xrightarrow{r_{ij}} E_i + E_i
+\]</div>
+<p>这个公式描述了<strong>复制（Replication）</strong>或<strong>模仿（Imitation）</strong>的过程。</p>
+<p><strong>反应物 (<span class="arithmatex">\(E_j + E_i\)</span>)</strong> ：表示一个采取策略 <span class="arithmatex">\(j\)</span> 的个体（<span class="arithmatex">\(E_j\)</span>）遇到了一个采取策略 <span class="arithmatex">\(i\)</span> 的个体（<span class="arithmatex">\(E_i\)</span>）。</p>
+<p><strong>生成物 (<span class="arithmatex">\(E_i + E_i\)</span>)</strong> ：表示博弈或互动发生后，由于策略 <span class="arithmatex">\(i\)</span> 具有优势（由速率 <span class="arithmatex">\(r_{ij}\)</span> 决定），采取策略 <span class="arithmatex">\(j\)</span> 的个体被“转化”为了策略 <span class="arithmatex">\(i\)</span>（即模仿了 <span class="arithmatex">\(i\)</span>）。原来的个体 <span class="arithmatex">\(i\)</span> 保持不变。结果是系统中少了 1 个 <span class="arithmatex">\(E_j\)</span>，多了 1 个 <span class="arithmatex">\(E_i\)</span>。</p>
+<p><strong>自催化（Autocatalytic）</strong>：之所以称为自催化，是因为 <span class="arithmatex">\(E_i\)</span> 在反应中既是生成物也是反应物（催化剂）。<span class="arithmatex">\(E_i\)</span> 的存在促进了更多 <span class="arithmatex">\(E_i\)</span> 的产生（通过转化 <span class="arithmatex">\(E_j\)</span>），这正是种群增长的正反馈机制。</p>
+<p>这一过程在数学上对应于种群变化的跳变 ：</p>
+<div class="arithmatex">\[
+E_j \to E_i, \quad \text{导致种群变化：} \quad N_j \to N_j - 1, \quad N_i \to N_i + 1
+\]</div>
+<p>该转换发生的速率 <span class="arithmatex">\(G_{i \leftarrow j}\)</span> 取决于两个因素：</p>
+<p>1.<strong>相遇概率</strong>：根据质量作用定律（Law of Mass Action），在充分混合的系统中，两类个体相遇的频率正比于其种群数量的乘积 <span class="arithmatex">\(N_i N_j\)</span>。</p>
+<p>2.<strong>转换概率</strong>：由策略 <span class="arithmatex">\(i\)</span> 相对于策略 <span class="arithmatex">\(j\)</span> 的内禀优势或反应速率常数 <span class="arithmatex">\(r_{ij}\)</span> 决定。</p>
+<p>因此，从策略 <span class="arithmatex">\(j\)</span> 转换为策略 <span class="arithmatex">\(i\)</span> 的总速率可以写为：</p>
+<div class="arithmatex">\[
+G_{i \leftarrow j} (N_i, N_j) = r_{ij} N_i N_j
+\]</div>
+<p>值得注意的是，在更一般的随机动力学描述中（如主方程），通常还会包含自发的<strong>突变项（Mutation）</strong>，此时速率形式修正为 <span class="arithmatex">\(r_{ij}(N_i + S_{ij})N_j\)</span>。然而，在本讲座讨论的确定性复制子动力学极限下，关注点在于纯粹由“选择压力”驱动的演化，因此设定自发突变项 <span class="arithmatex">\(S_{ij} = 0\)</span>。</p>
+<h2 id="12-alve">1.2 反称洛特卡-沃尔泰拉方程（ALVE）的推导<a class="headerlink" href="#12-alve" title="Permanent link">&para;</a></h2>
+<p>基于上述微观机制，可以构建描述第 <span class="arithmatex">\(i\)</span> 种策略种群 <span class="arithmatex">\(N_i\)</span> 随时间演化的宏观微分方程。<span class="arithmatex">\(N_i\)</span> 的净变化率由所有可能的“流入量”（其他策略转变为 <span class="arithmatex">\(i\)</span>）减去所有可能的“流出量”（<span class="arithmatex">\(i\)</span> 转变为其他策略）决定：</p>
+<div class="arithmatex">\[
+\dot{N}_i = \underbrace{\sum_{j \ne i} r_{ij} N_i N_j}_{\text{Gain from } j \to i} - \underbrace{\sum_{j \ne i} r_{ji} N_j N_i}_{\text{Loss from } i \to j}
+\]</div>
+<p>通过提取公因式 <span class="arithmatex">\(N_i N_j\)</span>，方程可以简化为如下形式：</p>
+<div class="arithmatex">\[
+\dot{N}_i = \sum_{j \ne i} (r_{ij} - r_{ji}) N_i N_j
+\]</div>
+<p>此时，引入一个核心物理量：<strong>相互作用矩阵（Interaction Matrix）</strong> <span class="arithmatex">\(A\)</span>，其元素 <span class="arithmatex">\(a_{ij}\)</span> 定义为两个单向转换速率之差：</p>
+<div class="arithmatex">\[
+a_{ij} = r_{ij} - r_{ji}
+\]</div>
+<p>这个定义的物理意义极其深远。<span class="arithmatex">\(a_{ij}\)</span> 代表了策略 <span class="arithmatex">\(i\)</span> 相对于策略 <span class="arithmatex">\(j\)</span> 的<strong>净优势（Net Advantage）</strong>。该定义直接赋予了矩阵 <span class="arithmatex">\(A\)</span> <strong>反称性（Anti-symmetry or Skew-symmetry）</strong>：</p>
+<p><strong><span class="arithmatex">\(a_{ij} = -a_{ji}\)</span></strong> ：如果 <span class="arithmatex">\(i\)</span> 战胜 <span class="arithmatex">\(j\)</span> 获得收益（<span class="arithmatex">\(a_{ij} &gt; 0\)</span>），那么 <span class="arithmatex">\(j\)</span> 必然遭受同等程度的损失（<span class="arithmatex">\(a_{ji} &lt; 0\)</span>）。这正是<strong>零和博弈（Zero-sum Game）</strong>的严格数学特征——一方的收益严格等于另一方的损失。</p>
+<p><strong><span class="arithmatex">\(a_{ii} = 0\)</span></strong> ：任何策略与自身博弈的净收益为零。</p>
+<p>为了使方程具有尺度不变性并简化分析，引入相对丰度（Relative Abundance）或<strong>策略频率</strong> <span class="arithmatex">\(x_i\)</span>：</p>
+<div class="arithmatex">\[
+x_i = \frac{N_i(t)}{N}, \quad \text{满足约束} \quad \sum_{i=1}^S x_i = 1
+\]</div>
+<p>将 <span class="arithmatex">\(N_i = N x_i\)</span> 代入速率方程，并消去常数 <span class="arithmatex">\(N\)</span>（或将其吸收到时间尺度的重定义中），最终得到标准的<strong>反称洛特卡-沃尔泰拉方程（Anti-symmetric Lotka-Volterra Equation, ALVE）</strong>：</p>
+<div class="arithmatex">\[
+\dot{x}_i = x_i \sum_{j=1}^S a_{ij} x_j = x_i (A\mathbf{x})_i
+\]</div>
+<p>这里，矢量项 <span class="arithmatex">\((A\mathbf{x})_i\)</span> 具有明确的生物学含义：它代表了策略 <span class="arithmatex">\(i\)</span> 在当前群体环境 <span class="arithmatex">\(\mathbf{x}\)</span> 下的<strong>适应度（Fitness）</strong>。</p>
+<p>若 <span class="arithmatex">\((A\mathbf{x})_i &gt; 0\)</span>，意味着策略 <span class="arithmatex">\(i\)</span> 在与当前混合群体的平均对抗中占据优势，其频率 <span class="arithmatex">\(x_i\)</span> 将会指数增长。</p>
+<p>若 <span class="arithmatex">\((A\mathbf{x})_i &lt; 0\)</span>，策略 <span class="arithmatex">\(i\)</span> 处于劣势，其频率将衰减。</p>
+<p>这正是<strong>频率依赖选择（Frequency-dependent Selection）</strong>的数学表达：一个策略的优劣并非绝对，而是取决于它所处的环境（即其他策略的分布）。</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/08_002_aef94652-af38-4044-9330-24d207d88b27.png" /></p>
+<p>复杂策略网络示意图 (<span class="arithmatex">\(S=50\)</span>)。节点代表策略，箭头代表非零的净优势 <span class="arithmatex">\(a_{ij}\)</span>。核心问题是：哪些策略最终会胜出（凝聚）？</p>
+<h2 id="13">1.3 物理等价性：玻色子凝聚与量子态选择<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p>这小节揭示了一个连接生物学与物理学的深刻洞见：上述描述演化博弈的 ALVE 方程，在数学结构上与<strong>驱动-耗散系统中的玻色子凝聚（Bose-Einstein Condensation in Driven-Dissipative Systems）</strong>是完全等价的。</p>
+<p>在非平衡态量子统计物理中：</p>
+<ul>
+<li>
+<p><strong>策略 <span class="arithmatex">\(E_i\)</span></strong> 对应于系统的<strong>量子态</strong>（如 Floquet States）。</p>
+</li>
+<li>
+<p><strong>个体</strong> 对应于占据这些能级的<strong>非相互作用玻色子</strong>（Bosons）。</p>
+</li>
+<li>
+<p><strong>转换 <span class="arithmatex">\(G_{i \leftarrow j}\)</span></strong> 对应于玻色子在不同能级间的<strong>跃迁</strong>，这种跃迁由外部驱动场（Pump）和环境耗散（Dissipation）共同诱导。</p>
+</li>
+</ul>
+<p>这种等价性源于玻色子的统计性质。玻色子的跃迁速率包含一个统计因子 <span class="arithmatex">\((1+N_i)\)</span>，即<strong>玻色增强效应（Bosonic Enhancement）</strong>：目标态已经被占据的粒子数越多，跃迁进去的概率就越大。在宏观极限下（<span class="arithmatex">\(N \gg 1\)</span>），<span class="arithmatex">\((1+N_i) \approx N_i\)</span>，这与演化博弈中“模仿成功者”带来的 <span class="arithmatex">\(N_i\)</span> 因子在数学上是一致的。</p>
+<p>下表总结了这两个领域的严格映射关系：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特征维度</th>
+<th style="text-align: left;">演化博弈论 (Evolutionary Game Theory)</th>
+<th style="text-align: left;">驱动耗散玻色子系统 (Driven-Dissipative Bosonic Systems)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>基本单元</strong></td>
+<td style="text-align: left;">策略 (Strategies, <span class="arithmatex">\(E_i\)</span>)</td>
+<td style="text-align: left;">量子态 (Quantum States, Floquet States)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>动力学主体</strong></td>
+<td style="text-align: left;">相互作用的个体 (Agents)</td>
+<td style="text-align: left;">非相互作用的玻色子 (Bosons)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>演化机制</strong></td>
+<td style="text-align: left;">策略模仿与转换 (Reactions/Switches)</td>
+<td style="text-align: left;">能级跃迁 (Transitions between states)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>核心方程</strong></td>
+<td style="text-align: left;">反称洛特卡-沃尔泰拉方程 (ALVE)</td>
+<td style="text-align: left;">玻尔兹曼主方程的平均场极限 (Mean-field Limit of Master Eq.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>核心问题</strong></td>
+<td style="text-align: left;">进化稳定策略的选择 (Selection of Strategies)</td>
+<td style="text-align: left;">玻色-爱因斯坦凝聚态的选择 (Selection of Condensates)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>跃迁速率</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(T_{i\to j} \propto N_j N_i\)</span> (模仿机制)</td>
+<td style="text-align: left;"><span class="arithmatex">\(T_{i\to j} \propto N_j(1 + N_i) \approx N_j N_i\)</span> (玻色增强)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/08_003_87e8ab1e-5978-4ada-8f72-db7b4ef003e0.png" /></p>
+<p>这张图总结了演化博弈论与驱动-耗散玻色子系统的物理同构性对比。</p>
+<p>这种同构性暗示了自然界中一种普适的<strong>选择机制</strong>：无论是生物策略的优胜劣汰，还是量子态的凝聚，本质上都是通过非线性正反馈（<span class="arithmatex">\(\dot{x}_i \propto x_i\)</span>），使系统自发地从大量可能的微观状态中“筛选”出少数宏观有序态。</p>
+<h2 id="14">1.4 系统的相空间与守恒律验证<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p>在深入分析动力学之前，必须确认 ALVE 方程的解在物理上是合法的。由于策略频率之和必须为1且非负，系统的状态空间被限制在一个<strong>单纯形（Simplex）</strong> <span class="arithmatex">\(\Delta^{S-1}\)</span> 上：</p>
+<div class="arithmatex">\[
+\Delta^{S-1} = \left\{ \mathbf{x} \in \mathbb{R}_{\geq 0}^S : \sum_{i=1}^S x_i = 1 \right\}
+\]</div>
+<p>我们需要验证 ALVE 动力学是否自动保证了总概率的守恒，即验证 <span class="arithmatex">\(\sum_{i=1}^S \dot{x}_i\)</span> 是否恒为零。</p>
+<p>计算总变化率：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^S \dot{x}_i = \sum_{i=1}^S x_i (A\mathbf{x})_i = \sum_{i=1}^S \sum_{j=1}^S x_i a_{ij} x_j = \mathbf{x}^T A \mathbf{x}
+\]</div>
+<p>这是一个关于向量 <span class="arithmatex">\(\mathbf{x}\)</span> 的二次型（Quadratic Form）。对于任何反称矩阵 <span class="arithmatex">\(A\)</span>（满足 <span class="arithmatex">\(A^T = -A\)</span>），该二次型恒等于零。证明如下：</p>
+<p>交换求和指标 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span>（不改变求和结果）：</p>
+<div class="arithmatex">\[
+\sum_{i,j} x_i a_{ij} x_j = \sum_{j,i} x_j a_{ji} x_i
+\]</div>
+<p>利用反称性条件 <span class="arithmatex">\(a_{ji} = -a_{ij}\)</span>：</p>
+<div class="arithmatex">\[
+\sum_{j,i} x_j (-a_{ij}) x_i = - \sum_{i,j} x_i a_{ij} x_j
+\]</div>
+<p>由于一个数等于它的相反数，该数必为零。因此：</p>
+<div class="arithmatex">\[
+\frac{d}{dt} \left( \sum_{i=1}^S x_i \right) = 0
+\]</div>
+<p>这严格证明了系统总质量（或总概率）是守恒的。此外，由于方程形式为 <span class="arithmatex">\(\dot{x}_i = x_i (\dots)\)</span>，当 <span class="arithmatex">\(x_i \to 0\)</span> 时 <span class="arithmatex">\(\dot{x}_i \to 0\)</span>，这意味着任何以正值开始的轨迹永远无法穿过 <span class="arithmatex">\(x_i = 0\)</span> 的边界进入负值区域。因此，单纯形 <span class="arithmatex">\(\Delta^{S-1}\)</span> 是该动力系统的<strong>正向不变集（Forward Invariant Set）</strong>，这为后续利用李雅普诺夫函数分析全局稳定性奠定了几何基础。</p>
+<h1 id="2">2. 凝聚现象与全局稳定性分析：李雅普诺夫函数法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>在建立了高维复制子动力学方程（ALVE）后，接下来的核心任务是预测系统的长期演化行为。在复杂的生态竞争或量子态演化中，并非所有策略（或量子态）都能幸存。随着时间的推移，系统会发生自发的“选择”：某些策略的频率 <span class="arithmatex">\(x_i(t)\)</span> 会指数级衰减至零（<strong>耗尽/灭绝，Depletion</strong>），而另一些策略则会保留下来并占据宏观比例（<strong>凝聚/生存，Condensation</strong>）。这小节的目标是寻找一个仅依赖于相互作用矩阵 <span class="arithmatex">\(A\)</span> 的代数判据，用以精确预言最终的幸存者集合。</p>
+<h2 id="21">2.1 凝聚问题的数学表述<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<p>设系统最终趋向于某个定态或动态平衡区域，可以将策略集合 <span class="arithmatex">\(S\)</span> 划分为两个互补的子集：</p>
+<ul>
+<li>
+<p><strong>凝聚集（Condensates, <span class="arithmatex">\(I\)</span>）</strong>：最终幸存的策略集合，满足 <span class="arithmatex">\(x_i^* &gt; 0\)</span>。</p>
+</li>
+<li>
+<p><strong>耗尽集（Depleted, <span class="arithmatex">\(E\)</span> 或 <span class="arithmatex">\(I^c\)</span>）</strong>：最终灭绝的策略集合，满足 <span class="arithmatex">\(x_k^* \to 0\)</span>。</p>
+</li>
+</ul>
+<p>根据 ALVE 方程 <span class="arithmatex">\(\dot{x}_i = x_i (A\mathbf{x})_i\)</span>，不动点 <span class="arithmatex">\(\mathbf{x}^*\)</span> 必须满足 <span class="arithmatex">\(\dot{x}_i^* = 0\)</span>。这导致了对两类策略的不同约束：</p>
+<ul>
+<li>
+<p>对于幸存者 <span class="arithmatex">\(i \in I\)</span>（<span class="arithmatex">\(x_i^* &gt; 0\)</span>），必须满足 <strong>适应度为零</strong>：<span class="arithmatex">\((A\mathbf{x}^*)_i = 0\)</span>。这意味着幸存策略之间达到了某种力量平衡，没有谁能从其他幸存者那里获得净收益（纳什均衡特征）。</p>
+</li>
+<li>
+<p>对于失败者 <span class="arithmatex">\(k \in E\)</span>（<span class="arithmatex">\(x_k^* = 0\)</span>），其适应度 <span class="arithmatex">\((A\mathbf{x}^*)_k\)</span> 没有直接的零约束，但通常需要为负以保证灭绝的稳定性。</p>
+</li>
+</ul>
+<h2 id="22-condensate-vector-kkt">2.2 凝聚向量（Condensate Vector）与 KKT 条件<a class="headerlink" href="#22-condensate-vector-kkt" title="Permanent link">&para;</a></h2>
+<p>为了从数学上确定集合 <span class="arithmatex">\(I\)</span>，引入一个理论上的辅助向量——<strong>凝聚向量（Condensate Vector） <span class="arithmatex">\(\mathbf{c}\)</span></strong> 。<span class="arithmatex">\(\mathbf{c}\)</span> 不仅是系统的一个不动点，还满足特定的全局稳定性条件，这与优化理论中的 Karush-Kuhn-Tucker (KKT) 条件高度相似。</p>
+<p>一个向量 <span class="arithmatex">\(\mathbf{c} \in \Delta^{S-1}\)</span> 被定义为凝聚向量，当且仅当它满足以下两个条件：</p>
+<p>1.<strong>支持条件（Support Condition）</strong>：对于所有 <span class="arithmatex">\(\mathbf{c}\)</span> 的非零分量（即 <span class="arithmatex">\(i \in I\)</span>），其适应度严格为零。</p>
+<div class="arithmatex">\[
+(A\mathbf{c})_i = 0, \quad \forall i \in I \quad (\text{其中 } c_i &gt; 0)
+\]</div>
+<p>2.<strong>稳定性/排斥条件（Stability Condition）</strong>：对于所有 <span class="arithmatex">\(\mathbf{c}\)</span> 的零分量（即 <span class="arithmatex">\(k \notin I\)</span>），其适应度必须严格为负。</p>
+<div class="arithmatex">\[
+(A\mathbf{c})_k &lt; 0, \quad \forall k \notin I \quad (\text{其中 } c_k = 0)
+\]</div>
+<p><strong>物理诠释</strong>：
+-   第一条条件意味着在幸存者内部，博弈达到了“和局”或动态平衡，净收益为零。</p>
+<ul>
+<li>第二条条件意味着任何试图入侵该稳定群体的外部策略（<span class="arithmatex">\(k\)</span>），在与当前群体 <span class="arithmatex">\(\mathbf{c}\)</span> 互动时，都会遭遇负收益（被抑制）。这是系统拒绝外部入侵者的数学保障。</li>
+</ul>
+<p>Knebel 等人的研究证明（如下图所示），对于给定的反称矩阵 <span class="arithmatex">\(A\)</span>，满足上述条件的索引集 <span class="arithmatex">\(I\)</span> 是<strong>唯一存在</strong>的。这一唯一性定理是整个凝聚理论的基石，它保证了演化结果的确定性，即无论初始条件如何（只要所有 <span class="arithmatex">\(x_i(0) &gt; 0\)</span>），幸存者集合都是注定的。</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/08_004_38c044f4-5b12-4f6d-9d9b-3b76bf4370cf.png" /></p>
+<p>图的上半部分展示了凝聚向量的定义与性质。左侧展示了凝聚与耗尽的示意图；右侧列出了凝聚向量 <span class="arithmatex">\(\mathbf{c}\)</span> 必须满足的KKT条件，以及利用相对熵（KL散度）作为李雅普诺夫函数的数学框架。</p>
+<h2 id="23">2.3 李雅普诺夫函数：相对熵与信息几何<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>为了严格证明系统 <span class="arithmatex">\(\mathbf{x}(t)\)</span> 必然收敛到由 <span class="arithmatex">\(\mathbf{c}\)</span> 定义的子空间 <span class="arithmatex">\(I\)</span>，需要构造一个<strong>李雅普诺夫函数（Lyapunov Function）</strong>。对于这类种群动力学方程，最自然的候选者是来自信息论的<strong>相对熵（Relative Entropy）</strong>，也称为 Kullback-Leibler 散度。</p>
+<p>定义李雅普诺夫函数 <span class="arithmatex">\(D(\mathbf{c} \| \mathbf{x})\)</span> 为凝聚向量 <span class="arithmatex">\(\mathbf{c}\)</span> 与系统当前状态 <span class="arithmatex">\(\mathbf{x}(t)\)</span> 之间的相对熵：</p>
+<div class="arithmatex">\[
+D(\mathbf{c} \| \mathbf{x}) = \sum_{i \in I} c_i \ln \left( \frac{c_i}{x_i(t)} \right)
+\]</div>
+<p><strong>注意</strong>：
+-   求和仅针对 <span class="arithmatex">\(i \in I\)</span>，即凝聚向量的非零元素。</p>
+<ul>
+<li>由于 <span class="arithmatex">\(x \ln x\)</span> 是凸函数，根据吉布斯不等式，<span class="arithmatex">\(D \geq 0\)</span>，且当且仅当 <span class="arithmatex">\(\mathbf{x}\)</span> 在 <span class="arithmatex">\(I\)</span> 上的分布与 <span class="arithmatex">\(\mathbf{c}\)</span> 一致时取最小值。这使得 <span class="arithmatex">\(D\)</span> 具备了作为相空间中“广义距离”或“势能”函数的资格。</li>
+</ul>
+<p><strong>时间导数的推导（核心证明）</strong>：</p>
+<p>计算 <span class="arithmatex">\(D\)</span> 随时间的变化率 <span class="arithmatex">\(\dot{D}\)</span>：</p>
+<div class="arithmatex">\[
+\frac{d}{dt} D(\mathbf{c} \| \mathbf{x}) = \sum_{i \in I} c_i \frac{d}{dt} [\ln c_i - \ln x_i] = - \sum_{i \in I} c_i \frac{\dot{x}_i}{x_i}
+\]</div>
+<p>将 ALVE 方程 <span class="arithmatex">\(\frac{\dot{x}_i}{x_i} = (A\mathbf{x})_i = \sum_{j=1}^S a_{ij} x_j\)</span> 代入：</p>
+<div class="arithmatex">\[
+\dot{D} = - \sum_{i \in I} c_i \left( \sum_{j=1}^S a_{ij} x_j \right) = - \sum_{j=1}^S x_j \left( \sum_{i \in I} c_i a_{ij} \right)
+\]</div>
+<p>利用矩阵的反称性 <span class="arithmatex">\(a_{ij} = -a_{ji}\)</span>，内部的求和项变为：</p>
+<div class="arithmatex">\[
+\sum_{i \in I} c_i a_{ij} = - \sum_{i \in I} a_{ji} c_i = - (A\mathbf{c})_j
+\]</div>
+<p>因此，<span class="arithmatex">\(\dot{D}\)</span> 简化为：</p>
+<div class="arithmatex">\[
+\dot{D} = \sum_{j=1}^S x_j (A\mathbf{c})_j
+\]</div>
+<p>将求和指标 <span class="arithmatex">\(j\)</span> 分解为两部分：属于凝聚集 <span class="arithmatex">\(I\)</span> 的部分和属于耗尽集 <span class="arithmatex">\(E\)</span> 的部分：</p>
+<div class="arithmatex">\[
+\dot{D} = \sum_{j \in I} x_j \underbrace{(A\mathbf{c})_j}_{=0} + \sum_{k \in E} x_k \underbrace{(A\mathbf{c})_k}_{&lt;0}
+\]</div>
+<p>根据凝聚向量 <span class="arithmatex">\(\mathbf{c}\)</span> 的定义（支持条件与排斥条件）：
+-   对于 <span class="arithmatex">\(j \in I\)</span>，<span class="arithmatex">\((A\mathbf{c})_j = 0\)</span>，第一项消失。
+-   对于 <span class="arithmatex">\(k \in E\)</span>，<span class="arithmatex">\((A\mathbf{c})_k &lt; 0\)</span>，且由于 <span class="arithmatex">\(x_k \geq 0\)</span>，每一项都非正。</p>
+<p><strong>结论</strong>：</p>
+<div class="arithmatex">\[
+\frac{d}{dt} D(\mathbf{c} \| \mathbf{x}) = \sum_{k \in E} x_k (A\mathbf{c})_k \leq 0
+\]</div>
+<p>这一结果（如下图数值模拟所示）具有深刻的物理意义与全局动力学推论：</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/08_004_38c044f4-5b12-4f6d-9d9b-3b76bf4370cf.png" /></p>
+<p>图的下半部分，展示了ALVE动力学的数值模拟结果。左图为一个具体的反称相互作用矩阵 <span class="arithmatex">\(A\)</span>。右图展示了策略频率 <span class="arithmatex">\(x_i(t)\)</span> 随时间的演化。可以看到，尽管系统存在振荡，但未被选中的策略（虚线）其频率指数级衰减至零（耗尽），而幸存策略（实线）则在子空间内持续演化。</p>
+<p>1.<strong>H-定理的推广</strong>：这一结果类似于玻尔兹曼 H-定理，表明系统在演化过程中，相对于“最优策略组合” <span class="arithmatex">\(\mathbf{c}\)</span> 的信息散度单调递减。系统在不断地“学习”并接近最优解。</p>
+<p>2.<strong>熵产生的消失</strong>：Knebel 和 Frey 指出，凝聚的选择是由<strong>相对熵产生率的消失（Vanishing of relative entropy production）</strong>决定的。系统趋向于一个熵产生为零的状态。</p>
+<p>3.<strong>严格的耗尽证明</strong>：由于 <span class="arithmatex">\((A\mathbf{c})_k\)</span> 对于所有 <span class="arithmatex">\(k \in E\)</span> 都是严格负常数，要使 <span class="arithmatex">\(\dot{D}\)</span> 趋于零（系统停止向更低势能演化），唯一的可能性是所有耗尽集策略的频率 <span class="arithmatex">\(x_k\)</span> 趋于零。这从数学上严格证明了非凝聚态必然会指数级灭绝。</p>
+<p>4.<strong>子空间内的振荡</strong>：当所有 <span class="arithmatex">\(x_k \to 0\)</span> 后，系统被限制在子空间 <span class="arithmatex">\(I\)</span> 中。注意，在 <span class="arithmatex">\(I\)</span> 内部，李雅普诺夫函数的导数为零。这意味着在凝聚态子空间内，系统不再有耗散趋势，可以维持等能面上的运动。对于反称系统，这通常意味着<strong>周期性轨道（Periodic Orbits）或极限环（Limit Cycles）</strong>的持续存在（如石头-剪刀-布循环）。系统虽然“凝聚”了，但从未“静止”，而是在幸存者之间进行永恒的动态博弈。</p>
+<h1 id="3">3. 拓扑相变与复杂网络中的策略选择<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>在前两节中，建立了一个基于反称洛特卡-沃尔泰拉方程（ALVE）的通用框架，并利用李雅普诺夫函数证明了系统必然演化至特定的凝聚态。虽然凝聚向量 <span class="arithmatex">\(\mathbf{c}\)</span> 的存在性是普遍的，但其具体结构（即哪些策略幸存）强烈依赖于相互作用矩阵 <span class="arithmatex">\(A\)</span> 的拓扑性质。当策略之间的相互作用网络具有特定的空间结构（如晶格或链）时，ALVE 动力学将展现出与凝聚态物理中<strong>拓扑绝缘体（Topological Insulators）</strong>惊人相似的现象。这部分内容展示了动力系统理论如何跨越学科边界，用同一套数学语言描述生物演化与量子相变。</p>
+<h2 id="31-rps-chains">3.1 石头-剪刀-布链（RPS Chains）与边缘态<a class="headerlink" href="#31-rps-chains" title="Permanent link">&para;</a></h2>
+<p>作为一个具体的物理模型，考虑将 <span class="arithmatex">\(S\)</span> 种策略排列成一个一维链式结构（RPS Chain）。在这个网络中，策略 <span class="arithmatex">\(i\)</span> 仅与其空间上的邻居（如 <span class="arithmatex">\(i-1\)</span> 和 <span class="arithmatex">\(i+1\)</span>）发生非零的相互作用，形成类似于石头-剪刀-布的局部循环克制关系。Knebel, Geiger 和 Frey (2020) 的研究指出，这种系统的演化结果并非杂乱无章，而是表现出高度有序的<strong>空间局域化（Spatial Localization）</strong>。</p>
+<p><img alt="引用论文： Knebel, J., Geiger, P. M., &amp; Frey, E. (2020). Topological phase transition in coupled rock-paper-scissors cycles. Physical Review Letters, 125(25), 258301." src="../../../cn/assets/images/08_006_011e3110-d739-452c-85c5-576a4da98972.png" /></p>
+<p>当调节系统控制参数（例如调整向左克制与向右克制的相对强度比率）时，凝聚向量 <span class="arithmatex">\(\mathbf{c}\)</span> 的支撑集（即幸存策略的集合 <span class="arithmatex">\(I\)</span>）会发生突变。这种突变具有两个显著特征：</p>
+<p>1.<strong>极化状态（Polarization）与边缘态（Edge States）</strong>：</p>
+<p>在某些参数区间内，系统的总质量（种群比例）并未均匀分布在链条上，而是完全集中在链条的一端（左边界或右边界）。这在物理上对应于<strong>边缘态</strong>：只有位于网络“边缘”的策略能够幸存，而位于“体（Bulk）”内部的策略全部灭绝（耗尽）。这与拓扑绝缘体中“体绝缘、表面导电”的性质形成了完美的类比。</p>
+<p>2.<strong>鲁棒性（Robustness）</strong>：</p>
+<p>这种边缘凝聚现象对参数的微扰具有极强的抵抗力。只要参数的变化没有跨越某个<strong>临界点（Critical Point）</strong>，系统的凝聚模式（即幸存者位于左端还是右端）保持严格不变。这表明系统处于一个受到<strong>拓扑保护（Topological Protection）</strong>的相中，其宏观性质不由参数的微小细节决定，而是由系统的全局拓扑性质决定。</p>
+<h2 id="32">3.2 缠绕数与拓扑相变<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p>为了定量描述这种相变，引入<strong>缠绕数（Winding Number, <span class="arithmatex">\(\nu\)</span>）</strong>作为系统的拓扑不变量。在数学上，这通常涉及到对相互作用矩阵（或其傅里叶变换后的哈密顿量）在布里渊区上的某种积分，类似于量子霍尔效应中的陈数（Chern Number）。</p>
+<p>随着控制参数的连续变化，系统的能谱（在此背景下即线性化算子的特征值谱）可能会发生带隙闭合与重开。伴随着这一过程，缠绕数 <span class="arithmatex">\(\nu\)</span> 会发生离散跳变（例如从 <span class="arithmatex">\(0\)</span> 跳变到 <span class="arithmatex">\(1\)</span>），标志着<strong>拓扑相变（Topological Phase Transition）</strong>的发生：</p>
+<ul>
+<li>
+<p><strong>平凡相（Trivial Phase, <span class="arithmatex">\(\nu=0\)</span>）</strong>：对应于质量分布在体态或无序分布，系统对扰动敏感。</p>
+</li>
+<li>
+<p><strong>非平凡拓扑相（Non-trivial Topological Phase, <span class="arithmatex">\(\nu \neq 0\)</span>）</strong>：对应于质量精确地锁定在边界上，形成受保护的边缘态。</p>
+</li>
+</ul>
+<p><strong>物理意义与生物学启示</strong>：
+这一发现揭示了演化系统可能利用拓扑性质来实现功能的稳定性。在充满噪声的生物环境中，如果某种关键的功能性基因或物种处于“拓扑非平凡”的状态，它就能免受环境涨落的干扰而稳定存在。这为理解生物复杂性提供了一个全新的物理视角：<strong>自然选择不仅筛选适应度最高的个体，也可能筛选拓扑上最鲁棒的网络结构。</strong></p>
+<h1 id="4">4. 从微观随机游走到宏观扩散方程<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<p>在此前的课程中（如复制子动力学、RPS模型），所有的分析均建立在<strong>“均匀混合（Well-mixed）”</strong>的假设之上。这意味着系统被视为一个零维的点，忽略了物质在空间上的分布差异。然而，现实中的生物物理过程——从细胞内的蛋白质转运到生态系统中的种群迁徙——都发生在具有广度的空间中。</p>
+<p>为了描述<strong>图灵斑图（Turing Patterns）</strong>等复杂的空间自组织结构，这节课必须打破“空间均匀”的限制，引入<strong>空间扩展（Spatial Extension）</strong>。连接微观粒子运动与宏观物质输运的最基础物理过程，便是<strong>扩散（Diffusion）</strong>。本节将展示如何从微观粒子的随机热运动出发，通过严格的数学推导，得到描述宏观浓度场演化的扩散方程。</p>
+<h2 id="41">4.1 历史背景与物理本质：布朗运动<a class="headerlink" href="#41" title="Permanent link">&para;</a></h2>
+<p>扩散现象的微观物理基础是<strong>布朗运动（Brownian Motion）</strong>。1827年，植物学家罗伯特·布朗（Robert Brown）在显微镜下观察悬浮在水中的花粉颗粒时，发现它们进行着永无休止的、无规则的运动。</p>
+<p>这一现象在当时困扰了科学界许久，甚至引发了关于“生命力”的哲学讨论。查尔斯·达尔文（Charles Darwin）在其回忆录中也提到了这一轶事，描述了布朗对此发现的“小秘密”。直到1905年，爱因斯坦（Einstein）在其奇迹年的论文中才彻底揭开了这一谜题的物理本质。他指出，悬浮微粒的随机运动并非源于生命力，而是由周围溶剂分子（如水分子）对其进行无数次<strong>热碰撞的不平衡涨落</strong>造成的。</p>
+<p><img alt="课堂PPT截图" src="../../../cn/assets/images/08_007_c3b5cb81-9c50-45f9-af75-244d7f0f91ec.jpg" /></p>
+<p>布朗运动的历史背景。左侧引用了达尔文关于布朗发现的描述；右侧展示了哈佛大学 Weitz 实验室拍摄的微米级粒子布朗运动轨迹。</p>
+<p>爱因斯坦不仅定性解释了现象，还建立了宏观扩散系数 <span class="arithmatex">\(D\)</span> 与微观物理量之间的定量关系，即著名的<strong>爱因斯坦关系（Einstein Relation）</strong>：</p>
+<div class="arithmatex">\[
+D = \frac{k_B T}{\gamma}
+\]</div>
+<p>该公式揭示了扩散的物理来源：
+-   <strong>动力（分子热运动）</strong>：<span class="arithmatex">\(k_B T\)</span> 代表热能，是驱动扩散的能量来源。在细胞生物学尺度（微米级），<span class="arithmatex">\(k_B T \approx 4 \text{ pN} \cdot \text{nm}\)</span>，这是支配细胞内一切分子随机运动的核心能量标度。</p>
+<ul>
+<li><strong>阻力（耗散）</strong>：<span class="arithmatex">\(\gamma\)</span> 是斯托克斯摩擦系数（Friction Coefficient），代表流体环境对粒子运动的阻碍。</li>
+</ul>
+<p>这一理论不仅奠定了非平衡态统计物理的基础，也是人类历史上证实原子论存在的关键证据之一。</p>
+<h2 id="42-random-walk">4.2 随机游走（Random Walk）：从离散到连续的推导<a class="headerlink" href="#42-random-walk" title="Permanent link">&para;</a></h2>
+<p>为了从数学上严谨地连接微观随机性与宏观确定性，这节课采用<strong>一维随机游走（1D Random Walk）</strong>模型进行推导。</p>
+<h3 id="421">4.2.1 离散主方程<a class="headerlink" href="#421" title="Permanent link">&para;</a></h3>
+<p>考虑粒子位于一维晶格上，物理参数定义如下：
+-   <span class="arithmatex">\(\delta\)</span>：晶格间距（空间步长）。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\tau\)</span>：时间步长。</p>
+</li>
+<li>
+<p>跳跃规则：在每个时间步，粒子以 <span class="arithmatex">\(1/2\)</span> 的概率向左跳 (<span class="arithmatex">\(x-\delta\)</span>)，以 <span class="arithmatex">\(1/2\)</span> 的概率向右跳 (<span class="arithmatex">\(x+\delta\)</span>)。这是无偏的各向同性随机游走。</p>
+</li>
+</ul>
+<p>设 <span class="arithmatex">\(P(x, t)\)</span> 为时刻 <span class="arithmatex">\(t\)</span> 粒子出现在位置 <span class="arithmatex">\(x\)</span> 的概率。根据概率守恒，时刻 <span class="arithmatex">\(t + \tau\)</span> 在位置 <span class="arithmatex">\(x\)</span> 的粒子，必然来自于上一时刻 <span class="arithmatex">\(t\)</span> 位于左邻居 <span class="arithmatex">\(x-\delta\)</span>（向右跳）或右邻居 <span class="arithmatex">\(x+\delta\)</span>（向左跳）的粒子。因此，可以写出离散的<strong>主方程（Master Equation）</strong>：</p>
+<div class="arithmatex">\[
+P(x, t+\tau) = \underbrace{\frac{1}{2} P(x-\delta, t)}_{\text{来自左侧}} + \underbrace{\frac{1}{2} P(x+\delta, t)}_{\text{来自右侧}}
+\]</div>
+<h3 id="422">4.2.2 连续性极限与泰勒展开<a class="headerlink" href="#422" title="Permanent link">&para;</a></h3>
+<p>为了得到宏观方程，需要取连续极限（Continuum Limit），即令步长 <span class="arithmatex">\(\delta \to 0\)</span> 和 <span class="arithmatex">\(\tau \to 0\)</span>。此时，概率分布 <span class="arithmatex">\(P(x, t)\)</span> 变为平滑函数，可以对其进行<strong>泰勒展开（Taylor Expansion）</strong>。</p>
+<p><strong>时间项展开（保留至一阶）：</strong></p>
+<div class="arithmatex">\[
+P(x, t+\tau) \approx P(x, t) + \tau \frac{\partial P}{\partial t}
+\]</div>
+<p><strong>空间项展开（保留至二阶）：</strong>
+对于左右邻居项，分别在 <span class="arithmatex">\(x\)</span> 处展开：</p>
+<div class="arithmatex">\[
+P(x-\delta, t) \approx P(x, t) - \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<div class="arithmatex">\[
+P(x+\delta, t) \approx P(x, t) + \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<p>将上述展开式代入离散主方程：</p>
+<div class="arithmatex">\[
+P + \tau \frac{\partial P}{\partial t} = \frac{1}{2} \left[ \left( P - \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2} \right) + \left( P + \delta \frac{\partial P}{\partial x} + \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2} \right) \right]
+\]</div>
+<p>整理方程右边：</p>
+<p>1.零阶项：<span class="arithmatex">\(\frac{1}{2}(P + P) = P\)</span>，与左边抵消。</p>
+<p>2.一阶项：<span class="arithmatex">\(\frac{1}{2}(-\delta \partial_x P + \delta \partial_x P) = 0\)</span>。<strong>物理意义</strong>：一阶导数项的抵消体现了随机游走的<strong>各向同性（Isotropy）</strong>，即没有定向的漂移流（Drift）。</p>
+<p>3.二阶项：<span class="arithmatex">\(\frac{1}{2}(\frac{\delta^2}{2} \partial_{xx} P + \frac{\delta^2}{2} \partial_{xx} P) = \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}\)</span>。</p>
+<p>最终得到：</p>
+<div class="arithmatex">\[
+\tau \frac{\partial P}{\partial t} = \frac{\delta^2}{2} \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<h3 id="423">4.2.3 宏观扩散方程<a class="headerlink" href="#423" title="Permanent link">&para;</a></h3>
+<p>整理上述方程，将系数分离：</p>
+<div class="arithmatex">\[
+\frac{\partial P}{\partial t} = \left( \lim_{\delta,\tau \to 0} \frac{\delta^2}{2\tau} \right) \frac{\partial^2 P}{\partial x^2}
+\]</div>
+<p>此时，定义宏观的<strong>扩散系数（Diffusion Coefficient）</strong> <span class="arithmatex">\(D\)</span>：</p>
+<div class="arithmatex">\[
+D \equiv \frac{\delta^2}{2\tau}
+\]</div>
+<p>并将微观概率密度 <span class="arithmatex">\(P(x, t)\)</span> 替换为宏观物质浓度 <span class="arithmatex">\(C(x, t)\)</span>，即得到了经典的<strong>扩散方程（Diffusion Equation）</strong>：</p>
+<div class="arithmatex">\[
+\frac{\partial C}{\partial t} = D \nabla^2 C
+\]</div>
+<p><strong>物理意义</strong>：这一推导过程本质上是<strong>中心极限定理（Central Limit Theorem）</strong>的物理体现。尽管单个粒子的运动是随机、不可预测的（方差随时间线性增长，<span class="arithmatex">\(\langle x^2 \rangle \sim 2Dt\)</span>），但大量粒子的统计平均行为（浓度场）却遵循精确的确定性规律。这为后续章节中利用偏微分方程（PDEs）研究图灵斑图等宏观自组织现象奠定了坚实的数学基础。</p>
+<h1 id="5">5. 扩散方程的解析解、边界条件与数值模拟<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<p>在上一节中，这节课通过微观随机游走的连续性极限推导出了宏观扩散方程。为了深入理解扩散过程的物理特性，本节将探讨其在数学上的解析求解方法，特别是傅里叶变换法的应用。此外，考虑到生物物理系统通常是有界的，本节还将分析不同边界条件对系统稳态行为的决定性影响，并通过 Python 代码实践展示这节课涵盖的两大核心动力学：演化博弈中的凝聚现象与空间中的扩散过程。</p>
+<h2 id="51">5.1 傅里叶变换法求解<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
+<p>对于定义在无界区域 <span class="arithmatex">\(x \in (-\infty, \infty)\)</span> 上的扩散方程，最有效的解析求解工具是<strong>傅里叶变换（Fourier Transform）</strong>。这一方法将偏微分方程（PDE）转化为易于求解的常微分方程（ODE）。</p>
+<p>首先，定义实空间浓度 <span class="arithmatex">\(C(x, t)\)</span> 到倒空间（k-space）的变换及其逆变换：</p>
+<div class="arithmatex">\[
+\tilde{C}(k, t) = \int_{-\infty}^{\infty} C(x, t) e^{ikx} \, dx \quad (\text{正变换})
+\]</div>
+<div class="arithmatex">\[
+C(x, t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \tilde{C}(k, t) e^{-ikx} \, dk \quad (\text{逆变换})
+\]</div>
+<p>对方程 <span class="arithmatex">\(\partial_t C = D \partial_x^2 C\)</span> 两边同时进行傅里叶变换。利用导数的傅里叶变换性质 <span class="arithmatex">\(\mathcal{F}[\partial_x^2 C] = -k^2 \tilde{C}\)</span>，原方程被解耦为针对每个波数 <span class="arithmatex">\(k\)</span> 的独立 ODE：</p>
+<div class="arithmatex">\[
+\frac{\partial \tilde{C}(k, t)}{\partial t} = -D k^2 \tilde{C}(k, t)
+\]</div>
+<p>该 ODE 的解表现为简单的指数衰减：</p>
+<div class="arithmatex">\[
+\tilde{C}(k, t) = \tilde{C}(k, 0) e^{-D k^2 t}
+\]</div>
+<p><strong>物理意义</strong>：指数项 <span class="arithmatex">\(e^{-D k^2 t}\)</span> 表明，具有高波数 <span class="arithmatex">\(k\)</span>（即高空间频率、结构精细）的模式衰减速度与其频率的平方成正比。这意味着扩散过程会优先抹平浓度场中的尖锐突变和微小细节，导致空间分布随时间变得越来越<strong>平滑（Smoothing）</strong>。</p>
+<p>通过傅里叶逆变换，并利用卷积定理，可以得到实空间中的通解。该解是初始分布 <span class="arithmatex">\(C(x, 0)\)</span> 与<strong>热核（Heat Kernel）</strong>（即扩散方程的格林函数）的卷积：</p>
+<div class="arithmatex">\[
+C(x, t) = \int_{-\infty}^{\infty} C(x', 0) \frac{1}{\sqrt{4\pi D t}} \exp\left( -\frac{(x-x')^2}{4Dt} \right) \, dx'
+\]</div>
+<p>对于点源初始条件 <span class="arithmatex">\(C(x, 0) = \delta(x)\)</span>，解简化为一个随时间演化的高斯分布。其方差 <span class="arithmatex">\(\sigma^2 = 2Dt\)</span> 随时间线性增长，意味着扩散粒子的平均位移距离随时间呈 <span class="arithmatex">\(\sqrt{t}\)</span> 增长，这是布朗运动的标志性特征。</p>
+<h2 id="52">5.2 边界条件的影响<a class="headerlink" href="#52" title="Permanent link">&para;</a></h2>
+<p>现实中的生物物理实验往往在有限的容器或细胞内进行。<strong>边界条件（Boundary Conditions, BCs）</strong> 深刻地制约着系统的演化轨迹及最终稳态。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">边界条件类型</th>
+<th style="text-align: left;">数学表达</th>
+<th style="text-align: left;">物理意义</th>
+<th style="text-align: left;">稳态解 (<span class="arithmatex">\(t \to \infty\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>无通量 (No Flux / Neumann)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\partial_x C\|_{x=0,L}=0\)</span></td>
+<td style="text-align: left;">封闭系统，粒子在壁面反射。系统总质量守恒。</td>
+<td style="text-align: left;"><strong>均匀分布</strong>：<span class="arithmatex">\(C(x) = \text{const}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>狄利克雷 (Dirichlet)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(C(0)=C_L, C(L)=C_R\)</span></td>
+<td style="text-align: left;">开放系统，边界连接恒定浓度的源/汇（Reservoirs）。</td>
+<td style="text-align: left;"><strong>线性分布</strong>：<span class="arithmatex">\(C(x) = Ax + B\)</span> (存在恒定的净通量)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>周期性 (Periodic)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(C(0)=C(L), C'(0)=C'(L)\)</span></td>
+<td style="text-align: left;">环形几何结构（如细菌的环状DNA或环形反应器）。</td>
+<td style="text-align: left;">类似于无界情况的离散谱展开</td>
+</tr>
+</tbody>
+</table>
+<h2 id="53">5.3 代码实践<a class="headerlink" href="#53" title="Permanent link">&para;</a></h2>
+<p>展示本章涉及的两个核心动力学过程，以下 Python 代码实践模拟了两个场景：</p>
+<p>1.<strong>Replicator Dynamics</strong>：模拟 5 种策略的 ALVE 动力学，重现了策略的凝聚与耗尽现象。</p>
+<p>2.<strong>Diffusion</strong>：模拟一维高斯波包在无通量边界条件下的扩散过程。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="c1"># Set dark background theme</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># ================= PART 1: Replicator Dynamics (ALVE) =================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_replicator_simulation</span><span class="p">():</span>
+    <span class="c1"># Antisymmetric interaction matrix (from lecture Slide 5)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                  <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]])</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">alve_dynamics</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># ALVE equation: dx_i/dt = x_i * (Ax)_i</span>
+        <span class="c1"># Note: In numerical computation, x may slightly deviate from the simplex due to errors, but this does not affect short-term demonstration</span>
+        <span class="n">fitness</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fitness</span>
+
+    <span class="c1"># Initial condition: random distribution</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+
+    <span class="c1"># Solve ODE</span>
+    <span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">alve_dynamics</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+
+    <span class="c1"># Plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Add a small epsilon to avoid log(0) error</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-10</span>
+
+    <span class="c1"># Color cycle to distinguish different strategies</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+        <span class="c1"># Differentiate line styles based on final survival: solid for survivors, dashed for extinct</span>
+        <span class="n">is_survivor</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1e-3</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="k">if</span> <span class="n">is_survivor</span> <span class="k">else</span> <span class="s1">&#39;--&#39;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Condensate&#39;</span> <span class="k">if</span> <span class="n">is_survivor</span> <span class="k">else</span> <span class="s1">&#39;Depleted&#39;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Strategy </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">)&#39;</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">),</span> 
+                <span class="n">linestyle</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Replicator Dynamics: Condensation &amp; Depletion&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\ln(x_i)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set legend text color</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">get_texts</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;replicator_dynamics.png&#39;</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+
+<span class="c1"># ================= PART 2: 1D Diffusion Equation =================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_diffusion_simulation</span><span class="p">():</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="n">Nx</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="mf">5.0</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">20.0</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">Nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Explicit difference stability condition: dt &lt;= dx^2 / (2D)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">D</span> 
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+
+    <span class="c1"># Initial condition: narrow Gaussian distribution at center</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span>
+
+    <span class="c1"># Store snapshots for plotting</span>
+    <span class="n">u_history</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+    <span class="n">t_snapshots</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+
+    <span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">plot_interval</span> <span class="o">=</span> <span class="n">steps</span> <span class="o">//</span> <span class="mi">10</span>  <span class="c1"># Record 10 time point snapshots</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="n">u_new</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># Explicit finite difference scheme: u_new = u + alpha * (u_left - 2u + u_right)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># No flux boundary conditions (Neumann BCs): u[-1] = u[-2], u[0] = u[1]</span>
+        <span class="c1"># This simulates particles bouncing off walls</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_new</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="n">u_new</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">plot_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">u_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+            <span class="n">t_snapshots</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="c1"># Plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Use gradient colors to show temporal evolution: purple (early) to yellow (late)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_history</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u_snapshot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">u_history</span><span class="p">):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;t=</span><span class="si">{</span><span class="n">t_snapshots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_history</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u_snapshot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1D Diffusion (No Flux BC, D=</span><span class="si">{</span><span class="n">D</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Position x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration C(x)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add colorbar to indicate time progression</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">T</span><span class="p">))</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">getp</span><span class="p">(</span><span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="s1">&#39;yticklabels&#39;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">legend</span><span class="o">.</span><span class="n">get_texts</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;diffusion_equation.png&#39;</span><span class="p">)</span> 
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run_replicator_simulation</span><span class="p">()</span>
+    <span class="n">run_diffusion_simulation</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="运行代码输出" src="../../../cn/assets/images/08_008_6fc576fa-0149-454b-93f4-9dfe7af2de8f.png" /></p>
+<p>该图展示了5种策略的对数频率随时间的变化。可以看到<strong>分岔行为</strong>：实线代表的策略（如策略1, 3, 5）虽然在振荡，但总体保持在较高水平，构成了<strong>凝聚集（Condensate）</strong>；而虚线代表的策略（如策略2, 4）其对数频率呈线性下降（即数值呈指数衰减），迅速趋于<strong>耗尽（Depletion）</strong>。这完美验证了李雅普诺夫分析的预测。</p>
+<p><img alt="运行代码输出" src="../../../cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png" /></p>
+<p>该图展示了一个初始的高斯波包（深紫色曲线）随时间的演化。随着时间推移（颜色由紫变黄），波包的峰值降低，宽度变大，体现了扩散的<strong>平滑化效应</strong>。注意在 <span class="arithmatex">\(x=0\)</span> 和 <span class="arithmatex">\(x=100\)</span> 的边界处，曲线始终保持水平切线（<span class="arithmatex">\(\partial_x C = 0\)</span>），这验证了<strong>无通量边界条件</strong>的正确实施，保证了系统内的总质量守恒。</p>
+<h1 id="_2">总结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>这节课完成了从“局部”到“全局”，从“时间”到“空间”的两次关键理论跨越。</p>
+<p>首先，课程通过引入李雅普诺夫函数（特别是相对熵），解决了高维复制子动力学的全局稳定性问题，并深刻揭示了演化博弈中的策略选择与非平衡态物理中玻色子凝聚之间的数学同构性。</p>
+<p>其次，基于对微观布朗运动的分析，课程利用随机游走模型严格推导出了宏观扩散方程，从而为描述空间广延系统中的物质输运奠定了坚实的物理基础。</p>
+<p>这两个理论支柱——非线性反应动力学（ALVE/Replicator）与空间扩散（Diffusion）——将在<strong>下一讲（第9讲）</strong>正式汇合。届时，课程将深入探讨<strong>弛豫动力学 (Relaxational Dynamics)</strong>，并引入著名的<strong>金兹堡-朗道模型 (Ginzburg-Landau Model)</strong> 与 <strong>Model A</strong>。分析将聚焦于当“反应”与“扩散”这两种机制在空间中相互竞争时，系统如何打破空间对称性，进而涌现出复杂的<strong>界面动力学 (Interface Dynamics)</strong>、<strong>表面张力 (Surface Tension)</strong> 以及迷人的时空斑图结构。这标志着对自组织理论的探索进入了最核心的篇章。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

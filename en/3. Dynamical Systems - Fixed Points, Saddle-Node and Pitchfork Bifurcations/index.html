@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/">
+      
+      
+        <link rel="prev" href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/">
+      
+      
+        <link rel="next" href="../4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Self-Organization%20-%20From%20Bird%20Flocks%20to%20Living%20Cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Self-Organization - From Bird Flocks to Living Cells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Dynamical Systems - From Physical Phase Transitions to Evolutionary Game Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dynamical Systems - Fixed Points, Saddle-Node and Pitchfork Bifurcations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Dynamical Systems - Cusp Bifurcation, Infection Model and Transcritical Bifurcation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dynamical Systems - Two-Dimensional Mass-Conserving Systems and the Jacobian Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Dynamical Systems - Two-Dimensional Non-Conserving Systems and Oscillators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Dynamical Systems - Poincaré-Bendixson Theorem, RhoGTPase Oscillator and Rock-Paper-Scissors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Dynamical Systems - Replicator Dynamics and Spatial Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Relaxational Dynamics - Ginzburg-Landau Theory and the Allen-Cahn Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Relaxational Dynamics - Interface Dynamics and Curvature-Driven Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Thermodynamics and Phase Separation in Liquid Mixtures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Liquid Mixture Dynamics, Osmotic Pressure and the Cahn-Hilliard Equation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%20Lattice%20Gas%20Model%20and%20Free%20Energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Lattice Gas Model and Free Energy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%20Phase%20Separation%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Phase Separation Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%20Nucleation%20Theory%20and%20Interface%20Dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Nucleation Theory and Interface Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>The previous lecture explored how dynamical systems provide a universal framework for describing the evolution of systems over time. Through the example of Ginzburg–Landau theory, we can recognize that the evolution of system states can be intuitively understood as a process of finding the lowest energy point along the "steepest descent" direction in a "potential landscape" <span class="arithmatex">\(V(u)\)</span>. This over-damped motion perspective of <span class="arithmatex">\(\frac{du}{dt} = -\frac{\partial V}{\partial u}\)</span> is crucial for understanding collective phenomena such as phase transitions—the system's final destination (i.e., the minimum of the potential) represents the equilibrium state of the system.</p>
+<p>This lecture will delve into the core of dynamical systems, focusing on the basic elements that form the backbone of system behavior: <strong>fixed points</strong> <span class="arithmatex">\(u^*\)</span>. Fixed points are mathematically defined as the zeros of the evolution function <span class="arithmatex">\(f(u, \mu)\)</span>, i.e., <span class="arithmatex">\(f(u^*) = 0\)</span>, where the system's time derivative <span class="arithmatex">\(\frac{du}{dt} = 0\)</span> and the system state no longer changes with time. These points are precisely the system's equilibrium states or steady states. However, not all equilibrium states are equivalent: some are like valleys (attractors), which can recover after perturbation; others are like hilltops (repellers), where any small perturbation will drive them away. Therefore, analyzing the <strong>stability</strong> of fixed points is key to understanding the long-term behavior of systems.</p>
+<p>When external environmental conditions, i.e., the <strong>control parameter</strong> <span class="arithmatex">\(\mu\)</span>, change slowly, the system's "potential landscape" also deforms accordingly. At a certain critical value, the shape of the landscape may undergo a qualitative change, leading to a fundamental change in the number or stability of fixed points. These critical events are called <strong>bifurcations</strong>. Bifurcations are the mathematical essence of understanding many critical points, "tipping points," and abrupt phenomena in the real world. This lecture will start from the simplest one-dimensional systems and focus on analyzing two of the most basic types of bifurcations: <strong>Saddle-Node Bifurcation</strong> and <strong>Pitchfork Bifurcation</strong>. Building on this, the next lecture will continue to explore more complex bifurcations controlled by higher-order terms and multiple parameters, such as <strong>Cusp Bifurcation</strong>, <strong>Hysteresis</strong>, and <strong>Transcritical Bifurcation</strong>.</p>
+<h1 id="1-one-dimensional-dynamical-systems-and-fixed-points">1. One-Dimensional Dynamical Systems and Fixed Points<a class="headerlink" href="#1-one-dimensional-dynamical-systems-and-fixed-points" title="Permanent link">&para;</a></h1>
+<p>This lecture will start from the simplest class of dynamical systems—one-component systems. These systems form the foundation for understanding more complex phenomena later. The goal of this section is to establish the mathematical language for describing system evolution and to find all possible "destinations" of the system, i.e., fixed points.</p>
+<h2 id="11-mathematical-description-of-one-dimensional-dynamical-systems">1.1 Mathematical Description of One-Dimensional Dynamical Systems<a class="headerlink" href="#11-mathematical-description-of-one-dimensional-dynamical-systems" title="Permanent link">&para;</a></h2>
+<p>A one-component system means that the macroscopic state of the system can be completely described by a scalar (single variable) <span class="arithmatex">\(u(t)\)</span> that varies with time <span class="arithmatex">\(t\)</span>. Its mathematical form is a first-order ordinary differential equation (ODE):</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, \mu)
+\]</div>
+<p>This equation is the cornerstone of dynamical systems theory, where each symbol has a clear physical meaning:</p>
+<p><strong><span class="arithmatex">\(u(t)\)</span></strong>: <strong>State variable</strong>. It describes the macroscopic state of the system. For example, it can represent the order parameter in Ginzburg–Landau theory (such as total magnetization), the concentration of a substance in a chemical reaction, or the population density of a species in an ecosystem.</p>
+<p><strong><span class="arithmatex">\(\mu\)</span></strong>: <strong>Control parameter</strong>. This is an externally adjustable parameter representing the environmental conditions of the system, such as temperature, pressure, external magnetic field, or nutrient supply rate. By changing <span class="arithmatex">\(\mu\)</span>, we can study the system's response.</p>
+<p><strong><span class="arithmatex">\(f(u, \mu)\)</span></strong>: <strong>Evolution function</strong>, also often called the "flow" in the one-dimensional case. It defines the "velocity" or "tendency" of the state variable <span class="arithmatex">\(u\)</span> to change over time.</p>
+<p><strong>Physical meaning</strong>: The sign of the function determines the direction of evolution of the system state. If <span class="arithmatex">\(f &gt; 0\)</span>, then <span class="arithmatex">\(\frac{du}{dt} &gt; 0\)</span>, and <span class="arithmatex">\(u\)</span> will increase over time; if <span class="arithmatex">\(f &lt; 0\)</span>, then <span class="arithmatex">\(\frac{du}{dt} &lt; 0\)</span>, and <span class="arithmatex">\(u\)</span> will decrease over time.</p>
+<p><strong>Connection to potential landscape</strong>: In many physical systems (such as the Ginzburg–Landau theory from the previous lecture), the evolution function <span class="arithmatex">\(f(u)\)</span> is related to a potential landscape <span class="arithmatex">\(V(u)\)</span> by <span class="arithmatex">\(f(u) = -\frac{\partial V}{\partial u}\)</span>. In this case, <span class="arithmatex">\(\frac{du}{dt} = -\frac{\partial V}{\partial u}\)</span> describes how the system state <span class="arithmatex">\(u\)</span> always evolves in the direction of decreasing potential <span class="arithmatex">\(V(u)\)</span> ("downhill") until it reaches a minimum of the potential.</p>
+<h2 id="12-fixed-points-the-destinations-of-system-states">1.2 Fixed Points - The "Destinations" of System States<a class="headerlink" href="#12-fixed-points-the-destinations-of-system-states" title="Permanent link">&para;</a></h2>
+<p>The simplest long-term behavior of a system is to evolve to an equilibrium state and remain there permanently. These special equilibrium states are mathematically called <strong>Fixed Points</strong>, usually denoted as <span class="arithmatex">\(u^*\)</span>.</p>
+<p>By definition, at a fixed point, the system state no longer changes with time, meaning its time derivative is zero. Therefore, a fixed point <span class="arithmatex">\(u^*\)</span> satisfies the following algebraic equation:</p>
+<div class="arithmatex">\[
+f(u^*) = 0
+\]</div>
+<p><strong>Physical meaning</strong>: Fixed points represent the <strong>equilibrium states</strong> or <strong>steady states</strong> of the system. Once the system reaches the fixed point <span class="arithmatex">\(u^*\)</span>, the "force" <span class="arithmatex">\(f(u^*)\)</span> acting on <span class="arithmatex">\(u\)</span> is zero, and it will remain in that state forever without external perturbation.</p>
+<p><strong>Graphical understanding</strong>: Graphically, a fixed point <span class="arithmatex">\(u^*\)</span> is the <strong>intersection</strong> of the curve of the evolution function <span class="arithmatex">\(f(u)\)</span> with the <span class="arithmatex">\(u\)</span>-axis (i.e., the line <span class="arithmatex">\(f=0\)</span>).</p>
+<p>By plotting the graph of <span class="arithmatex">\(f(u)\)</span> versus <span class="arithmatex">\(u\)</span>, we can directly read the positions of fixed points and even intuitively judge their stability. The sign of the evolution function <span class="arithmatex">\(f(u)\)</span> determines the "flow direction" of the state variable <span class="arithmatex">\(u\)</span>: in regions where <span class="arithmatex">\(f&gt;0\)</span>, the flow is toward increasing <span class="arithmatex">\(u\)</span> (<span class="arithmatex">\(\rightarrow\)</span>); in regions where <span class="arithmatex">\(f&lt;0\)</span>, the flow is toward decreasing <span class="arithmatex">\(u\)</span> (<span class="arithmatex">\(\leftarrow\)</span>).</p>
+<p>If the flow on both sides of a fixed point points toward it (<span class="arithmatex">\(\rightarrow u^* \leftarrow\)</span>), this means any state near <span class="arithmatex">\(u^*\)</span> will eventually converge to <span class="arithmatex">\(u^*\)</span>—this is a <strong>stable fixed point</strong> (represented by a <strong>solid dot</strong> <span class="arithmatex">\(\bullet\)</span>).</p>
+<p>If the flow on both sides of a fixed point points away from it (<span class="arithmatex">\(\leftarrow u^* \rightarrow\)</span>), this means any state near <span class="arithmatex">\(u^*\)</span> will move away from <span class="arithmatex">\(u^*\)</span>—this is an <strong>unstable fixed point</strong> (represented by an <strong>open circle</strong> <span class="arithmatex">\(\circ\)</span>).</p>
+<p>This graphical analysis method is very intuitive, but it lacks mathematical rigor. To precisely and quantitatively determine the stability of fixed points, we need to introduce the tools in the next section.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_001_68a7c378-4e2c-44f8-bb07-fd77ee10aae6.png" /></p>
+<h1 id="2-linear-stability-analysis">2. Linear Stability Analysis<a class="headerlink" href="#2-linear-stability-analysis" title="Permanent link">&para;</a></h1>
+<p>The previous section found all equilibrium states (fixed points) of the system, but this is not enough. A system may have multiple fixed points, but their dynamical "fates" are completely different. Some fixed points are like the bottom of a valley—stable (attractors); while others are like the top of a peak—unstable (repellers). Any small real-world perturbation will push the system away from an unstable peak, causing it to eventually fall into some stable valley.</p>
+<p>Therefore, we must analyze the behavior of these fixed points when subjected to small perturbations. <strong>Linear Stability Analysis (LSA)</strong> is the standard mathematical tool for achieving this goal.</p>
+<h2 id="21-evolution-equation-of-perturbations">2.1 Evolution Equation of Perturbations<a class="headerlink" href="#21-evolution-equation-of-perturbations" title="Permanent link">&para;</a></h2>
+<p>The core idea of LSA is to apply an infinitesimal perturbation <span class="arithmatex">\(\delta u(t)\)</span> near a fixed point <span class="arithmatex">\(u^*\)</span>, and then examine whether this <strong>perturbation itself</strong> grows or decays over time.</p>
+<p>1.<strong>Define perturbation</strong>: Assume the instantaneous state <span class="arithmatex">\(u(t)\)</span> of the system deviates from the fixed point <span class="arithmatex">\(u^*\)</span> by a small amount <span class="arithmatex">\(\delta u(t)\)</span>:</p>
+<div class="arithmatex">\[
+u(t) = u^* + \delta u(t)
+\]</div>
+<p>2.<strong>Establish the dynamical equation for the perturbation</strong>: Examine how this small perturbation <span class="arithmatex">\(\delta u\)</span> evolves over time. Taking the time derivative of <span class="arithmatex">\(\delta u(t)\)</span> (noting that <span class="arithmatex">\(u^*\)</span> is a constant with zero derivative):</p>
+<div class="arithmatex">\[
+\frac{d(\delta u)}{dt} = \frac{d(u - u^*)}{dt} = \frac{du}{dt}
+\]</div>
+<p>According to the system's original dynamical equation <span class="arithmatex">\(\frac{du}{dt} = f(u)\)</span>, and substituting <span class="arithmatex">\(u = u^* + \delta u\)</span>, we get:</p>
+<div class="arithmatex">\[
+\frac{d(\delta u)}{dt} = f(u^* + \delta u)
+\]</div>
+<p>3.<strong>Taylor expansion and linearization</strong>: Since <span class="arithmatex">\(\delta u\)</span> is very small, we can Taylor expand the complex nonlinear function <span class="arithmatex">\(f\)</span> around the fixed point <span class="arithmatex">\(u^*\)</span>:</p>
+<div class="arithmatex">\[
+\frac{d(\delta u)}{dt} = f(u^*) + f'(u^*) \delta u + \frac{1}{2}f''(u^*)(\delta u)^2 + \dots
+\]</div>
+<p>where <span class="arithmatex">\(f'(u^*) = \left. \frac{\partial f}{\partial u} \right|_{u=u^*}\)</span> is the first derivative (i.e., slope) of function <span class="arithmatex">\(f\)</span> at the fixed point <span class="arithmatex">\(u^*\)</span>.</p>
+<p>4.<strong>Simplify the equation</strong>:
+ According to the definition of fixed points, we have <span class="arithmatex">\(f(u^*) = 0\)</span>.</p>
+<p>Since <span class="arithmatex">\(\delta u\)</span> is infinitesimal, <span class="arithmatex">\((\delta u)^2\)</span> and higher-order terms are higher-order infinitesimals that can be neglected.</p>
+<p>This process of neglecting higher-order terms is called <strong>linearization</strong>. It simplifies a complex nonlinear dynamical problem near the fixed point to an extremely simple <strong>linear ordinary differential equation</strong>:</p>
+<div class="arithmatex">\[
+\frac{d(\delta u)}{dt} \approx f'(u^*) \delta u
+\]</div>
+<h2 id="22-stability-criteria">2.2 Stability Criteria<a class="headerlink" href="#22-stability-criteria" title="Permanent link">&para;</a></h2>
+<p>The solution to the linearized equation <span class="arithmatex">\(\frac{d(\delta u)}{dt} = \lambda \delta u\)</span> (where <span class="arithmatex">\(\lambda = f'(u^*)\)</span> is a constant) is an exponential function:</p>
+<div class="arithmatex">\[
+\delta u(t) = \delta u(0) e^{\lambda t} = \delta u(0) e^{f'(u^*)t}
+\]</div>
+<p>where <span class="arithmatex">\(\delta u(0)\)</span> is the initial perturbation. The long-term behavior of this solution (<span class="arithmatex">\(t \to \infty\)</span>) is completely determined by the sign of the exponent, i.e., the sign of <span class="arithmatex">\(\lambda = f'(u^*)\)</span>. This leads to the core stability criteria:</p>
+<p><strong>If <span class="arithmatex">\(f'(u^*) &lt; 0\)</span> (i.e., <span class="arithmatex">\(\lambda &lt; 0\)</span>)</strong>:</p>
+<p>The exponent is negative, and the perturbation <span class="arithmatex">\(\delta u(t)\)</span> will <strong>exponentially decay</strong> toward zero over time. This means the system will automatically return to the fixed point <span class="arithmatex">\(u^*\)</span>. Therefore, <span class="arithmatex">\(u^*\)</span> is a <strong>stable fixed point</strong> or <strong>attractor</strong>.</p>
+<p><strong>If <span class="arithmatex">\(f'(u^*) &gt; 0\)</span> (i.e., <span class="arithmatex">\(\lambda &gt; 0\)</span>)</strong>:</p>
+<p>The exponent is positive, and the perturbation <span class="arithmatex">\(\delta u(t)\)</span> will <strong>exponentially grow</strong> over time, causing the system to move away from the fixed point <span class="arithmatex">\(u^*\)</span>. Therefore, <span class="arithmatex">\(u^*\)</span> is an <strong>unstable fixed point</strong> or <strong>repeller</strong>.</p>
+<p><strong>If <span class="arithmatex">\(f'(u^*) = 0\)</span> (i.e., <span class="arithmatex">\(\lambda = 0\)</span>)</strong>:</p>
+<p>Linear stability analysis <strong>fails</strong>. The evolution of the perturbation will be determined by the neglected higher-order nonlinear terms (such as <span class="arithmatex">\((\delta u)^2\)</span>). This situation is very special—it is precisely the critical point where the system may undergo a qualitative change, i.e., a <strong>bifurcation point</strong>, which is the core topic for subsequent lectures.</p>
+<p>This powerful analytical method condenses all the dynamical behavior of a complex nonlinear function <span class="arithmatex">\(f(u)\)</span> near a fixed point into a single number—its <strong>derivative (slope)</strong> <span class="arithmatex">\(f'(u^*)\)</span> at that point. This also perfectly confirms the graphical analysis in Section 1.2:</p>
+<p>At a stable fixed point (<span class="arithmatex">\(\bullet\)</span>), the <span class="arithmatex">\(f(u)\)</span> curve is "crossing down" through the <span class="arithmatex">\(u\)</span>-axis, so its <strong>slope <span class="arithmatex">\(f'(u^*)\)</span> must be negative</strong>.</p>
+<p>At an unstable fixed point (<span class="arithmatex">\(\circ\)</span>), the <span class="arithmatex">\(f(u)\)</span> curve is "crossing up" through the <span class="arithmatex">\(u\)</span>-axis, so its <strong>slope <span class="arithmatex">\(f'(u^*)\)</span> must be positive</strong>.</p>
+<p>At this point, we have both intuitive graphical tools and rigorous mathematical tools to analyze the equilibrium states and their stability for any one-dimensional system.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_002_b608481f-4ddf-4de8-8c23-ec21ad6d37b2.png" /></p>
+<h1 id="3-saddle-node-bifurcation-birth-and-annihilation-of-fixed-points">3. Saddle-Node Bifurcation - Birth and Annihilation of Fixed Points<a class="headerlink" href="#3-saddle-node-bifurcation-birth-and-annihilation-of-fixed-points" title="Permanent link">&para;</a></h1>
+<p>In Section 2, we learned how to use the sign of the linear stability analysis <span class="arithmatex">\(f'(u^*)\)</span> to determine the stability of fixed points. But a key question is: what happens when <span class="arithmatex">\(f'(u^*) = 0\)</span>? At this point, linear stability analysis fails, the system is in a critical state, and any small parameter change may lead to a <strong>qualitative change</strong> in the system's dynamical behavior.</p>
+<p>This is precisely the critical point where <strong>Bifurcation</strong> occurs. This lecture will start from the simplest and most common saddle-node bifurcation, exploring in depth how this "qualitative change" occurs.</p>
+<h2 id="31-what-is-bifurcation">3.1 What is Bifurcation?<a class="headerlink" href="#31-what-is-bifurcation" title="Permanent link">&para;</a></h2>
+<p><strong>Bifurcation</strong>, whose etymology means "forking" (like tree branches or river tributaries), is a core concept in dynamical systems theory. It describes a class of specific <strong>critical phenomena</strong>: when a <strong>control parameter</strong> <span class="arithmatex">\(\mu\)</span> slowly varies and crosses a critical value <span class="arithmatex">\(\mu_c\)</span>, the system's <strong>dynamical structure</strong> undergoes a <strong>qualitative change</strong>.</p>
+<p>The "qualitative change" here is key. It does not refer to the smooth movement of fixed point positions with parameters (which is a "quantitative change"), but rather to changes in the <strong>number</strong> of fixed points (e.g., from 0 to 2), or a fundamental reversal in the <strong>stability</strong> of fixed points (e.g., a stable fixed point suddenly becoming unstable). The critical parameter value <span class="arithmatex">\(\mu_c\)</span> at which this qualitative change occurs is called a <strong>bifurcation point</strong>.</p>
+<p>From a <strong>mathematical</strong> perspective, the "magic" of bifurcation occurs at the precise moment when <strong>Linear Stability Analysis (LSA) fails</strong>. Recalling Section 2, LSA depends on the linear term <span class="arithmatex">\(f'(u^*) \delta u\)</span> of the Taylor expansion. At the bifurcation point <span class="arithmatex">\(\mu_c\)</span>, the system has at least one fixed point <span class="arithmatex">\(u^*\)</span> that exactly satisfies:</p>
+<div class="arithmatex">\[
+\lambda = f'(u^*) = \left. \frac{\partial f}{\partial u} \right|_{u=u^*} = 0
+\]</div>
+<p>At this point, the linear "restoring force" <span class="arithmatex">\(\lambda\)</span> in the <span class="arithmatex">\(\delta u\)</span> evolution equation <span class="arithmatex">\(\frac{d(\delta u)}{dt} = \lambda \delta u\)</span> becomes zero. This means the previously neglected <strong>higher-order nonlinear terms</strong> (such as <span class="arithmatex">\((\delta u)^2, (\delta u)^3\)</span>, etc.) can no longer be ignored—they "take over" the system's dynamics and become the dominant factors determining the system's fate (whether to evolve to a new state or remain as is). The essence of bifurcation theory is to study how these nonlinear terms determine the system's behavior near critical points.</p>
+<p>From the <strong>physical</strong> world to biological systems, bifurcation phenomena are ubiquitous—they are the universal mechanism for "sudden changes" in systems:</p>
+<p>1.<strong>Buckling in mechanics</strong>: Imagine a vertical elastic ruler with control parameter <span class="arithmatex">\(\mu\)</span> being the downward pressure applied from above.</p>
+<p>When <span class="arithmatex">\(\mu &lt; \mu_c\)</span> (small pressure), the system has only one stable fixed point <span class="arithmatex">\(u=0\)</span> (the ruler remains vertical).</p>
+<p>When <span class="arithmatex">\(\mu &gt; \mu_c\)</span> (pressure exceeds critical value), the vertical state <span class="arithmatex">\(u=0\)</span> becomes <strong>unstable</strong> (like a hilltop), while two new <strong>stable</strong> fixed points <span class="arithmatex">\(u^* \neq 0\)</span> "bifurcate" out (the ruler bends left or right). This is a typical bifurcation.</p>
+<p>2.<strong>Convection in fluid mechanics</strong>: Consider a thin layer of liquid heated from below, with control parameter <span class="arithmatex">\(\mu\)</span> being the temperature difference between the top and bottom of the liquid.</p>
+<p>When <span class="arithmatex">\(\mu &lt; \mu_c\)</span> (small temperature difference), heat is transferred through conduction (stationary), and the system is in the stable state of <span class="arithmatex">\(u=0\)</span> (no macroscopic flow).</p>
+<p>When <span class="arithmatex">\(\mu &gt; \mu_c\)</span> (sufficient temperature difference), this stationary state becomes unstable, and the system "bifurcates" to a new stable state: the liquid begins to form macroscopic convection "rolls" (<span class="arithmatex">\(u \neq 0\)</span>), known as Rayleigh–Bénard convection.</p>
+<p>3.<strong>Population outbreaks in biology</strong>: In certain ecological models, the control parameter <span class="arithmatex">\(\mu\)</span> might be the degree of nutrient enrichment. When <span class="arithmatex">\(\mu\)</span> exceeds a critical value <span class="arithmatex">\(\mu_c\)</span>, an originally stable low-density population equilibrium point may disappear, causing the system state to jump to a high-density "population outbreak" state.</p>
+<p>The saddle-node bifurcation and pitchfork bifurcation discussed in the remainder of this lecture are precisely the classification and study of the most basic and universal mathematical prototypes behind these diverse abrupt phenomena.</p>
+<h2 id="32-normal-form-of-saddle-node-bifurcation">3.2 Normal Form of Saddle-Node Bifurcation<a class="headerlink" href="#32-normal-form-of-saddle-node-bifurcation" title="Permanent link">&para;</a></h2>
+<p>The simplest and most common type of bifurcation is the <strong>Saddle-Node Bifurcation</strong>. It is important because it represents the most basic way fixed points are "born" and "annihilated."</p>
+<h3 id="normal-form-equation">Normal Form Equation<a class="headerlink" href="#normal-form-equation" title="Permanent link">&para;</a></h3>
+<p>Its <strong>normal form</strong>, i.e., the simplest mathematical expression that captures this bifurcation phenomenon, is a simple quadratic equation:</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, \mu) = -\mu + u^2
+\]</div>
+<p>Here, for convenience of analysis, the bifurcation point has been shifted to <span class="arithmatex">\(\mu_c = 0\)</span> and <span class="arithmatex">\(u^* = 0\)</span>. This seemingly simple equation has extremely strong <strong>universality</strong>. No matter how complex the evolution function <span class="arithmatex">\(f(u, \mu)\)</span> of a specific physical system (such as fluids, chemical reactions, ecological models), as long as it can be Taylor expanded near the bifurcation point, the terms governing its dynamical behavior can be simplified to this normal form.</p>
+<h3 id="dynamical-analysis">Dynamical Analysis<a class="headerlink" href="#dynamical-analysis" title="Permanent link">&para;</a></h3>
+<p>Now let's analyze in detail how the dynamical behavior of this equation depends on parameter <span class="arithmatex">\(\mu\)</span>:</p>
+<p>1.<strong>Finding fixed points</strong>: Fixed points <span class="arithmatex">\(u^*\)</span> satisfy <span class="arithmatex">\(f(u^*) = 0\)</span>, i.e., <span class="arithmatex">\(-\mu + (u^*)^2 = 0\)</span>, yielding:</p>
+<div class="arithmatex">\[
+u^* = \pm\sqrt{\mu}
+\]</div>
+<p>2.<strong>Analyzing the existence of fixed points (evolution with <span class="arithmatex">\(\mu\)</span>)</strong>:</p>
+<p><strong>When <span class="arithmatex">\(\mu &lt; 0\)</span></strong>: <span class="arithmatex">\(\sqrt{\mu}\)</span> is imaginary, and the equation has <strong>no real solutions</strong>. At this time, <span class="arithmatex">\(f(u) = -\mu + u^2\)</span> is always positive (parabola above the <span class="arithmatex">\(u\)</span>-axis). Therefore <span class="arithmatex">\(\frac{du}{dt} &gt; 0\)</span>, the system state <span class="arithmatex">\(u\)</span> will keep evolving toward <span class="arithmatex">\(+\infty\)</span>, and the system has <strong>no fixed points</strong> (no equilibrium state).</p>
+<p><strong>When <span class="arithmatex">\(\mu = 0\)</span></strong>: <span class="arithmatex">\(\frac{du}{dt} = u^2\)</span>. At this point <span class="arithmatex">\(u^* = 0\)</span> is the <strong>only fixed point</strong>. This point is the <strong>critical point</strong> <span class="arithmatex">\(\mu_c\)</span> where the saddle-node bifurcation occurs.</p>
+<p><strong>When <span class="arithmatex">\(\mu &gt; 0\)</span></strong>: <span class="arithmatex">\(\sqrt{\mu}\)</span> is real, and the system has <strong>two fixed points "born out of nothing"</strong>:</p>
+<div class="arithmatex">\[
+u_1^* = -\sqrt{\mu}
+\]</div>
+<div class="arithmatex">\[
+u_2^* = +\sqrt{\mu}
+\]</div>
+<p>3.<strong>Stability analysis</strong>: Using the linear stability analysis (LSA) from Section 2. First calculate the derivative of <span class="arithmatex">\(f(u)\)</span>:</p>
+<div class="arithmatex">\[
+f'(u) = \frac{d}{du}(-\mu + u^2) = 2u
+\]</div>
+<p><strong>For the case <span class="arithmatex">\(\mu &gt; 0\)</span></strong>:</p>
+<p>At <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span>: <span class="arithmatex">\(f'(u_1^*) = 2(-\sqrt{\mu}) = -2\sqrt{\mu} &lt; 0\)</span>. Therefore <span class="arithmatex">\(u_1^*\)</span> is a <strong>stable fixed point</strong> (attractor).</p>
+<p>At <span class="arithmatex">\(u_2^* = +\sqrt{\mu}\)</span>: <span class="arithmatex">\(f'(u_2^*) = 2(+\sqrt{\mu}) = 2\sqrt{\mu} &gt; 0\)</span>. Therefore <span class="arithmatex">\(u_2^*\)</span> is an <strong>unstable fixed point</strong> (repeller).</p>
+<p><strong>For the case <span class="arithmatex">\(\mu = 0\)</span></strong>:</p>
+<p>At <span class="arithmatex">\(u^* = 0\)</span>: <span class="arithmatex">\(f'(u^*) = 2(0) = 0\)</span>. LSA <strong>fails</strong>, confirming that this is indeed a bifurcation point.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_003_038a6a5d-1352-403a-ab55-214f975460b3.png" /></p>
+<p><strong>Left panel (<span class="arithmatex">\(\mu &lt; 0\)</span>)</strong>: The parabola <span class="arithmatex">\(f(u) = -\mu + u^2\)</span> lies entirely above the <span class="arithmatex">\(u\)</span>-axis, with <span class="arithmatex">\(f(u)\)</span> always positive. The flow always points to the right (<span class="arithmatex">\(\rightarrow\)</span>), and the system has no fixed points.</p>
+<p><strong>Right panel (<span class="arithmatex">\(\mu = 0\)</span>)</strong>: At the bifurcation point <span class="arithmatex">\(\mu_c = 0\)</span>, the parabola <span class="arithmatex">\(f(u) = u^2\)</span> is exactly tangent to the <span class="arithmatex">\(u\)</span>-axis at <span class="arithmatex">\(u=0\)</span>. At this time <span class="arithmatex">\(f(u) \ge 0\)</span>, and the flow on both sides of <span class="arithmatex">\(u=0\)</span> points to the right (<span class="arithmatex">\(\rightarrow\)</span>). <span class="arithmatex">\(u=0\)</span> is a "semi-stable" fixed point (converging from the left, diverging from the right).</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_004_3f8e2250-dcf4-4620-b614-ad23642867fa.png" /></p>
+<p><strong>This panel (<span class="arithmatex">\(\mu &gt; 0\)</span>)</strong>: The parabola <span class="arithmatex">\(f(u) = -\mu + u^2\)</span> intersects the <span class="arithmatex">\(u\)</span>-axis at two points.</p>
+<p>At <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span>, the flow pattern is <span class="arithmatex">\(\rightarrow \bullet \leftarrow\)</span>, this is a <strong>stable fixed point</strong> (solid dot).</p>
+<p>At <span class="arithmatex">\(u_2^* = +\sqrt{\mu}\)</span>, the flow pattern is <span class="arithmatex">\(\leftarrow \circ \rightarrow\)</span>, this is an <strong>unstable fixed point</strong> (open circle).</p>
+<p>In summary, when parameter <span class="arithmatex">\(\mu\)</span> "crosses" 0 from negative values, a stable fixed point and an unstable fixed point <strong>simultaneously emerge</strong> at <span class="arithmatex">\(u=0\)</span> (or conversely, when <span class="arithmatex">\(\mu\)</span> decreases from positive values to 0, they collide and <strong>annihilate</strong>). This is the origin of the name "Saddle-Node": in higher dimensions, it is a collision of a <strong>saddle</strong> and a <strong>node</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_005_cac7372d-fe34-430c-be02-de6381dfa183.png" /></p>
+<h2 id="33-potential-function-perspective-sliding-in-the-energy-landscape">3.3 Potential Function Perspective - Sliding in the "Energy Landscape"<a class="headerlink" href="#33-potential-function-perspective-sliding-in-the-energy-landscape" title="Permanent link">&para;</a></h2>
+<p>This bifurcation process can also be intuitively understood through the deformation of the potential energy landscape <span class="arithmatex">\(V(u)\)</span>. Recalling the relation <span class="arithmatex">\(\frac{du}{dt} = -\frac{\partial V}{\partial u}\)</span>, for the normal form <span class="arithmatex">\(\frac{du}{dt} = -\mu + u^2\)</span>, we can find its corresponding potential function <span class="arithmatex">\(V(u; \mu)\)</span> by integration:</p>
+<div class="arithmatex">\[
+V(u; \mu) = - \int (-\mu + u^2) du = \mu u - \frac{1}{3}u^3
+\]</div>
+<p>Now we can re-examine the bifurcation from the perspective of a "ball rolling in a landscape":</p>
+<p><strong>When <span class="arithmatex">\(\mu &lt; 0\)</span></strong>: The potential function <span class="arithmatex">\(V(u)\)</span> is a monotonically sloping curve with no local extrema (no valleys or peaks). Therefore, the system has no fixed points, and the ball will keep "rolling" to infinity.</p>
+<p><strong>When <span class="arithmatex">\(\mu = 0\)</span></strong>: The potential function becomes <span class="arithmatex">\(V(u) = -u^3/3\)</span>. An <strong>inflection point</strong> appears at <span class="arithmatex">\(u=0\)</span>, where the landscape becomes flat.</p>
+<p><strong>When <span class="arithmatex">\(\mu &gt; 0\)</span></strong>: A <strong>local minimum (valley)</strong> and a <strong>local maximum (peak)</strong> appear on the potential function graph.</p>
+<p>The <strong>valley</strong> corresponds to the <strong>stable fixed point</strong> <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span> (since <span class="arithmatex">\(V'' &gt; 0\)</span>).</p>
+<p>The <strong>peak</strong> corresponds to the <strong>unstable fixed point</strong> <span class="arithmatex">\(u_2^* = +\sqrt{\mu}\)</span> (since <span class="arithmatex">\(V'' &lt; 0\)</span>).</p>
+<p>The bifurcation event can be seen as the potential energy landscape <span class="arithmatex">\(V(u)\)</span> deforming with changes in <span class="arithmatex">\(\mu\)</span>—at <span class="arithmatex">\(\mu=0\)</span>, a flat "slope" suddenly bulges when <span class="arithmatex">\(\mu&gt;0\)</span>, simultaneously creating a "valley" and a "peak."</p>
+<h2 id="34-physical-significance-tipping-points-and-codimension">3.4 Physical Significance - "Tipping Points" and "Codimension"<a class="headerlink" href="#34-physical-significance-tipping-points-and-codimension" title="Permanent link">&para;</a></h2>
+<p>Saddle-node bifurcation is extremely important in physical and biological systems because it describes <strong>critical transitions</strong> or <strong>"tipping points"</strong>.</p>
+<p><strong>Tipping points</strong>: Imagine a system at the stable fixed point <span class="arithmatex">\(u_1^* = -\sqrt{\mu}\)</span> when <span class="arithmatex">\(\mu&gt;0\)</span> (e.g., a healthy ecosystem). Now let external conditions deteriorate (i.e., <span class="arithmatex">\(\mu\)</span> slowly decreases). This stable state will move slowly. When <span class="arithmatex">\(\mu\)</span> decreases to 0, this stable state collides with the unstable state <span class="arithmatex">\(u_2^*\)</span> and <strong>annihilates</strong>. When <span class="arithmatex">\(\mu\)</span> becomes negative, the system's only equilibrium state disappears, and the system is forced to make a catastrophic jump, evolving to another (possibly very distant) state (e.g., <span class="arithmatex">\(-\infty\)</span> or <span class="arithmatex">\(+\infty\)</span> when <span class="arithmatex">\(\mu &lt; 0\)</span>). This process is usually <strong>sudden and irreversible</strong>, such as the collapse of fishery resources, the melting of ice sheets, or species extinction.</p>
+<p><strong>Codimension = 1</strong>: This is a profound mathematical concept. It means that saddle-node bifurcation is <strong>generic</strong> in single-parameter systems. You don't need special symmetry (like the pitchfork bifurcation in the next section) or fine-tuning; as long as you have a single-parameter dynamical system and change its parameter, the first type of bifurcation encountered at some critical point where qualitative change occurs is very likely to be a saddle-node bifurcation. This is because it only needs to satisfy two critical conditions <span class="arithmatex">\(f(u^*, \mu_c)=0\)</span> and <span class="arithmatex">\(\frac{\partial f}{\partial u}(u^*, \mu_c)=0\)</span>, which usually have solutions for two unknowns (<span class="arithmatex">\(u^*\)</span> and <span class="arithmatex">\(\mu_c\)</span>).</p>
+<h2 id="35-python-simulation-visualizing-saddle-node-bifurcation">3.5 Python Simulation - Visualizing Saddle-Node Bifurcation<a class="headerlink" href="#35-python-simulation-visualizing-saddle-node-bifurcation" title="Permanent link">&para;</a></h2>
+<p>To more clearly demonstrate saddle-node bifurcation, the following Python code will generate two key figures:</p>
+<p>1.<strong>Bifurcation Diagram</strong>: Shows how the position of fixed points <span class="arithmatex">\(u^*\)</span> changes with the control parameter <span class="arithmatex">\(\mu\)</span>.</p>
+<p>2.<strong>Potential Landscapes</strong>: Shows the evolution of the shape of <span class="arithmatex">\(V(u)\)</span> in three cases: <span class="arithmatex">\(\mu &lt; 0\)</span>, <span class="arithmatex">\(\mu = 0\)</span>, and <span class="arithmatex">\(\mu &gt; 0\)</span>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_saddle_node_bifurcation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate and display the bifurcation diagram and potential landscape for a saddle-node bifurcation.</span>
+<span class="sd">    Uses &#39;dark_background&#39; style.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># --- Set dark background theme ---</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+    <span class="c1"># --- Create figure and subplots ---</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># --- Figure 1: Bifurcation Diagram (u* vs mu) ---</span>
+    <span class="c1"># du/dt = -mu + u^2  =&gt;  u* = +/- sqrt(mu)</span>
+    <span class="n">mu_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">u_stable</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">)</span>
+    <span class="n">u_unstable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">)</span>
+
+    <span class="c1"># Plot stable branch (cyan)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">,</span> <span class="n">u_stable</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable Fixed Point&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot unstable branch (magenta)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mu_vals</span><span class="p">,</span> <span class="n">u_unstable</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable Fixed Point&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot line for no fixed points when mu &lt; 0 (gray)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $</span><span class="se">\\</span><span class="s1">mu$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Points $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Saddle-Node Bifurcation Diagram&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="c1"># Set legend text color to white</span>
+    <span class="n">legend1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend1</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># --- Figure 2: Potential Landscape V(u) = mu*u - (1/3)*u^3 ---</span>
+    <span class="n">u_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">mu_cases</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">]</span>  <span class="c1"># Blue, Orange, Green</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu = -1$ (No Fixed Points)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu = 0$ (Bifurcation Point)&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">mu = 1$ (Two Fixed Points)&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">mu</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">mu_cases</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u_range</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_range</span><span class="o">**</span><span class="mi">3</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="c1"># Mark fixed points</span>
+        <span class="k">if</span> <span class="n">mu</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">u_s</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>  <span class="c1"># Stable point</span>
+            <span class="n">u_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>   <span class="c1"># Unstable point</span>
+            <span class="n">V_s</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u_s</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_s</span><span class="o">**</span><span class="mi">3</span>
+            <span class="n">V_u</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">u_u</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_u</span><span class="o">**</span><span class="mi">3</span>
+            <span class="c1"># Stable point (valley) - solid cyan</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_s</span><span class="p">,</span> <span class="n">V_s</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+            <span class="c1"># Unstable point (peak) - hollow magenta</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_u</span><span class="p">,</span> <span class="n">V_u</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mu</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">V_0</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># Inflection point - yellow</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">V_0</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;State Variable $u$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Energy $V(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Evolution of Potential Landscape with $</span><span class="se">\\</span><span class="s1">mu$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set legend text color to white</span>
+    <span class="n">legend2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend2</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;saddle_node_bifurcation.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Run Simulation ---</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">plot_saddle_node_bifurcation</span><span class="p">()</span>
+</code></pre></div>
+<img alt="Code Output" src="../../cn/assets/images/03_006_d0be1090-a825-48c8-af21-2cf9cfa4f7cc.png" /></p>
+<p><strong>Left panel (Bifurcation Diagram)</strong>: Shows how the position of fixed points <span class="arithmatex">\(u^*\)</span> depends on the control parameter <span class="arithmatex">\(\mu\)</span>. When <span class="arithmatex">\(\mu &lt; 0\)</span>, there are no branches on the graph, indicating the system has no fixed points. At the critical point <span class="arithmatex">\(\mu = 0\)</span>, a fixed point is "born"; and when <span class="arithmatex">\(\mu &gt; 0\)</span>, this point splits into two branches: a <strong>stable fixed point</strong> (solid cyan line, <span class="arithmatex">\(u^* = -\sqrt{\mu}\)</span>) and an <strong>unstable fixed point</strong> (dashed magenta line, <span class="arithmatex">\(u^* = +\sqrt{\mu}\)</span>).</p>
+<p><strong>Right panel (Potential Landscape Evolution)</strong>: Physically explains why this change occurs.</p>
+<p><strong>When <span class="arithmatex">\(\mu = -1\)</span> (blue curve)</strong>: The potential energy <span class="arithmatex">\(V(u)\)</span> is a monotonically sloping ramp with no local extrema (no valleys or peaks), so the system has no equilibrium states and will keep sliding toward <span class="arithmatex">\(u \to \infty\)</span>.</p>
+<p><strong>When <span class="arithmatex">\(\mu = 0\)</span> (orange curve)</strong>: At the bifurcation point, the potential energy landscape forms an <strong>inflection point</strong> at <span class="arithmatex">\(u=0\)</span> (yellow dot), where the slope becomes flat.</p>
+<p><strong>When <span class="arithmatex">\(\mu = 1\)</span> (green curve)</strong>: The landscape undergoes a qualitative change—the inflection point "bulges" and splits into a <strong>local minimum (valley)</strong> at <span class="arithmatex">\(u=-1\)</span> (cyan dot) and a <strong>local maximum (peak)</strong> at <span class="arithmatex">\(u=+1\)</span> (magenta open circle). These correspond to the newly born stable fixed point and unstable fixed point.</p>
+<h1 id="4-pitchfork-bifurcation-symmetry-breaking-and-restoration">4. Pitchfork Bifurcation - Symmetry Breaking and Restoration<a class="headerlink" href="#4-pitchfork-bifurcation-symmetry-breaking-and-restoration" title="Permanent link">&para;</a></h1>
+<p>The previous section explored saddle-node bifurcation, which is a type of bifurcation that creates or annihilates a pair of fixed points "out of nothing"—it doesn't require the system to have any special conditions, making it very common.</p>
+<p>This section will explore a fundamentally different type of bifurcation that requires the system to possess a specific <strong>symmetry</strong>—the <strong>Pitchfork Bifurcation</strong>. This bifurcation occupies a central place in physics because it is directly related to the profound concept of "<strong>spontaneous symmetry breaking</strong>." It perfectly describes how a system transitions from a symmetric disordered state to an ordered state that breaks symmetry, such as a magnet developing magnetization below the critical temperature, or a mechanical structure undergoing buckling under critical pressure.</p>
+<h2 id="41-manifestation-of-symmetry-in-dynamics">4.1 Manifestation of Symmetry in Dynamics<a class="headerlink" href="#41-manifestation-of-symmetry-in-dynamics" title="Permanent link">&para;</a></h2>
+<p>The core prerequisite for pitchfork bifurcation is that the system's evolution function <span class="arithmatex">\(f(u)\)</span> has <strong>reflection symmetry</strong> (also called <span class="arithmatex">\(Z_2\)</span> symmetry). Mathematically, this means <span class="arithmatex">\(f(u)\)</span> must be an <strong>odd function</strong>:</p>
+<div class="arithmatex">\[
+f(-u) = -f(u)
+\]</div>
+<p>This seemingly simple mathematical constraint has profound dynamical consequences:</p>
+<p>1.<strong><span class="arithmatex">\(u=0\)</span> is always a fixed point</strong>: Because <span class="arithmatex">\(f(0) = -f(-0) = -f(0)\)</span>, this forces <span class="arithmatex">\(f(0) = 0\)</span> to hold. Therefore, as long as symmetry exists, <span class="arithmatex">\(u=0\)</span> is always a fixed point (usually called the <strong>trivial fixed point</strong>).</p>
+<p>2.<strong>Fixed points appear in pairs</strong>: If <span class="arithmatex">\(u^*\)</span> is a fixed point (i.e., <span class="arithmatex">\(f(u^*) = 0\)</span>), then <span class="arithmatex">\(f(-u^*) = -f(u^*) = 0\)</span> must also hold. This means <span class="arithmatex">\(-u^*\)</span> must also be a fixed point. Non-zero fixed points always appear <strong>in pairs, symmetrically</strong>.</p>
+<p>This symmetry is very common in physical systems, such as the symmetry of spin up (<span class="arithmatex">\(+u\)</span>) and spin down (<span class="arithmatex">\(-u\)</span>) in magnets, or the symmetry of a mechanical rod buckling left (<span class="arithmatex">\(-u\)</span>) or right (<span class="arithmatex">\(+u\)</span>).</p>
+<p>In contrast, the normal form of saddle-node bifurcation from the previous section, <span class="arithmatex">\(\dot{u} = -\mu + u^2\)</span>, contains a <span class="arithmatex">\(u^2\)</span> (even function) term—it <strong>does not have</strong> this symmetry. Therefore, its fixed points <span class="arithmatex">\(u^* = \pm\sqrt{\mu}\)</span> do not bifurcate symmetrically from <span class="arithmatex">\(u=0\)</span>, but rather collide and annihilate at <span class="arithmatex">\(u=0\)</span>.</p>
+<p>The normal form of pitchfork bifurcation is the simplest nonlinear equation satisfying the odd function constraint. Depending on the sign of the nonlinear term, it is divided into two types: supercritical and subcritical.</p>
+<h2 id="42-supercritical-pitchfork-bifurcation">4.2 Supercritical Pitchfork Bifurcation<a class="headerlink" href="#42-supercritical-pitchfork-bifurcation" title="Permanent link">&para;</a></h2>
+<p>The Supercritical Pitchfork Bifurcation is the classical model for describing <strong>continuous phase transitions</strong>. Its normal form is:</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, r) = ru - u^3
+\]</div>
+<p>Here <span class="arithmatex">\(r\)</span> is used as the control parameter (corresponding to reduced temperature in phase transition theory).</p>
+<p><span class="arithmatex">\(ru\)</span> is the linear term. When <span class="arithmatex">\(r&gt;0\)</span>, it makes <span class="arithmatex">\(u=0\)</span> unstable (exponential growth); when <span class="arithmatex">\(r&lt;0\)</span>, it makes <span class="arithmatex">\(u=0\)</span> stable (exponential decay).</p>
+<p><span class="arithmatex">\(-u^3\)</span> is the simplest <strong>nonlinear stabilizing term</strong> that satisfies odd function symmetry. It ensures that when <span class="arithmatex">\(u\)</span> becomes large, <span class="arithmatex">\(\frac{du}{dt}\)</span> becomes negative, thus preventing the system state from diverging to infinity.</p>
+<p>This corresponds to a potential function <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 + \frac{1}{4}u^4\)</span>, with <span class="arithmatex">\(f = -dV/du\)</span>. This potential has a "Mexican hat" or "wine bottle bottom" shape when <span class="arithmatex">\(r&gt;0\)</span>, which is key to understanding spontaneous symmetry breaking.</p>
+<h3 id="dynamical-analysis_1">Dynamical Analysis<a class="headerlink" href="#dynamical-analysis_1" title="Permanent link">&para;</a></h3>
+<p>1.<strong>Finding fixed points</strong>: Setting <span class="arithmatex">\(\frac{du}{dt} = 0\)</span> gives <span class="arithmatex">\(u(r - u^2) = 0\)</span>.</p>
+<p><strong>Trivial solution</strong>: <span class="arithmatex">\(u_0^* = 0\)</span> (exists for all <span class="arithmatex">\(r\)</span>).
+<strong>Non-trivial solutions</strong>: <span class="arithmatex">\(r - u^2 = 0 \implies u_{\pm}^* = \pm\sqrt{r}\)</span> (real solutions exist only when <span class="arithmatex">\(r \ge 0\)</span>).</p>
+<p>2.<strong>Stability analysis (LSA)</strong>: The derivative of the evolution function is <span class="arithmatex">\(f'(u) = r - 3u^2\)</span>.</p>
+<p><strong>For the trivial solution <span class="arithmatex">\(u_0^* = 0\)</span></strong>:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(f'(0) = r\)</span>.</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(r &lt; 0\)</span>, <span class="arithmatex">\(f'(0) &lt; 0\)</span>, <span class="arithmatex">\(u_0^*\)</span> is a <strong>stable fixed point</strong>.</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(r &gt; 0\)</span>, <span class="arithmatex">\(f'(0) &gt; 0\)</span>, <span class="arithmatex">\(u_0^*\)</span> becomes an <strong>unstable fixed point</strong>.</p>
+</li>
+</ul>
+<p><strong>For the non-trivial solutions <span class="arithmatex">\(u_{\pm}^* = \pm\sqrt{r}\)</span></strong> (analyzing only when <span class="arithmatex">\(r &gt; 0\)</span>):</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(f'(\pm\sqrt{r}) = r - 3(\pm\sqrt{r})^2 = r - 3r = -2r\)</span>.</p>
+</li>
+<li>
+<p>Since <span class="arithmatex">\(r &gt; 0\)</span>, we have <span class="arithmatex">\(f' = -2r &lt; 0\)</span>. These newly born fixed points are <strong>always stable</strong>.</p>
+</li>
+</ul>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_007_fac68eba-f242-4540-a0a0-28fbd4277803.jpg" /></p>
+<h3 id="physical-significance-second-order-phase-transition-and-spontaneous-symmetry-breaking">Physical Significance - Second-Order Phase Transition and Spontaneous Symmetry Breaking<a class="headerlink" href="#physical-significance-second-order-phase-transition-and-spontaneous-symmetry-breaking" title="Permanent link">&para;</a></h3>
+<p>The supercritical pitchfork bifurcation is a perfect mathematical description of the <strong>second-order phase transition</strong>, directly echoing Ginzburg–Landau theory.</p>
+<p><span class="arithmatex">\(u\)</span> plays the role of the <strong>order parameter</strong> (e.g., magnetization).</p>
+<p><span class="arithmatex">\(r\)</span> corresponds to reduced temperature, e.g., <span class="arithmatex">\(r \propto (T_c - T)\)</span>, where <span class="arithmatex">\(T_c\)</span> is the critical temperature.</p>
+<p>1.<strong>When <span class="arithmatex">\(r &lt; 0\)</span> (high temperature, <span class="arithmatex">\(T &gt; T_c\)</span>)</strong>:</p>
+<p>The system's only stable state is <span class="arithmatex">\(u^*=0\)</span> (zero magnetization). This state is completely symmetric, corresponding to the <strong>disordered phase</strong> (e.g., paramagnetic phase). The potential <span class="arithmatex">\(V(u)\)</span> at this time is a single well with minimum at <span class="arithmatex">\(u=0\)</span>.</p>
+<p>2.<strong>When <span class="arithmatex">\(r &gt; 0\)</span> (low temperature, <span class="arithmatex">\(T &lt; T_c\)</span>)</strong>:</p>
+<p>The original <span class="arithmatex">\(u^*=0\)</span> state becomes unstable (the potential <span class="arithmatex">\(V(u)\)</span> becomes a peak at <span class="arithmatex">\(u=0\)</span>). The system <strong>must</strong> choose one of the two new, symmetric, stable states <span class="arithmatex">\(u^*=+\sqrt{r}\)</span> or <span class="arithmatex">\(u^*=-\sqrt{r}\)</span> (corresponding to two new valleys of the potential).</p>
+<p>This process is called <strong>spontaneous symmetry breaking</strong>. Although the physical laws of the system (i.e., the <span class="arithmatex">\(\frac{du}{dt}\)</span> equation) remain <span class="arithmatex">\(u \to -u\)</span> symmetric, the ground state the system occupies (e.g., choosing "up" magnetization <span class="arithmatex">\(u^*=+\sqrt{r}\)</span>) <strong>breaks</strong> this symmetry.</p>
+<p>Since the order parameter <span class="arithmatex">\(u^*\)</span> grows <strong>continuously</strong> from 0 starting at <span class="arithmatex">\(r=0\)</span> (<span class="arithmatex">\(u^* \propto \sqrt{r}\)</span>), this phase transition is called a <strong>continuous phase transition</strong> or second-order phase transition.</p>
+<h2 id="43-subcritical-pitchfork-bifurcation">4.3 Subcritical Pitchfork Bifurcation<a class="headerlink" href="#43-subcritical-pitchfork-bifurcation" title="Permanent link">&para;</a></h2>
+<p>The Subcritical Pitchfork Bifurcation describes a fundamentally different, more <strong>abrupt</strong> transition. Its normal form is:</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = f(u, r) = ru + u^3
+\]</div>
+<p><span class="arithmatex">\(ru\)</span> is still the linear term.</p>
+<p><span class="arithmatex">\(+u^3\)</span> is a <strong>nonlinear destabilizing term</strong>. It no longer suppresses the growth of <span class="arithmatex">\(u\)</span>, but rather accelerates <span class="arithmatex">\(u\)</span> away from the origin.</p>
+<p>This corresponds to a potential function <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 - \frac{1}{4}u^4\)</span>. This potential diverges toward <span class="arithmatex">\(\pm\infty\)</span> when <span class="arithmatex">\(r&gt;0\)</span>, which is unrealistic physically.</p>
+<h3 id="explosion-and-stabilization">"Explosion" and Stabilization<a class="headerlink" href="#explosion-and-stabilization" title="Permanent link">&para;</a></h3>
+<p>Analyzing <span class="arithmatex">\(\frac{du}{dt} = ru + u^3\)</span> alone reveals:</p>
+<p>1.<strong>Fixed points</strong>: <span class="arithmatex">\(u(r + u^2) = 0 \implies u_0^*=0\)</span> and <span class="arithmatex">\(u_{\pm}^* = \pm\sqrt{-r}\)</span> (exists only when <span class="arithmatex">\(r \le 0\)</span>).</p>
+<p>2.<strong>Stability</strong>: <span class="arithmatex">\(f'(u) = r + 3u^2\)</span>.</p>
+<p><span class="arithmatex">\(u_0^*=0\)</span>: <span class="arithmatex">\(f'(0)=r\)</span>. <strong>Stable</strong> when <span class="arithmatex">\(r&lt;0\)</span>, <strong>unstable</strong> when <span class="arithmatex">\(r&gt;0\)</span>.</p>
+<p><span class="arithmatex">\(u_{\pm}^* = \pm\sqrt{-r}\)</span> (for <span class="arithmatex">\(r &lt; 0\)</span>): <span class="arithmatex">\(f'(\pm\sqrt{-r}) = r + 3(-r) = -2r\)</span>. Since <span class="arithmatex">\(r&lt;0\)</span>, <span class="arithmatex">\(f' &gt; 0\)</span>, these branches are <strong>unstable</strong>.</p>
+<p><strong>Physical problem</strong>: This model is catastrophic.</p>
+<p>1.When <span class="arithmatex">\(r\)</span> changes from negative to positive, the stable <span class="arithmatex">\(u=0\)</span> state becomes unstable, but the two new branches that "bifurcate" from it (when <span class="arithmatex">\(r&lt;0\)</span>) are also unstable.</p>
+<p>2.When <span class="arithmatex">\(r&gt;0\)</span>, <span class="arithmatex">\(u=0\)</span> is unstable, and <span class="arithmatex">\(f(u)\)</span> pushes <span class="arithmatex">\(u\)</span> toward <span class="arithmatex">\(\pm\infty\)</span>—the system "explodes."</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../cn/assets/images/03_008_86ceecd4-85bb-4166-824b-da7e61b024fa.png" /></p>
+<p><strong>Physical reality (stabilization)</strong>: Physical systems do not diverge infinitely. This means a higher-order <strong>stabilizing term</strong> (e.g., <span class="arithmatex">\(-u^5\)</span>) must exist to "take over" the system when <span class="arithmatex">\(u\)</span> becomes very large, preventing divergence. A more physically realistic, stabilized subcritical model is:</p>
+<div class="arithmatex">\[
+\frac{du}{dt} = ru + u^3 - u^5
+\]</div>
+<p>This corresponds to a more complex potential <span class="arithmatex">\(V(u) = -\frac{r}{2}u^2 - \frac{1}{4}u^4 + \frac{1}{6}u^6\)</span>.</p>
+<h3 id="physical-significance-first-order-phase-transition-and-hysteresis">Physical Significance - First-Order Phase Transition and Hysteresis<a class="headerlink" href="#physical-significance-first-order-phase-transition-and-hysteresis" title="Permanent link">&para;</a></h3>
+<p>This stabilized subcritical model can describe <strong>first-order phase transitions</strong>, whose dynamical behavior is much more complex and exhibits <strong>hysteresis</strong>:</p>
+<p>1.<strong>Bistable region</strong>: In a certain range of parameter <span class="arithmatex">\(r\)</span> (e.g., some interval with <span class="arithmatex">\(r &lt; 0\)</span>), the system will have <strong>three stable fixed points</strong>: <span class="arithmatex">\(u=0\)</span> and a pair of new symmetric fixed points <span class="arithmatex">\(u^* \neq 0\)</span> (produced by the <span class="arithmatex">\(-u^5\)</span> term).</p>
+<p>2.<strong>Discontinuous jumps</strong>:</p>
+<p>When <span class="arithmatex">\(r\)</span> slowly <strong>increases</strong> from <span class="arithmatex">\(r \ll 0\)</span>, the system will remain at the stable state <span class="arithmatex">\(u=0\)</span>. Even when <span class="arithmatex">\(r\)</span> increases above 0 (<span class="arithmatex">\(u=0\)</span> may still remain locally stable in the stabilized model), the system will "stick" to this state. Only when <span class="arithmatex">\(r\)</span> reaches some positive critical value <span class="arithmatex">\(r_c &gt; 0\)</span> does the <span class="arithmatex">\(u=0\)</span> state collide with the unstable branch (undergoing saddle-node bifurcation) and annihilate, and the system will <strong>suddenly jump</strong> to a stable state with <span class="arithmatex">\(u^* \neq 0\)</span>.</p>
+<p>When <span class="arithmatex">\(r\)</span> slowly <strong>decreases</strong> from <span class="arithmatex">\(r &gt; 0\)</span>, the system will remain at the state <span class="arithmatex">\(u^* \neq 0\)</span>. Even when <span class="arithmatex">\(r\)</span> decreases below 0, the system will "stick" to this state, until <span class="arithmatex">\(r\)</span> reaches some negative critical value <span class="arithmatex">\(r_s &lt; 0\)</span>, when the <span class="arithmatex">\(u^* \neq 0\)</span> stable state annihilates, and the system <strong>suddenly jumps back</strong> to the <span class="arithmatex">\(u=0\)</span> state.</p>
+<p>3.<strong>Hysteresis loop</strong>: The <span class="arithmatex">\(r\)</span> value at which the system "jumps up" (<span class="arithmatex">\(r_c\)</span>) differs from the <span class="arithmatex">\(r\)</span> value at which it "jumps back" (<span class="arithmatex">\(r_s\)</span>). The system state depends on its history—this is <strong>hysteresis</strong>. This is precisely the characteristic of first-order phase transitions (like water freezing and ice melting): the freezing point (0°C) and the temperature at which supercooled water suddenly freezes are different.</p>
+<h2 id="44-python-simulation-visualizing-pitchfork-bifurcations">4.4 Python Simulation - Visualizing Pitchfork Bifurcations<a class="headerlink" href="#44-python-simulation-visualizing-pitchfork-bifurcations" title="Permanent link">&para;</a></h2>
+<p>The following code will visualize the bifurcation diagrams and corresponding potential energy landscapes for both supercritical and subcritical (stabilized form) pitchfork bifurcations.
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_pitchfork_bifurcations</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates and displays plots for supercritical and subcritical </span>
+<span class="sd">    pitchfork bifurcations using a dark background.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># --- Use dark background style ---</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+    <span class="c1"># --- Create figure and axes ---</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+    <span class="c1"># --- 1. Supercritical Pitchfork Bifurcation ---</span>
+    <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">r_vals_super</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="c1"># --- ax1: Supercritical Bifurcation Diagram ---</span>
+    <span class="c1"># u* = 0 (Trivial branch)</span>
+    <span class="c1"># Stable for r &lt; 0 (cyan)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable&#39;</span><span class="p">)</span>
+    <span class="c1"># Unstable for r &gt; 0 (magenta)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable&#39;</span><span class="p">)</span>
+
+    <span class="c1"># u* = +/- sqrt(r) (Non-trivial branches)</span>
+    <span class="n">r_positive</span> <span class="o">=</span> <span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">u_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_positive</span><span class="p">)</span>
+    <span class="n">u_minus</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_positive</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_positive</span><span class="p">,</span> <span class="n">u_plus</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_positive</span><span class="p">,</span> <span class="n">u_minus</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Supercritical Pitchfork Diagram&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $r$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Point $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend1</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># --- ax2: Supercritical Potential V(u) = -r/2 * u^2 + 1/4 * u^4 ---</span>
+    <span class="n">u_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">r_cases</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;r = -1 (Single Well)&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">,</span> <span class="s1">&#39;r = 0 (Flat Bottom)&#39;</span><span class="p">),</span> 
+               <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="s1">&#39;r = 2 (Double Well)&#39;</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">r_val</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">r_cases</span><span class="p">:</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r_val</span> <span class="o">*</span> <span class="n">u_range</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u_range</span><span class="o">**</span><span class="mi">4</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Supercritical Potential Landscapes&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;State Variable $u$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Potential $V(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend2</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># --- 2. Subcritical Pitchfork Bifurcation (stabilized) ---</span>
+    <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># --- ax3: Subcritical Bifurcation Diagram ---</span>
+    <span class="c1"># f(u,r) = ru + u^3 - u^5 = 0</span>
+
+    <span class="c1"># Trivial branch: u = 0</span>
+    <span class="c1"># Stable for r &lt; 0 (cyan), Unstable for r &gt; 0 (magenta)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_vals_super</span><span class="p">[</span><span class="n">r_vals_super</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Non-trivial branches: u^4 - u^2 - r = 0 =&gt; u^2 = (1 +/- sqrt(1+4r))/2</span>
+    <span class="c1"># Outer stable branch: u^2 = (1 + sqrt(1+4r))/2 (exists for r &gt; -0.25)</span>
+    <span class="n">r_outer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">u_outer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">r_outer</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_outer</span><span class="p">,</span> <span class="n">u_outer</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_outer</span><span class="p">,</span> <span class="o">-</span><span class="n">u_outer</span><span class="p">,</span> <span class="s1">&#39;c-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="c1"># Inner unstable branch: u^2 = (1 - sqrt(1+4r))/2 (exists for -0.25 &lt; r &lt; 0)</span>
+    <span class="n">r_inner</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">u_inner</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">r_inner</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_inner</span><span class="p">,</span> <span class="n">u_inner</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_inner</span><span class="p">,</span> <span class="o">-</span><span class="n">u_inner</span><span class="p">,</span> <span class="s1">&#39;m--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Subcritical Pitchfork Diagram (Stabilized)&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Control Parameter $r$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fixed Point $u^*$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend3</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Saddle-Node $r_s$&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># --- ax4: Subcritical Potential V(u) = -r/2*u^2 - 1/4*u^4 + 1/6*u^6 ---</span>
+    <span class="n">u_range_sub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="c1"># r_s = -0.25 is where the non-trivial branch is born</span>
+    <span class="n">r_cases_sub</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;r = -0.5 (Bistable)&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;r = -0.25 (Saddle-Node)&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="s1">&#39;r = 0.1 (u=0 Unstable)&#39;</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">r_val</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">r_cases_sub</span><span class="p">:</span>
+        <span class="n">V_sub</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r_val</span> <span class="o">*</span> <span class="n">u_range_sub</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">u_range_sub</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">u_range_sub</span><span class="o">**</span><span class="mi">6</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_range_sub</span><span class="p">,</span> <span class="n">V_sub</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Subcritical Potential Landscapes (Stabilized)&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;State Variable $u$&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Potential $V(u)$&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">legend4</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">legend4</span><span class="o">.</span><span class="n">get_texts</span><span class="p">():</span> <span class="n">text</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Run the simulation ---</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">plot_pitchfork_bifurcations</span><span class="p">()</span>
+</code></pre></div></p>
+<p><img alt="Code Output" src="../../cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png" /></p>
+<p><strong>Upper left panel (Supercritical Bifurcation Diagram)</strong>: Shows a <strong>continuous</strong> phase transition. When <span class="arithmatex">\(r&lt;0\)</span>, the system's only stable state is <span class="arithmatex">\(u=0\)</span> (cyan solid line). At the critical point <span class="arithmatex">\(r=0\)</span>, this <span class="arithmatex">\(u=0\)</span> solution becomes unstable (magenta dashed line), while <strong>continuously</strong> "bifurcating" into two new, symmetric stable solutions (the upper and lower cyan solid lines)—the system smoothly transitions to one of the new states.</p>
+<p><strong>Upper right panel (Supercritical Potential)</strong>: Physically explains the phenomenon in the upper left panel. The potential energy landscape <span class="arithmatex">\(V(u)\)</span> evolves from a <strong>single well</strong> at <span class="arithmatex">\(r&lt;0\)</span> (blue curve, minimum at <span class="arithmatex">\(u=0\)</span>), to a <strong>flat-bottomed well</strong> at <span class="arithmatex">\(r=0\)</span> (orange curve), and finally to a <strong>double well</strong> or "Mexican hat" potential at <span class="arithmatex">\(r&gt;0\)</span> (green curve). The <span class="arithmatex">\(u=0\)</span> position rises from a potential valley bottom (stable) to a potential peak (unstable), forcing the system to "slide" into one of the two newly appearing, symmetric valley bottoms (<span class="arithmatex">\(u \neq 0\)</span>).</p>
+<p><strong>Lower left panel (Subcritical Bifurcation Diagram)</strong>: Shows a <strong>discontinuous</strong> phase transition with <strong>hysteresis</strong> characteristics. The bifurcation diagram shows an "S" shape and a straight line. In a certain region of the <span class="arithmatex">\(r\)</span> axis (<span class="arithmatex">\(r_s &lt; r &lt; 0\)</span>), <strong>bistability</strong> exists: <span class="arithmatex">\(u=0\)</span> is stable (cyan solid line), while two <span class="arithmatex">\(u \neq 0\)</span> outer branches are also stable (cyan solid lines). Therefore, when <span class="arithmatex">\(r\)</span> increases from negative to positive, the system stays at <span class="arithmatex">\(u=0\)</span> until <span class="arithmatex">\(r=0\)</span> before jumping; while when <span class="arithmatex">\(r\)</span> decreases from positive to negative, the system stays on the <span class="arithmatex">\(u \neq 0\)</span> branch until <span class="arithmatex">\(r=r_s=-0.25\)</span> (yellow dashed line, saddle-node bifurcation point) before jumping back to <span class="arithmatex">\(u=0\)</span>, forming a hysteresis loop.</p>
+<p><strong>Lower right panel (Subcritical Potential)</strong>: Shows how the bistability in the lower left panel arises. At <span class="arithmatex">\(r=-0.5\)</span> (blue curve), the potential energy landscape shows <strong>three valleys</strong> (three stable fixed points), with the middle valley (<span class="arithmatex">\(u=0\)</span>) deeper than the two side ones. At <span class="arithmatex">\(r=-0.25\)</span> (yellow curve), the side valleys collide with the middle ridge (unstable fixed point) and annihilate (saddle-node bifurcation). At <span class="arithmatex">\(r&gt;0\)</span> (green curve), <span class="arithmatex">\(u=0\)</span> becomes a peak (unstable), and the system can only exist in the side valleys.</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture explored core concepts of one-dimensional dynamical systems, laying a solid mathematical foundation for understanding more complex self-organization phenomena. Starting from the evolution function <span class="arithmatex">\(f(u, \mu)\)</span>, the lecture identified <strong>fixed points</strong> (<span class="arithmatex">\(f(u^*)=0\)</span>) as the equilibrium states of systems. The core tool <strong>Linear Stability Analysis (LSA)</strong> provides a rigorous mathematical method for determining fixed point stability by calculating the sign of the derivative <span class="arithmatex">\(f'(u^*)\)</span>.</p>
+<p>When the control parameter <span class="arithmatex">\(\mu\)</span> changes, the system undergoes <strong>bifurcation</strong>—a qualitative change in its dynamical behavior. The lecture analyzed in detail two of the most basic types of bifurcations:</p>
+<p>1.<strong>Saddle-Node Bifurcation</strong>: It does not require the system to have symmetry and is the most universal mechanism for the creation and disappearance of equilibrium states in systems, closely related to "tipping points" in the real world.</p>
+<p>2.<strong>Pitchfork Bifurcation</strong>: Its occurrence requires the system to have <span class="arithmatex">\(u \to -u\)</span> reflection symmetry. It perfectly describes the process of <strong>spontaneous symmetry breaking</strong> in physics.</p>
+<p>The following table summarizes the key characteristics of these two main types of bifurcations:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bifurcation Type</th>
+<th style="text-align: left;">Normal Form</th>
+<th style="text-align: left;">Bifurcation Point</th>
+<th style="text-align: left;">Fixed Point Behavior</th>
+<th style="text-align: left;">Symmetry</th>
+<th style="text-align: left;">Physical Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Saddle-Node</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dot{u} = -\mu + u^2\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\mu = 0\)</span></td>
+<td style="text-align: left;">0 for <span class="arithmatex">\(\mu &lt; 0\)</span>; <br> 2 for <span class="arithmatex">\(\mu &gt; 0\)</span> (1 stable, 1 unstable)</td>
+<td style="text-align: left;">No symmetry required</td>
+<td style="text-align: left;">Creation/annihilation of states; tipping points</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Supercritical Pitchfork</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dot{u} = ru - u^3\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(r = 0\)</span></td>
+<td style="text-align: left;">1 stable for <span class="arithmatex">\(r &lt; 0\)</span>; <br> 3 for <span class="arithmatex">\(r &gt; 0\)</span> (2 stable, 1 unstable)</td>
+<td style="text-align: left;">Requires <span class="arithmatex">\(u \to -u\)</span> symmetry</td>
+<td style="text-align: left;"><strong>Second-order phase transition</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subcritical Pitchfork</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dot{u} = ru + u^3 - u^5\)</span> <br> (needs stabilization)</td>
+<td style="text-align: left;"><span class="arithmatex">\(r = 0\)</span></td>
+<td style="text-align: left;">Bistability and <strong>hysteresis</strong> exist</td>
+<td style="text-align: left;">Requires <span class="arithmatex">\(u \to -u\)</span> symmetry</td>
+<td style="text-align: left;"><strong>First-order phase transition</strong></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/03_010_af79bcf3-4fa0-42c4-ba8c-76d85e509682.png" /></p>
+<p>This slide summarizes the connection between pitchfork bifurcations and physical models, particularly Ginzburg–Landau theory.</p>
+<p><strong>Core equation</strong>: <span class="arithmatex">\(\partial_t x = -\partial_x V_{\pm}(x) = rx \mp x^3\)</span>. This clarifies that the dynamics is over-damped motion driven by the potential <span class="arithmatex">\(V(x)\)</span>.</p>
+<p><strong>Supercritical</strong>: Corresponds to <span class="arithmatex">\(V_+(x) = -\frac{r}{2}x^2 + \frac{1}{4}x^4\)</span>.</p>
+<p><strong>Potential <span class="arithmatex">\(V_+\)</span></strong>: When <span class="arithmatex">\(r&gt;0\)</span>, the potential changes from a single well (dashed line) to a double well (solid line), transforming from a minimum to a maximum at <span class="arithmatex">\(u=0\)</span>.</p>
+<p><strong>Bifurcation diagram <span class="arithmatex">\(x^*\)</span> vs. <span class="arithmatex">\(r\)</span></strong>: The stable <span class="arithmatex">\(u=0\)</span> solution becomes unstable at <span class="arithmatex">\(r=0\)</span> (dashed line) and continuously bifurcates into two new stable solutions <span class="arithmatex">\(x^* = \pm\sqrt{r}\)</span> (solid lines). This perfectly corresponds to a second-order phase transition.</p>
+<p><strong>Subcritical</strong>: Corresponds to <span class="arithmatex">\(V_-(x) = -\frac{r}{2}x^2 - \frac{1}{4}x^4\)</span>.</p>
+<p><strong>Potential <span class="arithmatex">\(V_-\)</span></strong>: The potential changes from a minimum at <span class="arithmatex">\(u=0\)</span> when <span class="arithmatex">\(r&lt;0\)</span> (dashed line) to a maximum when <span class="arithmatex">\(r&gt;0\)</span> (solid line), and the potential diverges toward <span class="arithmatex">\(\pm\infty\)</span>.</p>
+<p><strong>Bifurcation diagram <span class="arithmatex">\(x^*\)</span> vs. <span class="arithmatex">\(r\)</span></strong>: The stable <span class="arithmatex">\(u=0\)</span> solution (solid line) becomes unstable at <span class="arithmatex">\(r=0\)</span> (dashed line), while the two newly bifurcated solutions <span class="arithmatex">\(x^* = \pm\sqrt{-r}\)</span> (dashed lines) are <strong>unstable</strong> when <span class="arithmatex">\(r&lt;0\)</span>.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../cn/assets/images/03_011_c501af70-026e-4064-9e86-f4c6aa435740.png" /></p>
+<p>The simple subcritical model <span class="arithmatex">\(\dot{u} = ru + u^3\)</span> is physically incomplete because it causes the system to "explode." This slide shows how to solve this problem by introducing higher-order stabilizing terms—this is precisely the potential form for first-order phase transitions.</p>
+<p><strong>Stabilized potential</strong>: <span class="arithmatex">\(V(x) = -\frac{r}{2}x^2 - \frac{u}{4}x^4 + \frac{v}{6}x^6\)</span>. Here the <span class="arithmatex">\(+x^6\)</span> term (where <span class="arithmatex">\(v&gt;0\)</span>) ensures that when <span class="arithmatex">\(x\)</span> is large, the potential <span class="arithmatex">\(V(x)\)</span> eventually rises, thus bounding the system state.</p>
+<p><strong>Potential evolution</strong>: The evolution of this potential energy landscape as <span class="arithmatex">\(r\)</span> decreases from positive values (such as <span class="arithmatex">\(r_{c,1}\)</span>) to negative values (red curve).</p>
+<p>When <span class="arithmatex">\(r\)</span> is large (<span class="arithmatex">\(r &gt; r_{c,3}=0\)</span>), the system has only one stable state at <span class="arithmatex">\(x=0\)</span> (green curve).</p>
+<p>When <span class="arithmatex">\(r\)</span> decreases to 0 and becomes negative, the potential energy landscape gradually forms two new, symmetric "valleys" outside <span class="arithmatex">\(x=0\)</span> (blue, black curves).</p>
+<p>At this point, the system exhibits <strong>three stable fixed points</strong> (<span class="arithmatex">\(x=0\)</span> and two <span class="arithmatex">\(x \neq 0\)</span> points), forming a <strong>bistability</strong> region.</p>
+<p>When <span class="arithmatex">\(r\)</span> further decreases to <span class="arithmatex">\(r_{c,2}\)</span>, the three valleys are equally deep. When <span class="arithmatex">\(r\)</span> becomes more negative (red curve), the side valleys become the global lowest energy states.</p>
+<p><strong>Physical connection</strong>: This triple-well structure (<span class="arithmatex">\(V(x)\)</span>) is the source of the "S"-shaped bifurcation curve in the subcritical bifurcation diagram (<span class="arithmatex">\(u^*\)</span> vs. <span class="arithmatex">\(r\)</span>)—it is the fundamental cause of <strong>discontinuous jumps</strong> and <strong>hysteresis</strong>, perfectly corresponding to first-order phase transitions.</p>
+<p>So far, the analysis in this lecture has focused on the simplest bifurcations with only one control parameter (<span class="arithmatex">\(\mu\)</span> or <span class="arithmatex">\(r\)</span>). The next lecture will naturally continue and extend these concepts, exploring more complex bifurcations controlled by <strong>multiple parameters</strong>, as well as the applications of these bifurcations in real models:</p>
+<p><strong>Cusp Bifurcation</strong>: This is a direct extension of subcritical bifurcation. It will study how the "S"-shaped curve of subcritical bifurcation evolves into a "cusp" surface when a <strong>second control parameter</strong> is introduced (e.g., an external field <span class="arithmatex">\(h\)</span> that makes the potential <span class="arithmatex">\(V(x)\)</span> asymmetric).</p>
+<p><strong>Hysteresis</strong>: Will explore in depth the hysteresis loops caused by cusp bifurcation and subcritical bifurcation—this is a typical nonlinear phenomenon where the system state depends on its historical path.</p>
+<p><strong>Transcritical Bifurcation</strong>: Will introduce another common type of bifurcation in which two fixed points collide and "exchange" their stability—this is crucial in biological models (such as <strong>Infection Models</strong>).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1465 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Course Notes and Code (Erwin Frey, LMU Munich, Winter 2025/2026)">
+      
+      
+        <meta name="author" content="Zhihang Liu">
+      
+      
+        <link rel="canonical" href="https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Introduction - Self-Organization and Pattern Formation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/video.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-header__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Self-Organization and Pattern Formation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Self-Organization and Pattern Formation" class="md-nav__button md-logo" aria-label="Self-Organization and Pattern Formation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Self-Organization and Pattern Formation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    课程笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/1.%E8%87%AA%E7%BB%84%E7%BB%87%EF%BC%9A%E4%BB%8E%E9%B8%9F%E7%BE%A4%E5%88%B0%E6%B4%BB%E7%BB%86%E8%83%9E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 自组织：从鸟群到活细胞
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/2.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BB%8E%E7%89%A9%E7%90%86%E7%9B%B8%E5%8F%98%E5%88%B0%E6%BC%94%E5%8C%96%E5%8D%9A%E5%BC%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 动力系统：从物理相变到演化博弈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/3.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%B8%8D%E5%8A%A8%E7%82%B9%E3%80%81%E9%9E%8D%E7%82%B9%E5%92%8C%E5%8F%89%E5%BD%A2%E5%88%86%E5%B2%94%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 动力系统：不动点、鞍点和叉形分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/4.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%B0%96%E7%82%B9%E5%88%86%E5%B2%94%E3%80%81%E6%84%9F%E6%9F%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%B7%A8%E4%B8%B4%E7%95%8C%E5%88%86%E5%B2%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 动力系统：尖点分岔、感染模型与跨临界分岔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/5.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E8%B4%A8%E9%87%8F%E5%AE%88%E6%81%92%E7%B3%BB%E7%BB%9F%E4%B8%8E%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 动力系统：二维质量守恒系统与雅可比矩阵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/6.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E4%BA%8C%E7%BB%B4%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8C%AF%E8%8D%A1%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 动力系统：二维非保守系统与振荡器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/7.%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%BA%9E%E5%8A%A0%E8%8E%B1-%E6%9C%AC%E8%BF%AA%E5%85%8B%E6%9D%BE%E5%AE%9A%E7%90%86%E3%80%81RhoGTPase%E6%8C%AF%E8%8D%A1%E5%99%A8%E4%B8%8E%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/8.%20%E5%8A%A8%E5%8A%9B%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%A4%8D%E5%88%B6%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%89%A9%E5%B1%95%E2%80%94%E2%80%94%E6%9D%8E%E9%9B%85%E6%99%AE%E8%AF%BA%E5%A4%AB%E5%87%BD%E6%95%B0%E3%80%81%E7%8E%BB%E8%89%B2%E5%AD%90%E5%87%9D%E8%81%9A%E4%B8%8E%E6%89%A9%E6%95%A3%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 动力系统：复制子动力学与空间扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/9.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AGinzburg-Landau%E7%90%86%E8%AE%BA%E4%B8%8EAllen-Cahn%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/10.%E5%BC%9B%E8%B1%AB%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9A%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%B8%8E%E6%9B%B2%E7%8E%87%E9%A9%B1%E5%8A%A8%E6%B5%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 弛豫动力学：界面动力学与曲率驱动流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/11.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E4%B8%AD%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%9B%B8%E5%88%86%E7%A6%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 液态混合物中的热力学与相分离
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/12.%E6%B6%B2%E6%80%81%E6%B7%B7%E5%90%88%E7%89%A9%E5%8A%A8%E5%8A%9B%E5%AD%A6%E3%80%81%E6%B8%97%E9%80%8F%E5%8E%8B%E4%B8%8ECahn-Hilliard%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 液态混合物动力学、渗透压与Cahn-Hilliard方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/13.%E6%99%B6%E6%A0%BC%E6%B0%94%E4%BD%93%E6%A8%A1%E5%9E%8B%E4%B8%8E%E8%87%AA%E7%94%B1%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 晶格气体模型与自由能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/14.%E7%9B%B8%E5%88%86%E7%A6%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 相分离动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cn/15.%E6%88%90%E6%A0%B8%E7%90%86%E8%AE%BA%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 成核理论与界面动力学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>The previous lectures systematically explored the world of one-dimensional dynamical systems. Starting from <strong>Lecture 2</strong> with Ginzburg–Landau theory from physics and evolutionary game theory from biology, we revealed that complex phenomena can be reduced to low-dimensional nonlinear dynamical problems. The subsequent <strong>Lecture 3</strong> and <strong>Lecture 4</strong> deeply analyzed fixed points, stability (linear stability analysis), and how systems undergo qualitative changes through fundamental bifurcations (such as saddle-node, pitchfork, cusp, and transcritical bifurcations) when control parameters vary. These one-dimensional models provide a solid foundation for understanding state transitions.</p>
+<p>However, self-organization phenomena in nature, especially in biology, have complexity far beyond what one-dimensional models can describe. These systems typically involve multiple interacting components, and their dynamical behavior is strictly constrained by fundamental physical laws. This lecture will extend from one-dimensional systems to two-dimensional systems and introduce a crucial physical constraint—the <strong>mass conservation law</strong>. This constraint not only makes the model closer to biological reality but also fundamentally changes the dynamical characteristics and analysis methods of the system.</p>
+<p>This lecture will use the establishment of <strong>cell polarity</strong> as the entry point to this core biological problem. Cell polarity refers to the process by which substances inside a cell are unevenly distributed, thereby forming a specific functional axis (such as yeast budding). Behind this is the dynamic shuttling and interaction of proteins between the cytoplasm (a three-dimensional bulk) and the cell membrane (a two-dimensional surface). We will construct a two-dimensional dynamical model describing this process and first analyze its steady-state behavior under the "well-mixed" (i.e., ignoring spatial distribution) assumption. Through in-depth analysis of this system, we will master nullcline analysis in two-dimensional systems, bifurcation diagram construction, and how to use the <strong>Jacobian Matrix</strong> for rigorous linear stability analysis. This is not only a direct extension of the one-dimensional stability analysis from the first four lectures but will also reveal how the mass conservation constraint (<span class="arithmatex">\(m+c=n\)</span>) fundamentally simplifies system dynamics (e.g., by introducing a zero eigenvalue).</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/05_001_693263ab-5e80-458c-ae68-cebebc75dad3.png" /></p>
+<p>Understanding mass-conserving systems in this lecture lays the theoretical foundation for introducing spatial dimensions in subsequent lectures and exploring spatiotemporal self-organization patterns such as <strong>Turing Patterns</strong>. At the same time, this lecture's analysis of conserving systems will form a sharp contrast with the <strong>next lecture</strong>, which studies open systems that do not satisfy mass conservation (such as biological clocks) and their resulting <strong>Oscillation</strong> behavior (such as Hopf Bifurcation).</p>
+<h1 id="1-conceptual-model-from-cell-polarity-to-mass-conserving-systems">1. Conceptual Model - From Cell Polarity to Mass-Conserving Systems<a class="headerlink" href="#1-conceptual-model-from-cell-polarity-to-mass-conserving-systems" title="Permanent link">&para;</a></h1>
+<p>In <strong>Lecture 4</strong>, through analyzing the "contact process" (an epidemic model), we explored transcritical bifurcation. This lecture will show how this seemingly abstract infection model corresponds to a core biophysical problem: the establishment of <strong>cell polarity</strong>. This analogy will naturally lead to a two-dimensional dynamical system and introduce a crucial physical constraint—<strong>mass conservation</strong>.</p>
+<h2 id="11-biological-background-from-infection-to-protein-recruitment">1.1 Biological Background - From "Infection" to "Protein Recruitment"<a class="headerlink" href="#11-biological-background-from-infection-to-protein-recruitment" title="Permanent link">&para;</a></h2>
+<p>First, let's construct a conceptual model. The starting point of this lecture is a specific biological problem: <strong>Cell Polarity</strong>. A typical example is the budding reproduction of yeast. How does a cell "know" where to form a "bud" at a specific location? This requires the cell to break its own symmetry and highly concentrate specific proteins (such as Cdc42) at a certain point on the membrane. This point will subsequently organize actin cables, pushing the cell membrane to grow outward and form a new daughter cell.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_002_0c230d70-c7cc-40c9-b6ec-4c0fbf1d96dc.png" /></p>
+<p>However, the real biochemical network that achieves this function is extremely complex. It involves multiple proteins (such as Cdc42, Bem1, GEFs, GAPs, etc.) cycling between active and inactive states, and their shuttling between the cytoplasm and cell membrane.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_003_bfed46f7-3c27-47d3-a2ee-3fbac4cd5e55.png" /></p>
+<p>Facing such a complex network, the task of theoretical physicists is not to reproduce every detail but to build a <strong>Conceptual Model</strong> that captures the core principles governing system behavior. Therefore, we simplify this complex system to contain only one "protagonist": a protein that can switch between two states.</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_004_7c257b04-e735-4bf8-8913-180b7a0fda1d.png" /></p>
+<p>These two states are:</p>
+<p><strong><span class="arithmatex">\(c(t)\)</span>:</strong> The concentration of protein freely diffusing in the Cytosol.</p>
+<p><strong><span class="arithmatex">\(m(t)\)</span>:</strong> The concentration (or density) of protein attached to the Membrane.</p>
+<p>These two quantities constitute the state variables of a two-dimensional dynamical system. The conversion process between them forms a correspondence with the infection model from <strong>Lecture 4</strong>:</p>
+<p>1.<strong>Detachment</strong>: Proteins on the membrane <span class="arithmatex">\(m\)</span> will spontaneously detach and return to the cytoplasm <span class="arithmatex">\(c\)</span>. This is mathematically equivalent to the "<strong>Recovery</strong>" of infected individuals (<span class="arithmatex">\(M \xrightarrow{\delta} C\)</span>).</p>
+<p>2.<strong>Attachment</strong>: Proteins in the cytoplasm <span class="arithmatex">\(c\)</span> will attach to the membrane.</p>
+<p>3.<strong>Recruitment</strong>: Crucially, this attachment process is regulated by <strong>positive feedback</strong>. Proteins <span class="arithmatex">\(m\)</span> already "settled" on the membrane will "recruit" more <span class="arithmatex">\(c\)</span> to their vicinity. This "<strong>Recruitment</strong>" process (<span class="arithmatex">\(m + c \rightarrow m + m\)</span>) is dynamically identical to the "<strong>Infection</strong>" process of viruses (<span class="arithmatex">\(M + C \xrightarrow{\lambda} M + M\)</span>).</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/05_005_d7785f36-8119-4174-ba32-94b6c1da7fc2.png" /></p>
+<p>This positive feedback-driven protein aggregation is the physical basis for cells to establish polarity.</p>
+<h2 id="12-mass-conservation-law-a-key-physical-constraint">1.2 Mass Conservation Law - A Key Physical Constraint<a class="headerlink" href="#12-mass-conservation-law-a-key-physical-constraint" title="Permanent link">&para;</a></h2>
+<p>In the above model, proteins only shuttle back and forth between the cytoplasm and cell membrane compartments—they are neither created out of nothing nor destroyed. This means that at any moment, the total amount <span class="arithmatex">\(n\)</span> of this protein in the system is constant.</p>
+<p>This fundamental physical constraint is called the <strong>Mass Conservation Law</strong>. Mathematically, it manifests as an algebraic constraint:</p>
+<div class="arithmatex">\[
+m(t) + c(t) = n
+\]</div>
+<p>This conservation law has profound significance at two levels:</p>
+<p>1.<strong>Dynamical constraint</strong>: It reduces the degrees of freedom of a two-dimensional system (<span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(c\)</span>) to one dimension. Once <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(n\)</span> are known, the value of <span class="arithmatex">\(c\)</span> is immediately determined as <span class="arithmatex">\(c = n - m\)</span>.</p>
+<p>2.<strong>Control parameter</strong>: Biologically, cells can change the total protein amount <span class="arithmatex">\(n\)</span> by regulating gene expression (i.e., protein production rate). Therefore, <span class="arithmatex">\(n\)</span> is not just a constant—it is a key <strong>control parameter</strong>. By changing <span class="arithmatex">\(n\)</span>, cells can drive the system across <strong>bifurcation points</strong>, achieving (for example) a "switch" from uniform distribution to polarized state. This is the key connection between dynamical systems theory and biological function.</p>
+<h2 id="13-reaction-diffusion-framework">1.3 Reaction-Diffusion Framework<a class="headerlink" href="#13-reaction-diffusion-framework" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_006_6ead1d41-e7f7-48a1-97c5-a20183faae99.png" /></p>
+<p>To more comprehensively describe this system, we need to consider two types of physical processes: local biochemical reactions (attachment/detachment) and spatial diffusion. In 1952, Alan Turing proposed a general framework for describing such systems in his pioneering paper—the <strong>Reaction-Diffusion Equations</strong>.</p>
+<p>For a two-component system, its most general form is:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t m &amp;= f(m,c) + D_m \nabla^2 m \\
+\partial_t c &amp;= g(m,c) + D_c \nabla^2 c
+\end{aligned}
+\]</div>
+<p>The meaning of each part is as follows:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\partial_t m\)</span> and <span class="arithmatex">\(\partial_t c\)</span>: The time rate of change of membrane protein and cytoplasmic protein concentrations.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f(m,c)\)</span> and <span class="arithmatex">\(g(m,c)\)</span>: <strong>Reaction terms</strong>. In Turing's original model (<span class="arithmatex">\(f\)</span> and <span class="arithmatex">\(g\)</span> are independent of each other), these usually represent production and degradation of substances.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(D_m \nabla^2 m\)</span> and <span class="arithmatex">\(D_c \nabla^2 c\)</span>: <strong>Diffusion terms</strong>. <span class="arithmatex">\(D\)</span> is the diffusion coefficient, and <span class="arithmatex">\(\nabla^2\)</span> (the Laplacian operator) describes the net flow of substances from high-concentration regions to low-concentration regions.</p>
+</li>
+</ul>
+<p>Now, let's apply the <strong>mass conservation constraint</strong> from Section 1.2 to this framework. Since proteins only switch between the <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(c\)</span> states (<span class="arithmatex">\(c \leftrightarrow m\)</span>), any local "reaction" (attachment) that causes <span class="arithmatex">\(m\)</span> to increase by one unit must simultaneously cause <span class="arithmatex">\(c\)</span> to decrease by one unit. Therefore, the reaction terms <span class="arithmatex">\(f\)</span> and <span class="arithmatex">\(g\)</span> must strictly satisfy:</p>
+<div class="arithmatex">\[
+g(m,c) = -f(m,c)
+\]</div>
+<p>This negative sign is the core characteristic of mass-conserving systems. It transforms the equation system into:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\partial_t m &amp;= f(m,c) + D_m \nabla^2 m \\
+\partial_t c &amp;= -f(m,c) + D_c \nabla^2 c
+\end{aligned}
+\]</div>
+<p>This is fundamentally different from non-conserving Turing systems (where <span class="arithmatex">\(f, g\)</span> are independent) and will lead to fundamentally different dynamical behavior.</p>
+<p><strong>Analysis path for this lecture:</strong>
+Before introducing space (diffusion terms) and exploring complex <strong>Turing patterns</strong>, we must first understand the system's basic reaction dynamics. Therefore, this lecture will temporarily ignore spatial dimensions, i.e., assume the system is "<strong>well-mixed</strong>." This is equivalent to setting diffusion coefficients to zero (<span class="arithmatex">\(D_m = D_c = 0\)</span>), thereby simplifying complex partial differential equations (PDEs) into ordinary differential equations (ODEs). Analysis of this zero-dimensional system (fixed points, stability, bifurcations) is a necessary prerequisite for understanding subsequent spatiotemporal pattern formation.</p>
+<h1 id="2-reaction-dynamics-and-model-nondimensionalization">2. Reaction Dynamics and Model Nondimensionalization<a class="headerlink" href="#2-reaction-dynamics-and-model-nondimensionalization" title="Permanent link">&para;</a></h1>
+<p>In Section 1, we have simplified the complex cell polarity problem into a two-component (<span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(c\)</span>) conceptual model, with the core being the mass conservation law <span class="arithmatex">\(g(m,c) = -f(m,c)\)</span>. Now, the task is to construct a specific mathematical form for this "reaction term" <span class="arithmatex">\(f(m,c)\)</span> that reflects biological mechanisms (especially the "recruitment"/positive feedback mentioned in Section 1).</p>
+<h2 id="21-constructing-the-reaction-term-fmc">2.1 Constructing the Reaction Term <span class="arithmatex">\(f(m,c)\)</span><a class="headerlink" href="#21-constructing-the-reaction-term-fmc" title="Permanent link">&para;</a></h2>
+<p>The reaction term <span class="arithmatex">\(f(m,c)\)</span> represents the net growth rate of membrane protein <span class="arithmatex">\(m\)</span>. It can be decomposed into two competing processes: attachment (<span class="arithmatex">\(c \to m\)</span>) and detachment (<span class="arithmatex">\(m \to c\)</span>).</p>
+<div class="arithmatex">\[
+f(m, c) = \text{Attachment rate} - \text{Detachment rate}
+\]</div>
+<p>These two rates can be modeled as:</p>
+<p><strong>Attachment rate <span class="arithmatex">\(a(m)c\)</span></strong>: The rate at which proteins attach from the cytoplasm to the membrane should be proportional to the available protein concentration <span class="arithmatex">\(c\)</span> in the cytoplasm. The attachment rate coefficient <span class="arithmatex">\(a(m)\)</span> itself can depend on the membrane protein concentration <span class="arithmatex">\(m\)</span> (i.e., positive feedback).</p>
+<p><strong>Detachment rate <span class="arithmatex">\(d(m)m\)</span></strong>: The rate at which proteins detach from the membrane back to the cytoplasm should be proportional to the protein concentration <span class="arithmatex">\(m\)</span> already on the membrane.</p>
+<p>Therefore, the general form of the dynamical equation is:</p>
+<div class="arithmatex">\[
+f(m, c) = a(m)c - d(m)m
+\]</div>
+<p>The key to cell polarity formation is a <strong>positive feedback</strong> mechanism: proteins <span class="arithmatex">\(m\)</span> already attached to the membrane can promote ("recruit") more <span class="arithmatex">\(c\)</span> to attach to the membrane. To reflect this in the model, we introduce a nonlinear form for the attachment rate coefficient <span class="arithmatex">\(a(m)\)</span>:</p>
+<div class="arithmatex">\[
+a(m) = k_{\text{on}} + k_{\text{fb}} \frac{m^2}{K_d^2 + m^2}
+\]</div>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/05_007_ab6fe5b6-e2b5-433a-a4ac-8672322673c4.jpg" /></p>
+<p>The physical meaning of each term is:</p>
+<p><strong><span class="arithmatex">\(k_{\text{on}}\)</span></strong>: <strong>Basal attachment rate</strong> constant. This represents the spontaneous attachment process that occurs even when there is no protein on the membrane (<span class="arithmatex">\(m=0\)</span>).</p>
+<p><strong><span class="arithmatex">\(k_{\text{fb}} \frac{m^2}{K_d^2 + m^2}\)</span></strong>: <strong>Positive feedback (recruitment) term</strong>. This is a <strong>second-order Hill function</strong> describing a cooperative effect:</p>
+<ul>
+<li>
+<p><strong><span class="arithmatex">\(m^2\)</span> (second order)</strong>: Implies that at least two membrane protein molecules must act cooperatively to effectively recruit new proteins. This causes this term to grow slowly (quadratically) when <span class="arithmatex">\(m\)</span> is small.</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(K_d\)</span> (half-maximal effect concentration)</strong>: Defines the concentration scale at which feedback begins to "saturate."</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(k_{\text{fb}}\)</span> (maximum feedback rate)</strong>: When membrane protein concentration is very high (<span class="arithmatex">\(m \gg K_d\)</span>), this term approaches a maximum value <span class="arithmatex">\(k_{\text{fb}}\)</span>. This reflects the physical limits of chemical reactions.</p>
+</li>
+</ul>
+<p>To simplify the model, we assume the detachment rate is constant, i.e., <span class="arithmatex">\(d(m) = k_{\text{off}}\)</span>. Combining all these terms, we obtain the complete reaction dynamics equation with physical dimensions:</p>
+<div class="arithmatex">\[
+f(m, c) = \left(k_{\text{on}} + k_{\text{fb}} \frac{m^2}{K_d^2 + m^2} \right) c - k_{\text{off}} m
+\]</div>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_008_3b4a9b87-bd53-4f93-9260-f845cb2ce5c0.png" /></p>
+<h2 id="22-nondimensionalization">2.2 Nondimensionalization<a class="headerlink" href="#22-nondimensionalization" title="Permanent link">&para;</a></h2>
+<p>This equation contains four rate parameters (<span class="arithmatex">\(k_{\text{on}}, k_{\text{fb}}, K_d, k_{\text{off}}\)</span>), plus a total concentration <span class="arithmatex">\(n\)</span>, making analysis complex. In theoretical physics, a powerful technique is <strong>nondimensionalization</strong>, which redefines units for time, concentration, and other variables to reduce the number of independent parameters in the model, thereby revealing the system's most essential control parameters.</p>
+<p>We take the following steps for nondimensionalization:</p>
+<p>1.<strong>Rescale time</strong>: Choose the time unit as the average detachment time <span class="arithmatex">\(k_{\text{off}}^{-1}\)</span>. Define the new dimensionless time <span class="arithmatex">\(\tau = t \cdot k_{\text{off}}\)</span>. This is equivalent to dividing both sides of the entire dynamical equation <span class="arithmatex">\(\partial_t m = f(m,c)\)</span> by <span class="arithmatex">\(k_{\text{off}}\)</span>. The original equation becomes:</p>
+<div class="arithmatex">\[
+\partial_{\tau} m = \left(\frac{k_{\text{on}}}{k_{\text{off}}} + \frac{k_{\text{fb}}}{k_{\text{off}}} \frac{m^2}{K_d^2 + m^2} \right) c - m
+\]</div>
+<p>2.<strong>Rescale concentration</strong>: Choose the concentration unit as the half-maximal effect concentration <span class="arithmatex">\(K_d\)</span>. Define new dimensionless concentrations <span class="arithmatex">\(\tilde{m} = m/K_d\)</span> and <span class="arithmatex">\(\tilde{c} = c/K_d\)</span> (thus <span class="arithmatex">\(m = K_d \tilde{m}, c = K_d \tilde{c}\)</span>). Substituting into the above:</p>
+<div class="arithmatex">\[
+\partial_{\tau} (K_d \tilde{m}) = \left(\frac{k_{\text{on}}}{k_{\text{off}}} + \frac{k_{\text{fb}}}{k_{\text{off}}} \frac{(K_d \tilde{m})^2}{K_d^2 + (K_d \tilde{m})^2} \right) (K_d \tilde{c}) - (K_d \tilde{m})
+\]</div>
+<p>Factoring out <span class="arithmatex">\(K_d^2\)</span> from the denominator and canceling the common factor <span class="arithmatex">\(K_d\)</span>:</p>
+<div class="arithmatex">\[
+\partial_{\tau} \tilde{m} = \left(\frac{k_{\text{on}}}{k_{\text{off}}} + \frac{k_{\text{fb}}}{k_{\text{off}}} \frac{\tilde{m}^2}{1 + \tilde{m}^2} \right) \tilde{c} - \tilde{m}
+\]</div>
+<p>3.<strong>Define dimensionless parameters and simplify</strong>:
+For brevity, we will continue using <span class="arithmatex">\(m, c, t\)</span> to denote the dimensionless quantities.</p>
+<p>The above transformation produces two dimensionless parameter combinations:</p>
+<p><span class="arithmatex">\(\kappa = \frac{k_{\text{on}}}{k_{\text{off}}}\)</span>: The ratio of basal attachment rate to detachment rate.</p>
+<p><span class="arithmatex">\(\kappa_{\text{fb}} = \frac{k_{\text{fb}}}{k_{\text{off}}}\)</span>: The ratio of maximum feedback rate to detachment rate.</p>
+<p>For further simplification, this lecture will make a <strong>choice</strong>: only study the case where <span class="arithmatex">\(\kappa_{\text{fb}} = 1\)</span>. This is equivalent to fixing the feedback strength and specifically studying the effect of the basal attachment rate <span class="arithmatex">\(\kappa\)</span>.</p>
+<p>After nondimensionalization and simplification, the reaction term finally becomes a concise form containing only a single parameter <span class="arithmatex">\(\kappa\)</span>:</p>
+<div class="arithmatex">\[
+f(m, c) = \left(\kappa + \frac{m^2}{1 + m^2}\right) c - m
+\]</div>
+<p>Nondimensionalization is not just mathematical simplification—it reveals a profound physical fact: the qualitative behavior of this complex system (for example, whether there is only one steady state or multiple steady states) is essentially determined by only <strong>two</strong> control parameters:</p>
+<p><strong><span class="arithmatex">\(\kappa\)</span></strong> (the ratio of basal attachment to detachment rates).</p>
+<p><strong><span class="arithmatex">\(n\)</span></strong> (the dimensionless total protein concentration).</p>
+<p>This greatly simplifies the exploration of system behavior, which is the bifurcation analysis in the next section.</p>
+<h1 id="3-zero-dimensional-system-analysis-fixed-points-and-bifurcations">3. Zero-Dimensional System Analysis - Fixed Points and Bifurcations<a class="headerlink" href="#3-zero-dimensional-system-analysis-fixed-points-and-bifurcations" title="Permanent link">&para;</a></h1>
+<p>Section 2, through constructing reaction terms and performing nondimensionalization, ultimately simplified the complex biological model into a set of dynamical equations. This lecture will begin analyzing the steady-state behavior of this zero-dimensional (i.e., "well-mixed") system. Its dynamics is described by the following system of equations:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{d}{dt}m &amp;= f(m, c) \\
+\frac{d}{dt}c &amp;= -f(m, c)
+\end{aligned}
+\]</div>
+<p>simultaneously satisfying the constraint <span class="arithmatex">\(m + c = n\)</span>.</p>
+<h2 id="31-nullcline-analysis">3.1 Nullcline Analysis<a class="headerlink" href="#31-nullcline-analysis" title="Permanent link">&para;</a></h2>
+<p>The condition for the system to reach an equilibrium state (i.e., <strong>fixed point</strong>) is that the time derivatives of all variables are zero. For this system, this means <span class="arithmatex">\(\frac{d}{dt}m = 0\)</span> and <span class="arithmatex">\(\frac{d}{dt}c = 0\)</span>, which simplify to the same requirement: <span class="arithmatex">\(f(m,c) = 0\)</span>.</p>
+<p>In the <span class="arithmatex">\((m,c)\)</span> phase space, the set of all points satisfying <span class="arithmatex">\(f(m,c) = 0\)</span> is called the <strong>Nullcline</strong>. This line represents all <strong>possible</strong> equilibrium points of the system (i.e., points where the reaction dynamics itself reaches equilibrium without the mass conservation constraint).</p>
+<p>According to the derivation in Section 2 (but keeping <span class="arithmatex">\(\kappa_{fb}\)</span> as an independent parameter), the nullcline equation corresponding to <span class="arithmatex">\(f(m,c)=0\)</span> is:</p>
+<div class="arithmatex">\[
+c^{*}(m) = \frac{m}{\kappa + \kappa_{fb} \frac{m^2}{1 + m^2}}
+\]</div>
+<p>The nonlinear characteristics of this function <span class="arithmatex">\(c^*(m)\)</span> are key to understanding system behavior.</p>
+<ul>
+<li>
+<p>As <span class="arithmatex">\(m \to 0\)</span>, the denominator <span class="arithmatex">\(\approx \kappa\)</span>, so <span class="arithmatex">\(c^* \approx m/\kappa\)</span> (linear growth).</p>
+</li>
+<li>
+<p>As <span class="arithmatex">\(m \to \infty\)</span>, <span class="arithmatex">\(\frac{m^2}{1 + m^2} \to 1\)</span>, the denominator <span class="arithmatex">\(\approx \kappa + \kappa_{fb}\)</span>, so <span class="arithmatex">\(c^* \approx m/(\kappa + \kappa_{fb})\)</span> (also linear growth, but with smaller slope).</p>
+</li>
+<li>
+<p><strong>The key point</strong>: The parameter <span class="arithmatex">\(\kappa_{fb}\)</span> controls the strength of positive feedback. Only when positive feedback is strong enough (i.e., <span class="arithmatex">\(\kappa_{fb}\)</span> is large enough, mathematically <span class="arithmatex">\(\kappa_{fb} &gt; 8\kappa\)</span>) will the cooperative effect in the intermediate region cause the curve to bulge, forming a "hump," thus giving the entire curve the characteristic "S" shape (or "N" shape as the professor calls it).</p>
+</li>
+</ul>
+<h2 id="32-graphical-method-for-finding-fixed-points-and-bifurcations">3.2 Graphical Method for Finding Fixed Points and Bifurcations<a class="headerlink" href="#32-graphical-method-for-finding-fixed-points-and-bifurcations" title="Permanent link">&para;</a></h2>
+<p>The nullcline <span class="arithmatex">\(c = c^*(m)\)</span> provides all possible equilibrium points of the system. However, in a specific system with mass conservation, not all these points can be accessed. The system must also satisfy the <strong>mass conservation constraint</strong> introduced in Section 1.2:</p>
+<div class="arithmatex">\[
+c = n - m
+\]</div>
+<p>Therefore, the <strong>true fixed points</strong> of the system at a given total concentration <span class="arithmatex">\(n\)</span> must <strong>simultaneously satisfy</strong> both conditions.</p>
+<p>In the <span class="arithmatex">\((m,c)\)</span> phase space, this is geometrically interpreted as the <strong>intersection</strong> of two curves:</p>
+<p>1.<strong>S-shaped nullcline</strong>: <span class="arithmatex">\(c = c^{*}(m)\)</span> (equilibrium of reaction)</p>
+<p>2.<strong>Conservation line</strong>: <span class="arithmatex">\(c = n - m\)</span> (constraint of mass)</p>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_009_77f56c87-7552-4e60-95bc-b55d4e79eabb.png" /></p>
+<p>This graphical method provides an extremely intuitive way to understand system behavior. The conservation line <span class="arithmatex">\(c = n - m\)</span> has a fixed slope of -1, and its intercept on the <span class="arithmatex">\(c\)</span>-axis is exactly the control parameter <span class="arithmatex">\(n\)</span>. Therefore, changing the total protein concentration <span class="arithmatex">\(n\)</span> (for example, by changing gene expression) is equivalent to <strong>translating this line with slope -1 up or down in parallel</strong> in phase space.</p>
+<p>By observing changes in intersections, we can clearly see bifurcations occurring:</p>
+<ul>
+<li>
+<p>When <span class="arithmatex">\(n\)</span> is very small (like <span class="arithmatex">\(n_1\)</span>) or very large (like <span class="arithmatex">\(n_3\)</span>), the line has <strong>only one intersection</strong> with the S-shaped curve. This means the system has only one unique steady state and is <strong>monostable</strong>.</p>
+</li>
+<li>
+<p>When <span class="arithmatex">\(n\)</span> is in some intermediate range (like <span class="arithmatex">\(n_2\)</span>), the line has <strong>three intersections</strong> with the S-shaped curve. This means the system has three possible steady states and is <strong>bistable</strong> (Section 4 will prove that the middle point is unstable).</p>
+</li>
+<li>
+<p>As <span class="arithmatex">\(n\)</span> changes continuously, the number of fixed points changes from 1 to 3, and then back to 1. This qualitative change in the number and nature of fixed points is a <strong>bifurcation</strong>.</p>
+</li>
+<li>
+<p>Specifically, when transitioning from monostable "into" the bistable region (and when "leaving"), the conservation line becomes <strong>tangent</strong> to the "knee" of the nullcline. At this point, two fixed points (one stable, one unstable) collide and annihilate. This type of bifurcation is precisely the <strong>Saddle-Node Bifurcation</strong> discussed in detail in <strong>Lecture 3</strong>.</p>
+</li>
+</ul>
+<p>By systematically changing <span class="arithmatex">\(n\)</span> and recording all steady-state concentration values (<span class="arithmatex">\(m^*\)</span> or <span class="arithmatex">\(c^*\)</span>) corresponding to intersections, we can construct the system's <strong>Bifurcation Diagram</strong>. This diagram uses the control parameter <span class="arithmatex">\(n\)</span> as the horizontal axis and steady-state concentration (such as <span class="arithmatex">\(c^*\)</span>) as the vertical axis, clearly showing the classic S-shaped bistability curve—a core tool for understanding how the system "switches."</p>
+<h2 id="33-python-simulation">3.3 Python Simulation<a class="headerlink" href="#33-python-simulation" title="Permanent link">&para;</a></h2>
+<p>The following Python code practice section reproduces the above theoretical analysis using the parameter set kappa = 0.02 and k_fb = 1.6.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">k_fb</span>  <span class="o">=</span> <span class="mf">1.6</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">kappa</span> <span class="o">+</span> <span class="n">k_fb</span> <span class="o">*</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ap</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">k_fb</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">m</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span> <span class="o">-</span> <span class="n">m</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">c_nullcline</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">/</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ap</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sn_m_values</span><span class="p">(</span><span class="n">m_min</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5000</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">m_min</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">H</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">f_lo</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">-</span> <span class="n">lo</span>
+        <span class="n">f_hi</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">hi</span><span class="p">)</span> <span class="o">-</span> <span class="n">hi</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+            <span class="n">f_mid</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">-</span> <span class="n">mid</span>
+            <span class="k">if</span> <span class="n">f_lo</span> <span class="o">*</span> <span class="n">f_mid</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">hi</span><span class="p">,</span> <span class="n">f_hi</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lo</span><span class="p">,</span> <span class="n">f_lo</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+        <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+<span class="n">sn_ms</span> <span class="o">=</span> <span class="n">sn_m_values</span><span class="p">()</span>
+<span class="c1"># Get the two saddle-node m values</span>
+<span class="n">sn_m1</span><span class="p">,</span> <span class="n">sn_m2</span> <span class="o">=</span> <span class="n">sn_ms</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sn_ms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sn_ns</span> <span class="o">=</span> <span class="n">sn_ms</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">sn_ms</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">ap</span><span class="p">(</span><span class="n">sn_ms</span><span class="p">)</span>
+<span class="n">sn_cs</span> <span class="o">=</span> <span class="n">sn_ns</span> <span class="o">-</span> <span class="n">sn_ms</span>
+<span class="n">n_low</span>  <span class="o">=</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sn_ns</span><span class="p">))</span>
+<span class="n">n_mid</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sn_ns</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
+<span class="n">n_high</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sn_ns</span><span class="p">))</span>
+<span class="n">n_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">n_low</span><span class="p">,</span> <span class="n">n_mid</span><span class="p">,</span> <span class="n">n_high</span><span class="p">]</span>
+<span class="n">n_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;$n_1$&quot;</span><span class="p">,</span> <span class="s2">&quot;$n_2$&quot;</span><span class="p">,</span> <span class="s2">&quot;$n_3$&quot;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">equilibria_on_n</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m_grid</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">m_grid</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">m_grid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m_grid</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">f_lo</span><span class="p">,</span> <span class="n">f_hi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">m_star</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+            <span class="n">f_mid</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">f_lo</span> <span class="o">*</span> <span class="n">f_mid</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">hi</span><span class="p">,</span> <span class="n">f_hi</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">lo</span><span class="p">,</span> <span class="n">f_lo</span> <span class="o">=</span> <span class="n">mid</span><span class="p">,</span> <span class="n">f_mid</span>
+        <span class="n">m_star</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="n">c_star</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_star</span>
+        <span class="n">stab</span> <span class="o">=</span> <span class="n">gm</span><span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+        <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">stab</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">roots</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_flow_arrows</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">eqs</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">m_max_plot</span><span class="p">):</span>
+    <span class="n">m_stars_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">eq</span> <span class="ow">in</span> <span class="n">eqs</span><span class="p">])</span>
+    <span class="n">arrow_props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">m_stars_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">m_stable</span> <span class="o">=</span> <span class="n">m_stars_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">m_start_1</span> <span class="o">=</span> <span class="n">m_stable</span> <span class="o">-</span> <span class="mf">0.4</span>
+        <span class="n">m_end_1</span>   <span class="o">=</span> <span class="n">m_stable</span> <span class="o">-</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">m_start_1</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_1</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_2</span> <span class="o">=</span> <span class="n">m_stable</span> <span class="o">+</span> <span class="mf">0.4</span>
+        <span class="n">m_end_2</span>   <span class="o">=</span> <span class="n">m_stable</span> <span class="o">+</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">m_start_2</span> <span class="o">&lt;</span> <span class="n">m_max_plot</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_2</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">m_stars_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">m_low_stable</span><span class="p">,</span> <span class="n">m_unstable</span><span class="p">,</span> <span class="n">m_high_stable</span> <span class="o">=</span> <span class="n">m_stars_sorted</span>
+        <span class="n">m_start_1</span> <span class="o">=</span> <span class="n">m_unstable</span> <span class="o">-</span> <span class="mf">0.05</span>
+        <span class="n">m_end_1</span>   <span class="o">=</span> <span class="n">m_low_stable</span> <span class="o">+</span> <span class="mf">0.05</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_1</span><span class="p">),</span>
+                     <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_2</span> <span class="o">=</span> <span class="n">m_unstable</span> <span class="o">+</span> <span class="mf">0.05</span>
+        <span class="n">m_end_2</span>   <span class="o">=</span> <span class="n">m_high_stable</span> <span class="o">-</span> <span class="mf">0.05</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_end_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_end_2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_2</span><span class="p">),</span>
+                     <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_3</span> <span class="o">=</span> <span class="n">m_low_stable</span> <span class="o">-</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">m_start_3</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_low_stable</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m_low_stable</span><span class="o">-</span><span class="mf">0.02</span><span class="p">)),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_3</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_3</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+        <span class="n">m_start_4</span> <span class="o">=</span> <span class="n">m_high_stable</span> <span class="o">+</span> <span class="mf">0.2</span>
+        <span class="k">if</span> <span class="n">m_start_4</span> <span class="o">&lt;</span> <span class="n">m_max_plot</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">m_high_stable</span><span class="o">+</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m_high_stable</span><span class="o">+</span><span class="mf">0.02</span><span class="p">)),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">m_start_4</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_start_4</span><span class="p">),</span>
+                         <span class="n">arrowprops</span><span class="o">=</span><span class="n">arrow_props</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Phase space with segmented f=0 nullcline</span>
+<span class="n">m_max</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="n">c_nc</span> <span class="o">=</span> <span class="n">c_nullcline</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Draw f=0 as solid for m&lt;=sn_m1 and m&gt;=sn_m2, dashed for sn_m1&lt;m&lt;sn_m2</span>
+<span class="n">mask_left</span>  <span class="o">=</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">sn_m1</span>
+<span class="n">mask_mid</span>   <span class="o">=</span> <span class="p">(</span><span class="n">m</span> <span class="o">&gt;</span> <span class="n">sn_m1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">sn_m2</span><span class="p">)</span>
+<span class="n">mask_right</span> <span class="o">=</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">sn_m2</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">mask_left</span><span class="p">],</span>  <span class="n">c_nc</span><span class="p">[</span><span class="n">mask_left</span><span class="p">],</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$f(m,c)=0$&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">mask_mid</span><span class="p">],</span>   <span class="n">c_nc</span><span class="p">[</span><span class="n">mask_mid</span><span class="p">],</span>   <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">mask_right</span><span class="p">],</span> <span class="n">c_nc</span><span class="p">[</span><span class="n">mask_right</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot n lines and equilibria</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_list</span><span class="p">):</span>
+    <span class="n">m_line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">m_max</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="mi">600</span><span class="p">)</span>
+    <span class="n">c_line</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m_line</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_line</span><span class="p">,</span> <span class="n">c_line</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="c1"># equilibria markers</span>
+    <span class="n">eqs</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span> <span class="ow">in</span> <span class="n">eqs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">stable</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_star</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                     <span class="n">markeredgewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="c1"># arrows along flow (skip vicinity of roots)</span>
+    <span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">m_max</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">mi</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">:</span>
+        <span class="n">ci</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">mi</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">2e-3</span><span class="p">:</span>  <span class="c1"># avoid near equilibria</span>
+            <span class="k">continue</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">m_max</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># step</span>
+        <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">g</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">mi</span><span class="o">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">ci</span><span class="o">+</span><span class="n">dy</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">ci</span><span class="p">),</span>
+                     <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.2</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;$n_1$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;$n_2$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;$n_3$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;$f(m,c) = 0$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="s2">&quot;reactive flow&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m_max</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">c_nc</span><span class="p">))</span><span class="o">*</span><span class="mf">1.05</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;(m,c)-phase space (only unstable segment dashed)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Bifurcation diagram</span>
+<span class="n">m_branch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">c_branch</span> <span class="o">=</span> <span class="n">c_nullcline</span><span class="p">(</span><span class="n">m_branch</span><span class="p">)</span>
+<span class="n">n_branch</span> <span class="o">=</span> <span class="n">m_branch</span> <span class="o">+</span> <span class="n">c_branch</span>
+<span class="n">stab_branch</span> <span class="o">=</span> <span class="n">gm</span><span class="p">(</span><span class="n">m_branch</span><span class="p">,</span> <span class="n">n_branch</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">stab_branch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">change_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">mask</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_branch</span><span class="p">)),</span> <span class="n">change_idx</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">stab_branch</span><span class="p">[</span><span class="n">seg</span><span class="p">[</span><span class="mi">0</span><span class="p">]]:</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_branch</span><span class="p">[</span><span class="n">seg</span><span class="p">],</span> <span class="n">c_branch</span><span class="p">[</span><span class="n">seg</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ylim_top</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">ylim_top</span><span class="p">)</span> 
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_list</span><span class="p">):</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">eqs</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">eqs_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eqs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c_star</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_star</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_star</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">c_low_stable</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">c_unstable</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">c_high_stable</span> <span class="o">=</span> <span class="n">eqs_sorted</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_low_stable</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_low_stable</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_unstable</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> 
+            <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ylim_top</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_high_stable</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span>
+                        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_high_stable</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_unstable</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">c_low_stable</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n_low</span><span class="p">,</span> <span class="n">n_mid</span><span class="p">,</span> <span class="n">n_high</span><span class="p">]:</span>
+    <span class="n">eqs_n1</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">eqs_n1_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eqs_n1</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_n1_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c_star_n1</span> <span class="o">=</span> <span class="n">eqs_n1_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c_star_n1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim_top</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n_low</span><span class="p">,</span> <span class="n">n_mid</span><span class="p">,</span> <span class="n">n_high</span><span class="p">]:</span>
+    <span class="n">eqs_n3</span> <span class="o">=</span> <span class="n">equilibria_on_n</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">m_max</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">eqs_n3_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">eqs_n3</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eqs_n3_sorted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c_star_n3</span> <span class="o">=</span> <span class="n">eqs_n3_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">c_star_n3</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">n_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">ylim_top</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;$c^*(n)$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$c^*$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Bifurcation diagram&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;combined_diagram.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Code Output" src="../../../cn/assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png" /></p>
+<p><strong>Left panel ((m,c)-phase space)</strong>: Shows the <span class="arithmatex">\((m,c)\)</span> phase space. The white curve is the N-shaped <strong>nullcline</strong> <span class="arithmatex">\(f(m,c)=0\)</span>. The code, through stability analysis, has already drawn the unstable equilibrium region as a <strong>dashed line</strong>. The three gray diagonal lines are the <strong>conservation lines</strong> <span class="arithmatex">\(c=n-m\)</span> at different total concentrations <span class="arithmatex">\(n_1, n_2, n_3\)</span>.</p>
+<p><strong>Fixed points (white dots)</strong>: Are the intersections of the nullcline and conservation lines. At <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(n_3\)</span>, the system has only one <strong>stable</strong> fixed point (solid circle); at <span class="arithmatex">\(n_2\)</span>, the system is in the <strong>bistable</strong> region, with two stable fixed points (solid circles) and one unstable fixed point (open circle). The red "reactive flow" arrows show how the system will evolve to stable fixed points.</p>
+<p><strong>Right panel (Bifurcation diagram)</strong>: This diagram is the system's bifurcation diagram, plotting the steady-state concentration <strong><span class="arithmatex">\(c^*\)</span></strong> (vertical axis) as a function of control parameter <strong><span class="arithmatex">\(n\)</span></strong> (horizontal axis). This S-shaped (or Z-shaped) curve shows the bistable region bounded by two <strong>Saddle-Node bifurcations (SN)</strong>. The red arrows again indicate the final destination of the system starting from any initial state at <span class="arithmatex">\(n_1, n_2, n_3\)</span>.</p>
+<h1 id="4-linear-stability-analysis-from-one-dimensional-reduction-to-the-jacobian-matrix">4. Linear Stability Analysis - From One-Dimensional Reduction to the Jacobian Matrix<a class="headerlink" href="#4-linear-stability-analysis-from-one-dimensional-reduction-to-the-jacobian-matrix" title="Permanent link">&para;</a></h1>
+<p>The graphical method and Python simulation in Section 3 showed the <strong>position</strong> and <strong>number</strong> of fixed points (for example, three fixed points exist at <span class="arithmatex">\(n_2\)</span>). However, this analysis did not mathematically rigorously prove which fixed points are stable (attractors) and which are unstable (repellers).</p>
+<p>To answer this question, we need to perform <strong>Linear Stability Analysis (LSA)</strong>. This is the same method used in <strong>Lecture 3</strong>: apply a small perturbation <span class="arithmatex">\(\delta u(t)\)</span> near the fixed point <span class="arithmatex">\(u^*\)</span>, then examine whether this perturbation grows exponentially (unstable) or decays (stable) over time.</p>
+<p>For this two-dimensional system, there are two equivalent but different analytical approaches.</p>
+<h2 id="41-method-one-reduction-to-a-one-dimensional-system">4.1 Method One - Reduction to a One-Dimensional System<a class="headerlink" href="#41-method-one-reduction-to-a-one-dimensional-system" title="Permanent link">&para;</a></h2>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/05_011_ef424873-98ef-478e-8233-9d1d3ebcb542.jpg" /></p>
+<p>Due to the mass conservation law <span class="arithmatex">\(c = n - m\)</span>, we can precisely reduce the two-dimensional system to a one-dimensional system involving only the variable <span class="arithmatex">\(m\)</span>:</p>
+<div class="arithmatex">\[
+\frac{d}{dt}m = f(m, c) \quad \xrightarrow{\text{substitute } c=n-m} \quad \frac{d}{dt}m = f(m, n-m)
+\]</div>
+<p>Now the problem is transformed into the one-dimensional system stability analysis already solved in <strong>Lecture 3</strong>. Consider a small perturbation <span class="arithmatex">\(\delta m = m - m^*\)</span> near the fixed point <span class="arithmatex">\(m^*\)</span>. The linearized dynamics equation for the perturbation is:</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\delta m \approx \left. \frac{d}{dm}f(m, n-m) \right|_{m=m^*} \cdot \delta m
+\]</div>
+<p><img alt="Lecture Slide Screenshot" src="../../../cn/assets/images/05_012_84a74dae-dafd-4e79-bcdb-297ac5e80964.png" /></p>
+<p>Using the chain rule to calculate the derivative:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{d}{dm}f(m, n-m) &amp;= \left. \frac{\partial f}{\partial m} \right|_{(m^*, c^*)} \cdot \frac{dm}{dm} + \left. \frac{\partial f}{\partial c} \right|_{(m^*, c^*)} \cdot \frac{d(n-m)}{dm} \\
+&amp;= \left. \frac{\partial f}{\partial m} \right|_{(m^*, c^*)} + \left. \frac{\partial f}{\partial c} \right|_{(m^*, c^*)} \cdot (-1) \\
+&amp;= f_m - f_c
+\end{aligned}
+\]</div>
+<p>where <span class="arithmatex">\(f_m \equiv \left. \frac{\partial f}{\partial m} \right|_{(m^*, c^*)}\)</span> and <span class="arithmatex">\(f_c \equiv \left. \frac{\partial f}{\partial c} \right|_{(m^*, c^*)}\)</span> are the partial derivatives of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(c\)</span>, evaluated at the fixed point <span class="arithmatex">\((m^*, c^*)\)</span>.</p>
+<p>Therefore, the dynamics equation for the perturbation is:</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\delta m \approx (f_m - f_c) \cdot \delta m
+\]</div>
+<p>The exponential growth rate of this perturbation (i.e., the eigenvalue in the one-dimensional system) is <span class="arithmatex">\(\sigma_{\text{loc}}(n) = f_m - f_c\)</span>. The stability criterion is very intuitive:</p>
+<ul>
+<li>
+<p>If <span class="arithmatex">\(\sigma_{\text{loc}}(n) &lt; 0\)</span>, the perturbation decays exponentially over time, and the fixed point is <strong>stable</strong>.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(\sigma_{\text{loc}}(n) &gt; 0\)</span>, the perturbation grows exponentially over time, and the fixed point is <strong>unstable</strong>.</p>
+</li>
+</ul>
+<p>This is what the <span class="arithmatex">\(gm(m, n)\)</span> function in the Python code from Section 3 calculates.</p>
+<h3 id="geometric-interpretation-the-slope-criterion">Geometric Interpretation - The Slope Criterion<a class="headerlink" href="#geometric-interpretation-the-slope-criterion" title="Permanent link">&para;</a></h3>
+<p>This analysis result has an elegant and powerful geometric interpretation. Recall the nullcline equation <span class="arithmatex">\(c^*(m)\)</span> from Section 3.1; its slope <span class="arithmatex">\(s_{\text{nc}}\)</span> can be obtained by differentiating <span class="arithmatex">\(f(m, c^*(m)) = 0\)</span> using the implicit function theorem:</p>
+<div class="arithmatex">\[
+\frac{d}{dm}f(m, c^*(m)) = 0 \implies \frac{\partial f}{\partial m} + \frac{\partial f}{\partial c} \cdot \frac{dc^*}{dm} = 0 \implies f_m + f_c \cdot s_{\text{nc}} = 0
+\]</div>
+<p>Solving for the nullcline slope: <span class="arithmatex">\(s_{\text{nc}} = -\frac{f_m}{f_c}\)</span>.</p>
+<p>In the current biological model, the attachment rate <span class="arithmatex">\(a(m)\)</span> must be positive, so <span class="arithmatex">\(f_c = \frac{\partial f}{\partial c} = a(m) &gt; 0\)</span>. With this condition, we can rewrite the stability criterion <span class="arithmatex">\(\sigma_{\text{loc}} &lt; 0\)</span> (i.e., <span class="arithmatex">\(f_m - f_c &lt; 0\)</span>) as:</p>
+<div class="arithmatex">\[
+f_m &lt; f_c \implies \frac{f_m}{f_c} &lt; 1 \implies -\frac{f_m}{f_c} &gt; -1
+\]</div>
+<p>Substituting <span class="arithmatex">\(s_{\text{nc}}\)</span>, we obtain the final <strong>geometric stability criterion</strong>:</p>
+<div class="arithmatex">\[
+s_{\text{nc}} &gt; -1
+\]</div>
+<p><strong>Physical meaning</strong>: The geometric meaning of this result is: a fixed point is <strong>stable</strong> if and only if at that point, the <strong>slope of the nullcline (S-shaped curve) <span class="arithmatex">\(s_{\text{nc}}\)</span></strong> is greater than the <strong>slope of the conservation line (slope -1)</strong>.</p>
+<ul>
+<li>
+<p>On the upper and lower branches of the S-shaped curve, the curve slope <span class="arithmatex">\(s_{\text{nc}} &gt; -1\)</span> (the curve is "flatter" than -1), so they are <strong>stable</strong>.</p>
+</li>
+<li>
+<p>On the middle branch of the S-shaped curve, the curve slope <span class="arithmatex">\(s_{\text{nc}} &lt; -1\)</span> (the curve is "steeper" than -1), so it is <strong>unstable</strong>.</p>
+</li>
+</ul>
+<h2 id="42-method-two-full-two-dimensional-system-jacobian-matrix-analysis">4.2 Method Two - Full Two-Dimensional System Jacobian Matrix Analysis<a class="headerlink" href="#42-method-two-full-two-dimensional-system-jacobian-matrix-analysis" title="Permanent link">&para;</a></h2>
+<p>The second method is more general—it directly analyzes the original two-dimensional system without pre-reducing dimensions using the conservation law. This method is crucial for systems in the next lecture that <strong>do not satisfy mass conservation</strong>.</p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/05_013_67cf656b-56a9-47be-a3b5-92bc7f7d0d6d.jpg" /></p>
+<p><img alt="Lecture Blackboard Screenshot" src="../../../cn/assets/images/05_014_784967de-9960-4ff9-af35-fdbd3369139b.png" /></p>
+<p>Consider a small perturbation vector <span class="arithmatex">\(\delta \vec{u} = \begin{pmatrix} \delta m \\ \delta c \end{pmatrix}\)</span> to the fixed point <span class="arithmatex">\((m^*, c^*)\)</span>. Its linearized dynamics is determined by the <strong>Jacobian Matrix</strong> <span class="arithmatex">\(\mathcal{J}\)</span>:</p>
+<div class="arithmatex">\[
+\frac{d}{dt} \delta \vec{u} = \mathcal{J} \cdot \delta \vec{u}
+\]</div>
+<p>where the Jacobian matrix <span class="arithmatex">\(\mathcal{J}\)</span> is composed of the partial derivatives of the reaction terms <span class="arithmatex">\(\begin{pmatrix} f \\ -f \end{pmatrix}\)</span>:</p>
+<div class="arithmatex">\[
+\mathcal{J} = 
+\begin{pmatrix}
+\frac{\partial f}{\partial m} &amp; \frac{\partial f}{\partial c} \\
+\frac{\partial (-f)}{\partial m} &amp; \frac{\partial (-f)}{\partial c}
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+f_m &amp; f_c \\
+-f_m &amp; -f_c
+\end{pmatrix}
+\]</div>
+<p>The stability of the system is determined by the <strong>eigenvalues</strong> <span class="arithmatex">\(\sigma\)</span> of <span class="arithmatex">\(\mathcal{J}\)</span>. The eigenvalues are solutions to the characteristic equation <span class="arithmatex">\(\det(\mathcal{J} - \sigma I) = 0\)</span>:</p>
+<div class="arithmatex">\[
+\begin{vmatrix}
+f_m - \sigma &amp; f_c \\
+-f_m &amp; -f_c - \sigma
+\end{vmatrix} = (f_m - \sigma)(-f_c - \sigma) - (f_c)(-f_m) = 0
+\]</div>
+<p>Expanding:</p>
+<div class="arithmatex">\[
+-f_m f_c - f_m \sigma + f_c \sigma + \sigma^2 + f_m f_c = 0
+\]</div>
+<div class="arithmatex">\[
+\sigma^2 + (f_c - f_m) \sigma = 0 \implies \sigma \left( \sigma - (f_m - f_c) \right) = 0
+\]</div>
+<p>Solving this equation, we obtain two eigenvalues:</p>
+<div class="arithmatex">\[
+\sigma^{(1)} = 0
+\]</div>
+<div class="arithmatex">\[
+\sigma^{(2)} = f_m - f_c
+\]</div>
+<p>This result is very profound—it perfectly reveals the dynamical structure of mass-conserving systems:</p>
+<p><strong>Eigenvalue <span class="arithmatex">\(\sigma^{(2)} = f_m - f_c\)</span></strong>:</p>
+<p>This is <strong>exactly the same</strong> as the growth rate <span class="arithmatex">\(\sigma_{\text{loc}}\)</span> obtained from Method One (1D reduction). Its corresponding eigenvector is <span class="arithmatex">\(\vec{e}^{(2)} = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span>. A perturbation in the direction <span class="arithmatex">\(\begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span> (i.e., <span class="arithmatex">\(\delta m = 1, \delta c = -1\)</span>) satisfies <span class="arithmatex">\(\delta m + \delta c = 0\)</span>, meaning this perturbation <strong>preserves total mass conservation</strong>. Therefore, <span class="arithmatex">\(\sigma^{(2)}\)</span> determines the stability of the system <strong>along the conservation line <span class="arithmatex">\(m+c=n\)</span></strong>.</p>
+<p><strong>Eigenvalue <span class="arithmatex">\(\sigma^{(1)} = 0\)</span></strong>:</p>
+<p>This is a completely new discovery—it is <strong>a universal feature of all systems with conservation laws</strong>. Its corresponding eigenvector is <span class="arithmatex">\(\vec{e}^{(1)} = \begin{pmatrix} f_c \\ -f_m \end{pmatrix}\)</span>, which is precisely the <strong>tangent direction</strong> of the nullcline at that point.</p>
+<p><strong>Physical meaning</strong>: A zero eigenvalue means the system is <strong>neutrally stable</strong> in the <span class="arithmatex">\(\vec{e}^{(1)}\)</span> direction. If a perturbation (for example, external injection of a small amount of protein) pushes the system from conservation line <span class="arithmatex">\(m+c=n\)</span> to a neighboring <span class="arithmatex">\(m+c=n+\epsilon\)</span>, the system will neither actively return to the original line nor deviate further. The system "doesn't care" which conservation line it's on—it will simply find a new equilibrium point on the new conservation line. The entire <strong>Nullcline</strong> is actually a <strong>continuous family of equilibrium points (Line of Equilibria)</strong>, and the specific conservation law <span class="arithmatex">\(m+c=n\)</span> only selects one or a few specific points from it as the system's fixed points.</p>
+<h2 id="43-comparison-of-the-two-analysis-methods">4.3 Comparison of the Two Analysis Methods<a class="headerlink" href="#43-comparison-of-the-two-analysis-methods" title="Permanent link">&para;</a></h2>
+<p>The Python code in Section 3 has already marked stability on the bifurcation diagram using solid lines (stable) and dashed lines (unstable) by calculating the sign of <span class="arithmatex">\(gm(m, n)\)</span> (i.e., <span class="arithmatex">\(\sigma_{\text{loc}} = f_m - f_c\)</span>). Therefore, no repeated code is needed here; instead, we use a summary table to compare these two analysis methods:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Method One: Reduction to 1D System</th>
+<th style="text-align: left;">Method Two: Full 2D Jacobian Matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Core concept</strong></td>
+<td style="text-align: left;">Use <span class="arithmatex">\(c = n - m\)</span> to reduce system dimension</td>
+<td style="text-align: left;">Linearize in the complete 2D phase space</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mathematical tool</strong></td>
+<td style="text-align: left;">1D Taylor expansion (chain rule)</td>
+<td style="text-align: left;"><span class="arithmatex">\(2 \times 2\)</span> Jacobian matrix <span class="arithmatex">\(\mathcal{J}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Eigenvalues obtained</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sigma_{\text{loc}} = f_m - f_c\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sigma^{(1)} = 0\)</span> <strong>and</strong> <span class="arithmatex">\(\sigma^{(2)} = f_m - f_c\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Physical interpretation</strong></td>
+<td style="text-align: left;">Reveals stability <strong>along</strong> the conservation line (within physical constraints).</td>
+<td style="text-align: left;">Reveals the complete dynamical structure:<br> • <span class="arithmatex">\(\sigma^{(2)}\)</span>: Stability along the conservation line (same as left). <br> • <span class="arithmatex">\(\sigma^{(1)}\)</span>: Neutral stability along the nullcline due to <strong>mass conservation</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Geometric criterion</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(s_{\text{nc}} &gt; -1\)</span> (stable)</td>
+<td style="text-align: left;">(same as left)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>This lecture, through exhaustive analysis of a two-dimensional dynamical system constrained by mass conservation, achieved the key transition from one-dimensional systems to higher-dimensional, more realistic biophysical models. The core thread of the lecture can be summarized as follows:</p>
+<p>1.With cell polarity as background, we drew an analogy between the "infection" model dynamics from <strong>Lecture 4</strong> and the protein "recruitment" process, thereby abstracting a two-component (<span class="arithmatex">\(m, c\)</span>) dynamical model. Its core is the <strong>mass conservation law</strong> <span class="arithmatex">\(m+c=n\)</span>.</p>
+<p>2.The <strong>nonlinear positive feedback</strong> introduced in the model (namely the <span class="arithmatex">\(m^2\)</span> cooperative term) was proven to be the source of the S-shaped (or N-shaped) nullcline, which is a necessary condition for achieving complex behavior such as bistability.</p>
+<p>3.Through graphical methods, we found that system fixed points are the intersections of the <strong>nullcline</strong> <span class="arithmatex">\(f(m,c)=0\)</span> and the <strong>conservation line</strong> <span class="arithmatex">\(c=n-m\)</span>. Changing the total protein concentration <span class="arithmatex">\(n\)</span> as a control parameter is geometrically equivalent to translating the conservation line in parallel, causing fixed point pairs to be created or annihilated at tangent points—this is precisely the <strong>Saddle-Node Bifurcation</strong> studied in <strong>Lecture 3</strong>.</p>
+<p>4.Linear Stability Analysis (LSA) was used to determine the stability of fixed points. This can be accomplished through two equivalent methods: one is <strong>reduction to a one-dimensional system</strong> using the conservation law, obtaining growth rate <span class="arithmatex">\(\sigma_{\text{loc}} = f_m - f_c\)</span>; the other is using the more general <strong>two-dimensional Jacobian matrix</strong> analysis.</p>
+<p>5.<strong>Jacobian matrix</strong> analysis <span class="arithmatex">\(\mathcal{J} = \begin{pmatrix} f_m &amp; f_c \\ -f_m &amp; -f_c \end{pmatrix}\)</span> revealed a universal feature of mass-conserving systems: the existence of a <strong>zero eigenvalue</strong> (<span class="arithmatex">\(\sigma^{(1)} = 0\)</span>). This eigenvalue corresponds to neutral stability along the nullcline (i.e., the family of equilibrium points) direction, and is a direct mathematical consequence of the conservation law <span class="arithmatex">\(g=-f\)</span>.</p>
+<p>At this point, the behavior of this system under spatial homogeneity (well-mixed conditions) has been fully analyzed. However, cell polarity itself is a spatial phenomenon. This lecture's analysis is the necessary groundwork for understanding spatial pattern formation. In subsequent lectures, when diffusion terms are reintroduced, under certain conditions, spatially homogeneous steady states will become unstable, spontaneously giving rise to non-uniform protein distributions and forming <strong>Turing Patterns</strong>.</p>
+<p>This lecture's analysis also establishes contrast for the <strong>next lecture (6. Dynamical Systems: Two-Dimensional Non-Conserving Systems and Oscillators)</strong>. The next lecture will explore a fundamentally different scenario: what happens if the system <strong>does not satisfy mass conservation</strong> (for example, in open systems where proteins are continuously synthesized and degraded)? In this case, the constraint <span class="arithmatex">\(g=-f\)</span> is broken, and the Jacobian matrix becomes the more general form <span class="arithmatex">\(\mathcal{J} = \begin{pmatrix} f_m &amp; f_c \\ g_m &amp; g_c \end{pmatrix}\)</span>. The zero eigenvalue is no longer necessarily present; instead, eigenvalues can become <strong>complex numbers</strong>. Complex eigenvalues are the mathematical signature of <strong>Oscillation</strong> behavior. When the real part of a pair of conjugate complex eigenvalues changes from negative to positive, the system undergoes <strong>Hopf Bifurcation</strong>, the stable fixed point becomes unstable, and a stable <strong>Limit Cycle</strong> is born—sustained oscillations. This will open the door to understanding rhythmic phenomena such as biological clocks and predator-prey cycles.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../assets/javascripts/video-init.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>
