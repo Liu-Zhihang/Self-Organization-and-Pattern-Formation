@@ -184,6 +184,7 @@ https://github.com/user-attachments/assets/aa0f462b-0ced-4e85-bacb-4f4c9d94f8ce
 </video>
 
 https://github.com/user-attachments/assets/f541a993-4984-4798-bd20-5febcd4d97f6
+
 *Comparison: Cahn-Hilliard (Model B) vs Mass-Conserving Reaction-Diffusion dynamics*
 
 **[Lecture 13: Lattice Gas Model & Free Energy](docs/en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy.md)**
