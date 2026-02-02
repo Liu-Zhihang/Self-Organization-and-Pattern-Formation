@@ -164,6 +164,10 @@ https://github.com/user-attachments/assets/59f70f8f-bb08-4799-a62c-b0b50d2d5564
   Your browser does not support the video tag.
 </video>
 
+
+https://github.com/user-attachments/assets/aa0f462b-0ced-4e85-bacb-4f4c9d94f8ce
+
+
 *Curvature-driven shrinkage of a circular droplet following Allen-Cahn dynamics*
 
 **[Lecture 11: Thermodynamics & Phase Separation in Liquid Mixtures](docs/en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures.md)**
@@ -179,6 +183,7 @@ https://github.com/user-attachments/assets/59f70f8f-bb08-4799-a62c-b0b50d2d5564
   Your browser does not support the video tag.
 </video>
 
+https://github.com/user-attachments/assets/f541a993-4984-4798-bd20-5febcd4d97f6
 *Comparison: Cahn-Hilliard (Model B) vs Mass-Conserving Reaction-Diffusion dynamics*
 
 **[Lecture 13: Lattice Gas Model & Free Energy](docs/en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy.md)**
