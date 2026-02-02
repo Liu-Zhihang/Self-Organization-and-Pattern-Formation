@@ -1,6 +1,6 @@
 # 自组织与模式形成
 
-这是 [**Self-Organization and Pattern Formation, Prof. Erwin Frey, LMU Munich, Winter Semester 2025/2026**](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html) 课程的自学笔记。Frey 教授偏爱板书授课。为了记录我的学习过程，我将笔记整理成文章，并编写 Python 代码以加深理解。
+这是 [**Self-Organization and Pattern Formation, Prof. Erwin Frey, LMU Munich, Winter Semester 2025/2026**](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html) 课程的自学笔记。Frey 教授偏爱板书授课。为了记录我的学习过程，我将笔记整理成文章，并编写 [Python 代码](https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation/tree/main/code) 以加深理解。
 
 ![课程概览](../cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png)
 

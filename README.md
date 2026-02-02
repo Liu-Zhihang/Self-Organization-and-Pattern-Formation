@@ -2,7 +2,7 @@
 
 [中文README](README_CN.md) | [English Notes](https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/) | [中文笔记合集](https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/zh/)
 
-These are self-study notes for the course [**Self-Organization and Pattern Formation, Prof. Erwin Frey, LMU Munich, Winter Semester 2025/2026**](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html). Prof. Frey prefers chalkboard lectures. To document my learning process, I've structured my notes into articles and written Python code to deepen my understanding. This chapter serves as the course introduction.
+These are self-study notes for the course [**Self-Organization and Pattern Formation, Prof. Erwin Frey, LMU Munich, Winter Semester 2025/2026**](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html). Prof. Frey prefers chalkboard lectures. To document my learning process, I've structured my notes into articles and written [Python code](https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation/tree/main/code) to deepen my understanding.
 
 ![Course Overview](docs/cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png)
 
