@@ -101,49 +101,49 @@
 
 代码输出演示：
 
-### 第2讲：动力系统——从物理相变到演化博弈
+### [第2讲：动力系统——从物理相变到演化博弈](../cn/2.%20动力系统：从物理相变到演化博弈.md)
 
 | Landau 自由能与相变 | 演化博弈动力学 | 复制子方程流 |
 |:---:|:---:|:---:|
 | ![Landau](../cn/assets/images/02_003_621bc300-3817-4cf6-bb3a-baaced59b8f5.png) | ![Game](../cn/assets/images/02_004_89cf16e7-61e4-4535-836a-4314cd5c8b69.png) | ![Replicator](../cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png) |
 
-### 第3讲：不动点、鞍结点与叉形分岔
+### [第3讲：不动点、鞍结点与叉形分岔](../cn/3.动力系统：不动点、鞍点和叉形分岔%20.md)
 
 | 分岔图 | 相图 |
 |:---:|:---:|
 | ![Bifurcation](../cn/assets/images/03_006_d0be1090-a825-48c8-af21-2cf9cfa4f7cc.png) | ![Phase](../cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png) |
 
-### 第4讲：尖点分岔、感染模型与跨临界分岔
+### [第4讲：尖点分岔、感染模型与跨临界分岔](../cn/4.动力系统：尖点分岔、感染模型与跨临界分岔.md)
 
 | 尖点分岔曲面 | 感染动力学 |
 |:---:|:---:|
 | ![Cusp](../cn/assets/images/04_008_2b441799-2822-4439-bcaa-67292e672b48.png) | ![Infection](../cn/assets/images/04_011_6e149644-d36a-456c-97a5-43c30d64b8c3.png) |
 
-### 第5讲：二维质量守恒系统
+### [第5讲：二维质量守恒系统](../cn/5.动力系统：二维质量守恒系统与雅可比矩阵.md)
 
 | 雅可比矩阵分析与相空间 |
 |:---:|
 | ![Jacobian](../cn/assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png) |
 
-### 第6讲：二维非保守系统与振荡器
+### [第6讲：二维非保守系统与振荡器](../cn/6.动力系统：二维非保守系统与振荡器.md)
 
 | Hopf 分岔 | 极限环 | Van der Pol 振荡器 |
 |:---:|:---:|:---:|
 | ![Hopf](../cn/assets/images/06_004_e376e171-e6ec-4ed1-8659-5b8579388051.png) | ![Limit](../cn/assets/images/06_007_0e3242d5-a770-411b-bffd-c151adb26aad.png) | ![VdP](../cn/assets/images/06_009_6a812e94-584f-4e92-90ee-70d202be59dc.png) |
 
-### 第7讲：庞加莱-本迪克松定理、RhoGTPase 振荡器与石头剪刀布
+### [第7讲：庞加莱-本迪克松定理、RhoGTPase 振荡器与石头剪刀布](../cn/7.动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布.md)
 
 | RhoGTPase 振荡器 | 石头剪刀布动力学 | 异宿轨道 |
 |:---:|:---:|:---:|
 | ![Rho](../cn/assets/images/07_004_059881e5-e0fc-4efb-90b8-f1aa7cf5d15b.png) | ![RPS](../cn/assets/images/07_006_aea062d8-475b-4948-82f3-0ba967f1ce27.png) | ![Hetero](../cn/assets/images/07_011_6315e0dc-d8d7-4c2b-ae2e-cab04a874edf.png) |
 
-### 第8讲：复制子动力学与李雅普诺夫函数
+### [第8讲：复制子动力学与李雅普诺夫函数](../cn/8.%20动力系统：复制子动力学与空间扩展——李雅普诺夫函数、玻色子凝聚与扩散方程.md)
 
 | 李雅普诺夫函数 | 扩散方程 |
 |:---:|:---:|
 | ![Lyapunov](../cn/assets/images/08_008_6fc576fa-0149-454b-93f4-9dfe7af2de8f.png) | ![Diffusion](../cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png) |
 
-### 第9讲：Ginzburg-Landau 理论与 Allen-Cahn 方程 (Model A)
+### [第9讲：Ginzburg-Landau 理论与 Allen-Cahn 方程 (Model A)](../cn/9.弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程.md)
 
 <video controls width="100%">
   <source src="../cn/assets/images/model_a_dynamics.mp4" type="video/mp4">
@@ -152,7 +152,7 @@
 
 *Model A (Allen-Cahn) 动力学：Spinodal 分解、畴形成与粗化*
 
-### 第10讲：界面动力学与曲率驱动流
+### [第10讲：界面动力学与曲率驱动流](../cn/10.弛豫动力学：界面动力学与曲率驱动流.md)
 
 <video controls width="100%">
   <source src="../cn/assets/images/droplet_shrinkage.mp4" type="video/mp4">
@@ -161,13 +161,13 @@
 
 *圆形液滴在 Allen-Cahn 动力学下的曲率驱动收缩*
 
-### 第11讲：液态混合物中的热力学与相分离
+### [第11讲：液态混合物中的热力学与相分离](../cn/11.液态混合物中的热力学与相分离.md)
 
 | 二元相图 |
 |:---:|
 | ![Phase Diagram](../cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg) |
 
-### 第12讲：Cahn-Hilliard 方程与渗透压
+### [第12讲：Cahn-Hilliard 方程与渗透压](../cn/12.液态混合物动力学、渗透压与Cahn-Hilliard方程.md)
 
 <video controls width="100%">
   <source src="../cn/assets/images/CahnHilliard_vs_McRD.mp4" type="video/mp4">
@@ -176,19 +176,19 @@
 
 *对比：Cahn-Hilliard (Model B) 与质量守恒反应-扩散动力学*
 
-### 第13讲：晶格气体模型与自由能
+### [第13讲：晶格气体模型与自由能](../cn/13.晶格气体模型与自由能.md)
 
 ![晶格气体模拟](../cn/assets/images/lattice_gas_vs_free_energy.gif)
 
 *晶格气体模型的蒙特卡洛模拟：相分离与自由能演化*
 
-### 第14讲：相分离动力学与色散关系
+### [第14讲：相分离动力学与色散关系](../cn/14.相分离动力学.md)
 
 | 人群振荡动力学 | 频谱热力图 |
 |:---:|:---:|
 | ![Crowd](../cn/assets/images/crowd_oscillation.gif) | ![Spectrum](../cn/assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png) |
 
-### 第15讲：成核理论与界面动力学
+### [第15讲：成核理论与界面动力学](../cn/15.成核理论与界面动力学.md)
 
 | 3D Cahn-Hilliard 液滴 | 演化切片 |
 |:---:|:---:|

@@ -102,49 +102,49 @@ Each Python file corresponds to specific topics covered in the lecture series. T
 
 Here are some code output demonstrations:
 
-### Lecture 2: Dynamical Systems - Phase Transitions to Evolutionary Game Theory
+### [Lecture 2: Dynamical Systems - Phase Transitions to Evolutionary Game Theory](docs/en/2.%20Dynamical%20Systems%20-%20From%20Physical%20Phase%20Transitions%20to%20Evolutionary%20Game%20Theory.md)
 
 | Landau Free Energy & Phase Transition | Evolutionary Game Dynamics | Replicator Equation Flow |
 |:---:|:---:|:---:|
 | ![Landau](docs/cn/assets/images/02_003_621bc300-3817-4cf6-bb3a-baaced59b8f5.png) | ![Game](docs/cn/assets/images/02_004_89cf16e7-61e4-4535-836a-4314cd5c8b69.png) | ![Replicator](docs/cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png) |
 
-### Lecture 3: Fixed Points, Saddle-Node & Pitchfork Bifurcations
+### [Lecture 3: Fixed Points, Saddle-Node & Pitchfork Bifurcations](docs/en/3.%20Dynamical%20Systems%20-%20Fixed%20Points%2C%20Saddle-Node%20and%20Pitchfork%20Bifurcations.md)
 
 | Bifurcation Diagram | Phase Portrait |
 |:---:|:---:|
 | ![Bifurcation](docs/cn/assets/images/03_006_d0be1090-a825-48c8-af21-2cf9cfa4f7cc.png) | ![Phase](docs/cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png) |
 
-### Lecture 4: Cusp Bifurcation, Infection Model & Transcritical Bifurcation
+### [Lecture 4: Cusp Bifurcation, Infection Model & Transcritical Bifurcation](docs/en/4.%20Dynamical%20Systems%20-%20Cusp%20Bifurcation%2C%20Infection%20Model%20and%20Transcritical%20Bifurcation.md)
 
 | Cusp Bifurcation Surface | Infection Dynamics |
 |:---:|:---:|
 | ![Cusp](docs/cn/assets/images/04_008_2b441799-2822-4439-bcaa-67292e672b48.png) | ![Infection](docs/cn/assets/images/04_011_6e149644-d36a-456c-97a5-43c30d64b8c3.png) |
 
-### Lecture 5: Two-Dimensional Mass-Conserving Systems
+### [Lecture 5: Two-Dimensional Mass-Conserving Systems](docs/en/5.%20Dynamical%20Systems%20-%20Two-Dimensional%20Mass-Conserving%20Systems%20and%20the%20Jacobian%20Matrix.md)
 
 | Jacobian Analysis & Phase Space |
 |:---:|
 | ![Jacobian](docs/cn/assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png) |
 
-### Lecture 6: Two-Dimensional Non-Conserving Systems & Oscillators
+### [Lecture 6: Two-Dimensional Non-Conserving Systems & Oscillators](docs/en/6.%20Dynamical%20Systems%20-%20Two-Dimensional%20Non-Conserving%20Systems%20and%20Oscillators.md)
 
 | Hopf Bifurcation | Limit Cycle | Van der Pol Oscillator |
 |:---:|:---:|:---:|
 | ![Hopf](docs/cn/assets/images/06_004_e376e171-e6ec-4ed1-8659-5b8579388051.png) | ![Limit](docs/cn/assets/images/06_007_0e3242d5-a770-411b-bffd-c151adb26aad.png) | ![VdP](docs/cn/assets/images/06_009_6a812e94-584f-4e92-90ee-70d202be59dc.png) |
 
-### Lecture 7: Poincaré-Bendixson Theorem, RhoGTPase & Rock-Paper-Scissors
+### [Lecture 7: Poincaré-Bendixson Theorem, RhoGTPase & Rock-Paper-Scissors](docs/en/7.%20Dynamical%20Systems%20-%20Poincar%C3%A9-Bendixson%20Theorem%2C%20RhoGTPase%20Oscillator%20and%20Rock-Paper-Scissors.md)
 
 | RhoGTPase Oscillator | Rock-Paper-Scissors Dynamics | Heteroclinic Orbit |
 |:---:|:---:|:---:|
 | ![Rho](docs/cn/assets/images/07_004_059881e5-e0fc-4efb-90b8-f1aa7cf5d15b.png) | ![RPS](docs/cn/assets/images/07_006_aea062d8-475b-4948-82f3-0ba967f1ce27.png) | ![Hetero](docs/cn/assets/images/07_011_6315e0dc-d8d7-4c2b-ae2e-cab04a874edf.png) |
 
-### Lecture 8: Replicator Dynamics & Lyapunov Functions
+### [Lecture 8: Replicator Dynamics & Lyapunov Functions](docs/en/8.%20Dynamical%20Systems%20-%20Replicator%20Dynamics%20and%20Spatial%20Extension%20-%20Lyapunov%20Functions%2C%20Boson%20Condensation%20and%20the%20Diffusion%20Equation.md)
 
 | Lyapunov Function | Diffusion Equation |
 |:---:|:---:|
 | ![Lyapunov](docs/cn/assets/images/08_008_6fc576fa-0149-454b-93f4-9dfe7af2de8f.png) | ![Diffusion](docs/cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png) |
 
-### Lecture 9: Ginzburg-Landau Theory & Allen-Cahn Equation (Model A)
+### [Lecture 9: Ginzburg-Landau Theory & Allen-Cahn Equation (Model A)](docs/en/9.%20Relaxational%20Dynamics%20-%20Ginzburg-Landau%20Theory%20and%20the%20Allen-Cahn%20Equation.md)
 
 <video controls width="100%">
   <source src="docs/cn/assets/images/model_a_dynamics.mp4" type="video/mp4">
@@ -153,7 +153,7 @@ Here are some code output demonstrations:
 
 *Model A (Allen-Cahn) dynamics: Spinodal decomposition, domain formation, and coarsening*
 
-### Lecture 10: Interface Dynamics & Curvature-Driven Flow
+### [Lecture 10: Interface Dynamics & Curvature-Driven Flow](docs/en/10.%20Relaxational%20Dynamics%20-%20Interface%20Dynamics%20and%20Curvature-Driven%20Flow.md)
 
 <video controls width="100%">
   <source src="docs/cn/assets/images/droplet_shrinkage.mp4" type="video/mp4">
@@ -162,13 +162,13 @@ Here are some code output demonstrations:
 
 *Curvature-driven shrinkage of a circular droplet following Allen-Cahn dynamics*
 
-### Lecture 11: Thermodynamics & Phase Separation in Liquid Mixtures
+### [Lecture 11: Thermodynamics & Phase Separation in Liquid Mixtures](docs/en/11.%20Thermodynamics%20and%20Phase%20Separation%20in%20Liquid%20Mixtures.md)
 
 | Binary Phase Diagram |
 |:---:|
 | ![Phase Diagram](docs/cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg) |
 
-### Lecture 12: Cahn-Hilliard Equation & Osmotic Pressure
+### [Lecture 12: Cahn-Hilliard Equation & Osmotic Pressure](docs/en/12.%20Liquid%20Mixture%20Dynamics%2C%20Osmotic%20Pressure%20and%20the%20Cahn-Hilliard%20Equation.md)
 
 <video controls width="100%">
   <source src="docs/cn/assets/images/CahnHilliard_vs_McRD.mp4" type="video/mp4">
@@ -177,19 +177,19 @@ Here are some code output demonstrations:
 
 *Comparison: Cahn-Hilliard (Model B) vs Mass-Conserving Reaction-Diffusion dynamics*
 
-### Lecture 13: Lattice Gas Model & Free Energy
+### [Lecture 13: Lattice Gas Model & Free Energy](docs/en/13.%20Lattice%20Gas%20Model%20and%20Free%20Energy.md)
 
 ![Lattice Gas Simulation](docs/cn/assets/images/lattice_gas_vs_free_energy.gif)
 
 *Monte Carlo simulation of lattice gas model showing phase separation and free energy evolution*
 
-### Lecture 14: Phase Separation Dynamics & Dispersion Relation
+### [Lecture 14: Phase Separation Dynamics & Dispersion Relation](docs/en/14.%20Phase%20Separation%20Dynamics.md)
 
 | Crowd Oscillation Dynamics | Spectral Heatmap |
 |:---:|:---:|
 | ![Crowd](docs/cn/assets/images/crowd_oscillation.gif) | ![Spectrum](docs/cn/assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png) |
 
-### Lecture 15: Nucleation Theory & Interface Dynamics
+### [Lecture 15: Nucleation Theory & Interface Dynamics](docs/en/15.%20Nucleation%20Theory%20and%20Interface%20Dynamics.md)
 
 | 3D Cahn-Hilliard Droplets | Evolution Slices |
 |:---:|:---:|
