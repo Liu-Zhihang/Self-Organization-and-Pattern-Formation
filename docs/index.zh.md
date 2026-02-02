@@ -2,7 +2,7 @@
 
 这是 [**Self-Organization and Pattern Formation, Prof. Erwin Frey, LMU Munich, Winter Semester 2025/2026**](https://www.theorie.physik.uni-muenchen.de/lsfrey/teaching/winter_term_2025_2026/index.html) 课程的自学笔记。Frey 教授偏爱板书授课。为了记录我的学习过程，我将笔记整理成文章，并编写 [Python 代码](https://github.com/Liu-Zhihang/Self-Organization-and-Pattern-Formation/tree/main/code) 以加深理解。
 
-![课程概览](cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png)
+![](../cn/assets/images/01_001_853e3a67-9126-4927-907c-9f48eade8561.png)
 
 **课程播放列表:** [YouTube Playlist](https://www.youtube.com/watch?v=apMmakW_090&list=PL2IEUF-u3gRfIw2cHFPqNHjNfQL5BxG5m) | [哔哩哔哩](https://space.bilibili.com/44895705/lists/6603547?type=season)
 
@@ -103,48 +103,48 @@
 
 | Landau 自由能与相变 | 演化博弈动力学 | 复制子方程流 |
 |:---:|:---:|:---:|
-| ![Landau](cn/assets/images/02_003_621bc300-3817-4cf6-bb3a-baaced59b8f5.png) | ![Game](cn/assets/images/02_004_89cf16e7-61e4-4535-836a-4314cd5c8b69.png) | ![Replicator](cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png) |
+| ![](../cn/assets/images/02_007_dc98adf0-a196-4959-9fec-b771eefa8a62.png) |
 
 **[第3讲：不动点、鞍结点与叉形分岔](cn/3.动力系统：不动点、鞍点和叉形分岔%20.md)**
 
 | 分岔图 | 相图 |
 |:---:|:---:|
-| ![Bifurcation](cn/assets/images/03_006_d0be1090-a825-48c8-af21-2cf9cfa4f7cc.png) | ![Phase](cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png) |
+| ![](../cn/assets/images/03_009_70061829-22ca-4bb7-933a-2f611b073267.png) |
 
 **[第4讲：尖点分岔、感染模型与跨临界分岔](cn/4.动力系统：尖点分岔、感染模型与跨临界分岔.md)**
 
 | 尖点分岔曲面 | 感染动力学 |
 |:---:|:---:|
-| ![Cusp](cn/assets/images/04_008_2b441799-2822-4439-bcaa-67292e672b48.png) | ![Infection](cn/assets/images/04_011_6e149644-d36a-456c-97a5-43c30d64b8c3.png) |
+| ![](../cn/assets/images/04_011_6e149644-d36a-456c-97a5-43c30d64b8c3.png) |
 
 **[第5讲：二维质量守恒系统](cn/5.动力系统：二维质量守恒系统与雅可比矩阵.md)**
 
 | 雅可比矩阵分析与相空间 |
 |:---:|
-| ![Jacobian](cn/assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png) |
+| ![](../cn/assets/images/05_010_8baf3743-4296-492f-b3df-a015f9b4407c.png) |
 
 **[第6讲：二维非保守系统与振荡器](cn/6.动力系统：二维非保守系统与振荡器.md)**
 
 | Hopf 分岔 | 极限环 | Van der Pol 振荡器 |
 |:---:|:---:|:---:|
-| ![Hopf](cn/assets/images/06_004_e376e171-e6ec-4ed1-8659-5b8579388051.png) | ![Limit](cn/assets/images/06_007_0e3242d5-a770-411b-bffd-c151adb26aad.png) | ![VdP](cn/assets/images/06_009_6a812e94-584f-4e92-90ee-70d202be59dc.png) |
+| ![](../cn/assets/images/06_009_6a812e94-584f-4e92-90ee-70d202be59dc.png) |
 
 **[第7讲：庞加莱-本迪克松定理、RhoGTPase 振荡器与石头剪刀布](cn/7.动力系统：庞加莱-本迪克松定理、RhoGTPase振荡器与石头剪刀布.md)**
 
 | RhoGTPase 振荡器 | 石头剪刀布动力学 | 异宿轨道 |
 |:---:|:---:|:---:|
-| ![Rho](cn/assets/images/07_004_059881e5-e0fc-4efb-90b8-f1aa7cf5d15b.png) | ![RPS](cn/assets/images/07_006_aea062d8-475b-4948-82f3-0ba967f1ce27.png) | ![Hetero](cn/assets/images/07_011_6315e0dc-d8d7-4c2b-ae2e-cab04a874edf.png) |
+| ![](../cn/assets/images/07_011_6315e0dc-d8d7-4c2b-ae2e-cab04a874edf.png) |
 
 **[第8讲：复制子动力学与李雅普诺夫函数](cn/8.%20动力系统：复制子动力学与空间扩展——李雅普诺夫函数、玻色子凝聚与扩散方程.md)**
 
 | 李雅普诺夫函数 | 扩散方程 |
 |:---:|:---:|
-| ![Lyapunov](cn/assets/images/08_008_6fc576fa-0149-454b-93f4-9dfe7af2de8f.png) | ![Diffusion](cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png) |
+| ![](../cn/assets/images/08_009_9eeceb55-ff8d-4bff-91ca-c333813ae8aa.png) |
 
 **[第9讲：Ginzburg-Landau 理论与 Allen-Cahn 方程 (Model A)](cn/9.弛豫动力学：Ginzburg-Landau理论与Allen-Cahn方程.md)**
 
 <video controls width="100%">
-  <source src="cn/assets/images/model_a_dynamics.mp4" type="video/mp4">
+  <source src="../cn/assets/images/model_a_dynamics.mp4" type="video/mp4">
   您的浏览器不支持视频标签。
 </video>
 
@@ -153,7 +153,7 @@
 **[第10讲：界面动力学与曲率驱动流](cn/10.弛豫动力学：界面动力学与曲率驱动流.md)**
 
 <video controls width="100%">
-  <source src="cn/assets/images/droplet_shrinkage.mp4" type="video/mp4">
+  <source src="../cn/assets/images/droplet_shrinkage.mp4" type="video/mp4">
   您的浏览器不支持视频标签。
 </video>
 
@@ -163,12 +163,12 @@
 
 | 二元相图 |
 |:---:|
-| ![Phase Diagram](cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg) |
+| ![](../cn/assets/images/11_011_5fb64d92-89ff-4a37-9344-b3f4286a500c.jpg) |
 
 **[第12讲：Cahn-Hilliard 方程与渗透压](cn/12.液态混合物动力学、渗透压与Cahn-Hilliard方程.md)**
 
 <video controls width="100%">
-  <source src="cn/assets/images/CahnHilliard_vs_McRD.mp4" type="video/mp4">
+  <source src="../cn/assets/images/CahnHilliard_vs_McRD.mp4" type="video/mp4">
   您的浏览器不支持视频标签。
 </video>
 
@@ -176,7 +176,7 @@
 
 **[第13讲：晶格气体模型与自由能](cn/13.晶格气体模型与自由能.md)**
 
-![晶格气体模拟](cn/assets/images/lattice_gas_vs_free_energy.gif)
+![](../cn/assets/images/lattice_gas_vs_free_energy.gif)
 
 *晶格气体模型的蒙特卡洛模拟：相分离与自由能演化*
 
@@ -184,17 +184,17 @@
 
 | 人群振荡动力学 | 频谱热力图 |
 |:---:|:---:|
-| ![Crowd](cn/assets/images/crowd_oscillation.gif) | ![Spectrum](cn/assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png) |
+| ![](../cn/assets/images/14_008_d76b6a87-990d-46a0-9c1b-f0830b67a6fb.png) |
 
 **[第15讲：成核理论与界面动力学](cn/15.成核理论与界面动力学.md)**
 
 | 3D Cahn-Hilliard 液滴 | 演化切片 |
 |:---:|:---:|
-| ![3D Droplet](cn/assets/images/ch3d_droplet_rotate.gif) | ![Slices](cn/assets/images/ch3d_slices.gif) |
+| ![](../cn/assets/images/ch3d_slices.gif) |
 
 | 浓度分布 | 成核势垒 |
 |:---:|:---:|
-| ![Profile](cn/assets/images/15_008_24e1273d-2e11-44fa-bcd3-cc2fa30e08fe.png) | ![Barrier](cn/assets/images/15_009_9639068f-e1d9-4bf2-80d5-5f5abf4f50fa.png) |
+| ![](../cn/assets/images/15_009_9639068f-e1d9-4bf2-80d5-5f5abf4f50fa.png) |
 
 
 ## 前置知识
