@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs-material mkdocs-static-i18n
+          pip install mkdocs-material mkdocs-static-i18n mkdocs-glightbox
 
       # 不使用 --strict：中英双语时 en 构建的 nav 只含 en/，cn/*.md 会被报为“未在 nav 中”，在 MkDocs 1.5+ 下会以 WARNING 导致失败
       - name: Build MkDocs
