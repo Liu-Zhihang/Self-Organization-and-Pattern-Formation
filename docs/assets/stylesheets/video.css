@@ -23,11 +23,26 @@ video {
   height: 100%;
 }
 
-/* Image styling */
-img {
+/* Image styling - centered */
+.md-content img:not(.twemoji):not(.emoji) {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Markdown image wrapper centered */
+.md-content p > img {
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Article content images centered */
+article img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Table image sizing */
@@ -40,4 +55,26 @@ table img {
 img[src$=".gif"] {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Glightbox caption styling - allow long captions */
+.glightbox-container .gslide-description {
+  max-height: 40vh;  /* 最多占屏幕高度的40% */
+  overflow-y: auto;  /* 超长时可滚动 */
+  padding: 1rem 2rem;
+}
+
+.glightbox-container .gdesc-inner {
+  max-width: 90vw;  /* 最大宽度为屏幕的90% */
+  white-space: normal;  /* 允许换行 */
+  word-wrap: break-word;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.glightbox-container .gslide-title {
+  white-space: normal;
+  word-wrap: break-word;
+  text-align: justify;
+  max-width: 90vw;
 }

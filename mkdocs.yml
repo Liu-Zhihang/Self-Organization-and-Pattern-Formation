@@ -12,6 +12,17 @@ plugins:
       lang:
         - en
         - zh
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: true   # 自动使用 alt 文字作为图注
+      caption_position: bottom
   - i18n:
       docs_structure: suffix
       fallback_to_default: true
@@ -89,6 +100,8 @@ theme:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - toc:
       permalink: true
       toc_depth: 3
