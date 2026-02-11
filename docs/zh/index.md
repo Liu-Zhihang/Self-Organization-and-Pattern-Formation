@@ -203,3 +203,18 @@
 - 动力系统理论
 - 微分方程
 - 场论基础知识（有帮助但非必需）
+
+
+## Citation（引用）
+
+若这些笔记或代码对您有帮助，可使用以下 BibTeX 条目引用本仓库：
+
+```bibtex
+@misc{liu2025selforganization,
+  author       = {Liu, Zhihang},
+  title        = {Self-Organization and Pattern Formation: Course Notes and Code},
+  year         = {2025},
+  howpublished = {\url{https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/}},
+  note         = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
+}
+```

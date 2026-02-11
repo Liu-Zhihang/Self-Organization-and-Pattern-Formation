@@ -218,3 +218,17 @@ This project is licensed under the [CC BY-NC-ND 4.0](LICENSE) License.
 
 - Prof. Erwin Frey and the Physics of Life group at LMU Munich for the excellent lecture series
 - [PhysicsOfLifeLMU YouTube Channel](https://www.youtube.com/@PhysicsOfLifeLMU) for making these lectures publicly available
+
+## Citation
+
+If you find these notes or code useful, you may cite this repository using the following BibTeX entry:
+
+```bibtex
+@misc{liu2025selforganization,
+  author       = {Liu, Zhihang},
+  title        = {Self-Organization and Pattern Formation: Course Notes and Code},
+  year         = {2025},
+  howpublished = {\url{https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/}},
+  note         = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
+}
+```

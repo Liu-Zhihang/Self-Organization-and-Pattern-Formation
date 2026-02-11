@@ -203,3 +203,18 @@ Here are some code output demonstrations:
 - Dynamical systems theory
 - Differential equations
 - Basic knowledge of field theory (helpful but not required)
+
+
+## Citation
+
+If you find these notes or code useful, you may cite this repository using the following BibTeX entry:
+
+```bibtex
+@misc{liu2025selforganization,
+  author       = {Liu, Zhihang},
+  title        = {Self-Organization and Pattern Formation: Course Notes and Code},
+  year         = {2025},
+  howpublished = {\url{https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/}},
+  note         = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
+}
+```

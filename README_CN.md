@@ -216,3 +216,17 @@ https://github.com/user-attachments/assets/f541a993-4984-4798-bd20-5febcd4d97f6
 
 - 感谢慕尼黑大学 Erwin Frey 教授及其 Physics of Life 研究组提供的精彩课程
 - 感谢 [PhysicsOfLifeLMU YouTube 频道](https://www.youtube.com/@PhysicsOfLifeLMU) 公开发布这些课程
+
+## Citation（引用）
+
+若这些笔记或代码对您有帮助，可使用以下 BibTeX 条目引用本仓库：
+
+```bibtex
+@misc{liu2025selforganization,
+  author       = {Liu, Zhihang},
+  title        = {Self-Organization and Pattern Formation: Course Notes and Code},
+  year         = {2025},
+  howpublished = {\url{https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/}},
+  note         = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
+}
+```
