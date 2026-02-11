@@ -223,10 +223,10 @@ https://github.com/user-attachments/assets/f541a993-4984-4798-bd20-5febcd4d97f6
 
 ```bibtex
 @misc{liu2025selforganization,
-  author       = {Liu, Zhihang},
-  title        = {Self-Organization and Pattern Formation: Course Notes and Code},
-  year         = {2025},
-  howpublished = {\url{https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/}},
-  note         = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
+  author = {Liu, Zhihang},
+  title  = {Self-Organization and Pattern Formation: Course Notes and Code},
+  year   = {2025},
+  url    = {https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/},
+  note   = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
 }
 ```

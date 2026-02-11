@@ -211,10 +211,10 @@
 
 ```bibtex
 @misc{liu2025selforganization,
-  author       = {Liu, Zhihang},
-  title        = {Self-Organization and Pattern Formation: Course Notes and Code},
-  year         = {2025},
-  howpublished = {\url{https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/}},
-  note         = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
+  author = {Liu, Zhihang},
+  title  = {Self-Organization and Pattern Formation: Course Notes and Code},
+  year   = {2025},
+  url    = {https://zhihangliu.cn/Self-Organization-and-Pattern-Formation/},
+  note   = {Course by Prof. Erwin Frey, LMU Munich, Winter 2025/2026}
 }
 ```
